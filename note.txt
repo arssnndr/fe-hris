@@ -1,0 +1,46 @@
+Meeting 08112022
+
+Master kontrak:
+1 karyawan bisa lebih dari 1 kontrak dengan kondisi kontrak pertama sudah tidak aktif
+Setiap kontrak ada jeda.
+
+Master shift:
+1 shfit 1 jadwal kerja - input manual
+
+Mockup:
+dashboard - presentasi
+dapat jatah cuti jika karyawan join 6 bulan sebelum 1 januari
+
+##############################################################################################
+
+Rules dan Mockup
+
+1.  Bagian Lerja :
+    1.2.    Form penambahan data bagian kerja:
+            Tata letak Form :
+                    -Lokasi, Jenis, Deskripsi```````````````````````````````````````NO
+                    -Lokasi, Jenis, Divisi, Deskripsi``````````````````````````````````NO
+                    -Lokasi, Jenis, Departemen, Deskripsi``````````````````````````````NO
+            1.2.7.  Button batal :
+                    Ketika di klik, harus reset form atau tidak?```````````````````````RESET
+
+2.  Perusahaan :
+    2.2.3.  Button batal :
+            Ketika di klik, harus reset form atau tidak?```````````````````````````````RESET
+    2.4.4.  Button batal :
+            Ketika di klik, harus reset form atau tidak?```````````````````````````````RESET
+
+3.  Lokasi :
+    3.1.3.  Pencarian berdasarkan nama Lokasi, termasuk Inisial Lokasi juga 
+            atau hanya nama Lokasi saja?
+    3.2.7.2.Setelah di validasi, jika data sudah ada apa harus ada muncul 
+            peringatan atau tidak?
+
+4.  User dan Otoritas :
+    4.1.3.  Jika NIP atau Nama tidak ada Harus muncul peringatan atau kosong saja?
+
+5.  Karyawan :
+    5.1.1. Apakah jika ada yang idak di isi akan muncul peringatan?
+           Apakah jika data tidak lengkap tidak bisa dilanjutkan? (5.1.8.8,9,10,11.)
+    5.1.9. Label nya harus menggunakan bahasa inggris atau bahasa indonesia?
+    -   Ada Fitur view & edit nya atau tidak?
