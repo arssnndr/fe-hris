@@ -6,9 +6,9 @@
                 <div class="center-align">
                     <span>
                         <img *ngIf="isExpanded || isShowing" src="../../assets/logo/logo.png" alt="Logo Perusahaan">
+                        <img style="max-width: 33px;" *ngIf="!isExpanded && !isShowing"
+                            src="../../assets/logo/logo-only.png" alt="Logo Only">
                     </span>
-                    <img style="max-width: 33px;" *ngIf="!isExpanded && !isShowing"
-                        src="../../assets/logo/logo-only.png" alt="Logo Only">
                 </div>
             </mat-list-item>
             <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" style="color: #d32f2f;">
