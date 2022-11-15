@@ -1,0 +1,36 @@
+.container,
+.row {
+    margin: auto;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-content {
+    width: 300px;
+    padding: auto;
+    margin: 0px 50px;
+}
+
+img {
+    width: 200px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-panel {
+    width: 200px;
+    margin: 0;
+}
+
+div p, div button {
+    margin: 14.5px 0px;
+}
