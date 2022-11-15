@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HR-System';
+  events: string[] = [];
+  opened: boolean | undefined;
+  panelOpenState: boolean | undefined;
+  public isExpanded = false;
+
+  public toggleMenu() {
+    this.isExpanded = !this.isExpanded;
+  }
+
+  constructor() { }
+
+  ngOnInit(): void {
+    this.opened = true;
+    this.panelOpenState = false
+  }
 }

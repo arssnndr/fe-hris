@@ -5,18 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    SidebarComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -25,12 +22,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSidenavModule,
     MatButtonModule,
     MatExpansionModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: 'sidebar', component: SidebarComponent },
-      { path: 'login', component: LoginComponent },
-      { path: '', redirectTo: 'login', pathMatch: 'full' }
-    ])
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
