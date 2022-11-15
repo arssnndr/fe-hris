@@ -1,1 +1,1 @@
-# Magang
+# HRIS-Project
