@@ -33,14 +33,14 @@
     </mat-sidenav>
 
     <mat-sidenav-content class="red lighten-5">
-        <div class="container">
+        <div id="navbar" class="container">
             <button mat-mini-fab class="red darken-2" (click)="sidenav.toggle()">
                 <i class="material-icons" *ngIf="!opened">keyboard_arrow_right</i>
                 <i class="material-icons" *ngIf="opened">keyboard_arrow_left</i>
             </button>
         </div>
 
-        <div class="red lighten-5">
+        <div id="content" class="red lighten-5">
             <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>
