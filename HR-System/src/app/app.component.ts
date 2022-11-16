@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -7,19 +8,28 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HR-System';
-  events: string[] = [];
-  opened: boolean | undefined;
-  panelOpenState: boolean | undefined;
-  public isExpanded = false;
 
-  public toggleMenu() {
-    this.isExpanded = !this.isExpanded;
+  // start navbar
+  @ViewChild('sidenav') sidenav: MatSidenav | undefined;
+  isExpanded = true;
+  showSubmenu: boolean = false;
+  isShowing = false;
+  showSubSubMenu: boolean = false;
+
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
   }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
+  }
+  // end navbar
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.opened = true;
-    this.panelOpenState = false
-  }
+  ngOnInit(): void { }
 }
