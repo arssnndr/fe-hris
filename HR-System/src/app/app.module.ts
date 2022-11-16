@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // angular material
@@ -13,10 +11,20 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 
+// component
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { BagianKerjaComponent } from './master/bagian-kerja/bagian-kerja.component';
+import { PerusahaanComponent } from './master/perusahaan/perusahaan.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    BagianKerjaComponent,
+    PerusahaanComponent
   ],
   imports: [
     BrowserModule,

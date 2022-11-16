@@ -2,7 +2,7 @@
     <mat-sidenav #sidenav class="z-depth-3" mode="side" opened="true" (mouseenter)="mouseenter()"
         (mouseleave)="mouseleave()">
         <mat-nav-list>
-            <mat-list-item class="white" style="margin-top: 30px;margin-bottom: 50px;">
+            <mat-list-item routerLink="dashboard" class="logo white" style="margin-top: 30px;margin-bottom: 50px;">
                 <div class="center-align">
                     <span>
                         <img *ngIf="isExpanded || isShowing" src="../../assets/logo/logo.png" alt="Logo Perusahaan">
@@ -18,7 +18,7 @@
                         Master
                     </span>
                     <mat-icon mat-list-icon>
-                        folder
+                        topic
                     </mat-icon>
                     <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">
                         expand_more
@@ -27,16 +27,16 @@
                 </mat-list-item>
                 <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded"
                     [ngStyle]="{'display': masterDisplay}">
-                    <a mat-list-item href="">Bagian Kerja</a>
-                    <a mat-list-item href="">Perusahaan</a>
-                    <a mat-list-item href="">Lokasi</a>
-                    <a mat-list-item href="">User</a>
-                    <a mat-list-item href="">Karyawan</a>
-                    <a mat-list-item href="">Jadwal Kerja</a>
-                    <a mat-list-item href="">Set Up Jadwal Kerja</a>
-                    <a mat-list-item href="">Kalender Kerja</a>
-                    <a mat-list-item href="">Mesin Finger</a>
-                    <a mat-list-item href="">Set Up Mesin Finger</a>
+                    <mat-list-item href="" routerLink="bagian-kerja">Bagian Kerja</mat-list-item>
+                    <mat-list-item href="" routerLink="perusahaan">Perusahaan</mat-list-item>
+                    <mat-list-item href="" routerLink="lokasi">Lokasi</mat-list-item>
+                    <mat-list-item href="" routerLink="user">User</mat-list-item>
+                    <mat-list-item href="" routerLink="karyawan">Karyawan</mat-list-item>
+                    <mat-list-item href="" routerLink="jadwal-kerja">Jadwal Kerja</mat-list-item>
+                    <mat-list-item href="" routerLink="setup-jadwal-kerja">Set Up Jadwal Kerja</mat-list-item>
+                    <mat-list-item href="" routerLink="kalender-kerja">Kalender Kerja</mat-list-item>
+                    <mat-list-item href="" routerLink="mesin-finger">Mesin Finger</mat-list-item>
+                    <mat-list-item href="" routerLink="setup-mesin-finger">Set Up Mesin Finger</mat-list-item>
                 </div>
             </div>
 
