@@ -6,12 +6,11 @@ mat-sidenav-container {
     right: 0;
 }
 
-/* .example-sidenav-content {
-    display: flex;
+.sidenav-content {
+    position: relative;
     height: 100%;
-    align-items: center;
-    justify-content: center;
-} */
+    padding: 20px;
+}
 
 .full-width {
     width: 100%;
@@ -38,9 +37,8 @@ mat-sidenav-container {
     transform: scaleY(1);
 }
 
-mat-sidenav-content .container {
-    margin-left: 20px;
-    margin-top: 30px;
+.topButton {
+    margin: 20px;
 }
 
 mat-sidenav {
@@ -49,4 +47,21 @@ mat-sidenav {
 
 img {
     width: 80%;
+}
+
+.imageButton {
+    background-image: url('../assets/icon/person.svg');
+    background-color: #ffebee;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    border: 0px;
+}
+
+.imageButton:hover {
+    background-color: #d32f2f;
+}
+
+.imageButton:active {
+  transform: translateY(4px);
 }

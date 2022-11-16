@@ -114,20 +114,42 @@
     </mat-sidenav>
 
     <mat-sidenav-content class="red lighten-5">
-        <div class="container">
-            <button mat-mini-fab class="red darken-2" (click)="isExpanded = !isExpanded">
-                <i class="material-icons" *ngIf="!isExpanded">keyboard_arrow_right</i>
-                <i class="material-icons" *ngIf="isExpanded">keyboard_arrow_left</i>
+        <div class="topButton">
+            <button mat-mini-fab class="N/A transparent" (click)="isExpanded = !isExpanded">
+                <mat-icon *ngIf="!isExpanded" style="color: #d32f2f">arrow_forward</mat-icon>
+                <mat-icon *ngIf="isExpanded" style="color: #d32f2f">arrow_back</mat-icon>
             </button>
+
+            <div class="right">
+                <span class="left" style="margin-right: 10px;">
+                    <ul style="text-align: right;">
+                        <li style="color: #d32f2f;">Nurdiansyah</li>
+                        <li>TMS HO</li>
+                    </ul>
+                </span>
+                <span>
+                    <button mat-fab class="imageButton z-depth-0" [matMenuTriggerFor]="menu"></button>
+                    <mat-menu class="N/A transparent" #menu="matMenu">
+                        <button mat-menu-item>
+                            <span>
+                                <mat-icon>key</mat-icon>
+                            </span>
+                            Ganti Password
+                        </button>
+                        <button mat-menu-item>
+                            <span>
+                                <mat-icon>logout</mat-icon>
+                            </span>
+                            Log Out
+                        </button>
+                    </mat-menu>
+                </span>
+            </div>
         </div>
 
-        <div class="center">
+        <div class="sidenav-content">
             <router-outlet></router-outlet>
         </div>
-
-        <!-- <div class="example-sidenav-content">
-            Main content that resizes properly
-        </div> -->
     </mat-sidenav-content>
 
 </mat-sidenav-container>

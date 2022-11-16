@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'HR-System';
 
   // start navbar
-  isExpanded = true;
+  isExpanded = false;
   showSubmenu: boolean = false;
   isShowing = false;
   showSubSubMenu: boolean = false;
