@@ -115,7 +115,7 @@
 
     <mat-sidenav-content class="red lighten-5">
         <div class="topButton">
-            <button mat-mini-fab class="N/A transparent" (click)="isExpanded = !isExpanded">
+            <button mat-mini-fab class="transparent" (click)="isExpanded = !isExpanded">
                 <mat-icon *ngIf="!isExpanded" style="color: #d32f2f">arrow_forward</mat-icon>
                 <mat-icon *ngIf="isExpanded" style="color: #d32f2f">arrow_back</mat-icon>
             </button>
@@ -129,14 +129,14 @@
                 </span>
                 <span>
                     <button mat-fab class="imageButton z-depth-0" [matMenuTriggerFor]="menu"></button>
-                    <mat-menu class="N/A transparent" #menu="matMenu">
+                    <mat-menu class="transparent" #menu="matMenu">
                         <button mat-menu-item>
                             <span>
                                 <mat-icon>key</mat-icon>
                             </span>
                             Ganti Password
                         </button>
-                        <button mat-menu-item>
+                        <button mat-menu-item routerLink="login">
                             <span>
                                 <mat-icon>logout</mat-icon>
                             </span>
