@@ -1,0 +1,12 @@
+{
+  "ms_userid": [
+    {
+      "id_user": 1,
+      "username": "cepmek",
+      "email": "cepmek@gmail.com",
+      "id_lokasi": 1,
+      "id_perusahaan": 1,
+      "status": true
+    }
+  ]
+}
