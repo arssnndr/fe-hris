@@ -1,0 +1,55 @@
+h1 {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('../../../../assets/icon/search.svg');
+    background-size: 38px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+}
+
+div.col {
+    padding: 0px;
+}
+
+li a {
+    margin: 5px;
+}
+
+a.waves-dark {
+    border: 1px solid #d32f2f;
+}
+
+.nav {
+    margin-bottom: 20px;
+}
+
+th {
+    background-color: #ef9a9a7e;
+    border-radius: 0px;
+}
+td {
+    padding: 5px 5px;
+}
+
+th,
+td {
+    border-bottom: 1px solid rgb(143, 143, 143);
+}
+
+tr:nth-child(even) {
+    background-color: #ffcdd27e;
+}
+
+tr:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+    /* background-color: #ffcdd2; */
+}

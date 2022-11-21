@@ -1,1 +1,60 @@
-<p>bagian-kerja works!</p>
+<h1>Bagian Kerja</h1>
+<div class="nav">
+    <nav class="transparent z-depth-0">
+        <div class="nav-wrapper row">
+            <div class="col s3">
+                <form>
+                    <input type="text" name="search" placeholder="Cari deskripsi..">
+                </form>
+            </div>
+            <div class="col s9">
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <mat-paginator class="red lighten-5" [length]="200" [pageSize]="50"
+                            [pageSizeOptions]="[50, 100, 150, 200]">
+                        </mat-paginator>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-dark btn red-text text-darken-2 transparent">Download</a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-light btn red darken-2">Tambah</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<table class="responsive-table striped">
+    <tr>
+        <th>Jenis</th>
+        <th>Lokasi</th>
+        <th>Uplink</th>
+        <th>Deskripsi</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>Divisi</td>
+        <td>TMS HO</td>
+        <td></td>
+        <td>IT</td>
+        <td><button class="btn-floating btn-small waves-effect waves-light right red darken-2"><i
+                    class="material-icons">delete</i></button></td>
+    </tr>
+    <tr>
+        <td>Departemen</td>
+        <td>TMS HO</td>
+        <td>IT</td>
+        <td>IT Support</td>
+        <td><button class="btn-floating btn-small waves-effect waves-light right red darken-2"><i
+                    class="material-icons">delete</i></button></td>
+    </tr>
+    <tr>
+        <td>Sub Departemen</td>
+        <td>TMS HO</td>
+        <td>IT Support</td>
+        <td>IT Support Plant</td>
+        <td><button class="btn-floating btn-small waves-effect waves-light right red darken-2"><i
+                    class="material-icons">delete</i></button></td>
+    </tr>
+</table>

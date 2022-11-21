@@ -4,9 +4,18 @@
       "id_user": 1,
       "username": "cepmek",
       "email": "cepmek@gmail.com",
-      "password":"cepmek",
+      "password": "cepmek",
       "id_lokasi": 1,
       "id_perusahaan": 1,
+      "status": true
+    }
+  ],
+  "ms_bagiankerja": [
+    {
+      "jenis_bagian": "HO",
+      "id_lokasi": 1,
+      "uplink": "IT",
+      "keterangan": "IT Support",
       "status": true
     }
   ]
