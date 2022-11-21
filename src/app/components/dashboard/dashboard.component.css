@@ -29,22 +29,34 @@ div.ex {
     display: inline-block;
 }
 
-table,
+/* table,
 td,
 th {
     border: 1px solid;
     border-color: #d32f2f;
-}
+} */
 
 table {
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
+    width: 100%;
     margin: 0px 5px 25px;
 }
 
 th {
-    text-align: center;
+    background-color: #ef9a9a7e;
+    border-radius: 0px;
 }
 
-tbody tr:hover{
+th,
+td {
+    border-bottom: 1px solid rgb(143, 143, 143);
+}
+
+tr:nth-child(even) {
+    background-color: #ffcdd27e;
+}
+
+tr:hover {
     background-color: rgba(128, 128, 128, 0.2);
+    /* background-color: #ffcdd2; */
 }
