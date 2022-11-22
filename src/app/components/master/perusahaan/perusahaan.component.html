@@ -1,1 +1,64 @@
-<p>perusahaan works!</p>
+<h1>Perusahaan</h1>
+<div class="nav">
+    <nav class="transparent z-depth-0">
+        <div class="nav-wrapper row">
+            <div class="col s3">
+                <form>
+                    <input type="text" name="search" placeholder="Cari deskripsi..">
+                </form>
+            </div>
+            <div class="col s9">
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <mat-paginator class="red lighten-5" [length]="200" [pageSize]="50"
+                            [pageSizeOptions]="[50, 100, 150, 200]">
+                        </mat-paginator>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-dark btn red-text text-darken-2 transparent">Download</a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-light btn red darken-2">Tambah</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<table class="responsive-table striped">
+    <thead>
+        <tr>
+            <th>ID Perusahaan</th>
+            <th>Inisial</th>
+            <th>Nama Perusahaan</th>
+            <th>Alamat</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>10</td>
+            <td>IJP</td>
+            <td>Indika Jasa Parama</td>
+            <td>Jl. Raya Bekasi KM.21, Ruko PTC blok B8</td>
+            <td><button class="btn-floating btn-small waves-effect waves-light right red darken-2"><i
+                        class="material-icons">delete</i></button></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>TMS</td>
+            <td>The Master Steel Manufctory</td>
+            <td>Jl. HOS Cokroaminoto No.49</td>
+            <td><button class="btn-floating btn-small waves-effect waves-light right red darken-2"><i
+                        class="material-icons">delete</i></button></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>RIW</td>
+            <td>Royalindo Investa Wijaya</td>
+            <td>Jl. HOS Cokroaminoto No.49</td>
+            <td><button class="btn-floating btn-small waves-effect waves-light right red darken-2"><i
+                        class="material-icons">delete</i></button></td>
+        </tr>
+    </tbody>
+</table>

@@ -83,10 +83,10 @@ export class DashboardComponent implements OnInit {
       },
       series: [{
         name: 'ALL',
-        data: [30, 40, 45, 50, 49, 60, 70, 91, 125, 1000]
+        data: [87, 31, 37, 69]
       }],
       xaxis: {
-        categories: ["TMS", "SBIP", "TPI", "SPA", "APG", "IJP", "DAP", "PGS", "TUM", "TOTAL"]
+        categories: ["Terlambat", "Mangkir", "Izin", "Cuti"]
       }
     }
     var chart = new ApexCharts(document.querySelector("#chart5"), options5);
@@ -98,11 +98,11 @@ export class DashboardComponent implements OnInit {
         type: 'bar'
       },
       series: [{
-        name: 'HO',
-        data: [30, 40, 45, 90]
+        name: 'ALL',
+        data: [87, 31, 37, 69]
       }],
       xaxis: {
-        categories: ["TMS", "IJP", "DAP", "TOTAL"]
+        categories: ["Terlambat", "Mangkir", "Izin", "Cuti"]
       }
     }
     var chart = new ApexCharts(document.querySelector("#chart6"), options6);
@@ -114,11 +114,11 @@ export class DashboardComponent implements OnInit {
         type: 'bar'
       },
       series: [{
-        name: 'TMS 1',
-        data: [30, 40, 45, 140]
+        name: 'ALL',
+        data: [87, 31, 37, 69]
       }],
       xaxis: {
-        categories: ["TMS", "SBIP", "TPI", "TOTAL"]
+        categories: ["Terlambat", "Mangkir", "Izin", "Cuti"]
       }
     }
     var chart = new ApexCharts(document.querySelector("#chart7"), options7);
@@ -130,11 +130,11 @@ export class DashboardComponent implements OnInit {
         type: 'bar'
       },
       series: [{
-        name: 'TMS 2',
-        data: [30, 40, 45, 230]
+        name: 'ALL',
+        data: [87, 31, 37, 69]
       }],
       xaxis: {
-        categories: ["TMS", "SPA", "APG", "TOTAL"]
+        categories: ["Terlambat", "Mangkir", "Izin", "Cuti"]
       }
     }
     var chart = new ApexCharts(document.querySelector("#chart8"), options8);

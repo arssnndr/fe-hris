@@ -10,6 +10,7 @@ h2 {
 h4 {
     text-align: center;
     margin: 0px;
+    z-index: 3;
 }
 
 div.ex {
@@ -20,26 +21,26 @@ div.ex {
     white-space: nowrap;
 }
 
-.jmlKary {
-    border: 2px solid #d32f2f;
-    width: 40%;
-    height: auto;
+mat-card {
+    width: 315px;
+    height: 200px;
+    padding: 5px;
     margin: 5px;
-    padding: 0px;
+    border: 2px solid #d32f2f;
     display: inline-block;
 }
 
-/* table,
-td,
-th {
-    border: 1px solid;
-    border-color: #d32f2f;
-} */
+mat-card-content {
+    position: absolute;
+    top: 7.5px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
 
 table {
-    /* border-collapse: collapse; */
     width: 100%;
-    margin: 0px 5px 25px;
+    margin: 0px 5px 5px;
 }
 
 th {
@@ -52,11 +53,11 @@ td {
     border-bottom: 1px solid rgb(143, 143, 143);
 }
 
-tr:nth-child(even) {
+tbody tr:nth-child(even) {
     background-color: #ffcdd27e;
 }
 
-tr:hover {
+tbody tr:hover {
     background-color: rgba(128, 128, 128, 0.2);
     /* background-color: #ffcdd2; */
 }

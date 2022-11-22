@@ -52,9 +52,4 @@ tbody tr:nth-child(even) {
 
 tbody tr:hover {
     background-color: rgba(128, 128, 128, 0.2);
-    /* background-color: #ffcdd2; */
-}
-
-th:first-child, td:first-child {
-    text-align: center;
 }

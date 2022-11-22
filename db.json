@@ -1,7 +1,7 @@
 {
   "ms_userid": [
     {
-      "id_user": 1,
+      "id": 1,
       "username": "cepmek",
       "email": "cepmek@gmail.com",
       "password": "cepmek",
@@ -16,6 +16,24 @@
       "id_lokasi": 1,
       "uplink": "IT",
       "keterangan": "IT Support",
+      "status": true
+    }
+  ],
+  "ms_perusahaan": [
+    {
+      "id": 1,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    }
+  ],
+  "ms_lokasi": [
+    {
+      "id": 1,
+      "keterangan": "The Master Steel 1",
+      "inisial_lokasi": "TMS 1",
+      "alamat-lokasi": "Jl. Pegangsaan Dua No.1",
       "status": true
     }
   ]

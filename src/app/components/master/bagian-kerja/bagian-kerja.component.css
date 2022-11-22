@@ -45,11 +45,11 @@ td {
     border-bottom: 1px solid rgb(143, 143, 143);
 }
 
-tr:nth-child(even) {
+tbody tr:nth-child(even) {
     background-color: #ffcdd27e;
 }
 
-tr:hover {
+tbody tr:hover {
     background-color: rgba(128, 128, 128, 0.2);
     /* background-color: #ffcdd2; */
 }
