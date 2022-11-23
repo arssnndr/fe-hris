@@ -1,0 +1,1421 @@
+{
+  "login": [
+    {
+      "id": 1,
+      "email": "Diamond85@yahoo.com",
+      "password": "q1OUrh6Tr4D5I9b"
+    },
+    {
+      "email": "test@test.com",
+      "password": "a",
+      "id": 2
+    },
+    {
+      "email": "test@test.com",
+      "password": "a",
+      "id": 3
+    }
+  ],
+  "ms_bagiankerja": [
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 144,
+      "uplink": "ACC",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 88,
+      "uplink": "ACC",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 29,
+      "uplink": "Produksi",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 124,
+      "uplink": "",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 15,
+      "uplink": "IT Support Plant",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 141,
+      "uplink": "",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 188,
+      "uplink": "Produksi",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 200,
+      "uplink": "IT Support Plant",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 47,
+      "uplink": "Faktur",
+      "keterangan": "Produksi",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 42,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 183,
+      "uplink": "AR",
+      "keterangan": "Produksi",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 116,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 59,
+      "uplink": "",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 83,
+      "uplink": "IT",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 199,
+      "uplink": "IT Support",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 42,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 115,
+      "uplink": "Finance",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 113,
+      "uplink": "AP",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 64,
+      "uplink": "IT",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 21,
+      "uplink": "Produksi",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 82,
+      "uplink": "Mechanic",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 181,
+      "uplink": "",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 172,
+      "uplink": "Electrik",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 146,
+      "uplink": "",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 58,
+      "uplink": "IT Support",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 44,
+      "uplink": "Produksi",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 79,
+      "uplink": "AP",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 94,
+      "uplink": "Faktur",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 4,
+      "uplink": "IT",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 182,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 154,
+      "uplink": "IT",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 42,
+      "uplink": "",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 186,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 159,
+      "uplink": "IT Support",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 144,
+      "uplink": "Mechanic",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 152,
+      "uplink": "",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 125,
+      "uplink": "Produksi",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 200,
+      "uplink": "Mechanic",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 139,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 10,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 166,
+      "uplink": "AP",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 123,
+      "uplink": "Mechanic",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 81,
+      "uplink": "QC",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 43,
+      "uplink": "Faktur",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 51,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 64,
+      "uplink": "Faktur",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 28,
+      "uplink": "",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 3,
+      "uplink": "AR",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 127,
+      "uplink": "",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 195,
+      "uplink": "",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 151,
+      "uplink": "Produksi",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 87,
+      "uplink": "AP",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 183,
+      "uplink": "Finance",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 35,
+      "uplink": "",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 200,
+      "uplink": "Faktur",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 110,
+      "uplink": "AR",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 1,
+      "uplink": "Mechanic",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 146,
+      "uplink": "IT",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 119,
+      "uplink": "AR",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 89,
+      "uplink": "AR",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 124,
+      "uplink": "AR",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 62,
+      "uplink": "Faktur",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 142,
+      "uplink": "Finance",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 133,
+      "uplink": "QC",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 30,
+      "uplink": "ACC",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 65,
+      "uplink": "Mechanic",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 21,
+      "uplink": "IT Support",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 54,
+      "uplink": "AR",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 32,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 112,
+      "uplink": "",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 78,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 139,
+      "uplink": "ACC",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 124,
+      "uplink": "IT",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 144,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 134,
+      "uplink": "AP",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 148,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 32,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 185,
+      "uplink": "Produksi",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 190,
+      "uplink": "IT Support",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 104,
+      "uplink": "",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 92,
+      "uplink": "IT",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 20,
+      "uplink": "QC",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 199,
+      "uplink": "IT Support Plant",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 50,
+      "uplink": "Mechanic",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 180,
+      "uplink": "ACC",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 76,
+      "uplink": "AP",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 66,
+      "uplink": "Mechanic",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 36,
+      "uplink": "",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 67,
+      "uplink": "",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 143,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 80,
+      "uplink": "ACC",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 107,
+      "uplink": "QC",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 138,
+      "uplink": "AR",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 190,
+      "uplink": "ACC",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 180,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 67,
+      "uplink": "AP",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 136,
+      "uplink": "AR",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 47,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 160,
+      "uplink": "",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 1,
+      "uplink": "",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 57,
+      "uplink": "IT",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 148,
+      "uplink": "Electrik",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 146,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 184,
+      "uplink": "AR",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 54,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 101,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 13,
+      "uplink": "Electrik",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 79,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 44,
+      "uplink": "Finance",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 169,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 69,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 23,
+      "uplink": "AR",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 13,
+      "uplink": "Electrik",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 71,
+      "uplink": "",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 170,
+      "uplink": "IT Support Plant",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 170,
+      "uplink": "QC",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 17,
+      "uplink": "QC",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 184,
+      "uplink": "QC",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 166,
+      "uplink": "Finance",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 82,
+      "uplink": "IT Support Plant",
+      "keterangan": "Produksi",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 199,
+      "uplink": "IT Support Plant",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 25,
+      "uplink": "Faktur",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 98,
+      "uplink": "Faktur",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 141,
+      "uplink": "",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 101,
+      "uplink": "",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 151,
+      "uplink": "AR",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 132,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 94,
+      "uplink": "IT",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 135,
+      "uplink": "Mechanic",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 153,
+      "uplink": "IT",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 56,
+      "uplink": "IT Support Plant",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 59,
+      "uplink": "IT Support Plant",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 49,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 72,
+      "uplink": "ACC",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 23,
+      "uplink": "Mechanic",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 14,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 151,
+      "uplink": "Faktur",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 11,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 87,
+      "uplink": "QC",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 71,
+      "uplink": "Faktur",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 56,
+      "uplink": "",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 57,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 171,
+      "uplink": "AR",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 121,
+      "uplink": "Electrik",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 83,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 179,
+      "uplink": "IT Support",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 146,
+      "uplink": "IT Support",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 188,
+      "uplink": "Produksi",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 157,
+      "uplink": "IT Support Plant",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 100,
+      "uplink": "QC",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 53,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 5,
+      "uplink": "ACC",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 175,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 107,
+      "uplink": "",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 122,
+      "uplink": "Finance",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 86,
+      "uplink": "AR",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 27,
+      "uplink": "AR",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 93,
+      "uplink": "",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 35,
+      "uplink": "",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 65,
+      "uplink": "Faktur",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 170,
+      "uplink": "Mechanic",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 144,
+      "uplink": "",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 26,
+      "uplink": "IT Support Plant",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 146,
+      "uplink": "Mechanic",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 19,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 36,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 190,
+      "uplink": "Produksi",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 198,
+      "uplink": "ACC",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 45,
+      "uplink": "Electrik",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 156,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 174,
+      "uplink": "IT",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 48,
+      "uplink": "",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 113,
+      "uplink": "Mechanic",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 29,
+      "uplink": "Finance",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 88,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 140,
+      "uplink": "",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 127,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 3,
+      "uplink": "Produksi",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 188,
+      "uplink": "IT Support Plant",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 87,
+      "uplink": "Finance",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 143,
+      "uplink": "Mechanic",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 188,
+      "uplink": "",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 51,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 63,
+      "uplink": "",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 64,
+      "uplink": "",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 18,
+      "uplink": "IT",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 7,
+      "uplink": "",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 70,
+      "uplink": "",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 38,
+      "uplink": "",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 110,
+      "uplink": "Finance",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 129,
+      "uplink": "Mechanic",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 137,
+      "uplink": "ACC",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 54,
+      "uplink": "Mechanic",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 130,
+      "uplink": "Electrik",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 171,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 94,
+      "uplink": "AR",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 47,
+      "uplink": "Mechanic",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 152,
+      "uplink": "AR",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 49,
+      "uplink": "Faktur",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 19,
+      "uplink": "Finance",
+      "keterangan": "Finance",
+      "status": false
+    }
+  ]
+}

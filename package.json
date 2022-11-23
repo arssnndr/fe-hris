@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generatedb": "node ./backend/faker.js > ./backend/db.json",
+    "server": "json-server ./backend/db.json"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +31,7 @@
     "@angular-devkit/build-angular": "^14.2.8",
     "@angular/cli": "~14.2.8",
     "@angular/compiler-cli": "^14.2.0",
+    "@faker-js/faker": "^7.6.0",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",

@@ -39,8 +39,9 @@ mat-card-content {
 }
 
 table {
-    width: 99.735%;
+    width: 99.6%;
     margin-left: 5px;
+    margin-bottom: 5px;
 }
 
 th {
