@@ -1,13 +1,13 @@
-h1 {
+h4 {
     color: #d32f2f;
     font-weight: bold;
 }
 
-h2 {
-    margin: 15px 5px 0px;
+h5 {
+    margin: 15px 5px 5px;
 }
 
-h4 {
+h6 {
     text-align: center;
     margin: 0px;
     z-index: 3;

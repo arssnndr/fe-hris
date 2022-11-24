@@ -16,11 +16,12 @@ export class BagianKerjaComponent implements OnInit {
   pageSizeOption = [50, 100, 150, 200];
   showFirstLastButtons = false;
   data!: any;
+  dataSearch = '';
 
   constructor(private api: ApiService, private router: Router) {}
 
   handlePageEvent(event: PageEvent) {
-    this.length = event.length;
+    console.log(event)
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
     this.getPageData();
@@ -39,32 +40,65 @@ export class BagianKerjaComponent implements OnInit {
   }
 
   getPageData() {
-    this.api
-      .getData(
-        this.table +
-          '?_page=' +
-          (this.pageIndex + 1) +
-          '&_limit=' +
-          this.pageSize
-      )
-      .subscribe((res) => {
-        this.data = res;
-      });
-  }
-
-  searchData(keterangan: any) {
-    if (keterangan != '') {
+    if (this.dataSearch.length === 0) {
       this.api
-        .getData(this.table + '?keterangan=' + keterangan)
+        .getData(
+          this.table +
+            '?_page=' +
+            (this.pageIndex + 1) +
+            '&_limit=' +
+            this.pageSize
+        )
         .subscribe((res) => {
           this.data = res;
-          this.pageSize = res.length;
+        });
+    } else {
+      this.api
+        .getData(
+          this.table +
+            '?_page=' +
+            (this.pageIndex + 1) +
+            '&_limit=' +
+            this.pageSize +
+            '&keterangan_like=' +
+            this.dataSearch
+        )
+        .subscribe((res) => {
+          this.data = res;
+        });
+    }
+  }
+
+  searchData(data: any) {
+    this.dataSearch = data;
+    this.pageIndex = 0;
+    this.getAllData();
+    this.getPageData();
+    /*if (keterangan.length !== 0) {
+      this.api
+        .getData(this.table + '?keterangan_like=' + keterangan)
+        .subscribe((res) => {
+          this.data = res;
           this.length = res.length;
           this.pageIndex = 0;
+          if (res.length < 50) {
+            this.pageSize = res.length;
+          } else if (res.length < 100) {
+            this.pageSize = 50;
+            this.pageSizeOption = [50];
+          } else if (res.length < 150) {
+            this.pageSize = 50;
+            this.pageSizeOption = [50, 100];
+          } else if (res.length < 200) {
+            this.pageSize = 50;
+            this.pageSizeOption = [50, 100, 150];
+          } else {
+            this.pageSize = 50;
+            this.pageSizeOption = [50, 100, 150, 200];
+          }
         });
     } else {
       this.getAllData();
-      this.getPageData();
-    }
+    }*/
   }
 }
