@@ -10,7 +10,7 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class BagianKerjaComponent implements OnInit {
   table = 'ms_bagiankerja';
-  length = 200;
+  length: any;
   pageSize = 50;
   pageIndex = 0;
   pageSizeOption = [50, 100, 150, 200];
@@ -21,22 +21,34 @@ export class BagianKerjaComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) {}
 
   handlePageEvent(event: PageEvent) {
-    console.log(event)
+    console.log(event);
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
     this.getPageData();
   }
 
   ngOnInit(): void {
-    this.getPageData();
+    this.getAllData();
   }
 
   getAllData() {
-    this.api.getData(this.table).subscribe((res) => {
-      this.length = res.length;
-      this.pageSize = 50;
-      this.pageIndex = 0;
-    });
+    if (this.dataSearch.length === 0) {
+      this.api.getData(this.table).subscribe((res) => {
+        this.length = res.length;
+        this.pageSize = 50;
+        this.pageIndex = 0;
+        this.getPageData();
+      });
+    } else {
+      this.api
+        .getData(this.table + '?keterangan_like=' + this.dataSearch)
+        .subscribe((res) => {
+          console.log(res.length);
+          this.length = res.length;
+          this.pageSize = 50;
+          this.pageIndex = 0;
+        });
+    }
   }
 
   getPageData() {
@@ -74,31 +86,5 @@ export class BagianKerjaComponent implements OnInit {
     this.pageIndex = 0;
     this.getAllData();
     this.getPageData();
-    /*if (keterangan.length !== 0) {
-      this.api
-        .getData(this.table + '?keterangan_like=' + keterangan)
-        .subscribe((res) => {
-          this.data = res;
-          this.length = res.length;
-          this.pageIndex = 0;
-          if (res.length < 50) {
-            this.pageSize = res.length;
-          } else if (res.length < 100) {
-            this.pageSize = 50;
-            this.pageSizeOption = [50];
-          } else if (res.length < 150) {
-            this.pageSize = 50;
-            this.pageSizeOption = [50, 100];
-          } else if (res.length < 200) {
-            this.pageSize = 50;
-            this.pageSizeOption = [50, 100, 150];
-          } else {
-            this.pageSize = 50;
-            this.pageSizeOption = [50, 100, 150, 200];
-          }
-        });
-    } else {
-      this.getAllData();
-    }*/
   }
 }

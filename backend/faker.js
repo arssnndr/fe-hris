@@ -2,7 +2,7 @@ const { faker } = require("@faker-js/faker");
 
 const database = { login: [], ms_bagiankerja: [] };
 
-const loop = 200;
+const loop = 300;
 
 // const id = faker.datatype.uuid();
 const id = getRandomInt(loop);
