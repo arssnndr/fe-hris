@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/api.service';
 import { PageEvent } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalBagianKerjaComponent } from './modal-bagian-kerja/modal-bagian-kerja.component';
 
 @Component({
   selector: 'app-bagian-kerja',
@@ -10,15 +11,23 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class BagianKerjaComponent implements OnInit {
   table = 'ms_bagiankerja';
-  length: any;
+  dataSearch = '';
   pageSize = 50;
   pageIndex = 0;
   pageSizeOption = [50, 100, 150, 200];
   showFirstLastButtons = false;
   data!: any;
-  dataSearch = '';
+  length: any;
 
-  constructor(private api: ApiService, private router: Router) {}
+  constructor(private api: ApiService, public dialog: MatDialog) {}
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ModalBagianKerjaComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   handlePageEvent(event: PageEvent) {
     console.log(event);

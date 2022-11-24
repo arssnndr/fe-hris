@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 // component
 import { AppComponent } from './app.component';
@@ -32,52 +34,58 @@ import { StatusKehadiranComponent } from './components/status-kehadiran/status-k
 import { ListKehadiranComponent } from './components/list-kehadiran/list-kehadiran.component';
 import { LemburComponent } from './components/lembur/lembur.component';
 import { GantiNipComponent } from './components/ganti-nip/ganti-nip.component';
+import { MatSelectModule } from '@angular/material/select';
 
 // form
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalBagianKerjaComponent } from './components/master/bagian-kerja/modal-bagian-kerja/modal-bagian-kerja.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        LoginComponent,
-        DashboardComponent,
-        BagianKerjaComponent,
-        PerusahaanComponent,
-        LokasiComponent,
-        UserComponent,
-        KaryawanComponent,
-        JadwalKerjaComponent,
-        SetupJadwalKerjaComponent,
-        KalenderKerjaComponent,
-        MesinFingerComponent,
-        SetupMesinFingerComponent,
-        StatusKehadiranComponent,
-        ListKehadiranComponent,
-        LemburComponent,
-        GantiNipComponent
-    ],
-    providers: [],
-    bootstrap: [AppComponent],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    BagianKerjaComponent,
+    PerusahaanComponent,
+    LokasiComponent,
+    UserComponent,
+    KaryawanComponent,
+    JadwalKerjaComponent,
+    SetupJadwalKerjaComponent,
+    KalenderKerjaComponent,
+    MesinFingerComponent,
+    SetupMesinFingerComponent,
+    StatusKehadiranComponent,
+    ListKehadiranComponent,
+    LemburComponent,
+    GantiNipComponent,
+    ModalBagianKerjaComponent,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
 
-        // angular material
-        MatSidenavModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatListModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatPaginatorModule,
-        MatCardModule,
-        
-        // form
-        FormsModule,
-        ReactiveFormsModule
-    ]
+    // angular material
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+
+    // form
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
-export class AppModule { }
+export class AppModule {}
