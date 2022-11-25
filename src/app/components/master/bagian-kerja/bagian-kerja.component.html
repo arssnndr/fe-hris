@@ -6,6 +6,7 @@
         <form (ngSubmit)="searchData(search.value)">
           <input
             #search
+            class="search"
             type="text"
             name="search"
             placeholder="Cari deskripsi.."
@@ -13,10 +14,10 @@
         </form>
       </div>
       <div class="col s9">
-        <ul class="right hide-on-med-and-down">
+        <ul class="right">
           <li>
             <mat-paginator
-              class="red lighten-5"
+              class="transparent"
               (page)="handlePageEvent($event)"
               [length]="length"
               [pageSize]="pageSize"
@@ -27,13 +28,16 @@
             </mat-paginator>
           </li>
           <li>
-            <a
-              class="waves-effect waves-dark btn red-text text-darken-2 transparent"
+            <a class="download waves-effect waves-dark btn transparent"
               >Download</a
             >
           </li>
           <li>
-            <a (click)="openDialog()" class="waves-effect waves-light btn red darken-2">Tambah</a>
+            <a
+              (click)="openDialog()"
+              class="tambah waves-effect waves-light btn"
+              >Tambah</a
+            >
           </li>
         </ul>
       </div>
@@ -57,10 +61,8 @@
       <td>{{ row.uplink }}</td>
       <td>{{ row.keterangan }}</td>
       <td>
-        <button
-          class="waves-effect waves-light right red darken-2"
-        >
-          <i class="material-icons" style="font-size: 15px;">close</i>
+        <button class="waves-effect waves-light right red darken-2">
+          <i class="material-icons" style="font-size: 15px">close</i>
         </button>
       </td>
     </tr>
