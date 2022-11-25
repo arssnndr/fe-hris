@@ -1,24 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-} from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(
-    control: FormControl | null,
-    form: FormGroupDirective | NgForm | null
-  ): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(
-      control &&
-      control.invalid &&
-      (control.dirty || control.touched || isSubmitted)
-    );
-  }
+interface Jenis {
+  value: string;
+  viewValue: string;
 }
 
 @Component({
@@ -27,22 +11,17 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./modal-bagian-kerja.component.css'],
 })
 export class ModalBagianKerjaComponent implements OnInit {
-  selected = new FormControl('valid', [
-    Validators.required,
-    Validators.pattern('valid'),
-  ]);
+  departemen = false;
+  subDepartemen = false;
+  deskripsi: any;
 
-  selectFormControl = new FormControl('valid', [
-    Validators.required,
-    Validators.pattern('valid'),
-  ]);
+  selectedJenis: string | undefined;
 
-  nativeSelectFormControl = new FormControl('valid', [
-    Validators.required,
-    Validators.pattern('valid'),
-  ]);
-
-  matcher = new MyErrorStateMatcher();
+  jenis: Jenis[] = [
+    { value: 'divisi', viewValue: 'Divisi' },
+    { value: 'departemen', viewValue: 'Departemen' },
+    { value: 'sub-departemen', viewValue: 'Sub Departemen' },
+  ];
 
   constructor() {}
 

@@ -30,7 +30,6 @@ export class BagianKerjaComponent implements OnInit {
   }
 
   handlePageEvent(event: PageEvent) {
-    console.log(event);
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
     this.getPageData();
@@ -52,7 +51,6 @@ export class BagianKerjaComponent implements OnInit {
       this.api
         .getData(this.table + '?keterangan_like=' + this.dataSearch)
         .subscribe((res) => {
-          console.log(res.length);
           this.length = res.length;
           this.pageSize = 50;
           this.pageIndex = 0;
