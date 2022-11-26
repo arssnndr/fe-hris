@@ -16,4 +16,12 @@ export class ApiService {
       })
     );
   }
+
+  deleteData(table: string, id: number) {
+    return this.http.delete<any>(env.api + table + id).pipe(
+      map((res) => {
+        return res;
+      })
+    );
+  }
 }

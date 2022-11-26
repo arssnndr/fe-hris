@@ -40,6 +40,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalBagianKerjaComponent } from './components/master/bagian-kerja/modal-bagian-kerja/modal-bagian-kerja.component';
+import { ModalPerusahaanComponent } from './components/master/perusahaan/modal-perusahaan/modal-perusahaan.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ModalBagianKerjaComponent } from './components/master/bagian-kerja/moda
     LemburComponent,
     GantiNipComponent,
     ModalBagianKerjaComponent,
+    ModalPerusahaanComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

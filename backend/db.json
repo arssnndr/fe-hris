@@ -2,263 +2,1181 @@
   "login": [
     {
       "id": 1,
-      "email": "Zena_Bahringer0@yahoo.com",
-      "password": "DCeegjrNOreffnT"
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 2
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 3
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 4
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 5
+      "email": "Loy53@gmail.com",
+      "password": "np7nL0dcHyAWaWj"
     }
   ],
   "ms_bagiankerja": [
     {
+      "id": 9,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 210,
-      "uplink": "QC",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
       "id_lokasi": 93,
-      "uplink": "ACC",
-      "keterangan": "Produksi",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 25,
-      "uplink": "Produksi",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 26,
       "uplink": "Faktur",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 74,
-      "uplink": "",
-      "keterangan": "Finance",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 175,
-      "uplink": "Electrik",
-      "keterangan": "Faktur",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 241,
-      "uplink": "Electrik",
       "keterangan": "Electrik",
-      "status": false
+      "status": true
     },
     {
+      "id": 11,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 189,
+      "id_lokasi": 53,
       "uplink": "",
-      "keterangan": "Mechanic",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 240,
-      "uplink": "ACC",
-      "keterangan": "Faktur",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 73,
-      "uplink": "",
-      "keterangan": "Faktur",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 261,
-      "uplink": "IT",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 215,
-      "uplink": "ACC",
-      "keterangan": "ACC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 269,
-      "uplink": "",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 294,
-      "uplink": "Faktur",
       "keterangan": "QC",
       "status": false
     },
     {
+      "id": 15,
       "jenis_bagian": "Departemen",
-      "id_lokasi": 101,
+      "id_lokasi": 103,
+      "uplink": "AP",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "id": 16,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 229,
+      "uplink": "Finance",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "id": 17,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 128,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 18,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 216,
+      "uplink": "Electrik",
+      "keterangan": "Produksi",
+      "status": true
+    },
+    {
+      "id": 19,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 192,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "id": 20,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 197,
+      "uplink": "ACC",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "id": 21,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 36,
       "uplink": "IT Support Plant",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 22,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 150,
+      "uplink": "IT Support",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "id": 23,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 244,
+      "uplink": "IT Support",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "id": 24,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 48,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "id": 25,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 9,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "id": 26,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 62,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "id": 27,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 160,
+      "uplink": "IT Support",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 28,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 199,
+      "uplink": "QC",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 29,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 187,
+      "uplink": "Electrik",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "id": 30,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 113,
+      "uplink": "Produksi",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "id": 31,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 71,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "id": 32,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 37,
+      "uplink": "Faktur",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 33,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 9,
+      "uplink": "",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "id": 34,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 60,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "id": 35,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 153,
+      "uplink": "Faktur",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "id": 36,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 163,
+      "uplink": "AR",
       "keterangan": "IT Support Plant",
       "status": true
     },
     {
+      "id": 37,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 100,
+      "uplink": "",
+      "keterangan": "Produksi",
+      "status": true
+    },
+    {
+      "id": 38,
       "jenis_bagian": "Departemen",
-      "id_lokasi": 285,
-      "uplink": "Finance",
-      "keterangan": "AP",
+      "id_lokasi": 269,
+      "uplink": "Mechanic",
+      "keterangan": "IT",
       "status": false
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 277,
+      "id": 39,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 187,
       "uplink": "IT",
       "keterangan": "IT Support",
       "status": true
     },
     {
+      "id": 40,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 94,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "id": 41,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 283,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "id": 42,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 134,
+      "uplink": "",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "id": 43,
       "jenis_bagian": "Divisi",
       "id_lokasi": 69,
       "uplink": "",
-      "keterangan": "Mechanic",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "id": 44,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 30,
+      "uplink": "Finance",
+      "keterangan": "Produksi",
+      "status": true
+    },
+    {
+      "id": 45,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 34,
+      "uplink": "",
+      "keterangan": "AP",
       "status": false
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 172,
-      "uplink": "IT Support Plant",
-      "keterangan": "QC",
-      "status": true
-    },
-    {
+      "id": 46,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 227,
+      "id_lokasi": 65,
       "uplink": "",
-      "keterangan": "IT Support",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "id": 47,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 214,
+      "uplink": "IT Support Plant",
+      "keterangan": "AP",
       "status": true
     },
     {
+      "id": 48,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 112,
+      "uplink": "Faktur",
+      "keterangan": "Produksi",
+      "status": true
+    },
+    {
+      "id": 49,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 289,
-      "uplink": "QC",
+      "id_lokasi": 218,
+      "uplink": "Produksi",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 50,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 231,
+      "uplink": "Faktur",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "id": 51,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 28,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "id": 52,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 134,
+      "uplink": "Electrik",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 53,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 42,
+      "uplink": "",
       "keterangan": "Electrik",
       "status": true
     },
     {
+      "id": 54,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 295,
+      "uplink": "ACC",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 55,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 168,
+      "id_lokasi": 92,
       "uplink": "",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "id": 56,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 1,
+      "uplink": "Faktur",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "id": 57,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 228,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "id": 58,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 177,
+      "uplink": "IT Support",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 59,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 103,
+      "uplink": "Finance",
       "keterangan": "Produksi",
       "status": true
     },
     {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 279,
-      "uplink": "",
-      "keterangan": "QC",
+      "id": 60,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 169,
+      "uplink": "AR",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "id": 61,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 245,
+      "uplink": "IT Support Plant",
+      "keterangan": "Faktur",
       "status": true
     },
     {
+      "id": 62,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 271,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "id": 63,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 95,
+      "uplink": "Electrik",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "id": 64,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 227,
+      "uplink": "",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "id": 65,
       "jenis_bagian": "Departemen",
-      "id_lokasi": 232,
-      "uplink": "AP",
+      "id_lokasi": 54,
+      "uplink": "IT Support Plant",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "id": 66,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 130,
+      "uplink": "",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "id": 67,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 287,
+      "uplink": "",
       "keterangan": "AR",
       "status": true
     },
     {
+      "id": 68,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 171,
+      "uplink": "ACC",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "id": 69,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 270,
+      "uplink": "ACC",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "id": 70,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 98,
+      "uplink": "Mechanic",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "id": 71,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 174,
+      "id_lokasi": 29,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 72,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 58,
+      "uplink": "Mechanic",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "id": 73,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 25,
+      "uplink": "Mechanic",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "id": 74,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 288,
+      "uplink": "QC",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "id": 75,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 300,
+      "uplink": "AP",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 76,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 233,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "id": 77,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 164,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "id": 78,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 195,
+      "uplink": "Electrik",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "id": 79,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 276,
+      "uplink": "IT Support Plant",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "id": 80,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 241,
+      "uplink": "QC",
+      "keterangan": "Produksi",
+      "status": true
+    },
+    {
+      "id": 81,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 153,
+      "uplink": "Finance",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 82,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 249,
+      "uplink": "AP",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "id": 83,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 254,
+      "uplink": "Finance",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "id": 84,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 247,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "id": 85,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 26,
+      "uplink": "Electrik",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 86,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 244,
+      "uplink": "",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "id": 87,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 246,
+      "uplink": "",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "id": 88,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 261,
+      "uplink": "IT Support Plant",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "id": 89,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 128,
+      "uplink": "Electrik",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 90,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 292,
+      "uplink": "Electrik",
+      "keterangan": "Produksi",
+      "status": true
+    },
+    {
+      "id": 91,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 18,
+      "uplink": "QC",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "id": 92,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 6,
+      "uplink": "IT Support Plant",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "id": 93,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 159,
+      "uplink": "ACC",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "id": 94,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 148,
       "uplink": "",
       "keterangan": "IT Support",
       "status": true
     },
     {
+      "id": 95,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 127,
+      "id_lokasi": 197,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "id": 96,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 294,
+      "uplink": "Faktur",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 97,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 236,
+      "uplink": "IT Support Plant",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "id": 98,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 71,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "id": 99,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 64,
+      "uplink": "Electrik",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "id": 100,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 8,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "id": 101,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 150,
+      "uplink": "IT",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "id": 102,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 121,
+      "uplink": "IT",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 103,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 29,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 104,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 254,
+      "uplink": "IT Support Plant",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "id": 105,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 46,
+      "uplink": "Electrik",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "id": 106,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 240,
+      "uplink": "IT",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "id": 107,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 287,
       "uplink": "",
       "keterangan": "AR",
       "status": true
     },
     {
+      "id": 108,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 248,
-      "uplink": "Produksi",
+      "id_lokasi": 272,
+      "uplink": "Mechanic",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "id": 109,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 80,
+      "uplink": "",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 110,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 115,
+      "uplink": "Faktur",
       "keterangan": "Finance",
       "status": true
     },
     {
+      "id": 111,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 234,
+      "uplink": "Electrik",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "id": 112,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 39,
+      "uplink": "Produksi",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "id": 113,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 105,
+      "uplink": "",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "id": 114,
       "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 166,
+      "uplink": "IT",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "id": 115,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 41,
+      "uplink": "Finance",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "id": 116,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 123,
+      "uplink": "",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "id": 117,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 107,
+      "uplink": "Mechanic",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "id": 118,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 48,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "id": 119,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 271,
+      "uplink": "",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "id": 120,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 127,
+      "uplink": "Produksi",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "id": 121,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 273,
+      "uplink": "",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "id": 122,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 198,
+      "uplink": "Produksi",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "id": 123,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 77,
+      "uplink": "IT Support",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "id": 124,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 250,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 125,
+      "jenis_bagian": "Divisi",
       "id_lokasi": 70,
+      "uplink": "",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "id": 126,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 294,
+      "uplink": "Faktur",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "id": 127,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 269,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "id": 128,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 76,
+      "uplink": "",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "id": 129,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 191,
+      "uplink": "QC",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 130,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 187,
+      "uplink": "AR",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "id": 131,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 231,
+      "uplink": "",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "id": 132,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 158,
+      "uplink": "AR",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "id": 133,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 152,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "id": 134,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 56,
+      "uplink": "",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "id": 135,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 261,
+      "uplink": "ACC",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "id": 136,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 227,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "id": 137,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 67,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "id": 138,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 59,
       "uplink": "AP",
       "keterangan": "Mechanic",
       "status": true
     },
     {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 238,
-      "uplink": "Electrik",
+      "id": 139,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 97,
+      "uplink": "Finance",
       "keterangan": "Finance",
       "status": false
     },
     {
+      "id": 140,
       "jenis_bagian": "Departemen",
-      "id_lokasi": 277,
-      "uplink": "Mechanic",
-      "keterangan": "Produksi",
+      "id_lokasi": 100,
+      "uplink": "IT",
+      "keterangan": "ACC",
       "status": false
     },
     {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 191,
+      "id": 141,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 106,
       "uplink": "Mechanic",
-      "keterangan": "IT Support Plant",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "id": 142,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 70,
+      "uplink": "",
+      "keterangan": "IT Support",
       "status": true
     },
     {
+      "id": 143,
       "jenis_bagian": "Departemen",
-      "id_lokasi": 293,
-      "uplink": "IT Support Plant",
+      "id_lokasi": 4,
+      "uplink": "AR",
       "keterangan": "AR",
       "status": true
     },
     {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 124,
-      "uplink": "",
-      "keterangan": "Produksi",
+      "id": 144,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 119,
+      "uplink": "AP",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "id": 145,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 117,
+      "uplink": "IT",
+      "keterangan": "Finance",
       "status": true
     },
     {
+      "id": 146,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 78,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 147,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 282,
+      "uplink": "IT Support Plant",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "id": 148,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 221,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 149,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 26,
+      "uplink": "AP",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "id": 150,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 98,
+      "uplink": "ACC",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "id": 151,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 71,
+      "uplink": "",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 152,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 23,
+      "uplink": "Mechanic",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "id": 153,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 256,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "id": 154,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 112,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 155,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 79,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": true
+    },
+    {
+      "id": 156,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 43,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "id": 157,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 49,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 158,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 242,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "id": 159,
       "jenis_bagian": "Divisi",
       "id_lokasi": 27,
       "uplink": "",
@@ -266,1420 +1184,823 @@
       "status": false
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 43,
-      "uplink": "Mechanic",
-      "keterangan": "Electrik",
-      "status": true
-    },
-    {
+      "id": 160,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 230,
-      "uplink": "",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 169,
-      "uplink": "",
-      "keterangan": "IT",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 264,
-      "uplink": "IT",
-      "keterangan": "QC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 24,
-      "uplink": "Mechanic",
-      "keterangan": "IT",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 284,
-      "uplink": "",
-      "keterangan": "AP",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 118,
-      "uplink": "ACC",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 230,
-      "uplink": "Electrik",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 43,
-      "uplink": "IT Support",
-      "keterangan": "Faktur",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 118,
-      "uplink": "",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 35,
-      "uplink": "IT",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 143,
-      "uplink": "Faktur",
-      "keterangan": "Produksi",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 264,
-      "uplink": "IT Support Plant",
-      "keterangan": "IT Support Plant",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 129,
-      "uplink": "IT Support Plant",
-      "keterangan": "Produksi",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
       "id_lokasi": 197,
-      "uplink": "Faktur",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 52,
-      "uplink": "AR",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 161,
-      "uplink": "IT",
-      "keterangan": "Electrik",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 107,
       "uplink": "",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 204,
-      "uplink": "",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 41,
-      "uplink": "QC",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 142,
-      "uplink": "IT",
       "keterangan": "AR",
       "status": true
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 227,
-      "uplink": "QC",
-      "keterangan": "Electrik",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 242,
-      "uplink": "Electrik",
-      "keterangan": "AR",
-      "status": false
-    },
-    {
+      "id": 161,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 68,
+      "id_lokasi": 176,
       "uplink": "",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 134,
-      "uplink": "AR",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 261,
-      "uplink": "IT Support Plant",
-      "keterangan": "IT",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 166,
-      "uplink": "Faktur",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 4,
-      "uplink": "",
-      "keterangan": "Electrik",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 126,
-      "uplink": "Electrik",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 60,
-      "uplink": "ACC",
       "keterangan": "IT Support Plant",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 205,
-      "uplink": "",
-      "keterangan": "Mechanic",
       "status": false
     },
     {
+      "id": 162,
       "jenis_bagian": "Departemen",
-      "id_lokasi": 283,
-      "uplink": "IT Support Plant",
-      "keterangan": "QC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 195,
-      "uplink": "AR",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 11,
-      "uplink": "Faktur",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 242,
-      "uplink": "ACC",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 265,
-      "uplink": "",
-      "keterangan": "AR",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 68,
+      "id_lokasi": 178,
       "uplink": "Mechanic",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 66,
-      "uplink": "",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 4,
-      "uplink": "Finance",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 141,
-      "uplink": "Finance",
-      "keterangan": "Faktur",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 62,
-      "uplink": "IT Support",
-      "keterangan": "IT",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 230,
-      "uplink": "",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 199,
-      "uplink": "Produksi",
       "keterangan": "Produksi",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 91,
-      "uplink": "",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 163,
-      "uplink": "IT",
-      "keterangan": "AP",
       "status": true
     },
     {
+      "id": 163,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 63,
-      "uplink": "QC",
+      "id_lokasi": 4,
+      "uplink": "Faktur",
+      "keterangan": "IT Support",
+      "status": true
+    },
+    {
+      "id": 164,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 66,
+      "uplink": "AP",
       "keterangan": "IT",
       "status": true
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 216,
+      "id": 165,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 26,
       "uplink": "IT Support Plant",
-      "keterangan": "Finance",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 249,
-      "uplink": "",
-      "keterangan": "QC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 275,
-      "uplink": "",
-      "keterangan": "Finance",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 143,
-      "uplink": "Faktur",
-      "keterangan": "AP",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 160,
-      "uplink": "",
       "keterangan": "AR",
       "status": false
     },
     {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 76,
-      "uplink": "",
-      "keterangan": "Mechanic",
-      "status": true
+      "id": 166,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 120,
+      "uplink": "Mechanic",
+      "keterangan": "Electrik",
+      "status": false
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 220,
-      "uplink": "IT Support",
+      "id": 167,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 83,
+      "uplink": "Electrik",
       "keterangan": "AP",
       "status": true
     },
     {
+      "id": 168,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 245,
-      "uplink": "Faktur",
-      "keterangan": "Finance",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 35,
-      "uplink": "IT",
-      "keterangan": "IT",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 223,
-      "uplink": "AR",
-      "keterangan": "ACC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 148,
-      "uplink": "Faktur",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 152,
-      "uplink": "Mechanic",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 141,
-      "uplink": "AR",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 146,
-      "uplink": "",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 81,
-      "uplink": "Faktur",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 118,
-      "uplink": "",
-      "keterangan": "Finance",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 185,
-      "uplink": "QC",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 226,
-      "uplink": "",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 258,
-      "uplink": "",
+      "id_lokasi": 109,
+      "uplink": "Electrik",
       "keterangan": "Faktur",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 138,
-      "uplink": "IT Support Plant",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 259,
-      "uplink": "Mechanic",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 179,
-      "uplink": "",
-      "keterangan": "Electrik",
       "status": false
     },
     {
+      "id": 169,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 96,
-      "uplink": "",
-      "keterangan": "AR",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 170,
-      "uplink": "",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 118,
-      "uplink": "QC",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 261,
-      "uplink": "Mechanic",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 86,
+      "id_lokasi": 119,
       "uplink": "",
       "keterangan": "Finance",
       "status": true
     },
     {
+      "id": 170,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 102,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 171,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 111,
+      "uplink": "IT Support",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "id": 172,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 271,
+      "uplink": "ACC",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 173,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 170,
+      "uplink": "AP",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "id": 174,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 251,
+      "uplink": "IT Support",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 175,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 83,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 176,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 59,
+      "uplink": "Produksi",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "id": 177,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 148,
+      "uplink": "AR",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 178,
       "jenis_bagian": "Sub Departemen",
       "id_lokasi": 22,
-      "uplink": "AP",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 254,
-      "uplink": "Finance",
-      "keterangan": "IT",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 164,
-      "uplink": "",
-      "keterangan": "IT",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 292,
-      "uplink": "",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 96,
-      "uplink": "IT Support Plant",
-      "keterangan": "Produksi",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 103,
-      "uplink": "Electrik",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 290,
-      "uplink": "ACC",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 96,
-      "uplink": "",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 202,
-      "uplink": "",
-      "keterangan": "IT",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 156,
-      "uplink": "IT Support Plant",
-      "keterangan": "Electrik",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 140,
-      "uplink": "",
-      "keterangan": "AP",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 234,
-      "uplink": "",
-      "keterangan": "Finance",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 157,
-      "uplink": "AP",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 54,
-      "uplink": "ACC",
-      "keterangan": "IT",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 231,
-      "uplink": "IT Support Plant",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 170,
-      "uplink": "IT",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 48,
-      "uplink": "QC",
-      "keterangan": "Faktur",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 285,
-      "uplink": "IT Support",
-      "keterangan": "QC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 123,
-      "uplink": "Finance",
-      "keterangan": "Produksi",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 163,
-      "uplink": "IT",
-      "keterangan": "Mechanic",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 97,
-      "uplink": "IT Support",
-      "keterangan": "AR",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 153,
-      "uplink": "ACC",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 269,
-      "uplink": "ACC",
-      "keterangan": "Mechanic",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 21,
       "uplink": "AR",
-      "keterangan": "Mechanic",
+      "keterangan": "Finance",
       "status": true
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 249,
-      "uplink": "ACC",
-      "keterangan": "Faktur",
-      "status": false
-    },
-    {
+      "id": 179,
       "jenis_bagian": "Departemen",
-      "id_lokasi": 55,
-      "uplink": "IT Support",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 266,
-      "uplink": "Produksi",
-      "keterangan": "IT",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 275,
-      "uplink": "",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 107,
-      "uplink": "AP",
-      "keterangan": "AP",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 273,
-      "uplink": "Finance",
-      "keterangan": "Produksi",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 249,
-      "uplink": "Mechanic",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 293,
-      "uplink": "AP",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 21,
-      "uplink": "Finance",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 245,
-      "uplink": "IT Support Plant",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 206,
-      "uplink": "Mechanic",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 94,
-      "uplink": "",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 261,
-      "uplink": "Produksi",
-      "keterangan": "Produksi",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 198,
-      "uplink": "Produksi",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 279,
+      "id_lokasi": 297,
       "uplink": "Faktur",
       "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 293,
-      "uplink": "Finance",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 188,
-      "uplink": "AR",
-      "keterangan": "AP",
       "status": false
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 191,
-      "uplink": "ACC",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 106,
-      "uplink": "",
+      "id": 180,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 97,
+      "uplink": "Mechanic",
       "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "id": 181,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 252,
+      "uplink": "AP",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "id": 182,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 156,
+      "uplink": "AR",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 183,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 158,
+      "uplink": "Mechanic",
+      "keterangan": "Electrik",
       "status": false
     },
     {
+      "id": 184,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 189,
+      "uplink": "QC",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "id": 185,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 19,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "id": 186,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 235,
+      "uplink": "AR",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "id": 187,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 181,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 188,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 255,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "id": 189,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 73,
+      "uplink": "",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "id": 190,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 136,
+      "uplink": "AP",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "id": 191,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 29,
+      "uplink": "",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 192,
       "jenis_bagian": "Sub Departemen",
       "id_lokasi": 219,
       "uplink": "QC",
-      "keterangan": "Finance",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 94,
-      "uplink": "",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 209,
-      "uplink": "IT",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 279,
-      "uplink": "AR",
-      "keterangan": "Finance",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 252,
-      "uplink": "ACC",
-      "keterangan": "Faktur",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 66,
-      "uplink": "IT Support",
-      "keterangan": "Finance",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 217,
-      "uplink": "ACC",
-      "keterangan": "QC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 245,
-      "uplink": "QC",
-      "keterangan": "Mechanic",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 25,
-      "uplink": "",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 248,
-      "uplink": "IT Support Plant",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 90,
-      "uplink": "QC",
-      "keterangan": "Electrik",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 267,
-      "uplink": "AP",
-      "keterangan": "Mechanic",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 140,
-      "uplink": "ACC",
-      "keterangan": "IT",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 278,
-      "uplink": "Electrik",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 193,
-      "uplink": "IT",
-      "keterangan": "ACC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 192,
-      "uplink": "",
-      "keterangan": "Produksi",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 250,
-      "uplink": "",
-      "keterangan": "Finance",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 39,
-      "uplink": "AP",
-      "keterangan": "Mechanic",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 226,
-      "uplink": "Finance",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 39,
-      "uplink": "Finance",
-      "keterangan": "Produksi",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 293,
-      "uplink": "IT Support",
-      "keterangan": "IT Support Plant",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 272,
-      "uplink": "",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 49,
-      "uplink": "",
-      "keterangan": "IT",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 44,
-      "uplink": "Faktur",
-      "keterangan": "Faktur",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 31,
-      "uplink": "Faktur",
       "keterangan": "QC",
       "status": false
     },
     {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 2,
-      "uplink": "Faktur",
-      "keterangan": "AR",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 18,
-      "uplink": "Faktur",
-      "keterangan": "IT",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 215,
-      "uplink": "Produksi",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 25,
-      "uplink": "",
-      "keterangan": "Produksi",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 290,
-      "uplink": "AP",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 60,
-      "uplink": "AR",
-      "keterangan": "Faktur",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 251,
-      "uplink": "IT",
-      "keterangan": "ACC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 254,
-      "uplink": "",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 32,
-      "uplink": "IT Support",
-      "keterangan": "IT",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 40,
-      "uplink": "AP",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 298,
-      "uplink": "Faktur",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 23,
-      "uplink": "AR",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 288,
-      "uplink": "ACC",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 268,
-      "uplink": "IT",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 290,
-      "uplink": "AP",
-      "keterangan": "Electrik",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 265,
-      "uplink": "Electrik",
-      "keterangan": "Mechanic",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 124,
-      "uplink": "IT Support Plant",
-      "keterangan": "Faktur",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 53,
-      "uplink": "Finance",
-      "keterangan": "Faktur",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 179,
-      "uplink": "Faktur",
-      "keterangan": "AP",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 217,
-      "uplink": "",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 251,
-      "uplink": "QC",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 140,
-      "uplink": "",
-      "keterangan": "Produksi",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 295,
-      "uplink": "Mechanic",
-      "keterangan": "Electrik",
-      "status": true
-    },
-    {
+      "id": 193,
       "jenis_bagian": "Sub Departemen",
       "id_lokasi": 149,
-      "uplink": "IT Support",
-      "keterangan": "ACC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 56,
-      "uplink": "Mechanic",
-      "keterangan": "IT Support Plant",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 147,
-      "uplink": "AP",
-      "keterangan": "Produksi",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 66,
-      "uplink": "",
-      "keterangan": "Faktur",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 78,
-      "uplink": "Faktur",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 98,
-      "uplink": "IT",
-      "keterangan": "Finance",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 226,
-      "uplink": "",
-      "keterangan": "AR",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 259,
-      "uplink": "",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 125,
-      "uplink": "QC",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 235,
-      "uplink": "IT",
-      "keterangan": "QC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 83,
-      "uplink": "IT Support",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 58,
       "uplink": "Finance",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 277,
-      "uplink": "",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 92,
-      "uplink": "Faktur",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 299,
-      "uplink": "Faktur",
-      "keterangan": "AP",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 139,
-      "uplink": "",
-      "keterangan": "Mechanic",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 203,
-      "uplink": "QC",
-      "keterangan": "IT Support Plant",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 252,
-      "uplink": "",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 116,
-      "uplink": "",
-      "keterangan": "Faktur",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 31,
-      "uplink": "AP",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 264,
-      "uplink": "IT",
       "keterangan": "Finance",
       "status": true
     },
     {
+      "id": 194,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 82,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 195,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 5,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 196,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 102,
+      "uplink": "Finance",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "id": 197,
       "jenis_bagian": "Departemen",
       "id_lokasi": 236,
       "uplink": "AP",
-      "keterangan": "Faktur",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 268,
-      "uplink": "Finance",
       "keterangan": "AR",
+      "status": true
+    },
+    {
+      "id": 198,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 269,
+      "uplink": "IT",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "id": 199,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 216,
+      "uplink": "Mechanic",
+      "keterangan": "Electrik",
       "status": false
     },
     {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 297,
-      "uplink": "",
+      "id": 200,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 46,
+      "uplink": "Mechanic",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "id": 201,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 228,
+      "uplink": "IT Support Plant",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "id": 202,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 114,
+      "uplink": "Finance",
       "keterangan": "Produksi",
       "status": false
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 152,
+      "id": 203,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 241,
       "uplink": "AR",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "id": 204,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 70,
+      "uplink": "AP",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "id": 205,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 268,
+      "uplink": "IT Support",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "id": 206,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 204,
+      "uplink": "",
+      "keterangan": "Produksi",
+      "status": true
+    },
+    {
+      "id": 207,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 193,
+      "uplink": "",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "id": 208,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 207,
+      "uplink": "ACC",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "id": 209,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 137,
+      "uplink": "",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 210,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 95,
+      "uplink": "QC",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 211,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 27,
+      "uplink": "QC",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "id": 212,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 162,
+      "uplink": "IT Support",
+      "keterangan": "Mechanic",
+      "status": false
+    },
+    {
+      "id": 213,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 77,
+      "uplink": "Produksi",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "id": 214,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 151,
+      "uplink": "IT Support",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "id": 216,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 68,
+      "uplink": "IT",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "id": 217,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 289,
+      "uplink": "AP",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "id": 218,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 211,
+      "uplink": "IT Support Plant",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "id": 219,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 241,
+      "uplink": "",
       "keterangan": "Faktur",
       "status": true
     },
     {
+      "id": 220,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 223,
+      "uplink": "AR",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "id": 221,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 178,
+      "id_lokasi": 176,
+      "uplink": "",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "id": 222,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 133,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "id": 223,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 213,
+      "uplink": "",
+      "keterangan": "Produksi",
+      "status": true
+    },
+    {
+      "id": 224,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 144,
+      "uplink": "",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "id": 225,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 16,
+      "uplink": "ACC",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 226,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 226,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 227,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 90,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 228,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 158,
+      "uplink": "QC",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "id": 229,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 25,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "id": 230,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 273,
+      "uplink": "IT Support Plant",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "id": 231,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 295,
+      "uplink": "AP",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "id": 232,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 142,
+      "uplink": "",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "id": 233,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 292,
+      "uplink": "AR",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "id": 234,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 164,
+      "uplink": "Produksi",
+      "keterangan": "IT",
+      "status": true
+    },
+    {
+      "id": 235,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 152,
+      "uplink": "Electrik",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "id": 236,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 67,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "id": 237,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 221,
+      "uplink": "QC",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "id": 238,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 48,
+      "uplink": "AP",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 239,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 218,
+      "uplink": "",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 240,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 121,
+      "uplink": "Electrik",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "id": 241,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 164,
+      "uplink": "AP",
+      "keterangan": "QC",
+      "status": true
+    },
+    {
+      "id": 242,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 71,
+      "uplink": "Electrik",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "id": 243,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 111,
+      "uplink": "",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "id": 244,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 102,
+      "uplink": "IT Support",
+      "keterangan": "Electrik",
+      "status": false
+    },
+    {
+      "id": 245,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 285,
       "uplink": "",
       "keterangan": "Finance",
       "status": true
     },
     {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 54,
-      "uplink": "Electrik",
-      "keterangan": "Produksi",
-      "status": false
-    },
-    {
+      "id": 246,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 115,
-      "uplink": "",
-      "keterangan": "QC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 207,
+      "id_lokasi": 71,
       "uplink": "",
       "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 19,
-      "uplink": "Electrik",
-      "keterangan": "QC",
       "status": true
     },
     {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 94,
-      "uplink": "",
-      "keterangan": "QC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 20,
-      "uplink": "AR",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 139,
-      "uplink": "IT",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
+      "id": 247,
       "jenis_bagian": "Departemen",
-      "id_lokasi": 35,
-      "uplink": "ACC",
-      "keterangan": "IT Support",
-      "status": false
+      "id_lokasi": 208,
+      "uplink": "Finance",
+      "keterangan": "Mechanic",
+      "status": true
     },
     {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 16,
-      "uplink": "",
+      "id": 248,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 144,
+      "uplink": "AP",
       "keterangan": "Produksi",
       "status": false
     },
     {
+      "id": 249,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 101,
+      "id_lokasi": 161,
       "uplink": "",
-      "keterangan": "Electrik",
+      "keterangan": "Finance",
       "status": false
     },
     {
+      "id": 250,
       "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 245,
+      "uplink": "IT Support Plant",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "id": 251,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 217,
+      "uplink": "",
+      "keterangan": "AR",
+      "status": false
+    },
+    {
+      "id": 252,
+      "jenis_bagian": "Divisi",
       "id_lokasi": 38,
-      "uplink": "AR",
-      "keterangan": "IT Support",
-      "status": true
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": false
     },
     {
+      "id": 253,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 96,
-      "uplink": "IT",
-      "keterangan": "Produksi",
+      "id_lokasi": 268,
+      "uplink": "AP",
+      "keterangan": "Faktur",
       "status": true
     },
     {
+      "id": 254,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 177,
+      "uplink": "",
+      "keterangan": "Finance",
+      "status": true
+    },
+    {
+      "id": 255,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 91,
+      "uplink": "Produksi",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "id": 256,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 36,
+      "uplink": "Finance",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "id": 257,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 212,
+      "uplink": "AP",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 258,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 129,
+      "uplink": "IT Support Plant",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "id": 259,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 278,
+      "uplink": "Produksi",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "id": 260,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 238,
+      "uplink": "IT",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 261,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 155,
+      "uplink": "AP",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 262,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 107,
+      "uplink": "Mechanic",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "id": 263,
       "jenis_bagian": "Sub Departemen",
       "id_lokasi": 86,
       "uplink": "Mechanic",
@@ -1687,444 +2008,2401 @@
       "status": false
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 216,
-      "uplink": "Produksi",
-      "keterangan": "Electrik",
-      "status": true
-    },
-    {
+      "id": 264,
       "jenis_bagian": "Departemen",
-      "id_lokasi": 230,
-      "uplink": "AP",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 20,
-      "uplink": "AP",
+      "id_lokasi": 191,
+      "uplink": "Faktur",
       "keterangan": "AP",
       "status": true
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 66,
-      "uplink": "Electrik",
-      "keterangan": "Electrik",
+      "id": 265,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 87,
+      "uplink": "",
+      "keterangan": "Faktur",
       "status": true
     },
     {
+      "id": 266,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 4,
-      "uplink": "ACC",
+      "id_lokasi": 220,
+      "uplink": "IT Support Plant",
+      "keterangan": "IT Support Plant",
+      "status": true
+    },
+    {
+      "id": 267,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 126,
+      "uplink": "AR",
+      "keterangan": "Mechanic",
+      "status": true
+    },
+    {
+      "id": 268,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 124,
+      "uplink": "IT Support Plant",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "id": 269,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 42,
+      "uplink": "",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "id": 270,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 143,
+      "uplink": "QC",
+      "keterangan": "AP",
+      "status": true
+    },
+    {
+      "id": 271,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 46,
+      "uplink": "IT Support Plant",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 272,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 86,
+      "uplink": "AP",
       "keterangan": "AR",
       "status": false
     },
     {
+      "id": 273,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 72,
-      "uplink": "Finance",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 105,
-      "uplink": "",
-      "keterangan": "Finance",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 138,
-      "uplink": "IT",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 120,
-      "uplink": "QC",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 280,
+      "id_lokasi": 38,
       "uplink": "IT Support",
-      "keterangan": "ACC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 184,
-      "uplink": "IT",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 82,
-      "uplink": "QC",
-      "keterangan": "AP",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 48,
-      "uplink": "",
-      "keterangan": "QC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 228,
-      "uplink": "AR",
-      "keterangan": "Finance",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 189,
-      "uplink": "Mechanic",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 37,
-      "uplink": "AP",
-      "keterangan": "Produksi",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 165,
-      "uplink": "Mechanic",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 273,
-      "uplink": "QC",
-      "keterangan": "AP",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 40,
-      "uplink": "",
-      "keterangan": "AP",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 218,
-      "uplink": "ACC",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 211,
-      "uplink": "Mechanic",
-      "keterangan": "IT Support Plant",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 277,
-      "uplink": "",
-      "keterangan": "IT Support Plant",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 165,
-      "uplink": "AR",
-      "keterangan": "IT Support",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 62,
-      "uplink": "Faktur",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 239,
-      "uplink": "Electrik",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 279,
-      "uplink": "",
-      "keterangan": "Mechanic",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 75,
-      "uplink": "AP",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 186,
-      "uplink": "",
-      "keterangan": "Produksi",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 52,
-      "uplink": "",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 246,
-      "uplink": "",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 198,
-      "uplink": "",
-      "keterangan": "Mechanic",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 68,
-      "uplink": "",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 233,
-      "uplink": "QC",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 146,
-      "uplink": "Mechanic",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 262,
-      "uplink": "",
-      "keterangan": "Electrik",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 240,
-      "uplink": "Faktur",
       "keterangan": "IT",
       "status": false
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 63,
+      "id": 274,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 159,
       "uplink": "Faktur",
-      "keterangan": "ACC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 145,
-      "uplink": "AP",
-      "keterangan": "Produksi",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 288,
-      "uplink": "",
-      "keterangan": "Produksi",
+      "keterangan": "Mechanic",
       "status": false
     },
     {
+      "id": 275,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 100,
+      "id_lokasi": 152,
       "uplink": "Electrik",
-      "keterangan": "ACC",
+      "keterangan": "IT",
+      "status": false
+    },
+    {
+      "id": 276,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 10,
+      "uplink": "",
+      "keterangan": "Produksi",
       "status": true
     },
     {
+      "id": 277,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 133,
+      "id_lokasi": 46,
       "uplink": "",
       "keterangan": "Faktur",
       "status": false
     },
     {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 294,
-      "uplink": "AR",
-      "keterangan": "QC",
-      "status": true
-    },
-    {
+      "id": 278,
       "jenis_bagian": "Divisi",
-      "id_lokasi": 271,
+      "id_lokasi": 18,
       "uplink": "",
-      "keterangan": "QC",
+      "keterangan": "ACC",
       "status": false
     },
     {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 285,
-      "uplink": "",
-      "keterangan": "QC",
+      "id": 279,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 152,
+      "uplink": "AR",
+      "keterangan": "IT Support",
       "status": true
     },
     {
+      "id": 280,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 273,
-      "uplink": "Produksi",
+      "id_lokasi": 171,
+      "uplink": "ACC",
       "keterangan": "AR",
       "status": false
     },
     {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 290,
-      "uplink": "Mechanic",
-      "keterangan": "Faktur",
+      "id": 281,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 79,
+      "uplink": "",
+      "keterangan": "IT",
       "status": true
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 32,
-      "uplink": "IT",
-      "keterangan": "Produksi",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 176,
+      "id": 282,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 158,
       "uplink": "IT Support",
-      "keterangan": "Produksi",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 284,
-      "uplink": "",
       "keterangan": "Electrik",
       "status": true
     },
     {
+      "id": 283,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 107,
+      "uplink": "",
+      "keterangan": "IT Support Plant",
+      "status": false
+    },
+    {
+      "id": 284,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 184,
+      "uplink": "",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "id": 285,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 8,
+      "uplink": "Electrik",
+      "keterangan": "IT Support",
+      "status": false
+    },
+    {
+      "id": 286,
       "jenis_bagian": "Departemen",
       "id_lokasi": 5,
-      "uplink": "Electrik",
-      "keterangan": "IT",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 260,
-      "uplink": "Mechanic",
-      "keterangan": "IT Support",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 295,
-      "uplink": "AP",
-      "keterangan": "Faktur",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 185,
-      "uplink": "",
-      "keterangan": "AP",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 240,
       "uplink": "IT Support",
-      "keterangan": "AP",
-      "status": false
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 270,
-      "uplink": "Faktur",
-      "keterangan": "ACC",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 176,
-      "uplink": "IT Support",
-      "keterangan": "AR",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 6,
-      "uplink": "Electrik",
       "keterangan": "Electrik",
       "status": false
     },
     {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 271,
-      "uplink": "",
-      "keterangan": "Produksi",
-      "status": true
-    },
-    {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 98,
-      "uplink": "",
+      "id": 287,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 267,
+      "uplink": "AR",
       "keterangan": "Finance",
       "status": false
     },
     {
+      "id": 288,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 287,
-      "uplink": "AP",
+      "id_lokasi": 86,
+      "uplink": "QC",
+      "keterangan": "Electrik",
+      "status": true
+    },
+    {
+      "id": 289,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 242,
+      "uplink": "AR",
+      "keterangan": "Finance",
+      "status": false
+    },
+    {
+      "id": 290,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 156,
+      "uplink": "IT",
+      "keterangan": "QC",
+      "status": false
+    },
+    {
+      "id": 291,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 187,
+      "uplink": "",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 292,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 30,
+      "uplink": "",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "id": 293,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 20,
+      "uplink": "Electrik",
+      "keterangan": "Produksi",
+      "status": false
+    },
+    {
+      "id": 294,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 204,
+      "uplink": "IT",
+      "keterangan": "ACC",
+      "status": true
+    },
+    {
+      "id": 295,
+      "jenis_bagian": "Departemen",
+      "id_lokasi": 182,
+      "uplink": "ACC",
+      "keterangan": "Faktur",
+      "status": true
+    },
+    {
+      "id": 296,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 47,
+      "uplink": "Electrik",
+      "keterangan": "ACC",
+      "status": false
+    },
+    {
+      "id": 297,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 23,
+      "uplink": "",
+      "keterangan": "AP",
+      "status": false
+    },
+    {
+      "id": 298,
+      "jenis_bagian": "Divisi",
+      "id_lokasi": 286,
+      "uplink": "",
+      "keterangan": "Faktur",
+      "status": false
+    },
+    {
+      "id": 299,
+      "jenis_bagian": "Sub Departemen",
+      "id_lokasi": 110,
+      "uplink": "Produksi",
       "keterangan": "IT Support Plant",
       "status": false
     },
     {
+      "id": 300,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 69,
-      "uplink": "Mechanic",
-      "keterangan": "Produksi",
+      "id_lokasi": 159,
+      "uplink": "Finance",
+      "keterangan": "Mechanic",
+      "status": false
+    }
+  ],
+  "ms_perusahaan": [
+    {
+      "id": 1,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
       "status": true
     },
     {
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 163,
-      "uplink": "",
-      "keterangan": "Mechanic",
+      "id": 2,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 3,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
       "status": false
     },
     {
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 128,
-      "uplink": "Faktur",
-      "keterangan": "AP",
+      "id": 4,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 5,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 6,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 7,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 8,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 9,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 10,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 11,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 12,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 13,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 14,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 15,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 16,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 17,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 18,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 19,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 20,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 21,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 22,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 23,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 24,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 25,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 26,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 27,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 28,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 29,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 30,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 31,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 32,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 33,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 34,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 35,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 36,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 37,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 38,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 39,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 40,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 41,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 42,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 43,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 44,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 45,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 46,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 47,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 48,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 49,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 50,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 51,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 52,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 53,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 54,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 55,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 56,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 57,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 58,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 59,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 60,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 61,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 62,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 63,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 64,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 65,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 66,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 67,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 68,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 69,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 70,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 71,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 72,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 73,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 74,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 75,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 76,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 77,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 78,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 79,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 80,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 81,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 82,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 83,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 84,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 85,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 86,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 87,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 88,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 89,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 90,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 91,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 92,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 93,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 94,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 95,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 96,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 97,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 98,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 99,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 100,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 101,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 102,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 103,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 104,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 105,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 106,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 107,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 108,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 109,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 110,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 111,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 112,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 113,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 114,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 115,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 116,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 117,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 118,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 119,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 120,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 121,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 122,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 123,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 124,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 125,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 126,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 127,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 128,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 129,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 130,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 131,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 132,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 133,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 134,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 135,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 136,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 137,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 138,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 139,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 140,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 141,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 142,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 143,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 144,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 145,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 146,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 147,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 148,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 149,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 150,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 151,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 152,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 153,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 154,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 155,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 156,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 157,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 158,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 159,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 160,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 161,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 162,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 163,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 164,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 165,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 166,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 167,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 168,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 169,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 170,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 171,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 172,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 173,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 174,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 175,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 176,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 177,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 178,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 179,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 180,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 181,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 182,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 183,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 184,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 185,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 186,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 187,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 188,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 189,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 190,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 191,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 192,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 193,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 194,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 195,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 196,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 197,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 198,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 199,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 200,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 201,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 202,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 203,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 204,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 205,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 206,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 207,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 208,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 209,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 210,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 211,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 212,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 213,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 214,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 215,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 216,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 217,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 218,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 219,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 220,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 221,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 222,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 223,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 224,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 225,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 226,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 227,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 228,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 229,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 230,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 231,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 232,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 233,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 234,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 235,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 236,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 237,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 238,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 239,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 240,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 241,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 242,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 243,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 244,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 245,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 246,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 247,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 248,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 249,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 250,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 251,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 252,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 253,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 254,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 255,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 256,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 257,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 258,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 259,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 260,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 261,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 262,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 263,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 264,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 265,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 266,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 267,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 268,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 269,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 270,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 271,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 272,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 273,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 274,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 275,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 276,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 277,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 278,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 279,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 280,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 281,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 282,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 283,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 284,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 285,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 286,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": false
+    },
+    {
+      "id": 287,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 288,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 289,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 290,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 291,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 292,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 293,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 294,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 295,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 296,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 297,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
+      "id": 298,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
+    },
+    {
+      "id": 299,
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 300,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
       "status": false
     }
   ]

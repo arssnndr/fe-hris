@@ -61,7 +61,10 @@
       <td>{{ row.uplink }}</td>
       <td>{{ row.keterangan }}</td>
       <td>
-        <button class="waves-effect waves-light right red darken-2">
+        <button
+          (click)="deleteData(row.id)"
+          class="waves-effect waves-light right red darken-2"
+        >
           <i class="material-icons" style="font-size: 15px">close</i>
         </button>
       </td>

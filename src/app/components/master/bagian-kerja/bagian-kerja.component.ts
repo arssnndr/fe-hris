@@ -54,6 +54,7 @@ export class BagianKerjaComponent implements OnInit {
           this.length = res.length;
           this.pageSize = 50;
           this.pageIndex = 0;
+          this.getPageData();
         });
     }
   }
@@ -93,5 +94,11 @@ export class BagianKerjaComponent implements OnInit {
     this.pageIndex = 0;
     this.getAllData();
     this.getPageData();
+  }
+
+  deleteData(id: number) {
+    this.api.deleteData(this.table + '/', id).subscribe(() => {
+      this.getPageData();
+    });
   }
 }
