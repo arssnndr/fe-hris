@@ -1,21 +1,23 @@
-mat-form-field {
-  width: 300px;
-}
-
 h2 {
-  text-align: center;
+  text-align: left;
+  margin: 0px 40px 20px;
 }
 
 mat-dialog-content {
-  margin: 0px 100px;
-  width: 300px;
+  padding: 0px;
+  margin: 0px 40px;
+  width: 410px;
+}
+
+mat-dialog-content div {
+  display: inline-flex;
 }
 
 input,
 select {
   margin-bottom: 5px;
   background-color: rgb(255, 255, 255);
-  width: 100%;
+  width: 300px;
   padding: 5px;
   border: 1px solid #00000050;
   border-radius: 2px;
@@ -32,4 +34,9 @@ mat-dialog-content.delete{
 
 img {
   margin: 10px 0px;
+}
+
+h6 {
+  margin: 10px;
+  padding: 0px;
 }

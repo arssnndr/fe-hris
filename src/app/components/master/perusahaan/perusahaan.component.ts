@@ -10,7 +10,7 @@ import { ModalPerusahaanComponent } from './modal-perusahaan/modal-perusahaan.co
   styleUrls: ['./perusahaan.component.css'],
 })
 export class PerusahaanComponent implements OnInit {
-  table = 'ms_perusahaan';
+  table = 'ms_perusahaan/';
   dataSearch = '';
   pageSize = 50;
   pageIndex = 0;
@@ -138,7 +138,7 @@ export class PerusahaanComponent implements OnInit {
   }
 
   deleteData(id: number) {
-    this.api.deleteData(this.table + '/', id).subscribe(() => {
+    this.api.deleteData(this.table + id).subscribe(() => {
       this.length = this.length - 1;
       this.getPageData();
     });

@@ -10,7 +10,7 @@ import { ModalBagianKerjaComponent } from './modal-bagian-kerja/modal-bagian-ker
   styleUrls: ['./bagian-kerja.component.css'],
 })
 export class BagianKerjaComponent implements OnInit {
-  table = 'ms_bagiankerja';
+  table = 'ms_bagiankerja/';
   dataSearch = '';
   pageSize = 50;
   pageIndex = 0;
@@ -18,7 +18,7 @@ export class BagianKerjaComponent implements OnInit {
   showFirstLastButtons = false;
   data!: any;
   length: any;
-  who = '';
+  catchResult: any;
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
@@ -29,6 +29,13 @@ export class BagianKerjaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
+      if (result === 'simpan') {
+        this.catchResult = this.api.catchData();
+        console.log(this.catchResult);
+        this.api.postData(this.table, this.catchResult).subscribe((res) => {
+          console.log(res);
+        });
+      }
     });
   }
 
@@ -112,7 +119,7 @@ export class BagianKerjaComponent implements OnInit {
   }
 
   deleteRow(id: number) {
-    this.api.deleteData(this.table + '/', id).subscribe(() => {
+    this.api.deleteData(this.table + id).subscribe(() => {
       this.length = this.length - 1;
       this.getPageData();
     });

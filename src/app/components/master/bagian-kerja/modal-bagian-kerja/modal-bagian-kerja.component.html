@@ -1,45 +1,45 @@
 <div *ngIf="isTambah">
   <h2 mat-dialog-title>Bagian Kerja</h2>
   <mat-dialog-content>
-    <div>
+    <div class="right">
       <h6>Jenis</h6>
-      <select #selected class="browser-default" [(ngModel)]="selectedJenis">
+      <select class="browser-default" [(ngModel)]="jenisValue">
         <option *ngFor="let raw of jenis" [value]="raw.value">
-          {{ raw.viewValue }}
+          {{ raw.value }}
         </option>
       </select>
     </div>
-    <div>
+    <div class="right">
       <h6>Lokasi</h6>
-      <select class="browser-default">
+      <select class="browser-default" [(ngModel)]="lokasiValue">
         <option *ngFor="let raw of lokasi" [value]="raw.value">
-          {{ raw.viewValue }}
+          {{ raw.value }}
         </option>
       </select>
     </div>
-    <div *ngIf="selectedJenis === 'departemen'">
+    <div *ngIf="jenisValue == 'Departemen'" class="right">
       <h6>Divisi</h6>
-      <select class="browser-default">
+      <select class="browser-default" [(ngModel)]="divisiValue">
         <option *ngFor="let raw of divisi" [value]="raw.value">
-          {{ raw.viewValue }}
+          {{ raw.value }}
         </option>
       </select>
     </div>
-    <div *ngIf="selectedJenis === 'sub-departemen'">
+    <div *ngIf="jenisValue == 'Sub Departemen'" class="right">
       <h6>Departemen</h6>
-      <select class="browser-default">
+      <select class="browser-default" [(ngModel)]="departemenValue">
         <option *ngFor="let raw of departemen" [value]="raw.value">
-          {{ raw.viewValue }}
+          {{ raw.value }}
         </option>
       </select>
     </div>
-    <div>
+    <div class="right">
       <h6>Deskripsi</h6>
-      <input type="text" class="browser-default" />
+      <input type="text" class="browser-default" [(ngModel)]="deskripsiValue" />
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close="simpan">Simpan</button>
+    <button mat-button mat-dialog-close="simpan" (click)="throwResult()">Simpan</button>
     <button mat-button mat-dialog-close="batal">Batal</button>
   </mat-dialog-actions>
 </div>
@@ -47,8 +47,11 @@
 <!-- Modal delete -->
 <div *ngIf="isDelete">
   <mat-dialog-content class="delete row">
-    <!-- <i class="material-icons col s2">warning</i> -->
-    <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger">
+    <img
+      class="left"
+      src="../../../../../assets/icon/danger.svg"
+      alt="icon-danger"
+    />
     <p class="col s10">Yakin data akan di void?</p>
   </mat-dialog-content>
   <mat-dialog-actions align="end">

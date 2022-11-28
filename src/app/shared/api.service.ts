@@ -26,7 +26,15 @@ export class ApiService {
     );
   }
 
-  deleteData(table: string, id: number) {
-    return this.http.delete<any>(env.api + table + id);
+  deleteData(data: any) {
+    return this.http.delete<any>(env.api + data);
+  }
+
+  postData(table: string, data: any) {
+    return this.http.post<any>(env.api + table, data).pipe(
+      map((res) => {
+        return res;
+      })
+    );
   }
 }

@@ -8,46 +8,6 @@
   ],
   "ms_bagiankerja": [
     {
-      "id": 25,
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 9,
-      "uplink": "",
-      "keterangan": "Electrik",
-      "status": true
-    },
-    {
-      "id": 26,
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 62,
-      "uplink": "",
-      "keterangan": "AR",
-      "status": false
-    },
-    {
-      "id": 27,
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 160,
-      "uplink": "IT Support",
-      "keterangan": "Faktur",
-      "status": true
-    },
-    {
-      "id": 28,
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 199,
-      "uplink": "QC",
-      "keterangan": "IT",
-      "status": false
-    },
-    {
-      "id": 29,
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 187,
-      "uplink": "Electrik",
-      "keterangan": "ACC",
-      "status": true
-    },
-    {
       "id": 30,
       "jenis_bagian": "Departemen",
       "id_lokasi": 113,

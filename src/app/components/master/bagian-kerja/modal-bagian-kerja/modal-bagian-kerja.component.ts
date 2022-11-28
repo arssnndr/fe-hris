@@ -1,10 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-
-interface Option {
-  value: string;
-  viewValue: string;
-}
+import { ApiService } from 'src/app/shared/api.service';
+import { BagianKerja } from '../bagian-kerja';
 
 @Component({
   selector: 'app-modal-bagian-kerja',
@@ -16,36 +13,41 @@ export class ModalBagianKerjaComponent implements OnInit {
   isDelete = false;
   isDepartemen = false;
   isSubDepartemen = false;
-  deskripsi: any;
 
-  selectedJenis = '';
+  jenisValue = '';
+  lokasiValue = '';
+  divisiValue = '';
+  departemenValue = '';
+  deskripsiValue = '';
+  forUplink = '';
 
-  jenis: Option[] = [
-    { value: 'divisi', viewValue: 'Divisi' },
-    { value: 'departemen', viewValue: 'Departemen' },
-    { value: 'sub-departemen', viewValue: 'Sub Departemen' },
+  jenis = [
+    { value: 'Divisi' },
+    { value: 'Departemen' },
+    { value: 'Sub Departemen' },
   ];
 
-  lokasi: Option[] = [
-    { value: 'tmsho', viewValue: 'The Master Steel HO' },
-    { value: 'tms1', viewValue: 'The Master Steel 1' },
-    { value: 'tms2', viewValue: 'The Master Steel 2' },
-    { value: 'tms3', viewValue: 'The Master Steel 3' },
+  lokasi = [
+    { value: 'The Master Steel HO' },
+    { value: 'The Master Steel 1' },
+    { value: 'The Master Steel 2' },
+    { value: 'The Master Steel 3' },
   ];
 
-  divisi: Option[] = [
-    { value: 'it', viewValue: 'IT' },
-    { value: 'ga', viewValue: 'GA' },
-    { value: 'finance', viewValue: 'Finance' },
+  divisi = [{ value: 'IT' }, { value: 'GA' }, { value: 'Finance' }];
+
+  departemen = [
+    { value: 'SAT' },
+    { value: 'IT Support' },
+    { value: 'Jaringan' },
   ];
 
-  departemen: Option[] = [
-    { value: 'sat', viewValue: 'SAT' },
-    { value: 'it-support', viewValue: 'IT Support' },
-    { value: 'jaringan', viewValue: 'Jaringan' },
-  ];
+  bagiankerja: BagianKerja | undefined;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { name: string }) {}
+  constructor(
+    private api: ApiService,
+    @Inject(MAT_DIALOG_DATA) public data: { name: string }
+  ) {}
 
   ngOnInit(): void {
     if (this.data.name === 'tambah') {
@@ -55,5 +57,19 @@ export class ModalBagianKerjaComponent implements OnInit {
       this.isTambah = false;
       this.isDelete = true;
     }
+  }
+
+  throwResult() {
+    this.divisiValue === ''
+      ? (this.forUplink = this.departemenValue)
+      : (this.forUplink = this.divisiValue);
+    this.bagiankerja = {
+      jenis_bagian: this.jenisValue,
+      // id_lokasi: this.lokasiValue,
+      id_lokasi: Math.floor(Math.random() * 300 + 1),
+      uplink: this.forUplink,
+      keterangan: this.deskripsiValue,
+    };
+    this.api.throwData(this.bagiankerja);
   }
 }
