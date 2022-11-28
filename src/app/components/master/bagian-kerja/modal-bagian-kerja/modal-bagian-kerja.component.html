@@ -2,7 +2,7 @@
 <mat-dialog-content>
   <div>
     <h6>Jenis</h6>
-    <select class="browser-default" [(ngModel)]="selectedJenis">
+    <select #selected class="browser-default" [(ngModel)]="selectedJenis">
       <option *ngFor="let raw of jenis" [value]="raw.value">
         {{ raw.viewValue }}
       </option>
@@ -11,25 +11,25 @@
   <div>
     <h6>Lokasi</h6>
     <select class="browser-default">
-      <option value="The Master Steel HO">The Master Steel HO</option>
-      <option value="The Master Steel 1">The Master Steel 1</option>
-      <option value="The Master Steel 2">The Master Steel 2</option>
+      <option *ngFor="let raw of lokasi" [value]="raw.value">
+        {{ raw.viewValue }}
+      </option>
     </select>
   </div>
   <div *ngIf="selectedJenis === 'departemen'">
     <h6>Divisi</h6>
     <select class="browser-default">
-      <option value="IT">IT</option>
-      <option value="GA">GA</option>
-      <option value="Finance">Finance</option>
+      <option *ngFor="let raw of divisi" [value]="raw.value">
+        {{ raw.viewValue }}
+      </option>
     </select>
   </div>
   <div *ngIf="selectedJenis === 'sub-departemen'">
     <h6>Departemen</h6>
     <select class="browser-default">
-      <option value="SAT">SAT</option>
-      <option value="IT Support">IT Support</option>
-      <option value="Jaringan">Jaringan</option>
+      <option *ngFor="let raw of departemen" [value]="raw.value">
+        {{ raw.viewValue }}
+      </option>
     </select>
   </div>
   <div>

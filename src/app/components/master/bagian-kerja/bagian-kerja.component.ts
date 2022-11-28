@@ -98,6 +98,7 @@ export class BagianKerjaComponent implements OnInit {
 
   deleteData(id: number) {
     this.api.deleteData(this.table + '/', id).subscribe(() => {
+      this.length = this.length - 1;
       this.getPageData();
     });
   }

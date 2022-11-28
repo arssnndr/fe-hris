@@ -8,62 +8,6 @@
   ],
   "ms_bagiankerja": [
     {
-      "id": 9,
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 93,
-      "uplink": "Faktur",
-      "keterangan": "Electrik",
-      "status": true
-    },
-    {
-      "id": 11,
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 53,
-      "uplink": "",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "id": 15,
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 103,
-      "uplink": "AP",
-      "keterangan": "IT Support Plant",
-      "status": false
-    },
-    {
-      "id": 16,
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 229,
-      "uplink": "Finance",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "id": 17,
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 128,
-      "uplink": "",
-      "keterangan": "ACC",
-      "status": false
-    },
-    {
-      "id": 18,
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 216,
-      "uplink": "Electrik",
-      "keterangan": "Produksi",
-      "status": true
-    },
-    {
-      "id": 19,
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 192,
-      "uplink": "",
-      "keterangan": "AR",
-      "status": false
-    },
-    {
       "id": 20,
       "jenis_bagian": "Departemen",
       "id_lokasi": 197,
@@ -80,27 +24,11 @@
       "status": true
     },
     {
-      "id": 22,
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 150,
-      "uplink": "IT Support",
-      "keterangan": "Mechanic",
-      "status": false
-    },
-    {
       "id": 23,
       "jenis_bagian": "Sub Departemen",
       "id_lokasi": 244,
       "uplink": "IT Support",
       "keterangan": "AR",
-      "status": true
-    },
-    {
-      "id": 24,
-      "jenis_bagian": "Divisi",
-      "id_lokasi": 48,
-      "uplink": "",
-      "keterangan": "Electrik",
       "status": true
     },
     {
@@ -182,14 +110,6 @@
       "uplink": "",
       "keterangan": "Electrik",
       "status": false
-    },
-    {
-      "id": 35,
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 153,
-      "uplink": "Faktur",
-      "keterangan": "Mechanic",
-      "status": true
     },
     {
       "id": 36,

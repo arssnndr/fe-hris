@@ -7,7 +7,16 @@ import { environment as env } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ApiService {
+  public throwCatchData: any;
   constructor(private http: HttpClient) {}
+
+  throwData(data: any) {
+    this.throwCatchData = data;
+  }
+
+  catchData() {
+    return this.throwCatchData;
+  }
 
   getData(data: string): Observable<any> {
     return this.http.get<any>(env.api + data).pipe(
@@ -18,10 +27,6 @@ export class ApiService {
   }
 
   deleteData(table: string, id: number) {
-    return this.http.delete<any>(env.api + table + id).pipe(
-      map((res) => {
-        return res;
-      })
-    );
+    return this.http.delete<any>(env.api + table + id);
   }
 }
