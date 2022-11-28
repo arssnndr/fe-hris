@@ -136,4 +136,11 @@ export class PerusahaanComponent implements OnInit {
     this.getAllData();
     this.getPageData();
   }
+
+  deleteData(id: number) {
+    this.api.deleteData(this.table + '/', id).subscribe(() => {
+      this.length = this.length - 1;
+      this.getPageData();
+    });
+  }
 }

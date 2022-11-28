@@ -56,12 +56,15 @@
   </thead>
   <tbody>
     <tr *ngFor="let row of data">
-      <td>{{row.id}}</td>
-      <td>{{row.inisial}}</td>
-      <td>{{row.nama_perusahaan}}</td>
-      <td>{{row.alamat_perusahaan}}</td>
+      <td>{{ row.id }}</td>
+      <td>{{ row.inisial }}</td>
+      <td>{{ row.nama_perusahaan }}</td>
+      <td>{{ row.alamat_perusahaan }}</td>
       <td>
-        <button class="waves-effect waves-light right red darken-2">
+        <button
+          (click)="deleteData(row.id)"
+          class="waves-effect waves-light right red darken-2"
+        >
           <i class="material-icons" style="font-size: 15px">close</i>
         </button>
       </td>

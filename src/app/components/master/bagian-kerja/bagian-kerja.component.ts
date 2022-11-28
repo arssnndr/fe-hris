@@ -18,14 +18,29 @@ export class BagianKerjaComponent implements OnInit {
   showFirstLastButtons = false;
   data!: any;
   length: any;
+  who = '';
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
-  openDialog() {
-    const dialogRef = this.dialog.open(ModalBagianKerjaComponent);
+  tambahData() {
+    const dialogRef = this.dialog.open(ModalBagianKerjaComponent, {
+      data: { name: 'tambah' },
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  deleteData(id: number) {
+    const dialogRef = this.dialog.open(ModalBagianKerjaComponent, {
+      data: { name: 'delete' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'ya') {
+        this.deleteRow(id);
+      }
     });
   }
 
@@ -96,7 +111,7 @@ export class BagianKerjaComponent implements OnInit {
     this.getPageData();
   }
 
-  deleteData(id: number) {
+  deleteRow(id: number) {
     this.api.deleteData(this.table + '/', id).subscribe(() => {
       this.length = this.length - 1;
       this.getPageData();

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 interface Option {
   value: string;
@@ -11,6 +12,8 @@ interface Option {
   styleUrls: ['./modal-bagian-kerja.component.css'],
 })
 export class ModalBagianKerjaComponent implements OnInit {
+  isTambah = true;
+  isDelete = false;
   isDepartemen = false;
   isSubDepartemen = false;
   deskripsi: any;
@@ -42,7 +45,15 @@ export class ModalBagianKerjaComponent implements OnInit {
     { value: 'jaringan', viewValue: 'Jaringan' },
   ];
 
-  constructor() {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { name: string }) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.data.name === 'tambah') {
+      this.isTambah = true;
+      this.isDelete = false;
+    } else if (this.data.name === 'delete') {
+      this.isTambah = false;
+      this.isDelete = true;
+    }
+  }
 }

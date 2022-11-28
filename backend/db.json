@@ -8,30 +8,6 @@
   ],
   "ms_bagiankerja": [
     {
-      "id": 20,
-      "jenis_bagian": "Departemen",
-      "id_lokasi": 197,
-      "uplink": "ACC",
-      "keterangan": "QC",
-      "status": false
-    },
-    {
-      "id": 21,
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 36,
-      "uplink": "IT Support Plant",
-      "keterangan": "Faktur",
-      "status": true
-    },
-    {
-      "id": 23,
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": 244,
-      "uplink": "IT Support",
-      "keterangan": "AR",
-      "status": true
-    },
-    {
       "id": 25,
       "jenis_bagian": "Divisi",
       "id_lokasi": 9,
@@ -2226,20 +2202,6 @@
   ],
   "ms_perusahaan": [
     {
-      "id": 1,
-      "inisial": "IJP",
-      "nama_perusahaan": "Indika Jasa Parama",
-      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
-      "status": true
-    },
-    {
-      "id": 2,
-      "inisial": "IJP",
-      "nama_perusahaan": "Indika Jasa Parama",
-      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
-      "status": true
-    },
-    {
       "id": 3,
       "inisial": "RIW",
       "nama_perusahaan": "Royalindo Investa Wijaya",
@@ -2555,25 +2517,11 @@
       "status": false
     },
     {
-      "id": 48,
-      "inisial": "DAP",
-      "nama_perusahaan": "Donata Agung Perkasa",
-      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
-      "status": false
-    },
-    {
       "id": 49,
       "inisial": "RIW",
       "nama_perusahaan": "Royalindo Investa Wijaya",
       "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
       "status": false
-    },
-    {
-      "id": 50,
-      "inisial": "TMS",
-      "nama_perusahaan": "The Master Steel Manufactory",
-      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
-      "status": true
     },
     {
       "id": 51,
