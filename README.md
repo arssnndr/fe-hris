@@ -4,24 +4,37 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
-## Code scaffolding
+## Json-server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm run server` for run fake API.
 
-## Build
+- ## API Routes
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<!-- Get data per table `http://localhost:3000/data_table` -->
 
-## Running unit tests
+- ### Plural routes
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  - GET http://localhost:3000/ms_bagiankerja
+  - GET http://localhost:3000/ms_bagiankerja/1
+  - POST http://localhost:3000/ms_bagiankerja
+  - PUT http://localhost:3000/ms_bagiankerja/1
+  - PATCH http://localhost:3000/ms_bagiankerja/1
+  - DELETE http://localhost:3000/ms_bagiankerja/1
 
-## Running end-to-end tests
+- ### Singular routes
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  - GET http://localhost:3000/ms_bagiankerja
+  - POST http://localhost:3000/ms_bagiankerja
+  - PUT http://localhost:3000/ms_bagiankerja
+  - PATCH http://localhost:3000/ms_bagiankerja
 
-## Further help
+- ### Paginate
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  - GET http://localhost:3000/ms_bagiankerja?\_page=7
+  - GET http://localhost:3000/ms_bagiankerja?\_page=7&\_limit=20
+
+- ### Filter
+
+  - GET http://localhost:3000/ms_bagiankerja?keterangan_like=server
