@@ -1,0 +1,80 @@
+h2 {
+    text-align: left;
+    margin: 0px 40px 20px;
+  }
+  
+  mat-dialog-content {
+    padding: 0px;
+    margin: 0px 40px;
+    width: 460px;
+  }
+  
+  mat-dialog-content div {
+    display: inline-flex;
+  }
+  
+  mat-dialog-content.delete {
+    padding: 0px;
+    margin: 0px 40px;
+  }
+  
+  input {
+    margin-bottom: 5px;
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #00000050;
+    border-radius: 2px;
+    height: 3rem;
+  }
+  
+  textarea {
+    margin-bottom: 5px;
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #00000050;
+    border-radius: 2px;
+    height: 90px;
+  }
+  
+  div.alamat{
+      height: 100px;
+  }
+  
+  mat-dialog-actions {
+    padding: 0px;
+    margin: 0px 45px;
+    width: 410px;
+  }
+  
+  img {
+    margin: 10px 0px;
+  }
+  
+  h6 {
+    margin: 10px;
+    padding: 0px;
+  }
+  
+  button.tidak,
+  button.batal {
+    color: #d85d5d;
+    border: 1px solid #d85d5d;
+    border-radius: 1px;
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+  }
+  
+  button.ya,
+  button.simpan {
+    color: #ffffff;
+    background-color: #d85d5d;
+    border: 1px solid #d85d5d;
+    border-radius: 1px;
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+  }
+  

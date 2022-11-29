@@ -42,6 +42,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ModalBagianKerjaComponent } from './components/master/bagian-kerja/modal-bagian-kerja/modal-bagian-kerja.component';
 import { ModalPerusahaanComponent } from './components/master/perusahaan/modal-perusahaan/modal-perusahaan.component';
 import { ModalLokasiComponent } from './components/master/lokasi/modal-lokasi/modal-lokasi.component';
+import { ModalUserComponent } from './components/master/user/modal-user/modal-user.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ModalLokasiComponent } from './components/master/lokasi/modal-lokasi/mo
     ModalBagianKerjaComponent,
     ModalPerusahaanComponent,
     ModalLokasiComponent,
+    ModalUserComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

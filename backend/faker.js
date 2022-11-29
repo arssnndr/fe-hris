@@ -5,6 +5,7 @@ const database = {
   ms_bagiankerja: [],
   ms_perusahaan: [],
   ms_lokasi: [],
+  ms_userid: [],
 };
 
 const loop = 250;
@@ -145,6 +146,24 @@ for (var i = 1; i <= loop; i++) {
     keterangan: keterangan,
     inisial_lokasi: inisial_lokasi,
     alamat_lokasi: alamat_lokasi,
+    status: status,
+  });
+}
+
+// ms_userid
+for (var i = 1; i <= loop; i++) {
+  let username = faker.internet.userName();
+  let email = faker.internet.email();
+  let id_lokasi = getRandomInt(loop);
+  let id_perusahaan = getRandomInt(loop);
+  let status = faker.datatype.boolean();
+
+  database.ms_userid.push({
+    id: i,
+    username: username,
+    email: email,
+    id_lokasi: id_lokasi,
+    id_perusahaan: id_perusahaan,
     status: status,
   });
 }
