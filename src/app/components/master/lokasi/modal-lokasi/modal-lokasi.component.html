@@ -1,0 +1,67 @@
+<!-- Modal tambah data -->
+<div *ngIf="isTambah">
+    <h2 mat-dialog-title>Perusahaan</h2>
+    <mat-dialog-content>
+      <div class="right">
+        <h6>ID Lokasi</h6>
+        <input
+          type="text"
+          class="browser-default"
+          value="{{ idValue }}"
+          disabled
+        />
+      </div>
+      <div class="right">
+        <h6>Lokasi</h6>
+        <input [(ngModel)]="keteranganValue" type="text" class="browser-default" />
+      </div>
+      <div class="right">
+        <h6>Inisial</h6>
+        <input [(ngModel)]="inisialValue" type="text" class="browser-default" />
+      </div>
+      <div class="right alamat">
+        <h6>Alamat</h6>
+        <textarea [(ngModel)]="alamatValue"></textarea>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button
+        type="submit"
+        class="simpan waves-effect waves-light"
+        mat-dialog-close="simpan"
+        (click)="throwResult()"
+      >
+        Simpan
+      </button>
+      <button
+        class="batal waves-effect waves-light transparent"
+        mat-dialog-close="batal"
+      >
+        Batal
+      </button>
+    </mat-dialog-actions>
+  </div>
+  
+  <!-- Modal delete -->
+  <div *ngIf="isDelete">
+    <mat-dialog-content class="delete">
+      <img
+        class="left"
+        src="../../../../../assets/icon/danger.svg"
+        alt="icon-danger"
+      />
+      <p style="padding-left: 55px">Yakin data akan di void?</p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button class="ya waves-effect waves-light" mat-dialog-close="ya">
+        Ya
+      </button>
+      <button
+        class="tidak waves-effect waves-dark transparent"
+        mat-dialog-close="tidak"
+      >
+        Tidak
+      </button>
+    </mat-dialog-actions>
+  </div>
+  

@@ -41,6 +41,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalBagianKerjaComponent } from './components/master/bagian-kerja/modal-bagian-kerja/modal-bagian-kerja.component';
 import { ModalPerusahaanComponent } from './components/master/perusahaan/modal-perusahaan/modal-perusahaan.component';
+import { ModalLokasiComponent } from './components/master/lokasi/modal-lokasi/modal-lokasi.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ModalPerusahaanComponent } from './components/master/perusahaan/modal-p
     GantiNipComponent,
     ModalBagianKerjaComponent,
     ModalPerusahaanComponent,
+    ModalLokasiComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

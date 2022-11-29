@@ -1,8 +1,13 @@
 const { faker } = require("@faker-js/faker");
 
-const database = { login: [], ms_bagiankerja: [], ms_perusahaan: [] };
+const database = {
+  login: [],
+  ms_bagiankerja: [],
+  ms_perusahaan: [],
+  ms_lokasi: [],
+};
 
-const loop = 300;
+const loop = 250;
 
 // const id = faker.datatype.uuid();
 const username = faker.internet.userName();
@@ -74,22 +79,22 @@ for (var i = 1; i <= loop; i++) {
 // ms_perusahaan
 for (var i = 1; i <= loop; i++) {
   const inisial = faker.helpers.arrayElement(["IJP", "TMS", "RIW", "DAP"]);
-  let nama_perusahaan = "";
+  let keterangan = "";
 
-  let alamat_perusahaan = "";
+  let alamat_lokasi = "";
 
   if (inisial === "IJP") {
-    nama_perusahaan = "Indika Jasa Parama";
-    alamat_perusahaan = "Jl. Raya Bekasi KM.21, Ruko PTC Block B8";
+    keterangan = "Indika Jasa Parama";
+    alamat_lokasi = "Jl. Raya Bekasi KM.21, Ruko PTC Block B8";
   } else if (inisial === "TMS") {
-    nama_perusahaan = "The Master Steel Manufactory";
-    alamat_perusahaan = "Jl. HOS Cokroaminoto No.49";
+    keterangan = "The Master Steel Manufactory";
+    alamat_lokasi = "Jl. HOS Cokroaminoto No.49";
   } else if (inisial === "RIW") {
-    nama_perusahaan = "Royalindo Investa Wijaya";
-    alamat_perusahaan = "Jl. HOS Cokroaminoto No.49";
+    keterangan = "Royalindo Investa Wijaya";
+    alamat_lokasi = "Jl. HOS Cokroaminoto No.49";
   } else {
-    nama_perusahaan = "Donata Agung Perkasa";
-    alamat_perusahaan = "Jl. KK Mas Mansyur No.121";
+    keterangan = "Donata Agung Perkasa";
+    alamat_lokasi = "Jl. KK Mas Mansyur No.121";
   }
 
   const status = faker.datatype.boolean();
@@ -97,8 +102,49 @@ for (var i = 1; i <= loop; i++) {
   database.ms_perusahaan.push({
     id: i,
     inisial: inisial,
-    nama_perusahaan: nama_perusahaan,
-    alamat_perusahaan: alamat_perusahaan,
+    keterangan: keterangan,
+    alamat_lokasi: alamat_lokasi,
+    status: status,
+  });
+}
+
+// ms_lokasi
+for (var i = 1; i <= loop; i++) {
+  const inisial_lokasi = faker.helpers.arrayElement([
+    "TMS 1",
+    "TMS 2",
+    "TMS 3",
+    "TMS 4",
+    "TMS HO",
+  ]);
+  let keterangan = "";
+
+  let alamat_lokasi = "";
+
+  if (inisial_lokasi === "TMS 1") {
+    keterangan = "The Master Steel 1";
+    alamat_lokasi = "Jl. Pegangsaan 2 No.1";
+  } else if (inisial_lokasi === "TMS 2") {
+    keterangan = "The Master Steel 2";
+    alamat_lokasi = "Jl. Alpha Maspion - KIM V, Manyar";
+  } else if (inisial_lokasi === "TMS 3") {
+    keterangan = "The Master Steel 3";
+    alamat_lokasi = "Jl. Raya Bekasi km.21 Pulogadung";
+  } else if (inisial_lokasi === "TMS 4") {
+    keterangan = "The Master Steel 4";
+    alamat_lokasi = "Jl. Pulo Lentut No.3 Pulogadung";
+  } else if (inisial_lokasi === "TMS HO") {
+    keterangan = "The Master Steel HO";
+    alamat_lokasi = "Jl. HOS Cokroaminoto No.49";
+  }
+
+  const status = faker.datatype.boolean();
+
+  database.ms_lokasi.push({
+    id: i,
+    keterangan: keterangan,
+    inisial_lokasi: inisial_lokasi,
+    alamat_lokasi: alamat_lokasi,
     status: status,
   });
 }
