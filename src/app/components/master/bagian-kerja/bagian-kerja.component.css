@@ -23,16 +23,31 @@ input[type="text"] {
   padding: 12px 20px 12px 40px;
 }
 
+button.download {
+  color: #d85d5d;
+  border: 1px solid #d85d5d;
+  border-radius: 1px;
+  width: 100px;
+  height: 50px;
+  margin: 5px;
+}
+
+button.tambah {
+  color: #ffffff;
+  background-color: #d85d5d;
+  border: 1px solid #d85d5d;
+  border-radius: 1px;
+  width: 100px;
+  height: 50px;
+  margin: 5px;
+}
+
 div.col {
   padding: 0px;
 }
 
 li a {
   margin: 5px;
-}
-
-a.waves-dark {
-  border: 1px solid #d32f2f;
 }
 
 .nav {
@@ -76,20 +91,4 @@ td button {
 
 td:last-child {
   padding: 5px;
-}
-
-a.download {
-  color: black;
-  text-transform: none;
-  padding: 8px;
-  height: 50px;
-  width: 100px;
-}
-
-a.tambah {
-  background-color: #d85d5d;
-  text-transform: none;
-  padding: 8px;
-  height: 50px;
-  width: 100px;
 }

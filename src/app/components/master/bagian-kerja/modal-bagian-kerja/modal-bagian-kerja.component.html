@@ -39,23 +39,32 @@
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close="simpan" (click)="throwResult()">Simpan</button>
-    <button mat-button mat-dialog-close="batal">Batal</button>
+    <button class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+      Simpan
+    </button>
+    <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">Batal</button>
   </mat-dialog-actions>
 </div>
 
 <!-- Modal delete -->
 <div *ngIf="isDelete">
-  <mat-dialog-content class="delete row">
+  <mat-dialog-content class="delete">
     <img
       class="left"
       src="../../../../../assets/icon/danger.svg"
       alt="icon-danger"
     />
-    <p class="col s10">Yakin data akan di void?</p>
+    <p style="padding-left: 55px">Yakin data akan di void?</p>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close="ya">Ya</button>
-    <button mat-button mat-dialog-close="tidak">Tidak</button>
+    <button class="ya waves-effect waves-light" mat-dialog-close="ya">
+      Ya
+    </button>
+    <button
+      class="tidak waves-effect waves-dark transparent"
+      mat-dialog-close="tidak"
+    >
+      Tidak
+    </button>
   </mat-dialog-actions>
 </div>

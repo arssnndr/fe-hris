@@ -20,14 +20,46 @@ export class PerusahaanComponent implements OnInit {
   length: any;
   inisial = true;
   perusahaan = false;
+  catchResult: any;
+  getMaxId = 0;
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
-  openDialog() {
-    const dialogRef = this.dialog.open(ModalPerusahaanComponent);
+  tambahData() {
+    const dialogRef = this.dialog.open(ModalPerusahaanComponent, {
+      data: { name: 'tambah', id: this.getMaxId + 1 },
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
+      if (result === 'simpan') {
+        this.catchResult = this.api.catchData();
+        this.api.postData(this.table, this.catchResult).subscribe((res) => {
+          this.api.getData(this.table).subscribe((res) => {
+            this.getMaxId = res[res.length - 1].id;
+          });
+          this.length = this.length + 1;
+          this.getPageData();
+        });
+      }
+    });
+  }
+
+  deleteData(id: number) {
+    const dialogRef = this.dialog.open(ModalPerusahaanComponent, {
+      data: { name: 'delete' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'ya') {
+        this.api.deleteData(this.table + id).subscribe(() => {
+          this.api.getData(this.table).subscribe((res) => {
+            this.getMaxId = res[res.length - 1].id;
+          });
+          this.length = this.length - 1;
+          this.getPageData();
+        });
+      }
     });
   }
 
@@ -44,6 +76,7 @@ export class PerusahaanComponent implements OnInit {
   getAllData() {
     if (this.dataSearch.length === 0) {
       this.api.getData(this.table).subscribe((res) => {
+        this.getMaxId = res[res.length - 1].id;
         this.length = res.length;
         this.pageSize = 50;
         this.pageIndex = 0;
@@ -135,12 +168,5 @@ export class PerusahaanComponent implements OnInit {
     this.pageIndex = 0;
     this.getAllData();
     this.getPageData();
-  }
-
-  deleteData(id: number) {
-    this.api.deleteData(this.table + id).subscribe(() => {
-      this.length = this.length - 1;
-      this.getPageData();
-    });
   }
 }

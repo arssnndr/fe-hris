@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
-import { BagianKerja } from '../bagian-kerja';
+import { BagianKerja } from '../../../../interfaces/bagian-kerja';
 
 @Component({
   selector: 'app-modal-bagian-kerja',

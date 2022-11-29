@@ -13,6 +13,17 @@ mat-dialog-content div {
   display: inline-flex;
 }
 
+mat-dialog-content.delete{
+  padding: 0px;
+  margin: 0px 40px;
+}
+
+mat-dialog-actions {
+  padding: 0px;
+  margin: 0px 45px;
+  width: 410px;
+}
+
 input,
 select {
   margin-bottom: 5px;
@@ -24,14 +35,6 @@ select {
   height: 3rem;
 }
 
-i {
-  margin: 15px 0px;
-}
-
-mat-dialog-content.delete{
-  margin: 0px;
-}
-
 img {
   margin: 10px 0px;
 }
@@ -39,4 +42,23 @@ img {
 h6 {
   margin: 10px;
   padding: 0px;
+}
+
+button.tidak, button.batal {
+  color: #d85d5d;
+  border: 1px solid #d85d5d;
+  border-radius: 1px;
+  width: 100px;
+  height: 50px;
+  margin: 5px;
+}
+
+button.ya, button.simpan {
+  color: #ffffff;
+  background-color: #d85d5d;
+  border: 1px solid #d85d5d;
+  border-radius: 1px;
+  width: 100px;
+  height: 50px;
+  margin: 5px;
 }

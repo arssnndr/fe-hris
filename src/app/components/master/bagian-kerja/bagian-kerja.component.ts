@@ -31,9 +31,9 @@ export class BagianKerjaComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        console.log(this.catchResult);
         this.api.postData(this.table, this.catchResult).subscribe((res) => {
-          console.log(res);
+          this.length = this.length + 1;
+          this.getPageData();
         });
       }
     });
@@ -46,7 +46,10 @@ export class BagianKerjaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'ya') {
-        this.deleteRow(id);
+        this.api.deleteData(this.table + id).subscribe(() => {
+          this.length = this.length - 1;
+          this.getPageData();
+        });
       }
     });
   }
@@ -116,12 +119,5 @@ export class BagianKerjaComponent implements OnInit {
     this.pageIndex = 0;
     this.getAllData();
     this.getPageData();
-  }
-
-  deleteRow(id: number) {
-    this.api.deleteData(this.table + id).subscribe(() => {
-      this.length = this.length - 1;
-      this.getPageData();
-    });
   }
 }
