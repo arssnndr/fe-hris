@@ -6,6 +6,7 @@ const database = {
   ms_perusahaan: [],
   ms_lokasi: [],
   ms_userid: [],
+  ms_karyawan: [],
 };
 
 const loop = 250;
@@ -152,7 +153,7 @@ for (var i = 1; i <= loop; i++) {
 
 // ms_userid
 for (var i = 1; i <= loop; i++) {
-  let username = faker.internet.userName();
+  let username = faker.name.fullName();
   let email = faker.internet.email();
   let id_lokasi = getRandomInt(loop);
   let id_perusahaan = getRandomInt(loop);
@@ -165,6 +166,24 @@ for (var i = 1; i <= loop; i++) {
     id_lokasi: id_lokasi,
     id_perusahaan: id_perusahaan,
     status: status,
+  });
+}
+
+// ms_karyawan
+for (var i = 1; i <= loop; i++) {
+  let nama_lengkap = faker.name.fullName();
+  let id_departemen = getRandomInt(loop);
+  let jabatan = faker.name.jobTitle();
+  let id_perusahaan = getRandomInt(loop);
+  let id_lokasi = getRandomInt(loop);
+
+  database.ms_karyawan.push({
+    id: i,
+    nama_lengkap: nama_lengkap,
+    id_departemen: id_departemen,
+    jabatan: jabatan,
+    id_perusahaan: id_perusahaan,
+    id_lokasi: id_lokasi,
   });
 }
 

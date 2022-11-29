@@ -43,6 +43,7 @@ import { ModalBagianKerjaComponent } from './components/master/bagian-kerja/moda
 import { ModalPerusahaanComponent } from './components/master/perusahaan/modal-perusahaan/modal-perusahaan.component';
 import { ModalLokasiComponent } from './components/master/lokasi/modal-lokasi/modal-lokasi.component';
 import { ModalUserComponent } from './components/master/user/modal-user/modal-user.component';
+import { ModalKaryawanComponent } from './components/master/karyawan/modal-karyawan/modal-karyawan.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ModalUserComponent } from './components/master/user/modal-user/modal-us
     ModalPerusahaanComponent,
     ModalLokasiComponent,
     ModalUserComponent,
+    ModalKaryawanComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
