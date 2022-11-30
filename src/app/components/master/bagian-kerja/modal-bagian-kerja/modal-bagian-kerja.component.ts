@@ -9,13 +9,14 @@ import { BagianKerja } from '../../../../interfaces/bagian-kerja';
   styleUrls: ['./modal-bagian-kerja.component.css'],
 })
 export class ModalBagianKerjaComponent implements OnInit {
-  isTambah = true;
+  isTambah = false;
   isDelete = false;
+  isEdit = false;
   isDepartemen = false;
   isSubDepartemen = false;
 
   jenisValue = '';
-  lokasiValue = '';
+  lokasiValue = 0;
   divisiValue = '';
   departemenValue = '';
   deskripsiValue = '';
@@ -46,30 +47,57 @@ export class ModalBagianKerjaComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string }
+    @Inject(MAT_DIALOG_DATA) public data: { name: string; edit: any }
   ) {}
 
   ngOnInit(): void {
     if (this.data.name === 'tambah') {
       this.isTambah = true;
       this.isDelete = false;
+      this.isEdit = false;
     } else if (this.data.name === 'delete') {
       this.isTambah = false;
       this.isDelete = true;
+      this.isEdit = false;
+    } else if (this.data.name === 'edit') {
+      this.isTambah = false;
+      this.isDelete = false;
+      this.isEdit = true;
+
+      this.jenisValue = this.data.edit.jenis_bagian;
+      this.lokasiValue = this.data.edit.id_lokasi;
+      this.forUplink = this.data.edit.uplink;
+
+      // // get lokasi name from id lokasi
+      // this.api
+      //   .getData('ms_lokasi/' + this.data.edit.id_lokasi)
+      //   .subscribe((res) => {
+      //     this.lokasiValue = res.inisial_lokasi;
+      //   });
     }
   }
 
+  onKey(event: any) {
+    this.deskripsiValue = event.value;
+  }
+
   throwResult() {
-    this.divisiValue === ''
-      ? (this.forUplink = this.departemenValue)
-      : (this.forUplink = this.divisiValue);
+    if (this.data.name === 'tambah') {
+      this.divisiValue === ''
+        ? (this.forUplink = this.departemenValue)
+        : (this.forUplink = this.divisiValue);
+    }
     this.bagiankerja = {
       jenis_bagian: this.jenisValue,
-      // id_lokasi: this.lokasiValue,
-      id_lokasi: Math.floor(Math.random() * 300 + 1),
+      id_lokasi: this.lokasiValue,
+      // id_lokasi: Math.floor(Math.random() * 300 + 1),
       uplink: this.forUplink,
       keterangan: this.deskripsiValue,
     };
-    this.api.throwData(this.bagiankerja);
+    if (this.data.name === 'edit') {
+      this.api.throwData({ data: this.bagiankerja, id: this.data.edit.id });
+    } else {
+      this.api.throwData(this.bagiankerja);
+    }
   }
 }

@@ -19,6 +19,7 @@ export class BagianKerjaComponent implements OnInit {
   data!: any;
   length: any;
   catchResult: any;
+  lokasiValue = '';
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
@@ -28,11 +29,28 @@ export class BagianKerjaComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         this.api.postData(this.table, this.catchResult).subscribe((res) => {
           this.length = this.length + 1;
+          this.getPageData();
+        });
+      }
+    });
+  }
+
+  editData(data: any) {
+    const dialogRef = this.dialog.open(ModalBagianKerjaComponent, {
+      data: { name: 'edit', edit: data },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'simpan') {
+        this.catchResult = this.api.catchData();
+        let data = this.catchResult.data;
+        let id = this.catchResult.id;
+        this.api.updateData(this.table, data, id).subscribe((res) => {
+          console.log(res);
           this.getPageData();
         });
       }

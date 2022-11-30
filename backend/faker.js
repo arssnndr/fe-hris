@@ -81,22 +81,22 @@ for (var i = 1; i <= loop; i++) {
 // ms_perusahaan
 for (var i = 1; i <= loop; i++) {
   const inisial = faker.helpers.arrayElement(["IJP", "TMS", "RIW", "DAP"]);
-  let keterangan = "";
+  let nama_perusahaan = "";
 
-  let alamat_lokasi = "";
+  let alamat_perusahaan = "";
 
   if (inisial === "IJP") {
-    keterangan = "Indika Jasa Parama";
-    alamat_lokasi = "Jl. Raya Bekasi KM.21, Ruko PTC Block B8";
+    nama_perusahaan = "Indika Jasa Parama";
+    alamat_perusahaan = "Jl. Raya Bekasi KM.21, Ruko PTC Block B8";
   } else if (inisial === "TMS") {
-    keterangan = "The Master Steel Manufactory";
-    alamat_lokasi = "Jl. HOS Cokroaminoto No.49";
+    nama_perusahaan = "The Master Steel Manufactory";
+    alamat_perusahaan = "Jl. HOS Cokroaminoto No.49";
   } else if (inisial === "RIW") {
-    keterangan = "Royalindo Investa Wijaya";
-    alamat_lokasi = "Jl. HOS Cokroaminoto No.49";
+    nama_perusahaan = "Royalindo Investa Wijaya";
+    alamat_perusahaan = "Jl. HOS Cokroaminoto No.49";
   } else {
-    keterangan = "Donata Agung Perkasa";
-    alamat_lokasi = "Jl. KK Mas Mansyur No.121";
+    nama_perusahaan = "Donata Agung Perkasa";
+    alamat_perusahaan = "Jl. KK Mas Mansyur No.121";
   }
 
   const status = faker.datatype.boolean();
@@ -104,8 +104,8 @@ for (var i = 1; i <= loop; i++) {
   database.ms_perusahaan.push({
     id: i,
     inisial: inisial,
-    keterangan: keterangan,
-    alamat_lokasi: alamat_lokasi,
+    nama_perusahaan: nama_perusahaan,
+    alamat_perusahaan: alamat_perusahaan,
     status: status,
   });
 }

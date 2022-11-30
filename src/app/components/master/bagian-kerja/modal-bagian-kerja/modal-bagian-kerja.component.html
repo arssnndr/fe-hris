@@ -1,3 +1,4 @@
+<!-- Modal tambah -->
 <div *ngIf="isTambah">
   <h2 mat-dialog-title>Bagian Kerja</h2>
   <mat-dialog-content>
@@ -39,10 +40,86 @@
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+    <button
+      class="simpan waves-effect waves-light"
+      mat-dialog-close="simpan"
+      (click)="throwResult()"
+    >
       Simpan
     </button>
-    <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">Batal</button>
+    <button
+      class="batal waves-effect waves-light transparent"
+      mat-dialog-close="batal"
+    >
+      Batal
+    </button>
+  </mat-dialog-actions>
+</div>
+
+<!-- Modal edit -->
+<div *ngIf="isEdit">
+  <h2 mat-dialog-title>Bagian Kerja</h2>
+  <mat-dialog-content>
+    <div class="right">
+      <h6>Jenis</h6>
+      <input
+        type="text"
+        class="browser-default"
+        [value]="data.edit.jenis_bagian"
+        disabled
+      />
+    </div>
+    <div class="right">
+      <h6>Lokasi</h6>
+      <input
+        type="text"
+        class="browser-default"
+        [value]="data.edit.id_lokasi"
+        disabled
+      />
+    </div>
+    <div *ngIf="jenisValue == 'Departemen'" class="right">
+      <h6>Divisi</h6>
+      <input
+        type="text"
+        class="browser-default"
+        [value]="data.edit.uplink"
+        disabled
+      />
+    </div>
+    <div *ngIf="jenisValue == 'Sub Departemen'" class="right">
+      <h6>Departemen</h6>
+      <input
+        type="text"
+        class="browser-default"
+        [value]="data.edit.uplink"
+        disabled
+      />
+    </div>
+    <div class="right">
+      <h6>Deskripsi</h6>
+      <input
+        type="text"
+        class="browser-default"
+        (keyup)="onKey($event.target)"
+        [value]="data.edit.keterangan"
+      />
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button
+      class="simpan waves-effect waves-light"
+      mat-dialog-close="simpan"
+      (click)="throwResult()"
+    >
+      Simpan
+    </button>
+    <button
+      class="batal waves-effect waves-light transparent"
+      mat-dialog-close="batal"
+    >
+      Batal
+    </button>
   </mat-dialog-actions>
 </div>
 
