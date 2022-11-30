@@ -27,7 +27,7 @@ export class PerusahaanComponent implements OnInit {
 
   tambahData() {
     const dialogRef = this.dialog.open(ModalPerusahaanComponent, {
-      data: { name: 'tambah', id: this.getMaxId + 1 },
+      data: { name: 'tambah', data: this.getMaxId + 1 },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -39,6 +39,23 @@ export class PerusahaanComponent implements OnInit {
             this.getMaxId = res[res.length - 1].id;
           });
           this.length = this.length + 1;
+          this.getPageData();
+        });
+      }
+    });
+  }
+
+  editData(data: any) {
+    const dialogRef = this.dialog.open(ModalPerusahaanComponent, {
+      data: { name: 'edit', data: data },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'simpan') {
+        this.catchResult = this.api.catchData();
+        let data = this.catchResult;
+        let id = this.catchResult.id;
+        this.api.updateData(this.table, data, id).subscribe((res) => {
           this.getPageData();
         });
       }

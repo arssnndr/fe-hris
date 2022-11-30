@@ -1647,12 +1647,11 @@
       "status": true
     },
     {
-      "id": 210,
       "jenis_bagian": "Sub Departemen",
       "id_lokasi": 245,
       "uplink": "AR",
-      "keterangan": "Mechanic",
-      "status": false
+      "keterangan": "AR",
+      "id": 210
     },
     {
       "id": 211,
@@ -1671,12 +1670,11 @@
       "status": true
     },
     {
-      "id": 213,
       "jenis_bagian": "Sub Departemen",
       "id_lokasi": 18,
       "uplink": "QC",
-      "keterangan": "AP",
-      "status": true
+      "keterangan": "QC",
+      "id": 213
     },
     {
       "id": 214,
@@ -1687,12 +1685,11 @@
       "status": false
     },
     {
-      "id": 215,
       "jenis_bagian": "Departemen",
       "id_lokasi": 59,
       "uplink": "Produksi",
-      "keterangan": "AR",
-      "status": false
+      "keterangan": "Produksi",
+      "id": 215
     },
     {
       "id": 216,
@@ -1972,30 +1969,9 @@
       "uplink": "",
       "keterangan": "ACC",
       "id": 250
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": "The Master Steel 1",
-      "uplink": "GA",
-      "keterangan": "gorengan",
-      "id": 251
-    },
-    {
-      "jenis_bagian": "Departemen",
-      "id_lokasi": "The Master Steel HO",
-      "uplink": "IT",
-      "keterangan": "zeagluke",
-      "id": 252
     }
   ],
   "ms_perusahaan": [
-    {
-      "id": 1,
-      "inisial": "IJP",
-      "nama_perusahaan": "Indika Jasa Parama",
-      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
-      "status": true
-    },
     {
       "id": 2,
       "inisial": "DAP",
