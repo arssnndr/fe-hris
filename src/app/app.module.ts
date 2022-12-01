@@ -15,6 +15,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // component
 import { AppComponent } from './app.component';
@@ -90,6 +91,7 @@ import { ModalKaryawanComponent } from './components/master/karyawan/modal-karya
     MatDialogModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatCheckboxModule,
 
     // form
     FormsModule,

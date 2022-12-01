@@ -11,11 +11,14 @@ import { ApiService } from 'src/app/shared/api.service';
 export class ModalUserComponent implements OnInit {
   isTambah = true;
   isDelete = false;
+  hide1 = true;
+  hide2 = true;
 
   idValue = this.data.id;
   keteranganValue = '';
   inisialValue = '';
   alamatValue = '';
+  aksesValue = '';
 
   user: User | undefined;
 

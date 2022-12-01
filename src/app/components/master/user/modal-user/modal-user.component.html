@@ -1,31 +1,243 @@
 <!-- Modal tambah data -->
 <div *ngIf="isTambah">
-  <h2 mat-dialog-title>Perusahaan</h2>
+  <h2 mat-dialog-title>User dan Otorisasi</h2>
   <mat-dialog-content>
     <div class="right">
-      <h6>ID Lokasi</h6>
-      <input
-        type="text"
-        class="browser-default"
-        value="{{ idValue }}"
-        disabled
-      />
+      <h6>User</h6>
+      <input type="text" class="browser-default" />
     </div>
     <div class="right">
-      <h6>Lokasi</h6>
-      <input
-        [(ngModel)]="keteranganValue"
-        type="text"
-        class="browser-default"
-      />
+      <h6>Email</h6>
+      <input placeholder="Email" type="text" class="browser-default" disabled />
     </div>
     <div class="right">
-      <h6>Inisial</h6>
-      <input [(ngModel)]="inisialValue" type="text" class="browser-default" />
+      <h6>Password</h6>
+      <div>
+        <input
+          placeholder="Password"
+          [type]="hide1 ? 'password' : 'text'"
+          class="browser-default password"
+        />
+        <button (click)="hide1 = !hide1" class="visible">
+          <mat-icon>{{ hide1 ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </div>
     </div>
-    <div class="right alamat">
-      <h6>Alamat</h6>
-      <textarea [(ngModel)]="alamatValue"></textarea>
+    <div class="right">
+      <h6>Konfirmasi</h6>
+      <div>
+        <input
+          placeholder="Konfirmasi Password"
+          [type]="hide2 ? 'password' : 'text'"
+          class="browser-default password"
+        />
+        <button (click)="hide2 = !hide2" class="visible">
+          <mat-icon>{{ hide2 ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="right">
+      <h6>Akses</h6>
+      <select class="browser-default" (ngModel)="(aksesValue)">
+        <option value="lokasi">Lokasi</option>
+        <option value="perusahaan">Perusahaan</option>
+        <option value="all">All</option>
+      </select>
+    </div>
+    <div class="right">
+      <h6>Otoritas</h6>
+      <table>
+        <thead>
+          <tr>
+            <th>Modul</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bagian Kerja</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Perusahaan</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Lokasi</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>User</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Karyawan</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Jadwal Kerja</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Setup Jadwal Kerja</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Kalender Kerja</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Status Kehadiran</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>List Kehadiran</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Lembur</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Download</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Mesin Finger</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Setup Mesin Finger</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+          <tr>
+            <td>Ganti NIP</td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox class="mat-warn"></mat-checkbox>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
