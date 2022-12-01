@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "generatedb": "node ./backend/faker.js > ./backend/db.json",
-    "server": "json-server ./backend/db.json"
+    "generatedb": "node ./API/faker.js > ./API/db.json",
+    "server": "json-server ./API/db.json"
   },
   "private": true,
   "dependencies": {

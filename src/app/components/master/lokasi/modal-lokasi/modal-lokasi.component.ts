@@ -9,10 +9,11 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-lokasi.component.css'],
 })
 export class ModalLokasiComponent implements OnInit {
-  isTambah = true;
+  isTambah = false;
   isDelete = false;
+  isEdit = false;
 
-  idValue = this.data.id;
+  idValue = 0;
   keteranganValue = '';
   inisialValue = '';
   alamatValue = '';
@@ -21,16 +22,29 @@ export class ModalLokasiComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; id: number }
+    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
   ) {}
 
   ngOnInit(): void {
     if (this.data.name === 'tambah') {
       this.isTambah = true;
       this.isDelete = false;
+      this.isEdit = false;
+
+      this.idValue = this.data.data;
     } else if (this.data.name === 'delete') {
       this.isTambah = false;
       this.isDelete = true;
+      this.isEdit = false;
+    } else if (this.data.name === 'edit') {
+      this.isTambah = false;
+      this.isDelete = false;
+      this.isEdit = true;
+
+      this.idValue = this.data.data.id;
+      this.keteranganValue = this.data.data.keterangan;
+      this.inisialValue = this.data.data.inisial_lokasi;
+      this.alamatValue = this.data.data.alamat_lokasi;
     }
   }
 

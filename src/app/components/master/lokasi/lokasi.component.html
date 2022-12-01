@@ -57,10 +57,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let row of data">
-      <td>{{ row.id }}</td>
-      <td>{{ row.keterangan }}</td>
-      <td>{{ row.inisial_lokasi }}</td>
-      <td>{{ row.alamat_lokasi }}</td>
+      <td (click)="editData(row)">{{ row.id }}</td>
+      <td (click)="editData(row)">{{ row.keterangan }}</td>
+      <td (click)="editData(row)">{{ row.inisial_lokasi }}</td>
+      <td (click)="editData(row)">{{ row.alamat_lokasi }}</td>
       <td>
         <button
           (click)="deleteData(row.id)"

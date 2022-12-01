@@ -67,13 +67,6 @@ export class ModalBagianKerjaComponent implements OnInit {
       this.jenisValue = this.data.edit.jenis_bagian;
       this.lokasiValue = this.data.edit.id_lokasi;
       this.forUplink = this.data.edit.uplink;
-
-      // // get lokasi name from id lokasi
-      // this.api
-      //   .getData('ms_lokasi/' + this.data.edit.id_lokasi)
-      //   .subscribe((res) => {
-      //     this.lokasiValue = res.inisial_lokasi;
-      //   });
     }
   }
 
