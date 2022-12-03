@@ -23,18 +23,6 @@ export class AppComponent {
   isDD() {
     this.showSubSubMenu ? this.downloadDisplay = 'block' : this.downloadDisplay = 'none';
   }
-
-  mouseenter() {
-    if (!this.isExpanded) {
-      this.isShowing = true;
-    }
-  }
-
-  mouseleave() {
-    if (!this.isExpanded) {
-      this.isShowing = false;
-    }
-  }
   // end navbar
 
   constructor() { }

@@ -13,7 +13,7 @@ mat-dialog-content div {
   display: inline-flex;
 }
 
-mat-dialog-content.delete{
+mat-dialog-content.delete {
   padding: 0px;
   margin: 0px 40px;
 }
@@ -24,8 +24,7 @@ mat-dialog-actions {
   width: 410px;
 }
 
-input,
-select {
+input {
   margin-bottom: 5px;
   background-color: rgb(255, 255, 255);
   width: 300px;
@@ -33,6 +32,43 @@ select {
   border: 1px solid #00000050;
   border-radius: 2px;
   height: 3rem;
+}
+
+select {
+  margin-bottom: 5px;
+  margin-right: 0px;
+  background-color: rgb(255, 255, 255);
+  width: 287px;
+  padding: 5px;
+  border: 1px solid #00000050;
+  border-style: solid none solid solid;
+  border-radius: 2px 0px 0px 2px;
+  height: 3rem;
+}
+
+button.space {
+  height: 45px;
+  width: 13px;
+  margin-right: 0px;
+  padding-top: 5px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #00000050;
+  border-style: solid solid solid none;
+  border-radius: 0px 2px 2px 0px;
+}
+
+input.dum{
+  margin-bottom: 5px;
+  background-color: rgb(255, 255, 255);
+  width: 10px;
+  padding: 5px;
+  border: 1px solid #00000050;
+  border-radius: 2px;
+  height: 3rem;
+}
+
+input.disabled {
+  background-color: #f1f1f1;
 }
 
 img {
@@ -44,7 +80,8 @@ h6 {
   padding: 0px;
 }
 
-button.tidak, button.batal {
+button.tidak,
+button.batal {
   color: #d85d5d;
   border: 1px solid #d85d5d;
   border-radius: 1px;
@@ -53,7 +90,8 @@ button.tidak, button.batal {
   margin: 5px;
 }
 
-button.ya, button.simpan {
+button.ya,
+button.simpan {
   color: #ffffff;
   background-color: #d85d5d;
   border: 1px solid #d85d5d;

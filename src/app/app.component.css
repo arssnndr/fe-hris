@@ -49,7 +49,7 @@ mat-sidenav {
 }
 
 mat-sidenav-content {
-  background-color: #fff9f9;
+  background-color: #ffffff;
 }
 
 img {
@@ -58,7 +58,7 @@ img {
 
 .imageButton {
   background-image: url("../assets/icon/person.svg");
-  background-color: #ffebee;
+  background-color: #ffffff;
   background-size: cover;
   width: 60px;
   height: 60px;

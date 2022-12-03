@@ -27,7 +27,7 @@
       <input
         placeholder="Email"
         type="text"
-        class="browser-default"
+        class="browser-default disabled"
         [value]="emailValue"
         disabled
       />
@@ -41,7 +41,8 @@
           class="browser-default password"
         />
         <button (click)="hide1 = !hide1" class="visible">
-          <mat-icon>{{ hide1 ? "visibility_off" : "visibility" }}</mat-icon>
+          <img src="../../../../../assets/icon/eye_close.svg" alt="eye_close" *ngIf="hide1">
+          <img src="../../../../../assets/icon/eye.svg" alt="eye_close" *ngIf="!hide1">
         </button>
       </div>
     </div>
@@ -54,17 +55,19 @@
           class="browser-default password"
         />
         <button (click)="hide2 = !hide2" class="visible">
-          <mat-icon>{{ hide2 ? "visibility_off" : "visibility" }}</mat-icon>
+          <img src="../../../../../assets/icon/eye_close.svg" alt="eye_close" *ngIf="hide2">
+          <img src="../../../../../assets/icon/eye.svg" alt="eye_close" *ngIf="!hide2">
         </button>
       </div>
     </div>
     <div class="right">
       <h6>Akses</h6>
       <select class="browser-default" (ngModel)="(aksesValue)">
-        <option value="lokasi">Lokasi</option>
+        <option style="width: 400px;" value="lokasi">Lokasi</option>
         <option value="perusahaan">Perusahaan</option>
         <option value="all">All</option>
       </select>
+      <button class="space"></button>
     </div>
     <div class="right">
       <h6>Otoritas</h6>

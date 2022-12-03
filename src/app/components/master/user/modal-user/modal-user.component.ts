@@ -32,6 +32,7 @@ export class ModalUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.aksesValue = 'Lokasi'
     this.api.getData('ms_karyawan/').subscribe((res) => {
       this.options = res;
     });

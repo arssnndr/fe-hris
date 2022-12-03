@@ -28,12 +28,7 @@ export class ModalBagianKerjaComponent implements OnInit {
     { value: 'Sub Departemen' },
   ];
 
-  lokasi = [
-    { value: 'The Master Steel HO' },
-    { value: 'The Master Steel 1' },
-    { value: 'The Master Steel 2' },
-    { value: 'The Master Steel 3' },
-  ];
+  lokasi = [{ value: 12 }, { value: 21 }, { value: 13 }, { value: 31 }];
 
   divisi = [{ value: 'IT' }, { value: 'GA' }, { value: 'Finance' }];
 
@@ -55,6 +50,11 @@ export class ModalBagianKerjaComponent implements OnInit {
       this.isTambah = true;
       this.isDelete = false;
       this.isEdit = false;
+
+      this.jenisValue = this.jenis[0].value;
+      this.lokasiValue = this.lokasi[0].value;
+      this.divisiValue = this.divisi[0].value;
+      this.departemenValue = this.departemen[0].value;
     } else if (this.data.name === 'delete') {
       this.isTambah = false;
       this.isDelete = true;

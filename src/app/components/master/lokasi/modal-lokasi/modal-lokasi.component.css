@@ -6,7 +6,7 @@ h2 {
   mat-dialog-content {
     padding: 0px;
     margin: 0px 40px;
-    width: 460px;
+    width: 390px;
   }
   
   mat-dialog-content div {
@@ -17,6 +17,12 @@ h2 {
     padding: 0px;
     margin: 0px 40px;
   }
+
+  mat-dialog-actions {
+    padding: 0px;
+    margin: 0px 45px;
+    width: 390px;
+  }
   
   input {
     margin-bottom: 5px;
@@ -26,6 +32,10 @@ h2 {
     border: 1px solid #00000050;
     border-radius: 2px;
     height: 3rem;
+  }
+
+  input.disabled {
+    background-color: #f1f1f1;
   }
   
   textarea {
@@ -40,12 +50,6 @@ h2 {
   
   div.alamat{
       height: 100px;
-  }
-  
-  mat-dialog-actions {
-    padding: 0px;
-    margin: 0px 45px;
-    width: 410px;
   }
   
   img {
