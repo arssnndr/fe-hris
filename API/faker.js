@@ -11,10 +11,6 @@ const database = {
 
 const loop = 250;
 
-// const id = faker.datatype.uuid();
-const username = faker.internet.userName();
-const password = faker.internet.password();
-
 function getRandomInt(max) {
   return Math.floor(Math.random() * max + 1);
 }
@@ -154,10 +150,11 @@ for (var i = 1; i <= loop; i++) {
 // ms_userid
 for (var i = 1; i <= loop; i++) {
   let username = faker.name.fullName();
-  let email = faker.internet.email();
+  let email = faker.internet.email(username);
   let id_lokasi = getRandomInt(loop);
   let id_perusahaan = getRandomInt(loop);
   let status = faker.datatype.boolean();
+  let akses = faker.helpers.arrayElement(["lokasi", "perusahaan", "all"]);
 
   database.ms_userid.push({
     id: i,
@@ -165,6 +162,82 @@ for (var i = 1; i <= loop; i++) {
     email: email,
     id_lokasi: id_lokasi,
     id_perusahaan: id_perusahaan,
+    akses: akses,
+    bagian_kerja: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    perusahaan: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    lokasi: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    user: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    karyawan: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    jadwal_kerja: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    setup_jadwal_kerja: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    kalender_kerja: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    status_kehadiran: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    list_kehadiran: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    lembur: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    download: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    mesin_finger: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    setup_mesin_finger: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
+    ganti_nip: {
+      view: faker.datatype.boolean(),
+      edit: faker.datatype.boolean(),
+      download: faker.datatype.boolean(),
+    },
     status: status,
   });
 }
@@ -176,6 +249,7 @@ for (var i = 1; i <= loop; i++) {
   let jabatan = faker.name.jobTitle();
   let id_perusahaan = getRandomInt(loop);
   let id_lokasi = getRandomInt(loop);
+  let email = faker.internet.email(nama_lengkap);
 
   database.ms_karyawan.push({
     id: i,
@@ -184,6 +258,7 @@ for (var i = 1; i <= loop; i++) {
     jabatan: jabatan,
     id_perusahaan: id_perusahaan,
     id_lokasi: id_lokasi,
+    email: email,
   });
 }
 

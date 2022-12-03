@@ -4,11 +4,33 @@
   <mat-dialog-content>
     <div class="right">
       <h6>User</h6>
-      <input type="text" class="browser-default" />
+      <input
+        class="browser-default user"
+        type="text"
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+        [value]="userValue"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          (click)="displayFn(option)"
+          >{{ option.id + " - " + option.nama_lengkap }}</mat-option
+        >
+      </mat-autocomplete>
+      <span style="width: 250px; height: 45px;"
+        ><p>{{ namaValue }}</p></span
+      >
     </div>
     <div class="right">
       <h6>Email</h6>
-      <input placeholder="Email" type="text" class="browser-default" disabled />
+      <input
+        placeholder="Email"
+        type="text"
+        class="browser-default"
+        [value]="emailValue"
+        disabled
+      />
     </div>
     <div class="right">
       <h6>Password</h6>

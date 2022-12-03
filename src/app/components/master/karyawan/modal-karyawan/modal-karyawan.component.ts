@@ -35,12 +35,12 @@ export class ModalKaryawanComponent implements OnInit {
   }
 
   throwResult() {
-    this.karyawan = {
-      id: this.idValue,
-      keterangan: this.keteranganValue,
-      inisial_lokasi: this.inisialValue,
-      alamat_lokasi: this.alamatValue,
-    };
-    this.api.throwData(this.karyawan);
+    // this.karyawan = {
+    //   id: this.idValue,
+    //   keterangan: this.keteranganValue,
+    //   inisial_lokasi: this.inisialValue,
+    //   alamat_lokasi: this.alamatValue,
+    // };
+    // this.api.throwData(this.karyawan);
   }
 }

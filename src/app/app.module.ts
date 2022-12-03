@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 // component
 import { AppComponent } from './app.component';
@@ -92,6 +93,7 @@ import { ModalKaryawanComponent } from './components/master/karyawan/modal-karya
     MatFormFieldModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatAutocompleteModule,
 
     // form
     FormsModule,
