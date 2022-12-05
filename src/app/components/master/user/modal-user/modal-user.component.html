@@ -9,7 +9,7 @@
         type="text"
         [formControl]="myControl"
         [matAutocomplete]="auto"
-        [value]="userValue"
+        [value]="dataUser.id"
       />
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option
@@ -18,8 +18,8 @@
           >{{ option.id + " - " + option.nama_lengkap }}</mat-option
         >
       </mat-autocomplete>
-      <span style="width: 250px; height: 45px;"
-        ><p>{{ namaValue }}</p></span
+      <span style="width: 250px; height: 45px"
+        ><p>{{ dataUser.username }}</p></span
       >
     </div>
     <div class="right">
@@ -28,7 +28,7 @@
         placeholder="Email"
         type="text"
         class="browser-default disabled"
-        [value]="emailValue"
+        [value]="dataUser.email"
         disabled
       />
     </div>
@@ -39,10 +39,19 @@
           placeholder="Password"
           [type]="hide1 ? 'password' : 'text'"
           class="browser-default password"
+          (input)="pwd($event.target)"
         />
         <button (click)="hide1 = !hide1" class="visible">
-          <img src="../../../../../assets/icon/eye_close.svg" alt="eye_close" *ngIf="hide1">
-          <img src="../../../../../assets/icon/eye.svg" alt="eye_close" *ngIf="!hide1">
+          <img
+            src="../../../../../assets/icon/eye_close.svg"
+            alt="eye_close"
+            *ngIf="hide1"
+          />
+          <img
+            src="../../../../../assets/icon/eye.svg"
+            alt="eye_close"
+            *ngIf="!hide1"
+          />
         </button>
       </div>
     </div>
@@ -53,19 +62,31 @@
           placeholder="Konfirmasi Password"
           [type]="hide2 ? 'password' : 'text'"
           class="browser-default password"
+          (input)="konfirmPwd($event.target)"
         />
         <button (click)="hide2 = !hide2" class="visible">
-          <img src="../../../../../assets/icon/eye_close.svg" alt="eye_close" *ngIf="hide2">
-          <img src="../../../../../assets/icon/eye.svg" alt="eye_close" *ngIf="!hide2">
+          <img
+            src="../../../../../assets/icon/eye_close.svg"
+            alt="eye_close"
+            *ngIf="hide2"
+          />
+          <img
+            src="../../../../../assets/icon/eye.svg"
+            alt="eye_close"
+            *ngIf="!hide2"
+          />
         </button>
       </div>
     </div>
+    <div class="right konfirm" *ngIf="dataUser.password !== konfirmPassword">
+      Password tidak sama
+    </div>
     <div class="right">
       <h6>Akses</h6>
-      <select class="browser-default" (ngModel)="(aksesValue)">
-        <option style="width: 400px;" value="lokasi">Lokasi</option>
-        <option value="perusahaan">Perusahaan</option>
-        <option value="all">All</option>
+      <select class="browser-default" [(ngModel)]="dataUser.akses">
+        <option *ngFor="let raw of akses" [value]="raw.value">
+          {{ raw.value }}
+        </option>
       </select>
       <button class="space"></button>
     </div>
@@ -84,181 +105,316 @@
           <tr>
             <td>Bagian Kerja</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.bagian_kerja.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.bagian_kerja.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.bagian_kerja.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Perusahaan</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.perusahaan.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.perusahaan.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.perusahaan.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Lokasi</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.lokasi.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.lokasi.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.lokasi.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>User</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.user.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.user.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.user.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Karyawan</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.karyawan.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.karyawan.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.karyawan.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Jadwal Kerja</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.jadwal_kerja.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.jadwal_kerja.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.jadwal_kerja.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Setup Jadwal Kerja</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.setup_jadwal_kerja.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.setup_jadwal_kerja.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.setup_jadwal_kerja.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Kalender Kerja</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.kalender_kerja.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.kalender_kerja.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.kalender_kerja.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Status Kehadiran</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.status_kehadiran.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.status_kehadiran.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.status_kehadiran.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>List Kehadiran</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.list_kehadiran.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.list_kehadiran.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.list_kehadiran.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Lembur</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.lembur.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.lembur.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.lembur.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Download</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.download.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.download.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.download.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Mesin Finger</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.mesin_finger.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.mesin_finger.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.mesin_finger.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Setup Mesin Finger</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.setup_mesin_finger.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.setup_mesin_finger.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.setup_mesin_finger.download"
+              ></mat-checkbox>
             </td>
           </tr>
           <tr>
             <td>Ganti NIP</td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.ganti_nip.view"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.ganti_nip.edit"
+              ></mat-checkbox>
             </td>
             <td>
-              <mat-checkbox class="mat-warn"></mat-checkbox>
+              <mat-checkbox
+                class="mat-warn"
+                [(ngModel)]="dataUser.ganti_nip.download"
+              ></mat-checkbox>
             </td>
           </tr>
         </tbody>

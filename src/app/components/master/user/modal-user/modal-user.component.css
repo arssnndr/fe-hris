@@ -84,9 +84,10 @@ input.password {
   height: 3rem;
 }
 
-/* img {
-  margin: 10px 0px;
-} */
+div.konfirm {
+  width: 410px;
+  margin-top: -5px;
+}
 
 h6 {
   margin: 10px;

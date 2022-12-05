@@ -9,7 +9,7 @@ const database = {
   ms_karyawan: [],
 };
 
-const loop = 250;
+const loop = 5;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max + 1);
@@ -155,6 +155,7 @@ for (var i = 1; i <= loop; i++) {
   let id_perusahaan = getRandomInt(loop);
   let status = faker.datatype.boolean();
   let akses = faker.helpers.arrayElement(["lokasi", "perusahaan", "all"]);
+  let pwd = faker.internet.password(8);
 
   database.ms_userid.push({
     id: i,
@@ -163,6 +164,7 @@ for (var i = 1; i <= loop; i++) {
     id_lokasi: id_lokasi,
     id_perusahaan: id_perusahaan,
     akses: akses,
+    password: pwd,
     bagian_kerja: {
       view: faker.datatype.boolean(),
       edit: faker.datatype.boolean(),

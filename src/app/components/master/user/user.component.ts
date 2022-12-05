@@ -25,6 +25,10 @@ export class UserComponent implements OnInit {
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
+  ngOnInit(): void {
+    this.getAllData();
+  }
+
   tambahData() {
     const dialogRef = this.dialog.open(ModalUserComponent, {
       data: { name: 'tambah', id: this.getMaxId + 1 },
@@ -34,6 +38,7 @@ export class UserComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
+        console.log(this.catchResult);
         this.api.postData(this.table, this.catchResult).subscribe((res) => {
           this.api.getData(this.table).subscribe((res) => {
             this.getMaxId = res[res.length - 1].id;
@@ -67,10 +72,6 @@ export class UserComponent implements OnInit {
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
     this.getPageData();
-  }
-
-  ngOnInit(): void {
-    this.getAllData();
   }
 
   getAllData() {

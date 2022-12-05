@@ -21,10 +21,94 @@ export class ModalUserComponent implements OnInit {
   hide1 = true;
   hide2 = true;
 
-  userValue = 0;
-  namaValue = '';
-  emailValue = '';
-  aksesValue = '';
+  akses = [{ value: 'Lokasi' }, { value: 'Perusahaan' }, { value: 'All' }];
+  konfirmPassword = '';
+
+  dataUser = {
+    id: 0,
+    username: '',
+    email: '',
+    id_lokasi: 0,
+    id_perusahaan: 0,
+    akses: '',
+    password: '',
+    bagian_kerja: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    perusahaan: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    lokasi: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    user: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    karyawan: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    jadwal_kerja: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    setup_jadwal_kerja: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    kalender_kerja: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    status_kehadiran: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    list_kehadiran: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    lembur: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    download: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    mesin_finger: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    setup_mesin_finger: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    ganti_nip: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    status: true,
+  };
 
   constructor(
     private api: ApiService,
@@ -32,7 +116,7 @@ export class ModalUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.aksesValue = 'Lokasi'
+    this.dataUser.akses = this.akses[0].value;
     this.api.getData('ms_karyawan/').subscribe((res) => {
       this.options = res;
     });
@@ -57,11 +141,29 @@ export class ModalUserComponent implements OnInit {
     }
   }
 
+  pwd(input: any) {
+    this.dataUser.password = input.value;
+  }
+
+  konfirmPwd(input: any) {
+    this.konfirmPassword = input.value;
+  }
+
   displayFn(karyawan: Karyawan) {
-    console.log(karyawan);
-    this.userValue = karyawan.id;
-    this.namaValue = karyawan.nama_lengkap;
-    this.emailValue = karyawan.email;
+    this.dataUser.id = karyawan.id;
+    this.dataUser.username = karyawan.nama_lengkap;
+    this.dataUser.email = karyawan.email;
+    this.dataUser.id_lokasi = karyawan.id_lokasi;
+    this.dataUser.id_perusahaan = karyawan.id_perusahaan;
+    this.api
+      .getData('ms_userid?id_like=' + this.dataUser.id)
+      .subscribe((res) => {
+        if (res[0] !== undefined) {
+          if (res[0].id === this.dataUser.id) {
+            return window.alert('NIP telah terdaftar sebagai User');
+          }
+        }
+      });
   }
 
   private _filterName(data: string): Karyawan[] {
@@ -77,12 +179,7 @@ export class ModalUserComponent implements OnInit {
   }
 
   throwResult() {
-    // this.user = {
-    //   id: this.idValue,
-    //   keterangan: this.keteranganValue,
-    //   inisial_lokasi: this.inisialValue,
-    //   alamat_lokasi: this.alamatValue,
-    // };
-    // this.api.throwData(this.user);
+    console.log(this.dataUser);
+    this.api.throwData(this.dataUser);
   }
 }
