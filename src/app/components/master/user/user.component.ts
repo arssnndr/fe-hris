@@ -68,6 +68,23 @@ export class UserComponent implements OnInit {
     });
   }
 
+  editData(data: any) {
+    const dialogRef = this.dialog.open(ModalUserComponent, {
+      data: { name: 'edit', data: data },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'simpan') {
+        this.catchResult = this.api.catchData();
+        let data = this.catchResult;
+        let id = this.catchResult.id;
+        this.api.updateData(this.table, data, id).subscribe((res) => {
+          this.getPageData();
+        });
+      }
+    });
+  }
+
   handlePageEvent(event: PageEvent) {
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;

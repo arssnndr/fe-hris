@@ -16,8 +16,9 @@ export class ModalUserComponent implements OnInit {
   options: Karyawan[] = [];
   filteredOptions: Observable<Karyawan[]> | undefined;
 
-  isTambah = true;
+  isTambah = false;
   isDelete = false;
+  isEdit = false;
   hide1 = true;
   hide2 = true;
 
@@ -112,7 +113,7 @@ export class ModalUserComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; id: number }
+    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
   ) {}
 
   ngOnInit(): void {
@@ -135,9 +136,17 @@ export class ModalUserComponent implements OnInit {
     if (this.data.name === 'tambah') {
       this.isTambah = true;
       this.isDelete = false;
+      this.isEdit = false;
     } else if (this.data.name === 'delete') {
       this.isTambah = false;
       this.isDelete = true;
+      this.isEdit = false;
+    } else if (this.data.name === 'edit') {
+      this.isTambah = false;
+      this.isDelete = false;
+      this.isEdit = true;
+      this.dataUser = this.data.data;
+      this.konfirmPassword = this.data.data.password;
     }
   }
 
@@ -179,7 +188,6 @@ export class ModalUserComponent implements OnInit {
   }
 
   throwResult() {
-    console.log(this.dataUser);
     this.api.throwData(this.dataUser);
   }
 }

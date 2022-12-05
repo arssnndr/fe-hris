@@ -53,11 +53,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let row of data">
-      <td>{{ row.id }}</td>
-      <td>{{ row.username }}</td>
-      <td>{{ row.email }}</td>
-      <td>{{ row.id_lokasi }}</td>
-      <td>{{ row.id_perusahaan }}</td>
+      <td (click)="editData(row)">{{ row.id }}</td>
+      <td (click)="editData(row)">{{ row.username }}</td>
+      <td (click)="editData(row)">{{ row.email }}</td>
+      <td (click)="editData(row)">{{ row.id_lokasi }}</td>
+      <td (click)="editData(row)">{{ row.id_perusahaan }}</td>
       <td>
         <button
           (click)="deleteData(row.id)"

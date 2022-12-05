@@ -124,91 +124,6 @@
   ],
   "ms_userid": [
     {
-      "id": 1,
-      "username": "Eddie Fay",
-      "email": "EddieFay1@hotmail.com",
-      "id_lokasi": 2,
-      "id_perusahaan": 2,
-      "akses": "Lokasi",
-      "password": "123",
-      "bagian_kerja": {
-        "view": true,
-        "edit": false,
-        "download": false
-      },
-      "perusahaan": {
-        "view": false,
-        "edit": true,
-        "download": false
-      },
-      "lokasi": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "user": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "karyawan": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "jadwal_kerja": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "setup_jadwal_kerja": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "kalender_kerja": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "status_kehadiran": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "list_kehadiran": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "lembur": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "download": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "mesin_finger": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "setup_mesin_finger": {
-        "view": false,
-        "edit": true,
-        "download": false
-      },
-      "ganti_nip": {
-        "view": false,
-        "edit": false,
-        "download": true
-      },
-      "status": true
-    },
-    {
       "id": 2,
       "username": "Gerardo Harris",
       "email": "GerardoHarris.Fritsch83@hotmail.com",
@@ -219,12 +134,12 @@
       "bagian_kerja": {
         "view": true,
         "edit": false,
-        "download": false
+        "download": true
       },
       "perusahaan": {
         "view": true,
         "edit": false,
-        "download": false
+        "download": true
       },
       "lokasi": {
         "view": true,
@@ -290,6 +205,91 @@
         "view": true,
         "edit": false,
         "download": true
+      },
+      "status": true
+    },
+    {
+      "id": 1,
+      "username": "Eddie Fay",
+      "email": "EddieFay1@hotmail.com",
+      "id_lokasi": 2,
+      "id_perusahaan": 2,
+      "akses": "Lokasi",
+      "password": "eddie123",
+      "bagian_kerja": {
+        "view": true,
+        "edit": false,
+        "download": false
+      },
+      "perusahaan": {
+        "view": false,
+        "edit": true,
+        "download": false
+      },
+      "lokasi": {
+        "view": false,
+        "edit": false,
+        "download": false
+      },
+      "user": {
+        "view": false,
+        "edit": false,
+        "download": false
+      },
+      "karyawan": {
+        "view": false,
+        "edit": false,
+        "download": false
+      },
+      "jadwal_kerja": {
+        "view": false,
+        "edit": false,
+        "download": false
+      },
+      "setup_jadwal_kerja": {
+        "view": false,
+        "edit": false,
+        "download": false
+      },
+      "kalender_kerja": {
+        "view": false,
+        "edit": false,
+        "download": false
+      },
+      "status_kehadiran": {
+        "view": false,
+        "edit": false,
+        "download": false
+      },
+      "list_kehadiran": {
+        "view": false,
+        "edit": false,
+        "download": false
+      },
+      "lembur": {
+        "view": false,
+        "edit": true,
+        "download": false
+      },
+      "download": {
+        "view": false,
+        "edit": true,
+        "download": false
+      },
+      "mesin_finger": {
+        "view": false,
+        "edit": true,
+        "download": false
+      },
+      "setup_mesin_finger": {
+        "view": false,
+        "edit": true,
+        "download": false
+      },
+      "ganti_nip": {
+        "view": false,
+        "edit": true,
+        "download": false
       },
       "status": true
     }
