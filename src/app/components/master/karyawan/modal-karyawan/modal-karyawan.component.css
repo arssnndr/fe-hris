@@ -6,7 +6,7 @@ h2 {
 mat-dialog-content {
   padding: 0px;
   margin: 0px 40px;
-  width: 460px;
+  width: 700px;
 }
 
 mat-dialog-content div {
@@ -16,36 +16,115 @@ mat-dialog-content div {
 mat-dialog-content.delete {
   padding: 0px;
   margin: 0px 40px;
+  width: 460px;
+}
+
+mat-dialog-actions {
+  padding: 0px;
+  margin: 0px 40px;
+  width: 700px;
 }
 
 input {
   margin-bottom: 5px;
   background-color: rgb(255, 255, 255);
-  width: 300px;
+  width: 420px;
   padding: 5px;
   border: 1px solid #00000050;
   border-radius: 2px;
   height: 3rem;
 }
 
-textarea {
-  margin-bottom: 5px;
+input.disabled {
+  background-color: #f1f1f1;
+}
+
+input.tgl {
+  margin: 0px 290px 5px 0px;
   background-color: rgb(255, 255, 255);
-  width: 300px;
+  width: 130px;
   padding: 5px;
   border: 1px solid #00000050;
   border-radius: 2px;
-  height: 90px;
+  height: 3rem;
 }
 
-div.alamat {
+input.tglgaji {
+  margin-right: 0px;
+  background-color: rgb(255, 255, 255);
+  width: 130px;
+  padding: 5px;
+  border: 1px solid #00000050;
+  border-radius: 2px;
+  height: 3rem;
+}
+
+input.gaji {
+  margin-bottom: 5px;
+  margin-right: 180px;
+  background-color: rgb(255, 255, 255);
+  width: 380px;
+  padding: 5px;
+  border: 1px solid #00000050;
+  border-radius: 2px;
+  height: 3rem;
+}
+
+input.gajitgl {
+  margin-bottom: 5px;
+  margin-right: 50px;
+  background-color: rgb(255, 255, 255);
+  width: 380px;
+  padding: 5px;
+  border: 1px solid #00000050;
+  border-radius: 2px;
+  height: 3rem;
+}
+
+select {
+  margin-bottom: 5px;
+  margin-right: 0px;
+  background-color: rgb(255, 255, 255);
+  width: 407px;
+  padding: 5px;
+  border: 1px solid #00000050;
+  border-style: solid none solid solid;
+  border-radius: 2px 0px 0px 2px;
+  height: 3rem;
+}
+
+button.space {
+  height: 45px;
+  width: 13px;
+  padding-top: 5px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #00000050;
+  border-style: solid solid solid none;
+  border-radius: 0px 2px 2px 0px;
+}
+
+textarea.perusahaan {
+  margin-bottom: 5px;
+  background-color: rgb(255, 255, 255);
+  width: 420px;
+  padding: 5px;
+  border: 1px solid #00000050;
+  border-radius: 2px;
   height: 100px;
 }
 
-mat-dialog-actions {
-  padding: 0px;
-  margin: 0px 45px;
-  width: 410px;
+textarea {
+  margin-bottom: 5px;
+  background-color: rgb(255, 255, 255);
+  width: 560px;
+  padding: 5px;
+  border: 1px solid #00000050;
+  border-radius: 2px;
+  height: 100px;
+}
+
+div.top {
+  margin-top: 20px;
 }
 
 img {
@@ -57,6 +136,10 @@ h6 {
   padding: 0px;
 }
 
+/* div.button {
+  margin: 0px -10px 0px 0px;
+} */
+
 button.tidak,
 button.batal {
   color: #d85d5d;
@@ -64,7 +147,7 @@ button.batal {
   border-radius: 1px;
   width: 100px;
   height: 50px;
-  margin: 5px;
+  margin: 5px 0px 5px 5px;
 }
 
 button.ya,

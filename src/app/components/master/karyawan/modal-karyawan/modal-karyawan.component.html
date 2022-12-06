@@ -2,47 +2,421 @@
 <div *ngIf="isTambah">
   <h2 mat-dialog-title>Perusahaan</h2>
   <mat-dialog-content>
-    <div class="right">
-      <h6>ID Lokasi</h6>
-      <input
-        type="text"
-        class="browser-default"
-        value="{{ idValue }}"
-        disabled
-      />
-    </div>
-    <div class="right">
-      <h6>Lokasi</h6>
-      <input
-        [(ngModel)]="keteranganValue"
-        type="text"
-        class="browser-default"
-      />
-    </div>
-    <div class="right">
-      <h6>Inisial</h6>
-      <input [(ngModel)]="inisialValue" type="text" class="browser-default" />
-    </div>
-    <div class="right alamat">
-      <h6>Alamat</h6>
-      <textarea [(ngModel)]="alamatValue"></textarea>
-    </div>
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab label="Pribadi">
+        <div class="right top">
+          <h6>Kewarganegaraan</h6>
+          <select class="browser-default" [(ngModel)]="kewarganegaraanValue">
+            <option *ngFor="let raw of kewarganegaraan" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>NIK</h6>
+          <input
+            type="number"
+            class="browser-default"
+            placeholder="Nomor Induk Kependudukan"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Nama</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nama Lengkap"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Tempat Lahir</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Tempat Lahir"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Tgl Lahir</h6>
+          <input
+            type="date"
+            class="browser-default tgl"
+            placeholder="Tempat Lahir"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Jenis Kelamin</h6>
+          <select class="browser-default" [(ngModel)]="jenisKelaminValue">
+            <option *ngFor="let raw of jenisKelamin" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right alamat">
+          <h6>Alamat</h6>
+          <textarea class="perusahaan" placeholder="Alamat Domisili"></textarea>
+        </div>
+
+        <div class="right">
+          <h6>RT/RW</h6>
+          <input type="text" class="browser-default" placeholder="RT/RW" />
+        </div>
+
+        <div class="right">
+          <h6>Kel/Desa</h6>
+          <input type="text" class="browser-default" placeholder="Kel/Desa" />
+        </div>
+
+        <div class="right">
+          <h6>Agama</h6>
+          <select class="browser-default" [(ngModel)]="agamaValue">
+            <option *ngFor="let raw of agama" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>Status Perkawinan</h6>
+          <select class="browser-default" [(ngModel)]="statusPerkawinanValue">
+            <option *ngFor="let raw of statusPerkawinan" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>Nomor NPWP</h6>
+          <input type="text" class="browser-default" placeholder="Nomor NPWP" />
+        </div>
+
+        <div class="right">
+          <h6>Nomor Telepon</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nomor Telepon"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Email</h6>
+          <input type="text" class="browser-default" placeholder="Email" />
+        </div>
+
+        <div class="right">
+          <h6>Pendidikan Terakhir</h6>
+          <select class="browser-default" [(ngModel)]="pendidikanTerakhirValue">
+            <option *ngFor="let raw of pendidikanTerakhir" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>Nomor Kartu BPJS TK</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nomor Kartu BPJS TK"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Nomor Kartu BPJS Kesehatan</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nomor Kartu BPJS Kesehatan"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Nama Fasker</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nama Faskes"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Alamat Faskes</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Alamat Faskes"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Nomor KK</h6>
+          <input type="text" class="browser-default" placeholder="Nomor KK" />
+        </div>
+
+        <div class="right">
+          <h6>Nama Kepala Keluarga</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nama Kepala Keluarga"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Nama Ibu Kandung</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nama Ibu Kandung"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Status Pajak</h6>
+          <select class="browser-default" [(ngModel)]="statusPajakValue">
+            <option *ngFor="let raw of statusPajak" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>Nama Pasangan</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nama Pasangan"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Nama Anak Ke 1</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nama Anak Ke 1"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Nama Anak Ke 2</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nama Anak Ke 2"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Nama Anak Ke 3</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nama Anak Ke 3"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Nama Kontak Darurat</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nama Kontak Darurat"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Nomor Telpon Darurat</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nomor Telpon Darurat"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Hubungan Dengan Karyawan</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Hubungan Dengan Karyawan"
+          />
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Pekerjaan & Organisasi">
+        <div class="right top">
+          <h6>Perusahaan</h6>
+          <select class="browser-default" [(ngModel)]="perusahaanValue">
+            <option *ngFor="let raw of perusahaan" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>NIP</h6>
+          <input
+            type="text"
+            class="browser-default disabled"
+            placeholder="000000"
+            disabled
+          />
+        </div>
+
+        <div class="right">
+          <h6>Lokasi Kerja</h6>
+          <select class="browser-default" [(ngModel)]="lokasiKerjaValue">
+            <option *ngFor="let raw of lokasiKerja" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>Divisi</h6>
+          <select class="browser-default" [(ngModel)]="divisiValue">
+            <option *ngFor="let raw of divisi" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>Departemen</h6>
+          <select class="browser-default" [(ngModel)]="departemenValue">
+            <option *ngFor="let raw of departemen" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>Sub Departemen</h6>
+          <select class="browser-default" [(ngModel)]="subDepartemenValue">
+            <option *ngFor="let raw of subDepartemen" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>Jabatan</h6>
+          <select class="browser-default" [(ngModel)]="jabatanValue">
+            <option *ngFor="let raw of jabatan" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>Status Karyawan</h6>
+          <select class="browser-default" [(ngModel)]="statusKaryawanValue">
+            <option *ngFor="let raw of statusKaryawan" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+
+        <div class="right">
+          <h6>Nama Pemberi Referensi</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nama Pemberi Referensi"
+          />
+        </div>
+
+        <div class="right">
+          <h6>Nama Atasan Langsung</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nama Atasan Langsung"
+          />
+        </div>
+      </mat-tab>
+
+      <!-- MAT TAB PERIODE KONTRAK -->
+      <mat-tab label="Periode Kontrak">
+        <div class="right top">
+          <h6>Tgl Join</h6>
+          <input type="date" class="browser-default tgl" />
+        </div>
+
+        <div class="right">
+          <h6>Nomor PKWTT</h6>
+          <input
+            type="text"
+            class="browser-default"
+            placeholder="Nomor PKWTT"
+          />
+        </div>
+      </mat-tab>
+
+      <!-- MAT TAB GAJI KARYAWAN -->
+      <mat-tab label="Gaji Karyawan">
+        <div class="right top">
+          <h6>Gaji Pokok</h6>
+          <input type="text" class="browser-default gajitgl" placeholder="Gaji Pokok">
+          <input type="date" class="browser-default tglgaji" />
+        </div>
+
+        <div class="right">
+          <h6>Uang Makan</h6>
+          <input type="text" class="browser-default gaji" placeholder="Uang Makan">
+        </div>
+
+        <div class="right">
+          <h6>Uang Transport</h6>
+          <input type="text" class="browser-default gaji" placeholder="Uang Transport">
+        </div>
+
+        <div class="right alamat">
+          <h6>Note</h6>
+          <textarea placeholder="Note"></textarea>
+        </div>
+
+      </mat-tab>
+    </mat-tab-group>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button
-      type="submit"
-      class="simpan waves-effect waves-light"
-      mat-dialog-close="simpan"
-      (click)="throwResult()"
-    >
-      Simpan
-    </button>
-    <button
-      class="batal waves-effect waves-light transparent"
-      mat-dialog-close="batal"
-    >
-      Batal
-    </button>
+    <div class="button">
+      <button
+        type="submit"
+        class="simpan waves-effect waves-light"
+        mat-dialog-close="simpan"
+        (click)="throwResult()"
+      >
+        Simpan
+      </button>
+      <button
+        class="batal waves-effect waves-light transparent"
+        mat-dialog-close="batal"
+      >
+        Batal
+      </button>
+    </div>
   </mat-dialog-actions>
 </div>
 
