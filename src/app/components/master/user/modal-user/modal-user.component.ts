@@ -5,6 +5,7 @@ import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Karyawan } from 'src/app/interfaces/karyawan';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-modal-user',
@@ -25,12 +26,12 @@ export class ModalUserComponent implements OnInit {
   akses = [{ value: 'Lokasi' }, { value: 'Perusahaan' }, { value: 'All' }];
   konfirmPassword = '';
 
-  dataUser = {
+  dataUser: User = {
     id: 0,
     username: '',
     email: '',
-    id_lokasi: 0,
-    id_perusahaan: 0,
+    id_lokasi: '',
+    id_perusahaan: '',
     akses: '',
     password: '',
     bagian_kerja: {

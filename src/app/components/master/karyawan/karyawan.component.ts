@@ -31,6 +31,7 @@ export class KaryawanComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
+        console.log(this.catchResult);
         this.api.postData(this.table, this.catchResult).subscribe((res) => {
           this.length = this.length + 1;
           this.getPageData();

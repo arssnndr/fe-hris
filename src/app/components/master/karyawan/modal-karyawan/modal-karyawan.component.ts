@@ -9,14 +9,11 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-karyawan.component.css'],
 })
 export class ModalKaryawanComponent implements OnInit {
-  isTambah = true;
+  isTambah = false;
   isDelete = false;
 
-  kewarganegaraanValue = '';
   kewarganegaraan = [{ value: 'WNI' }, { value: 'WNA' }];
-  jenisKelaminValue = '';
   jenisKelamin = [{ value: 'Laki-Laki' }, { value: 'Perempuan' }];
-  agamaValue = '';
   agama = [
     { value: 'Islam' },
     { value: 'Protestan' },
@@ -26,13 +23,11 @@ export class ModalKaryawanComponent implements OnInit {
     { value: 'Khonghucu' },
     { value: 'Lain-lain' },
   ];
-  statusPerkawinanValue = '';
   statusPerkawinan = [
     { value: 'Kawin' },
     { value: 'Belum kawin' },
     { value: 'Cerai' },
   ];
-  pendidikanTerakhirValue = '';
   pendidikanTerakhir = [
     { value: 'TK' },
     { value: 'SD' },
@@ -46,7 +41,6 @@ export class ModalKaryawanComponent implements OnInit {
     { value: 'S2' },
     { value: 'S3' },
   ];
-  statusPajakValue = '';
   statusPajak = [
     { value: 'TK/0' },
     { value: 'TK/1' },
@@ -69,7 +63,6 @@ export class ModalKaryawanComponent implements OnInit {
     { value: 'Donata Agung Perkasa' },
     { value: 'Lain-lain' },
   ];
-  perusahaanValue = this.perusahaan[0].value;
   lokasiKerja = [
     { value: 'TMS HO' },
     { value: 'TMS 1' },
@@ -77,7 +70,6 @@ export class ModalKaryawanComponent implements OnInit {
     { value: 'TMS 3' },
     { value: 'TMS 4' },
   ];
-  lokasiKerjaValue = this.lokasiKerja[0].value;
   divisi = [
     { value: 'IT' },
     { value: 'GA' },
@@ -87,7 +79,6 @@ export class ModalKaryawanComponent implements OnInit {
     { value: 'Purchase' },
     { value: 'HRD' },
   ];
-  divisiValue = this.divisi[0].value;
   departemen = [
     { value: 'SAT Developer' },
     { value: 'Support' },
@@ -97,7 +88,6 @@ export class ModalKaryawanComponent implements OnInit {
     { value: 'Purchase' },
     { value: 'HRD' },
   ];
-  departemenValue = this.departemen[0].value;
   subDepartemen = [
     { value: 'SAT Developer' },
     { value: 'Support' },
@@ -107,7 +97,6 @@ export class ModalKaryawanComponent implements OnInit {
     { value: 'Purchase' },
     { value: 'HRD' },
   ];
-  subDepartemenValue = this.subDepartemen[0].value;
   jabatan = [
     { value: 'Staff/Crew' },
     { value: 'Foreman' },
@@ -118,7 +107,6 @@ export class ModalKaryawanComponent implements OnInit {
     { value: 'General Manager' },
     { value: 'Director' },
   ];
-  jabatanValue = this.jabatan[0].value;
   statusKaryawan = [
     { value: 'PKWT' },
     { value: 'PKWTT' },
@@ -126,16 +114,64 @@ export class ModalKaryawanComponent implements OnInit {
     { value: 'Informal' },
     { value: 'Harian' },
   ];
-  statusKaryawanValue = this.statusKaryawan[0].value;
 
   karyawan: Karyawan = {
-    id: 0,
+    id: NaN,
+    kewarganegaraan: this.kewarganegaraan[0].value,
+    nik: NaN,
     nama_lengkap: '',
+    tempat_lahir: '',
+    tgl_lahir: '',
+    jenis_kelamin: this.jenisKelamin[0].value,
+    alamat_domisili: '',
+    rt_rw: '',
+    kel_desa: '',
+    agama: this.agama[0].value,
+    status_perkawinan: this.statusPerkawinan[0].value,
+    nomor_npwp: NaN,
+    nomor_telepon: '',
     email: '',
-    id_departemen: 0,
-    jabatan: '',
-    id_perusahaan: 0,
-    id_lokasi: 0,
+    pendidikan_terakhir: this.pendidikanTerakhir[0].value,
+    nomor_bpjs_tk: NaN,
+    nomor_bpjs_kesehatan: NaN,
+    nama_faskes: '',
+    alamat_faskes: '',
+    nomor_kk: NaN,
+    nama_kepala_keluarga: '',
+    nama_ibu_kandung: '',
+    status_pajak: this.statusPajak[0].value,
+    nama_pasangan: '',
+    nama_anak_ke1: '',
+    nama_anak_ke2: '',
+    nama_anak_ke3: '',
+    nama_kontak_darurat: '',
+    nomor_telepon_darurat: '',
+    hubungan_dengan_karyawan: '',
+    nomor_passport: NaN,
+    tgl_pembuatan_passport: '',
+    tgl_berakhir_passport: '',
+    kebangsaan: '',
+    nomor_kitas: NaN,
+    tgl_berakhir_kitas: '',
+    nomor_rptka: NaN,
+    tgl_berakhir_rptka: '',
+    id_perusahaan: this.perusahaan[0].value,
+    nip: NaN,
+    id_lokasi: this.lokasiKerja[0].value,
+    id_divisi: this.divisi[0].value,
+    id_departemen: this.departemen[0].value,
+    id_subdepartemen: this.subDepartemen[0].value,
+    jabatan: this.jabatan[0].value,
+    status_karyawan: this.statusKaryawan[0].value,
+    nama_pemberi_referensi: '',
+    nama_atasan_langsung: '',
+    tgl_join: '',
+    nomor_pkwtt: NaN,
+    gaji_pokok: NaN,
+    tgl_perubahan: '',
+    uang_makan: NaN,
+    uang_transport: NaN,
+    note: '',
   };
 
   constructor(
@@ -147,13 +183,6 @@ export class ModalKaryawanComponent implements OnInit {
     if (this.data.name === 'tambah') {
       this.isTambah = true;
       this.isDelete = false;
-
-      this.kewarganegaraanValue = this.kewarganegaraan[0].value;
-      this.jenisKelaminValue = this.jenisKelamin[0].value;
-      this.agamaValue = this.agama[0].value;
-      this.statusPerkawinanValue = this.statusPerkawinan[0].value;
-      this.pendidikanTerakhirValue = this.pendidikanTerakhir[4].value;
-      this.statusPajakValue = this.statusPajak[0].value;
     } else if (this.data.name === 'delete') {
       this.isTambah = false;
       this.isDelete = true;
@@ -161,12 +190,6 @@ export class ModalKaryawanComponent implements OnInit {
   }
 
   throwResult() {
-    // this.karyawan = {
-    //   id: this.idValue,
-    //   keterangan: this.keteranganValue,
-    //   inisial_lokasi: this.inisialValue,
-    //   alamat_lokasi: this.alamatValue,
-    // };
-    // this.api.throwData(this.karyawan);
+    this.api.throwData(this.karyawan);
   }
 }

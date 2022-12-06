@@ -3,14 +3,12 @@ h2 {
   margin: 0px 40px 20px;
 }
 
-mat-dialog-content {
+mat-dialog-content.tambah,
+mat-dialog-content.edit {
   padding: 0px;
   margin: 0px 40px;
   width: 700px;
-}
-
-mat-dialog-content div {
-  display: inline-flex;
+  height: 1000px;
 }
 
 mat-dialog-content.delete {
@@ -19,10 +17,20 @@ mat-dialog-content.delete {
   width: 460px;
 }
 
+mat-dialog-content div {
+  display: inline-flex;
+}
+
 mat-dialog-actions {
   padding: 0px;
   margin: 0px 40px;
   width: 700px;
+}
+
+mat-dialog-actions.delete {
+  padding: 0px;
+  margin: 0px 40px;
+  width: 460px;
 }
 
 input {
