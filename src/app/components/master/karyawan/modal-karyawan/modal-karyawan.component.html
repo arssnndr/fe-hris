@@ -1,6 +1,5 @@
-<!-- Modal tambah data -->
-<div *ngIf="isTambah">
-  <!-- <h2 mat-dialog-title>Perusahaan</h2> -->
+<!-- Modal tambah or edit data -->
+<div *ngIf="isTambah || isEdit">
   <mat-dialog-content class="tambah">
     <mat-tab-group mat-align-tabs="center">
       <mat-tab label="Pribadi">
@@ -38,17 +37,28 @@
         </div>
 
         <div class="right">
-          <h6>Nama</h6>
+          <h6>
+            Nama
+            <sup style="color: red" *ngIf="karyawan.nama_lengkap === ''"
+              >Wajib</sup
+            >
+          </h6>
           <input
             type="text"
             class="browser-default"
+            maxlength="150"
             placeholder="Nama Lengkap"
             [(ngModel)]="karyawan.nama_lengkap"
           />
         </div>
 
         <div class="right">
-          <h6>Tempat Lahir</h6>
+          <h6>
+            Tempat Lahir
+            <sup style="color: red" *ngIf="karyawan.tempat_lahir === ''"
+              >Wajib</sup
+            >
+          </h6>
           <input
             type="text"
             class="browser-default"
@@ -58,7 +68,12 @@
         </div>
 
         <div class="right">
-          <h6>Tgl Lahir</h6>
+          <h6>
+            Tgl Lahir
+            <sup style="color: red" *ngIf="karyawan.tgl_lahir === ''"
+              >Wajib</sup
+            >
+          </h6>
           <input
             type="date"
             class="browser-default tgl"
@@ -400,7 +415,12 @@
 
       <mat-tab label="Pekerjaan & Organisasi">
         <div class="right top">
-          <h6>Perusahaan</h6>
+          <h6>
+            Perusahaan
+            <sup style="color: red" *ngIf="karyawan.id_perusahaan === ''"
+              >Wajib</sup
+            >
+          </h6>
           <select class="browser-default" [(ngModel)]="karyawan.id_perusahaan">
             <option *ngFor="let raw of perusahaan" [value]="raw.value">
               {{ raw.value }}
@@ -415,13 +435,18 @@
             type="text"
             class="browser-default disabled"
             placeholder="000000"
-            [(ngModel)]="karyawan.nip"
+            [(ngModel)]="karyawan.id"
             disabled
           />
         </div>
 
         <div class="right">
-          <h6>Lokasi Kerja</h6>
+          <h6>
+            Lokasi Kerja
+            <sup style="color: red" *ngIf="karyawan.id_lokasi === ''"
+              >Wajib</sup
+            >
+          </h6>
           <select class="browser-default" [(ngModel)]="karyawan.id_lokasi">
             <option *ngFor="let raw of lokasiKerja" [value]="raw.value">
               {{ raw.value }}
@@ -578,7 +603,17 @@
       <button
         type="submit"
         class="simpan waves-effect waves-light"
+        *ngIf="isTambah"
         mat-dialog-close="simpan"
+        (click)="throwResult()"
+      >
+        Simpan
+      </button>
+      <button
+        type="submit"
+        class="simpan waves-effect waves-light"
+        *ngIf="isEdit"
+        mat-dialog-close="update"
         (click)="throwResult()"
       >
         Simpan

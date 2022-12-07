@@ -41,7 +41,6 @@ export interface Karyawan {
   tgl_berakhir_rptka: string;
 
   id_perusahaan: string;
-  nip: number;
   id_lokasi: string;
   id_divisi: string;
   id_departemen: string;

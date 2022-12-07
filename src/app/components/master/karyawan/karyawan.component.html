@@ -64,12 +64,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let row of data">
-      <td>{{ row.id }}</td>
-      <td>{{ row.nama_lengkap }}</td>
-      <td>{{ row.id_departemen }}</td>
-      <td>{{ row.jabatan }}</td>
-      <td>{{ row.id_perusahaan }}</td>
-      <td>{{ row.id_lokasi }}</td>
+      <td (click)="editData(row)">{{ row.id }}</td>
+      <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
+      <td (click)="editData(row)">{{ row.id_departemen }}</td>
+      <td (click)="editData(row)">{{ row.jabatan }}</td>
+      <td (click)="editData(row)">{{ row.id_perusahaan }}</td>
+      <td (click)="editData(row)">{{ row.id_lokasi }}</td>
       <td>
         <button
           (click)="deleteData(row.id)"

@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/shared/api.service';
 export class ModalKaryawanComponent implements OnInit {
   isTambah = false;
   isDelete = false;
+  isEdit = false;
 
   kewarganegaraan = [{ value: 'WNI' }, { value: 'WNA' }];
   jenisKelamin = [{ value: 'Laki-Laki' }, { value: 'Perempuan' }];
@@ -156,7 +157,6 @@ export class ModalKaryawanComponent implements OnInit {
     nomor_rptka: NaN,
     tgl_berakhir_rptka: '',
     id_perusahaan: this.perusahaan[0].value,
-    nip: NaN,
     id_lokasi: this.lokasiKerja[0].value,
     id_divisi: this.divisi[0].value,
     id_departemen: this.departemen[0].value,
@@ -176,20 +176,39 @@ export class ModalKaryawanComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; id: number }
+    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
   ) {}
 
   ngOnInit(): void {
     if (this.data.name === 'tambah') {
       this.isTambah = true;
       this.isDelete = false;
+      this.isEdit = false;
+
+      this.karyawan.id = this.data.data;
     } else if (this.data.name === 'delete') {
       this.isTambah = false;
       this.isDelete = true;
+      this.isEdit = false;
+    } else if (this.data.name === 'edit') {
+      this.isTambah = false;
+      this.isDelete = false;
+      this.isEdit = true;
+
+      this.karyawan = this.data.data;
     }
   }
 
   throwResult() {
+    if (
+      this.karyawan.nama_lengkap === '' ||
+      this.karyawan.tempat_lahir === '' ||
+      this.karyawan.tgl_lahir === '' ||
+      this.karyawan.id_perusahaan === '' ||
+      this.karyawan.id_lokasi === ''
+    ) {
+      window.alert('Data wajib belum terisi');
+    }
     this.api.throwData(this.karyawan);
   }
 }

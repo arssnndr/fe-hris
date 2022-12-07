@@ -16,24 +16,56 @@ export class KaryawanComponent implements OnInit {
   pageIndex = 0;
   pageSizeOption = [50, 100, 150, 200];
   showFirstLastButtons = false;
-  data!: any;
+  data: any;
   length: any;
   catchResult: any;
+  newId = 0;
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
   tambahData() {
     const dialogRef = this.dialog.open(ModalKaryawanComponent, {
-      data: { name: 'tambah' },
+      data: { name: 'tambah', data: this.newId },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
+        if (
+          this.catchResult.nama_lengkap === '' ||
+          this.catchResult.tempat_lahir === '' ||
+          this.catchResult.tgl_lahir === '' ||
+          this.catchResult.id_perusahaan === '' ||
+          this.catchResult.id_lokasi === ''
+        ) {
+          console.log(this.catchResult);
+          const dialogRef = this.dialog.open(ModalKaryawanComponent, {
+            data: { name: 'tambah', data: this.catchResult },
+          });
+        } else {
+          this.api.postData(this.table, this.catchResult).subscribe((res) => {
+            this.length = this.length + 1;
+            this.getPageData();
+          });
+        }
+      }
+    });
+  }
+
+  editData(data: any) {
+    const dialogRef = this.dialog.open(ModalKaryawanComponent, {
+      data: { name: 'edit', data: data },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'update') {
+        console.log(result);
+        this.catchResult = this.api.catchData();
         console.log(this.catchResult);
-        this.api.postData(this.table, this.catchResult).subscribe((res) => {
-          this.length = this.length + 1;
+        let data = this.catchResult;
+        let id = this.catchResult.id;
+        this.api.updateData(this.table, data, id).subscribe((res) => {
           this.getPageData();
         });
       }
@@ -69,6 +101,7 @@ export class KaryawanComponent implements OnInit {
     if (this.dataSearch.length === 0) {
       this.api.getData(this.table).subscribe((res) => {
         this.length = res.length;
+        this.newId = parseInt(res[res.length - 1].id) + 1;
         this.pageSize = 50;
         this.pageIndex = 0;
         this.getPageData();
