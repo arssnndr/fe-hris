@@ -151,10 +151,21 @@ for (var i = 1; i <= loop; i++) {
 for (var i = 1; i <= loop; i++) {
   let username = faker.name.fullName();
   let email = faker.internet.email(username);
-  let id_lokasi = getRandomInt(loop);
-  let id_perusahaan = getRandomInt(loop);
+  let id_perusahaan = faker.helpers.arrayElement([
+    "Indika Jasa Parama",
+    "Royalindo Investa Wijaya",
+    "The Master Steel Manufactory",
+    "Donata Agung Perkasa",
+  ]);
+  let id_lokasi = faker.helpers.arrayElement([
+    "TMS HO",
+    "TMS 1",
+    "TMS 2",
+    "TMS 3",
+    "TMS 4",
+  ]);
   let status = faker.datatype.boolean();
-  let akses = faker.helpers.arrayElement(["lokasi", "perusahaan", "all"]);
+  let akses = faker.helpers.arrayElement(["Lokasi", "Perusahaan", "All"]);
   let pwd = faker.internet.password(8);
 
   database.ms_userid.push({
@@ -246,7 +257,7 @@ for (var i = 1; i <= loop; i++) {
 
 // ms_karyawan
 for (var i = 1; i <= loop; i++) {
-  (tgl =
+  const tgl =
     faker.datatype.number({ min: 1997, max: 2003 }) +
     "-" +
     faker.helpers.arrayElement([
@@ -264,131 +275,163 @@ for (var i = 1; i <= loop; i++) {
       "12",
     ]) +
     "-" +
-    faker.datatype.number({ min: 10, max: 31 }));
-    const inisial = faker.helpers.arrayElement(["IJP", "TMS", "RIW", "DAP"]);
-  let nama_perusahaan = "";
+    faker.datatype.number({ min: 10, max: 31 });
 
-  let alamat_perusahaan = "";
+  database.ms_karyawan.push({
+    id: faker.random.numeric(6),
+    kewarganegaraan: faker.helpers.arrayElement([
+      "WNI",
+      "WNI",
+      "WNI",
+      "WNI",
+      "WNI",
+      "WNA",
+    ]),
+    nik: faker.random.numeric(16),
+    nama_lengkap: faker.name.fullName(),
+    tempat_lahir: faker.address.cityName(),
+    tgl_lahir: tgl,
+    jenis_kelamin: faker.helpers.arrayElement(["Laki-Laki", "Perempuan"]),
+    alamat_domisili: faker.address.city(),
+    rt_rw: faker.random.numeric(2) + "/" + faker.random.numeric(2),
+    kel_desa: faker.address.city(),
+    agama: faker.helpers.arrayElement([
+      "Islam",
+      "Protestan",
+      "Katolik",
+      "Hindu",
+      "Buddha",
+      "Khonghucu",
+      "Lain-lain",
+    ]),
+    status_perkawinan: faker.helpers.arrayElement([
+      "Kawin",
+      "Belum kawin",
+      "Cerai",
+    ]),
+    nomor_npwp: faker.random.numeric(16),
+    nomor_telepon: faker.phone.number("+62 8## #### ####"),
+    email: faker.internet.email(),
+    pendidikan_terakhir: faker.helpers.arrayElement([
+      "TK",
+      "SD",
+      "SMP",
+      "SMA",
+      "SMK",
+      "Diploma 1",
+      "Diploma 2",
+      "Diploma 3",
+      "S1",
+      "S2",
+      "S3",
+    ]),
+    nomor_bpjs_tk: faker.phone.number("#### #### ###"),
+    nomor_bpjs_kesehatan: faker.phone.number("#### #### #### #"),
+    nama_faskes: faker.name.fullName(),
+    alamat_faskes: faker.address.cityName(),
+    nomor_kk: faker.phone.number("#### #### #### ####"),
+    nama_kepala_keluarga: faker.name.fullName(),
+    nama_ibu_kandung: faker.name.fullName(),
+    status_pajak: faker.helpers.arrayElement([
+      "TK/0",
+      "TK/1",
+      "TK/2",
+      "TK/3",
+      "K/0",
+      "K/1",
+      "K/2",
+      "K/3",
+      "K/I/0",
+      "K/I/1",
+      "K/I/2",
+      "K/I/3",
+    ]),
+    nama_pasangan: faker.name.fullName(),
+    nama_anak_ke1: faker.name.fullName(),
+    nama_anak_ke2: faker.name.fullName(),
+    nama_anak_ke3: faker.name.fullName(),
+    nama_kontak_darurat: faker.name.fullName(),
+    nomor_telepon_darurat: faker.phone.number("+62 8## #### ####"),
+    hubungan_dengan_karyawan: faker.random.words(2),
 
-  if (inisial === "IJP") {
-    nama_perusahaan = "Indika Jasa Parama";
-    alamat_perusahaan = "Jl. Raya Bekasi KM.21, Ruko PTC Block B8";
-  } else if (inisial === "TMS") {
-    nama_perusahaan = "The Master Steel Manufactory";
-    alamat_perusahaan = "Jl. HOS Cokroaminoto No.49";
-  } else if (inisial === "RIW") {
-    nama_perusahaan = "Royalindo Investa Wijaya";
-    alamat_perusahaan = "Jl. HOS Cokroaminoto No.49";
-  } else {
-    nama_perusahaan = "Donata Agung Perkasa";
-    alamat_perusahaan = "Jl. KK Mas Mansyur No.121";
-  }
-    database.ms_karyawan.push({
-      id: faker.random.numeric(6),
-      kewarganegaraan: faker.helpers.arrayElement([
-        "WNI",
-        "WNI",
-        "WNI",
-        "WNI",
-        "WNI",
-        "WNA",
-      ]),
-      nik: faker.random.numeric(16),
-      nama_lengkap: faker.name.fullName(),
-      tempat_lahir: faker.address.cityName(),
-      tgl_lahir: tgl,
-      jenis_kelamin: faker.helpers.arrayElement(["Laki-Laki", "Perempuan"]),
-      alamat_domisili: faker.address.city(),
-      rt_rw: faker.random.numeric(2) + "/" + faker.random.numeric(2),
-      kel_desa: faker.address.city(),
-      agama: faker.helpers.arrayElement([
-        "Islam",
-        "Protestan",
-        "Katolik",
-        "Hindu",
-        "Buddha",
-        "Khonghucu",
-        "Lain-lain",
-      ]),
-      status_perkawinan: faker.helpers.arrayElement([
-        "Kawin",
-        "Belum kawin",
-        "Cerai",
-      ]),
-      nomor_npwp: faker.random.numeric(16),
-      nomor_telepon: faker.phone.number("+62 8## #### ####"),
-      email: faker.internet.email(),
-      pendidikan_terakhir: faker.helpers.arrayElement([
-        "TK",
-        "SD",
-        "SMP",
-        "SMA",
-        "SMK",
-        "Diploma 1",
-        "Diploma 2",
-        "Diploma 3",
-        "S1",
-        "S2",
-        "S3",
-      ]),
-      nomor_bpjs_tk: faker.phone.number("#### #### ###"),
-      nomor_bpjs_kesehatan: faker.phone.number("#### #### #### #"),
-      nama_faskes: faker.name.fullName(),
-      alamat_faskes: faker.address.cityName(),
-      nomor_kk: faker.phone.number("#### #### #### ####"),
-      nama_kepala_keluarga: faker.name.fullName(),
-      nama_ibu_kandung: faker.name.fullName(),
-      status_pajak: faker.helpers.arrayElement([
-        "TK/0",
-        "TK/1",
-        "TK/2",
-        "TK/3",
-        "K/0",
-        "K/1",
-        "K/2",
-        "K/3",
-        "K/I/0",
-        "K/I/1",
-        "K/I/2",
-        "K/I/3",
-      ]),
-      nama_pasangan: faker.name.fullName(),
-      nama_anak_ke1: faker.name.fullName(),
-      nama_anak_ke2: faker.name.fullName(),
-      nama_anak_ke3: faker.name.fullName(),
-      nama_kontak_darurat: faker.name.fullName(),
-      nomor_telepon_darurat: faker.phone.number("+62 8## #### ####"),
-      hubungan_dengan_karyawan: faker.random.words(2),
+    nomor_passport: faker.random.numeric(7),
+    tgl_pembuatan_passport: tgl,
+    tgl_berakhir_passport: tgl,
+    kebangsaan: faker.address.country(),
+    nomor_kitas: faker.random.numeric(20),
+    tgl_berakhir_kitas: tgl,
+    nomor_rptka: faker.random.numeric(20),
+    tgl_berakhir_rptka: tgl,
 
-      nomor_passport: faker.random.numeric(7),
-      tgl_pembuatan_passport: tgl,
-      tgl_berakhir_passport: tgl,
-      kebangsaan: faker.address.country(),
-      nomor_kitas: faker.random.numeric(20),
-      tgl_berakhir_kitas: tgl,
-      nomor_rptka: faker.random.numeric(20),
-      tgl_berakhir_rptka: tgl,
+    id_perusahaan: faker.helpers.arrayElement([
+      "Indika Jasa Parama",
+      "Royalindo Investa Wijaya",
+      "The Master Steel Manufactory",
+      "Donata Agung Perkasa",
+    ]),
+    id_lokasi: faker.helpers.arrayElement([
+      "TMS HO",
+      "TMS 1",
+      "TMS 2",
+      "TMS 3",
+      "TMS 4",
+    ]),
+    id_divisi: faker.helpers.arrayElement([
+      "IT",
+      "GA",
+      "Finance",
+      "Marketing",
+      "Sales",
+      "Purchase",
+      "HRD",
+    ]),
+    id_departemen: faker.helpers.arrayElement([
+      "SAT Developer",
+      "Support",
+      "Project",
+      "Marketing",
+      "Sales",
+      "Purchase",
+      "HRD",
+    ]),
+    id_subdepartemen: faker.helpers.arrayElement([
+      "SAT Developer",
+      "Support",
+      "Project",
+      "Marketing",
+      "Sales",
+      "Purchase",
+      "HRD",
+    ]),
+    jabatan: faker.helpers.arrayElement([
+      "Staff/Crew",
+      "Foreman",
+      "Supervisor",
+      "Specialis",
+      "Manager",
+      "Senior Manager",
+      "General Manager",
+      "Director",
+    ]),
+    status_karyawan: faker.helpers.arrayElement([
+      "PKWT",
+      "PKWTT",
+      "Magang",
+      "Informal",
+      "Harian",
+    ]),
+    nama_pemberi_referensi: faker.name.fullName(),
+    nama_atasan_langsung: faker.name.fullName(),
 
-      id_perusahaan: nama_perusahaan,
-      nip: "",
-      id_lokasi: "",
-      id_divisi: "",
-      id_departemen: "",
-      id_subdepartemen: "",
-      jabatan: "",
-      status_karyawan: "",
-      nama_pemberi_referensi: "",
-      nama_atasan_langsung: "",
+    tgl_join: tgl,
+    nomor_pkwtt: faker.random.alphaNumeric(20),
 
-      tgl_join: tgl,
-      nomor_pkwtt: "",
-
-      gaji_pokok: "",
-      tgl_perubahan: tgl,
-      uang_makan: "",
-      uang_transport: "",
-      note: "",
-    });
+    gaji_pokok: faker.datatype.number({ min: 3000000, max: 99000000 }),
+    tgl_perubahan: tgl,
+    uang_makan: faker.datatype.number({ min: 10000, max: 100000 }),
+    uang_transport: faker.datatype.number({ min: 25000, max: 250000 }),
+    note: faker.random.words(10),
+  });
 }
 
 console.log(JSON.stringify(database));

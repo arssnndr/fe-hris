@@ -185,7 +185,9 @@ export class ModalKaryawanComponent implements OnInit {
       this.isDelete = false;
       this.isEdit = false;
 
-      this.karyawan.id = this.data.data;
+      this.data.data.nama_lengkap === undefined
+        ? (this.karyawan.id = this.data.data.id)
+        : (this.karyawan = this.data.data);
     } else if (this.data.name === 'delete') {
       this.isTambah = false;
       this.isDelete = true;
@@ -207,7 +209,7 @@ export class ModalKaryawanComponent implements OnInit {
       this.karyawan.id_perusahaan === '' ||
       this.karyawan.id_lokasi === ''
     ) {
-      window.alert('Data wajib belum terisi');
+      alert('Data wajib belum terisi');
     }
     this.api.throwData(this.karyawan);
   }
