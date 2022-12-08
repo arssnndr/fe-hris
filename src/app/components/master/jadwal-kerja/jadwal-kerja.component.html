@@ -1,1 +1,72 @@
-<p>jadwal-kerja works!</p>
+<h4>Jadwal Kerja</h4>
+<div class="nav">
+  <nav class="transparent z-depth-0">
+    <div class="nav-wrapper row">
+      <div class="col s4">
+        <div class="left" style="display: inline-flex">
+          <label style="font-size: large; margin-right: 20px">Lokasi</label>
+          <select class="browser-default" [(ngModel)]="lokasiValue" (change)="searchData()">
+            <option *ngFor="let raw of lokasi" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+      </div>
+      <div class="col s8">
+        <ul class="right">
+          <li>
+            <button class="download waves-effect waves-dark transparent">
+              Download
+            </button>
+          </li>
+          <li>
+            <button
+              class="tambah waves-effect waves-light"
+              (click)="tambahData()"
+            >
+              Tambah
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<table class="responsive-table striped">
+  <thead>
+    <tr>
+      <th>ID Jadwal Kerja</th>
+      <th>Inisial Lokasi</th>
+      <th>Shift</th>
+      <th>Jam Kerja</th>
+      <th>Jam Masuk</th>
+      <th>Jam Pulang</th>
+      <th>Jam Mulai Istirahat</th>
+      <th>Jam Selesai Istirahat</th>
+      <th>Total Jam Kerja</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data">
+      <td (click)="editData(row)">{{ row.id }}</td>
+      <td (click)="editData(row)">{{ row.id_lokasi }}</td>
+      <td (click)="editData(row)">{{ row.id_shift }}</td>
+      <td (click)="editData(row)">{{ row.jam_kerja }}</td>
+      <td (click)="editData(row)">{{ row.in }}</td>
+      <td (click)="editData(row)">{{ row.out }}</td>
+      <td (click)="editData(row)">{{ row.mulai_istirahat }}</td>
+      <td (click)="editData(row)">{{ row.selesai_istirahat }}</td>
+      <td (click)="editData(row)">{{ row.total_jam_kerja }} Jam</td>
+      <td>
+        <button
+          (click)="deleteData(row.id)"
+          class="waves-effect waves-light right red darken-2"
+        >
+          <i class="material-icons" style="font-size: 15px">close</i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

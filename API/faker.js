@@ -7,13 +7,14 @@ const database = {
   ms_lokasi: [],
   ms_userid: [],
   ms_karyawan: [],
+  trx_jadwalkerja: [],
 };
 
-const loop = 10;
+const loop = 100;
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max + 1);
-}
+// function getRandomInt(max) {
+//   return Math.floor(Math.random() * max + 1);
+// }
 
 // login
 for (var i = 1; i <= 1; i++) {
@@ -28,7 +29,13 @@ for (var i = 1; i <= 1; i++) {
 
 // bagian_kerja
 for (var i = 1; i <= loop; i++) {
-  const id_lokasi = getRandomInt(loop);
+  const id_lokasi = faker.helpers.arrayElement([
+    "TMS HO",
+    "TMS 1",
+    "TMS 2",
+    "TMS 3",
+    "TMS 4",
+  ]);
   const jenis_bagian = faker.helpers.arrayElement([
     "Divisi",
     "Departemen",
@@ -431,6 +438,56 @@ for (var i = 1; i <= loop; i++) {
     uang_makan: faker.datatype.number({ min: 10000, max: 100000 }),
     uang_transport: faker.datatype.number({ min: 25000, max: 250000 }),
     note: faker.random.words(10),
+  });
+}
+
+// trx_jadwalkerja
+for (var i = 1; i <= loop; i++) {
+  let masuk = faker.helpers.arrayElement(["07:00", "09:00", "14:00"]);
+  let keluar;
+  let mulaiIstirahat;
+  let selesaiIstirahat;
+  if (masuk === "07:00") {
+    keluar = "16:00";
+    mulaiIstirahat = "10:00";
+    selesaiIstirahat = "11:00";
+  } else if (masuk === "09:00") {
+    keluar = "17:00";
+    mulaiIstirahat = "12:00";
+    selesaiIstirahat = "13:00";
+  } else if (masuk === "14:00") {
+    keluar = "22:00";
+    mulaiIstirahat = "17:00";
+    selesaiIstirahat = "18:00";
+  }
+
+  let lokasi = faker.helpers.arrayElement([
+    { value: "TMS HO", val: "TMS0" },
+    { value: "TMS 1", val: "TMS1" },
+    { value: "TMS 2", val: "TMS2" },
+    { value: "TMS 3", val: "TMS3" },
+    { value: "TMS 4", val: "TMS4" },
+  ]);
+  let shift = faker.helpers.arrayElement([
+    { value: "Non Shift", val: "S0" },
+    { value: "Shift 1", val: "S1" },
+    { value: "Shift 2", val: "S2" },
+  ]);
+  let jamKerja = faker.helpers.arrayElement([
+    { value: "Normal", val: "N0" },
+    { value: "Pendek", val: "N1" },
+  ]);
+
+  database.trx_jadwalkerja.push({
+    id: lokasi.val + shift.val + jamKerja.val + faker.random.numeric(3),
+    id_lokasi: lokasi.value,
+    id_shift: shift.value,
+    jam_kerja: jamKerja.value,
+    in: masuk,
+    out: keluar,
+    mulai_istirahat: mulaiIstirahat,
+    selesai_istirahat: selesaiIstirahat,
+    total_jam_kerja: "7",
   });
 }
 
