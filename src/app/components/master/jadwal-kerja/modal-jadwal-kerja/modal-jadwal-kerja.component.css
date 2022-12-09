@@ -1,12 +1,16 @@
+div.tambah {
+    width: 700px;
+}
+
 h2 {
   text-align: left;
-  margin: 0px 40px 20px;
+  margin: 0px 45px 20px;
 }
 
 mat-dialog-content {
   padding: 0px;
-  margin: 0px 40px;
-  width: 410px;
+  margin: 0px 45px;
+  /* width: 410px; */
 }
 
 mat-dialog-content div {
@@ -20,14 +24,25 @@ mat-dialog-content.delete {
 
 mat-dialog-actions {
   padding: 0px;
-  margin: 0px 45px;
-  width: 410px;
+  margin: 0px 40px;
+  /* width: 410px; */
 }
 
 input {
   margin-bottom: 5px;
   background-color: rgb(255, 255, 255);
-  width: 300px;
+  width: 150px;
+  padding: 5px;
+  border: 1px solid #00000050;
+  border-radius: 2px;
+  height: 3rem;
+}
+
+input.sd {
+  margin-bottom: 5px;
+  margin-right: 117px;
+  background-color: rgb(255, 255, 255);
+  width: 150px;
   padding: 5px;
   border: 1px solid #00000050;
   border-radius: 2px;
@@ -36,13 +51,14 @@ input {
 
 input.disabled {
   background-color: #f1f1f1;
+  margin-right: 313px;
 }
 
 select {
   margin-bottom: 5px;
   margin-right: 0px;
   background-color: rgb(255, 255, 255);
-  width: 287px;
+  width: 450px;
   padding: 5px;
   border: 1px solid #00000050;
   border-style: solid none solid solid;
@@ -54,7 +70,7 @@ button.space {
   height: 45px;
   width: 13px;
   margin-right: 0px;
-  padding-top: 5px;
+  padding: 0px;
   background-color: rgb(255, 255, 255);
   border: 1px solid #00000050;
   border-style: solid solid solid none;

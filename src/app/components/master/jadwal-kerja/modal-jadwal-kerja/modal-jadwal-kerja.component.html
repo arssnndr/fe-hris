@@ -22,21 +22,85 @@
 </div>
 
 <!-- Modal tambah -->
-<div *ngIf="isTambah">
+<div class="tambah" *ngIf="isTambah || isEdit">
   <h2 mat-dialog-title>Jadwal Kerja</h2>
   <mat-dialog-content>
     <div class="right">
       <h6>ID Jadwal</h6>
-      <input type="text" class="browser-default disabled" disabled [value]="jadwalKerja.id">
+      <input
+        type="text"
+        class="browser-default disabled"
+        disabled
+        [value]="jadwalKerja.id"
+      />
     </div>
     <div class="right">
       <h6>Inisial Lokasi</h6>
-      <select class="browser-default" [(ngModel)]="jadwalKerja.id_lokasi">
+      <select class="browser-default" (change)="onChange($event.target)">
         <option *ngFor="let raw of lokasi" [value]="raw.value">
           {{ raw.value }}
         </option>
       </select>
       <button class="space"></button>
+    </div>
+    <div class="right">
+      <h6>Shift</h6>
+      <select class="browser-default" (change)="onChange($event.target)">
+        <option *ngFor="let raw of shift" [value]="raw.value">
+          {{ raw.value }}
+        </option>
+      </select>
+      <button class="space"></button>
+    </div>
+    <div class="right">
+      <h6>Jam Kerja</h6>
+      <select class="browser-default" (change)="onChange($event.target)">
+        <option *ngFor="let raw of jamKerja" [value]="raw.value">
+          {{ raw.value }}
+        </option>
+      </select>
+      <button class="space"></button>
+    </div>
+    <div class="right">
+      <h6>Jam Masuk</h6>
+      <input
+        type="time"
+        class="browser-default"
+        [value]="jadwalKerja.in"
+        [(ngModel)]="jadwalKerja.in"
+        (input)="onChange($event.target)"
+      />
+      <h6 style="width: 25px">s.d</h6>
+      <input
+        type="time"
+        class="browser-default sd"
+        [value]="jadwalKerja.out"
+        [(ngModel)]="jadwalKerja.out"
+        (input)="onChange($event.target)"
+      />
+    </div>
+    <div class="right">
+      <h6>Jam Istirahat</h6>
+      <input
+        type="time"
+        class="browser-default"
+        [value]="jadwalKerja.mulai_istirahat"
+      />
+      <h6 style="width: 25px">s.d</h6>
+      <input
+        type="time"
+        class="browser-default sd"
+        [value]="jadwalKerja.selesai_istirahat"
+      />
+    </div>
+    <div class="right">
+      <h6>Total Jam Kerja</h6>
+      <input
+        type="time"
+        class="browser-default disabled"
+        disabled
+        [value]="jadwalKerja.total_jam_kerja"
+      />
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">

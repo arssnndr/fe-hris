@@ -10,7 +10,7 @@ const database = {
   trx_jadwalkerja: [],
 };
 
-const loop = 100;
+const loop = 5;
 
 // function getRandomInt(max) {
 //   return Math.floor(Math.random() * max + 1);
