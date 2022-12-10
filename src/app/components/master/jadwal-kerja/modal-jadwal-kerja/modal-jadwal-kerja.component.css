@@ -10,7 +10,6 @@ h2 {
 mat-dialog-content {
   padding: 0px;
   margin: 0px 45px;
-  /* width: 410px; */
 }
 
 mat-dialog-content div {
@@ -20,6 +19,7 @@ mat-dialog-content div {
 mat-dialog-content.delete {
   padding: 0px;
   margin: 0px 40px;
+  width: 410px;
 }
 
 mat-dialog-actions {

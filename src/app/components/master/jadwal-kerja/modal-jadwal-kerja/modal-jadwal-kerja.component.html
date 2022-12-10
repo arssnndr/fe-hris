@@ -21,7 +21,7 @@
   </mat-dialog-actions>
 </div>
 
-<!-- Modal tambah -->
+<!-- Modal tambah or edit -->
 <div class="tambah" *ngIf="isTambah || isEdit">
   <h2 mat-dialog-title>Jadwal Kerja</h2>
   <mat-dialog-content>
@@ -36,7 +36,21 @@
     </div>
     <div class="right">
       <h6>Inisial Lokasi</h6>
-      <select class="browser-default" (change)="onChange($event.target)">
+      <select
+        *ngIf="isTambah"
+        class="browser-default"
+        (change)="onChange($event.target)"
+      >
+        <option *ngFor="let raw of lokasi" [value]="raw.value">
+          {{ raw.value }}
+        </option>
+      </select>
+      <select
+        *ngIf="isEdit"
+        class="browser-default"
+        [(ngModel)]="lokasiValue"
+        (change)="onChange($event.target)"
+      >
         <option *ngFor="let raw of lokasi" [value]="raw.value">
           {{ raw.value }}
         </option>
@@ -45,7 +59,21 @@
     </div>
     <div class="right">
       <h6>Shift</h6>
-      <select class="browser-default" (change)="onChange($event.target)">
+      <select
+        *ngIf="isTambah"
+        class="browser-default"
+        (change)="onChange($event.target)"
+      >
+        <option *ngFor="let raw of shift" [value]="raw.value">
+          {{ raw.value }}
+        </option>
+      </select>
+      <select
+        *ngIf="isEdit"
+        class="browser-default"
+        [(ngModel)]="shiftValue"
+        (change)="onChange($event.target)"
+      >
         <option *ngFor="let raw of shift" [value]="raw.value">
           {{ raw.value }}
         </option>
@@ -54,7 +82,21 @@
     </div>
     <div class="right">
       <h6>Jam Kerja</h6>
-      <select class="browser-default" (change)="onChange($event.target)">
+      <select
+        *ngIf="isTambah"
+        class="browser-default"
+        (change)="onChange($event.target)"
+      >
+        <option *ngFor="let raw of jamKerja" [value]="raw.value">
+          {{ raw.value }}
+        </option>
+      </select>
+      <select
+        *ngIf="isEdit"
+        class="browser-default"
+        [(ngModel)]="jamKerjaValue"
+        (change)="onChange($event.target)"
+      >
         <option *ngFor="let raw of jamKerja" [value]="raw.value">
           {{ raw.value }}
         </option>
@@ -66,7 +108,6 @@
       <input
         type="time"
         class="browser-default"
-        [value]="jadwalKerja.in"
         [(ngModel)]="jadwalKerja.in"
         (input)="onChange($event.target)"
       />
@@ -74,7 +115,6 @@
       <input
         type="time"
         class="browser-default sd"
-        [value]="jadwalKerja.out"
         [(ngModel)]="jadwalKerja.out"
         (input)="onChange($event.target)"
       />
@@ -84,22 +124,24 @@
       <input
         type="time"
         class="browser-default"
-        [value]="jadwalKerja.mulai_istirahat"
+        [(ngModel)]="jadwalKerja.mulai_istirahat"
+        (input)="onChange($event.target)"
       />
       <h6 style="width: 25px">s.d</h6>
       <input
         type="time"
         class="browser-default sd"
-        [value]="jadwalKerja.selesai_istirahat"
+        [(ngModel)]="jadwalKerja.selesai_istirahat"
+        (input)="onChange($event.target)"
       />
     </div>
     <div class="right">
       <h6>Total Jam Kerja</h6>
       <input
-        type="time"
+        type="text"
         class="browser-default disabled"
         disabled
-        [value]="jadwalKerja.total_jam_kerja"
+        [value]="jadwalKerja.total_jam_kerja + ' Jam'"
       />
     </div>
   </mat-dialog-content>

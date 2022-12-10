@@ -35,10 +35,10 @@ export class JadwalKerjaComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
-        // this.catchResult = this.api.catchData();
-        // this.api.postData(this.table, this.catchResult).subscribe((res) => {
-        //   this.ngOnInit();
-        // });
+        this.catchResult = this.api.catchData();
+        this.api.postData(this.table, this.catchResult).subscribe((res) => {
+          this.ngOnInit();
+        });
       }
     });
   }
@@ -50,12 +50,12 @@ export class JadwalKerjaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'simpan') {
-        // this.catchResult = this.api.catchData();
-        // let data = this.catchResult;
-        // let id = this.catchResult.id;
-        // this.api.updateData(this.table, data, id).subscribe((res) => {
-        //   this.ngOnInit();
-        // });
+        this.catchResult = this.api.catchData();
+        let data = this.catchResult;
+        let id = this.catchResult.id;
+        this.api.updateData(this.table, data, id).subscribe((res) => {
+          this.ngOnInit();
+        });
       }
     });
   }

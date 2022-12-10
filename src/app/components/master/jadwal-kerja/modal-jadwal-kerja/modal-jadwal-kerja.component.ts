@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { JadwalKerja } from 'src/app/interfaces/jadwal-kerja';
+import { ApiService } from 'src/app/shared/api.service';
 
 @Component({
   selector: 'app-modal-jadwal-kerja',
@@ -21,7 +22,7 @@ export class ModalJadwalKerjaComponent implements OnInit {
     out: '',
     mulai_istirahat: '',
     selesai_istirahat: '',
-    total_jam_kerja: '',
+    total_jam_kerja: 0,
   };
 
   lokasi = [
@@ -31,22 +32,26 @@ export class ModalJadwalKerjaComponent implements OnInit {
     { value: 'TMS 3', val: 'TMS3' },
     { value: 'TMS 4', val: 'TMS4' },
   ];
-  lokasiValue = this.lokasi[0].val;
+  lokasiValue = '';
+  lokasiVal = '';
 
   shift = [
     { value: 'Non Shift', val: 'S0' },
     { value: 'Shift 1', val: 'S1' },
     { value: 'Shift 2', val: 'S2' },
   ];
-  shiftValue = this.shift[0].val;
+  shiftValue = '';
+  shiftVal = '';
 
   jamKerja = [
     { value: 'Normal', val: 'N' },
     { value: 'Pendek', val: 'P' },
   ];
-  jamKerjaValue = this.jamKerja[0].val;
+  jamKerjaValue = '';
+  jamKerjaVal = '';
 
   constructor(
+    private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
   ) {}
 
@@ -56,8 +61,11 @@ export class ModalJadwalKerjaComponent implements OnInit {
       this.isDelete = false;
       this.isEdit = false;
 
-      this.jadwalKerja.id =
-        this.lokasiValue + this.shiftValue + this.jamKerjaValue;
+      this.lokasiVal = this.lokasi[0].val;
+      this.shiftVal = this.shift[0].val;
+      this.jamKerjaVal = this.jamKerja[0].val;
+
+      this.jadwalKerja.id = this.lokasiVal + this.shiftVal + this.jamKerjaVal;
       this.jadwalKerja.id_lokasi = this.lokasi[0].value;
       this.jadwalKerja.id_shift = this.shift[0].value;
       this.jadwalKerja.jam_kerja = this.jamKerja[0].value;
@@ -71,36 +79,62 @@ export class ModalJadwalKerjaComponent implements OnInit {
       this.isEdit = true;
 
       this.jadwalKerja = this.data.data;
+      this.lokasiValue = this.data.data.id_lokasi;
+      this.shiftValue = this.data.data.id_shift;
+      this.jamKerjaValue = this.data.data.jam_kerja;
+
+      this.lokasi.find((res) => {
+        if (res.value === this.jadwalKerja.id_lokasi) {
+          this.lokasiVal = res.val;
+        }
+      });
+      this.shift.find((res) => {
+        if (res.value === this.jadwalKerja.id_shift) {
+          this.shiftVal = res.val;
+        }
+      });
+      this.jamKerja.find((res) => {
+        if (res.value === this.jadwalKerja.jam_kerja) {
+          this.jamKerjaVal = res.val;
+        }
+      });
     }
   }
 
   onChange(data: any) {
     this.lokasi.find((res) => {
       if (res.value === data.value) {
-        this.lokasiValue = res.val;
+        this.lokasiVal = res.val;
       }
     });
     this.shift.find((res) => {
       if (res.value === data.value) {
-        this.shiftValue = res.val;
+        this.shiftVal = res.val;
       }
     });
     this.jamKerja.find((res) => {
       if (res.value === data.value) {
-        this.jamKerjaValue = res.val;
+        this.jamKerjaVal = res.val;
       }
     });
 
     this.jadwalKerja.id =
-      this.lokasiValue +
-      this.shiftValue +
-      this.jamKerjaValue +
+      this.lokasiVal +
+      this.shiftVal +
+      this.jamKerjaVal +
       this.jadwalKerja.in.slice(0, -3) +
       this.jadwalKerja.out.slice(0, -3);
-    console.log(this.jadwalKerja.id);
+
+    let keluar = parseInt(this.jadwalKerja.out.slice(0, -3));
+    let masuk = parseInt(this.jadwalKerja.in.slice(0, -3));
+    let mIstirahat = parseInt(this.jadwalKerja.selesai_istirahat.slice(0, -3));
+    let sIstirahat = parseInt(this.jadwalKerja.mulai_istirahat.slice(0, -3));
+    this.jadwalKerja.total_jam_kerja =
+      keluar - masuk - (mIstirahat - sIstirahat);
   }
 
   throwResult() {
     console.log(this.jadwalKerja);
+    this.api.throwData(this.jadwalKerja);
   }
 }

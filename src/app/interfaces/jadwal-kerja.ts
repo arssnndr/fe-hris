@@ -7,5 +7,5 @@ export interface JadwalKerja {
   out: string;
   mulai_istirahat: string;
   selesai_istirahat: string;
-  total_jam_kerja: string;
+  total_jam_kerja: number;
 }

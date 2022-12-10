@@ -838,59 +838,15 @@
   ],
   "trx_jadwalkerja": [
     {
-      "id": "TMS1S2N1920",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Pendek",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": "7"
-    },
-    {
-      "id": "TMS0S2N0524",
+      "id": "TMS0S0N0917",
       "id_lokasi": "TMS HO",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Normal",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": "7"
-    },
-    {
-      "id": "TMS1S2N1664",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Pendek",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": "7"
-    },
-    {
-      "id": "TMS4S1N1519",
-      "id_lokasi": "TMS 4",
-      "id_shift": "Shift 1",
-      "jam_kerja": "Pendek",
-      "in": "14:00",
-      "out": "22:00",
-      "mulai_istirahat": "17:00",
-      "selesai_istirahat": "18:00",
-      "total_jam_kerja": "7"
-    },
-    {
-      "id": "TMS4S0N0544",
-      "id_lokasi": "TMS 4",
       "id_shift": "Non Shift",
       "jam_kerja": "Normal",
-      "in": "14:00",
-      "out": "22:00",
-      "mulai_istirahat": "17:00",
-      "selesai_istirahat": "18:00",
-      "total_jam_kerja": "7"
+      "in": "09:00",
+      "out": "17:00",
+      "mulai_istirahat": "12:00",
+      "selesai_istirahat": "13:00",
+      "total_jam_kerja": 7
     }
   ]
 }
