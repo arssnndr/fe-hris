@@ -105,16 +105,19 @@ export class ModalJadwalKerjaComponent implements OnInit {
     this.lokasi.find((res) => {
       if (res.value === data.value) {
         this.lokasiVal = res.val;
+        this.jadwalKerja.id_lokasi = res.value;
       }
     });
     this.shift.find((res) => {
       if (res.value === data.value) {
         this.shiftVal = res.val;
+        this.jadwalKerja.id_shift = res.value;
       }
     });
     this.jamKerja.find((res) => {
       if (res.value === data.value) {
         this.jamKerjaVal = res.val;
+        this.jadwalKerja.jam_kerja = res.value;
       }
     });
 
@@ -129,12 +132,18 @@ export class ModalJadwalKerjaComponent implements OnInit {
     let masuk = parseInt(this.jadwalKerja.in.slice(0, -3));
     let mIstirahat = parseInt(this.jadwalKerja.selesai_istirahat.slice(0, -3));
     let sIstirahat = parseInt(this.jadwalKerja.mulai_istirahat.slice(0, -3));
-    this.jadwalKerja.total_jam_kerja =
-      keluar - masuk - (mIstirahat - sIstirahat);
+    if (
+      this.jadwalKerja.selesai_istirahat === '' ||
+      this.jadwalKerja.mulai_istirahat === ''
+    ) {
+      this.jadwalKerja.total_jam_kerja = keluar - masuk;
+    } else {
+      this.jadwalKerja.total_jam_kerja =
+        keluar - masuk - (mIstirahat - sIstirahat);
+    }
   }
 
   throwResult() {
-    console.log(this.jadwalKerja);
     this.api.throwData(this.jadwalKerja);
   }
 }

@@ -2,66 +2,76 @@
   "login": [
     {
       "id": 1,
-      "email": "Shad.Bayer72@gmail.com",
-      "password": "GVDGyizAXVADMKl"
+      "email": "Raul.Mante30@gmail.com",
+      "password": "2UgWMs3GAfzvM5o"
+    },
+    {
+      "email": "",
+      "password": "",
+      "id": 2
+    },
+    {
+      "email": "",
+      "password": "",
+      "id": 3
     }
   ],
   "ms_bagiankerja": [
     {
       "id": 1,
       "jenis_bagian": "Departemen",
-      "id_lokasi": "TMS HO",
-      "uplink": "AR",
-      "keterangan": "AR",
-      "status": true
+      "id_lokasi": "TMS 3",
+      "uplink": "Mechanic",
+      "keterangan": "IT Support",
+      "status": false
     },
     {
       "id": 2,
-      "jenis_bagian": "Divisi",
+      "jenis_bagian": "Sub Departemen",
       "id_lokasi": "TMS 4",
-      "uplink": "",
-      "keterangan": "IT Support",
-      "status": true
+      "uplink": "Electrik",
+      "keterangan": "Faktur",
+      "status": false
     },
     {
       "id": 3,
       "jenis_bagian": "Divisi",
       "id_lokasi": "TMS 2",
       "uplink": "",
-      "keterangan": "IT Support Plant",
+      "keterangan": "Faktur",
       "status": true
     },
     {
       "id": 4,
       "jenis_bagian": "Departemen",
-      "id_lokasi": "TMS 3",
-      "uplink": "Electrik",
-      "keterangan": "Mechanic",
+      "id_lokasi": "TMS 4",
+      "uplink": "QC",
+      "keterangan": "ACC",
       "status": false
     },
     {
       "id": 5,
-      "jenis_bagian": "Divisi",
+      "jenis_bagian": "Departemen",
       "id_lokasi": "TMS 4",
-      "uplink": "",
-      "keterangan": "ACC",
+      "uplink": "IT Support Plant",
+      "keterangan": "IT Support",
       "status": true
     }
   ],
   "ms_perusahaan": [
     {
       "id": 1,
-      "inisial": "RIW",
-      "nama_perusahaan": "Royalindo Investa Wijaya",
-      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
-      "status": false
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
     },
     {
       "id": 2,
-      "inisial": "TMS",
-      "nama_perusahaan": "The Master Steel Manufactory",
-      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
-      "status": true
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": false
     },
     {
       "id": 3,
@@ -75,12 +85,12 @@
       "inisial": "IJP",
       "nama_perusahaan": "Indika Jasa Parama",
       "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
-      "status": false
+      "status": true
     },
     {
       "id": 5,
-      "inisial": "TMS",
-      "nama_perusahaan": "The Master Steel Manufactory",
+      "inisial": "RIW",
+      "nama_perusahaan": "Royalindo Investa Wijaya",
       "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
       "status": true
     }
@@ -88,26 +98,26 @@
   "ms_lokasi": [
     {
       "id": 1,
+      "keterangan": "The Master Steel HO",
+      "inisial_lokasi": "TMS HO",
+      "alamat_lokasi": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 2,
+      "keterangan": "The Master Steel 3",
+      "inisial_lokasi": "TMS 3",
+      "alamat_lokasi": "Jl. Raya Bekasi km.21 Pulogadung",
+      "status": true
+    },
+    {
+      "id": 3,
       "keterangan": "The Master Steel 1",
       "inisial_lokasi": "TMS 1",
       "alamat_lokasi": "Jl. Pegangsaan 2 No.1",
       "status": true
     },
     {
-      "id": 2,
-      "keterangan": "The Master Steel 4",
-      "inisial_lokasi": "TMS 4",
-      "alamat_lokasi": "Jl. Pulo Lentut No.3 Pulogadung",
-      "status": false
-    },
-    {
-      "id": 3,
-      "keterangan": "The Master Steel 2",
-      "inisial_lokasi": "TMS 2",
-      "alamat_lokasi": "Jl. Alpha Maspion - KIM V, Manyar",
-      "status": false
-    },
-    {
       "id": 4,
       "keterangan": "The Master Steel 4",
       "inisial_lokasi": "TMS 4",
@@ -116,289 +126,204 @@
     },
     {
       "id": 5,
-      "keterangan": "The Master Steel 2",
-      "inisial_lokasi": "TMS 2",
-      "alamat_lokasi": "Jl. Alpha Maspion - KIM V, Manyar",
+      "keterangan": "The Master Steel 4",
+      "inisial_lokasi": "TMS 4",
+      "alamat_lokasi": "Jl. Pulo Lentut No.3 Pulogadung",
       "status": true
     }
   ],
   "ms_userid": [
     {
       "id": 1,
-      "username": "Hattie Graham",
-      "email": "HattieGraham43@hotmail.com",
-      "id_lokasi": "TMS 3",
-      "id_perusahaan": "Donata Agung Perkasa",
-      "akses": "Perusahaan",
-      "password": "WUKEnHdD",
+      "username": "Marlon Hansen",
+      "email": "MarlonHansen88@yahoo.com",
+      "id_lokasi": "TMS HO",
+      "id_perusahaan": "The Master Steel Manufactory",
+      "akses": "All",
+      "password": "j4ZQvxFL",
       "bagian_kerja": {
-        "view": true,
+        "view": false,
         "edit": true,
-        "download": true
+        "download": false
       },
       "perusahaan": {
-        "view": false,
-        "edit": false,
-        "download": true
+        "view": true,
+        "edit": true,
+        "download": false
       },
       "lokasi": {
         "view": true,
-        "edit": true,
-        "download": true
+        "edit": false,
+        "download": false
       },
       "user": {
-        "view": false,
-        "edit": true,
-        "download": false
+        "view": true,
+        "edit": false,
+        "download": true
       },
       "karyawan": {
-        "view": true,
+        "view": false,
         "edit": true,
-        "download": false
+        "download": true
       },
       "jadwal_kerja": {
         "view": false,
-        "edit": false,
-        "download": false
-      },
-      "setup_jadwal_kerja": {
-        "view": false,
-        "edit": false,
+        "edit": true,
         "download": true
       },
-      "kalender_kerja": {
+      "setup_jadwal_kerja": {
         "view": true,
-        "edit": false,
+        "edit": true,
+        "download": false
+      },
+      "kalender_kerja": {
+        "view": false,
+        "edit": true,
         "download": true
       },
       "status_kehadiran": {
-        "view": true,
-        "edit": false,
+        "view": false,
+        "edit": true,
         "download": true
       },
       "list_kehadiran": {
         "view": true,
-        "edit": false,
+        "edit": true,
         "download": false
       },
       "lembur": {
         "view": true,
-        "edit": true,
-        "download": false
+        "edit": false,
+        "download": true
       },
       "download": {
-        "view": true,
+        "view": false,
         "edit": true,
         "download": true
       },
       "mesin_finger": {
         "view": false,
-        "edit": false,
-        "download": false
+        "edit": true,
+        "download": true
       },
       "setup_mesin_finger": {
-        "view": false,
-        "edit": true,
-        "download": false
+        "view": true,
+        "edit": false,
+        "download": true
       },
       "ganti_nip": {
-        "view": true,
+        "view": false,
         "edit": true,
-        "download": false
+        "download": true
       },
-      "status": true
+      "status": false
     },
     {
       "id": 2,
-      "username": "Fredrick Cummerata",
-      "email": "FredrickCummerata_Roob47@hotmail.com",
-      "id_lokasi": "TMS 4",
+      "username": "Owen Collier",
+      "email": "OwenCollier.Daugherty66@yahoo.com",
+      "id_lokasi": "TMS 2",
       "id_perusahaan": "Royalindo Investa Wijaya",
-      "akses": "Lokasi",
-      "password": "T11ziwUj",
+      "akses": "All",
+      "password": "usbA1ShJ",
       "bagian_kerja": {
+        "view": false,
+        "edit": true,
+        "download": true
+      },
+      "perusahaan": {
         "view": false,
         "edit": true,
         "download": false
       },
-      "perusahaan": {
+      "lokasi": {
         "view": true,
         "edit": true,
-        "download": true
-      },
-      "lokasi": {
-        "view": false,
-        "edit": false,
         "download": true
       },
       "user": {
-        "view": true,
-        "edit": false,
-        "download": true
+        "view": false,
+        "edit": true,
+        "download": false
       },
       "karyawan": {
-        "view": false,
-        "edit": false,
-        "download": true
-      },
-      "jadwal_kerja": {
-        "view": true,
-        "edit": false,
-        "download": true
-      },
-      "setup_jadwal_kerja": {
         "view": true,
         "edit": true,
-        "download": true
+        "download": false
+      },
+      "jadwal_kerja": {
+        "view": false,
+        "edit": true,
+        "download": false
+      },
+      "setup_jadwal_kerja": {
+        "view": false,
+        "edit": true,
+        "download": false
       },
       "kalender_kerja": {
         "view": false,
-        "edit": false,
+        "edit": true,
         "download": true
       },
       "status_kehadiran": {
-        "view": true,
-        "edit": true,
+        "view": false,
+        "edit": false,
         "download": false
       },
       "list_kehadiran": {
         "view": false,
-        "edit": false,
-        "download": true
+        "edit": true,
+        "download": false
       },
       "lembur": {
-        "view": false,
-        "edit": false,
-        "download": true
+        "view": true,
+        "edit": true,
+        "download": false
       },
       "download": {
-        "view": false,
+        "view": true,
         "edit": true,
         "download": false
       },
       "mesin_finger": {
         "view": false,
-        "edit": true,
+        "edit": false,
         "download": true
       },
       "setup_mesin_finger": {
         "view": false,
         "edit": true,
-        "download": true
+        "download": false
       },
       "ganti_nip": {
         "view": false,
-        "edit": true,
-        "download": true
+        "edit": false,
+        "download": false
       },
       "status": true
     },
     {
       "id": 3,
-      "username": "Mr. Bridget Stark",
-      "email": "Mr.BridgetStark_Stracke9@hotmail.com",
+      "username": "Dr. Sarah Dach",
+      "email": "Dr.SarahDach.Hermann18@hotmail.com",
       "id_lokasi": "TMS HO",
-      "id_perusahaan": "Indika Jasa Parama",
-      "akses": "Perusahaan",
-      "password": "LHVRWgzi",
+      "id_perusahaan": "Royalindo Investa Wijaya",
+      "akses": "Lokasi",
+      "password": "_umoj1NQ",
       "bagian_kerja": {
-        "view": false,
+        "view": true,
         "edit": false,
         "download": false
       },
       "perusahaan": {
         "view": false,
         "edit": false,
-        "download": false
+        "download": true
       },
       "lokasi": {
         "view": true,
         "edit": true,
-        "download": true
-      },
-      "user": {
-        "view": false,
-        "edit": true,
-        "download": true
-      },
-      "karyawan": {
-        "view": true,
-        "edit": false,
-        "download": false
-      },
-      "jadwal_kerja": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "setup_jadwal_kerja": {
-        "view": false,
-        "edit": true,
-        "download": false
-      },
-      "kalender_kerja": {
-        "view": true,
-        "edit": true,
-        "download": true
-      },
-      "status_kehadiran": {
-        "view": true,
-        "edit": true,
-        "download": true
-      },
-      "list_kehadiran": {
-        "view": true,
-        "edit": false,
-        "download": false
-      },
-      "lembur": {
-        "view": true,
-        "edit": false,
-        "download": false
-      },
-      "download": {
-        "view": false,
-        "edit": true,
-        "download": true
-      },
-      "mesin_finger": {
-        "view": true,
-        "edit": false,
-        "download": false
-      },
-      "setup_mesin_finger": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "ganti_nip": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "status": true
-    },
-    {
-      "id": 4,
-      "username": "Mr. Faye Bahringer",
-      "email": "Mr.FayeBahringer.VonRueden79@gmail.com",
-      "id_lokasi": "TMS 4",
-      "id_perusahaan": "Indika Jasa Parama",
-      "akses": "All",
-      "password": "AnG_SzgB",
-      "bagian_kerja": {
-        "view": true,
-        "edit": false,
-        "download": true
-      },
-      "perusahaan": {
-        "view": false,
-        "edit": false,
-        "download": false
-      },
-      "lokasi": {
-        "view": false,
-        "edit": false,
         "download": false
       },
       "user": {
@@ -418,87 +343,87 @@
       },
       "setup_jadwal_kerja": {
         "view": true,
-        "edit": false,
-        "download": true
+        "edit": true,
+        "download": false
       },
       "kalender_kerja": {
-        "view": true,
-        "edit": false,
+        "view": false,
+        "edit": true,
         "download": false
       },
       "status_kehadiran": {
-        "view": false,
+        "view": true,
         "edit": true,
         "download": false
       },
       "list_kehadiran": {
-        "view": true,
-        "edit": true,
-        "download": false
+        "view": false,
+        "edit": false,
+        "download": true
       },
       "lembur": {
         "view": false,
         "edit": false,
-        "download": true
+        "download": false
       },
       "download": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "mesin_finger": {
         "view": true,
         "edit": true,
         "download": false
       },
-      "mesin_finger": {
-        "view": true,
-        "edit": false,
-        "download": true
-      },
       "setup_mesin_finger": {
-        "view": false,
-        "edit": false,
+        "view": true,
+        "edit": true,
         "download": false
       },
       "ganti_nip": {
-        "view": true,
+        "view": false,
         "edit": false,
-        "download": false
+        "download": true
       },
       "status": false
     },
     {
-      "id": 5,
-      "username": "Cecilia Pouros",
-      "email": "CeciliaPouros_Mohr@hotmail.com",
-      "id_lokasi": "TMS 1",
+      "id": 4,
+      "username": "Rudy Lueilwitz Jr.",
+      "email": "RudyLueilwitzJr..Lemke92@hotmail.com",
+      "id_lokasi": "TMS 3",
       "id_perusahaan": "Royalindo Investa Wijaya",
-      "akses": "Perusahaan",
-      "password": "ewm0LbjB",
+      "akses": "All",
+      "password": "HEWrnzDJ",
       "bagian_kerja": {
-        "view": false,
-        "edit": true,
-        "download": true
-      },
-      "perusahaan": {
         "view": true,
         "edit": true,
         "download": true
       },
-      "lokasi": {
+      "perusahaan": {
         "view": false,
         "edit": false,
-        "download": false
+        "download": true
+      },
+      "lokasi": {
+        "view": true,
+        "edit": true,
+        "download": true
       },
       "user": {
-        "view": false,
-        "edit": true,
+        "view": true,
+        "edit": false,
         "download": false
       },
       "karyawan": {
         "view": false,
         "edit": false,
-        "download": false
+        "download": true
       },
       "jadwal_kerja": {
-        "view": true,
-        "edit": false,
+        "view": false,
+        "edit": true,
         "download": true
       },
       "setup_jadwal_kerja": {
@@ -507,33 +432,33 @@
         "download": false
       },
       "kalender_kerja": {
-        "view": true,
-        "edit": true,
+        "view": false,
+        "edit": false,
         "download": false
       },
       "status_kehadiran": {
         "view": false,
-        "edit": true,
-        "download": true
+        "edit": false,
+        "download": false
       },
       "list_kehadiran": {
         "view": true,
         "edit": true,
-        "download": true
+        "download": false
       },
       "lembur": {
         "view": false,
         "edit": false,
-        "download": false
+        "download": true
       },
       "download": {
         "view": true,
-        "edit": false,
+        "edit": true,
         "download": true
       },
       "mesin_finger": {
-        "view": true,
-        "edit": true,
+        "view": false,
+        "edit": false,
         "download": false
       },
       "setup_mesin_finger": {
@@ -547,293 +472,378 @@
         "download": true
       },
       "status": true
+    },
+    {
+      "id": 5,
+      "username": "Max Haag",
+      "email": "MaxHaag56@hotmail.com",
+      "id_lokasi": "TMS 1",
+      "id_perusahaan": "Royalindo Investa Wijaya",
+      "akses": "All",
+      "password": "_kimGgud",
+      "bagian_kerja": {
+        "view": true,
+        "edit": true,
+        "download": false
+      },
+      "perusahaan": {
+        "view": true,
+        "edit": false,
+        "download": false
+      },
+      "lokasi": {
+        "view": true,
+        "edit": false,
+        "download": false
+      },
+      "user": {
+        "view": true,
+        "edit": true,
+        "download": false
+      },
+      "karyawan": {
+        "view": false,
+        "edit": true,
+        "download": false
+      },
+      "jadwal_kerja": {
+        "view": false,
+        "edit": false,
+        "download": true
+      },
+      "setup_jadwal_kerja": {
+        "view": true,
+        "edit": true,
+        "download": false
+      },
+      "kalender_kerja": {
+        "view": false,
+        "edit": true,
+        "download": false
+      },
+      "status_kehadiran": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "list_kehadiran": {
+        "view": false,
+        "edit": true,
+        "download": false
+      },
+      "lembur": {
+        "view": false,
+        "edit": false,
+        "download": true
+      },
+      "download": {
+        "view": true,
+        "edit": false,
+        "download": false
+      },
+      "mesin_finger": {
+        "view": false,
+        "edit": true,
+        "download": true
+      },
+      "setup_mesin_finger": {
+        "view": false,
+        "edit": true,
+        "download": true
+      },
+      "ganti_nip": {
+        "view": false,
+        "edit": false,
+        "download": false
+      },
+      "status": false
     }
   ],
   "ms_karyawan": [
     {
-      "id": "943912",
+      "id": "996751",
       "kewarganegaraan": "WNI",
-      "nik": "4086003987631878",
-      "nama_lengkap": "Mr. Arlene Gerlach MD",
-      "tempat_lahir": "West Des Moines",
-      "tgl_lahir": "2002-07-17",
-      "jenis_kelamin": "Perempuan",
-      "alamat_domisili": "Kendall",
-      "rt_rw": "50/30",
-      "kel_desa": "Gloverfurt",
-      "agama": "Katolik",
-      "status_perkawinan": "Kawin",
-      "nomor_npwp": "6995368126305956",
-      "nomor_telepon": "+62 889 5015 9487",
-      "email": "Theodore.Rodriguez88@gmail.com",
-      "pendidikan_terakhir": "TK",
-      "nomor_bpjs_tk": "3253 3641 637",
-      "nomor_bpjs_kesehatan": "6125 6328 8001 4",
-      "nama_faskes": "Hilda Lynch",
-      "alamat_faskes": "Gilbert",
-      "nomor_kk": "5895 9561 6470 4502",
-      "nama_kepala_keluarga": "Roberto Kulas",
-      "nama_ibu_kandung": "Theresa Stroman",
-      "status_pajak": "TK/1",
-      "nama_pasangan": "Frances Sipes",
-      "nama_anak_ke1": "Eunice Price PhD",
-      "nama_anak_ke2": "Taylor Adams",
-      "nama_anak_ke3": "Lorenzo McCullough",
-      "nama_kontak_darurat": "Meghan Lind",
-      "nomor_telepon_darurat": "+62 846 9708 5736",
-      "hubungan_dengan_karyawan": "Granite Electric",
-      "nomor_passport": "3614837",
-      "tgl_pembuatan_passport": "2002-07-17",
-      "tgl_berakhir_passport": "2002-07-17",
-      "kebangsaan": "Zimbabwe",
-      "nomor_kitas": "20847211336980907484",
-      "tgl_berakhir_kitas": "2002-07-17",
-      "nomor_rptka": "91050633281733710570",
-      "tgl_berakhir_rptka": "2002-07-17",
-      "id_perusahaan": "The Master Steel Manufactory",
-      "id_lokasi": "TMS 2",
-      "id_divisi": "IT",
-      "id_departemen": "SAT Developer",
-      "id_subdepartemen": "SAT Developer",
-      "jabatan": "Senior Manager",
-      "status_karyawan": "PKWTT",
-      "nama_pemberi_referensi": "Kathy Erdman",
-      "nama_atasan_langsung": "Ms. Julia Beier",
-      "tgl_join": "2002-07-17",
-      "nomor_pkwtt": "hbuvtp6qie5syxil9kkx",
-      "gaji_pokok": 19940053,
-      "tgl_perubahan": "2002-07-17",
-      "uang_makan": 68522,
-      "uang_transport": 38725,
-      "note": "Kokomo Hybrid Idaho pasteurise from invoice Music compressing female North"
-    },
-    {
-      "id": "969127",
-      "kewarganegaraan": "WNA",
-      "nik": "9823477561406607",
-      "nama_lengkap": "Angelica Casper",
-      "tempat_lahir": "Lacey",
-      "tgl_lahir": "1997-03-31",
-      "jenis_kelamin": "Perempuan",
-      "alamat_domisili": "Jovanfort",
-      "rt_rw": "74/63",
-      "kel_desa": "Odessaview",
-      "agama": "Protestan",
+      "nik": "8584966457816796",
+      "nama_lengkap": "Doyle Dach",
+      "tempat_lahir": "Cicero",
+      "tgl_lahir": "1998-06-24",
+      "jenis_kelamin": "Laki-Laki",
+      "alamat_domisili": "Margueritestad",
+      "rt_rw": "81/20",
+      "kel_desa": "Fort Jaron",
+      "agama": "Buddha",
       "status_perkawinan": "Cerai",
-      "nomor_npwp": "9207763467327435",
-      "nomor_telepon": "+62 899 0034 5801",
-      "email": "Jarrett6@hotmail.com",
-      "pendidikan_terakhir": "S2",
-      "nomor_bpjs_tk": "6556 8736 888",
-      "nomor_bpjs_kesehatan": "7312 6911 8418 7",
-      "nama_faskes": "Wesley Auer",
-      "alamat_faskes": "West Babylon",
-      "nomor_kk": "9021 4148 7541 6635",
-      "nama_kepala_keluarga": "Norma Dicki",
-      "nama_ibu_kandung": "Maria Waters",
+      "nomor_npwp": "3177417797744606",
+      "nomor_telepon": "+62 812 0525 1735",
+      "email": "Anissa71@hotmail.com",
+      "pendidikan_terakhir": "Diploma 1",
+      "nomor_bpjs_tk": "7622 9352 720",
+      "nomor_bpjs_kesehatan": "7907 3041 9934 2",
+      "nama_faskes": "Sue Christiansen",
+      "alamat_faskes": "Mansfield",
+      "nomor_kk": "5319 5705 6106 7871",
+      "nama_kepala_keluarga": "Hattie Bergstrom",
+      "nama_ibu_kandung": "Curtis Yundt",
       "status_pajak": "K/0",
-      "nama_pasangan": "Delores Kuphal",
-      "nama_anak_ke1": "Christina Schulist",
-      "nama_anak_ke2": "Priscilla Kulas",
-      "nama_anak_ke3": "Sergio Williamson III",
-      "nama_kontak_darurat": "Debbie Ledner",
-      "nomor_telepon_darurat": "+62 822 2829 8201",
-      "hubungan_dengan_karyawan": "CLI Security",
-      "nomor_passport": "8635166",
-      "tgl_pembuatan_passport": "1997-03-31",
-      "tgl_berakhir_passport": "1997-03-31",
-      "kebangsaan": "Palau",
-      "nomor_kitas": "32822396605995835615",
-      "tgl_berakhir_kitas": "1997-03-31",
-      "nomor_rptka": "98214345222736007652",
-      "tgl_berakhir_rptka": "1997-03-31",
-      "id_perusahaan": "Royalindo Investa Wijaya",
-      "id_lokasi": "TMS 1",
-      "id_divisi": "Sales",
-      "id_departemen": "HRD",
-      "id_subdepartemen": "Marketing",
-      "jabatan": "Supervisor",
-      "status_karyawan": "Harian",
-      "nama_pemberi_referensi": "Melody Bergstrom",
-      "nama_atasan_langsung": "Shelia Hagenes",
-      "tgl_join": "1997-03-31",
-      "nomor_pkwtt": "mwfvg8isa11jkckqciwk",
-      "gaji_pokok": 29909148,
-      "tgl_perubahan": "1997-03-31",
-      "uang_makan": 73452,
-      "uang_transport": 131165,
-      "note": "Selenium Northeast South Human Fresh hm volt Berkshire Southeast Southeast"
-    },
-    {
-      "id": "906178",
-      "kewarganegaraan": "WNI",
-      "nik": "3932816153148358",
-      "nama_lengkap": "Dr. Roderick Hills",
-      "tempat_lahir": "Bozeman",
-      "tgl_lahir": "2001-05-21",
-      "jenis_kelamin": "Perempuan",
-      "alamat_domisili": "Vonville",
-      "rt_rw": "28/37",
-      "kel_desa": "Port Pietrofort",
-      "agama": "Protestan",
-      "status_perkawinan": "Belum kawin",
-      "nomor_npwp": "9373726228753660",
-      "nomor_telepon": "+62 878 5578 2130",
-      "email": "Susie99@gmail.com",
-      "pendidikan_terakhir": "S3",
-      "nomor_bpjs_tk": "9598 4407 061",
-      "nomor_bpjs_kesehatan": "1335 7720 6585 5",
-      "nama_faskes": "Sylvia Kertzmann",
-      "alamat_faskes": "Plymouth",
-      "nomor_kk": "0041 4088 5475 0696",
-      "nama_kepala_keluarga": "Warren Bogisich",
-      "nama_ibu_kandung": "Fredrick Beier",
-      "status_pajak": "TK/3",
-      "nama_pasangan": "Leonard Lubowitz",
-      "nama_anak_ke1": "Judy Zieme",
-      "nama_anak_ke2": "Sheila Tromp",
-      "nama_anak_ke3": "Anita Lindgren DDS",
-      "nama_kontak_darurat": "Elizabeth Goldner",
-      "nomor_telepon_darurat": "+62 804 7811 9854",
-      "hubungan_dengan_karyawan": "gold female",
-      "nomor_passport": "4888131",
-      "tgl_pembuatan_passport": "2001-05-21",
-      "tgl_berakhir_passport": "2001-05-21",
-      "kebangsaan": "South Africa",
-      "nomor_kitas": "26236579731768475500",
-      "tgl_berakhir_kitas": "2001-05-21",
-      "nomor_rptka": "50138394005975390754",
-      "tgl_berakhir_rptka": "2001-05-21",
-      "id_perusahaan": "Donata Agung Perkasa",
-      "id_lokasi": "TMS 2",
-      "id_divisi": "Marketing",
-      "id_departemen": "Sales",
-      "id_subdepartemen": "Support",
-      "jabatan": "Manager",
-      "status_karyawan": "Magang",
-      "nama_pemberi_referensi": "Mrs. Jon Kunze",
-      "nama_atasan_langsung": "Peggy Bechtelar",
-      "tgl_join": "2001-05-21",
-      "nomor_pkwtt": "kdzxjteq9zubfnmweonn",
-      "gaji_pokok": 67148551,
-      "tgl_perubahan": "2001-05-21",
-      "uang_makan": 56833,
-      "uang_transport": 163067,
-      "note": "synergies input autem Southeast Implementation up implement but EXE drat"
-    },
-    {
-      "id": "853025",
-      "kewarganegaraan": "WNA",
-      "nik": "3968898069414084",
-      "nama_lengkap": "Ms. Nichole Parker",
-      "tempat_lahir": "Fresno",
-      "tgl_lahir": "2001-02-17",
-      "jenis_kelamin": "Perempuan",
-      "alamat_domisili": "Hilbertworth",
-      "rt_rw": "82/34",
-      "kel_desa": "Madison",
-      "agama": "Katolik",
-      "status_perkawinan": "Cerai",
-      "nomor_npwp": "3848554889923582",
-      "nomor_telepon": "+62 863 5345 2872",
-      "email": "Aiden44@hotmail.com",
-      "pendidikan_terakhir": "Diploma 3",
-      "nomor_bpjs_tk": "9834 9044 225",
-      "nomor_bpjs_kesehatan": "9374 8675 8261 6",
-      "nama_faskes": "Marc Bosco",
-      "alamat_faskes": "Jackson",
-      "nomor_kk": "9029 7432 3470 8062",
-      "nama_kepala_keluarga": "Sonia Watsica",
-      "nama_ibu_kandung": "Mrs. Ruby Boyle",
-      "status_pajak": "K/0",
-      "nama_pasangan": "Ms. Darren Marquardt",
-      "nama_anak_ke1": "Leticia Krajcik IV",
-      "nama_anak_ke2": "Lonnie DuBuque",
-      "nama_anak_ke3": "Eunice Metz",
-      "nama_kontak_darurat": "Leslie Kuhic Jr.",
-      "nomor_telepon_darurat": "+62 863 5046 0739",
-      "hubungan_dengan_karyawan": "deep Utah",
-      "nomor_passport": "4341462",
-      "tgl_pembuatan_passport": "2001-02-17",
-      "tgl_berakhir_passport": "2001-02-17",
-      "kebangsaan": "Panama",
-      "nomor_kitas": "81868057971258234717",
-      "tgl_berakhir_kitas": "2001-02-17",
-      "nomor_rptka": "42392094332151040052",
-      "tgl_berakhir_rptka": "2001-02-17",
-      "id_perusahaan": "Donata Agung Perkasa",
+      "nama_pasangan": "Francisco Bayer",
+      "nama_anak_ke1": "Floyd Grady",
+      "nama_anak_ke2": "Ramona Mitchell",
+      "nama_anak_ke3": "Jonathon Smith",
+      "nama_kontak_darurat": "Gene Mraz",
+      "nomor_telepon_darurat": "+62 808 3964 5878",
+      "hubungan_dengan_karyawan": "Northwest Latin",
+      "nomor_passport": "5070096",
+      "tgl_pembuatan_passport": "1998-06-24",
+      "tgl_berakhir_passport": "1998-06-24",
+      "kebangsaan": "Republic of Korea",
+      "nomor_kitas": "32099581559326037178",
+      "tgl_berakhir_kitas": "1998-06-24",
+      "nomor_rptka": "28001233168382427088",
+      "tgl_berakhir_rptka": "1998-06-24",
+      "id_perusahaan": "Indika Jasa Parama",
       "id_lokasi": "TMS HO",
       "id_divisi": "Finance",
-      "id_departemen": "Marketing",
-      "id_subdepartemen": "Sales",
-      "jabatan": "Senior Manager",
-      "status_karyawan": "Informal",
-      "nama_pemberi_referensi": "Mike Willms",
-      "nama_atasan_langsung": "Tomas Konopelski",
-      "tgl_join": "2001-02-17",
-      "nomor_pkwtt": "y65tbwwy7nq5lbqxk6nx",
-      "gaji_pokok": 9921933,
-      "tgl_perubahan": "2001-02-17",
-      "uang_makan": 93146,
-      "uang_transport": 71587,
-      "note": "West mobile tesla bashfully Gasoline consequently watt try Swaziland systems"
+      "id_departemen": "Sales",
+      "id_subdepartemen": "Marketing",
+      "jabatan": "General Manager",
+      "status_karyawan": "PKWT",
+      "nama_pemberi_referensi": "Leo Block",
+      "nama_atasan_langsung": "Dana Braun",
+      "tgl_join": "1998-06-24",
+      "nomor_pkwtt": "1ekab2zhxwc0sg1890j1",
+      "gaji_pokok": 75231530,
+      "tgl_perubahan": "1998-06-24",
+      "uang_makan": 87908,
+      "uang_transport": 220604,
+      "note": "Identity Tricycle monitor fairly inwardly Loan decongestant dedicated Buckinghamshire overriding"
     },
     {
-      "id": "670142",
+      "id": "211156",
       "kewarganegaraan": "WNI",
-      "nik": "7260953895376804",
-      "nama_lengkap": "Barbara Haag",
-      "tempat_lahir": "Lake Charles",
-      "tgl_lahir": "2003-01-19",
-      "jenis_kelamin": "Perempuan",
-      "alamat_domisili": "South Amber",
-      "rt_rw": "88/56",
-      "kel_desa": "Lake Theo",
-      "agama": "Buddha",
+      "nik": "9825383379282300",
+      "nama_lengkap": "Miss Zachary Hettinger",
+      "tempat_lahir": "Arvada",
+      "tgl_lahir": "2001-07-28",
+      "jenis_kelamin": "Laki-Laki",
+      "alamat_domisili": "Port Greenborough",
+      "rt_rw": "28/36",
+      "kel_desa": "Aubreyborough",
+      "agama": "Protestan",
       "status_perkawinan": "Belum kawin",
-      "nomor_npwp": "4589374379444721",
-      "nomor_telepon": "+62 867 1317 9113",
-      "email": "Stephen.Kozey@gmail.com",
-      "pendidikan_terakhir": "SMA",
-      "nomor_bpjs_tk": "1435 6344 711",
-      "nomor_bpjs_kesehatan": "1138 4683 3606 7",
-      "nama_faskes": "Stephen Dickens",
-      "alamat_faskes": "Bakersfield",
-      "nomor_kk": "9408 6986 5851 7764",
-      "nama_kepala_keluarga": "Ervin Dibbert",
-      "nama_ibu_kandung": "Kari Oberbrunner II",
+      "nomor_npwp": "3947292940904440",
+      "nomor_telepon": "+62 884 1014 7413",
+      "email": "Art98@yahoo.com",
+      "pendidikan_terakhir": "SD",
+      "nomor_bpjs_tk": "6680 5057 180",
+      "nomor_bpjs_kesehatan": "8778 8073 1465 5",
+      "nama_faskes": "Betsy Schowalter",
+      "alamat_faskes": "Honolulu",
+      "nomor_kk": "7990 0517 9804 5735",
+      "nama_kepala_keluarga": "Dr. Brett Mosciski",
+      "nama_ibu_kandung": "Darryl Mosciski",
       "status_pajak": "K/3",
-      "nama_pasangan": "Curtis Bednar DDS",
-      "nama_anak_ke1": "Travis Wehner",
-      "nama_anak_ke2": "Dr. Lynda Kuhlman",
-      "nama_anak_ke3": "Mr. Jeffrey Bins",
-      "nama_kontak_darurat": "Ruben Runolfsdottir",
-      "nomor_telepon_darurat": "+62 895 9809 1685",
-      "hubungan_dengan_karyawan": "Rwanda Refined",
-      "nomor_passport": "3425945",
-      "tgl_pembuatan_passport": "2003-01-19",
-      "tgl_berakhir_passport": "2003-01-19",
-      "kebangsaan": "Spain",
-      "nomor_kitas": "81296068809107277807",
-      "tgl_berakhir_kitas": "2003-01-19",
-      "nomor_rptka": "20274317727385082373",
-      "tgl_berakhir_rptka": "2003-01-19",
+      "nama_pasangan": "Cameron Ward",
+      "nama_anak_ke1": "Mr. Randy Swaniawski",
+      "nama_anak_ke2": "Stella Huel",
+      "nama_anak_ke3": "Guy Buckridge",
+      "nama_kontak_darurat": "Miss Dawn Fahey",
+      "nomor_telepon_darurat": "+62 839 8452 7156",
+      "hubungan_dengan_karyawan": "siemens Bacon",
+      "nomor_passport": "5237739",
+      "tgl_pembuatan_passport": "2001-07-28",
+      "tgl_berakhir_passport": "2001-07-28",
+      "kebangsaan": "Palestinian Territory",
+      "nomor_kitas": "15023964284824081743",
+      "tgl_berakhir_kitas": "2001-07-28",
+      "nomor_rptka": "93575614625095277715",
+      "tgl_berakhir_rptka": "2001-07-28",
       "id_perusahaan": "The Master Steel Manufactory",
-      "id_lokasi": "TMS 2",
-      "id_divisi": "Finance",
-      "id_departemen": "Marketing",
-      "id_subdepartemen": "Project",
+      "id_lokasi": "TMS 4",
+      "id_divisi": "Purchase",
+      "id_departemen": "Purchase",
+      "id_subdepartemen": "Support",
       "jabatan": "Staff/Crew",
       "status_karyawan": "Informal",
-      "nama_pemberi_referensi": "Salvador Zemlak",
-      "nama_atasan_langsung": "Karla Wisoky",
-      "tgl_join": "2003-01-19",
-      "nomor_pkwtt": "jldm69byasjxmgy8chgl",
-      "gaji_pokok": 91141986,
-      "tgl_perubahan": "2003-01-19",
-      "uang_makan": 97507,
-      "uang_transport": 117326,
-      "note": "generation flow Account applications disintermediate Raton second Beach Recycled synthesize"
+      "nama_pemberi_referensi": "Pete Beer",
+      "nama_atasan_langsung": "Mike Murray",
+      "tgl_join": "2001-07-28",
+      "nomor_pkwtt": "7h9jo82oyfj074i6zc98",
+      "gaji_pokok": 50434991,
+      "tgl_perubahan": "2001-07-28",
+      "uang_makan": 78617,
+      "uang_transport": 96222,
+      "note": "Roentgenium forsaken 1080p product rhyme Berkshire East Moldova Bedfordshire Account"
+    },
+    {
+      "id": "921218",
+      "kewarganegaraan": "WNI",
+      "nik": "6677024716947198",
+      "nama_lengkap": "Jean Sanford",
+      "tempat_lahir": "Hempstead",
+      "tgl_lahir": "2001-06-19",
+      "jenis_kelamin": "Perempuan",
+      "alamat_domisili": "Niagara Falls",
+      "rt_rw": "63/75",
+      "kel_desa": "Batzfield",
+      "agama": "Protestan",
+      "status_perkawinan": "Belum kawin",
+      "nomor_npwp": "8786953949594252",
+      "nomor_telepon": "+62 872 7451 3639",
+      "email": "Pamela93@yahoo.com",
+      "pendidikan_terakhir": "SMA",
+      "nomor_bpjs_tk": "9820 5296 602",
+      "nomor_bpjs_kesehatan": "0938 2298 1227 9",
+      "nama_faskes": "Pat Cremin",
+      "alamat_faskes": "Attleboro",
+      "nomor_kk": "5421 2209 8408 5940",
+      "nama_kepala_keluarga": "Jonathan Ward",
+      "nama_ibu_kandung": "Maryann Reilly",
+      "status_pajak": "K/0",
+      "nama_pasangan": "Jennie Robel",
+      "nama_anak_ke1": "Sally Nienow",
+      "nama_anak_ke2": "Ann Feest",
+      "nama_anak_ke3": "Toby Schultz",
+      "nama_kontak_darurat": "Kari Bailey",
+      "nomor_telepon_darurat": "+62 846 6544 5067",
+      "hubungan_dengan_karyawan": "Coordinator nearly",
+      "nomor_passport": "7165998",
+      "tgl_pembuatan_passport": "2001-06-19",
+      "tgl_berakhir_passport": "2001-06-19",
+      "kebangsaan": "Guam",
+      "nomor_kitas": "94439964360435227254",
+      "tgl_berakhir_kitas": "2001-06-19",
+      "nomor_rptka": "61229946889280959688",
+      "tgl_berakhir_rptka": "2001-06-19",
+      "id_perusahaan": "Donata Agung Perkasa",
+      "id_lokasi": "TMS 1",
+      "id_divisi": "Finance",
+      "id_departemen": "Marketing",
+      "id_subdepartemen": "Support",
+      "jabatan": "Specialis",
+      "status_karyawan": "Harian",
+      "nama_pemberi_referensi": "Phillip Haley",
+      "nama_atasan_langsung": "Aaron Kessler",
+      "tgl_join": "2001-06-19",
+      "nomor_pkwtt": "2i22sb8ekqa73jna795b",
+      "gaji_pokok": 42628029,
+      "tgl_perubahan": "2001-06-19",
+      "uang_makan": 70085,
+      "uang_transport": 225664,
+      "note": "Consultant Iodine Transgender diversify Transexual Kia finally Dale Casper pair"
+    },
+    {
+      "id": "164370",
+      "kewarganegaraan": "WNA",
+      "nik": "4024313754040311",
+      "nama_lengkap": "Faith Weber",
+      "tempat_lahir": "Madison",
+      "tgl_lahir": "2003-02-28",
+      "jenis_kelamin": "Laki-Laki",
+      "alamat_domisili": "Murphycester",
+      "rt_rw": "83/16",
+      "kel_desa": "South Javoncester",
+      "agama": "Lain-lain",
+      "status_perkawinan": "Kawin",
+      "nomor_npwp": "7535350639767615",
+      "nomor_telepon": "+62 854 1243 1700",
+      "email": "Bret_Altenwerth84@gmail.com",
+      "pendidikan_terakhir": "SMK",
+      "nomor_bpjs_tk": "5476 6522 765",
+      "nomor_bpjs_kesehatan": "4519 7684 9279 4",
+      "nama_faskes": "Faye Hessel",
+      "alamat_faskes": "Modesto",
+      "nomor_kk": "8695 5716 2248 4956",
+      "nama_kepala_keluarga": "Dexter Armstrong",
+      "nama_ibu_kandung": "Bobby Kling",
+      "status_pajak": "K/1",
+      "nama_pasangan": "Harry Bernier",
+      "nama_anak_ke1": "Henrietta Davis IV",
+      "nama_anak_ke2": "Irvin Jenkins",
+      "nama_anak_ke3": "Rudy Cartwright",
+      "nama_kontak_darurat": "Mattie Cruickshank",
+      "nomor_telepon_darurat": "+62 857 1665 3208",
+      "hubungan_dengan_karyawan": "transmitting Exclusive",
+      "nomor_passport": "1485757",
+      "tgl_pembuatan_passport": "2003-02-28",
+      "tgl_berakhir_passport": "2003-02-28",
+      "kebangsaan": "Portugal",
+      "nomor_kitas": "18248757199994507692",
+      "tgl_berakhir_kitas": "2003-02-28",
+      "nomor_rptka": "59613755783364098551",
+      "tgl_berakhir_rptka": "2003-02-28",
+      "id_perusahaan": "Royalindo Investa Wijaya",
+      "id_lokasi": "TMS 4",
+      "id_divisi": "Purchase",
+      "id_departemen": "SAT Developer",
+      "id_subdepartemen": "Sales",
+      "jabatan": "Manager",
+      "status_karyawan": "Magang",
+      "nama_pemberi_referensi": "William Bogisich",
+      "nama_atasan_langsung": "Todd Schimmel",
+      "tgl_join": "2003-02-28",
+      "nomor_pkwtt": "z8nkjl08aa54m06wpm71",
+      "gaji_pokok": 79580514,
+      "tgl_perubahan": "2003-02-28",
+      "uang_makan": 50712,
+      "uang_transport": 248184,
+      "note": "Bicycle Peru Usability UDP dutiful Northwest Lehi Marks Reggae geez"
+    },
+    {
+      "id": "836720",
+      "kewarganegaraan": "WNI",
+      "nik": "8700438906772565",
+      "nama_lengkap": "Janet Kerluke",
+      "tempat_lahir": "Sarasota",
+      "tgl_lahir": "1998-11-28",
+      "jenis_kelamin": "Perempuan",
+      "alamat_domisili": "Shayneboro",
+      "rt_rw": "66/68",
+      "kel_desa": "New Jalen",
+      "agama": "Hindu",
+      "status_perkawinan": "Belum kawin",
+      "nomor_npwp": "4304861541723697",
+      "nomor_telepon": "+62 871 5647 2179",
+      "email": "Kameron26@gmail.com",
+      "pendidikan_terakhir": "SMA",
+      "nomor_bpjs_tk": "0547 4824 651",
+      "nomor_bpjs_kesehatan": "7263 7127 2665 4",
+      "nama_faskes": "Carroll Considine",
+      "alamat_faskes": "Walnut Creek",
+      "nomor_kk": "7463 5831 7237 2293",
+      "nama_kepala_keluarga": "Andrew Gislason Jr.",
+      "nama_ibu_kandung": "Sean Lockman",
+      "status_pajak": "K/1",
+      "nama_pasangan": "Mrs. Lois Ondricka",
+      "nama_anak_ke1": "Ben Prohaska",
+      "nama_anak_ke2": "Ms. Hope Boehm Sr.",
+      "nama_anak_ke3": "Luz Becker",
+      "nama_kontak_darurat": "Simon Roberts",
+      "nomor_telepon_darurat": "+62 855 9940 4664",
+      "hubungan_dengan_karyawan": "Dallas transmit",
+      "nomor_passport": "4777243",
+      "tgl_pembuatan_passport": "1998-11-28",
+      "tgl_berakhir_passport": "1998-11-28",
+      "kebangsaan": "Chad",
+      "nomor_kitas": "15773774551016469607",
+      "tgl_berakhir_kitas": "1998-11-28",
+      "nomor_rptka": "10967192148872491968",
+      "tgl_berakhir_rptka": "1998-11-28",
+      "id_perusahaan": "Royalindo Investa Wijaya",
+      "id_lokasi": "TMS 2",
+      "id_divisi": "Marketing",
+      "id_departemen": "Marketing",
+      "id_subdepartemen": "Support",
+      "jabatan": "Staff/Crew",
+      "status_karyawan": "Informal",
+      "nama_pemberi_referensi": "Miss Laurence Simonis",
+      "nama_atasan_langsung": "Alma Emmerich",
+      "tgl_join": "1998-11-28",
+      "nomor_pkwtt": "j98ph9fggzahyb98l4rr",
+      "gaji_pokok": 97517183,
+      "tgl_perubahan": "1998-11-28",
+      "uang_makan": 81802,
+      "uang_transport": 133691,
+      "note": "envy Shilling Tuna Chair niches woot career East yahoo Tasty"
     }
   ],
   "trx_jadwalkerja": [
@@ -847,6 +857,28 @@
       "mulai_istirahat": "12:00",
       "selesai_istirahat": "13:00",
       "total_jam_kerja": 7
+    },
+    {
+      "id": "TMS0S1N0716",
+      "id_lokasi": "TMS HO",
+      "id_shift": "Shift 1",
+      "jam_kerja": "Normal",
+      "in": "07:00",
+      "out": "16:00",
+      "mulai_istirahat": "10:00",
+      "selesai_istirahat": "12:00",
+      "total_jam_kerja": 7
+    },
+    {
+      "id": "TMS0S0P0912",
+      "id_lokasi": "TMS HO",
+      "id_shift": "Non Shift",
+      "jam_kerja": "Pendek",
+      "in": "09:00",
+      "out": "12:00",
+      "mulai_istirahat": "",
+      "selesai_istirahat": "",
+      "total_jam_kerja": 3
     }
   ]
 }

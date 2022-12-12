@@ -36,7 +36,7 @@ export class JadwalKerjaComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        this.api.postData(this.table, this.catchResult).subscribe((res) => {
+        this.api.postData(this.table, this.catchResult).subscribe(() => {
           this.ngOnInit();
         });
       }
@@ -44,6 +44,7 @@ export class JadwalKerjaComponent implements OnInit {
   }
 
   editData(data: any) {
+    let id = data.id
     const dialogRef = this.dialog.open(ModalJadwalKerjaComponent, {
       data: { name: 'edit', data: data },
     });
@@ -52,11 +53,11 @@ export class JadwalKerjaComponent implements OnInit {
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         let data = this.catchResult;
-        let id = this.catchResult.id;
-        this.api.updateData(this.table, data, id).subscribe((res) => {
+        this.api.updateData(this.table, data, id).subscribe(() => {
           this.ngOnInit();
         });
       }
+      this.ngOnInit();
     });
   }
 
