@@ -1,1 +1,110 @@
-<p>setup-jadwal-kerja works!</p>
+<h4>Setup Jadwal Kerja</h4>
+<!-- <div class="nav">
+  <nav class="transparent z-depth-0">
+    <div class="nav-wrapper row">
+      <div class="col s4">
+        <div class="left" style="display: inline-flex">
+          <label style="font-size: large; margin-right: 20px">Lokasi</label>
+          <select
+            class="browser-default"
+            [(ngModel)]="lokasiValue"
+            (change)="searchData()"
+          >
+            <option *ngFor="let raw of lokasi" [value]="raw.value">
+              {{ raw.value }}
+            </option>
+          </select>
+          <button class="space"></button>
+        </div>
+      </div>
+      <div class="col s8">
+        <ul class="right">
+          <li>
+            <button class="download waves-effect waves-dark transparent">
+              Download
+            </button>
+          </li>
+          <li>
+            <button
+              class="tambah waves-effect waves-light"
+              (click)="tambahData()"
+            >
+              Tambah
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div> -->
+
+<mat-tab-group>
+  <mat-tab label="Detail">
+    <div class="content row" style="display: flex">
+      <div class="col s8" style="margin-right: 10px">
+        <table class="responsive-table striped">
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Hari</th>
+              <th>Jadwal</th>
+              <th>Jadwal Kerja</th>
+              <th>Jadwal Istirahat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of data">
+              <td (click)="editData(row)">{{ row.id }}</td>
+              <td (click)="editData(row)">{{ row.id_lokasi }}</td>
+              <td (click)="editData(row)">{{ row.id_shift }}</td>
+              <td (click)="editData(row)">{{ row.jam_kerja }}</td>
+              <td (click)="editData(row)">{{ row.in }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col s4" style="display: flexbox">
+        <button class="print waves-effect waves-dark transparent right">
+          Print
+        </button>
+        <div style="display: inline-flex; width: 100%">
+          <h6>Periode</h6>
+          <div style="margin-left: auto; display: inline-flex">
+            <mat-checkbox style="margin: 7px 7px 0px 0px"></mat-checkbox>
+            <h6>Akhir</h6>
+          </div>
+        </div>
+        <input type="date" class="browser-default" />
+        <h6>Nama</h6>
+        <div style="display: inline-flex; width: 100%">
+          <input type="text" class="nip browser-default" />
+          <div style="margin-left: 7px">
+            <p>agus</p>
+          </div>
+          <div style="margin-left: auto">
+            <i class="material-icons" style="margin-top: 12px; font-size: 28px;">filter_list</i>
+          </div>
+        </div>
+        <table class="responsive-table striped">
+          <thead>
+            <tr>
+              <th>NIP</th>
+              <th>Nama</th>
+              <th>Perusahaan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of data">
+              <td>{{ row.id }}</td>
+              <td>{{ row.id_lokasi }}</td>
+              <td>{{ row.id_shift }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Category"> <div class="content">Content 2</div> </mat-tab>
+  <mat-tab label="Upload"> <div class="content">Content 3</div> </mat-tab>
+  <mat-tab label="Individu"> <div class="content">Content 4</div> </mat-tab>
+</mat-tab-group>

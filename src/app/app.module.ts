@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 // component
 import { AppComponent } from './app.component';
@@ -48,6 +49,7 @@ import { ModalLokasiComponent } from './components/master/lokasi/modal-lokasi/mo
 import { ModalUserComponent } from './components/master/user/modal-user/modal-user.component';
 import { ModalKaryawanComponent } from './components/master/karyawan/modal-karyawan/modal-karyawan.component';
 import { ModalJadwalKerjaComponent } from './components/master/jadwal-kerja/modal-jadwal-kerja/modal-jadwal-kerja.component';
+import { ModalSetupJadwalKerjaComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja/modal-setup-jadwal-kerja.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,7 @@ import { ModalJadwalKerjaComponent } from './components/master/jadwal-kerja/moda
     ModalUserComponent,
     ModalKaryawanComponent,
     ModalJadwalKerjaComponent,
+    ModalSetupJadwalKerjaComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -98,6 +101,7 @@ import { ModalJadwalKerjaComponent } from './components/master/jadwal-kerja/moda
     MatCheckboxModule,
     MatAutocompleteModule,
     MatTabsModule,
+    MatGridListModule,
 
     // form
     FormsModule,
