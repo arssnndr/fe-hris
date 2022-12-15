@@ -1,42 +1,4 @@
 <h4>Setup Jadwal Kerja</h4>
-<!-- <div class="nav">
-  <nav class="transparent z-depth-0">
-    <div class="nav-wrapper row">
-      <div class="col s4">
-        <div class="left" style="display: inline-flex">
-          <label style="font-size: large; margin-right: 20px">Lokasi</label>
-          <select
-            class="browser-default"
-            [(ngModel)]="lokasiValue"
-            (change)="searchData()"
-          >
-            <option *ngFor="let raw of lokasi" [value]="raw.value">
-              {{ raw.value }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-      </div>
-      <div class="col s8">
-        <ul class="right">
-          <li>
-            <button class="download waves-effect waves-dark transparent">
-              Download
-            </button>
-          </li>
-          <li>
-            <button
-              class="tambah waves-effect waves-light"
-              (click)="tambahData()"
-            >
-              Tambah
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</div> -->
 
 <mat-tab-group>
   <mat-tab label="Detail">
@@ -104,7 +66,48 @@
       </div>
     </div>
   </mat-tab>
-  <mat-tab label="Category"> <div class="content">Content 2</div> </mat-tab>
-  <mat-tab label="Upload"> <div class="content">Content 3</div> </mat-tab>
-  <mat-tab label="Individu"> <div class="content">Content 4</div> </mat-tab>
+
+  <!-- CATEGORY -->
+  <mat-tab label="Category">
+    <div class="content category">
+      <div class="right">
+        <button class="download waves-effect waves-dark transparent">
+          Download
+        </button>
+        <button class="tambah waves-effect waves-light" (click)="tambahData()">
+          Tambah
+        </button>
+      </div>
+      <table class="responsive-table striped">
+        <thead>
+          <tr>
+            <th>ID Lokasi</th>
+            <th>Lokasi</th>
+            <th>Inisial</th>
+            <th>Alamat</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data">
+            <td (click)="editData(row)">{{ row.id }}</td>
+            <td (click)="editData(row)">{{ row.id_lokasi }}</td>
+            <td (click)="editData(row)">{{ row.id_shift }}</td>
+            <td (click)="editData(row)">{{ row.jam_kerja }}</td>
+            <td>
+              <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
+                <i class="material-icons" style="font-size: 15px">close</i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+  <mat-tab label="Upload">
+    <div class="content">Content 3</div>
+  </mat-tab>
+  <mat-tab label="Individu">
+    <div class="content">Content 4</div>
+  </mat-tab>
 </mat-tab-group>
