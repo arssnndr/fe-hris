@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import * as ApexCharts from 'apexcharts';
 
@@ -10,6 +11,40 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
+  all = [
+    { name: 'TMS', count: 100 },
+    { name: 'SBIP', count: 110 },
+    { name: 'TPI', count: 60 },
+    { name: 'SPA', count: 120 },
+    { name: 'APG', count: 80 },
+    { name: 'IJP', count: 260 },
+    { name: 'DAP', count: 120 },
+    { name: 'PGS', count: 100 },
+    { name: 'TUM', count: 50 },
+    { name: 'TOTAL', count: 1000 }
+  ]
+
+  ho = [
+    { name: 'TMS', count: 10 },
+    { name: 'IJP', count: 60 },
+    { name: 'DAP', count: 20 },
+    { name: 'TOTAL', count: 90 },
+  ]
+
+  tms1 = [
+    { name: 'TMS', count: 30 },
+    { name: 'SBIP', count: 50 },
+    { name: 'TPI', count: 60 },
+    { name: 'TOTAL', count: 140 },
+  ]
+
+  tms2 = [
+    { name: 'TMS', count: 30 },
+    { name: 'SPA', count: 120 },
+    { name: 'APG', count: 80 },
+    { name: 'TOTAL', count: 230 },
+  ]
+
   ngOnInit(): void {
     // start jumlah karyawan
     var options1 = {
@@ -18,10 +53,11 @@ export class DashboardComponent implements OnInit {
       },
       series: [{
         name: 'ALL',
-        data: [30, 40, 45, 50, 49, 60, 70, 91, 125, 1000]
+        color: '#d85d5d',
+        data: this.all.map(row => row.count)
       }],
       xaxis: {
-        categories: ["TMS", "SBIP", "TPI", "SPA", "APG", "IJP", "DAP", "PGS", "TUM", "TOTAL"]
+        categories: this.all.map(row => row.name)
       }
     }
     var chart = new ApexCharts(document.querySelector("#chart1"), options1);
@@ -34,10 +70,11 @@ export class DashboardComponent implements OnInit {
       },
       series: [{
         name: 'HO',
-        data: [30, 40, 45, 90]
+        color: '#d85d5d',
+        data: this.ho.map(row => row.count)
       }],
       xaxis: {
-        categories: ["TMS", "IJP", "DAP", "TOTAL"]
+        categories: this.ho.map(row => row.name)
       }
     }
     var chart = new ApexCharts(document.querySelector("#chart2"), options2);
@@ -50,10 +87,11 @@ export class DashboardComponent implements OnInit {
       },
       series: [{
         name: 'TMS 1',
-        data: [30, 40, 45, 140]
+        color: '#d85d5d',
+        data: this.tms1.map(row => row.count)
       }],
       xaxis: {
-        categories: ["TMS", "SBIP", "TPI", "TOTAL"]
+        categories: this.tms1.map(row => row.name)
       }
     }
     var chart = new ApexCharts(document.querySelector("#chart3"), options3);
@@ -66,10 +104,11 @@ export class DashboardComponent implements OnInit {
       },
       series: [{
         name: 'TMS 2',
-        data: [30, 40, 45, 230]
+        color: '#d85d5d',
+        data: this.tms2.map(row => row.count)
       }],
       xaxis: {
-        categories: ["TMS", "SPA", "APG", "TOTAL"]
+        categories: this.tms2.map(row => row.name)
       }
     }
     var chart = new ApexCharts(document.querySelector("#chart4"), options4);
@@ -83,6 +122,7 @@ export class DashboardComponent implements OnInit {
       },
       series: [{
         name: 'ALL',
+        color: '#d85d5d',
         data: [87, 31, 37, 69]
       }],
       xaxis: {
@@ -99,6 +139,7 @@ export class DashboardComponent implements OnInit {
       },
       series: [{
         name: 'ALL',
+        color: '#d85d5d',
         data: [87, 31, 37, 69]
       }],
       xaxis: {
@@ -115,6 +156,7 @@ export class DashboardComponent implements OnInit {
       },
       series: [{
         name: 'ALL',
+        color: '#d85d5d',
         data: [87, 31, 37, 69]
       }],
       xaxis: {
@@ -131,6 +173,7 @@ export class DashboardComponent implements OnInit {
       },
       series: [{
         name: 'ALL',
+        color: '#d85d5d',
         data: [87, 31, 37, 69]
       }],
       xaxis: {
