@@ -44,7 +44,7 @@
             <p>agus</p>
           </div>
           <div style="margin-left: auto">
-            <i class="material-icons" style="margin-top: 12px; font-size: 28px;">filter_list</i>
+            <i class="material-icons" style="margin-top: 12px; font-size: 28px">filter_list</i>
           </div>
         </div>
         <table class="responsive-table striped">
@@ -104,8 +104,63 @@
       </table>
     </div>
   </mat-tab>
+
+  <!-- UPLOAD -->
   <mat-tab label="Upload">
-    <div class="content">Content 3</div>
+    <div class="content">
+      <div class="file-field input-field" style="display: inline-flex; margin-left: 0px;">
+        <div style="margin-right: 10px; width: 75px; text-align: right;">
+          <h6>Input File</h6>
+        </div>
+        <div>
+          <input
+            style="height: 50px; width: 250px; border: 1px solid rgba(0, 0, 0, 0.5); border-style: solid none solid solid;"
+            class="file-path validate browser-default" type="text">
+        </div>
+        <div class="btn transparent z-depth-0"
+          style="color: rgba(0, 0, 0, 0.5); height: 50px; border: 1px solid rgba(0, 0, 0, 0.5); border-style: solid solid solid none">
+          <i class="material-icons">folder</i>
+          <input type="file" multiple>
+        </div>
+      </div>
+      <br>
+      <div style="display: inline-flex;">
+        <div style="margin-right: 10px; width: 75px; text-align: right;">
+          <h6>Periode</h6>
+        </div>
+        <div>
+          <input type="date" style="height: 50px; border: 1px solid rgba(0, 0, 0, 0.5);" name="periode" id="periode">
+        </div>
+      </div>
+      <table class="responsive-table striped">
+        <thead>
+          <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data">
+            <td (click)="editData(row)">{{ row.id }}</td>
+            <td (click)="editData(row)">{{ row.id_lokasi }}</td>
+            <td (click)="editData(row)">{{ row.id_shift }}</td>
+            <td (click)="editData(row)">{{ row.jam_kerja }}</td>
+            <td (click)="editData(row)">{{ row.id_lokasi }}</td>
+            <td (click)="editData(row)">{{ row.id_shift }}</td>
+            <td (click)="editData(row)">{{ row.jam_kerja }}</td>
+            <td (click)="editData(row)">{{ row.id_shift }}</td>
+            <td (click)="editData(row)">{{ row.jam_kerja }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </mat-tab>
   <mat-tab label="Individu">
     <div class="content">Content 4</div>
