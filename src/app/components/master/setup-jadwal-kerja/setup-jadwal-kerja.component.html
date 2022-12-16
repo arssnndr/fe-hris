@@ -162,7 +162,42 @@
       </table>
     </div>
   </mat-tab>
+
+  <!-- INDIVIDU -->
   <mat-tab label="Individu">
-    <div class="content">Content 4</div>
+    <div class="content category">
+      <div class="right">
+        <button class="download waves-effect waves-dark transparent">
+          Download
+        </button>
+        <button class="tambah waves-effect waves-light" (click)="tambahData()">
+          Tambah
+        </button>
+      </div>
+      <table class="responsive-table striped">
+        <thead>
+          <tr>
+            <th>ID Lokasi</th>
+            <th>Lokasi</th>
+            <th>Inisial</th>
+            <th>Alamat</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data">
+            <td (click)="editData(row)">{{ row.id }}</td>
+            <td (click)="editData(row)">{{ row.id_lokasi }}</td>
+            <td (click)="editData(row)">{{ row.id_shift }}</td>
+            <td (click)="editData(row)">{{ row.jam_kerja }}</td>
+            <td>
+              <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
+                <i class="material-icons" style="font-size: 15px">close</i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </mat-tab>
 </mat-tab-group>
