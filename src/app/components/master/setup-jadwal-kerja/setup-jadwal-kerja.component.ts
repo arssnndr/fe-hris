@@ -9,22 +9,27 @@ import { ModalSetupJadwalKerjaComponent } from './modal-setup-jadwal-kerja/modal
   styleUrls: ['./setup-jadwal-kerja.component.css'],
 })
 export class SetupJadwalKerjaComponent implements OnInit {
-  table = 'trx_jadwalkerja/';
-  data!: any;
+  table1 = 'trx_jadwalkerja/';
+  table2 = 'ms_karyawan/';
+  data1!: any;
+  data2!: any;
   catchResult: any;
   getMaxId = 0;
-
-  lokasi = [
-    { value: 'All' },
-    { value: 'TMS HO' },
-    { value: 'TMS 1' },
-    { value: 'TMS 2' },
-    { value: 'TMS 3' },
-    { value: 'TMS 4' },
-  ];
-  lokasiValue = this.lokasi[0].value;
+  dateObj = new Date();
+  month!: any;
+  year!: any;
+  yearMonth!: any;
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    this.getAllData();
+    this.month = this.dateObj.getMonth();
+    this.year = this.dateObj.getFullYear();
+    this.month.toString().length === 1
+      ? (this.yearMonth = this.year + '-0' + this.month)
+      : (this.yearMonth = this.year + '-' + this.month);
+  }
 
   tambahData() {
     const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
@@ -35,7 +40,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        this.api.postData(this.table, this.catchResult).subscribe(() => {
+        this.api.postData(this.table1, this.catchResult).subscribe(() => {
           this.ngOnInit();
         });
       }
@@ -52,7 +57,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         let data = this.catchResult;
-        this.api.updateData(this.table, data, id).subscribe(() => {
+        this.api.updateData(this.table1, data, id).subscribe(() => {
           this.ngOnInit();
         });
       }
@@ -67,29 +72,20 @@ export class SetupJadwalKerjaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'ya') {
-        this.api.deleteData(this.table + id).subscribe(() => {
+        this.api.deleteData(this.table1 + id).subscribe(() => {
           this.ngOnInit();
         });
       }
     });
   }
 
-  ngOnInit(): void {
-    this.getAllData();
-  }
-
   getAllData() {
-    if (this.lokasiValue === 'All') {
-      this.api.getData(this.table).subscribe((res) => {
-        this.data = res;
-      });
-    } else {
-      this.api
-        .getData(this.table + '?id_lokasi_like=' + this.lokasiValue)
-        .subscribe((res) => {
-          this.data = res;
-        });
-    }
+    this.api.getData(this.table1).subscribe((res) => {
+      this.data1 = res;
+    });
+    this.api.getData(this.table2).subscribe((res) => {
+      this.data2 = res;
+    });
   }
 
   searchData() {

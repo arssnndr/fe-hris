@@ -1,6 +1,7 @@
 <h4>Setup Jadwal Kerja</h4>
 
 <mat-tab-group>
+  <!-- DETAIL -->
   <mat-tab label="Detail">
     <div class="content row" style="display: flex">
       <div class="col s8" style="margin-right: 10px">
@@ -15,12 +16,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let row of data">
+            <tr *ngFor="let row of data1">
+              <td (click)="editData(row)">{{ row.tanggal }}</td>
+              <td (click)="editData(row)">{{ row.hari }}</td>
               <td (click)="editData(row)">{{ row.id }}</td>
-              <td (click)="editData(row)">{{ row.id_lokasi }}</td>
-              <td (click)="editData(row)">{{ row.id_shift }}</td>
-              <td (click)="editData(row)">{{ row.jam_kerja }}</td>
-              <td (click)="editData(row)">{{ row.in }}</td>
+              <td (click)="editData(row)">{{ row.in }} - {{ row.out }}</td>
+              <td (click)="editData(row)">
+                {{ row.mulai_istirahat }} - {{ row.selesai_istirahat }}
+              </td>
             </tr>
           </tbody>
         </table>
@@ -36,7 +39,7 @@
             <h6>Akhir</h6>
           </div>
         </div>
-        <input type="date" class="browser-default" />
+        <input type="month" class="browser-default" [value]="yearMonth" />
         <h6>Nama</h6>
         <div style="display: inline-flex; width: 100%">
           <input type="text" class="nip browser-default" />
@@ -56,10 +59,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let row of data">
+            <tr *ngFor="let row of data2">
               <td>{{ row.id }}</td>
-              <td>{{ row.id_lokasi }}</td>
-              <td>{{ row.id_shift }}</td>
+              <td>{{ row.nama_lengkap }}</td>
+              <td>{{ row.id_perusahaan }}</td>
             </tr>
           </tbody>
         </table>
@@ -89,7 +92,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of data">
+          <tr *ngFor="let row of data1">
             <td (click)="editData(row)">{{ row.id }}</td>
             <td (click)="editData(row)">{{ row.id_lokasi }}</td>
             <td (click)="editData(row)">{{ row.id_shift }}</td>
@@ -108,28 +111,35 @@
   <!-- UPLOAD -->
   <mat-tab label="Upload">
     <div class="content">
-      <div class="file-field input-field" style="display: inline-flex; margin-left: 0px;">
-        <div style="margin-right: 10px; width: 75px; text-align: right;">
+      <div class="file-field input-field" style="display: inline-flex; margin-left: 0px">
+        <div style="margin-right: 10px; width: 75px; text-align: right">
           <h6>Input File</h6>
         </div>
         <div>
-          <input
-            style="height: 50px; width: 250px; border: 1px solid rgba(0, 0, 0, 0.5); border-style: solid none solid solid;"
-            class="file-path validate browser-default" type="text">
+          <input style="
+              height: 50px;
+              width: 250px;
+              border: 1px solid rgba(0, 0, 0, 0.5);
+              border-style: solid none solid solid;
+            " class="file-path validate browser-default" type="text" />
         </div>
-        <div class="btn transparent z-depth-0"
-          style="color: rgba(0, 0, 0, 0.5); height: 50px; border: 1px solid rgba(0, 0, 0, 0.5); border-style: solid solid solid none">
+        <div class="btn transparent z-depth-0" style="
+            color: rgba(0, 0, 0, 0.5);
+            height: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            border-style: solid solid solid none;
+          ">
           <i class="material-icons">folder</i>
-          <input type="file" multiple>
+          <input type="file" multiple />
         </div>
       </div>
-      <br>
-      <div style="display: inline-flex;">
-        <div style="margin-right: 10px; width: 75px; text-align: right;">
+      <br />
+      <div style="display: inline-flex">
+        <div style="margin-right: 10px; width: 75px; text-align: right">
           <h6>Periode</h6>
         </div>
         <div>
-          <input type="date" style="height: 50px; border: 1px solid rgba(0, 0, 0, 0.5);" name="periode" id="periode">
+          <input type="date" style="height: 50px; border: 1px solid rgba(0, 0, 0, 0.5)" name="periode" id="periode" />
         </div>
       </div>
       <table class="responsive-table striped">
@@ -147,7 +157,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of data">
+          <tr *ngFor="let row of data1">
             <td (click)="editData(row)">{{ row.id }}</td>
             <td (click)="editData(row)">{{ row.id_lokasi }}</td>
             <td (click)="editData(row)">{{ row.id_shift }}</td>
@@ -185,7 +195,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of data">
+          <tr *ngFor="let row of data1">
             <td (click)="editData(row)">{{ row.id }}</td>
             <td (click)="editData(row)">{{ row.id_lokasi }}</td>
             <td (click)="editData(row)">{{ row.id_shift }}</td>

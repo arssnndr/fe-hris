@@ -443,6 +443,25 @@ for (var i = 1; i <= loop; i++) {
 
 // trx_jadwalkerja
 for (var i = 1; i <= loop; i++) {
+  const tgl =
+    faker.datatype.number({ min: 1997, max: 2003 }) +
+    "-" +
+    faker.helpers.arrayElement([
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+    ]) +
+    "-" +
+    faker.datatype.number({ min: 10, max: 31 });
   let masuk = faker.helpers.arrayElement(["07:00", "09:00", "14:00"]);
   let keluar;
   let mulaiIstirahat;
@@ -480,6 +499,8 @@ for (var i = 1; i <= loop; i++) {
 
   database.trx_jadwalkerja.push({
     id: lokasi.val + shift.val + jamKerja.val + faker.random.numeric(3),
+    tanggal: tgl,
+    hari: faker.date.weekday(),
     id_lokasi: lokasi.value,
     id_shift: shift.value,
     jam_kerja: jamKerja.value,

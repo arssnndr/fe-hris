@@ -3,12 +3,16 @@ h4 {
   font-size: 24px;
 }
 
+mat-tab-group {
+  font-family: "Lato", sans-serif;
+}
+
 mat-paginator {
   font-family: "Lato", sans-serif;
   font-size: 15px;
 }
 
-input.nip{
+input.nip {
   width: 25%;
   height: 50px;
   border: 1px solid #ccc;
@@ -17,7 +21,8 @@ input.nip{
 
 }
 
-input[type="date"] {
+input[type="date"],
+input[type="month"] {
   width: 100%;
   height: 50px;
   box-sizing: border-box;
