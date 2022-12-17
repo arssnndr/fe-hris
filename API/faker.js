@@ -8,6 +8,7 @@ const database = {
   ms_userid: [],
   ms_karyawan: [],
   trx_jadwalkerja: [],
+  trx_jadwalkerjaindividu: []
 };
 
 const loop = 5;
@@ -498,6 +499,77 @@ for (var i = 1; i <= loop; i++) {
   ]);
 
   database.trx_jadwalkerja.push({
+    id: lokasi.val + shift.val + jamKerja.val + faker.random.numeric(3),
+    tanggal: tgl,
+    hari: faker.date.weekday(),
+    id_lokasi: lokasi.value,
+    id_shift: shift.value,
+    jam_kerja: jamKerja.value,
+    in: masuk,
+    out: keluar,
+    mulai_istirahat: mulaiIstirahat,
+    selesai_istirahat: selesaiIstirahat,
+    total_jam_kerja: "7",
+  });
+}
+
+// trx_jadwalkerjaindividu
+for (var i = 1; i <= loop; i++) {
+  const tgl =
+    faker.datatype.number({ min: 1997, max: 2003 }) +
+    "-" +
+    faker.helpers.arrayElement([
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+    ]) +
+    "-" +
+    faker.datatype.number({ min: 10, max: 31 });
+  let masuk = faker.helpers.arrayElement(["07:00", "09:00", "14:00"]);
+  let keluar;
+  let mulaiIstirahat;
+  let selesaiIstirahat;
+  if (masuk === "07:00") {
+    keluar = "16:00";
+    mulaiIstirahat = "10:00";
+    selesaiIstirahat = "11:00";
+  } else if (masuk === "09:00") {
+    keluar = "17:00";
+    mulaiIstirahat = "12:00";
+    selesaiIstirahat = "13:00";
+  } else if (masuk === "14:00") {
+    keluar = "22:00";
+    mulaiIstirahat = "17:00";
+    selesaiIstirahat = "18:00";
+  }
+
+  let lokasi = faker.helpers.arrayElement([
+    { value: "TMS HO", val: "TMS0" },
+    { value: "TMS 1", val: "TMS1" },
+    { value: "TMS 2", val: "TMS2" },
+    { value: "TMS 3", val: "TMS3" },
+    { value: "TMS 4", val: "TMS4" },
+  ]);
+  let shift = faker.helpers.arrayElement([
+    { value: "Non Shift", val: "S0" },
+    { value: "Shift 1", val: "S1" },
+    { value: "Shift 2", val: "S2" },
+  ]);
+  let jamKerja = faker.helpers.arrayElement([
+    { value: "Normal", val: "N0" },
+    { value: "Pendek", val: "N1" },
+  ]);
+
+  database.trx_jadwalkerjaindividu.push({
     id: lokasi.val + shift.val + jamKerja.val + faker.random.numeric(3),
     tanggal: tgl,
     hari: faker.date.weekday(),

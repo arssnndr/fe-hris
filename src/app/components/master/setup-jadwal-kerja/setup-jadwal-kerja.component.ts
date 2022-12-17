@@ -9,10 +9,13 @@ import { ModalSetupJadwalKerjaComponent } from './modal-setup-jadwal-kerja/modal
   styleUrls: ['./setup-jadwal-kerja.component.css'],
 })
 export class SetupJadwalKerjaComponent implements OnInit {
-  table1 = 'trx_jadwalkerja/';
-  table2 = 'ms_karyawan/';
-  data1!: any;
-  data2!: any;
+  tableDetail1 = 'trx_jadwalkerja/';
+  dataDetail1!: any;
+  tableDetail2 = 'ms_karyawan/';
+  dataDetail2!: any;
+  dataCategory!: any;
+  dataUpload!: any;
+  dataIndividu!: any;
   catchResult: any;
   getMaxId = 0;
   dateObj = new Date();
@@ -40,7 +43,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        this.api.postData(this.table1, this.catchResult).subscribe(() => {
+        this.api.postData(this.tableDetail1, this.catchResult).subscribe(() => {
           this.ngOnInit();
         });
       }
@@ -57,7 +60,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         let data = this.catchResult;
-        this.api.updateData(this.table1, data, id).subscribe(() => {
+        this.api.updateData(this.tableDetail1, data, id).subscribe(() => {
           this.ngOnInit();
         });
       }
@@ -72,7 +75,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'ya') {
-        this.api.deleteData(this.table1 + id).subscribe(() => {
+        this.api.deleteData(this.tableDetail1 + id).subscribe(() => {
           this.ngOnInit();
         });
       }
@@ -80,11 +83,20 @@ export class SetupJadwalKerjaComponent implements OnInit {
   }
 
   getAllData() {
-    this.api.getData(this.table1).subscribe((res) => {
-      this.data1 = res;
+    this.api.getData(this.tableDetail1).subscribe((res) => {
+      this.dataDetail1 = res;
     });
-    this.api.getData(this.table2).subscribe((res) => {
-      this.data2 = res;
+    this.api.getData(this.tableDetail2).subscribe((res) => {
+      this.dataDetail2 = res;
+    });
+    this.api.getData(this.tableDetail2).subscribe((res) => {
+      this.dataIndividu = res;
+    });
+    this.api.getData(this.tableDetail2).subscribe((res) => {
+      this.dataCategory = res;
+    });
+    this.api.getData(this.tableDetail2).subscribe((res) => {
+      this.dataUpload = res;
     });
   }
 

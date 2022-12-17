@@ -16,7 +16,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let row of data1">
+            <tr *ngFor="let row of dataDetail1">
               <td (click)="editData(row)">{{ row.tanggal }}</td>
               <td (click)="editData(row)">{{ row.hari }}</td>
               <td (click)="editData(row)">{{ row.id }}</td>
@@ -59,7 +59,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let row of data2">
+            <tr *ngFor="let row of dataDetail2">
               <td>{{ row.id }}</td>
               <td>{{ row.nama_lengkap }}</td>
               <td>{{ row.id_perusahaan }}</td>
@@ -84,19 +84,19 @@
       <table class="responsive-table striped">
         <thead>
           <tr>
-            <th>ID Lokasi</th>
             <th>Lokasi</th>
-            <th>Inisial</th>
-            <th>Alamat</th>
+            <th>Divisi</th>
+            <th>Departemen</th>
+            <th>Sub Departemen</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of data1">
-            <td (click)="editData(row)">{{ row.id }}</td>
+          <tr *ngFor="let row of dataCategory">
             <td (click)="editData(row)">{{ row.id_lokasi }}</td>
-            <td (click)="editData(row)">{{ row.id_shift }}</td>
-            <td (click)="editData(row)">{{ row.jam_kerja }}</td>
+            <td (click)="editData(row)">{{ row.id_divisi }}</td>
+            <td (click)="editData(row)">{{ row.id_departemen }}</td>
+            <td (click)="editData(row)">{{ row.id_subdepartemen }}</td>
             <td>
               <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
                 <i class="material-icons" style="font-size: 15px">close</i>
@@ -157,16 +157,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of data1">
+          <tr *ngFor="let row of dataUpload">
             <td (click)="editData(row)">{{ row.id }}</td>
-            <td (click)="editData(row)">{{ row.id_lokasi }}</td>
-            <td (click)="editData(row)">{{ row.id_shift }}</td>
-            <td (click)="editData(row)">{{ row.jam_kerja }}</td>
-            <td (click)="editData(row)">{{ row.id_lokasi }}</td>
-            <td (click)="editData(row)">{{ row.id_shift }}</td>
-            <td (click)="editData(row)">{{ row.jam_kerja }}</td>
-            <td (click)="editData(row)">{{ row.id_shift }}</td>
-            <td (click)="editData(row)">{{ row.jam_kerja }}</td>
+            <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
+            <td (click)="editData(row)">{{ row.nama_faskes }}</td>
+            <td (click)="editData(row)">{{ row.nama_kepala_keluarga }}</td>
+            <td (click)="editData(row)">{{ row.nama_ibu_kandung }}</td>
+            <td (click)="editData(row)">{{ row.nama_pasangan }}</td>
+            <td (click)="editData(row)">{{ row.nama_anak_ke1 }}</td>
+            <td (click)="editData(row)">{{ row.nama_anak_ke2 }}</td>
+            <td (click)="editData(row)">{{ row.nama_anak_ke3 }}</td>
           </tr>
         </tbody>
       </table>
@@ -187,19 +187,19 @@
       <table class="responsive-table striped">
         <thead>
           <tr>
-            <th>ID Lokasi</th>
-            <th>Lokasi</th>
-            <th>Inisial</th>
-            <th>Alamat</th>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Departemen</th>
+            <th>Perusahaan</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of data1">
+          <tr *ngFor="let row of dataIndividu">
             <td (click)="editData(row)">{{ row.id }}</td>
-            <td (click)="editData(row)">{{ row.id_lokasi }}</td>
-            <td (click)="editData(row)">{{ row.id_shift }}</td>
-            <td (click)="editData(row)">{{ row.jam_kerja }}</td>
+            <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
+            <td (click)="editData(row)">{{ row.id_departemen }}</td>
+            <td (click)="editData(row)">{{ row.id_perusahaan }}</td>
             <td>
               <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
                 <i class="material-icons" style="font-size: 15px">close</i>
