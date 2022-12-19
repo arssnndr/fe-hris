@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalSetupJadwalKerjaComponent } from './modal-setup-jadwal-kerja/modal-setup-jadwal-kerja.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-setup-jadwal-kerja',
@@ -49,6 +50,24 @@ export class SetupJadwalKerjaComponent implements OnInit {
       }
     });
   }
+  
+  editDataDetail(data: any) {
+    let id = data.id;
+    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
+      data: { name: 'editDetail', data: data },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'simpan') {
+        this.catchResult = this.api.catchData();
+        let data = this.catchResult;
+        this.api.updateData(this.tableDetail1, data, id).subscribe(() => {
+          this.ngOnInit();
+        });
+      }
+      this.ngOnInit();
+    });
+  }
 
   editData(data: any) {
     let id = data.id;
@@ -85,6 +104,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
   getAllData() {
     this.api.getData(this.tableDetail1).subscribe((res) => {
       this.dataDetail1 = res;
+      console.log(moment(res[0].tanggal).format('D MMM YYYY'))
     });
     this.api.getData(this.tableDetail2).subscribe((res) => {
       this.dataDetail2 = res;
@@ -98,6 +118,10 @@ export class SetupJadwalKerjaComponent implements OnInit {
     this.api.getData(this.tableDetail2).subscribe((res) => {
       this.dataUpload = res;
     });
+  }
+
+  dateFormat(date: any){
+    return moment(date).format('D MMM YYYY')
   }
 
   searchData() {

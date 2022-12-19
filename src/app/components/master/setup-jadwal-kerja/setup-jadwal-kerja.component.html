@@ -17,11 +17,11 @@
           </thead>
           <tbody>
             <tr *ngFor="let row of dataDetail1">
-              <td (click)="editData(row)">{{ row.tanggal }}</td>
-              <td (click)="editData(row)">{{ row.hari }}</td>
-              <td (click)="editData(row)">{{ row.id }}</td>
-              <td (click)="editData(row)">{{ row.in }} - {{ row.out }}</td>
-              <td (click)="editData(row)">
+              <td (click)="editDataDetail(row)">{{ dateFormat(row.tanggal) }}</td>
+              <td (click)="editDataDetail(row)">{{ row.hari }}</td>
+              <td (click)="editDataDetail(row)">{{ row.id }}</td>
+              <td (click)="editDataDetail(row)">{{ row.in }} - {{ row.out }}</td>
+              <td (click)="editDataDetail(row)">
                 {{ row.mulai_istirahat }} - {{ row.selesai_istirahat }}
               </td>
             </tr>
