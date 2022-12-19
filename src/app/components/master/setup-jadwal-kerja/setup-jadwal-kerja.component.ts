@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalSetupJadwalKerjaComponent } from './modal-setup-jadwal-kerja/modal-setup-jadwal-kerja.component';
 import * as moment from 'moment';
+moment.locale('id')
 
 @Component({
   selector: 'app-setup-jadwal-kerja',
@@ -104,7 +105,6 @@ export class SetupJadwalKerjaComponent implements OnInit {
   getAllData() {
     this.api.getData(this.tableDetail1).subscribe((res) => {
       this.dataDetail1 = res;
-      console.log(moment(res[0].tanggal).format('D MMM YYYY'))
     });
     this.api.getData(this.tableDetail2).subscribe((res) => {
       this.dataDetail2 = res;

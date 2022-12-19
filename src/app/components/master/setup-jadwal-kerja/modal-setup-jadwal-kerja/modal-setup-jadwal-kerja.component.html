@@ -1,1 +1,67 @@
-<p>modal-setup-jadwal-kerja works!</p>
+<!-- Modal tambah or edit -->
+<div class="tambah" *ngIf="editDetail">
+    <h2 mat-dialog-title>Jadwal Kerja</h2>
+    <mat-dialog-content>
+      <div class="right">
+        <h6>Jadwal</h6>
+        <input
+          type="text"
+          class="browser-default disabled"
+          disabled
+          [value]=""
+        />
+      </div>
+      <div class="right">
+        <h6>Jam Masuk</h6>
+        <input
+          type="time"
+          class="browser-default"
+          [value]=""
+        />
+        <h6 style="width: 25px">s.d</h6>
+        <input
+          type="time"
+          class="browser-default sd"
+          [value]=""
+        />
+      </div>
+      <div class="right">
+        <h6>Jam Istirahat</h6>
+        <input
+          type="time"
+          class="browser-default"
+          [value]=""
+        />
+        <h6 style="width: 25px">s.d</h6>
+        <input
+          type="time"
+          class="browser-default sd"
+          [value]=""
+        />
+      </div>
+      <div class="right">
+        <h6>Total Jam Kerja</h6>
+        <input
+          type="text"
+          class="browser-default disabled"
+          disabled
+          [value]="7 + ' Jam'"
+        />
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button
+        class="simpan waves-effect waves-light"
+        mat-dialog-close="simpan"
+        (click)="throwResult()"
+      >
+        Simpan
+      </button>
+      <button
+        class="batal waves-effect waves-light transparent"
+        mat-dialog-close="batal"
+      >
+        Batal
+      </button>
+    </mat-dialog-actions>
+  </div>
