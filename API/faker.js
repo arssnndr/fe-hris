@@ -1,4 +1,6 @@
 const { faker } = require("@faker-js/faker");
+var moment = require('moment')
+moment.locale('id')
 
 const database = {
   login: [],
@@ -12,20 +14,21 @@ const database = {
   trx_jadwalkerjaindividu: []
 };
 
-const loop = 5;
+const loop = 31;
 
 // function getRandomInt(max) {
 //   return Math.floor(Math.random() * max + 1);
 // }
 
 // login
-for (var i = 1; i <= 1; i++) {
+for (var i = 1; i <= loop; i++) {
   const email = faker.internet.email();
   const password = faker.internet.password();
   database.login.push({
     id: i,
     email: email,
     password: password,
+    status: faker.datatype.boolean()
   });
 }
 
@@ -264,28 +267,80 @@ for (var i = 1; i <= loop; i++) {
   });
 }
 
-// ms_karyawan
+// trx_jadwalkerja
+var jadwalkerjakeun = []
+var daykeun
 for (var i = 1; i <= loop; i++) {
-  const tgl =
-    faker.datatype.number({ min: 1997, max: 2003 }) +
-    "-" +
-    faker.helpers.arrayElement([
-      "01",
-      "02",
-      "03",
-      "04",
-      "05",
-      "06",
-      "07",
-      "08",
-      "09",
-      "10",
-      "11",
-      "12",
-    ]) +
-    "-" +
-    faker.datatype.number({ min: 10, max: 31 });
+  daykeun = i
+  if (daykeun >= 31) {
+    daykeun = 31
+  }
+  if (daykeun.toString().length === 1) {
+    daykeun = "0" + i
+  }
+  let masuk = faker.helpers.arrayElement(["07:00", "09:00", "14:00"]);
+  let keluar;
+  let mulaiIstirahat;
+  let selesaiIstirahat;
+  if (masuk === "07:00") {
+    keluar = "16:00";
+    mulaiIstirahat = "10:00";
+    selesaiIstirahat = "11:00";
+  } else if (masuk === "09:00") {
+    keluar = "17:00";
+    mulaiIstirahat = "12:00";
+    selesaiIstirahat = "13:00";
+  } else if (masuk === "14:00") {
+    keluar = "22:00";
+    mulaiIstirahat = "17:00";
+    selesaiIstirahat = "18:00";
+  }
 
+  let lokasi = faker.helpers.arrayElement([
+    { value: "TMS HO", val: "TMS0" },
+    { value: "TMS 1", val: "TMS1" },
+    { value: "TMS 2", val: "TMS2" },
+    { value: "TMS 3", val: "TMS3" },
+    { value: "TMS 4", val: "TMS4" },
+  ]);
+  let shift = faker.helpers.arrayElement([
+    { value: "Non Shift", val: "S0" },
+    { value: "Shift 1", val: "S1" },
+    { value: "Shift 2", val: "S2" },
+  ]);
+  let jamKerja = faker.helpers.arrayElement([
+    { value: "Normal", val: "N" },
+    { value: "Pendek", val: "P" },
+  ]);
+
+  jadwalkerjakeun.push({
+    id_jadwalkerja: lokasi.val + shift.val + jamKerja.val + masuk.slice(0, 2) + keluar.slice(0, 2),
+    tgl: daykeun + moment().format("-MM-YYYY"),
+    hari: moment(daykeun + "-12-2022", "DD-MM-YYYY").format("dddd"),
+    in: masuk,
+    out: keluar,
+    mulai_istirahat: mulaiIstirahat,
+    selesai_istirahat: selesaiIstirahat
+  })
+
+  database.trx_jadwalkerja.push({
+    id: lokasi.val + shift.val + jamKerja.val + masuk.slice(0, 2) + keluar.slice(0, 2),
+    id_lokasi: lokasi.value,
+    id_shift: shift.value,
+    jam_kerja: jamKerja.value,
+    in: masuk,
+    out: keluar,
+    mulai_istirahat: mulaiIstirahat,
+    selesai_istirahat: selesaiIstirahat,
+    total_jam_kerja: Number(mulaiIstirahat.slice(0, 2)) - Number(masuk.slice(0, 2)) + Number(keluar.slice(0, 2)) - Number(selesaiIstirahat.slice(0, 2)),
+  });
+}
+
+// ms_karyawan
+function stringkeun(obj) {
+  return JSON.stringify(obj).split("T")[0].slice(1)
+}
+for (var i = 1; i <= loop; i++) {
   database.ms_karyawan.push({
     id: faker.random.numeric(6),
     kewarganegaraan: faker.helpers.arrayElement([
@@ -299,7 +354,7 @@ for (var i = 1; i <= loop; i++) {
     nik: faker.random.numeric(16),
     nama_lengkap: faker.name.fullName(),
     tempat_lahir: faker.address.cityName(),
-    tgl_lahir: tgl,
+    tgl_lahir: stringkeun(faker.date.birthdate()),
     jenis_kelamin: faker.helpers.arrayElement(["Laki-Laki", "Perempuan"]),
     alamat_domisili: faker.address.city(),
     rt_rw: faker.random.numeric(2) + "/" + faker.random.numeric(2),
@@ -364,13 +419,13 @@ for (var i = 1; i <= loop; i++) {
     hubungan_dengan_karyawan: faker.random.words(2),
 
     nomor_passport: faker.random.numeric(7),
-    tgl_pembuatan_passport: tgl,
-    tgl_berakhir_passport: tgl,
+    tgl_pembuatan_passport: stringkeun(faker.date.past()),
+    tgl_berakhir_passport: stringkeun(faker.date.future()),
     kebangsaan: faker.address.country(),
     nomor_kitas: faker.random.numeric(20),
-    tgl_berakhir_kitas: tgl,
+    tgl_berakhir_kitas: stringkeun(faker.date.future()),
     nomor_rptka: faker.random.numeric(20),
-    tgl_berakhir_rptka: tgl,
+    tgl_berakhir_rptka: stringkeun(faker.date.future()),
 
     id_perusahaan: faker.helpers.arrayElement([
       "Indika Jasa Parama",
@@ -432,18 +487,20 @@ for (var i = 1; i <= loop; i++) {
     nama_pemberi_referensi: faker.name.fullName(),
     nama_atasan_langsung: faker.name.fullName(),
 
-    tgl_join: tgl,
+    tgl_join: stringkeun(faker.date.past()),
     nomor_pkwtt: faker.random.alphaNumeric(20),
 
     gaji_pokok: faker.datatype.number({ min: 3000000, max: 99000000 }),
-    tgl_perubahan: tgl,
+    tgl_perubahan: stringkeun(faker.date.recent()),
     uang_makan: faker.datatype.number({ min: 10000, max: 100000 }),
     uang_transport: faker.datatype.number({ min: 25000, max: 250000 }),
     note: faker.random.words(10),
+
+    jadwal_kerja: jadwalkerjakeun
   });
 }
 
-// trx_jadwalkerja
+// trx_jadwalkerjadetail
 for (var i = 1; i <= loop; i++) {
   const tgl =
     faker.datatype.number({ min: 1997, max: 2003 }) +
@@ -499,7 +556,7 @@ for (var i = 1; i <= loop; i++) {
     { value: "Pendek", val: "N1" },
   ]);
 
-  database.trx_jadwalkerja.push({
+  database.trx_jadwalkerjadetail.push({
     id: lokasi.val + shift.val + jamKerja.val + faker.random.numeric(3),
     tanggal: tgl,
     hari: faker.date.weekday(),
@@ -571,77 +628,6 @@ for (var i = 1; i <= loop; i++) {
   ]);
 
   database.trx_jadwalkerjaindividu.push({
-    id: lokasi.val + shift.val + jamKerja.val + faker.random.numeric(3),
-    tanggal: tgl,
-    hari: faker.date.weekday(),
-    id_lokasi: lokasi.value,
-    id_shift: shift.value,
-    jam_kerja: jamKerja.value,
-    in: masuk,
-    out: keluar,
-    mulai_istirahat: mulaiIstirahat,
-    selesai_istirahat: selesaiIstirahat,
-    total_jam_kerja: "7",
-  });
-}
-
-// trx_jadwalkerjadetail
-for (var i = 1; i <= loop; i++) {
-  const tgl =
-    faker.datatype.number({ min: 1997, max: 2003 }) +
-    "-" +
-    faker.helpers.arrayElement([
-      "01",
-      "02",
-      "03",
-      "04",
-      "05",
-      "06",
-      "07",
-      "08",
-      "09",
-      "10",
-      "11",
-      "12",
-    ]) +
-    "-" +
-    faker.datatype.number({ min: 10, max: 31 });
-  let masuk = faker.helpers.arrayElement(["07:00", "09:00", "14:00"]);
-  let keluar;
-  let mulaiIstirahat;
-  let selesaiIstirahat;
-  if (masuk === "07:00") {
-    keluar = "16:00";
-    mulaiIstirahat = "10:00";
-    selesaiIstirahat = "11:00";
-  } else if (masuk === "09:00") {
-    keluar = "17:00";
-    mulaiIstirahat = "12:00";
-    selesaiIstirahat = "13:00";
-  } else if (masuk === "14:00") {
-    keluar = "22:00";
-    mulaiIstirahat = "17:00";
-    selesaiIstirahat = "18:00";
-  }
-
-  let lokasi = faker.helpers.arrayElement([
-    { value: "TMS HO", val: "TMS0" },
-    { value: "TMS 1", val: "TMS1" },
-    { value: "TMS 2", val: "TMS2" },
-    { value: "TMS 3", val: "TMS3" },
-    { value: "TMS 4", val: "TMS4" },
-  ]);
-  let shift = faker.helpers.arrayElement([
-    { value: "Non Shift", val: "S0" },
-    { value: "Shift 1", val: "S1" },
-    { value: "Shift 2", val: "S2" },
-  ]);
-  let jamKerja = faker.helpers.arrayElement([
-    { value: "Normal", val: "N0" },
-    { value: "Pendek", val: "N1" },
-  ]);
-
-  database.trx_jadwalkerjadetail.push({
     id: lokasi.val + shift.val + jamKerja.val + faker.random.numeric(3),
     tanggal: tgl,
     hari: faker.date.weekday(),

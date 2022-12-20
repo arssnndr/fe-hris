@@ -27,7 +27,6 @@ export class ApiService {
   }
 
   updateData(table: string, data: string, id: any) {
-    console.log(data)
     return this.http.put<any>(env.api + table + id, data).pipe(
       map((res) => {
         return res;

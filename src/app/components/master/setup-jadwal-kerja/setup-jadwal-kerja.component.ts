@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalSetupJadwalKerjaComponent } from './modal-setup-jadwal-kerja/modal-setup-jadwal-kerja.component';
 import * as moment from 'moment';
-moment.locale('id')
+moment.locale('id');
 
 @Component({
   selector: 'app-setup-jadwal-kerja',
@@ -11,16 +11,14 @@ moment.locale('id')
   styleUrls: ['./setup-jadwal-kerja.component.css'],
 })
 export class SetupJadwalKerjaComponent implements OnInit {
-  tableDetail1 = 'trx_jadwalkerja/';
-  dataDetail1!: any;
-  tableDetail2 = 'ms_karyawan/';
-  dataDetail2!: any;
+  tableDetail = 'ms_karyawan/';
+  dataDetail!: any;
+  dataDetailJadwalKerja!: any;
   dataCategory!: any;
   dataUpload!: any;
   dataIndividu!: any;
   catchResult: any;
   getMaxId = 0;
-  dateObj = new Date();
   month!: any;
   year!: any;
   yearMonth!: any;
@@ -29,8 +27,8 @@ export class SetupJadwalKerjaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllData();
-    this.month = this.dateObj.getMonth();
-    this.year = this.dateObj.getFullYear();
+    this.month = moment().month() + 1;
+    this.year = moment().year();
     this.month.toString().length === 1
       ? (this.yearMonth = this.year + '-0' + this.month)
       : (this.yearMonth = this.year + '-' + this.month);
@@ -45,13 +43,13 @@ export class SetupJadwalKerjaComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        this.api.postData(this.tableDetail1, this.catchResult).subscribe(() => {
+        this.api.postData(this.tableDetail, this.catchResult).subscribe(() => {
           this.ngOnInit();
         });
       }
     });
   }
-  
+
   editDataDetail(data: any) {
     let id = data.id;
     const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
@@ -60,11 +58,11 @@ export class SetupJadwalKerjaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'simpan') {
-        this.catchResult = this.api.catchData();
-        let data = this.catchResult;
-        this.api.updateData(this.tableDetail1, data, id).subscribe(() => {
-          this.ngOnInit();
-        });
+        // this.catchResult = this.api.catchData();
+        // let data = this.catchResult;
+        // this.api.updateData(this.tableDetail, data, id).subscribe(() => {
+        //   this.ngOnInit();
+        // });
       }
       this.ngOnInit();
     });
@@ -80,7 +78,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         let data = this.catchResult;
-        this.api.updateData(this.tableDetail1, data, id).subscribe(() => {
+        this.api.updateData(this.tableDetail, data, id).subscribe(() => {
           this.ngOnInit();
         });
       }
@@ -95,7 +93,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'ya') {
-        this.api.deleteData(this.tableDetail1 + id).subscribe(() => {
+        this.api.deleteData(this.tableDetail + id).subscribe(() => {
           this.ngOnInit();
         });
       }
@@ -103,25 +101,23 @@ export class SetupJadwalKerjaComponent implements OnInit {
   }
 
   getAllData() {
-    this.api.getData(this.tableDetail1).subscribe((res) => {
-      this.dataDetail1 = res;
+    this.api.getData(this.tableDetail).subscribe((res) => {
+      this.dataDetail = res;
+      this.dataDetailJadwalKerja = res[0].jadwal_kerja;
     });
-    this.api.getData(this.tableDetail2).subscribe((res) => {
-      this.dataDetail2 = res;
-    });
-    this.api.getData(this.tableDetail2).subscribe((res) => {
+    this.api.getData(this.tableDetail).subscribe((res) => {
       this.dataIndividu = res;
     });
-    this.api.getData(this.tableDetail2).subscribe((res) => {
+    this.api.getData(this.tableDetail).subscribe((res) => {
       this.dataCategory = res;
     });
-    this.api.getData(this.tableDetail2).subscribe((res) => {
+    this.api.getData(this.tableDetail).subscribe((res) => {
       this.dataUpload = res;
     });
   }
 
-  dateFormat(date: any){
-    return moment(date).format('D MMM YYYY')
+  dateFormat(date: any) {
+    return moment(date, 'DD-MM-YYYY').format('DD MMM YYYY');
   }
 
   searchData() {

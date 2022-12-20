@@ -16,10 +16,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let row of dataDetail1">
-              <td (click)="editDataDetail(row)">{{ dateFormat(row.tanggal) }}</td>
+            <tr *ngFor="let row of dataDetailJadwalKerja">
+              <td (click)="editDataDetail(row)">{{ dateFormat(row.tgl) }}</td>
               <td (click)="editDataDetail(row)">{{ row.hari }}</td>
-              <td (click)="editDataDetail(row)">{{ row.id }}</td>
+              <td (click)="editDataDetail(row)">{{ row.id_jadwalkerja }}</td>
               <td (click)="editDataDetail(row)">{{ row.in }} - {{ row.out }}</td>
               <td (click)="editDataDetail(row)">
                 {{ row.mulai_istirahat }} - {{ row.selesai_istirahat }}
@@ -59,7 +59,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let row of dataDetail2">
+            <tr *ngFor="let row of dataDetail">
               <td>{{ row.id }}</td>
               <td>{{ row.nama_lengkap }}</td>
               <td>{{ row.id_perusahaan }}</td>
