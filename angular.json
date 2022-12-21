@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["apexcharts"],
+            "allowedCommonJsDependencies": ["apexcharts", "moment"],
             "outputPath": "dist/hr-system",
             "index": "src/index.html",
             "main": "src/main.ts",

@@ -40,7 +40,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         this.api.postData(this.tableDetail, this.catchResult).subscribe(() => {
@@ -50,19 +50,25 @@ export class SetupJadwalKerjaComponent implements OnInit {
     });
   }
 
-  editDataDetail(data: any) {
-    let id = data.id;
+  editDataDetail(i: number) {
+    let id = this.dataDetail[0].id
     const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'editDetail', data: data },
+      data: {
+        name: 'editDetail',
+        data: {
+          all: this.dataDetail[0],
+          dataJadwalKerja: this.dataDetail[0].jadwal_kerja[i],
+          indexJadwalKerja: i
+        },
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'simpan') {
-        // this.catchResult = this.api.catchData();
-        // let data = this.catchResult;
-        // this.api.updateData(this.tableDetail, data, id).subscribe(() => {
-        //   this.ngOnInit();
-        // });
+        this.catchResult = this.api.catchData();
+        this.api.updateData(this.tableDetail, this.catchResult, id).subscribe(() => {
+          this.ngOnInit();
+        });
       }
       this.ngOnInit();
     });
@@ -104,14 +110,8 @@ export class SetupJadwalKerjaComponent implements OnInit {
     this.api.getData(this.tableDetail).subscribe((res) => {
       this.dataDetail = res;
       this.dataDetailJadwalKerja = res[0].jadwal_kerja;
-    });
-    this.api.getData(this.tableDetail).subscribe((res) => {
       this.dataIndividu = res;
-    });
-    this.api.getData(this.tableDetail).subscribe((res) => {
       this.dataCategory = res;
-    });
-    this.api.getData(this.tableDetail).subscribe((res) => {
       this.dataUpload = res;
     });
   }

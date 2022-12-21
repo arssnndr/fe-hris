@@ -1,6 +1,6 @@
 const { faker } = require("@faker-js/faker");
-var moment = require('moment')
-moment.locale('id')
+var moment = require("moment");
+moment.locale("id");
 
 const database = {
   login: [],
@@ -11,7 +11,7 @@ const database = {
   ms_karyawan: [],
   trx_jadwalkerja: [],
   trx_jadwalkerjadetail: [],
-  trx_jadwalkerjaindividu: []
+  trx_jadwalkerjaindividu: [],
 };
 
 const loop = 31;
@@ -28,7 +28,7 @@ for (var i = 1; i <= loop; i++) {
     id: i,
     email: email,
     password: password,
-    status: faker.datatype.boolean()
+    status: faker.datatype.boolean(),
   });
 }
 
@@ -268,15 +268,15 @@ for (var i = 1; i <= loop; i++) {
 }
 
 // trx_jadwalkerja
-var jadwalkerjakeun = []
-var daykeun
+var jadwalkerjakeun = [];
+var daykeun;
 for (var i = 1; i <= loop; i++) {
-  daykeun = i
+  daykeun = i;
   if (daykeun >= 31) {
-    daykeun = 31
+    daykeun = 31;
   }
   if (daykeun.toString().length === 1) {
-    daykeun = "0" + i
+    daykeun = "0" + i;
   }
   let masuk = faker.helpers.arrayElement(["07:00", "09:00", "14:00"]);
   let keluar;
@@ -314,17 +314,32 @@ for (var i = 1; i <= loop; i++) {
   ]);
 
   jadwalkerjakeun.push({
-    id_jadwalkerja: lokasi.val + shift.val + jamKerja.val + masuk.slice(0, 2) + keluar.slice(0, 2),
+    id_jadwalkerja:
+      lokasi.val +
+      shift.val +
+      jamKerja.val +
+      masuk.slice(0, 2) +
+      keluar.slice(0, 2),
     tgl: daykeun + moment().format("-MM-YYYY"),
     hari: moment(daykeun + "-12-2022", "DD-MM-YYYY").format("dddd"),
     in: masuk,
     out: keluar,
     mulai_istirahat: mulaiIstirahat,
-    selesai_istirahat: selesaiIstirahat
-  })
+    selesai_istirahat: selesaiIstirahat,
+    total_jam_kerja:
+      Number(mulaiIstirahat.slice(0, 2)) -
+      Number(masuk.slice(0, 2)) +
+      Number(keluar.slice(0, 2)) -
+      Number(selesaiIstirahat.slice(0, 2)),
+  });
 
   database.trx_jadwalkerja.push({
-    id: lokasi.val + shift.val + jamKerja.val + masuk.slice(0, 2) + keluar.slice(0, 2),
+    id:
+      lokasi.val +
+      shift.val +
+      jamKerja.val +
+      masuk.slice(0, 2) +
+      keluar.slice(0, 2),
     id_lokasi: lokasi.value,
     id_shift: shift.value,
     jam_kerja: jamKerja.value,
@@ -332,13 +347,17 @@ for (var i = 1; i <= loop; i++) {
     out: keluar,
     mulai_istirahat: mulaiIstirahat,
     selesai_istirahat: selesaiIstirahat,
-    total_jam_kerja: Number(mulaiIstirahat.slice(0, 2)) - Number(masuk.slice(0, 2)) + Number(keluar.slice(0, 2)) - Number(selesaiIstirahat.slice(0, 2)),
+    total_jam_kerja:
+      Number(mulaiIstirahat.slice(0, 2)) -
+      Number(masuk.slice(0, 2)) +
+      Number(keluar.slice(0, 2)) -
+      Number(selesaiIstirahat.slice(0, 2)),
   });
 }
 
 // ms_karyawan
 function stringkeun(obj) {
-  return JSON.stringify(obj).split("T")[0].slice(1)
+  return JSON.stringify(obj).split("T")[0].slice(1);
 }
 for (var i = 1; i <= loop; i++) {
   database.ms_karyawan.push({
@@ -496,7 +515,7 @@ for (var i = 1; i <= loop; i++) {
     uang_transport: faker.datatype.number({ min: 25000, max: 250000 }),
     note: faker.random.words(10),
 
-    jadwal_kerja: jadwalkerjakeun
+    jadwal_kerja: jadwalkerjakeun,
   });
 }
 

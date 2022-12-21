@@ -1,67 +1,56 @@
 <!-- Modal edit detail -->
 <div class="tambah" *ngIf="editDetail">
-    <h2 mat-dialog-title>Jadwal Kerja - {{dateFormat(data.data.tgl)}}</h2>
-    <mat-dialog-content>
-      <div class="right">
-        <h6>Jadwal</h6>
-        <input
-          type="text"
-          class="browser-default disabled"
-          disabled
-          [value]=""
-        />
-      </div>
-      <div class="right">
-        <h6>Jam Masuk</h6>
-        <input
-          type="time"
-          class="browser-default"
-          [value]=""
-        />
-        <h6 style="width: 25px">s.d</h6>
-        <input
-          type="time"
-          class="browser-default sd"
-          [value]=""
-        />
-      </div>
-      <div class="right">
-        <h6>Jam Istirahat</h6>
-        <input
-          type="time"
-          class="browser-default"
-          [value]=""
-        />
-        <h6 style="width: 25px">s.d</h6>
-        <input
-          type="time"
-          class="browser-default sd"
-          [value]=""
-        />
-      </div>
-      <div class="right">
-        <h6>Total Jam Kerja</h6>
-        <input
-          type="text"
-          class="browser-default disabled"
-          disabled
-          [value]="7 + ' Jam'"
-        />
-      </div>
-    </mat-dialog-content>
-    <mat-dialog-actions align="end">
-      <button
-        class="simpan waves-effect waves-light"
-        mat-dialog-close="simpan"
-        (click)="throwResult()"
-      >
-        Simpan
-      </button>
-      <button
-        class="batal waves-effect waves-light transparent"
-        mat-dialog-close="batal"
-      >
-        Batal
-      </button>
-    </mat-dialog-actions>
-  </div>
+  <h2 mat-dialog-title>Jadwal Kerja - {{dateFormat(data.data.dataJadwalKerja.tgl)}}</h2>
+  <mat-dialog-content>
+    <div class="right">
+      <h6>NIP</h6>
+      <input type="text" class="browser-default nip" disabled [value]="data.data.all.id" />
+      <p class="nama">{{data.data.all.nama_lengkap}}</p>
+    </div>
+    <div class="right">
+      <h6>Divisi</h6>
+      <input type="text" class="browser-default disabled subdepartemen" disabled [value]="data.data.all.id_divisi" />
+    </div>
+    <div class="right">
+      <h6>Departemen</h6>
+      <input type="text" class="browser-default disabled subdepartemen" disabled [value]="data.data.all.id_departemen" />
+    </div>
+    <div class="right">
+      <h6>Sub Departemen</h6>
+      <input type="text" class="browser-default disabled subdepartemen" disabled [value]="data.data.all.id_subdepartemen" />
+    </div>
+    <div class="right">
+      <h6>Jadwal</h6>
+      <select class="browser-default" [(ngModel)]="idJadwalKerja" (change)="filter()">
+        <option *ngFor="let row of jadwalKerja" [value]="row.id">
+          {{ row.id }}
+        </option>
+      </select>
+      <button class="space"></button>
+    </div>
+    <div class="right">
+      <h6>Jam Masuk</h6>
+      <input type="time" class="browser-default disabled" [value]="jamKerja.in" />
+      <h6 style="width: 25px">s.d</h6>
+      <input type="time" class="browser-default disabled sd" [value]="jamKerja.out" />
+    </div>
+    <div class="right">
+      <h6>Jam Istirahat</h6>
+      <input type="time" class="browser-default disabled" [value]="jamKerja.mulai_istirahat"/>
+      <h6 style="width: 25px">s.d</h6>
+      <input type="time" class="browser-default disabled sd" [value]="jamKerja.selesai_istirahat" />
+    </div>
+    <div class="right">
+      <h6>Total Jam Kerja</h6>
+      <input type="text" class="browser-default disabled total" disabled [value]="jamKerja.total_jam_kerja" />
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+      Simpan
+    </button>
+    <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
+      Batal
+    </button>
+  </mat-dialog-actions>
+</div>

@@ -16,12 +16,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let row of dataDetailJadwalKerja">
-              <td (click)="editDataDetail(row)">{{ dateFormat(row.tgl) }}</td>
-              <td (click)="editDataDetail(row)">{{ row.hari }}</td>
-              <td (click)="editDataDetail(row)">{{ row.id_jadwalkerja }}</td>
-              <td (click)="editDataDetail(row)">{{ row.in }} - {{ row.out }}</td>
-              <td (click)="editDataDetail(row)">
+            <tr *ngFor="let row of dataDetailJadwalKerja, index as i">
+              <td (click)="editDataDetail(i)">{{ dateFormat(row.tgl) }}</td>
+              <td (click)="editDataDetail(i)">{{ row.hari }}</td>
+              <td (click)="editDataDetail(i)">{{ row.id_jadwalkerja }}</td>
+              <td (click)="editDataDetail(i)">{{ row.in }} - {{ row.out }}</td>
+              <td (click)="editDataDetail(i)">
                 {{ row.mulai_istirahat }} - {{ row.selesai_istirahat }}
               </td>
             </tr>

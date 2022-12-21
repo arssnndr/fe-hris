@@ -40,7 +40,7 @@ input {
 
 input.sd {
   margin-bottom: 5px;
-  margin-right: 117px;
+  margin-right: 104px;
   background-color: rgb(255, 255, 255);
   width: 150px;
   padding: 5px;
@@ -51,14 +51,32 @@ input.sd {
 
 input.disabled {
   background-color: #f1f1f1;
-  margin-right: 313px;
+}
+
+.subdepartemen {
+  margin-right: 50px;
+  width: 400px;
+}
+
+.nip {
+  margin-right: 10px;
+}
+
+.nama {
+  width: 290px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.total {
+  margin-right: 300px;
 }
 
 select {
   margin-bottom: 5px;
   margin-right: 0px;
   background-color: rgb(255, 255, 255);
-  width: 450px;
+  width: 150px;
   padding: 5px;
   border: 1px solid #00000050;
   border-style: solid none solid solid;
@@ -69,7 +87,7 @@ select {
 button.space {
   height: 45px;
   width: 13px;
-  margin-right: 0px;
+  margin-right: 287px;
   padding: 0px;
   background-color: rgb(255, 255, 255);
   border: 1px solid #00000050;
