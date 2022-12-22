@@ -40,7 +40,7 @@
     </div>
     <div class="right">
       <h6>Deskripsi</h6>
-      <input type="text" class="browser-default" [(ngModel)]="deskripsiValue" />
+      <input type="text" class="browser-default" [(ngModel)]="subDepartemenValue" />
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
@@ -87,7 +87,7 @@
       <input
         type="text"
         class="browser-default disabled"
-        [value]="data.edit.uplink"
+        [value]="data.edit.divisi"
         disabled
       />
     </div>
@@ -96,7 +96,7 @@
       <input
         type="text"
         class="browser-default disabled"
-        [value]="data.edit.uplink"
+        [value]="data.edit.departemen"
         disabled
       />
     </div>
@@ -106,7 +106,7 @@
         type="text"
         class="browser-default"
         (keyup)="onKey($event.target)"
-        [value]="data.edit.keterangan"
+        [value]="data.edit.sub_departemen"
       />
     </div>
   </mat-dialog-content>

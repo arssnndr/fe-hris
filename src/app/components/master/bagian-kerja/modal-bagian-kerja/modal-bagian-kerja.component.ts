@@ -16,11 +16,10 @@ export class ModalBagianKerjaComponent implements OnInit {
   isSubDepartemen = false;
 
   jenisValue = '';
-  lokasiValue = 0;
+  lokasiValue = '';
   divisiValue = '';
   departemenValue = '';
-  deskripsiValue = '';
-  forUplink = '';
+  subDepartemenValue = '';
 
   jenis = [
     { value: 'Divisi' },
@@ -28,7 +27,13 @@ export class ModalBagianKerjaComponent implements OnInit {
     { value: 'Sub Departemen' },
   ];
 
-  lokasi = [{ value: 12 }, { value: 21 }, { value: 13 }, { value: 31 }];
+  lokasi = [
+    { value: 'TMS HO' },
+    { value: 'TMS 1' },
+    { value: 'TMS 2' },
+    { value: 'TMS 3' },
+    { value: 'TMS 4' },
+  ];
 
   divisi = [{ value: 'IT' }, { value: 'GA' }, { value: 'Finance' }];
 
@@ -66,26 +71,20 @@ export class ModalBagianKerjaComponent implements OnInit {
 
       this.jenisValue = this.data.edit.jenis_bagian;
       this.lokasiValue = this.data.edit.id_lokasi;
-      this.forUplink = this.data.edit.uplink;
     }
   }
 
   onKey(event: any) {
-    this.deskripsiValue = event.value;
+    this.subDepartemenValue = event.value;
   }
 
   throwResult() {
-    if (this.data.name === 'tambah') {
-      this.divisiValue === ''
-        ? (this.forUplink = this.departemenValue)
-        : (this.forUplink = this.divisiValue);
-    }
     this.bagiankerja = {
       jenis_bagian: this.jenisValue,
       id_lokasi: this.lokasiValue,
-      // id_lokasi: Math.floor(Math.random() * 300 + 1),
-      uplink: this.forUplink,
-      keterangan: this.deskripsiValue,
+      divisi: this.divisiValue,
+      departemen: this.departemenValue,
+      sub_departemen: this.subDepartemenValue,
     };
     if (this.data.name === 'edit') {
       this.api.throwData({ data: this.bagiankerja, id: this.data.edit.id });

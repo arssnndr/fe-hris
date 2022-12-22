@@ -82,6 +82,16 @@ export class BagianKerjaComponent implements OnInit {
     this.getAllData();
   }
 
+  uplink(jenisBagian: string, rowDivisi: string, rowDepartemen: string) {
+    let tempData;
+    if (jenisBagian === 'Departemen') {
+      tempData = rowDivisi;
+    } else if (jenisBagian === 'Sub Departemen') {
+      tempData = rowDepartemen;
+    }
+    return tempData;
+  }
+
   getAllData() {
     if (this.dataSearch.length === 0) {
       this.api.getData(this.table).subscribe((res) => {

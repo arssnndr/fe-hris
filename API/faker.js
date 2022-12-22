@@ -46,7 +46,7 @@ for (var i = 1; i <= loop; i++) {
     "Departemen",
     "Sub Departemen",
   ]);
-  const uplink = faker.helpers.arrayElement([
+  const divisi = faker.helpers.arrayElement([
     "IT",
     "IT Support",
     "IT Support Plant",
@@ -60,7 +60,21 @@ for (var i = 1; i <= loop; i++) {
     "Produksi",
     "QC",
   ]);
-  const keterangan = faker.helpers.arrayElement([
+  const departemen = faker.helpers.arrayElement([
+    "IT",
+    "IT Support",
+    "IT Support Plant",
+    "Finance",
+    "AR",
+    "Faktur",
+    "AP",
+    "ACC",
+    "Mechanic",
+    "Electrik",
+    "Produksi",
+    "QC",
+  ]);
+  const sub_departemen = faker.helpers.arrayElement([
     "IT",
     "IT Support",
     "IT Support Plant",
@@ -80,8 +94,9 @@ for (var i = 1; i <= loop; i++) {
     id: i,
     jenis_bagian: jenis_bagian,
     id_lokasi: id_lokasi,
-    uplink: jenis_bagian === "Divisi" ? "" : uplink,
-    keterangan: keterangan,
+    divisi: divisi,
+    departemen: departemen,
+    sub_departemen: sub_departemen,
     status: status,
   });
 }
