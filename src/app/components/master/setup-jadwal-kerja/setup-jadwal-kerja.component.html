@@ -47,7 +47,24 @@
             <p>agus</p>
           </div>
           <div style="margin-left: auto">
-            <i class="material-icons" style="margin-top: 12px; font-size: 28px">filter_list</i>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>filter_list</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <div style="display: block;">
+                <div align="end" style="width: 100%; display: flex;">
+                  <h6 style="margin-top: 8%; margin-right: 10px; margin-left: 5px;">Lokasi</h6>
+                  <select class="browser-default" [(ngModel)]="cek" (change)="filter()">
+                    <option *ngFor="let row of dataDetail" [value]="row.id_perusahaan">
+                      {{ row.id_perusahaan }}
+                    </option>
+                  </select>
+                  <button class="space"></button>
+                </div>
+                <!-- <div align="end" style="width: 100%;">disini perusahaan</div>
+                <div align="end" style="width: 100%;">disini divisi</div> -->
+              </div>
+            </mat-menu>
           </div>
         </div>
         <table class="responsive-table striped">
@@ -77,7 +94,7 @@
         <button class="download waves-effect waves-dark transparent">
           Download
         </button>
-        <button class="tambah waves-effect waves-light" (click)="tambahData()">
+        <button class="tambah waves-effect waves-light" (click)="tambahDataCategory()">
           Tambah
         </button>
       </div>
