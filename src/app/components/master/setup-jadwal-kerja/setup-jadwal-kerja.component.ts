@@ -14,18 +14,18 @@ export class SetupJadwalKerjaComponent implements OnInit {
   tableDetail = 'ms_karyawan/';
   dataDetail!: any;
   dataDetailJadwalKerja!: any;
+  tableCategory = 'trx_jadwalkerjacategory/'
   dataCategory!: any;
   dataUpload!: any;
   dataIndividu!: any;
   catchResult: any;
-  getMaxId = 0;
   month!: any;
   year!: any;
   yearMonth!: any;
-  cek!: any
+  cek!: any;
 
-  filter(){
-    console.log("wkwk")
+  filter() {
+    console.log('wkwk');
   }
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
@@ -48,9 +48,9 @@ export class SetupJadwalKerjaComponent implements OnInit {
       // console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        this.api.postData(this.tableDetail, this.catchResult).subscribe(() => {
-          this.ngOnInit();
-        });
+      //   this.api.postData(this.tableDetail, this.catchResult).subscribe(() => {
+      //     this.ngOnInit();
+      //   });
       }
     });
   }
@@ -72,14 +72,14 @@ export class SetupJadwalKerjaComponent implements OnInit {
   }
 
   editDataDetail(i: number) {
-    let id = this.dataDetail[0].id
+    let id = this.dataDetail[0].id;
     const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
       data: {
         name: 'editDetail',
         data: {
           all: this.dataDetail[0],
           dataJadwalKerja: this.dataDetail[0].jadwal_kerja[i],
-          indexJadwalKerja: i
+          indexJadwalKerja: i,
         },
       },
     });
@@ -87,9 +87,11 @@ export class SetupJadwalKerjaComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        this.api.updateData(this.tableDetail, this.catchResult, id).subscribe(() => {
-          this.ngOnInit();
-        });
+        this.api
+          .updateData(this.tableDetail, this.catchResult, id)
+          .subscribe(() => {
+            this.ngOnInit();
+          });
       }
       this.ngOnInit();
     });
@@ -130,11 +132,14 @@ export class SetupJadwalKerjaComponent implements OnInit {
   getAllData() {
     this.api.getData(this.tableDetail).subscribe((res) => {
       this.dataDetail = res;
-      this.cek = res[0].id_perusahaan
+      this.cek = res[0].id_perusahaan;
       this.dataDetailJadwalKerja = res[0].jadwal_kerja;
       this.dataIndividu = res;
       this.dataCategory = res;
       this.dataUpload = res;
+    });
+    this.api.getData(this.tableCategory).subscribe((res) => {
+      this.dataCategory = res;
     });
   }
 

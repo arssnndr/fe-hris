@@ -34,6 +34,14 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
   editDetail = false;
   tambahCategory = false;
   table = 'trx_jadwalkerja/';
+  tableBagiankerja = 'ms_bagiankerja/';
+  dataBagianKerja!: any;
+  lokasiValue!: string;
+  bagianKerjaFiltered: {
+    divisi: string;
+    departemen: string;
+    sub_departemen: string;
+  }[] = [];
   allData!: any;
   jadwalKerja!: any;
   jamKerja!: any;
@@ -136,6 +144,10 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
       this.sabtu.id_jadwalkerja = res[0].id;
       this.minggu.id_jadwalkerja = res[0].id;
     });
+    this.api.getData(this.tableBagiankerja).subscribe((res) => {
+      this.dataBagianKerja = res;
+      this.lokasiValue = res[0].id_lokasi;
+    });
   }
 
   category(hari: string) {
@@ -143,7 +155,6 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
       switch (hari) {
         case 'senin':
           if (this.senin.id_jadwalkerja === res.id) {
-            console.log('disini senin');
             this.senin.hari = 'Senin';
             this.senin.in = res.in;
             this.senin.out = res.out;
@@ -154,7 +165,6 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
           break;
         case 'selasa':
           if (this.selasa.id_jadwalkerja === res.id) {
-            console.log('disini selasa');
             this.selasa.hari = 'Selasa';
             this.selasa.in = res.in;
             this.selasa.out = res.out;
@@ -219,6 +229,14 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     });
   }
 
+  filterBagianKerja() {
+    this.dataBagianKerja.filter((res: any) => {
+      if (this.lokasiValue === res.id_lokasi) {
+        this.bagianKerjaFiltered.push(res);
+      }
+    });
+  }
+
   filter() {
     this.jadwalKerja.filter((res: any) => {
       if (res.id === this.idJadwalKerja) {
@@ -242,8 +260,8 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
   }
 
   throwResult() {
-    this.allData.jadwal_kerja[this.data.data.indexJadwalKerja] =
-      this.updateJamKerja;
-    this.api.throwData(this.allData);
+    // this.allData.jadwal_kerja[this.data.data.indexJadwalKerja] =
+    //   this.updateJamKerja;
+    // this.api.throwData(this.allData);
   }
 }

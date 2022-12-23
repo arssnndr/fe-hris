@@ -63,25 +63,25 @@
   <mat-dialog-content>
     <div class="right">
       <h6>Lokasi</h6>
-      <select class="browser-default category" [(ngModel)]="idJadwalKerja" (change)="filter()">
-        <option *ngFor="let row of jadwalKerja" [value]="row.id">
-          {{ row.id }}
+      <select class="browser-default category" [(ngModel)]="lokasiValue" (change)="filterBagianKerja()">
+        <option *ngFor="let row of dataBagianKerja" [value]="row.id_lokasi">
+          {{ row.id_lokasi }}
         </option>
       </select>
       <button class="space category"></button>
     </div>
     <div class="right">
       <h6>Divisi</h6>
-      <select class="browser-default category" [(ngModel)]="idJadwalKerja" (change)="filter()">
-        <option *ngFor="let row of jadwalKerja" [value]="row.id">
-          {{ row.id }}
+      <select class="browser-default category" [(ngModel)]="idJadwalKerja" (change)="filterBagianKerja()">
+        <option *ngFor="let row of bagianKerjaFiltered" [value]="row.divisi">
+          {{ row.divisi }}
         </option>
       </select>
       <button class="space category"></button>
     </div>
     <div class="right">
       <h6>Departemen</h6>
-      <select class="browser-default category" [(ngModel)]="idJadwalKerja" (change)="filter()">
+      <select class="browser-default category" [(ngModel)]="idJadwalKerja" (change)="filterBagianKerja()">
         <option *ngFor="let row of jadwalKerja" [value]="row.id">
           {{ row.id }}
         </option>
@@ -90,7 +90,7 @@
     </div>
     <div class="right">
       <h6>Sub Departemen</h6>
-      <select class="browser-default category" [(ngModel)]="idJadwalKerja" (change)="filter()">
+      <select class="browser-default category" [(ngModel)]="idJadwalKerja" (change)="filterBagianKerja()">
         <option *ngFor="let row of jadwalKerja" [value]="row.id">
           {{ row.id }}
         </option>
