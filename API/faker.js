@@ -615,7 +615,7 @@ for (var i = 1; i <= loop; i++) {
     senin: jadwalkerjakategori[0],
     selasa: jadwalkerjakategori[1],
     rabu: jadwalkerjakategori[2],
-    kami: jadwalkerjakategori[3],
+    kamis: jadwalkerjakategori[3],
     jumat: jadwalkerjakategori[4],
     sabtu: jadwalkerjakategori[5],
     minggu: jadwalkerjakategori[6],

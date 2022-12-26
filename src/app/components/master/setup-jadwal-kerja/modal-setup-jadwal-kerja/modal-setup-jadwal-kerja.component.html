@@ -1,4 +1,4 @@
-<!-- Modal edit detail -->
+<!-- MODAL EDIT DETAIL -->
 <div class="tambah" *ngIf="editDetail">
   <h2 mat-dialog-title>Jadwal Kerja - {{dateFormat(data.data.dataJadwalKerja.tgl)}}</h2>
   <mat-dialog-content>
@@ -57,42 +57,63 @@
   </mat-dialog-actions>
 </div>
 
-<!-- MODAL TAMBAH CATEGORY -->
-<div class="tambah" *ngIf="tambahCategory">
+<!-- MODAL TAMBAH OR EDIT CATEGORY -->
+<div class="tambah" *ngIf="tambahCategory || editCategory">
   <h2 mat-dialog-title>Jadwal Kerja By Category</h2>
   <mat-dialog-content>
     <div class="right">
       <h6>Lokasi</h6>
-      <select class="browser-default category" [(ngModel)]="lokasiValue" (change)="filterBagianKerja()">
+      <select *ngIf="tambahCategory" class="browser-default category" [(ngModel)]="lokasiValue"
+        (change)="filterBagianKerja()">
         <option *ngFor="let row of dataBagianKerja" [value]="row.id_lokasi">
           {{ row.id_lokasi }}
+        </option>
+      </select>
+      <select *ngIf="editCategory" class="browser-default category disabled" disabled>
+        <option>
+          {{ data.data.lokasi }}
         </option>
       </select>
       <button class="space category"></button>
     </div>
     <div class="right">
       <h6>Divisi</h6>
-      <select class="browser-default category" [(ngModel)]="idJadwalKerja" (change)="filterBagianKerja()">
+      <select *ngIf="tambahCategory"  class="browser-default category" [(ngModel)]="divisiValue" (change)="filterBagianKerja()">
         <option *ngFor="let row of bagianKerjaFiltered" [value]="row.divisi">
           {{ row.divisi }}
+        </option>
+      </select>
+      <select *ngIf="editCategory" class="browser-default category disabled" disabled>
+        <option>
+          {{ data.data.divisi }}
         </option>
       </select>
       <button class="space category"></button>
     </div>
     <div class="right">
       <h6>Departemen</h6>
-      <select class="browser-default category" [(ngModel)]="idJadwalKerja" (change)="filterBagianKerja()">
-        <option *ngFor="let row of jadwalKerja" [value]="row.id">
-          {{ row.id }}
+      <select *ngIf="tambahCategory"  class="browser-default category" [(ngModel)]="departemenValue" (change)="filterBagianKerja()">
+        <option *ngFor="let row of bagianKerjaFiltered" [value]="row.departemen">
+          {{ row.departemen }}
+        </option>
+      </select>
+      <select *ngIf="editCategory" class="browser-default category disabled" disabled>
+        <option>
+          {{ data.data.departemen }}
         </option>
       </select>
       <button class="space category"></button>
     </div>
     <div class="right">
       <h6>Sub Departemen</h6>
-      <select class="browser-default category" [(ngModel)]="idJadwalKerja" (change)="filterBagianKerja()">
-        <option *ngFor="let row of jadwalKerja" [value]="row.id">
-          {{ row.id }}
+      <select *ngIf="tambahCategory"  class="browser-default category" [(ngModel)]="subDepartemenValue" (change)="filterBagianKerja()">
+        <option *ngFor="let row of bagianKerjaFiltered" [value]="row.sub_departemen">
+          {{ row.sub_departemen }}
+        </option>
+      </select>
+      <select *ngIf="editCategory" class="browser-default category disabled" disabled>
+        <option>
+          {{ data.data.sub_departemen }}
         </option>
       </select>
       <button class="space category"></button>
@@ -238,6 +259,22 @@
     </button>
     <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
       Batal
+    </button>
+  </mat-dialog-actions>
+</div>
+
+<!-- MODAL DELETE CATEGORY -->
+<div *ngIf="deleteCategory">
+  <mat-dialog-content class="delete">
+    <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger" />
+    <p style="padding-left: 55px">Yakin data akan di void?</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="ya waves-effect waves-light" mat-dialog-close="ya">
+      Ya
+    </button>
+    <button class="tidak waves-effect waves-dark transparent" mat-dialog-close="tidak">
+      Tidak
     </button>
   </mat-dialog-actions>
 </div>

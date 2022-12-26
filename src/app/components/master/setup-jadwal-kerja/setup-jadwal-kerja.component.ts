@@ -14,7 +14,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
   tableDetail = 'ms_karyawan/';
   dataDetail!: any;
   dataDetailJadwalKerja!: any;
-  tableCategory = 'trx_jadwalkerjacategory/'
+  tableCategory = 'trx_jadwalkerjacategory/';
   dataCategory!: any;
   dataUpload!: any;
   dataIndividu!: any;
@@ -48,9 +48,11 @@ export class SetupJadwalKerjaComponent implements OnInit {
       // console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-      //   this.api.postData(this.tableDetail, this.catchResult).subscribe(() => {
-      //     this.ngOnInit();
-      //   });
+        this.api
+          .postData(this.tableCategory, this.catchResult)
+          .subscribe(() => {
+            this.ngOnInit();
+          });
       }
     });
   }
@@ -93,7 +95,24 @@ export class SetupJadwalKerjaComponent implements OnInit {
             this.ngOnInit();
           });
       }
-      this.ngOnInit();
+    });
+  }
+
+  editDataCategory(data: any) {
+    let id = data.id;
+    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
+      data: { name: 'editCategory', data: data },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'simpan') {
+        this.catchResult = this.api.catchData();
+        this.api
+          .updateData(this.tableCategory, this.catchResult, id)
+          .subscribe(() => {
+            this.ngOnInit();
+          });
+      }
     });
   }
 
@@ -112,6 +131,20 @@ export class SetupJadwalKerjaComponent implements OnInit {
         });
       }
       this.ngOnInit();
+    });
+  }
+
+  deleteDataCategory(id: number) {
+    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
+      data: { name: 'deleteCategory' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'ya') {
+        this.api.deleteData(this.tableCategory + id).subscribe(() => {
+          this.ngOnInit();
+        });
+      }
     });
   }
 

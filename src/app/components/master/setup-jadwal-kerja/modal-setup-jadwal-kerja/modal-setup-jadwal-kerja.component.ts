@@ -33,14 +33,22 @@ interface JadwalKerjaCategory {
 export class ModalSetupJadwalKerjaComponent implements OnInit {
   editDetail = false;
   tambahCategory = false;
+  deleteCategory = false;
+  editCategory = false;
   table = 'trx_jadwalkerja/';
   tableBagiankerja = 'ms_bagiankerja/';
   dataBagianKerja!: any;
+  dataEditCategory!: any;
   lokasiValue!: string;
+  divisiValue!: string;
+  departemenValue!: string;
+  subDepartemenValue!: string;
   bagianKerjaFiltered: {
+    id_lokasi: string;
     divisi: string;
     departemen: string;
     sub_departemen: string;
+    senin: {};
   }[] = [];
   allData!: any;
   jadwalKerja!: any;
@@ -117,15 +125,26 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
   ) {
     if (data.name === 'editDetail') {
       this.editDetail = true;
-      this.tambahCategory = false;
 
       this.allData = data.data.all;
       this.jamKerja = data.data.dataJadwalKerja;
       this.idJadwalKerja = data.data.dataJadwalKerja.id_jadwalkerja;
       this.updateJamKerja = this.jamKerja;
     } else if (data.name === 'tambahCategory') {
-      this.editDetail = false;
       this.tambahCategory = true;
+    } else if (data.name === 'deleteCategory') {
+      this.deleteCategory = true;
+    } else if (data.name === 'editCategory') {
+      this.editCategory = true;
+
+      this.dataEditCategory = data.data;
+      this.senin = data.data.senin;
+      this.selasa = data.data.selasa;
+      this.rabu = data.data.rabu;
+      this.kamis = data.data.kamis;
+      this.jumat = data.data.jumat;
+      this.sabtu = data.data.sabtu;
+      this.minggu = data.data.minggu;
     }
   }
 
@@ -136,23 +155,37 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
   getAllData() {
     this.api.getData(this.table).subscribe((res) => {
       this.jadwalKerja = res;
-      this.senin.id_jadwalkerja = res[0].id;
-      this.selasa.id_jadwalkerja = res[0].id;
-      this.rabu.id_jadwalkerja = res[0].id;
-      this.kamis.id_jadwalkerja = res[0].id;
-      this.jumat.id_jadwalkerja = res[0].id;
-      this.sabtu.id_jadwalkerja = res[0].id;
-      this.minggu.id_jadwalkerja = res[0].id;
+      if (this.tambahCategory) {
+        this.senin.id_jadwalkerja = res[0].id;
+        this.selasa.id_jadwalkerja = res[0].id;
+        this.rabu.id_jadwalkerja = res[0].id;
+        this.kamis.id_jadwalkerja = res[0].id;
+        this.jumat.id_jadwalkerja = res[0].id;
+        this.sabtu.id_jadwalkerja = res[0].id;
+        this.minggu.id_jadwalkerja = res[0].id;
+      }
+      this.category('senin');
+      this.category('selasa');
+      this.category('rabu');
+      this.category('kamis');
+      this.category('jumat');
+      this.category('sabtu');
+      this.category('minggu');
     });
     this.api.getData(this.tableBagiankerja).subscribe((res) => {
       this.dataBagianKerja = res;
       this.lokasiValue = res[0].id_lokasi;
+      this.divisiValue = res[0].divisi;
+      this.departemenValue = res[0].departemen;
+      this.subDepartemenValue = res[0].sub_departemen;
+
+      this.filterBagianKerja();
     });
   }
 
-  category(hari: string) {
+  category(day: string) {
     this.jadwalKerja.filter((res: any) => {
-      switch (hari) {
+      switch (day) {
         case 'senin':
           if (this.senin.id_jadwalkerja === res.id) {
             this.senin.hari = 'Senin';
@@ -260,8 +293,28 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
   }
 
   throwResult() {
-    // this.allData.jadwal_kerja[this.data.data.indexJadwalKerja] =
-    //   this.updateJamKerja;
-    // this.api.throwData(this.allData);
+    if (this.data.name === 'editDetail') {
+      this.allData.jadwal_kerja[this.data.data.indexJadwalKerja] =
+        this.updateJamKerja;
+      this.api.throwData(this.allData);
+    } else if (this.tambahCategory) {
+      let tambahData = {
+        lokasi: this.lokasiValue,
+        divisi: this.divisiValue,
+        departemen: this.departemenValue,
+        sub_departemen: this.subDepartemenValue,
+        senin: this.senin,
+        selasa: this.selasa,
+        rabu: this.rabu,
+        kamis: this.kamis,
+        jumat: this.jumat,
+        sabtu: this.sabtu,
+        minggu: this.minggu,
+        status: true,
+      };
+      this.api.throwData(tambahData);
+    } else if (this.editCategory) {
+      this.api.throwData(this.data.data);
+    }
   }
 }

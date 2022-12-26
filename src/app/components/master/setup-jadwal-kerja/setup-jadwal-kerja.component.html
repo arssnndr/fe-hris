@@ -110,12 +110,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let row of dataCategory">
-            <td (click)="editData(row)">{{ row.lokasi }}</td>
-            <td (click)="editData(row)">{{ row.divisi }}</td>
-            <td (click)="editData(row)">{{ row.departemen }}</td>
-            <td (click)="editData(row)">{{ row.sub_departemen }}</td>
+            <td (click)="editDataCategory(row)">{{ row.lokasi }}</td>
+            <td (click)="editDataCategory(row)">{{ row.divisi }}</td>
+            <td (click)="editDataCategory(row)">{{ row.departemen }}</td>
+            <td (click)="editDataCategory(row)">{{ row.sub_departemen }}</td>
             <td>
-              <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
+              <button (click)="deleteDataCategory(row.id)" class="waves-effect waves-light right red darken-2">
                 <i class="material-icons" style="font-size: 15px">close</i>
               </button>
             </td>
