@@ -49,6 +49,16 @@ input.sd {
   height: 3rem;
 }
 
+input.individu {
+  margin-bottom: 5px;
+  background-color: rgb(255, 255, 255);
+  width: 200px;
+  padding: 5px;
+  border: 1px solid #00000050;
+  border-radius: 2px;
+  height: 3rem;
+}
+
 .disabled {
   background-color: #f1f1f1;
 }
@@ -59,6 +69,10 @@ input.sd {
 }
 
 .nip {
+  margin-right: 10px;
+}
+
+.individu {
   margin-right: 10px;
 }
 

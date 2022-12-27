@@ -16,8 +16,9 @@ export class SetupJadwalKerjaComponent implements OnInit {
   dataDetailJadwalKerja!: any;
   tableCategory = 'trx_jadwalkerjacategory/';
   dataCategory!: any;
-  dataUpload!: any;
+  tableIndividu = 'trx_jadwalkerjaindividu/';
   dataIndividu!: any;
+  dataUpload!: any;
   catchResult: any;
   month!: any;
   year!: any;
@@ -57,16 +58,23 @@ export class SetupJadwalKerjaComponent implements OnInit {
     });
   }
 
-  tambahData() {
+  tambahDataIndividu() {
     const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'tambah' },
+      data: {
+        name: 'tambahIndividu',
+        data: {
+          dataIndividu: this.dataIndividu,
+          dataKaryawan: this.dataDetail,
+        },
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       // console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        this.api.postData(this.tableDetail, this.catchResult).subscribe(() => {
+        console.log(this.catchResult);
+        this.api.postData(this.tableIndividu, this.catchResult).subscribe(() => {
           this.ngOnInit();
         });
       }
@@ -148,14 +156,14 @@ export class SetupJadwalKerjaComponent implements OnInit {
     });
   }
 
-  deleteData(id: number) {
+  deleteDataIndividu(id: number) {
     const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'delete' },
+      data: { name: 'deleteIndividu' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'ya') {
-        this.api.deleteData(this.tableDetail + id).subscribe(() => {
+        this.api.deleteData(this.tableIndividu + id).subscribe(() => {
           this.ngOnInit();
         });
       }
@@ -167,12 +175,14 @@ export class SetupJadwalKerjaComponent implements OnInit {
       this.dataDetail = res;
       this.cek = res[0].id_perusahaan;
       this.dataDetailJadwalKerja = res[0].jadwal_kerja;
-      this.dataIndividu = res;
       this.dataCategory = res;
       this.dataUpload = res;
     });
     this.api.getData(this.tableCategory).subscribe((res) => {
       this.dataCategory = res;
+    });
+    this.api.getData(this.tableIndividu).subscribe((res) => {
+      this.dataIndividu = res;
     });
   }
 

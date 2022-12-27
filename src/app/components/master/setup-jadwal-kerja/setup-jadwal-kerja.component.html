@@ -164,26 +164,14 @@
           <tr>
             <th>NIP</th>
             <th>Nama</th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
+            <th *ngFor="let row of dataDetail, index as i">{{i + 1}}</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of dataUpload">
+          <tr *ngFor="let row of dataDetail">
             <td (click)="editData(row)">{{ row.id }}</td>
             <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
-            <td (click)="editData(row)">{{ row.nama_faskes }}</td>
-            <td (click)="editData(row)">{{ row.nama_kepala_keluarga }}</td>
-            <td (click)="editData(row)">{{ row.nama_ibu_kandung }}</td>
-            <td (click)="editData(row)">{{ row.nama_pasangan }}</td>
-            <td (click)="editData(row)">{{ row.nama_anak_ke1 }}</td>
-            <td (click)="editData(row)">{{ row.nama_anak_ke2 }}</td>
-            <td (click)="editData(row)">{{ row.nama_anak_ke3 }}</td>
+            <td *ngFor="let rowJadwalKerja of row.jadwal_kerja">{{rowJadwalKerja.id_jadwalkerja}}</td>
           </tr>
         </tbody>
       </table>
@@ -197,7 +185,7 @@
         <button class="download waves-effect waves-dark transparent">
           Download
         </button>
-        <button class="tambah waves-effect waves-light" (click)="tambahData()">
+        <button class="tambah waves-effect waves-light" (click)="tambahDataIndividu()">
           Tambah
         </button>
       </div>
@@ -215,10 +203,10 @@
           <tr *ngFor="let row of dataIndividu">
             <td (click)="editData(row)">{{ row.id }}</td>
             <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
-            <td (click)="editData(row)">{{ row.id_departemen }}</td>
-            <td (click)="editData(row)">{{ row.id_perusahaan }}</td>
+            <td (click)="editData(row)">{{ row.departemen }}</td>
+            <td (click)="editData(row)">{{ row.perusahaan }}</td>
             <td>
-              <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
+              <button (click)="deleteDataIndividu(row.id)" class="waves-effect waves-light right red darken-2">
                 <i class="material-icons" style="font-size: 15px">close</i>
               </button>
             </td>

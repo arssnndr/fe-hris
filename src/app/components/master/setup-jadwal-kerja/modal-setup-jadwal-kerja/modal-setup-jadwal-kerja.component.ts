@@ -35,6 +35,8 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
   tambahCategory = false;
   deleteCategory = false;
   editCategory = false;
+  deleteIndividu = false;
+  tambahIndividu = false;
   table = 'trx_jadwalkerja/';
   tableBagiankerja = 'ms_bagiankerja/';
   dataBagianKerja!: any;
@@ -43,6 +45,10 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
   divisiValue!: string;
   departemenValue!: string;
   subDepartemenValue!: string;
+  nipIndividu!: string;
+  filteredOptions: any[] = [];
+  selectedOption!: any;
+  tgl = { dari: '', sampai: '' };
   bagianKerjaFiltered: {
     id_lokasi: string;
     divisi: string;
@@ -145,6 +151,16 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
       this.jumat = data.data.jumat;
       this.sabtu = data.data.sabtu;
       this.minggu = data.data.minggu;
+    } else if (data.name === 'deleteIndividu') {
+      this.deleteIndividu = true;
+    } else if (data.name === 'tambahIndividu') {
+      this.tambahIndividu = true;
+      this.selectedOption = {
+        id: '',
+        nama_lengkap: '',
+        id_departemen: '',
+        id_perusahaan: '',
+      };
     }
   }
 
@@ -152,10 +168,23 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     this.getAllData();
   }
 
+  filterKaryawan() {
+    this.filteredOptions = [];
+    this.data.data.dataKaryawan.filter((res: any) => {
+      res.nama_lengkap.toLowerCase().includes(this.nipIndividu.toLowerCase())
+        ? this.filteredOptions.push(res)
+        : null;
+    });
+  }
+
+  displayFn(data: any) {
+    this.selectedOption = data;
+  }
+
   getAllData() {
     this.api.getData(this.table).subscribe((res) => {
       this.jadwalKerja = res;
-      if (this.tambahCategory) {
+      if (this.tambahCategory || this.tambahIndividu) {
         this.senin.id_jadwalkerja = res[0].id;
         this.selasa.id_jadwalkerja = res[0].id;
         this.rabu.id_jadwalkerja = res[0].id;
@@ -298,7 +327,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
         this.updateJamKerja;
       this.api.throwData(this.allData);
     } else if (this.tambahCategory) {
-      let tambahData = {
+      let tambahCategory = {
         lokasi: this.lokasiValue,
         divisi: this.divisiValue,
         departemen: this.departemenValue,
@@ -312,9 +341,26 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
         minggu: this.minggu,
         status: true,
       };
-      this.api.throwData(tambahData);
+      this.api.throwData(tambahCategory);
     } else if (this.editCategory) {
       this.api.throwData(this.data.data);
+    } else if (this.tambahIndividu) {
+      let tambahIndividu = {
+        id: this.selectedOption.id,
+        nama_lengkap: this.selectedOption.nama_lengkap,
+        departemen: this.selectedOption.id_departemen,
+        perusahaan: this.selectedOption.id_perusahaan,
+        dari: this.tgl.dari,
+        sampai: this.tgl.sampai,
+        senin: this.senin,
+        selasa: this.selasa,
+        rabu: this.rabu,
+        kamis: this.kamis,
+        jumat: this.jumat,
+        sabtu: this.sabtu,
+        minggu: this.minggu,
+      };
+      this.api.throwData(tambahIndividu);
     }
   }
 }
