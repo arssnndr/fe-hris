@@ -50,6 +50,7 @@ import { ModalUserComponent } from './components/master/user/modal-user/modal-us
 import { ModalKaryawanComponent } from './components/master/karyawan/modal-karyawan/modal-karyawan.component';
 import { ModalJadwalKerjaComponent } from './components/master/jadwal-kerja/modal-jadwal-kerja/modal-jadwal-kerja.component';
 import { ModalSetupJadwalKerjaComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja/modal-setup-jadwal-kerja.component';
+import { ModalKalenderKerjaComponent } from './components/master/kalender-kerja/modal-kalender-kerja/modal-kalender-kerja.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { ModalSetupJadwalKerjaComponent } from './components/master/setup-jadwal
     ModalKaryawanComponent,
     ModalJadwalKerjaComponent,
     ModalSetupJadwalKerjaComponent,
+    ModalKalenderKerjaComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

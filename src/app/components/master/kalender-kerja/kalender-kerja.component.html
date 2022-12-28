@@ -1,1 +1,67 @@
-<p>kalender-kerja works!</p>
+<h4>Kalender Kerja</h4>
+<div class="nav">
+    <nav class="transparent z-depth-0">
+        <div class="nav-wrapper row">
+            <div class="col s4">
+                <div class="left" style="display: inline-flex">
+                    <label style="font-size: large; margin-right: 20px">Tahun</label>
+                    <select class="browser-default" [(ngModel)]="tahunValue" (change)="searchData()">
+                        <option *ngFor="let row of tahun" [value]="row.value">
+                            {{ row.value }}
+                        </option>
+                    </select>
+                    <button class="space"></button>
+                    <label style="font-size: large; margin-right: 20px">Lokasi</label>
+                    <select class="browser-default" [(ngModel)]="lokasiValue" (change)="searchData()">
+                        <option *ngFor="let row of lokasi" [value]="row.value">
+                            {{ row.value }}
+                        </option>
+                    </select>
+                    <button class="space"></button>
+                </div>
+            </div>
+            <div class="col s8">
+                <ul class="right">
+                    <li>
+                        <button class="download waves-effect waves-dark transparent">
+                            Download
+                        </button>
+                    </li>
+                    <li>
+                        <button class="tambah waves-effect waves-light" (click)="tambahData()">
+                            Tambah
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<table class="responsive-table striped">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Hari</th>
+            <th>Tanggal</th>
+            <th>Keterangan</th>
+            <th>Divisi</th>
+            <th>Lokasi</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of dataKalenderKerja">
+            <td (click)="editData(row)">{{ row.id }}</td>
+            <td (click)="editData(row)">{{ row.hari }}</td>
+            <td (click)="editData(row)">{{ row.tgl }}</td>
+            <td (click)="editData(row)">{{ row.keterangan }}</td>
+            <td (click)="editData(row)">{{ row.divisi }}</td>
+            <td (click)="editData(row)">{{ row.lokasi }}</td>
+            <td>
+                <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
+                    <i class="material-icons" style="font-size: 15px">close</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
