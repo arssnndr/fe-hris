@@ -74,9 +74,11 @@ export class SetupJadwalKerjaComponent implements OnInit {
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         console.log(this.catchResult);
-        this.api.postData(this.tableIndividu, this.catchResult).subscribe(() => {
-          this.ngOnInit();
-        });
+        this.api
+          .postData(this.tableIndividu, this.catchResult)
+          .subscribe(() => {
+            this.ngOnInit();
+          });
       }
     });
   }
@@ -124,17 +126,16 @@ export class SetupJadwalKerjaComponent implements OnInit {
     });
   }
 
-  editData(data: any) {
+  editDataIndividu(data: any) {
     let id = data.id;
     const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'edit', data: data },
+      data: { name: 'editIndividu', data: data },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        let data = this.catchResult;
-        this.api.updateData(this.tableDetail, data, id).subscribe(() => {
+        this.api.updateData(this.tableIndividu, data, id).subscribe(() => {
           this.ngOnInit();
         });
       }

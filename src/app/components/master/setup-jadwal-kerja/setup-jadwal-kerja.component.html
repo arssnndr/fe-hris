@@ -169,8 +169,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let row of dataDetail">
-            <td (click)="editData(row)">{{ row.id }}</td>
-            <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
+            <td>{{ row.id }}</td>
+            <td>{{ row.nama_lengkap }}</td>
             <td *ngFor="let rowJadwalKerja of row.jadwal_kerja">{{rowJadwalKerja.id_jadwalkerja}}</td>
           </tr>
         </tbody>
@@ -201,10 +201,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let row of dataIndividu">
-            <td (click)="editData(row)">{{ row.id }}</td>
-            <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
-            <td (click)="editData(row)">{{ row.departemen }}</td>
-            <td (click)="editData(row)">{{ row.perusahaan }}</td>
+            <td (click)="editDataIndividu(row)">{{ row.id }}</td>
+            <td (click)="editDataIndividu(row)">{{ row.nama_lengkap }}</td>
+            <td (click)="editDataIndividu(row)">{{ row.departemen }}</td>
+            <td (click)="editDataIndividu(row)">{{ row.perusahaan }}</td>
             <td>
               <button (click)="deleteDataIndividu(row.id)" class="waves-effect waves-light right red darken-2">
                 <i class="material-icons" style="font-size: 15px">close</i>

@@ -37,6 +37,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
   editCategory = false;
   deleteIndividu = false;
   tambahIndividu = false;
+  editIndividu = false;
   table = 'trx_jadwalkerja/';
   tableBagiankerja = 'ms_bagiankerja/';
   dataBagianKerja!: any;
@@ -155,12 +156,24 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
       this.deleteIndividu = true;
     } else if (data.name === 'tambahIndividu') {
       this.tambahIndividu = true;
+
       this.selectedOption = {
         id: '',
         nama_lengkap: '',
         id_departemen: '',
         id_perusahaan: '',
       };
+    } else if (data.name === 'editIndividu') {
+      this.editIndividu = true;
+
+      this.selectedOption = data.data;
+      this.senin = data.data.senin;
+      this.selasa = data.data.selasa;
+      this.rabu = data.data.rabu;
+      this.kamis = data.data.kamis;
+      this.jumat = data.data.jumat;
+      this.sabtu = data.data.sabtu;
+      this.minggu = data.data.minggu;
     }
   }
 
@@ -361,6 +374,8 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
         minggu: this.minggu,
       };
       this.api.throwData(tambahIndividu);
+    } else if (this.editIndividu) {
+      this.api.throwData(this.data.data);
     }
   }
 }
