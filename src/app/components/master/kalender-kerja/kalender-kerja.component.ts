@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalKalenderKerjaComponent } from './modal-kalender-kerja/modal-kalender-kerja.component';
+import * as moment from 'moment';
+moment.locale('id');
 
 @Component({
   selector: 'app-kalender-kerja',
@@ -11,33 +13,25 @@ import { ModalKalenderKerjaComponent } from './modal-kalender-kerja/modal-kalend
 export class KalenderKerjaComponent implements OnInit {
   tableKalenderKerja = 'ms_kalenderkerja/';
   dataKalenderKerja!: any;
+  filteredKalenderKerja: any[] = [];
 
-  tahun = [
-    { value: '2020' },
-    { value: '2021' },
-    { value: '2022' },
-    { value: '2023' },
-  ];
-  tahunValue = this.tahun[0].value;
+  tableBagianKerja = 'ms_bagiankerja/';
+  dataBagianKerja!: any;
 
-  lokasi = [
-    { value: 'TMS HO' },
-    { value: 'TMS 1' },
-    { value: 'TMS 2' },
-    { value: 'TMS 3' },
-    { value: 'TMS 4' },
-  ];
-  lokasiValue = this.lokasi[0].value;
+  tahun = ['2022', '2023'];
+  tahunValue = this.tahun[0];
+
+  lokasi = ['TMS HO', 'TMS 1', 'TMS 2', 'TMS 3', 'TMS 4'];
+  lokasiValue = this.lokasi[0];
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
   tambahData() {
     const dialogRef = this.dialog.open(ModalKalenderKerjaComponent, {
-      data: { name: 'tambah' },
+      data: { name: 'tambah', data: this.dataBagianKerja },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         let catchResult = this.api.catchData();
         this.api
@@ -52,7 +46,10 @@ export class KalenderKerjaComponent implements OnInit {
   editData(data: any) {
     let id = data.id;
     const dialogRef = this.dialog.open(ModalKalenderKerjaComponent, {
-      data: { name: 'edit', data: data },
+      data: {
+        name: 'edit',
+        data: { dataEdit: data, dataBagianKerja: this.dataBagianKerja },
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -90,9 +87,28 @@ export class KalenderKerjaComponent implements OnInit {
     this.api.getData(this.tableKalenderKerja).subscribe((res) => {
       this.dataKalenderKerja = res;
     });
+    this.api.getData(this.tableBagianKerja).subscribe((res) => {
+      this.dataBagianKerja = res;
+    });
   }
 
-  searchData() {
-    this.getAllData();
+  filterDataKalenderKerja(type: any, data: any) {
+    type === 'tahun' ? (type = true) : (type = false);
+    this.dataKalenderKerja.filter((res: any) => {
+      if (type) {
+        res.tgl.includes(data.value)
+          ? this.filteredKalenderKerja.push(res)
+          : undefined;
+      } else {
+        res.lokasi.includes(data.value)
+          ? this.filteredKalenderKerja.push(res)
+          : undefined;
+      }
+    });
+    console.log(this.filteredKalenderKerja);
+  }
+
+  dateFormat(date: any) {
+    return moment(date, 'YYYY-MM-DD').format('DD MMM YYYY');
   }
 }

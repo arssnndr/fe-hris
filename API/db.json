@@ -4404,23 +4404,23 @@
     {
       "id": 1,
       "tgl": "2023-05-19",
-      "hari": "Selasa",
+      "hari": "Jumat",
       "keterangan": "eius ea rem ab tenetur",
-      "lokasi": "lokasi",
-      "divisi": "divisi",
-      "departemen": "departemen",
-      "sub_departemen": "sub departemen",
+      "lokasi": "TMS HO",
+      "divisi": "AR",
+      "departemen": "Electrik",
+      "sub_departemen": "ACC",
       "potong_cuti": true
     },
     {
       "id": 2,
       "tgl": "2023-12-07",
-      "hari": "Senin",
+      "hari": "Kamis",
       "keterangan": "expedita aperiam neque molestiae porro",
-      "lokasi": "lokasi",
-      "divisi": "divisi",
-      "departemen": "departemen",
-      "sub_departemen": "sub departemen",
+      "lokasi": "TMS 1",
+      "divisi": "ACC",
+      "departemen": "Mechanic",
+      "sub_departemen": "IT",
       "potong_cuti": true
     },
     {
@@ -4468,15 +4468,26 @@
       "potong_cuti": false
     },
     {
-      "id": 7,
-      "tgl": "2023-10-17",
-      "hari": "Minggu",
-      "keterangan": "mollitia temporibus atque accusantium odio",
-      "lokasi": "lokasi",
-      "divisi": "divisi",
-      "departemen": "departemen",
-      "sub_departemen": "sub departemen",
-      "potong_cuti": false
+      "tgl": "2022-12-29",
+      "hari": "Kamis",
+      "keterangan": "blalba",
+      "lokasi": "TMS 2",
+      "divisi": "IT Support",
+      "departemen": "Faktur",
+      "sub_departemen": "Finance",
+      "potong_cuti": true,
+      "id": 8
+    },
+    {
+      "tgl": "2022-12-22",
+      "hari": "Kamis",
+      "keterangan": "blablabla",
+      "lokasi": "TMS HO",
+      "divisi": "AR",
+      "departemen": "Produksi",
+      "sub_departemen": "IT Support Plant",
+      "potong_cuti": true,
+      "id": 9
     }
   ]
 }

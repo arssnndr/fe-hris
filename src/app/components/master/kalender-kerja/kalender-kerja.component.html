@@ -2,25 +2,30 @@
 <div class="nav">
     <nav class="transparent z-depth-0">
         <div class="nav-wrapper row">
-            <div class="col s4">
-                <div class="left" style="display: inline-flex">
-                    <label style="font-size: large; margin-right: 20px">Tahun</label>
-                    <select class="browser-default" [(ngModel)]="tahunValue" (change)="searchData()">
-                        <option *ngFor="let row of tahun" [value]="row.value">
-                            {{ row.value }}
-                        </option>
-                    </select>
-                    <button class="space"></button>
-                    <label style="font-size: large; margin-right: 20px">Lokasi</label>
-                    <select class="browser-default" [(ngModel)]="lokasiValue" (change)="searchData()">
-                        <option *ngFor="let row of lokasi" [value]="row.value">
-                            {{ row.value }}
-                        </option>
-                    </select>
-                    <button class="space"></button>
+            <div class="col s8">
+                <div class="left" style="display: flex">
+                    <div style="display: inline-flex;">
+                        <label style="font-size: large; margin-right: 20px">Tahun</label>
+                        <select class="browser-default" (change)="filterDataKalenderKerja('tahun', $event.target)">
+                            <option *ngFor="let row of tahun" [value]="row">
+                                {{ row }}
+                            </option>
+                        </select>
+                        <button class="space"></button>
+                    </div>
+
+                    <div style="display: inline-flex;">
+                        <label style="font-size: large; margin-right: 20px">Lokasi</label>
+                        <select class="browser-default" (change)="filterDataKalenderKerja('lokasi', $event.target)">
+                            <option *ngFor="let row of lokasi" [value]="row">
+                                {{ row }}
+                            </option>
+                        </select>
+                        <button class="space"></button>
+                    </div>
                 </div>
             </div>
-            <div class="col s8">
+            <div class="col s4">
                 <ul class="right">
                     <li>
                         <button class="download waves-effect waves-dark transparent">
@@ -50,10 +55,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let row of dataKalenderKerja">
-            <td (click)="editData(row)">{{ row.id }}</td>
+        <tr *ngFor="let row of filteredKalenderKerja, index as i">
+            <td (click)="editData(row)">{{ i + 1 }}</td>
             <td (click)="editData(row)">{{ row.hari }}</td>
-            <td (click)="editData(row)">{{ row.tgl }}</td>
+            <td (click)="editData(row)">{{ dateFormat(row.tgl) }}</td>
             <td (click)="editData(row)">{{ row.keterangan }}</td>
             <td (click)="editData(row)">{{ row.divisi }}</td>
             <td (click)="editData(row)">{{ row.lokasi }}</td>

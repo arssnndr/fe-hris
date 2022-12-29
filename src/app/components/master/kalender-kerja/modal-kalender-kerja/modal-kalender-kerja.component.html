@@ -16,21 +16,92 @@
 
 <!-- Modal tambah or edit -->
 <div class="tambah" *ngIf="isTambah || isEdit">
-    <h2 mat-dialog-title>Jadwal Kerja</h2>
+    <h2 mat-dialog-title>Kalender Kerja</h2>
     <mat-dialog-content>
         <div class="right">
-            <h6>ID Jadwal</h6>
-            <input type="date" class="browser-default" />
+            <h6>Tanggal</h6>
+            <input type="date" class="browser-default date" [(ngModel)]="tambahData.tgl" (change)="getHari()" />
         </div>
-        <!-- <div class="right">
+        <div class="right" style="margin-top: 10px;">
+            <h6>Keterangan</h6>
+            <input type="text" class="browser-default keterangan" placeholder="Cuti Bersama"
+                [(ngModel)]="tambahData.keterangan">
+        </div>
+        <div class="right" style="margin-top: 10px;">
             <h6>Lokasi</h6>
-            <select *ngIf="isTambah" class="browser-default" (change)="onChange($event.target)">
-                <option *ngFor="let raw of dataBagianKerja" [value]="raw.lokasi">
-                    {{ raw.lokasi }}
+            <select *ngIf="isTambah" class="browser-default" (change)="onChange('lokasi', $event.target)">
+                <option *ngFor="let raw of data.data" [value]="raw.id_lokasi">
+                    {{ raw.id_lokasi }}
                 </option>
             </select>
-            <button class="space"></button>
-        </div> -->
+
+            <select *ngIf="isEdit" class="browser-default" [ngModel]="tambahData.lokasi"
+                (change)="onChange('lokasi', $event.target)">
+                <option *ngFor="let raw of data.data.dataBagianKerja" [value]="raw.id_lokasi">
+                    {{ raw.id_lokasi }}
+                </option>
+            </select>
+            <button class="space">&nbsp;</button>
+        </div>
+        <div class="right" style="margin-top: 10px;">
+            <h6>Divisi</h6>
+            <select *ngIf="isTambah" class="browser-default" (change)="onChange('divisi', $event.target)">
+                <option *ngFor="let raw of data.data" [value]="raw.divisi">
+                    {{ raw.divisi }}
+                </option>
+            </select>
+
+            <select *ngIf="isEdit" class="browser-default" [ngModel]="tambahData.divisi"
+                (change)="onChange('divisi', $event.target)">
+                <option *ngFor="let raw of data.data.dataBagianKerja" [value]="raw.divisi">
+                    {{ raw.divisi }}
+                </option>
+            </select>
+            <button class="space">&nbsp;</button>
+        </div>
+        <div class="right" style="margin-top: 10px;">
+            <h6>Departemen</h6>
+            <select *ngIf="isTambah" class="browser-default" (change)="onChange('departemen', $event.target)">
+                <option *ngFor="let raw of data.data" [value]="raw.departemen">
+                    {{ raw.departemen }}
+                </option>
+            </select>
+
+            <select *ngIf="isEdit" class="browser-default" [ngModel]="tambahData.departemen"
+                (change)="onChange('departemen', $event.target)">
+                <option *ngFor="let raw of data.data.dataBagianKerja" [value]="raw.departemen">
+                    {{ raw.departemen }}
+                </option>
+            </select>
+            <button class="space">&nbsp;</button>
+        </div>
+        <div class="right" style="margin-top: 10px;">
+            <h6>Sub Departemen</h6>
+            <select *ngIf="isTambah" class="browser-default" (change)="onChange('subDepartemen', $event.target)">
+                <option *ngFor="let raw of data.data" [value]="raw.sub_departemen">
+                    {{ raw.sub_departemen }}
+                </option>
+            </select>
+
+            <select *ngIf="isEdit" class="browser-default" [ngModel]="tambahData.sub_departemen"
+                (change)="onChange('subDepartemen', $event.target)">
+                <option *ngFor="let raw of data.data.dataBagianKerja" [value]="raw.sub_departemen">
+                    {{ raw.sub_departemen }}
+                </option>
+            </select>
+            <button class="space">&nbsp;</button>
+        </div>
+        <div class="right" style="width: 405.37px;">
+            <div class="switch">
+                <label style="height: 50px; padding-top: 10px;">
+                    <input type="checkbox" [(ngModel)]="tambahData.potong_cuti">
+                    <span class="lever" style="margin-left: 0px;"></span>
+                    <span style="color: #000000DE; font-size: 17.25px;">
+                        {{ tambahData.potong_cuti ? 'Tidak' : ''}} Potong Cuti Tahunan
+                    </span>
+                </label>
+            </div>
+        </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">

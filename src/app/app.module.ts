@@ -19,6 +19,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 // component
 import { AppComponent } from './app.component';
@@ -104,6 +105,7 @@ import { ModalKalenderKerjaComponent } from './components/master/kalender-kerja/
     MatAutocompleteModule,
     MatTabsModule,
     MatGridListModule,
+    MatSlideToggleModule,
 
     // form
     FormsModule,
