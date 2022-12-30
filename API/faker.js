@@ -12,437 +12,263 @@ const database = {
   trx_jadwalkerja: [],
   trx_jadwalkerjacategory: [],
   trx_jadwalkerjaindividu: [],
-  ms_kalenderkerja: []
+  ms_kalenderkerja: [],
 };
 
-const loop = 7;
-
-// function getRandomInt(max) {
-//   return Math.floor(Math.random() * max + 1);
-// }
+const perusahaan = [
+  {
+    inisial: "IJP",
+    nama: "Indika Jasa Parama",
+    alamat: "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+  },
+  {
+    inisial: "TMS",
+    nama: "The Master Steel Manufactory",
+    alamat: "Jl. HOS Cokroaminoto No.49",
+  },
+  {
+    inisial: "RIW",
+    nama: "Royalindo Investa Wijaya",
+    alamat: "Jl. HOS Cokroaminoto No.49",
+  },
+  {
+    inisial: "DAP",
+    nama: "Donata Agung Perkasa",
+    alamat: "Jl. KK Mas Mansyur No.121",
+  },
+];
+const lokasi = [
+  {
+    id: "TMS1",
+    inisial: "TMS 1",
+    keterangan: "The Master Steel 1",
+    alamat: "Jl. Pegangsaan 2 No.1",
+  },
+  {
+    id: "TMS2",
+    inisial: "TMS 2",
+    keterangan: "The Master Steel 2",
+    alamat: "Jl. Alpha Maspion - KIM V, Manyar",
+  },
+  {
+    id: "TMS3",
+    inisial: "TMS 3",
+    keterangan: "The Master Steel 3",
+    alamat: "Jl. Raya Bekasi km.21 Pulogadung",
+  },
+  {
+    id: "TMS4",
+    inisial: "TMS 4",
+    keterangan: "The Master Steel 4",
+    alamat: "Jl. Pulo Lentut No.3 Pulogadung",
+  },
+  {
+    id: "TMS0",
+    inisial: "TMS HO",
+    keterangan: "The Master Steel HO",
+    alamat: "Jl. HOS Cokroaminoto No.49",
+  },
+];
+const divisi = [
+  "IT",
+  "IT Support",
+  "IT Support Plant",
+  "Finance",
+  "AR",
+  "Faktur",
+  "AP",
+  "ACC",
+  "Mechanic",
+  "Electrik",
+  "Produksi",
+  "QC",
+  "SAT Developer",
+  "Support",
+  "Project",
+  "Marketing",
+  "Sales",
+  "Purchase",
+  "HRD",
+];
+const jamKerja = [
+  {
+    id: "0917",
+    masuk: "09:00",
+    keluar: "17:00",
+    mulaiIstirahat: "12:00",
+    selesaiIstirahat: "13:00",
+    total: 17 - 9 - (13 - 12),
+    shift: "Non Shift",
+    shiftId: "S0",
+    type: "Normal",
+    typeId: "N",
+  },
+  {
+    id: "0912",
+    masuk: "09:00",
+    keluar: "12:00",
+    mulaiIstirahat: "",
+    selesaiIstirahat: "",
+    total: 12 - 9,
+    shift: "Non Shift",
+    shiftId: "S0",
+    type: "Pendek",
+    typeId: "P",
+  },
+  {
+    id: "0716",
+    masuk: "07:00",
+    keluar: "16:00",
+    mulaiIstirahat: "10:00",
+    selesaiIstirahat: "11:00",
+    total: 16 - 7 - (11 - 10),
+    shift: "Shift 1",
+    shiftId: "S1",
+    type: "Normal",
+    typeId: "N",
+  },
+  {
+    id: "1422",
+    masuk: "14:00",
+    keluar: "22:00",
+    mulaiIstirahat: "17:00",
+    selesaiIstirahat: "18:00",
+    total: 22 - 14 - (18 - 17),
+    shift: "Shift 2",
+    shiftId: "S2",
+    type: "Normal",
+    typeId: "N",
+  },
+];
+const agama = [
+  "Islam",
+  "Protestan",
+  "Katolik",
+  "Hindu",
+  "Buddha",
+  "Khonghucu",
+  "Lain-lain",
+];
+const pendidikan = [
+  "TK",
+  "SD",
+  "SMP",
+  "SMA",
+  "SMK",
+  "Diploma 1",
+  "Diploma 2",
+  "Diploma 3",
+  "S1",
+  "S2",
+  "S3",
+];
+const statusPajak = [
+  "TK/0",
+  "TK/1",
+  "TK/2",
+  "TK/3",
+  "K/0",
+  "K/1",
+  "K/2",
+  "K/3",
+  "K/I/0",
+  "K/I/1",
+  "K/I/2",
+  "K/I/3",
+];
+const jabatan = [
+  "Staff/Crew",
+  "Foreman",
+  "Supervisor",
+  "Specialis",
+  "Manager",
+  "Senior Manager",
+  "General Manager",
+  "Director",
+];
+const statusKaryawan = ["PKWT", "PKWTT", "Magang", "Informal", "Harian"];
+const statusPerkawinan = ["Kawin", "Belum kawin", "Cerai"];
+const akses = ["Lokasi", "Perusahaan", "All"];
+const jenisBagian = ["Divisi", "Departemen", "Sub Departemen"];
+const loop = 10;
+const departemen = divisi;
+const subDepartemen = divisi;
 
 // login
 for (var i = 1; i <= loop; i++) {
-  const email = faker.internet.email();
-  const password = faker.internet.password();
   database.login.push({
     id: i,
-    email: email,
-    password: password,
+    email: faker.internet.email(),
+    password: faker.internet.password(),
     status: faker.datatype.boolean(),
   });
 }
 
 // bagian_kerja
 for (var i = 1; i <= loop; i++) {
-  const id_lokasi = faker.helpers.arrayElement([
-    "TMS HO",
-    "TMS 1",
-    "TMS 2",
-    "TMS 3",
-    "TMS 4",
-  ]);
-  const jenis_bagian = faker.helpers.arrayElement([
-    "Divisi",
-    "Departemen",
-    "Sub Departemen",
-  ]);
-  const divisi = faker.helpers.arrayElement([
-    "IT",
-    "IT Support",
-    "IT Support Plant",
-    "Finance",
-    "AR",
-    "Faktur",
-    "AP",
-    "ACC",
-    "Mechanic",
-    "Electrik",
-    "Produksi",
-    "QC",
-  ]);
-  const departemen = faker.helpers.arrayElement([
-    "IT",
-    "IT Support",
-    "IT Support Plant",
-    "Finance",
-    "AR",
-    "Faktur",
-    "AP",
-    "ACC",
-    "Mechanic",
-    "Electrik",
-    "Produksi",
-    "QC",
-  ]);
-  const sub_departemen = faker.helpers.arrayElement([
-    "IT",
-    "IT Support",
-    "IT Support Plant",
-    "Finance",
-    "AR",
-    "Faktur",
-    "AP",
-    "ACC",
-    "Mechanic",
-    "Electrik",
-    "Produksi",
-    "QC",
-  ]);
-  const status = faker.datatype.boolean();
-
+  const lokasiRes = faker.helpers.arrayElement(lokasi)
+  
   database.ms_bagiankerja.push({
     id: i,
-    jenis_bagian: jenis_bagian,
-    id_lokasi: id_lokasi,
-    divisi: divisi,
-    departemen: departemen,
-    sub_departemen: sub_departemen,
-    status: status,
+    jenis_bagian: faker.helpers.arrayElement(jenisBagian),
+    lokasi: lokasiRes.inisial,
+    divisi: faker.helpers.arrayElement(divisi),
+    departemen: faker.helpers.arrayElement(departemen),
+    sub_departemen: faker.helpers.arrayElement(subDepartemen),
+    status: faker.datatype.boolean(),
   });
 }
 
 // ms_perusahaan
 for (var i = 1; i <= loop; i++) {
-  const inisial = faker.helpers.arrayElement(["IJP", "TMS", "RIW", "DAP"]);
-  let nama_perusahaan = "";
-
-  let alamat_perusahaan = "";
-
-  if (inisial === "IJP") {
-    nama_perusahaan = "Indika Jasa Parama";
-    alamat_perusahaan = "Jl. Raya Bekasi KM.21, Ruko PTC Block B8";
-  } else if (inisial === "TMS") {
-    nama_perusahaan = "The Master Steel Manufactory";
-    alamat_perusahaan = "Jl. HOS Cokroaminoto No.49";
-  } else if (inisial === "RIW") {
-    nama_perusahaan = "Royalindo Investa Wijaya";
-    alamat_perusahaan = "Jl. HOS Cokroaminoto No.49";
-  } else {
-    nama_perusahaan = "Donata Agung Perkasa";
-    alamat_perusahaan = "Jl. KK Mas Mansyur No.121";
-  }
-
-  const status = faker.datatype.boolean();
-
+  const res = faker.helpers.arrayElement(perusahaan);
   database.ms_perusahaan.push({
     id: i,
-    inisial: inisial,
-    nama_perusahaan: nama_perusahaan,
-    alamat_perusahaan: alamat_perusahaan,
-    status: status,
+    inisial: res.inisial,
+    nama_perusahaan: res.nama,
+    alamat_perusahaan: res.alamat,
+    status: faker.datatype.boolean(),
   });
 }
 
 // ms_lokasi
 for (var i = 1; i <= loop; i++) {
-  const inisial_lokasi = faker.helpers.arrayElement([
-    "TMS 1",
-    "TMS 2",
-    "TMS 3",
-    "TMS 4",
-    "TMS HO",
-  ]);
-  let keterangan = "";
-
-  let alamat_lokasi = "";
-
-  if (inisial_lokasi === "TMS 1") {
-    keterangan = "The Master Steel 1";
-    alamat_lokasi = "Jl. Pegangsaan 2 No.1";
-  } else if (inisial_lokasi === "TMS 2") {
-    keterangan = "The Master Steel 2";
-    alamat_lokasi = "Jl. Alpha Maspion - KIM V, Manyar";
-  } else if (inisial_lokasi === "TMS 3") {
-    keterangan = "The Master Steel 3";
-    alamat_lokasi = "Jl. Raya Bekasi km.21 Pulogadung";
-  } else if (inisial_lokasi === "TMS 4") {
-    keterangan = "The Master Steel 4";
-    alamat_lokasi = "Jl. Pulo Lentut No.3 Pulogadung";
-  } else if (inisial_lokasi === "TMS HO") {
-    keterangan = "The Master Steel HO";
-    alamat_lokasi = "Jl. HOS Cokroaminoto No.49";
-  }
-
-  const status = faker.datatype.boolean();
-
+  const res = faker.helpers.arrayElement(lokasi);
   database.ms_lokasi.push({
     id: i,
-    keterangan: keterangan,
-    inisial_lokasi: inisial_lokasi,
-    alamat_lokasi: alamat_lokasi,
-    status: status,
-  });
-}
-
-// ms_userid
-for (var i = 1; i <= loop; i++) {
-  let username = faker.name.fullName();
-  let email = faker.internet.email(username);
-  let id_perusahaan = faker.helpers.arrayElement([
-    "Indika Jasa Parama",
-    "Royalindo Investa Wijaya",
-    "The Master Steel Manufactory",
-    "Donata Agung Perkasa",
-  ]);
-  let id_lokasi = faker.helpers.arrayElement([
-    "TMS HO",
-    "TMS 1",
-    "TMS 2",
-    "TMS 3",
-    "TMS 4",
-  ]);
-  let status = faker.datatype.boolean();
-  let akses = faker.helpers.arrayElement(["Lokasi", "Perusahaan", "All"]);
-  let pwd = faker.internet.password(8);
-
-  database.ms_userid.push({
-    id: i,
-    username: username,
-    email: email,
-    id_lokasi: id_lokasi,
-    id_perusahaan: id_perusahaan,
-    akses: akses,
-    password: pwd,
-    bagian_kerja: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    perusahaan: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    lokasi: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    user: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    karyawan: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    jadwal_kerja: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    setup_jadwal_kerja: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    kalender_kerja: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    status_kehadiran: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    list_kehadiran: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    lembur: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    download: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    mesin_finger: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    setup_mesin_finger: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    ganti_nip: {
-      view: faker.datatype.boolean(),
-      edit: faker.datatype.boolean(),
-      download: faker.datatype.boolean(),
-    },
-    status: status,
-  });
-}
-
-// trx_jadwalkerja
-var jadwalkerjakeun = [];
-var jadwalkerjakategori = [];
-var daykeun;
-for (var i = 1; i <= 31; i++) {
-  daykeun = i;
-  if (daykeun >= 31) {
-    daykeun = 31;
-  }
-  if (daykeun.toString().length === 1) {
-    daykeun = "0" + i;
-  }
-  let masuk = faker.helpers.arrayElement(["07:00", "09:00", "14:00"]);
-  let keluar;
-  let mulaiIstirahat;
-  let selesaiIstirahat;
-  if (masuk === "07:00") {
-    keluar = "16:00";
-    mulaiIstirahat = "10:00";
-    selesaiIstirahat = "11:00";
-  } else if (masuk === "09:00") {
-    keluar = "17:00";
-    mulaiIstirahat = "12:00";
-    selesaiIstirahat = "13:00";
-  } else if (masuk === "14:00") {
-    keluar = "22:00";
-    mulaiIstirahat = "17:00";
-    selesaiIstirahat = "18:00";
-  }
-
-  let lokasi = faker.helpers.arrayElement([
-    { value: "TMS HO", val: "TMS0" },
-    { value: "TMS 1", val: "TMS1" },
-    { value: "TMS 2", val: "TMS2" },
-    { value: "TMS 3", val: "TMS3" },
-    { value: "TMS 4", val: "TMS4" },
-  ]);
-  let shift = faker.helpers.arrayElement([
-    { value: "Non Shift", val: "S0" },
-    { value: "Shift 1", val: "S1" },
-    { value: "Shift 2", val: "S2" },
-  ]);
-  let jamKerja = faker.helpers.arrayElement([
-    { value: "Normal", val: "N" },
-    { value: "Pendek", val: "P" },
-  ]);
-
-  jadwalkerjakeun.push({
-    id_jadwalkerja:
-      lokasi.val +
-      shift.val +
-      jamKerja.val +
-      masuk.slice(0, 2) +
-      keluar.slice(0, 2),
-    tgl: daykeun + moment().format("-MM-YYYY"),
-    hari: moment(daykeun + "-12-2022", "DD-MM-YYYY").format("dddd"),
-    in: masuk,
-    out: keluar,
-    mulai_istirahat: mulaiIstirahat,
-    selesai_istirahat: selesaiIstirahat,
-    total_jam_kerja:
-      Number(mulaiIstirahat.slice(0, 2)) -
-      Number(masuk.slice(0, 2)) +
-      Number(keluar.slice(0, 2)) -
-      Number(selesaiIstirahat.slice(0, 2)),
-  });
-
-  jadwalkerjakategori.push({
-    id_jadwalkerja:
-      lokasi.val +
-      shift.val +
-      jamKerja.val +
-      masuk.slice(0, 2) +
-      keluar.slice(0, 2),
-    in: masuk,
-    out: keluar,
-    mulai_istirahat: mulaiIstirahat,
-    selesai_istirahat: selesaiIstirahat,
-    total_jam_kerja:
-      Number(mulaiIstirahat.slice(0, 2)) -
-      Number(masuk.slice(0, 2)) +
-      Number(keluar.slice(0, 2)) -
-      Number(selesaiIstirahat.slice(0, 2)),
-  })
-
-  database.trx_jadwalkerja.push({
-    id:
-      lokasi.val +
-      shift.val +
-      jamKerja.val +
-      masuk.slice(0, 2) +
-      keluar.slice(0, 2),
-    id_lokasi: lokasi.value,
-    id_shift: shift.value,
-    jam_kerja: jamKerja.value,
-    in: masuk,
-    out: keluar,
-    mulai_istirahat: mulaiIstirahat,
-    selesai_istirahat: selesaiIstirahat,
-    total_jam_kerja:
-      Number(mulaiIstirahat.slice(0, 2)) -
-      Number(masuk.slice(0, 2)) +
-      Number(keluar.slice(0, 2)) -
-      Number(selesaiIstirahat.slice(0, 2)),
+    keterangan: res.keterangan,
+    inisial_lokasi: res.inisial,
+    alamat_lokasi: res.alamat,
+    status: faker.datatype.boolean(),
   });
 }
 
 // ms_karyawan
-function stringkeun(obj) {
-  return JSON.stringify(obj).split("T")[0].slice(1);
+function sliceDate(data) {
+  JSON.stringify(data).slice(1, 11);
 }
 for (var i = 1; i <= loop; i++) {
+  const perusahaanRes = faker.helpers.arrayElement(perusahaan);
+  const lokasiRes = faker.helpers.arrayElement(lokasi);
+
   database.ms_karyawan.push({
-    id: faker.random.numeric(6),
-    kewarganegaraan: faker.helpers.arrayElement([
-      "WNI",
-      "WNI",
-      "WNI",
-      "WNI",
-      "WNI",
-      "WNA",
-    ]),
+    id: i,
+    nip: faker.random.numeric(6),
+    kewarganegaraan: faker.helpers.arrayElement(["WNI", "WNA"]),
     nik: faker.random.numeric(16),
     nama_lengkap: faker.name.fullName(),
     tempat_lahir: faker.address.cityName(),
-    tgl_lahir: stringkeun(faker.date.birthdate()),
+    tgl_lahir: sliceDate(faker.date.birthdate()),
     jenis_kelamin: faker.helpers.arrayElement(["Laki-Laki", "Perempuan"]),
     alamat_domisili: faker.address.city(),
     rt_rw: faker.random.numeric(2) + "/" + faker.random.numeric(2),
     kel_desa: faker.address.city(),
-    agama: faker.helpers.arrayElement([
-      "Islam",
-      "Protestan",
-      "Katolik",
-      "Hindu",
-      "Buddha",
-      "Khonghucu",
-      "Lain-lain",
-    ]),
-    status_perkawinan: faker.helpers.arrayElement([
-      "Kawin",
-      "Belum kawin",
-      "Cerai",
-    ]),
+    agama: faker.helpers.arrayElement(agama),
+    status_perkawinan: faker.helpers.arrayElement(statusPerkawinan),
     nomor_npwp: faker.random.numeric(16),
     nomor_telepon: faker.phone.number("+62 8## #### ####"),
     email: faker.internet.email(),
-    pendidikan_terakhir: faker.helpers.arrayElement([
-      "TK",
-      "SD",
-      "SMP",
-      "SMA",
-      "SMK",
-      "Diploma 1",
-      "Diploma 2",
-      "Diploma 3",
-      "S1",
-      "S2",
-      "S3",
-    ]),
+    pendidikan_terakhir: faker.helpers.arrayElement(pendidikan),
     nomor_bpjs_tk: faker.phone.number("#### #### ###"),
     nomor_bpjs_kesehatan: faker.phone.number("#### #### #### #"),
     nama_faskes: faker.name.fullName(),
@@ -450,20 +276,7 @@ for (var i = 1; i <= loop; i++) {
     nomor_kk: faker.phone.number("#### #### #### ####"),
     nama_kepala_keluarga: faker.name.fullName(),
     nama_ibu_kandung: faker.name.fullName(),
-    status_pajak: faker.helpers.arrayElement([
-      "TK/0",
-      "TK/1",
-      "TK/2",
-      "TK/3",
-      "K/0",
-      "K/1",
-      "K/2",
-      "K/3",
-      "K/I/0",
-      "K/I/1",
-      "K/I/2",
-      "K/I/3",
-    ]),
+    status_pajak: faker.helpers.arrayElement(statusPajak),
     nama_pasangan: faker.name.fullName(),
     nama_anak_ke1: faker.name.fullName(),
     nama_anak_ke2: faker.name.fullName(),
@@ -471,191 +284,153 @@ for (var i = 1; i <= loop; i++) {
     nama_kontak_darurat: faker.name.fullName(),
     nomor_telepon_darurat: faker.phone.number("+62 8## #### ####"),
     hubungan_dengan_karyawan: faker.random.words(2),
-
     nomor_passport: faker.random.numeric(7),
-    tgl_pembuatan_passport: stringkeun(faker.date.past()),
-    tgl_berakhir_passport: stringkeun(faker.date.future()),
+    tgl_pembuatan_passport: sliceDate(faker.date.past()),
+    tgl_berakhir_passport: sliceDate(faker.date.future()),
     kebangsaan: faker.address.country(),
     nomor_kitas: faker.random.numeric(20),
-    tgl_berakhir_kitas: stringkeun(faker.date.future()),
+    tgl_berakhir_kitas: sliceDate(faker.date.future()),
     nomor_rptka: faker.random.numeric(20),
-    tgl_berakhir_rptka: stringkeun(faker.date.future()),
-
-    id_perusahaan: faker.helpers.arrayElement([
-      "Indika Jasa Parama",
-      "Royalindo Investa Wijaya",
-      "The Master Steel Manufactory",
-      "Donata Agung Perkasa",
-    ]),
-    id_lokasi: faker.helpers.arrayElement([
-      "TMS HO",
-      "TMS 1",
-      "TMS 2",
-      "TMS 3",
-      "TMS 4",
-    ]),
-    id_divisi: faker.helpers.arrayElement([
-      "IT",
-      "GA",
-      "Finance",
-      "Marketing",
-      "Sales",
-      "Purchase",
-      "HRD",
-    ]),
-    id_departemen: faker.helpers.arrayElement([
-      "SAT Developer",
-      "Support",
-      "Project",
-      "Marketing",
-      "Sales",
-      "Purchase",
-      "HRD",
-    ]),
-    id_subdepartemen: faker.helpers.arrayElement([
-      "SAT Developer",
-      "Support",
-      "Project",
-      "Marketing",
-      "Sales",
-      "Purchase",
-      "HRD",
-    ]),
-    jabatan: faker.helpers.arrayElement([
-      "Staff/Crew",
-      "Foreman",
-      "Supervisor",
-      "Specialis",
-      "Manager",
-      "Senior Manager",
-      "General Manager",
-      "Director",
-    ]),
-    status_karyawan: faker.helpers.arrayElement([
-      "PKWT",
-      "PKWTT",
-      "Magang",
-      "Informal",
-      "Harian",
-    ]),
+    tgl_berakhir_rptka: sliceDate(faker.date.future()),
+    perusahaan: perusahaanRes.nama,
+    lokasi: lokasiRes.keterangan,
+    divisi: faker.helpers.arrayElement(divisi),
+    departemen: faker.helpers.arrayElement(departemen),
+    subdepartemen: faker.helpers.arrayElement(subDepartemen),
+    jabatan: faker.helpers.arrayElement(jabatan),
+    status_karyawan: faker.helpers.arrayElement(statusKaryawan),
     nama_pemberi_referensi: faker.name.fullName(),
     nama_atasan_langsung: faker.name.fullName(),
-
-    tgl_join: stringkeun(faker.date.past()),
+    tgl_join: sliceDate(faker.date.past()),
     nomor_pkwtt: faker.random.alphaNumeric(20),
-
     gaji_pokok: faker.datatype.number({ min: 3000000, max: 99000000 }),
-    tgl_perubahan: stringkeun(faker.date.recent()),
+    tgl_perubahan: sliceDate(faker.date.recent()),
     uang_makan: faker.datatype.number({ min: 10000, max: 100000 }),
     uang_transport: faker.datatype.number({ min: 25000, max: 250000 }),
     note: faker.random.words(10),
+  });
+}
 
-    jadwal_kerja: jadwalkerjakeun,
+// ms_userid
+for (var i = 1; i <= loop; i++) {
+  const username = faker.name.fullName();
+  const lokasiRes = faker.helpers.arrayElement(lokasi);
+  const role = {
+    view: faker.datatype.boolean(),
+    edit: faker.datatype.boolean(),
+    download: faker.datatype.boolean(),
+  };
+
+  database.ms_userid.push({
+    id: i,
+    username: username,
+    email: faker.internet.email(username),
+    lokasi: lokasiRes.inisial,
+    perusahaan: lokasiRes.keterangan,
+    akses: faker.helpers.arrayElement(akses),
+    password: faker.internet.password(8),
+    bagian_kerja: role,
+    perusahaan: role,
+    lokasi: role,
+    user: role,
+    karyawan: role,
+    jadwal_kerja: role,
+    setup_jadwal_kerja: role,
+    kalender_kerja: role,
+    status_kehadiran: role,
+    list_kehadiran: role,
+    lembur: role,
+    download: role,
+    mesin_finger: role,
+    setup_mesin_finger: role,
+    ganti_nip: role,
+    status: faker.datatype.boolean(),
+  });
+}
+
+// trx_jadwalkerja
+for (var i = 1; i <= loop; i++) {
+  // jadwalkerjakeun.push({
+  //   tgl: daykeun + moment().format("-MM-YYYY"),
+  //   hari: moment(daykeun + "-12-2022", "DD-MM-YYYY").format("dddd"),
+  // });
+
+  const lokasiRes = faker.helpers.arrayElement(lokasi);
+  const jamKerjaRes = faker.helpers.arrayElement(jamKerja);
+
+  database.trx_jadwalkerja.push({
+    id:
+      lokasiRes.id + jamKerjaRes.shiftId + jamKerjaRes.typeId + jamKerjaRes.id,
+    inisial_lokasi: lokasiRes.inisial,
+    shift: jamKerjaRes.shift,
+    masuk: jamKerjaRes.masuk,
+    keluar: jamKerjaRes.keluar,
+    mulai_istirahat: jamKerjaRes.mulaiIstirahat,
+    selesai_istirahat: jamKerjaRes.selesaiIstirahat,
+    total: jamKerjaRes.total,
   });
 }
 
 // trx_jadwalkerjacategory
 for (var i = 1; i <= loop; i++) {
-  const id_lokasi = faker.helpers.arrayElement([
-    "TMS HO",
-    "TMS 1",
-    "TMS 2",
-    "TMS 3",
-    "TMS 4",
-  ]);
-  const divisi = faker.helpers.arrayElement([
-    "IT",
-    "IT Support",
-    "IT Support Plant",
-    "Finance",
-    "AR",
-    "Faktur",
-    "AP",
-    "ACC",
-    "Mechanic",
-    "Electrik",
-    "Produksi",
-    "QC",
-  ]);
-  const departemen = faker.helpers.arrayElement([
-    "IT",
-    "IT Support",
-    "IT Support Plant",
-    "Finance",
-    "AR",
-    "Faktur",
-    "AP",
-    "ACC",
-    "Mechanic",
-    "Electrik",
-    "Produksi",
-    "QC",
-  ]);
-  const sub_departemen = faker.helpers.arrayElement([
-    "IT",
-    "IT Support",
-    "IT Support Plant",
-    "Finance",
-    "AR",
-    "Faktur",
-    "AP",
-    "ACC",
-    "Mechanic",
-    "Electrik",
-    "Produksi",
-    "QC",
-  ]);
-  const status = faker.datatype.boolean();
-
   database.trx_jadwalkerjacategory.push({
     id: i,
-    lokasi: id_lokasi,
-    divisi: divisi,
-    departemen: departemen,
-    sub_departemen: sub_departemen,
-    senin: jadwalkerjakategori[0],
-    selasa: jadwalkerjakategori[1],
-    rabu: jadwalkerjakategori[2],
-    kamis: jadwalkerjakategori[3],
-    jumat: jadwalkerjakategori[4],
-    sabtu: jadwalkerjakategori[5],
-    minggu: jadwalkerjakategori[6],
-    status: status
+    lokasi: faker.helpers.arrayElement(lokasi).keterangan,
+    divisi: faker.helpers.arrayElement(divisi),
+    departemen: faker.helpers.arrayElement(departemen),
+    sub_departemen: faker.helpers.arrayElement(subDepartemen),
+    senin: database.trx_jadwalkerja[faker.datatype.number(7)],
+    selasa: database.trx_jadwalkerja[faker.datatype.number(7)],
+    rabu: database.trx_jadwalkerja[faker.datatype.number(7)],
+    kamis: database.trx_jadwalkerja[faker.datatype.number(7)],
+    jumat: database.trx_jadwalkerja[faker.datatype.number(7)],
+    sabtu: database.trx_jadwalkerja[faker.datatype.number(7)],
+    minggu: database.trx_jadwalkerja[faker.datatype.number(7)],
+    status: faker.datatype.boolean(),
   });
 }
 
 // trx_jadwalkerjaindividu
-// let tgl = JSON.stringify(faker.date.future()).slice(1, 11)
-// for (var i = 1; i <= loop; i++) {
-//   database.trx_jadwalkerjaindividu.push({
-//     id: i,
-//     tanggal: tgl,
-//     hari: moment(tgl, 'dd-mm-yyyy').format('dddd'),
-//     id_lokasi: 'lokasi',
-//     id_shift: 'shift',
-//     jam_kerja: 'jam kerja',
-//     in: 'in',
-//     out: 'out',
-//     mulai_istirahat: 'mulai istirahat',
-//     selesai_istirahat: 'selesai istirahat',
-//     total_jam_kerja: "total jam kerja",
-//   });
-// }
+function dateToDay(date) {
+  moment(date, "dd-mm-yyyy").format("dddd");
+}
+for (var i = 1; i <= loop; i++) {
+  const tgl = sliceDate(faker.date.future());
+  const lokasiRes = faker.helpers.arrayElement(lokasi);
+  const jamKerjaRes = faker.helpers.arrayElement(jamKerja);
+
+  database.trx_jadwalkerjaindividu.push({
+    id: i,
+    tanggal: tgl,
+    hari: dateToDay(tgl),
+    lokasi: lokasiRes.inisial,
+    shift: jamKerjaRes.shift,
+    jam_kerja: jamKerjaRes.type,
+    in: jamKerjaRes.masuk,
+    out: jamKerjaRes.keluar,
+    mulai_istirahat: jamKerjaRes.mulaiIstirahat,
+    selesai_istirahat: jamKerjaRes.selesaiIstirahat,
+    total_jam_kerja: jamKerjaRes.total,
+  });
+}
 
 // ms_kalenderkerja
 for (var i = 1; i <= loop; i++) {
-  let tgl = JSON.stringify(faker.date.future()).slice(1, 11)
+  const tgl = sliceDate(faker.date.future());
+  const lokasiRes = faker.helpers.arrayElement(lokasi);
+
   database.ms_kalenderkerja.push({
     id: i,
     tgl: tgl,
-    hari: moment(tgl, 'dd-mm-yyyy').format('dddd'),
+    hari: dateToDay(tgl),
     keterangan: faker.lorem.words(5),
-    lokasi: 'lokasi',
-    divisi: 'divisi',
-    departemen: 'departemen',
-    sub_departemen: 'sub departemen',
-    potong_cuti: faker.datatype.boolean()
-  })
+    lokasi: lokasiRes.keterangan,
+    divisi: faker.helpers.arrayElement(divisi),
+    departemen: faker.helpers.arrayElement(departemen),
+    sub_departemen: faker.helpers.arrayElement(subDepartemen),
+    potong_cuti: faker.datatype.boolean(),
+    status: faker.datatype.boolean(),
+  });
 }
 
 console.log(JSON.stringify(database));

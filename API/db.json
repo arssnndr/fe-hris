@@ -2,117 +2,161 @@
   "login": [
     {
       "id": 1,
-      "email": "Cindy_Streich42@hotmail.com",
-      "password": "Oiz9knKMw7J2lgl",
+      "email": "Kaleigh62@gmail.com",
+      "password": "p_TrYMWWqDllitH",
       "status": true
     },
     {
       "id": 2,
-      "email": "Penelope54@hotmail.com",
-      "password": "9YS6OvjJ05qHnST",
-      "status": false
+      "email": "Shea_Hermiston@yahoo.com",
+      "password": "_Sr0XpLuXkwZpY_",
+      "status": true
     },
     {
       "id": 3,
-      "email": "Alyce_Dietrich@hotmail.com",
-      "password": "SEANMgDUqOB2OMa",
+      "email": "Orlando84@yahoo.com",
+      "password": "OGIVvzfb1U4fX3K",
       "status": true
     },
     {
       "id": 4,
-      "email": "Ava.Roberts@hotmail.com",
-      "password": "NcOtl3di9AXgiXg",
+      "email": "Consuelo_Connelly8@gmail.com",
+      "password": "KJGL7ErMMic_mgx",
       "status": true
     },
     {
       "id": 5,
-      "email": "Jovani88@hotmail.com",
-      "password": "0RCxuMzfrVSXa_9",
+      "email": "Jefferey_Ryan@hotmail.com",
+      "password": "yUHLsW0LcHWOsP2",
       "status": false
     },
     {
       "id": 6,
-      "email": "Aaliyah63@yahoo.com",
-      "password": "VLEkbE9AtkpP97N",
+      "email": "Caesar28@yahoo.com",
+      "password": "MGDCQaxz2aIfgs5",
       "status": false
     },
     {
       "id": 7,
-      "email": "Allie.Borer30@hotmail.com",
-      "password": "GAm6PbhHLEVvXuV",
-      "status": false
+      "email": "Wilhelm_Will@gmail.com",
+      "password": "KG9CwZQtBNpD9LF",
+      "status": true
+    },
+    {
+      "id": 8,
+      "email": "Mafalda30@gmail.com",
+      "password": "NbamqqnyDesJFP1",
+      "status": true
+    },
+    {
+      "id": 9,
+      "email": "Garfield.Witting@gmail.com",
+      "password": "_ENdBLakouKaBEu",
+      "status": true
+    },
+    {
+      "id": 10,
+      "email": "Elnora88@yahoo.com",
+      "password": "LiDjGamDAFxNyvO",
+      "status": true
     }
   ],
   "ms_bagiankerja": [
     {
       "id": 1,
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": "TMS 2",
-      "divisi": "IT Support",
-      "departemen": "Faktur",
-      "sub_departemen": "Finance",
-      "status": false
+      "jenis_bagian": "Divisi",
+      "lokasi": "TMS 3",
+      "divisi": "Purchase",
+      "departemen": "Produksi",
+      "sub_departemen": "Sales",
+      "status": true
     },
     {
       "id": 2,
-      "jenis_bagian": "Departemen",
-      "id_lokasi": "TMS 3",
-      "divisi": "AR",
-      "departemen": "Electrik",
-      "sub_departemen": "IT Support Plant",
-      "status": false
+      "jenis_bagian": "Sub Departemen",
+      "lokasi": "TMS 2",
+      "divisi": "QC",
+      "departemen": "Sales",
+      "sub_departemen": "AP",
+      "status": true
     },
     {
       "id": 3,
-      "jenis_bagian": "Departemen",
-      "id_lokasi": "TMS 1",
-      "divisi": "ACC",
-      "departemen": "Mechanic",
-      "sub_departemen": "ACC",
+      "jenis_bagian": "Divisi",
+      "lokasi": "TMS 1",
+      "divisi": "Produksi",
+      "departemen": "Purchase",
+      "sub_departemen": "Support",
       "status": true
     },
     {
       "id": 4,
-      "jenis_bagian": "Sub Departemen",
-      "id_lokasi": "TMS 4",
-      "divisi": "IT Support Plant",
-      "departemen": "Electrik",
-      "sub_departemen": "IT",
+      "jenis_bagian": "Departemen",
+      "lokasi": "TMS 2",
+      "divisi": "QC",
+      "departemen": "IT Support",
+      "sub_departemen": "IT Support",
       "status": true
     },
     {
       "id": 5,
-      "jenis_bagian": "Departemen",
-      "id_lokasi": "TMS HO",
-      "divisi": "Electrik",
-      "departemen": "Produksi",
-      "sub_departemen": "ACC",
+      "jenis_bagian": "Sub Departemen",
+      "lokasi": "TMS HO",
+      "divisi": "AP",
+      "departemen": "IT Support Plant",
+      "sub_departemen": "Purchase",
       "status": false
     },
     {
       "id": 6,
-      "jenis_bagian": "Departemen",
-      "id_lokasi": "TMS 2",
-      "divisi": "Electrik",
-      "departemen": "Mechanic",
-      "sub_departemen": "QC",
+      "jenis_bagian": "Sub Departemen",
+      "lokasi": "TMS 2",
+      "divisi": "HRD",
+      "departemen": "Sales",
+      "sub_departemen": "ACC",
       "status": false
     },
     {
       "id": 7,
       "jenis_bagian": "Sub Departemen",
-      "id_lokasi": "TMS 1",
-      "divisi": "AR",
-      "departemen": "Mechanic",
-      "sub_departemen": "AR",
+      "lokasi": "TMS 2",
+      "divisi": "Finance",
+      "departemen": "SAT Developer",
+      "sub_departemen": "Purchase",
       "status": false
+    },
+    {
+      "id": 8,
+      "jenis_bagian": "Sub Departemen",
+      "lokasi": "TMS 3",
+      "divisi": "QC",
+      "departemen": "Marketing",
+      "sub_departemen": "IT Support Plant",
+      "status": true
+    },
+    {
+      "id": 9,
+      "jenis_bagian": "Divisi",
+      "lokasi": "TMS 2",
+      "divisi": "Produksi",
+      "departemen": "AR",
+      "sub_departemen": "SAT Developer",
+      "status": false
+    },
+    {
+      "jenis_bagian": "Divisi",
+      "lokasi": "TMS HO",
+      "divisi": "",
+      "departemen": "",
+      "sub_departemen": "ce",
+      "id": 10
     }
   ],
   "ms_perusahaan": [
     {
       "id": 1,
-      "inisial": "RIW",
-      "nama_perusahaan": "Royalindo Investa Wijaya",
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
       "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
       "status": false
     },
@@ -132,67 +176,88 @@
     },
     {
       "id": 4,
-      "inisial": "RIW",
-      "nama_perusahaan": "Royalindo Investa Wijaya",
-      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
-      "status": false
-    },
-    {
-      "id": 5,
-      "inisial": "IJP",
-      "nama_perusahaan": "Indika Jasa Parama",
-      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
-      "status": false
-    },
-    {
-      "id": 6,
       "inisial": "IJP",
       "nama_perusahaan": "Indika Jasa Parama",
       "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
       "status": true
     },
     {
+      "id": 5,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 6,
+      "inisial": "DAP",
+      "nama_perusahaan": "Donata Agung Perkasa",
+      "alamat_perusahaan": "Jl. KK Mas Mansyur No.121",
+      "status": true
+    },
+    {
       "id": 7,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
+      "status": true
+    },
+    {
+      "id": 8,
       "inisial": "IJP",
       "nama_perusahaan": "Indika Jasa Parama",
       "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
+    },
+    {
+      "id": 9,
+      "inisial": "TMS",
+      "nama_perusahaan": "The Master Steel Manufactory",
+      "alamat_perusahaan": "Jl. HOS Cokroaminoto No.49",
       "status": false
+    },
+    {
+      "id": 10,
+      "inisial": "IJP",
+      "nama_perusahaan": "Indika Jasa Parama",
+      "alamat_perusahaan": "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
+      "status": true
     }
   ],
   "ms_lokasi": [
     {
       "id": 1,
-      "keterangan": "The Master Steel 4",
-      "inisial_lokasi": "TMS 4",
-      "alamat_lokasi": "Jl. Pulo Lentut No.3 Pulogadung",
-      "status": false
-    },
-    {
-      "id": 2,
-      "keterangan": "The Master Steel 4",
-      "inisial_lokasi": "TMS 4",
-      "alamat_lokasi": "Jl. Pulo Lentut No.3 Pulogadung",
+      "keterangan": "The Master Steel 3",
+      "inisial_lokasi": "TMS 3",
+      "alamat_lokasi": "Jl. Raya Bekasi km.21 Pulogadung",
       "status": true
     },
     {
-      "id": 3,
-      "keterangan": "The Master Steel 4",
-      "inisial_lokasi": "TMS 4",
-      "alamat_lokasi": "Jl. Pulo Lentut No.3 Pulogadung",
+      "id": 2,
+      "keterangan": "The Master Steel 1",
+      "inisial_lokasi": "TMS 1",
+      "alamat_lokasi": "Jl. Pegangsaan 2 No.1",
       "status": false
     },
     {
-      "id": 4,
+      "id": 3,
       "keterangan": "The Master Steel HO",
       "inisial_lokasi": "TMS HO",
       "alamat_lokasi": "Jl. HOS Cokroaminoto No.49",
       "status": false
     },
     {
+      "id": 4,
+      "keterangan": "The Master Steel 3",
+      "inisial_lokasi": "TMS 3",
+      "alamat_lokasi": "Jl. Raya Bekasi km.21 Pulogadung",
+      "status": false
+    },
+    {
       "id": 5,
-      "keterangan": "The Master Steel 1",
-      "inisial_lokasi": "TMS 1",
-      "alamat_lokasi": "Jl. Pegangsaan 2 No.1",
+      "keterangan": "The Master Steel HO",
+      "inisial_lokasi": "TMS HO",
+      "alamat_lokasi": "Jl. HOS Cokroaminoto No.49",
       "status": true
     },
     {
@@ -207,87 +272,106 @@
       "keterangan": "The Master Steel 4",
       "inisial_lokasi": "TMS 4",
       "alamat_lokasi": "Jl. Pulo Lentut No.3 Pulogadung",
+      "status": false
+    },
+    {
+      "id": 8,
+      "keterangan": "The Master Steel HO",
+      "inisial_lokasi": "TMS HO",
+      "alamat_lokasi": "Jl. HOS Cokroaminoto No.49",
+      "status": false
+    },
+    {
+      "id": 9,
+      "keterangan": "The Master Steel 4",
+      "inisial_lokasi": "TMS 4",
+      "alamat_lokasi": "Jl. Pulo Lentut No.3 Pulogadung",
+      "status": false
+    },
+    {
+      "id": 10,
+      "keterangan": "The Master Steel 3",
+      "inisial_lokasi": "TMS 3",
+      "alamat_lokasi": "Jl. Raya Bekasi km.21 Pulogadung",
       "status": false
     }
   ],
   "ms_userid": [
     {
       "id": 1,
-      "username": "Dr. Rosa Luettgen",
-      "email": "Dr.RosaLuettgen47@yahoo.com",
-      "id_lokasi": "TMS 2",
-      "id_perusahaan": "The Master Steel Manufactory",
-      "akses": "All",
-      "password": "n1JqMBVL",
-      "bagian_kerja": {
-        "view": true,
-        "edit": true,
-        "download": false
-      },
-      "perusahaan": {
-        "view": true,
-        "edit": false,
-        "download": false
-      },
+      "username": "Noah Franecki V",
+      "email": "NoahFraneckiV.Osinski@gmail.com",
       "lokasi": {
         "view": false,
         "edit": true,
         "download": true
       },
-      "user": {
-        "view": true,
+      "perusahaan": {
+        "view": false,
         "edit": true,
-        "download": false
+        "download": true
+      },
+      "akses": "Perusahaan",
+      "password": "277Hv7qB",
+      "bagian_kerja": {
+        "view": false,
+        "edit": true,
+        "download": true
+      },
+      "user": {
+        "view": false,
+        "edit": true,
+        "download": true
       },
       "karyawan": {
-        "view": true,
+        "view": false,
         "edit": true,
-        "download": false
+        "download": true
       },
       "jadwal_kerja": {
         "view": false,
-        "edit": false,
+        "edit": true,
         "download": true
       },
       "setup_jadwal_kerja": {
         "view": false,
-        "edit": false,
+        "edit": true,
         "download": true
       },
       "kalender_kerja": {
-        "view": true,
+        "view": false,
         "edit": true,
-        "download": false
+        "download": true
       },
       "status_kehadiran": {
         "view": false,
         "edit": true,
-        "download": false
+        "download": true
       },
       "list_kehadiran": {
-        "view": true,
+        "view": false,
         "edit": true,
         "download": true
       },
       "lembur": {
-        "view": true,
+        "view": false,
         "edit": true,
         "download": true
       },
       "download": {
-        "view": true,
-        "edit": false,
-        "download": false
+        "view": false,
+        "edit": true,
+        "download": true
       },
       "mesin_finger": {
-        "view": true,
-        "edit": false,
+        "view": false,
+        "edit": true,
         "download": true
       },
       "setup_mesin_finger": {
         "view": false,
         "edit": true,
-        "download": false
+        "download": true
       },
       "ganti_nip": {
         "view": false,
@@ -298,29 +382,27 @@
     },
     {
       "id": 2,
-      "username": "Clint Keeling",
-      "email": "ClintKeeling56@hotmail.com",
-      "id_lokasi": "TMS 1",
-      "id_perusahaan": "Indika Jasa Parama",
-      "akses": "All",
-      "password": "bTcDJ4ui",
-      "bagian_kerja": {
+      "username": "Joy Spinka II",
+      "email": "JoySpinkaII.Hills60@yahoo.com",
+      "lokasi": {
         "view": true,
         "edit": true,
         "download": false
       },
       "perusahaan": {
-        "view": false,
-        "edit": true,
-        "download": true
-      },
-      "lokasi": {
         "view": true,
-        "edit": false,
+        "edit": true,
+        "download": false
+      },
+      "akses": "Lokasi",
+      "password": "DfEFXQuF",
+      "bagian_kerja": {
+        "view": true,
+        "edit": true,
         "download": false
       },
       "user": {
-        "view": false,
+        "view": true,
         "edit": true,
         "download": false
       },
@@ -331,32 +413,32 @@
       },
       "jadwal_kerja": {
         "view": true,
-        "edit": false,
-        "download": true
+        "edit": true,
+        "download": false
       },
       "setup_jadwal_kerja": {
-        "view": false,
-        "edit": false,
-        "download": true
+        "view": true,
+        "edit": true,
+        "download": false
       },
       "kalender_kerja": {
-        "view": false,
+        "view": true,
         "edit": true,
-        "download": true
+        "download": false
       },
       "status_kehadiran": {
         "view": true,
         "edit": true,
-        "download": true
+        "download": false
       },
       "list_kehadiran": {
-        "view": false,
+        "view": true,
         "edit": true,
         "download": false
       },
       "lembur": {
         "view": true,
-        "edit": false,
+        "edit": true,
         "download": false
       },
       "download": {
@@ -366,137 +448,133 @@
       },
       "mesin_finger": {
         "view": true,
-        "edit": false,
-        "download": true
+        "edit": true,
+        "download": false
       },
       "setup_mesin_finger": {
         "view": true,
-        "edit": false,
-        "download": true
+        "edit": true,
+        "download": false
       },
       "ganti_nip": {
-        "view": false,
+        "view": true,
         "edit": true,
-        "download": true
+        "download": false
       },
-      "status": true
+      "status": false
     },
     {
       "id": 3,
-      "username": "Teresa Wuckert",
-      "email": "TeresaWuckert.Bogan@gmail.com",
-      "id_lokasi": "TMS 4",
-      "id_perusahaan": "The Master Steel Manufactory",
-      "akses": "All",
-      "password": "OjLWm0Sp",
-      "bagian_kerja": {
+      "username": "Mike Berge",
+      "email": "MikeBerge.Champlin8@hotmail.com",
+      "lokasi": {
         "view": true,
-        "edit": true,
-        "download": true
+        "edit": false,
+        "download": false
       },
       "perusahaan": {
         "view": true,
         "edit": false,
-        "download": true
+        "download": false
       },
-      "lokasi": {
+      "akses": "Lokasi",
+      "password": "L3KLJoFO",
+      "bagian_kerja": {
         "view": true,
-        "edit": true,
+        "edit": false,
         "download": false
       },
       "user": {
-        "view": false,
-        "edit": true,
-        "download": true
+        "view": true,
+        "edit": false,
+        "download": false
       },
       "karyawan": {
         "view": true,
-        "edit": true,
-        "download": true
+        "edit": false,
+        "download": false
       },
       "jadwal_kerja": {
-        "view": false,
-        "edit": true,
+        "view": true,
+        "edit": false,
         "download": false
       },
       "setup_jadwal_kerja": {
-        "view": false,
+        "view": true,
         "edit": false,
-        "download": true
+        "download": false
       },
       "kalender_kerja": {
         "view": true,
-        "edit": true,
-        "download": true
+        "edit": false,
+        "download": false
       },
       "status_kehadiran": {
-        "view": false,
+        "view": true,
         "edit": false,
         "download": false
       },
       "list_kehadiran": {
-        "view": false,
-        "edit": true,
-        "download": true
+        "view": true,
+        "edit": false,
+        "download": false
       },
       "lembur": {
         "view": true,
-        "edit": true,
-        "download": true
+        "edit": false,
+        "download": false
       },
       "download": {
-        "view": false,
-        "edit": true,
-        "download": true
+        "view": true,
+        "edit": false,
+        "download": false
       },
       "mesin_finger": {
         "view": true,
-        "edit": true,
-        "download": true
+        "edit": false,
+        "download": false
       },
       "setup_mesin_finger": {
-        "view": false,
-        "edit": true,
-        "download": true
+        "view": true,
+        "edit": false,
+        "download": false
       },
       "ganti_nip": {
         "view": true,
         "edit": false,
-        "download": true
+        "download": false
       },
       "status": false
     },
     {
       "id": 4,
-      "username": "Marcos Hoppe",
-      "email": "MarcosHoppe_Metz@hotmail.com",
-      "id_lokasi": "TMS 2",
-      "id_perusahaan": "The Master Steel Manufactory",
-      "akses": "Lokasi",
-      "password": "HWnUGSP7",
-      "bagian_kerja": {
-        "view": false,
-        "edit": true,
-        "download": true
-      },
-      "perusahaan": {
-        "view": false,
-        "edit": true,
-        "download": true
-      },
+      "username": "Herbert Feest",
+      "email": "HerbertFeest_Dickinson@yahoo.com",
       "lokasi": {
         "view": false,
         "edit": false,
         "download": false
       },
+      "perusahaan": {
+        "view": false,
+        "edit": false,
+        "download": false
+      },
+      "akses": "Lokasi",
+      "password": "LVVHrHSd",
+      "bagian_kerja": {
+        "view": false,
+        "edit": false,
+        "download": false
+      },
       "user": {
-        "view": true,
-        "edit": true,
+        "view": false,
+        "edit": false,
         "download": false
       },
       "karyawan": {
-        "view": true,
-        "edit": true,
+        "view": false,
+        "edit": false,
         "download": false
       },
       "jadwal_kerja": {
@@ -506,21 +584,21 @@
       },
       "setup_jadwal_kerja": {
         "view": false,
-        "edit": true,
+        "edit": false,
         "download": false
       },
       "kalender_kerja": {
-        "view": true,
+        "view": false,
         "edit": false,
-        "download": true
+        "download": false
       },
       "status_kehadiran": {
-        "view": true,
-        "edit": true,
-        "download": true
+        "view": false,
+        "edit": false,
+        "download": false
       },
       "list_kehadiran": {
-        "view": true,
+        "view": false,
         "edit": false,
         "download": false
       },
@@ -531,98 +609,96 @@
       },
       "download": {
         "view": false,
-        "edit": true,
+        "edit": false,
         "download": false
       },
       "mesin_finger": {
         "view": false,
         "edit": false,
-        "download": true
+        "download": false
       },
       "setup_mesin_finger": {
         "view": false,
-        "edit": true,
-        "download": true
+        "edit": false,
+        "download": false
       },
       "ganti_nip": {
         "view": false,
         "edit": false,
-        "download": true
+        "download": false
       },
       "status": true
     },
     {
       "id": 5,
-      "username": "Ryan Glover",
-      "email": "RyanGlover_Hansen19@gmail.com",
-      "id_lokasi": "TMS 4",
-      "id_perusahaan": "Donata Agung Perkasa",
-      "akses": "Perusahaan",
-      "password": "bc52hyQj",
-      "bagian_kerja": {
-        "view": true,
-        "edit": true,
-        "download": true
-      },
-      "perusahaan": {
-        "view": true,
-        "edit": true,
-        "download": false
-      },
+      "username": "Mr. Casey Lind",
+      "email": "Mr.CaseyLind.OReilly@yahoo.com",
       "lokasi": {
         "view": false,
         "edit": true,
         "download": false
       },
+      "perusahaan": {
+        "view": false,
+        "edit": true,
+        "download": false
+      },
+      "akses": "Lokasi",
+      "password": "r397mlf7",
+      "bagian_kerja": {
+        "view": false,
+        "edit": true,
+        "download": false
+      },
       "user": {
-        "view": true,
-        "edit": false,
+        "view": false,
+        "edit": true,
         "download": false
       },
       "karyawan": {
-        "view": true,
-        "edit": false,
-        "download": true
+        "view": false,
+        "edit": true,
+        "download": false
       },
       "jadwal_kerja": {
         "view": false,
-        "edit": false,
-        "download": true
+        "edit": true,
+        "download": false
       },
       "setup_jadwal_kerja": {
-        "view": true,
-        "edit": false,
+        "view": false,
+        "edit": true,
         "download": false
       },
       "kalender_kerja": {
-        "view": true,
-        "edit": false,
+        "view": false,
+        "edit": true,
         "download": false
       },
       "status_kehadiran": {
         "view": false,
         "edit": true,
-        "download": true
+        "download": false
       },
       "list_kehadiran": {
-        "view": true,
-        "edit": false,
+        "view": false,
+        "edit": true,
         "download": false
       },
       "lembur": {
         "view": false,
-        "edit": false,
+        "edit": true,
         "download": false
       },
       "download": {
         "view": false,
         "edit": true,
-        "download": true
+        "download": false
       },
       "mesin_finger": {
-        "view": true,
-        "edit": false,
-        "download": true
+        "view": false,
+        "edit": true,
+        "download": false
       },
       "setup_mesin_finger": {
         "view": false,
@@ -630,68 +706,66 @@
         "download": false
       },
       "ganti_nip": {
-        "view": true,
+        "view": false,
         "edit": true,
         "download": false
       },
-      "status": false
+      "status": true
     },
     {
       "id": 6,
-      "username": "Ismael Kilback",
-      "email": "IsmaelKilback_Bosco24@yahoo.com",
-      "id_lokasi": "TMS 2",
-      "id_perusahaan": "Donata Agung Perkasa",
-      "akses": "All",
-      "password": "GDdX64UX",
-      "bagian_kerja": {
-        "view": true,
-        "edit": false,
+      "username": "William Wisoky",
+      "email": "WilliamWisoky.Krajcik4@gmail.com",
+      "lokasi": {
+        "view": false,
+        "edit": true,
         "download": false
       },
       "perusahaan": {
-        "view": true,
-        "edit": false,
+        "view": false,
+        "edit": true,
         "download": false
       },
-      "lokasi": {
-        "view": true,
-        "edit": false,
-        "download": true
+      "akses": "All",
+      "password": "S5SzJXiO",
+      "bagian_kerja": {
+        "view": false,
+        "edit": true,
+        "download": false
       },
       "user": {
         "view": false,
         "edit": true,
-        "download": true
+        "download": false
       },
       "karyawan": {
-        "view": true,
-        "edit": false,
+        "view": false,
+        "edit": true,
         "download": false
       },
       "jadwal_kerja": {
         "view": false,
         "edit": true,
-        "download": true
+        "download": false
       },
       "setup_jadwal_kerja": {
-        "view": true,
-        "edit": false,
+        "view": false,
+        "edit": true,
         "download": false
       },
       "kalender_kerja": {
-        "view": true,
+        "view": false,
         "edit": true,
         "download": false
       },
       "status_kehadiran": {
         "view": false,
-        "edit": false,
-        "download": true
+        "edit": true,
+        "download": false
       },
       "list_kehadiran": {
         "view": false,
-        "edit": false,
+        "edit": true,
         "download": false
       },
       "lembur": {
@@ -701,47 +775,128 @@
       },
       "download": {
         "view": false,
-        "edit": false,
-        "download": true
+        "edit": true,
+        "download": false
       },
       "mesin_finger": {
-        "view": true,
+        "view": false,
         "edit": true,
-        "download": true
+        "download": false
       },
       "setup_mesin_finger": {
-        "view": true,
+        "view": false,
         "edit": true,
         "download": false
       },
       "ganti_nip": {
         "view": false,
-        "edit": false,
+        "edit": true,
         "download": false
       },
       "status": false
     },
     {
       "id": 7,
-      "username": "Sadie Kertzmann III",
-      "email": "SadieKertzmannIII_Daugherty@gmail.com",
-      "id_lokasi": "TMS 2",
-      "id_perusahaan": "The Master Steel Manufactory",
-      "akses": "All",
-      "password": "Jwe8Bpiv",
-      "bagian_kerja": {
+      "username": "Blanche Gorczany",
+      "email": "BlancheGorczany11@hotmail.com",
+      "lokasi": {
         "view": true,
-        "edit": true,
+        "edit": false,
         "download": true
       },
       "perusahaan": {
-        "view": false,
-        "edit": true,
-        "download": false
+        "view": true,
+        "edit": false,
+        "download": true
       },
+      "akses": "Perusahaan",
+      "password": "eWCzd6g2",
+      "bagian_kerja": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "user": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "karyawan": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "jadwal_kerja": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "setup_jadwal_kerja": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "kalender_kerja": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "status_kehadiran": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "list_kehadiran": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "lembur": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "download": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "mesin_finger": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "setup_mesin_finger": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "ganti_nip": {
+        "view": true,
+        "edit": false,
+        "download": true
+      },
+      "status": true
+    },
+    {
+      "id": 8,
+      "username": "Louise Flatley",
+      "email": "LouiseFlatley.Bergstrom99@gmail.com",
       "lokasi": {
         "view": true,
-        "edit": true,
+        "edit": false,
+        "download": false
+      },
+      "perusahaan": {
+        "view": true,
+        "edit": false,
+        "download": false
+      },
+      "akses": "All",
+      "password": "g8goObli",
+      "bagian_kerja": {
+        "view": true,
+        "edit": false,
         "download": false
       },
       "user": {
@@ -750,28 +905,28 @@
         "download": false
       },
       "karyawan": {
-        "view": false,
+        "view": true,
         "edit": false,
-        "download": true
+        "download": false
       },
       "jadwal_kerja": {
-        "view": false,
-        "edit": true,
+        "view": true,
+        "edit": false,
         "download": false
       },
       "setup_jadwal_kerja": {
-        "view": false,
+        "view": true,
         "edit": false,
         "download": false
       },
       "kalender_kerja": {
         "view": true,
         "edit": false,
-        "download": true
+        "download": false
       },
       "status_kehadiran": {
-        "view": false,
-        "edit": true,
+        "view": true,
+        "edit": false,
         "download": false
       },
       "list_kehadiran": {
@@ -781,3790 +936,1806 @@
       },
       "lembur": {
         "view": true,
+        "edit": false,
+        "download": false
+      },
+      "download": {
+        "view": true,
+        "edit": false,
+        "download": false
+      },
+      "mesin_finger": {
+        "view": true,
+        "edit": false,
+        "download": false
+      },
+      "setup_mesin_finger": {
+        "view": true,
+        "edit": false,
+        "download": false
+      },
+      "ganti_nip": {
+        "view": true,
+        "edit": false,
+        "download": false
+      },
+      "status": true
+    },
+    {
+      "id": 9,
+      "username": "Miss Erik Murphy",
+      "email": "MissErikMurphy57@yahoo.com",
+      "lokasi": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "perusahaan": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "akses": "Perusahaan",
+      "password": "LsPZhgpN",
+      "bagian_kerja": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "user": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "karyawan": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "jadwal_kerja": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "setup_jadwal_kerja": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "kalender_kerja": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "status_kehadiran": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "list_kehadiran": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "lembur": {
+        "view": true,
         "edit": true,
         "download": true
       },
       "download": {
-        "view": false,
+        "view": true,
         "edit": true,
-        "download": false
+        "download": true
       },
       "mesin_finger": {
-        "view": false,
+        "view": true,
         "edit": true,
         "download": true
       },
       "setup_mesin_finger": {
-        "view": false,
+        "view": true,
         "edit": true,
         "download": true
       },
       "ganti_nip": {
-        "view": false,
-        "edit": false,
-        "download": false
+        "view": true,
+        "edit": true,
+        "download": true
       },
       "status": false
+    },
+    {
+      "id": 10,
+      "username": "Eva Raynor",
+      "email": "EvaRaynor.Bradtke@hotmail.com",
+      "lokasi": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "perusahaan": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "akses": "Perusahaan",
+      "password": "Z8UaGL6e",
+      "bagian_kerja": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "user": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "karyawan": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "jadwal_kerja": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "setup_jadwal_kerja": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "kalender_kerja": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "status_kehadiran": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "list_kehadiran": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "lembur": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "download": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "mesin_finger": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "setup_mesin_finger": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "ganti_nip": {
+        "view": true,
+        "edit": true,
+        "download": true
+      },
+      "status": true
     }
   ],
   "ms_karyawan": [
     {
-      "id": "152599",
+      "id": 1,
+      "nip": "328267",
       "kewarganegaraan": "WNI",
-      "nik": "5455055144417495",
-      "nama_lengkap": "Melinda Swaniawski",
-      "tempat_lahir": "Carmel",
-      "tgl_lahir": "1975-03-07",
+      "nik": "9381410245935064",
+      "nama_lengkap": "Antonia Johns",
+      "tempat_lahir": "Mountain View",
       "jenis_kelamin": "Laki-Laki",
-      "alamat_domisili": "West Adrienneview",
-      "rt_rw": "38/74",
-      "kel_desa": "Waltham",
-      "agama": "Buddha",
-      "status_perkawinan": "Belum kawin",
-      "nomor_npwp": "6303479060703146",
-      "nomor_telepon": "+62 888 2666 2421",
-      "email": "Judy.Leannon9@yahoo.com",
-      "pendidikan_terakhir": "S2",
-      "nomor_bpjs_tk": "1752 8415 495",
-      "nomor_bpjs_kesehatan": "9448 7982 9983 0",
-      "nama_faskes": "Leticia Braun",
-      "alamat_faskes": "Newton",
-      "nomor_kk": "1626 4536 2291 7222",
-      "nama_kepala_keluarga": "Mr. Doug Wiegand",
-      "nama_ibu_kandung": "Carrie Swift",
-      "status_pajak": "TK/0",
-      "nama_pasangan": "Miss Leo Kerluke",
-      "nama_anak_ke1": "Dexter Leannon",
-      "nama_anak_ke2": "Dale Reichel",
-      "nama_anak_ke3": "Frankie Bergstrom",
-      "nama_kontak_darurat": "Gary Cummings IV",
-      "nomor_telepon_darurat": "+62 823 5136 1896",
-      "hubungan_dengan_karyawan": "Land necessitatibus",
-      "nomor_passport": "1290555",
-      "tgl_pembuatan_passport": "2022-12-20",
-      "tgl_berakhir_passport": "2023-06-25",
-      "kebangsaan": "Bosnia and Herzegovina",
-      "nomor_kitas": "63079527140558216395",
-      "tgl_berakhir_kitas": "2023-10-13",
-      "nomor_rptka": "83255296202986230480",
-      "tgl_berakhir_rptka": "2023-02-20",
-      "id_perusahaan": "Donata Agung Perkasa",
-      "id_lokasi": "TMS 4",
-      "id_divisi": "HRD",
-      "id_departemen": "SAT Developer",
-      "id_subdepartemen": "SAT Developer",
-      "jabatan": "Manager",
-      "status_karyawan": "PKWT",
-      "nama_pemberi_referensi": "Ervin Abshire",
-      "nama_atasan_langsung": "Dr. Tommy Stoltenberg",
-      "tgl_join": "2022-08-29",
-      "nomor_pkwtt": "nikzzkgi7h98lsookv87",
-      "gaji_pokok": 88362979,
-      "tgl_perubahan": "2022-12-28",
-      "uang_makan": 23029,
-      "uang_transport": 125595,
-      "note": "deposit alloy Unbranded Soul Cargo driver Cambridgeshire feed elapse North",
-      "jadwal_kerja": [
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "01-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS4S1P0917",
-          "tgl": "02-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P1422",
-          "tgl": "03-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0716",
-          "tgl": "04-12-2022",
-          "hari": "Minggu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1N0917",
-          "tgl": "05-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2N0917",
-          "tgl": "06-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "07-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P0917",
-          "tgl": "08-12-2022",
-          "hari": "Kamis",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0917",
-          "tgl": "09-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2N0917",
-          "tgl": "10-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0917",
-          "tgl": "11-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P0917",
-          "tgl": "12-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0917",
-          "tgl": "13-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N1422",
-          "tgl": "14-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "15-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "16-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "17-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S1N1422",
-          "tgl": "18-12-2022",
-          "hari": "Minggu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S2N1422",
-          "tgl": "19-12-2022",
-          "hari": "Senin",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0716",
-          "tgl": "20-12-2022",
-          "hari": "Selasa",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "21-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P0716",
-          "tgl": "22-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S2P0917",
-          "tgl": "23-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P1422",
-          "tgl": "24-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "25-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S0P0716",
-          "tgl": "26-12-2022",
-          "hari": "Senin",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S1P0917",
-          "tgl": "27-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P1422",
-          "tgl": "28-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S1P0716",
-          "tgl": "29-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "30-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P1422",
-          "tgl": "31-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        }
-      ]
-    },
-    {
-      "id": "432245",
-      "kewarganegaraan": "WNA",
-      "nik": "6051467942654598",
-      "nama_lengkap": "Hazel Stanton",
-      "tempat_lahir": "Twin Falls",
-      "tgl_lahir": "1958-05-10",
-      "jenis_kelamin": "Laki-Laki",
-      "alamat_domisili": "Lake Lexiefield",
-      "rt_rw": "50/52",
-      "kel_desa": "South Lacy",
-      "agama": "Buddha",
-      "status_perkawinan": "Kawin",
-      "nomor_npwp": "6145979586796032",
-      "nomor_telepon": "+62 871 1448 8584",
-      "email": "Percy_Kris93@yahoo.com",
-      "pendidikan_terakhir": "Diploma 3",
-      "nomor_bpjs_tk": "3613 9435 836",
-      "nomor_bpjs_kesehatan": "9539 6442 7235 9",
-      "nama_faskes": "Melody Bechtelar",
-      "alamat_faskes": "Perris",
-      "nomor_kk": "8007 3131 7841 8074",
-      "nama_kepala_keluarga": "Carole Monahan",
-      "nama_ibu_kandung": "Sherry Abernathy",
-      "status_pajak": "K/1",
-      "nama_pasangan": "Glenda Wuckert MD",
-      "nama_anak_ke1": "Rosie Hackett",
-      "nama_anak_ke2": "Mr. Clark Erdman",
-      "nama_anak_ke3": "Cindy Stroman",
-      "nama_kontak_darurat": "Jana Wuckert",
-      "nomor_telepon_darurat": "+62 802 8428 5089",
-      "hubungan_dengan_karyawan": "Innovative scale",
-      "nomor_passport": "9988980",
-      "tgl_pembuatan_passport": "2022-03-20",
-      "tgl_berakhir_passport": "2023-08-19",
-      "kebangsaan": "Timor-Leste",
-      "nomor_kitas": "16478960885885049760",
-      "tgl_berakhir_kitas": "2023-05-10",
-      "nomor_rptka": "66208431018033039684",
-      "tgl_berakhir_rptka": "2023-11-11",
-      "id_perusahaan": "The Master Steel Manufactory",
-      "id_lokasi": "TMS 3",
-      "id_divisi": "IT",
-      "id_departemen": "HRD",
-      "id_subdepartemen": "Purchase",
-      "jabatan": "Director",
-      "status_karyawan": "Harian",
-      "nama_pemberi_referensi": "Anna Anderson",
-      "nama_atasan_langsung": "Tara Rodriguez Jr.",
-      "tgl_join": "2022-11-12",
-      "nomor_pkwtt": "t6fkrkk90yj1rzy3oral",
-      "gaji_pokok": 73494059,
-      "tgl_perubahan": "2022-12-28",
-      "uang_makan": 63818,
-      "uang_transport": 124099,
-      "note": "Northeast architecto Visionary Avon Avon finally Southwest input Kansas Southeast",
-      "jadwal_kerja": [
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "01-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS4S1P0917",
-          "tgl": "02-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P1422",
-          "tgl": "03-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0716",
-          "tgl": "04-12-2022",
-          "hari": "Minggu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1N0917",
-          "tgl": "05-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2N0917",
-          "tgl": "06-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "07-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P0917",
-          "tgl": "08-12-2022",
-          "hari": "Kamis",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0917",
-          "tgl": "09-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2N0917",
-          "tgl": "10-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0917",
-          "tgl": "11-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P0917",
-          "tgl": "12-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0917",
-          "tgl": "13-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N1422",
-          "tgl": "14-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "15-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "16-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "17-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S1N1422",
-          "tgl": "18-12-2022",
-          "hari": "Minggu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S2N1422",
-          "tgl": "19-12-2022",
-          "hari": "Senin",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0716",
-          "tgl": "20-12-2022",
-          "hari": "Selasa",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "21-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P0716",
-          "tgl": "22-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S2P0917",
-          "tgl": "23-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P1422",
-          "tgl": "24-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "25-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S0P0716",
-          "tgl": "26-12-2022",
-          "hari": "Senin",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S1P0917",
-          "tgl": "27-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P1422",
-          "tgl": "28-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S1P0716",
-          "tgl": "29-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "30-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P1422",
-          "tgl": "31-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        }
-      ]
-    },
-    {
-      "id": "522513",
-      "kewarganegaraan": "WNI",
-      "nik": "7365072372223262",
-      "nama_lengkap": "Roberta Bogan",
-      "tempat_lahir": "North Charleston",
-      "tgl_lahir": "1965-07-12",
-      "jenis_kelamin": "Laki-Laki",
-      "alamat_domisili": "Lake Melvina",
-      "rt_rw": "36/34",
-      "kel_desa": "Mauricefort",
-      "agama": "Hindu",
-      "status_perkawinan": "Cerai",
-      "nomor_npwp": "5709517123013905",
-      "nomor_telepon": "+62 804 7814 2795",
-      "email": "Myrna.Bechtelar@gmail.com",
-      "pendidikan_terakhir": "Diploma 2",
-      "nomor_bpjs_tk": "3044 6469 600",
-      "nomor_bpjs_kesehatan": "8269 8740 5952 6",
-      "nama_faskes": "Juanita Marquardt II",
-      "alamat_faskes": "San Angelo",
-      "nomor_kk": "5791 5435 6385 9193",
-      "nama_kepala_keluarga": "Mr. Herman Casper",
-      "nama_ibu_kandung": "Byron Schuppe",
-      "status_pajak": "K/I/2",
-      "nama_pasangan": "Bertha Reynolds III",
-      "nama_anak_ke1": "Della Cole",
-      "nama_anak_ke2": "Whitney Kris",
-      "nama_anak_ke3": "Wilbur Runte",
-      "nama_kontak_darurat": "Ms. Mabel Hilpert MD",
-      "nomor_telepon_darurat": "+62 844 8916 3793",
-      "hubungan_dengan_karyawan": "Southeast virtual",
-      "nomor_passport": "8743807",
-      "tgl_pembuatan_passport": "2022-06-23",
-      "tgl_berakhir_passport": "2023-08-29",
-      "kebangsaan": "Rwanda",
-      "nomor_kitas": "69358596094159703155",
-      "tgl_berakhir_kitas": "2023-06-15",
-      "nomor_rptka": "26177334945680013651",
-      "tgl_berakhir_rptka": "2023-06-05",
-      "id_perusahaan": "Royalindo Investa Wijaya",
-      "id_lokasi": "TMS HO",
-      "id_divisi": "GA",
-      "id_departemen": "Project",
-      "id_subdepartemen": "Support",
-      "jabatan": "Specialis",
-      "status_karyawan": "PKWTT",
-      "nama_pemberi_referensi": "Billy Hintz DDS",
-      "nama_atasan_langsung": "Shirley Reichel",
-      "tgl_join": "2022-01-26",
-      "nomor_pkwtt": "pcn36y31sypnky87c6b7",
-      "gaji_pokok": 70488168,
-      "tgl_perubahan": "2022-12-27",
-      "uang_makan": 24224,
-      "uang_transport": 226197,
-      "note": "Faso Trans architect blah secondary Loan Southwest XSS Account once",
-      "jadwal_kerja": [
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "01-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS4S1P0917",
-          "tgl": "02-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P1422",
-          "tgl": "03-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0716",
-          "tgl": "04-12-2022",
-          "hari": "Minggu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1N0917",
-          "tgl": "05-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2N0917",
-          "tgl": "06-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "07-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P0917",
-          "tgl": "08-12-2022",
-          "hari": "Kamis",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0917",
-          "tgl": "09-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2N0917",
-          "tgl": "10-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0917",
-          "tgl": "11-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P0917",
-          "tgl": "12-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0917",
-          "tgl": "13-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N1422",
-          "tgl": "14-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "15-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "16-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "17-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S1N1422",
-          "tgl": "18-12-2022",
-          "hari": "Minggu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S2N1422",
-          "tgl": "19-12-2022",
-          "hari": "Senin",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0716",
-          "tgl": "20-12-2022",
-          "hari": "Selasa",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "21-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P0716",
-          "tgl": "22-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S2P0917",
-          "tgl": "23-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P1422",
-          "tgl": "24-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "25-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S0P0716",
-          "tgl": "26-12-2022",
-          "hari": "Senin",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S1P0917",
-          "tgl": "27-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P1422",
-          "tgl": "28-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S1P0716",
-          "tgl": "29-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "30-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P1422",
-          "tgl": "31-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        }
-      ]
-    },
-    {
-      "id": "241767",
-      "kewarganegaraan": "WNI",
-      "nik": "7296999117088532",
-      "nama_lengkap": "Clifford Kuvalis",
-      "tempat_lahir": "Kenner",
-      "tgl_lahir": "1991-12-13",
-      "jenis_kelamin": "Laki-Laki",
-      "alamat_domisili": "Parkerworth",
-      "rt_rw": "54/89",
-      "kel_desa": "Lake Manuela",
-      "agama": "Hindu",
-      "status_perkawinan": "Kawin",
-      "nomor_npwp": "5835259258827977",
-      "nomor_telepon": "+62 850 6639 8217",
-      "email": "Jaida23@yahoo.com",
-      "pendidikan_terakhir": "Diploma 3",
-      "nomor_bpjs_tk": "4750 6381 417",
-      "nomor_bpjs_kesehatan": "4339 0086 0342 4",
-      "nama_faskes": "Bessie Stark",
-      "alamat_faskes": "Oshkosh",
-      "nomor_kk": "0505 3952 0277 8659",
-      "nama_kepala_keluarga": "Omar Crist",
-      "nama_ibu_kandung": "Ollie Rolfson",
-      "status_pajak": "K/0",
-      "nama_pasangan": "Mr. Jeannie Jacobi",
-      "nama_anak_ke1": "Karl Runte",
-      "nama_anak_ke2": "Clay Dickens",
-      "nama_anak_ke3": "Austin Wiza",
-      "nama_kontak_darurat": "Elijah Ratke",
-      "nomor_telepon_darurat": "+62 863 8444 2821",
-      "hubungan_dengan_karyawan": "online mail",
-      "nomor_passport": "4840679",
-      "tgl_pembuatan_passport": "2022-08-14",
-      "tgl_berakhir_passport": "2023-02-11",
-      "kebangsaan": "Cameroon",
-      "nomor_kitas": "21355175548734257745",
-      "tgl_berakhir_kitas": "2023-04-30",
-      "nomor_rptka": "83335484743354657341",
-      "tgl_berakhir_rptka": "2023-05-09",
-      "id_perusahaan": "Donata Agung Perkasa",
-      "id_lokasi": "TMS 3",
-      "id_divisi": "Finance",
-      "id_departemen": "Support",
-      "id_subdepartemen": "Sales",
-      "jabatan": "Director",
-      "status_karyawan": "PKWTT",
-      "nama_pemberi_referensi": "Alan Lubowitz",
-      "nama_atasan_langsung": "Patty Bailey",
-      "tgl_join": "2022-08-03",
-      "nomor_pkwtt": "bngwnu9pwuh10f9a1waw",
-      "gaji_pokok": 4470408,
-      "tgl_perubahan": "2022-12-27",
-      "uang_makan": 13010,
-      "uang_transport": 133236,
-      "note": "District Delaware Towne Principal Summit Group Hybrid flung Interactions Northeast",
-      "jadwal_kerja": [
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "01-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS4S1P0917",
-          "tgl": "02-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P1422",
-          "tgl": "03-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0716",
-          "tgl": "04-12-2022",
-          "hari": "Minggu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1N0917",
-          "tgl": "05-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2N0917",
-          "tgl": "06-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "07-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P0917",
-          "tgl": "08-12-2022",
-          "hari": "Kamis",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0917",
-          "tgl": "09-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2N0917",
-          "tgl": "10-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0917",
-          "tgl": "11-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P0917",
-          "tgl": "12-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0917",
-          "tgl": "13-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N1422",
-          "tgl": "14-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "15-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "16-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "17-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S1N1422",
-          "tgl": "18-12-2022",
-          "hari": "Minggu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S2N1422",
-          "tgl": "19-12-2022",
-          "hari": "Senin",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0716",
-          "tgl": "20-12-2022",
-          "hari": "Selasa",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "21-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P0716",
-          "tgl": "22-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S2P0917",
-          "tgl": "23-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P1422",
-          "tgl": "24-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "25-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S0P0716",
-          "tgl": "26-12-2022",
-          "hari": "Senin",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S1P0917",
-          "tgl": "27-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P1422",
-          "tgl": "28-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S1P0716",
-          "tgl": "29-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "30-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P1422",
-          "tgl": "31-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        }
-      ]
-    },
-    {
-      "id": "960930",
-      "kewarganegaraan": "WNI",
-      "nik": "4980659980267748",
-      "nama_lengkap": "Victoria Yost PhD",
-      "tempat_lahir": "Las Vegas",
-      "tgl_lahir": "1982-02-04",
-      "jenis_kelamin": "Laki-Laki",
-      "alamat_domisili": "Wolfside",
-      "rt_rw": "25/26",
-      "kel_desa": "Lake Guiseppeberg",
-      "agama": "Buddha",
-      "status_perkawinan": "Cerai",
-      "nomor_npwp": "7678127140883899",
-      "nomor_telepon": "+62 812 4296 5931",
-      "email": "Norval_Marquardt@yahoo.com",
-      "pendidikan_terakhir": "SMP",
-      "nomor_bpjs_tk": "6765 2896 746",
-      "nomor_bpjs_kesehatan": "9650 5849 7402 0",
-      "nama_faskes": "Darren Jacobs",
-      "alamat_faskes": "Long Beach",
-      "nomor_kk": "8510 9651 2196 2773",
-      "nama_kepala_keluarga": "Faith Barrows",
-      "nama_ibu_kandung": "Leo Ernser",
-      "status_pajak": "K/I/0",
-      "nama_pasangan": "Carrie MacGyver",
-      "nama_anak_ke1": "Edwin Turner",
-      "nama_anak_ke2": "Ms. Omar Greenholt",
-      "nama_anak_ke3": "Jerald Wisoky",
-      "nama_kontak_darurat": "Mr. Guadalupe Kunze",
-      "nomor_telepon_darurat": "+62 877 5410 6653",
-      "hubungan_dengan_karyawan": "Bike incinerate",
-      "nomor_passport": "4388220",
-      "tgl_pembuatan_passport": "2022-08-04",
-      "tgl_berakhir_passport": "2023-02-25",
-      "kebangsaan": "Ecuador",
-      "nomor_kitas": "13570578384241501166",
-      "tgl_berakhir_kitas": "2022-12-28",
-      "nomor_rptka": "72444544270059403123",
-      "tgl_berakhir_rptka": "2023-09-23",
-      "id_perusahaan": "Donata Agung Perkasa",
-      "id_lokasi": "TMS 2",
-      "id_divisi": "Sales",
-      "id_departemen": "Purchase",
-      "id_subdepartemen": "SAT Developer",
-      "jabatan": "Staff/Crew",
-      "status_karyawan": "Informal",
-      "nama_pemberi_referensi": "Janis Schiller",
-      "nama_atasan_langsung": "Leigh Weber",
-      "tgl_join": "2022-05-19",
-      "nomor_pkwtt": "5o5gahq3mq73w0rtndsg",
-      "gaji_pokok": 43573722,
-      "tgl_perubahan": "2022-12-27",
-      "uang_makan": 68089,
-      "uang_transport": 74791,
-      "note": "parallelism Redmond croup Soft zowie Intersex Buckinghamshire Tantalum Bugatti Reduced",
-      "jadwal_kerja": [
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "01-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS4S1P0917",
-          "tgl": "02-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P1422",
-          "tgl": "03-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0716",
-          "tgl": "04-12-2022",
-          "hari": "Minggu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1N0917",
-          "tgl": "05-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2N0917",
-          "tgl": "06-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "07-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P0917",
-          "tgl": "08-12-2022",
-          "hari": "Kamis",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0917",
-          "tgl": "09-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2N0917",
-          "tgl": "10-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0917",
-          "tgl": "11-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P0917",
-          "tgl": "12-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0917",
-          "tgl": "13-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N1422",
-          "tgl": "14-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "15-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "16-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "17-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S1N1422",
-          "tgl": "18-12-2022",
-          "hari": "Minggu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S2N1422",
-          "tgl": "19-12-2022",
-          "hari": "Senin",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0716",
-          "tgl": "20-12-2022",
-          "hari": "Selasa",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "21-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P0716",
-          "tgl": "22-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S2P0917",
-          "tgl": "23-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P1422",
-          "tgl": "24-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "25-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S0P0716",
-          "tgl": "26-12-2022",
-          "hari": "Senin",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S1P0917",
-          "tgl": "27-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P1422",
-          "tgl": "28-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S1P0716",
-          "tgl": "29-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "30-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P1422",
-          "tgl": "31-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        }
-      ]
-    },
-    {
-      "id": "307199",
-      "kewarganegaraan": "WNI",
-      "nik": "8896447841159397",
-      "nama_lengkap": "Jenna Reinger",
-      "tempat_lahir": "Blaine",
-      "tgl_lahir": "1953-05-26",
-      "jenis_kelamin": "Perempuan",
-      "alamat_domisili": "Donniestad",
-      "rt_rw": "29/83",
-      "kel_desa": "Cristalfurt",
+      "alamat_domisili": "Hesselland",
+      "rt_rw": "19/90",
+      "kel_desa": "South Elmerview",
       "agama": "Protestan",
       "status_perkawinan": "Cerai",
-      "nomor_npwp": "3258389646473600",
-      "nomor_telepon": "+62 845 1343 5339",
-      "email": "Nora.Mitchell@hotmail.com",
-      "pendidikan_terakhir": "S3",
-      "nomor_bpjs_tk": "6570 1390 368",
-      "nomor_bpjs_kesehatan": "7490 3208 4667 1",
-      "nama_faskes": "Doyle Zieme",
-      "alamat_faskes": "San Luis Obispo",
-      "nomor_kk": "0062 4230 0887 5110",
-      "nama_kepala_keluarga": "Elsa Gerhold V",
-      "nama_ibu_kandung": "Erika Jacobs",
-      "status_pajak": "TK/3",
-      "nama_pasangan": "Stacy Carroll",
-      "nama_anak_ke1": "Nathan Crona IV",
-      "nama_anak_ke2": "Laurie Cummerata",
-      "nama_anak_ke3": "Terri Wunsch",
-      "nama_kontak_darurat": "Bruce Botsford",
-      "nomor_telepon_darurat": "+62 892 5530 4605",
-      "hubungan_dengan_karyawan": "SMTP Ames",
-      "nomor_passport": "4934067",
-      "tgl_pembuatan_passport": "2022-11-16",
-      "tgl_berakhir_passport": "2023-05-29",
-      "kebangsaan": "Gabon",
-      "nomor_kitas": "89466421625014867997",
-      "tgl_berakhir_kitas": "2023-03-28",
-      "nomor_rptka": "76926798212629067214",
-      "tgl_berakhir_rptka": "2023-05-18",
-      "id_perusahaan": "Royalindo Investa Wijaya",
-      "id_lokasi": "TMS 1",
-      "id_divisi": "HRD",
-      "id_departemen": "Marketing",
-      "id_subdepartemen": "SAT Developer",
-      "jabatan": "Foreman",
-      "status_karyawan": "Magang",
-      "nama_pemberi_referensi": "Alfonso Hand",
-      "nama_atasan_langsung": "Ralph Hirthe",
-      "tgl_join": "2022-02-15",
-      "nomor_pkwtt": "u5tmr8wujq7k4jvqmgqa",
-      "gaji_pokok": 6796087,
-      "tgl_perubahan": "2022-12-27",
-      "uang_makan": 23743,
-      "uang_transport": 169805,
-      "note": "B2C Executive Internal SUV dearly Electric Female Music IB Saint",
-      "jadwal_kerja": [
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "01-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS4S1P0917",
-          "tgl": "02-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P1422",
-          "tgl": "03-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0716",
-          "tgl": "04-12-2022",
-          "hari": "Minggu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1N0917",
-          "tgl": "05-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2N0917",
-          "tgl": "06-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "07-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P0917",
-          "tgl": "08-12-2022",
-          "hari": "Kamis",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0917",
-          "tgl": "09-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2N0917",
-          "tgl": "10-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0917",
-          "tgl": "11-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P0917",
-          "tgl": "12-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0917",
-          "tgl": "13-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N1422",
-          "tgl": "14-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "15-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "16-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "17-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S1N1422",
-          "tgl": "18-12-2022",
-          "hari": "Minggu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S2N1422",
-          "tgl": "19-12-2022",
-          "hari": "Senin",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0716",
-          "tgl": "20-12-2022",
-          "hari": "Selasa",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "21-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P0716",
-          "tgl": "22-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S2P0917",
-          "tgl": "23-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P1422",
-          "tgl": "24-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "25-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S0P0716",
-          "tgl": "26-12-2022",
-          "hari": "Senin",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S1P0917",
-          "tgl": "27-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P1422",
-          "tgl": "28-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S1P0716",
-          "tgl": "29-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "30-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P1422",
-          "tgl": "31-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        }
-      ]
+      "nomor_npwp": "9181463618207853",
+      "nomor_telepon": "+62 849 5717 2947",
+      "email": "Velda.Friesen@yahoo.com",
+      "pendidikan_terakhir": "SMP",
+      "nomor_bpjs_tk": "2167 1702 808",
+      "nomor_bpjs_kesehatan": "9575 3627 6364 7",
+      "nama_faskes": "Sophie Ondricka",
+      "alamat_faskes": "Tamiami",
+      "nomor_kk": "7269 3915 6977 5314",
+      "nama_kepala_keluarga": "Valerie Boehm",
+      "nama_ibu_kandung": "Edna Schaefer",
+      "status_pajak": "K/0",
+      "nama_pasangan": "Willie Von",
+      "nama_anak_ke1": "Marguerite Pagac",
+      "nama_anak_ke2": "Jessica Gislason",
+      "nama_anak_ke3": "Mr. Paul Berge",
+      "nama_kontak_darurat": "Katrina Schamberger",
+      "nomor_telepon_darurat": "+62 819 1904 2325",
+      "hubungan_dengan_karyawan": "Oganesson Southwest",
+      "nomor_passport": "3464718",
+      "kebangsaan": "Mexico",
+      "nomor_kitas": "24391521659690754290",
+      "nomor_rptka": "45676946198449824027",
+      "perusahaan": "Donata Agung Perkasa",
+      "lokasi": "The Master Steel 3",
+      "divisi": "Faktur",
+      "departemen": "Purchase",
+      "subdepartemen": "Electrik",
+      "jabatan": "Manager",
+      "status_karyawan": "Informal",
+      "nama_pemberi_referensi": "Guillermo Schneider",
+      "nama_atasan_langsung": "Jeanette Prosacco",
+      "nomor_pkwtt": "rcivf5wr57gaj27i7g1u",
+      "gaji_pokok": 57667108,
+      "uang_makan": 67807,
+      "uang_transport": 153412,
+      "note": "Southeast withdrawal firebomb port relegate voluntarily Associate Berkshire Cisgender proactive"
     },
     {
-      "id": "466689",
-      "kewarganegaraan": "WNI",
-      "nik": "4253147685934675",
-      "nama_lengkap": "Rolando Friesen",
-      "tempat_lahir": "Brooklyn Park",
-      "tgl_lahir": "1966-01-29",
+      "id": 2,
+      "nip": "362932",
+      "kewarganegaraan": "WNA",
+      "nik": "5209200103665221",
+      "nama_lengkap": "Doyle Hoeger",
+      "tempat_lahir": "Bridgeport",
       "jenis_kelamin": "Perempuan",
-      "alamat_domisili": "Oberbrunnerside",
-      "rt_rw": "83/98",
-      "kel_desa": "Omaha",
-      "agama": "Lain-lain",
+      "alamat_domisili": "Amarillo",
+      "rt_rw": "55/50",
+      "kel_desa": "Denver",
+      "agama": "Hindu",
       "status_perkawinan": "Kawin",
-      "nomor_npwp": "8754215375875884",
-      "nomor_telepon": "+62 840 6757 1336",
-      "email": "Pearl.Zemlak@gmail.com",
+      "nomor_npwp": "8652723303390913",
+      "nomor_telepon": "+62 880 5897 5829",
+      "email": "Frida.Dickens37@gmail.com",
+      "pendidikan_terakhir": "S2",
+      "nomor_bpjs_tk": "4601 5692 804",
+      "nomor_bpjs_kesehatan": "7714 7198 2909 1",
+      "nama_faskes": "Harvey Mante",
+      "alamat_faskes": "Duluth",
+      "nomor_kk": "1440 5483 5879 2660",
+      "nama_kepala_keluarga": "Clayton Hessel",
+      "nama_ibu_kandung": "Anthony Ankunding",
+      "status_pajak": "TK/2",
+      "nama_pasangan": "Alfonso Frami",
+      "nama_anak_ke1": "Danny Hickle",
+      "nama_anak_ke2": "Clay Goodwin II",
+      "nama_anak_ke3": "Melvin McClure",
+      "nama_kontak_darurat": "Clara Thompson",
+      "nomor_telepon_darurat": "+62 892 1382 7221",
+      "hubungan_dengan_karyawan": "compost protocol",
+      "nomor_passport": "4583868",
+      "kebangsaan": "Saint Barthelemy",
+      "nomor_kitas": "83720962032284107023",
+      "nomor_rptka": "94014678213141000472",
+      "perusahaan": "The Master Steel Manufactory",
+      "lokasi": "The Master Steel HO",
+      "divisi": "AR",
+      "departemen": "IT",
+      "subdepartemen": "AR",
+      "jabatan": "General Manager",
+      "status_karyawan": "PKWTT",
+      "nama_pemberi_referensi": "Renee Keeling",
+      "nama_atasan_langsung": "Mr. Bryan Larkin",
+      "nomor_pkwtt": "ebftn4jor7wo84qr6uwf",
+      "gaji_pokok": 8637019,
+      "uang_makan": 32195,
+      "uang_transport": 213456,
+      "note": "Forward Fresh Cambridgeshire Bike Cadmium female chug Account Extended wireless"
+    },
+    {
+      "id": 3,
+      "nip": "990683",
+      "kewarganegaraan": "WNI",
+      "nik": "5384314639575475",
+      "nama_lengkap": "Willard Beahan",
+      "tempat_lahir": "San Francisco",
+      "jenis_kelamin": "Perempuan",
+      "alamat_domisili": "Gracielamouth",
+      "rt_rw": "81/43",
+      "kel_desa": "Terryport",
+      "agama": "Khonghucu",
+      "status_perkawinan": "Belum kawin",
+      "nomor_npwp": "7840673108386936",
+      "nomor_telepon": "+62 827 3569 6993",
+      "email": "Marques.Kuhn41@yahoo.com",
       "pendidikan_terakhir": "SMA",
-      "nomor_bpjs_tk": "9711 3312 013",
-      "nomor_bpjs_kesehatan": "6355 9957 1939 1",
-      "nama_faskes": "Corey Kozey",
-      "alamat_faskes": "Albuquerque",
-      "nomor_kk": "8438 8364 8586 5181",
-      "nama_kepala_keluarga": "Lynda Cummerata",
-      "nama_ibu_kandung": "Myra Kuhic",
+      "nomor_bpjs_tk": "3151 3139 620",
+      "nomor_bpjs_kesehatan": "3788 3278 8246 2",
+      "nama_faskes": "Benny Stoltenberg",
+      "alamat_faskes": "Maricopa",
+      "nomor_kk": "5536 0098 1412 1220",
+      "nama_kepala_keluarga": "Duane Skiles",
+      "nama_ibu_kandung": "Emilio Kohler",
+      "status_pajak": "K/I/2",
+      "nama_pasangan": "Mrs. Jessie Prosacco",
+      "nama_anak_ke1": "Debra Bartell",
+      "nama_anak_ke2": "Ellis Padberg",
+      "nama_anak_ke3": "Rhonda Will",
+      "nama_kontak_darurat": "Harriet Gerlach",
+      "nomor_telepon_darurat": "+62 892 2145 2727",
+      "hubungan_dengan_karyawan": "World policy",
+      "nomor_passport": "4524391",
+      "kebangsaan": "Antarctica (the territory South of 60 deg S)",
+      "nomor_kitas": "30560049784199688316",
+      "nomor_rptka": "91213521064471401381",
+      "perusahaan": "Royalindo Investa Wijaya",
+      "lokasi": "The Master Steel 4",
+      "divisi": "Faktur",
+      "departemen": "SAT Developer",
+      "subdepartemen": "Faktur",
+      "jabatan": "Senior Manager",
+      "status_karyawan": "PKWT",
+      "nama_pemberi_referensi": "Elsa Heaney",
+      "nama_atasan_langsung": "Benny Barrows",
+      "nomor_pkwtt": "1jhhgupqrsgpar70x6el",
+      "gaji_pokok": 30389092,
+      "uang_makan": 21907,
+      "uang_transport": 239133,
+      "note": "Bahrain olive Tasty deck Identity Electronic evolve Radial becquerel SUV"
+    },
+    {
+      "id": 4,
+      "nip": "997413",
+      "kewarganegaraan": "WNI",
+      "nik": "3066879403292067",
+      "nama_lengkap": "Micheal Fadel",
+      "tempat_lahir": "Elkhart",
+      "jenis_kelamin": "Laki-Laki",
+      "alamat_domisili": "Irving",
+      "rt_rw": "24/30",
+      "kel_desa": "North Ceasar",
+      "agama": "Khonghucu",
+      "status_perkawinan": "Cerai",
+      "nomor_npwp": "1897607251667385",
+      "nomor_telepon": "+62 897 1665 1859",
+      "email": "Ethan_Morar@gmail.com",
+      "pendidikan_terakhir": "S3",
+      "nomor_bpjs_tk": "9134 9839 877",
+      "nomor_bpjs_kesehatan": "2752 3616 9396 4",
+      "nama_faskes": "Cassandra Rolfson",
+      "alamat_faskes": "Port St. Lucie",
+      "nomor_kk": "4514 3122 3783 5711",
+      "nama_kepala_keluarga": "Alonzo Balistreri",
+      "nama_ibu_kandung": "Mr. Charlie Langosh",
       "status_pajak": "K/2",
-      "nama_pasangan": "Julie Kuhlman",
-      "nama_anak_ke1": "Roxanne Weimann",
-      "nama_anak_ke2": "Mrs. Jeremy Padberg",
-      "nama_anak_ke3": "Alyssa Sporer",
-      "nama_kontak_darurat": "Clinton Waelchi",
-      "nomor_telepon_darurat": "+62 820 2499 6751",
-      "hubungan_dengan_karyawan": "Global mole",
-      "nomor_passport": "3369860",
-      "tgl_pembuatan_passport": "2022-04-28",
-      "tgl_berakhir_passport": "2023-03-18",
-      "kebangsaan": "American Samoa",
-      "nomor_kitas": "53550390398354160798",
-      "tgl_berakhir_kitas": "2023-10-31",
-      "nomor_rptka": "76802395933355122049",
-      "tgl_berakhir_rptka": "2023-07-02",
-      "id_perusahaan": "Indika Jasa Parama",
-      "id_lokasi": "TMS 3",
-      "id_divisi": "GA",
-      "id_departemen": "Support",
-      "id_subdepartemen": "HRD",
+      "nama_pasangan": "Dora Nicolas",
+      "nama_anak_ke1": "Gene Kunde",
+      "nama_anak_ke2": "Lawrence Mraz",
+      "nama_anak_ke3": "Salvador Bartell",
+      "nama_kontak_darurat": "Dr. Heather Schulist",
+      "nomor_telepon_darurat": "+62 836 3638 2757",
+      "hubungan_dengan_karyawan": "index ipsum",
+      "nomor_passport": "7148213",
+      "kebangsaan": "Nicaragua",
+      "nomor_kitas": "10734966153443643456",
+      "nomor_rptka": "29115196290550429670",
+      "perusahaan": "Indika Jasa Parama",
+      "lokasi": "The Master Steel 4",
+      "divisi": "Produksi",
+      "departemen": "Electrik",
+      "subdepartemen": "IT Support",
+      "jabatan": "Specialis",
+      "status_karyawan": "PKWTT",
+      "nama_pemberi_referensi": "Levi DuBuque",
+      "nama_atasan_langsung": "Marie Haley",
+      "nomor_pkwtt": "0giqmcl140t168agos35",
+      "gaji_pokok": 12396208,
+      "uang_makan": 21420,
+      "uang_transport": 198015,
+      "note": "oh around female East East Oklahoma female Dollar Magnesium matrix"
+    },
+    {
+      "id": 5,
+      "nip": "609269",
+      "kewarganegaraan": "WNI",
+      "nik": "8433010457121347",
+      "nama_lengkap": "Alan Gorczany",
+      "tempat_lahir": "Methuen Town",
+      "jenis_kelamin": "Perempuan",
+      "alamat_domisili": "Jaredfort",
+      "rt_rw": "30/24",
+      "kel_desa": "North Daisha",
+      "agama": "Protestan",
+      "status_perkawinan": "Belum kawin",
+      "nomor_npwp": "2823819318059673",
+      "nomor_telepon": "+62 894 1481 9714",
+      "email": "Linda80@yahoo.com",
+      "pendidikan_terakhir": "SMP",
+      "nomor_bpjs_tk": "6538 7703 859",
+      "nomor_bpjs_kesehatan": "7371 0592 3902 4",
+      "nama_faskes": "Madeline Brown",
+      "alamat_faskes": "Evansville",
+      "nomor_kk": "2348 1884 7580 9738",
+      "nama_kepala_keluarga": "Angela Johnston DDS",
+      "nama_ibu_kandung": "Eloise Beatty",
+      "status_pajak": "K/I/3",
+      "nama_pasangan": "Anthony Wiza",
+      "nama_anak_ke1": "Grant Kuhic",
+      "nama_anak_ke2": "Wayne Gutmann",
+      "nama_anak_ke3": "Yvette Bartell",
+      "nama_kontak_darurat": "Roman Dare PhD",
+      "nomor_telepon_darurat": "+62 862 2172 1931",
+      "hubungan_dengan_karyawan": "proactive JSON",
+      "nomor_passport": "5703478",
+      "kebangsaan": "Vietnam",
+      "nomor_kitas": "42165620103626024298",
+      "nomor_rptka": "65074172516062983094",
+      "perusahaan": "The Master Steel Manufactory",
+      "lokasi": "The Master Steel 2",
+      "divisi": "Project",
+      "departemen": "AP",
+      "subdepartemen": "AP",
+      "jabatan": "Specialis",
+      "status_karyawan": "PKWTT",
+      "nama_pemberi_referensi": "Jodi Mayer",
+      "nama_atasan_langsung": "Terrell Hilll",
+      "nomor_pkwtt": "f69dop5mjjkeduh4694d",
+      "gaji_pokok": 85324980,
+      "uang_makan": 46566,
+      "uang_transport": 103713,
+      "note": "Product Bacon maroon optimize Cis Platinum mollitia Bespoke oof actuating"
+    },
+    {
+      "id": 6,
+      "nip": "617410",
+      "kewarganegaraan": "WNI",
+      "nik": "8666365415291385",
+      "nama_lengkap": "Belinda Pfeffer",
+      "tempat_lahir": "Livonia",
+      "jenis_kelamin": "Laki-Laki",
+      "alamat_domisili": "Lake Vernerberg",
+      "rt_rw": "61/89",
+      "kel_desa": "Palm Harbor",
+      "agama": "Buddha",
+      "status_perkawinan": "Kawin",
+      "nomor_npwp": "1421090544567346",
+      "nomor_telepon": "+62 803 1813 8539",
+      "email": "Henri.McKenzie@hotmail.com",
+      "pendidikan_terakhir": "SD",
+      "nomor_bpjs_tk": "9973 4596 912",
+      "nomor_bpjs_kesehatan": "6020 3573 9046 4",
+      "nama_faskes": "Miss Dora Barton",
+      "alamat_faskes": "Hollywood",
+      "nomor_kk": "8005 0686 0151 3931",
+      "nama_kepala_keluarga": "Josephine Emard",
+      "nama_ibu_kandung": "Tammy Champlin",
+      "status_pajak": "TK/3",
+      "nama_pasangan": "Anita Morar",
+      "nama_anak_ke1": "Edmund Dickens",
+      "nama_anak_ke2": "Miss Rodolfo Reinger",
+      "nama_anak_ke3": "Patrick Veum",
+      "nama_kontak_darurat": "Leticia Kemmer",
+      "nomor_telepon_darurat": "+62 890 9054 3631",
+      "hubungan_dengan_karyawan": "Avon Avon",
+      "nomor_passport": "2593673",
+      "kebangsaan": "Jamaica",
+      "nomor_kitas": "44029709829217379403",
+      "nomor_rptka": "28471036671668487839",
+      "perusahaan": "The Master Steel Manufactory",
+      "lokasi": "The Master Steel 1",
+      "divisi": "Finance",
+      "departemen": "Electrik",
+      "subdepartemen": "Project",
+      "jabatan": "Specialis",
+      "status_karyawan": "PKWTT",
+      "nama_pemberi_referensi": "Jeannette Breitenberg",
+      "nama_atasan_langsung": "Kimberly Treutel II",
+      "nomor_pkwtt": "c28pjaros3xil10qxson",
+      "gaji_pokok": 39542671,
+      "uang_makan": 30777,
+      "uang_transport": 41060,
+      "note": "phew Soul Iceland eyeballs Legacy Plastic Gloves Islands Paradigm invoice"
+    },
+    {
+      "id": 7,
+      "nip": "446429",
+      "kewarganegaraan": "WNI",
+      "nik": "4297585459415081",
+      "nama_lengkap": "Ms. Megan Pollich",
+      "tempat_lahir": "Virginia Beach",
+      "jenis_kelamin": "Perempuan",
+      "alamat_domisili": "Stammboro",
+      "rt_rw": "43/27",
+      "kel_desa": "Madera",
+      "agama": "Katolik",
+      "status_perkawinan": "Kawin",
+      "nomor_npwp": "7148239395482024",
+      "nomor_telepon": "+62 896 8941 4843",
+      "email": "Kamryn_Quitzon@yahoo.com",
+      "pendidikan_terakhir": "S1",
+      "nomor_bpjs_tk": "0181 2381 683",
+      "nomor_bpjs_kesehatan": "6389 2811 1421 3",
+      "nama_faskes": "Darren Nader",
+      "alamat_faskes": "Gilroy",
+      "nomor_kk": "3420 2929 5020 0755",
+      "nama_kepala_keluarga": "Marianne Flatley",
+      "nama_ibu_kandung": "Casey Bayer",
+      "status_pajak": "K/1",
+      "nama_pasangan": "Danielle Fadel PhD",
+      "nama_anak_ke1": "Frances Thiel",
+      "nama_anak_ke2": "Jerald Kautzer",
+      "nama_anak_ke3": "Della Grady",
+      "nama_kontak_darurat": "Ms. Joyce Mayer",
+      "nomor_telepon_darurat": "+62 847 7132 1685",
+      "hubungan_dengan_karyawan": "mindshare optical",
+      "nomor_passport": "4092614",
+      "kebangsaan": "Mexico",
+      "nomor_kitas": "59365881360923776275",
+      "nomor_rptka": "17773811153653515218",
+      "perusahaan": "The Master Steel Manufactory",
+      "lokasi": "The Master Steel 3",
+      "divisi": "Mechanic",
+      "departemen": "Marketing",
+      "subdepartemen": "IT Support Plant",
+      "jabatan": "Specialis",
+      "status_karyawan": "PKWT",
+      "nama_pemberi_referensi": "Randolph Mertz",
+      "nama_atasan_langsung": "Jose Schulist",
+      "nomor_pkwtt": "q2of9cd3py9l4rv64uro",
+      "gaji_pokok": 63801965,
+      "uang_makan": 74473,
+      "uang_transport": 227074,
+      "note": "drat policy but CSS Electric South transform Cyclocross Plastic Southeast"
+    },
+    {
+      "id": 8,
+      "nip": "117391",
+      "kewarganegaraan": "WNA",
+      "nik": "8020943905755971",
+      "nama_lengkap": "Angel Boyle",
+      "tempat_lahir": "Edmond",
+      "jenis_kelamin": "Perempuan",
+      "alamat_domisili": "South Kathleen",
+      "rt_rw": "85/77",
+      "kel_desa": "Salinas",
+      "agama": "Islam",
+      "status_perkawinan": "Belum kawin",
+      "nomor_npwp": "6279532473886084",
+      "nomor_telepon": "+62 857 6211 8723",
+      "email": "Cristian19@yahoo.com",
+      "pendidikan_terakhir": "SMA",
+      "nomor_bpjs_tk": "1151 8229 221",
+      "nomor_bpjs_kesehatan": "7516 1872 8389 6",
+      "nama_faskes": "Shirley Haley",
+      "alamat_faskes": "Mansfield",
+      "nomor_kk": "0945 3070 7399 4634",
+      "nama_kepala_keluarga": "Anna Larkin",
+      "nama_ibu_kandung": "Miss Lewis Botsford",
+      "status_pajak": "K/0",
+      "nama_pasangan": "Mandy Hills",
+      "nama_anak_ke1": "Michelle Schroeder",
+      "nama_anak_ke2": "Robin Schuster",
+      "nama_anak_ke3": "Dr. Danielle Marvin",
+      "nama_kontak_darurat": "Miss Terrell Dibbert",
+      "nomor_telepon_darurat": "+62 831 5900 3531",
+      "hubungan_dengan_karyawan": "Northeast pace",
+      "nomor_passport": "5221933",
+      "kebangsaan": "Tonga",
+      "nomor_kitas": "49808055405699312596",
+      "nomor_rptka": "68459453767861576825",
+      "perusahaan": "Donata Agung Perkasa",
+      "lokasi": "The Master Steel 2",
+      "divisi": "AP",
+      "departemen": "Electrik",
+      "subdepartemen": "HRD",
       "jabatan": "Staff/Crew",
       "status_karyawan": "PKWTT",
-      "nama_pemberi_referensi": "Grady Bogisich",
-      "nama_atasan_langsung": "Javier Dietrich",
-      "tgl_join": "2022-03-02",
-      "nomor_pkwtt": "307eyh7ezyef99ctd41p",
-      "gaji_pokok": 78963603,
-      "tgl_perubahan": "2022-12-27",
-      "uang_makan": 83511,
-      "uang_transport": 224626,
-      "note": "Herzog repurpose Southwest Small ack Consultant Classical Northwest Representative City",
-      "jadwal_kerja": [
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "01-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS4S1P0917",
-          "tgl": "02-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P1422",
-          "tgl": "03-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0716",
-          "tgl": "04-12-2022",
-          "hari": "Minggu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1N0917",
-          "tgl": "05-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S2N0917",
-          "tgl": "06-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "07-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P0917",
-          "tgl": "08-12-2022",
-          "hari": "Kamis",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0917",
-          "tgl": "09-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2N0917",
-          "tgl": "10-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0917",
-          "tgl": "11-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P0917",
-          "tgl": "12-12-2022",
-          "hari": "Senin",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N0917",
-          "tgl": "13-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0N1422",
-          "tgl": "14-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S2N0716",
-          "tgl": "15-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "16-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "17-12-2022",
-          "hari": "Sabtu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS0S1N1422",
-          "tgl": "18-12-2022",
-          "hari": "Minggu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S2N1422",
-          "tgl": "19-12-2022",
-          "hari": "Senin",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS4S0N0716",
-          "tgl": "20-12-2022",
-          "hari": "Selasa",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P0716",
-          "tgl": "21-12-2022",
-          "hari": "Rabu",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S2P0716",
-          "tgl": "22-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S2P0917",
-          "tgl": "23-12-2022",
-          "hari": "Jumat",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS2S0P1422",
-          "tgl": "24-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS1S0P0917",
-          "tgl": "25-12-2022",
-          "hari": "Minggu",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S0P0716",
-          "tgl": "26-12-2022",
-          "hari": "Senin",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS2S1P0917",
-          "tgl": "27-12-2022",
-          "hari": "Selasa",
-          "in": "09:00",
-          "out": "17:00",
-          "mulai_istirahat": "12:00",
-          "selesai_istirahat": "13:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S2P1422",
-          "tgl": "28-12-2022",
-          "hari": "Rabu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        },
-        {
-          "id_jadwalkerja": "TMS3S1P0716",
-          "tgl": "29-12-2022",
-          "hari": "Kamis",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS0S2P0716",
-          "tgl": "30-12-2022",
-          "hari": "Jumat",
-          "in": "07:00",
-          "out": "16:00",
-          "mulai_istirahat": "10:00",
-          "selesai_istirahat": "11:00",
-          "total_jam_kerja": 8
-        },
-        {
-          "id_jadwalkerja": "TMS1S1P1422",
-          "tgl": "31-12-2022",
-          "hari": "Sabtu",
-          "in": "14:00",
-          "out": "22:00",
-          "mulai_istirahat": "17:00",
-          "selesai_istirahat": "18:00",
-          "total_jam_kerja": 7
-        }
-      ]
+      "nama_pemberi_referensi": "Jimmy Upton",
+      "nama_atasan_langsung": "Geneva Franecki",
+      "nomor_pkwtt": "xast2miy9w0lwr1ic5i2",
+      "gaji_pokok": 26770034,
+      "uang_makan": 14084,
+      "uang_transport": 39894,
+      "note": "Soul consequently Division Linda Road mole Electric mortally oof Granite"
+    },
+    {
+      "id": 9,
+      "nip": "333009",
+      "kewarganegaraan": "WNA",
+      "nik": "1623529699000082",
+      "nama_lengkap": "Jasmine Medhurst",
+      "tempat_lahir": "New Orleans",
+      "jenis_kelamin": "Laki-Laki",
+      "alamat_domisili": "Iowa City",
+      "rt_rw": "14/60",
+      "kel_desa": "Jannieview",
+      "agama": "Khonghucu",
+      "status_perkawinan": "Belum kawin",
+      "nomor_npwp": "7479908547392812",
+      "nomor_telepon": "+62 880 6936 7730",
+      "email": "Kirk29@gmail.com",
+      "pendidikan_terakhir": "SD",
+      "nomor_bpjs_tk": "0853 1484 734",
+      "nomor_bpjs_kesehatan": "9799 0109 1376 9",
+      "nama_faskes": "Mr. Frederick Ruecker",
+      "alamat_faskes": "Pico Rivera",
+      "nomor_kk": "2887 8117 2084 5393",
+      "nama_kepala_keluarga": "Russell Beahan",
+      "nama_ibu_kandung": "Lance Corkery",
+      "status_pajak": "K/I/3",
+      "nama_pasangan": "Marcus Reinger",
+      "nama_anak_ke1": "Dianne Funk",
+      "nama_anak_ke2": "Marian Turner",
+      "nama_anak_ke3": "Olive Deckow",
+      "nama_kontak_darurat": "Joyce Cummerata",
+      "nomor_telepon_darurat": "+62 804 1822 6696",
+      "hubungan_dengan_karyawan": "upon reboot",
+      "nomor_passport": "7879474",
+      "kebangsaan": "United States of America",
+      "nomor_kitas": "43302968538748969283",
+      "nomor_rptka": "44022733867193797653",
+      "perusahaan": "Royalindo Investa Wijaya",
+      "lokasi": "The Master Steel 1",
+      "divisi": "Finance",
+      "departemen": "Produksi",
+      "subdepartemen": "IT Support",
+      "jabatan": "Supervisor",
+      "status_karyawan": "PKWT",
+      "nama_pemberi_referensi": "Debbie Goodwin",
+      "nama_atasan_langsung": "Dr. Tricia Wolff",
+      "nomor_pkwtt": "e263tyhfclvnyb7vs9sj",
+      "gaji_pokok": 55550740,
+      "uang_makan": 23270,
+      "uang_transport": 33663,
+      "note": "Northwest keyboard Steel Bronze Kansas steradian Metal Funk Namibia whether"
+    },
+    {
+      "id": 10,
+      "nip": "260714",
+      "kewarganegaraan": "WNA",
+      "nik": "2253388646277464",
+      "nama_lengkap": "Ms. Garry Leannon",
+      "tempat_lahir": "Placentia",
+      "jenis_kelamin": "Perempuan",
+      "alamat_domisili": "Thielcester",
+      "rt_rw": "16/88",
+      "kel_desa": "Lake Thad",
+      "agama": "Protestan",
+      "status_perkawinan": "Cerai",
+      "nomor_npwp": "7485463369496545",
+      "nomor_telepon": "+62 829 8166 0823",
+      "email": "Rosamond_Williamson@yahoo.com",
+      "pendidikan_terakhir": "SMA",
+      "nomor_bpjs_tk": "1997 4189 357",
+      "nomor_bpjs_kesehatan": "7856 4586 3488 6",
+      "nama_faskes": "Gerald Koelpin",
+      "alamat_faskes": "Rohnert Park",
+      "nomor_kk": "4052 7161 3021 8655",
+      "nama_kepala_keluarga": "Derek Jones",
+      "nama_ibu_kandung": "Gregory Kassulke",
+      "status_pajak": "K/I/0",
+      "nama_pasangan": "Claudia Witting",
+      "nama_anak_ke1": "Dianne Larkin",
+      "nama_anak_ke2": "Arnold Cassin",
+      "nama_anak_ke3": "Eddie Mante",
+      "nama_kontak_darurat": "Enrique Fisher",
+      "nomor_telepon_darurat": "+62 869 8137 4070",
+      "hubungan_dengan_karyawan": "male program",
+      "nomor_passport": "5120672",
+      "kebangsaan": "San Marino",
+      "nomor_kitas": "12218497975101968598",
+      "nomor_rptka": "85911589366569822103",
+      "perusahaan": "The Master Steel Manufactory",
+      "lokasi": "The Master Steel 3",
+      "divisi": "Purchase",
+      "departemen": "HRD",
+      "subdepartemen": "SAT Developer",
+      "jabatan": "Foreman",
+      "status_karyawan": "Magang",
+      "nama_pemberi_referensi": "Rita Davis",
+      "nama_atasan_langsung": "Ms. Natasha Homenick",
+      "nomor_pkwtt": "cd8m2mxxuigedkau923u",
+      "gaji_pokok": 26801029,
+      "uang_makan": 90244,
+      "uang_transport": 35289,
+      "note": "Reunion kelvin Smart granular Factors Incredible Buckinghamshire by 1080p Indiana"
     }
   ],
   "trx_jadwalkerja": [
     {
-      "id": "TMS0S2N0716",
-      "id_lokasi": "TMS HO",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Normal",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": 8
-    },
-    {
-      "id": "TMS4S1P0917",
-      "id_lokasi": "TMS 4",
-      "id_shift": "Shift 1",
-      "jam_kerja": "Pendek",
-      "in": "09:00",
-      "out": "17:00",
-      "mulai_istirahat": "12:00",
-      "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS1S2P1422",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Pendek",
-      "in": "14:00",
-      "out": "22:00",
+      "id": "TMS1S2N1422",
+      "inisial_lokasi": "TMS 1",
+      "shift": "Shift 2",
+      "masuk": "14:00",
+      "keluar": "22:00",
       "mulai_istirahat": "17:00",
       "selesai_istirahat": "18:00",
-      "total_jam_kerja": 7
+      "total": 7
     },
     {
-      "id": "TMS1S0N0716",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Non Shift",
-      "jam_kerja": "Normal",
-      "in": "07:00",
-      "out": "16:00",
+      "id": "TMS1S2N1422",
+      "inisial_lokasi": "TMS 1",
+      "shift": "Shift 2",
+      "masuk": "14:00",
+      "keluar": "22:00",
+      "mulai_istirahat": "17:00",
+      "selesai_istirahat": "18:00",
+      "total": 7
+    },
+    {
+      "id": "TMS3S0N0917",
+      "inisial_lokasi": "TMS 3",
+      "shift": "Non Shift",
+      "masuk": "09:00",
+      "keluar": "17:00",
+      "mulai_istirahat": "12:00",
+      "selesai_istirahat": "13:00",
+      "total": 7
+    },
+    {
+      "id": "TMS4S1N0716",
+      "inisial_lokasi": "TMS 4",
+      "shift": "Shift 1",
+      "masuk": "07:00",
+      "keluar": "16:00",
       "mulai_istirahat": "10:00",
       "selesai_istirahat": "11:00",
-      "total_jam_kerja": 8
+      "total": 8
     },
     {
-      "id": "TMS1S1N0917",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Shift 1",
-      "jam_kerja": "Normal",
-      "in": "09:00",
-      "out": "17:00",
+      "id": "TMS0S0N0917",
+      "inisial_lokasi": "TMS HO",
+      "shift": "Non Shift",
+      "masuk": "09:00",
+      "keluar": "17:00",
       "mulai_istirahat": "12:00",
       "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
+      "total": 7
     },
     {
-      "id": "TMS1S2N0917",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Normal",
-      "in": "09:00",
-      "out": "17:00",
-      "mulai_istirahat": "12:00",
-      "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS0S2P0716",
-      "id_lokasi": "TMS HO",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Pendek",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": 8
-    },
-    {
-      "id": "TMS2S0P0917",
-      "id_lokasi": "TMS 2",
-      "id_shift": "Non Shift",
-      "jam_kerja": "Pendek",
-      "in": "09:00",
-      "out": "17:00",
-      "mulai_istirahat": "12:00",
-      "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS4S0N0917",
-      "id_lokasi": "TMS 4",
-      "id_shift": "Non Shift",
-      "jam_kerja": "Normal",
-      "in": "09:00",
-      "out": "17:00",
-      "mulai_istirahat": "12:00",
-      "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS3S2N0917",
-      "id_lokasi": "TMS 3",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Normal",
-      "in": "09:00",
-      "out": "17:00",
-      "mulai_istirahat": "12:00",
-      "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS3S2P0917",
-      "id_lokasi": "TMS 3",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Pendek",
-      "in": "09:00",
-      "out": "17:00",
-      "mulai_istirahat": "12:00",
-      "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS1S1P0917",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Shift 1",
-      "jam_kerja": "Pendek",
-      "in": "09:00",
-      "out": "17:00",
-      "mulai_istirahat": "12:00",
-      "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
+      "id": "TMS4S0P0912",
+      "inisial_lokasi": "TMS 4",
+      "shift": "Non Shift",
+      "masuk": "09:00",
+      "keluar": "12:00",
+      "mulai_istirahat": "",
+      "selesai_istirahat": "",
+      "total": 3
     },
     {
       "id": "TMS1S0N0917",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Non Shift",
-      "jam_kerja": "Normal",
-      "in": "09:00",
-      "out": "17:00",
+      "inisial_lokasi": "TMS 1",
+      "shift": "Non Shift",
+      "masuk": "09:00",
+      "keluar": "17:00",
       "mulai_istirahat": "12:00",
       "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
+      "total": 7
     },
     {
-      "id": "TMS1S0N1422",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Non Shift",
-      "jam_kerja": "Normal",
-      "in": "14:00",
-      "out": "22:00",
+      "id": "TMS2S2N1422",
+      "inisial_lokasi": "TMS 2",
+      "shift": "Shift 2",
+      "masuk": "14:00",
+      "keluar": "22:00",
       "mulai_istirahat": "17:00",
       "selesai_istirahat": "18:00",
-      "total_jam_kerja": 7
+      "total": 7
     },
     {
-      "id": "TMS0S2N0716",
-      "id_lokasi": "TMS HO",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Normal",
-      "in": "07:00",
-      "out": "16:00",
+      "id": "TMS1S0P0912",
+      "inisial_lokasi": "TMS 1",
+      "shift": "Non Shift",
+      "masuk": "09:00",
+      "keluar": "12:00",
+      "mulai_istirahat": "",
+      "selesai_istirahat": "",
+      "total": 3
+    },
+    {
+      "id": "TMS1S1N0716",
+      "inisial_lokasi": "TMS 1",
+      "shift": "Shift 1",
+      "masuk": "07:00",
+      "keluar": "16:00",
       "mulai_istirahat": "10:00",
       "selesai_istirahat": "11:00",
-      "total_jam_kerja": 8
-    },
-    {
-      "id": "TMS3S2P0716",
-      "id_lokasi": "TMS 3",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Pendek",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": 8
-    },
-    {
-      "id": "TMS1S0P0917",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Non Shift",
-      "jam_kerja": "Pendek",
-      "in": "09:00",
-      "out": "17:00",
-      "mulai_istirahat": "12:00",
-      "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS0S1N1422",
-      "id_lokasi": "TMS HO",
-      "id_shift": "Shift 1",
-      "jam_kerja": "Normal",
-      "in": "14:00",
-      "out": "22:00",
-      "mulai_istirahat": "17:00",
-      "selesai_istirahat": "18:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS4S2N1422",
-      "id_lokasi": "TMS 4",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Normal",
-      "in": "14:00",
-      "out": "22:00",
-      "mulai_istirahat": "17:00",
-      "selesai_istirahat": "18:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS4S0N0716",
-      "id_lokasi": "TMS 4",
-      "id_shift": "Non Shift",
-      "jam_kerja": "Normal",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": 8
-    },
-    {
-      "id": "TMS3S2P0716",
-      "id_lokasi": "TMS 3",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Pendek",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": 8
-    },
-    {
-      "id": "TMS1S2P0716",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Pendek",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": 8
-    },
-    {
-      "id": "TMS2S2P0917",
-      "id_lokasi": "TMS 2",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Pendek",
-      "in": "09:00",
-      "out": "17:00",
-      "mulai_istirahat": "12:00",
-      "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS2S0P1422",
-      "id_lokasi": "TMS 2",
-      "id_shift": "Non Shift",
-      "jam_kerja": "Pendek",
-      "in": "14:00",
-      "out": "22:00",
-      "mulai_istirahat": "17:00",
-      "selesai_istirahat": "18:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS1S0P0917",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Non Shift",
-      "jam_kerja": "Pendek",
-      "in": "09:00",
-      "out": "17:00",
-      "mulai_istirahat": "12:00",
-      "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS3S0P0716",
-      "id_lokasi": "TMS 3",
-      "id_shift": "Non Shift",
-      "jam_kerja": "Pendek",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": 8
-    },
-    {
-      "id": "TMS2S1P0917",
-      "id_lokasi": "TMS 2",
-      "id_shift": "Shift 1",
-      "jam_kerja": "Pendek",
-      "in": "09:00",
-      "out": "17:00",
-      "mulai_istirahat": "12:00",
-      "selesai_istirahat": "13:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS3S2P1422",
-      "id_lokasi": "TMS 3",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Pendek",
-      "in": "14:00",
-      "out": "22:00",
-      "mulai_istirahat": "17:00",
-      "selesai_istirahat": "18:00",
-      "total_jam_kerja": 7
-    },
-    {
-      "id": "TMS3S1P0716",
-      "id_lokasi": "TMS 3",
-      "id_shift": "Shift 1",
-      "jam_kerja": "Pendek",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": 8
-    },
-    {
-      "id": "TMS0S2P0716",
-      "id_lokasi": "TMS HO",
-      "id_shift": "Shift 2",
-      "jam_kerja": "Pendek",
-      "in": "07:00",
-      "out": "16:00",
-      "mulai_istirahat": "10:00",
-      "selesai_istirahat": "11:00",
-      "total_jam_kerja": 8
-    },
-    {
-      "id": "TMS1S1P1422",
-      "id_lokasi": "TMS 1",
-      "id_shift": "Shift 1",
-      "jam_kerja": "Pendek",
-      "in": "14:00",
-      "out": "22:00",
-      "mulai_istirahat": "17:00",
-      "selesai_istirahat": "18:00",
-      "total_jam_kerja": 7
+      "total": 8
     }
   ],
   "trx_jadwalkerjacategory": [
     {
       "id": 1,
-      "lokasi": "TMS 2",
+      "lokasi": "The Master Steel 4",
       "divisi": "Mechanic",
-      "departemen": "ACC",
-      "sub_departemen": "Produksi",
+      "departemen": "Purchase",
+      "sub_departemen": "QC",
       "senin": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "selasa": {
-        "id_jadwalkerja": "TMS4S1P0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
-      },
-      "rabu": {
-        "id_jadwalkerja": "TMS1S2P1422",
-        "in": "14:00",
-        "out": "22:00",
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
         "mulai_istirahat": "17:00",
         "selesai_istirahat": "18:00",
-        "total_jam_kerja": 7
+        "total": 7
+      },
+      "selasa": {
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
+      },
+      "rabu": {
+        "id": "TMS4S1N0716",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Shift 1",
+        "masuk": "07:00",
+        "keluar": "16:00",
+        "mulai_istirahat": "10:00",
+        "selesai_istirahat": "11:00",
+        "total": 8
       },
       "kamis": {
-        "id_jadwalkerja": "TMS1S0N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS2S2N1422",
+        "inisial_lokasi": "TMS 2",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
       },
       "jumat": {
-        "id_jadwalkerja": "TMS1S1N0917",
-        "in": "09:00",
-        "out": "17:00",
+        "id": "TMS1S0N0917",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
         "mulai_istirahat": "12:00",
         "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "total": 7
       },
       "sabtu": {
-        "id_jadwalkerja": "TMS1S2N0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
       },
       "minggu": {
-        "id_jadwalkerja": "TMS0S2P0716",
-        "in": "07:00",
-        "out": "16:00",
+        "id": "TMS4S1N0716",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Shift 1",
+        "masuk": "07:00",
+        "keluar": "16:00",
         "mulai_istirahat": "10:00",
         "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "total": 8
       },
       "status": false
     },
     {
       "id": 2,
-      "lokasi": "TMS 2",
-      "divisi": "IT Support Plant",
-      "departemen": "Produksi",
-      "sub_departemen": "Electrik",
+      "lokasi": "The Master Steel 3",
+      "divisi": "Finance",
+      "departemen": "Faktur",
+      "sub_departemen": "Sales",
       "senin": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "selasa": {
-        "id_jadwalkerja": "TMS4S1P0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
-      },
-      "rabu": {
-        "id_jadwalkerja": "TMS1S2P1422",
-        "in": "14:00",
-        "out": "22:00",
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
         "mulai_istirahat": "17:00",
         "selesai_istirahat": "18:00",
-        "total_jam_kerja": 7
-      },
-      "kamis": {
-        "id_jadwalkerja": "TMS1S0N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "jumat": {
-        "id_jadwalkerja": "TMS1S1N0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
-      },
-      "sabtu": {
-        "id_jadwalkerja": "TMS1S2N0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
-      },
-      "minggu": {
-        "id_jadwalkerja": "TMS0S2P0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "status": false
-    },
-    {
-      "id": 3,
-      "lokasi": "TMS 1",
-      "divisi": "Faktur",
-      "departemen": "Finance",
-      "sub_departemen": "IT Support",
-      "senin": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "total": 7
       },
       "selasa": {
-        "id_jadwalkerja": "TMS4S1P0917",
-        "in": "09:00",
-        "out": "17:00",
+        "id": "TMS0S0N0917",
+        "inisial_lokasi": "TMS HO",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
         "mulai_istirahat": "12:00",
         "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "total": 7
       },
       "rabu": {
-        "id_jadwalkerja": "TMS1S2P1422",
-        "in": "14:00",
-        "out": "22:00",
-        "mulai_istirahat": "17:00",
-        "selesai_istirahat": "18:00",
-        "total_jam_kerja": 7
+        "id": "TMS4S1N0716",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Shift 1",
+        "masuk": "07:00",
+        "keluar": "16:00",
+        "mulai_istirahat": "10:00",
+        "selesai_istirahat": "11:00",
+        "total": 8
       },
       "kamis": {
-        "id_jadwalkerja": "TMS1S0N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
       },
       "jumat": {
-        "id_jadwalkerja": "TMS1S1N0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
       },
       "sabtu": {
-        "id_jadwalkerja": "TMS1S2N0917",
-        "in": "09:00",
-        "out": "17:00",
+        "id": "TMS0S0N0917",
+        "inisial_lokasi": "TMS HO",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
         "mulai_istirahat": "12:00",
         "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "total": 7
       },
       "minggu": {
-        "id_jadwalkerja": "TMS0S2P0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS3S0N0917",
+        "inisial_lokasi": "TMS 3",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
       },
       "status": true
     },
     {
-      "id": 4,
-      "lokasi": "TMS HO",
-      "divisi": "Electrik",
-      "departemen": "IT Support",
-      "sub_departemen": "IT Support Plant",
+      "id": 3,
+      "lokasi": "The Master Steel 2",
+      "divisi": "IT",
+      "departemen": "Marketing",
+      "sub_departemen": "QC",
       "senin": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "selasa": {
-        "id_jadwalkerja": "TMS4S1P0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
-      },
-      "rabu": {
-        "id_jadwalkerja": "TMS1S2P1422",
-        "in": "14:00",
-        "out": "22:00",
+        "id": "TMS2S2N1422",
+        "inisial_lokasi": "TMS 2",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
         "mulai_istirahat": "17:00",
         "selesai_istirahat": "18:00",
-        "total_jam_kerja": 7
+        "total": 7
+      },
+      "selasa": {
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "rabu": {
+        "id": "TMS2S2N1422",
+        "inisial_lokasi": "TMS 2",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
       },
       "kamis": {
-        "id_jadwalkerja": "TMS1S0N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
       },
       "jumat": {
-        "id_jadwalkerja": "TMS1S1N0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
-      },
-      "sabtu": {
-        "id_jadwalkerja": "TMS1S2N0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
-      },
-      "minggu": {
-        "id_jadwalkerja": "TMS0S2P0716",
-        "in": "07:00",
-        "out": "16:00",
+        "id": "TMS4S1N0716",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Shift 1",
+        "masuk": "07:00",
+        "keluar": "16:00",
         "mulai_istirahat": "10:00",
         "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "total": 8
+      },
+      "sabtu": {
+        "id": "TMS2S2N1422",
+        "inisial_lokasi": "TMS 2",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "minggu": {
+        "id": "TMS0S0N0917",
+        "inisial_lokasi": "TMS HO",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "status": false
+    },
+    {
+      "id": 4,
+      "lokasi": "The Master Steel 4",
+      "divisi": "Produksi",
+      "departemen": "Electrik",
+      "sub_departemen": "QC",
+      "senin": {
+        "id": "TMS2S2N1422",
+        "inisial_lokasi": "TMS 2",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "selasa": {
+        "id": "TMS1S0N0917",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "rabu": {
+        "id": "TMS0S0N0917",
+        "inisial_lokasi": "TMS HO",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "kamis": {
+        "id": "TMS4S1N0716",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Shift 1",
+        "masuk": "07:00",
+        "keluar": "16:00",
+        "mulai_istirahat": "10:00",
+        "selesai_istirahat": "11:00",
+        "total": 8
+      },
+      "jumat": {
+        "id": "TMS0S0N0917",
+        "inisial_lokasi": "TMS HO",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "sabtu": {
+        "id": "TMS1S0N0917",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "minggu": {
+        "id": "TMS0S0N0917",
+        "inisial_lokasi": "TMS HO",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
       },
       "status": false
     },
     {
       "id": 5,
-      "lokasi": "TMS 2",
-      "divisi": "Produksi",
-      "departemen": "Produksi",
-      "sub_departemen": "IT Support Plant",
+      "lokasi": "The Master Steel 1",
+      "divisi": "ACC",
+      "departemen": "IT Support Plant",
+      "sub_departemen": "Faktur",
       "senin": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
       },
       "selasa": {
-        "id_jadwalkerja": "TMS4S1P0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "id": "TMS4S1N0716",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Shift 1",
+        "masuk": "07:00",
+        "keluar": "16:00",
+        "mulai_istirahat": "10:00",
+        "selesai_istirahat": "11:00",
+        "total": 8
       },
       "rabu": {
-        "id_jadwalkerja": "TMS1S2P1422",
-        "in": "14:00",
-        "out": "22:00",
-        "mulai_istirahat": "17:00",
-        "selesai_istirahat": "18:00",
-        "total_jam_kerja": 7
+        "id": "TMS3S0N0917",
+        "inisial_lokasi": "TMS 3",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
       },
       "kamis": {
-        "id_jadwalkerja": "TMS1S0N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
       },
       "jumat": {
-        "id_jadwalkerja": "TMS1S1N0917",
-        "in": "09:00",
-        "out": "17:00",
+        "id": "TMS0S0N0917",
+        "inisial_lokasi": "TMS HO",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
         "mulai_istirahat": "12:00",
         "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "total": 7
       },
       "sabtu": {
-        "id_jadwalkerja": "TMS1S2N0917",
-        "in": "09:00",
-        "out": "17:00",
+        "id": "TMS1S0N0917",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
         "mulai_istirahat": "12:00",
         "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "total": 7
       },
       "minggu": {
-        "id_jadwalkerja": "TMS0S2P0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
       },
       "status": true
     },
     {
       "id": 6,
-      "lokasi": "TMS HO",
-      "divisi": "AR",
-      "departemen": "AP",
-      "sub_departemen": "IT",
+      "lokasi": "The Master Steel 4",
+      "divisi": "Purchase",
+      "departemen": "IT Support",
+      "sub_departemen": "HRD",
       "senin": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS3S0N0917",
+        "inisial_lokasi": "TMS 3",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
       },
       "selasa": {
-        "id_jadwalkerja": "TMS4S1P0917",
-        "in": "09:00",
-        "out": "17:00",
+        "id": "TMS1S0N0917",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
         "mulai_istirahat": "12:00",
         "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "total": 7
       },
       "rabu": {
-        "id_jadwalkerja": "TMS1S2P1422",
-        "in": "14:00",
-        "out": "22:00",
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
         "mulai_istirahat": "17:00",
         "selesai_istirahat": "18:00",
-        "total_jam_kerja": 7
+        "total": 7
       },
       "kamis": {
-        "id_jadwalkerja": "TMS1S0N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
       },
       "jumat": {
-        "id_jadwalkerja": "TMS1S1N0917",
-        "in": "09:00",
-        "out": "17:00",
+        "id": "TMS3S0N0917",
+        "inisial_lokasi": "TMS 3",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
         "mulai_istirahat": "12:00",
         "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "total": 7
       },
       "sabtu": {
-        "id_jadwalkerja": "TMS1S2N0917",
-        "in": "09:00",
-        "out": "17:00",
+        "id": "TMS0S0N0917",
+        "inisial_lokasi": "TMS HO",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
         "mulai_istirahat": "12:00",
         "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "total": 7
       },
       "minggu": {
-        "id_jadwalkerja": "TMS0S2P0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "status": false
+    },
+    {
+      "id": 7,
+      "lokasi": "The Master Steel 4",
+      "divisi": "Project",
+      "departemen": "HRD",
+      "sub_departemen": "Faktur",
+      "senin": {
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "selasa": {
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
+      },
+      "rabu": {
+        "id": "TMS0S0N0917",
+        "inisial_lokasi": "TMS HO",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "kamis": {
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "jumat": {
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "sabtu": {
+        "id": "TMS2S2N1422",
+        "inisial_lokasi": "TMS 2",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "minggu": {
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
       },
       "status": true
     },
     {
-      "id": 7,
-      "lokasi": "TMS HO",
-      "divisi": "Mechanic",
-      "departemen": "AP",
-      "sub_departemen": "Produksi",
+      "id": 8,
+      "lokasi": "The Master Steel 3",
+      "divisi": "IT Support Plant",
+      "departemen": "IT Support Plant",
+      "sub_departemen": "Marketing",
       "senin": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
       },
       "selasa": {
-        "id_jadwalkerja": "TMS4S1P0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
       },
       "rabu": {
-        "id_jadwalkerja": "TMS1S2P1422",
-        "in": "14:00",
-        "out": "22:00",
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
         "mulai_istirahat": "17:00",
         "selesai_istirahat": "18:00",
-        "total_jam_kerja": 7
+        "total": 7
       },
       "kamis": {
-        "id_jadwalkerja": "TMS1S0N0716",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
       },
       "jumat": {
-        "id_jadwalkerja": "TMS1S1N0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "id": "TMS2S2N1422",
+        "inisial_lokasi": "TMS 2",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
       },
       "sabtu": {
-        "id_jadwalkerja": "TMS1S2N0917",
-        "in": "09:00",
-        "out": "17:00",
-        "mulai_istirahat": "12:00",
-        "selesai_istirahat": "13:00",
-        "total_jam_kerja": 7
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
       },
       "minggu": {
-        "id_jadwalkerja": "TMS0S2P0716",
-        "in": "07:00",
-        "out": "16:00",
+        "id": "TMS2S2N1422",
+        "inisial_lokasi": "TMS 2",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "status": false
+    },
+    {
+      "id": 9,
+      "lokasi": "The Master Steel 3",
+      "divisi": "SAT Developer",
+      "departemen": "Project",
+      "sub_departemen": "IT Support",
+      "senin": {
+        "id": "TMS4S1N0716",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Shift 1",
+        "masuk": "07:00",
+        "keluar": "16:00",
         "mulai_istirahat": "10:00",
         "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
+        "total": 8
+      },
+      "selasa": {
+        "id": "TMS1S0N0917",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "rabu": {
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "kamis": {
+        "id": "TMS3S0N0917",
+        "inisial_lokasi": "TMS 3",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "jumat": {
+        "id": "TMS0S0N0917",
+        "inisial_lokasi": "TMS HO",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "sabtu": {
+        "id": "TMS1S0N0917",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "minggu": {
+        "id": "TMS3S0N0917",
+        "inisial_lokasi": "TMS 3",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "status": false
+    },
+    {
+      "id": 10,
+      "lokasi": "The Master Steel 1",
+      "divisi": "AP",
+      "departemen": "HRD",
+      "sub_departemen": "Purchase",
+      "senin": {
+        "id": "TMS2S2N1422",
+        "inisial_lokasi": "TMS 2",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "selasa": {
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "rabu": {
+        "id": "TMS4S0P0912",
+        "inisial_lokasi": "TMS 4",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "12:00",
+        "mulai_istirahat": "",
+        "selesai_istirahat": "",
+        "total": 3
+      },
+      "kamis": {
+        "id": "TMS3S0N0917",
+        "inisial_lokasi": "TMS 3",
+        "shift": "Non Shift",
+        "masuk": "09:00",
+        "keluar": "17:00",
+        "mulai_istirahat": "12:00",
+        "selesai_istirahat": "13:00",
+        "total": 7
+      },
+      "jumat": {
+        "id": "TMS2S2N1422",
+        "inisial_lokasi": "TMS 2",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "sabtu": {
+        "id": "TMS1S2N1422",
+        "inisial_lokasi": "TMS 1",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
+      },
+      "minggu": {
+        "id": "TMS2S2N1422",
+        "inisial_lokasi": "TMS 2",
+        "shift": "Shift 2",
+        "masuk": "14:00",
+        "keluar": "22:00",
+        "mulai_istirahat": "17:00",
+        "selesai_istirahat": "18:00",
+        "total": 7
       },
       "status": false
     }
   ],
   "trx_jadwalkerjaindividu": [
     {
-      "id": "307199",
-      "nama_lengkap": "Jenna Reinger",
-      "departemen": "Marketing",
-      "perusahaan": "Royalindo Investa Wijaya",
-      "dari": "2022-12-16",
-      "sampai": "2022-12-16",
-      "senin": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Senin",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "selasa": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Selasa",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "rabu": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Rabu",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "kamis": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Kamis",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "jumat": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Jumat",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "sabtu": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Sabtu",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "minggu": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Minggu",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      }
+      "id": 1,
+      "lokasi": "TMS HO",
+      "shift": "Shift 2",
+      "jam_kerja": "Normal",
+      "in": "14:00",
+      "out": "22:00",
+      "mulai_istirahat": "17:00",
+      "selesai_istirahat": "18:00",
+      "total_jam_kerja": 7
     },
     {
-      "id": "152599",
-      "nama_lengkap": "Melinda Swaniawski",
-      "departemen": "SAT Developer",
-      "perusahaan": "Donata Agung Perkasa",
-      "dari": "2022-12-01",
-      "sampai": "2023-01-01",
-      "senin": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Senin",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "selasa": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Selasa",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "rabu": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Rabu",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "kamis": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Kamis",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "jumat": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Jumat",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "sabtu": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Sabtu",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "minggu": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Minggu",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      }
+      "id": 2,
+      "lokasi": "TMS 1",
+      "shift": "Non Shift",
+      "jam_kerja": "Pendek",
+      "in": "09:00",
+      "out": "12:00",
+      "mulai_istirahat": "",
+      "selesai_istirahat": "",
+      "total_jam_kerja": 3
     },
     {
-      "id": "522513",
-      "nama_lengkap": "Roberta Bogan",
-      "departemen": "Project",
-      "perusahaan": "Royalindo Investa Wijaya",
-      "dari": "2022-12-28",
-      "sampai": "2023-01-28",
-      "senin": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Senin",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "selasa": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Selasa",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "rabu": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Rabu",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "kamis": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Kamis",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "jumat": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Jumat",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "sabtu": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Sabtu",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      },
-      "minggu": {
-        "id_jadwalkerja": "TMS0S2N0716",
-        "hari": "Minggu",
-        "in": "07:00",
-        "out": "16:00",
-        "mulai_istirahat": "10:00",
-        "selesai_istirahat": "11:00",
-        "total_jam_kerja": 8
-      }
+      "id": 3,
+      "lokasi": "TMS 1",
+      "shift": "Non Shift",
+      "jam_kerja": "Normal",
+      "in": "09:00",
+      "out": "17:00",
+      "mulai_istirahat": "12:00",
+      "selesai_istirahat": "13:00",
+      "total_jam_kerja": 7
+    },
+    {
+      "id": 4,
+      "lokasi": "TMS 4",
+      "shift": "Shift 1",
+      "jam_kerja": "Normal",
+      "in": "07:00",
+      "out": "16:00",
+      "mulai_istirahat": "10:00",
+      "selesai_istirahat": "11:00",
+      "total_jam_kerja": 8
+    },
+    {
+      "id": 5,
+      "lokasi": "TMS 1",
+      "shift": "Shift 1",
+      "jam_kerja": "Normal",
+      "in": "07:00",
+      "out": "16:00",
+      "mulai_istirahat": "10:00",
+      "selesai_istirahat": "11:00",
+      "total_jam_kerja": 8
+    },
+    {
+      "id": 6,
+      "lokasi": "TMS 1",
+      "shift": "Shift 1",
+      "jam_kerja": "Normal",
+      "in": "07:00",
+      "out": "16:00",
+      "mulai_istirahat": "10:00",
+      "selesai_istirahat": "11:00",
+      "total_jam_kerja": 8
+    },
+    {
+      "id": 7,
+      "lokasi": "TMS HO",
+      "shift": "Non Shift",
+      "jam_kerja": "Normal",
+      "in": "09:00",
+      "out": "17:00",
+      "mulai_istirahat": "12:00",
+      "selesai_istirahat": "13:00",
+      "total_jam_kerja": 7
+    },
+    {
+      "id": 8,
+      "lokasi": "TMS 4",
+      "shift": "Non Shift",
+      "jam_kerja": "Normal",
+      "in": "09:00",
+      "out": "17:00",
+      "mulai_istirahat": "12:00",
+      "selesai_istirahat": "13:00",
+      "total_jam_kerja": 7
+    },
+    {
+      "id": 9,
+      "lokasi": "TMS 1",
+      "shift": "Non Shift",
+      "jam_kerja": "Pendek",
+      "in": "09:00",
+      "out": "12:00",
+      "mulai_istirahat": "",
+      "selesai_istirahat": "",
+      "total_jam_kerja": 3
+    },
+    {
+      "id": 10,
+      "lokasi": "TMS HO",
+      "shift": "Shift 1",
+      "jam_kerja": "Normal",
+      "in": "07:00",
+      "out": "16:00",
+      "mulai_istirahat": "10:00",
+      "selesai_istirahat": "11:00",
+      "total_jam_kerja": 8
     }
   ],
   "ms_kalenderkerja": [
     {
       "id": 1,
-      "tgl": "2023-05-19",
-      "hari": "Jumat",
-      "keterangan": "eius ea rem ab tenetur",
-      "lokasi": "TMS HO",
-      "divisi": "AR",
-      "departemen": "Electrik",
-      "sub_departemen": "ACC",
-      "potong_cuti": true
+      "keterangan": "praesentium esse qui totam quibusdam",
+      "lokasi": "The Master Steel HO",
+      "divisi": "Electrik",
+      "departemen": "ACC",
+      "sub_departemen": "AP",
+      "potong_cuti": false,
+      "status": false
     },
     {
       "id": 2,
-      "tgl": "2023-12-07",
-      "hari": "Kamis",
-      "keterangan": "expedita aperiam neque molestiae porro",
-      "lokasi": "TMS 1",
-      "divisi": "ACC",
-      "departemen": "Mechanic",
-      "sub_departemen": "IT",
-      "potong_cuti": true
+      "keterangan": "optio rem minima esse magnam",
+      "lokasi": "The Master Steel HO",
+      "divisi": "Mechanic",
+      "departemen": "AR",
+      "sub_departemen": "Electrik",
+      "potong_cuti": true,
+      "status": false
     },
     {
       "id": 3,
-      "tgl": "2023-05-31",
-      "hari": "Rabu",
-      "keterangan": "eos fugiat doloribus praesentium occaecati",
-      "lokasi": "lokasi",
-      "divisi": "divisi",
-      "departemen": "departemen",
-      "sub_departemen": "sub departemen",
-      "potong_cuti": false
+      "keterangan": "nostrum aut a iusto quo",
+      "lokasi": "The Master Steel 4",
+      "divisi": "IT Support",
+      "departemen": "Project",
+      "sub_departemen": "SAT Developer",
+      "potong_cuti": false,
+      "status": true
     },
     {
       "id": 4,
-      "tgl": "2023-12-25",
-      "hari": "Rabu",
-      "keterangan": "explicabo occaecati natus nisi qui",
-      "lokasi": "lokasi",
-      "divisi": "divisi",
-      "departemen": "departemen",
-      "sub_departemen": "sub departemen",
-      "potong_cuti": false
+      "keterangan": "omnis quas eos nobis ut",
+      "lokasi": "The Master Steel 3",
+      "divisi": "Marketing",
+      "departemen": "Sales",
+      "sub_departemen": "Faktur",
+      "potong_cuti": false,
+      "status": true
     },
     {
       "id": 5,
-      "tgl": "2023-09-01",
-      "hari": "Senin",
-      "keterangan": "tempora laboriosam delectus architecto iste",
-      "lokasi": "lokasi",
-      "divisi": "divisi",
-      "departemen": "departemen",
-      "sub_departemen": "sub departemen",
-      "potong_cuti": false
+      "keterangan": "in neque quae fugit molestias",
+      "lokasi": "The Master Steel HO",
+      "divisi": "Marketing",
+      "departemen": "Electrik",
+      "sub_departemen": "AP",
+      "potong_cuti": false,
+      "status": false
     },
     {
       "id": 6,
-      "tgl": "2023-05-26",
-      "hari": "Kamis",
-      "keterangan": "vero officiis illum omnis ex",
-      "lokasi": "lokasi",
-      "divisi": "divisi",
-      "departemen": "departemen",
-      "sub_departemen": "sub departemen",
-      "potong_cuti": false
-    },
-    {
-      "tgl": "2022-12-29",
-      "hari": "Kamis",
-      "keterangan": "blalba",
-      "lokasi": "TMS 2",
-      "divisi": "IT Support",
-      "departemen": "Faktur",
-      "sub_departemen": "Finance",
+      "keterangan": "nam maiores ipsum dignissimos necessitatibus",
+      "lokasi": "The Master Steel HO",
+      "divisi": "Electrik",
+      "departemen": "SAT Developer",
+      "sub_departemen": "Support",
       "potong_cuti": true,
-      "id": 8
+      "status": false
     },
     {
-      "tgl": "2022-12-22",
-      "hari": "Kamis",
-      "keterangan": "blablabla",
-      "lokasi": "TMS HO",
+      "id": 7,
+      "keterangan": "aliquid ab unde laboriosam quis",
+      "lokasi": "The Master Steel 1",
+      "divisi": "IT",
+      "departemen": "Marketing",
+      "sub_departemen": "ACC",
+      "potong_cuti": true,
+      "status": false
+    },
+    {
+      "id": 8,
+      "keterangan": "voluptates cumque vero minima explicabo",
+      "lokasi": "The Master Steel 4",
+      "divisi": "ACC",
+      "departemen": "Faktur",
+      "sub_departemen": "ACC",
+      "potong_cuti": true,
+      "status": false
+    },
+    {
+      "id": 9,
+      "keterangan": "aliquam quo quis nihil quibusdam",
+      "lokasi": "The Master Steel 3",
+      "divisi": "HRD",
+      "departemen": "HRD",
+      "sub_departemen": "Sales",
+      "potong_cuti": false,
+      "status": true
+    },
+    {
+      "id": 10,
+      "keterangan": "quidem laudantium repellat vitae mollitia",
+      "lokasi": "The Master Steel 4",
       "divisi": "AR",
-      "departemen": "Produksi",
-      "sub_departemen": "IT Support Plant",
+      "departemen": "AR",
+      "sub_departemen": "Electrik",
       "potong_cuti": true,
-      "id": 9
-    },
-    {
-      "tgl": "2022-12-30",
-      "hari": "Jumat",
-      "keterangan": "Cuti euy",
-      "lokasi": "TMS 2",
-      "divisi": "IT Support",
-      "departemen": "Faktur",
-      "sub_departemen": "Finance",
-      "potong_cuti": true,
-      "id": 10
-    },
-    {
-      "tgl": "2022-12-30",
-      "hari": "Jumat",
-      "keterangan": "",
-      "lokasi": "TMS HO",
-      "divisi": "IT Support",
-      "departemen": "Faktur",
-      "sub_departemen": "Finance",
-      "potong_cuti": true,
-      "id": 11
-    },
-    {
-      "tgl": "2022-12-30",
-      "hari": "Jumat",
-      "keterangan": "",
-      "lokasi": "TMS 3",
-      "divisi": "IT Support",
-      "departemen": "Faktur",
-      "sub_departemen": "Finance",
-      "potong_cuti": false,
-      "id": 12
-    },
-    {
-      "tgl": "2023-01-01",
-      "hari": "Minggu",
-      "keterangan": "",
-      "lokasi": "TMS 2",
-      "divisi": "IT Support",
-      "departemen": "Faktur",
-      "sub_departemen": "Finance",
-      "potong_cuti": false,
-      "id": 13
-    },
-    {
-      "tgl": "2023-01-01",
-      "hari": "Minggu",
-      "keterangan": "",
-      "lokasi": "TMS 2",
-      "divisi": "IT Support",
-      "departemen": "Faktur",
-      "sub_departemen": "Finance",
-      "potong_cuti": false,
-      "id": 14
-    },
-    {
-      "tgl": "2023-12-30",
-      "hari": "Sabtu",
-      "keterangan": "",
-      "lokasi": "TMS 3",
-      "divisi": "IT Support",
-      "departemen": "Faktur",
-      "sub_departemen": "Finance",
-      "potong_cuti": false,
-      "id": 15
-    },
-    {
-      "tgl": "2022-12-30",
-      "hari": "Jumat",
-      "keterangan": "",
-      "lokasi": "TMS 1",
-      "divisi": "IT Support",
-      "departemen": "Faktur",
-      "sub_departemen": "Finance",
-      "potong_cuti": false,
-      "id": 16
+      "status": false
     }
   ]
 }

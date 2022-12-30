@@ -42,7 +42,7 @@
   <tbody>
     <tr *ngFor="let row of data">
       <td (click)="editData(row)">{{ row.jenis_bagian }}</td>
-      <td (click)="editData(row)">{{ row.id_lokasi }}</td>
+      <td (click)="editData(row)">{{ row.lokasi }}</td>
       <td (click)="editData(row)">{{ uplink(row.jenis_bagian, row.divisi, row.departemen) }}</td>
       <td (click)="editData(row)">{{ row.sub_departemen }}</td>
       <td>

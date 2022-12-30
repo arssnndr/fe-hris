@@ -40,6 +40,7 @@ export class BagianKerjaComponent implements OnInit {
   }
 
   editData(data: any) {
+    let id = data.id;
     const dialogRef = this.dialog.open(ModalBagianKerjaComponent, {
       data: { name: 'edit', edit: data },
     });
@@ -47,12 +48,11 @@ export class BagianKerjaComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        let data = this.catchResult.data;
-        let id = this.catchResult.id;
-        this.api.updateData(this.table, data, id).subscribe((res) => {
-          console.log(res);
-          this.getPageData();
-        });
+        this.api
+          .updateData(this.table, this.catchResult, id)
+          .subscribe((res) => {
+            this.getPageData();
+          });
       }
     });
   }

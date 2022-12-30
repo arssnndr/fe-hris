@@ -70,7 +70,8 @@ export class ModalBagianKerjaComponent implements OnInit {
       this.isEdit = true;
 
       this.jenisValue = this.data.edit.jenis_bagian;
-      this.lokasiValue = this.data.edit.id_lokasi;
+      this.lokasiValue = this.data.edit.lokasi;
+      this.subDepartemenValue = this.data.edit.sub_departemen;
     }
   }
 
@@ -81,15 +82,11 @@ export class ModalBagianKerjaComponent implements OnInit {
   throwResult() {
     this.bagiankerja = {
       jenis_bagian: this.jenisValue,
-      id_lokasi: this.lokasiValue,
+      lokasi: this.lokasiValue,
       divisi: this.divisiValue,
       departemen: this.departemenValue,
       sub_departemen: this.subDepartemenValue,
     };
-    if (this.data.name === 'edit') {
-      this.api.throwData({ data: this.bagiankerja, id: this.data.edit.id });
-    } else {
-      this.api.throwData(this.bagiankerja);
-    }
+    this.api.throwData(this.bagiankerja);
   }
 }
