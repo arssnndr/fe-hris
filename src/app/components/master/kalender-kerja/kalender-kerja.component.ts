@@ -13,16 +13,17 @@ moment.locale('id');
 export class KalenderKerjaComponent implements OnInit {
   tableKalenderKerja = 'ms_kalenderkerja/';
   dataKalenderKerja!: any;
-  filteredKalenderKerja: any[] = [];
+  filteredDataKalenderKerja: any[] = [];
 
   tableBagianKerja = 'ms_bagiankerja/';
   dataBagianKerja!: any;
 
   tahun = ['2022', '2023'];
-  tahunValue = this.tahun[0];
 
   lokasi = ['TMS HO', 'TMS 1', 'TMS 2', 'TMS 3', 'TMS 4'];
-  lokasiValue = this.lokasi[0];
+
+  tahunValue!: string;
+  lokasiValue!: string;
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
@@ -37,7 +38,7 @@ export class KalenderKerjaComponent implements OnInit {
         this.api
           .postData(this.tableKalenderKerja, catchResult)
           .subscribe(() => {
-            this.ngOnInit();
+            this.getAllData();
           });
       }
     });
@@ -58,10 +59,9 @@ export class KalenderKerjaComponent implements OnInit {
         this.api
           .updateData(this.tableKalenderKerja, catchResult, id)
           .subscribe(() => {
-            this.ngOnInit();
+            this.getAllData();
           });
       }
-      this.ngOnInit();
     });
   }
 
@@ -73,39 +73,52 @@ export class KalenderKerjaComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'ya') {
         this.api.deleteData(this.tableKalenderKerja + id).subscribe(() => {
-          this.ngOnInit();
+          this.getAllData();
         });
       }
     });
   }
 
   ngOnInit(): void {
+    this.tahunValue = '2022';
+    this.lokasiValue = 'TMS HO';
     this.getAllData();
   }
 
   getAllData() {
     this.api.getData(this.tableKalenderKerja).subscribe((res) => {
       this.dataKalenderKerja = res;
+      this.filterDataKalenderKerja();
     });
     this.api.getData(this.tableBagianKerja).subscribe((res) => {
       this.dataBagianKerja = res;
     });
   }
 
-  filterDataKalenderKerja(type: any, data: any) {
-    type === 'tahun' ? (type = true) : (type = false);
-    this.dataKalenderKerja.filter((res: any) => {
-      if (type) {
-        res.tgl.includes(data.value)
-          ? this.filteredKalenderKerja.push(res)
-          : undefined;
-      } else {
-        res.lokasi.includes(data.value)
-          ? this.filteredKalenderKerja.push(res)
-          : undefined;
-      }
+  changeFilter(from: string, value: any) {
+    from === 'tahun'
+      ? (this.tahunValue = value.value)
+      : (this.lokasiValue = value.value);
+    this.filterDataKalenderKerja();
+  }
+
+  async filterTahun(tahun: string) {
+    let result: any[] = [];
+    this.dataKalenderKerja.map((res: any) => {
+      res.tgl.includes(tahun) ? result.push(res) : undefined;
     });
-    console.log(this.filteredKalenderKerja);
+    return result;
+  }
+
+  async filterDataKalenderKerja() {
+    await this.filterTahun(this.tahunValue).then((res) => {
+      this.filteredDataKalenderKerja = [];
+      res.map((ress) => {
+        ress.lokasi.includes(this.lokasiValue)
+          ? this.filteredDataKalenderKerja.push(ress)
+          : undefined;
+      });
+    });
   }
 
   dateFormat(date: any) {

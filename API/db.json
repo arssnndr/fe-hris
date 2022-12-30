@@ -4488,6 +4488,83 @@
       "sub_departemen": "IT Support Plant",
       "potong_cuti": true,
       "id": 9
+    },
+    {
+      "tgl": "2022-12-30",
+      "hari": "Jumat",
+      "keterangan": "Cuti euy",
+      "lokasi": "TMS 2",
+      "divisi": "IT Support",
+      "departemen": "Faktur",
+      "sub_departemen": "Finance",
+      "potong_cuti": true,
+      "id": 10
+    },
+    {
+      "tgl": "2022-12-30",
+      "hari": "Jumat",
+      "keterangan": "",
+      "lokasi": "TMS HO",
+      "divisi": "IT Support",
+      "departemen": "Faktur",
+      "sub_departemen": "Finance",
+      "potong_cuti": true,
+      "id": 11
+    },
+    {
+      "tgl": "2022-12-30",
+      "hari": "Jumat",
+      "keterangan": "",
+      "lokasi": "TMS 3",
+      "divisi": "IT Support",
+      "departemen": "Faktur",
+      "sub_departemen": "Finance",
+      "potong_cuti": false,
+      "id": 12
+    },
+    {
+      "tgl": "2023-01-01",
+      "hari": "Minggu",
+      "keterangan": "",
+      "lokasi": "TMS 2",
+      "divisi": "IT Support",
+      "departemen": "Faktur",
+      "sub_departemen": "Finance",
+      "potong_cuti": false,
+      "id": 13
+    },
+    {
+      "tgl": "2023-01-01",
+      "hari": "Minggu",
+      "keterangan": "",
+      "lokasi": "TMS 2",
+      "divisi": "IT Support",
+      "departemen": "Faktur",
+      "sub_departemen": "Finance",
+      "potong_cuti": false,
+      "id": 14
+    },
+    {
+      "tgl": "2023-12-30",
+      "hari": "Sabtu",
+      "keterangan": "",
+      "lokasi": "TMS 3",
+      "divisi": "IT Support",
+      "departemen": "Faktur",
+      "sub_departemen": "Finance",
+      "potong_cuti": false,
+      "id": 15
+    },
+    {
+      "tgl": "2022-12-30",
+      "hari": "Jumat",
+      "keterangan": "",
+      "lokasi": "TMS 1",
+      "divisi": "IT Support",
+      "departemen": "Faktur",
+      "sub_departemen": "Finance",
+      "potong_cuti": false,
+      "id": 16
     }
   ]
 }

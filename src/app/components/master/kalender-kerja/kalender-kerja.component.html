@@ -6,7 +6,7 @@
                 <div class="left" style="display: flex">
                     <div style="display: inline-flex;">
                         <label style="font-size: large; margin-right: 20px">Tahun</label>
-                        <select class="browser-default" (change)="filterDataKalenderKerja('tahun', $event.target)">
+                        <select class="browser-default" (change)="changeFilter('tahun', $event.target)">
                             <option *ngFor="let row of tahun" [value]="row">
                                 {{ row }}
                             </option>
@@ -16,7 +16,7 @@
 
                     <div style="display: inline-flex;">
                         <label style="font-size: large; margin-right: 20px">Lokasi</label>
-                        <select class="browser-default" (change)="filterDataKalenderKerja('lokasi', $event.target)">
+                        <select class="browser-default" (change)="changeFilter('lokasi', $event.target)">
                             <option *ngFor="let row of lokasi" [value]="row">
                                 {{ row }}
                             </option>
@@ -55,7 +55,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let row of filteredKalenderKerja, index as i">
+        <tr *ngFor="let row of filteredDataKalenderKerja, index as i">
             <td (click)="editData(row)">{{ i + 1 }}</td>
             <td (click)="editData(row)">{{ row.hari }}</td>
             <td (click)="editData(row)">{{ dateFormat(row.tgl) }}</td>
