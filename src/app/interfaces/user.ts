@@ -1,82 +1,82 @@
 export interface User {
-  id: number;
+  nip: number;
   username: string;
   email: string;
-  id_lokasi: string;
-  id_perusahaan: string;
+  lokasi: string;
+  perusahaan: string;
   akses: string;
   password: string;
-  bagian_kerja: {
+  role_bagian_kerja: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  perusahaan: {
+  role_perusahaan: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  lokasi: {
+  role_lokasi: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  user: {
+  role_user: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  karyawan: {
+  role_karyawan: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  jadwal_kerja: {
+  role_jadwal_kerja: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  setup_jadwal_kerja: {
+  role_setup_jadwal_kerja: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  kalender_kerja: {
+  role_kalender_kerja: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  status_kehadiran: {
+  role_status_kehadiran: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  list_kehadiran: {
+  role_list_kehadiran: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  lembur: {
+  role_lembur: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  download: {
+  role_download: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  mesin_finger: {
+  role_mesin_finger: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  setup_mesin_finger: {
+  role_setup_mesin_finger: {
     view: boolean;
     edit: boolean;
     download: boolean;
   };
-  ganti_nip: {
+  role_ganti_nip: {
     view: boolean;
     edit: boolean;
     download: boolean;

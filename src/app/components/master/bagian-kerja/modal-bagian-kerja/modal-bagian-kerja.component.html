@@ -44,17 +44,10 @@
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button
-      class="simpan waves-effect waves-light"
-      mat-dialog-close="simpan"
-      (click)="throwResult()"
-    >
+    <button class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
       Simpan
     </button>
-    <button
-      class="batal waves-effect waves-light transparent"
-      mat-dialog-close="batal"
-    >
+    <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
       Batal
     </button>
   </mat-dialog-actions>
@@ -66,62 +59,30 @@
   <mat-dialog-content>
     <div class="right">
       <h6>Jenis</h6>
-      <input
-        type="text"
-        class="browser-default disabled"
-        [value]="data.edit.jenis_bagian"
-        disabled
-      />
+      <input type="text" class="browser-default disabled" [value]="data.edit.jenis_bagian" disabled />
     </div>
     <div class="right">
       <h6>Lokasi</h6>
-      <input
-        type="text"
-        class="browser-default disabled"
-        [value]="data.edit.lokasi"
-        disabled
-      />
+      <input type="text" class="browser-default disabled" [value]="data.edit.lokasi" disabled />
     </div>
     <div *ngIf="jenisValue == 'Departemen'" class="right">
       <h6>Divisi</h6>
-      <input
-        type="text"
-        class="browser-default disabled"
-        [value]="data.edit.divisi"
-        disabled
-      />
+      <input type="text" class="browser-default disabled" [value]="data.edit.divisi" disabled />
     </div>
     <div *ngIf="jenisValue == 'Sub Departemen'" class="right">
       <h6>Departemen</h6>
-      <input
-        type="text"
-        class="browser-default disabled"
-        [value]="data.edit.departemen"
-        disabled
-      />
+      <input type="text" class="browser-default disabled" [value]="data.edit.departemen" disabled />
     </div>
     <div class="right">
       <h6>Deskripsi</h6>
-      <input
-        type="text"
-        class="browser-default"
-        (keyup)="onKey($event.target)"
-        [value]="data.edit.sub_departemen"
-      />
+      <input type="text" class="browser-default" (keyup)="onKey($event.target)" [value]="data.edit.sub_departemen" />
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button
-      class="simpan waves-effect waves-light"
-      mat-dialog-close="simpan"
-      (click)="throwResult()"
-    >
+    <button class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
       Simpan
     </button>
-    <button
-      class="batal waves-effect waves-light transparent"
-      mat-dialog-close="batal"
-    >
+    <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
       Batal
     </button>
   </mat-dialog-actions>
@@ -130,21 +91,14 @@
 <!-- Modal delete -->
 <div *ngIf="isDelete">
   <mat-dialog-content class="delete">
-    <img
-      class="left"
-      src="../../../../../assets/icon/danger.svg"
-      alt="icon-danger"
-    />
+    <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger" />
     <p style="padding-left: 55px">Yakin data akan di void?</p>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button class="ya waves-effect waves-light" mat-dialog-close="ya">
       Ya
     </button>
-    <button
-      class="tidak waves-effect waves-dark transparent"
-      mat-dialog-close="tidak"
-    >
+    <button class="tidak waves-effect waves-dark transparent" mat-dialog-close="tidak">
       Tidak
     </button>
   </mat-dialog-actions>

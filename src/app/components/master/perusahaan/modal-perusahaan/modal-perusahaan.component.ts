@@ -1,5 +1,4 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Perusahaan } from 'src/app/interfaces/perusahaan';
 import { ApiService } from 'src/app/shared/api.service';
@@ -27,25 +26,23 @@ export class ModalPerusahaanComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.data.name === 'tambah') {
-      this.isTambah = true;
-      this.isDelete = false;
-      this.isEdit = false;
+    switch (this.data.name) {
+      case 'tambah':
+        this.isTambah = true;
 
-      this.idValue = this.data.data;
-    } else if (this.data.name === 'delete') {
-      this.isTambah = false;
-      this.isDelete = true;
-      this.isEdit = false;
-    } else if (this.data.name === 'edit') {
-      this.isTambah = false;
-      this.isDelete = false;
-      this.isEdit = true;
+        this.idValue = this.data.data;
+        break;
+      case 'delete':
+        this.isDelete = true;
+        break;
+      case 'edit':
+        this.isEdit = true;
 
-      this.idValue = this.data.data.id;
-      this.inisialValue = this.data.data.inisial;
-      this.namaValue = this.data.data.nama_perusahaan;
-      this.alamatValue = this.data.data.alamat_perusahaan;
+        this.idValue = this.data.data.id;
+        this.inisialValue = this.data.data.inisial;
+        this.namaValue = this.data.data.nama_perusahaan;
+        this.alamatValue = this.data.data.alamat_perusahaan;
+        break;
     }
   }
 
@@ -63,7 +60,6 @@ export class ModalPerusahaanComponent implements OnInit {
 
   throwResult() {
     this.perusahaan = {
-      id: this.idValue,
       inisial: this.inisialValue,
       nama_perusahaan: this.namaValue,
       alamat_perusahaan: this.alamatValue,

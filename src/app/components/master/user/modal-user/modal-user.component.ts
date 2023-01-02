@@ -23,88 +23,91 @@ export class ModalUserComponent implements OnInit {
   hide1 = true;
   hide2 = true;
 
+  tableKaryawan = 'ms_karyawan/';
+  tableUserId = 'ms_userid/';
+
   akses = [{ value: 'Lokasi' }, { value: 'Perusahaan' }, { value: 'All' }];
   konfirmPassword = '';
 
   dataUser: User = {
-    id: 0,
+    nip: 0,
     username: '',
     email: '',
-    id_lokasi: '',
-    id_perusahaan: '',
+    lokasi: '',
+    perusahaan: '',
     akses: '',
     password: '',
-    bagian_kerja: {
+    role_bagian_kerja: {
       view: false,
       edit: false,
       download: false,
     },
-    perusahaan: {
+    role_perusahaan: {
       view: false,
       edit: false,
       download: false,
     },
-    lokasi: {
+    role_lokasi: {
       view: false,
       edit: false,
       download: false,
     },
-    user: {
+    role_user: {
       view: false,
       edit: false,
       download: false,
     },
-    karyawan: {
+    role_karyawan: {
       view: false,
       edit: false,
       download: false,
     },
-    jadwal_kerja: {
+    role_jadwal_kerja: {
       view: false,
       edit: false,
       download: false,
     },
-    setup_jadwal_kerja: {
+    role_setup_jadwal_kerja: {
       view: false,
       edit: false,
       download: false,
     },
-    kalender_kerja: {
+    role_kalender_kerja: {
       view: false,
       edit: false,
       download: false,
     },
-    status_kehadiran: {
+    role_status_kehadiran: {
       view: false,
       edit: false,
       download: false,
     },
-    list_kehadiran: {
+    role_list_kehadiran: {
       view: false,
       edit: false,
       download: false,
     },
-    lembur: {
+    role_lembur: {
       view: false,
       edit: false,
       download: false,
     },
-    download: {
+    role_download: {
       view: false,
       edit: false,
       download: false,
     },
-    mesin_finger: {
+    role_mesin_finger: {
       view: false,
       edit: false,
       download: false,
     },
-    setup_mesin_finger: {
+    role_setup_mesin_finger: {
       view: false,
       edit: false,
       download: false,
     },
-    ganti_nip: {
+    role_ganti_nip: {
       view: false,
       edit: false,
       download: false,
@@ -119,7 +122,7 @@ export class ModalUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataUser.akses = this.akses[0].value;
-    this.api.getData('ms_karyawan/').subscribe((res) => {
+    this.api.getData(this.tableKaryawan).subscribe((res) => {
       this.options = res;
     });
     this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -134,20 +137,19 @@ export class ModalUserComponent implements OnInit {
         }
       })
     );
-    if (this.data.name === 'tambah') {
-      this.isTambah = true;
-      this.isDelete = false;
-      this.isEdit = false;
-    } else if (this.data.name === 'delete') {
-      this.isTambah = false;
-      this.isDelete = true;
-      this.isEdit = false;
-    } else if (this.data.name === 'edit') {
-      this.isTambah = false;
-      this.isDelete = false;
-      this.isEdit = true;
-      this.dataUser = this.data.data;
-      this.konfirmPassword = this.data.data.password;
+    switch (this.data.name) {
+      case 'tambah':
+        this.isTambah = true;
+        break;
+      case 'delete':
+        this.isDelete = true;
+        break;
+      case 'edit':
+        this.isEdit = true;
+
+        this.dataUser = this.data.data;
+        this.konfirmPassword = this.data.data.password;
+        break;
     }
   }
 
@@ -160,16 +162,16 @@ export class ModalUserComponent implements OnInit {
   }
 
   displayFn(karyawan: Karyawan) {
-    this.dataUser.id = karyawan.id;
+    this.dataUser.nip = karyawan.nip;
     this.dataUser.username = karyawan.nama_lengkap;
     this.dataUser.email = karyawan.email;
-    this.dataUser.id_lokasi = karyawan.id_lokasi;
-    this.dataUser.id_perusahaan = karyawan.id_perusahaan;
+    this.dataUser.lokasi = karyawan.lokasi;
+    this.dataUser.perusahaan = karyawan.perusahaan;
     this.api
-      .getData('ms_userid?id_like=' + this.dataUser.id)
+      .getData(this.tableUserId + '?nip_like=' + this.dataUser.nip)
       .subscribe((res) => {
         if (res[0] !== undefined) {
-          if (res[0].id === this.dataUser.id) {
+          if (res[0].nip === this.dataUser.nip) {
             return window.alert('NIP telah terdaftar sebagai User');
           }
         }
@@ -185,7 +187,7 @@ export class ModalUserComponent implements OnInit {
   }
 
   private _filterId(id: number): Karyawan[] {
-    return this.options.filter((option) => option.id === id);
+    return this.options.filter((option) => option.nip === id);
   }
 
   throwResult() {

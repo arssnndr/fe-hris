@@ -4,37 +4,36 @@
   <mat-dialog-content>
     <div class="right">
       <h6>NIP</h6>
-      <input type="text" class="browser-default nip" disabled [value]="data.data.all.id" />
+      <input type="text" class="browser-default nip" disabled [value]="data.data.all.nip" />
       <p class="nama">{{data.data.all.nama_lengkap}}</p>
     </div>
     <div class="right">
       <h6>Divisi</h6>
-      <input type="text" class="browser-default disabled subdepartemen" disabled [value]="data.data.all.id_divisi" />
+      <input type="text" class="browser-default disabled subdepartemen" disabled [value]="data.data.all.divisi" />
     </div>
     <div class="right">
       <h6>Departemen</h6>
-      <input type="text" class="browser-default disabled subdepartemen" disabled
-        [value]="data.data.all.id_departemen" />
+      <input type="text" class="browser-default disabled subdepartemen" disabled [value]="data.data.all.departemen" />
     </div>
     <div class="right">
       <h6>Sub Departemen</h6>
       <input type="text" class="browser-default disabled subdepartemen" disabled
-        [value]="data.data.all.id_subdepartemen" />
+        [value]="data.data.all.sub_departemen" />
     </div>
     <div class="right">
       <h6>Jadwal</h6>
       <select class="browser-default" [(ngModel)]="idJadwalKerja" (change)="filter()">
-        <option *ngFor="let row of jadwalKerja" [value]="row.id">
-          {{ row.id }}
+        <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+          {{ row.id_jadwal_kerja }}
         </option>
       </select>
       <button class="space"></button>
     </div>
     <div class="right">
       <h6>Jam Masuk</h6>
-      <input type="time" class="browser-default disabled" [value]="jamKerja.in" />
+      <input type="time" class="browser-default disabled" [value]="jamKerja.masuk" />
       <h6 style="width: 25px">s.d</h6>
-      <input type="time" class="browser-default disabled sd" [value]="jamKerja.out" />
+      <input type="time" class="browser-default disabled sd" [value]="jamKerja.masuk" />
     </div>
     <div class="right">
       <h6>Jam Istirahat</h6>
@@ -44,7 +43,7 @@
     </div>
     <div class="right">
       <h6>Total Jam Kerja</h6>
-      <input type="text" class="browser-default disabled total" disabled [value]="jamKerja.total_jam_kerja" />
+      <input type="text" class="browser-default disabled total" disabled [value]="jamKerja.total" />
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
@@ -65,7 +64,7 @@
       <h6>Lokasi</h6>
       <select *ngIf="tambahCategory" class="browser-default category" [(ngModel)]="lokasiValue"
         (change)="filterBagianKerja()">
-        <option *ngFor="let row of dataBagianKerja" [value]="row.id_lokasi">
+        <option *ngFor="let row of dataBagianKerja" [value]="row.lokasi">
           {{ row.id_lokasi }}
         </option>
       </select>
@@ -137,7 +136,7 @@
             <td>Senin</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="senin.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="senin.id_jadwal_kerja"
                   (change)="category('senin')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -154,7 +153,7 @@
             <td>Selasa</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="selasa.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="selasa.id_jadwal_kerja"
                   (change)="category('selasa')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -171,7 +170,7 @@
             <td>Rabu</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="rabu.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="rabu.id_jadwal_kerja"
                   (change)="category('rabu')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -188,7 +187,7 @@
             <td>Kamis</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="kamis.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="kamis.id_jadwal_kerja"
                   (change)="category('kamis')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -205,7 +204,7 @@
             <td>Jumat</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="jumat.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="jumat.id_jadwal_kerja"
                   (change)="category('jumat')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -222,7 +221,7 @@
             <td>Sabtu</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="sabtu.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="sabtu.id_jadwal_kerja"
                   (change)="category('sabtu')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -239,7 +238,7 @@
             <td>Minggu</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="minggu.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="minggu.id_jadwal_kerja"
                   (change)="category('minggu')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -289,7 +288,8 @@
         [value]="selectedOption.departemen" disabled />
       <h6 style="width: 55px; margin-left: 50px; text-align: right;">Dari</h6>
       <input *ngIf="tambahIndividu" type="date" class="browser-default" [(ngModel)]="tgl.dari">
-      <input *ngIf="editIndividu" type="date" class="browser-default disabled" [(ngModel)]="selectedOption.dari" disabled>
+      <input *ngIf="editIndividu" type="date" class="browser-default disabled" [(ngModel)]="selectedOption.dari"
+        disabled>
     </div>
     <div class="right">
       <h6>Perusahaan</h6>
@@ -299,7 +299,8 @@
         [value]="selectedOption.perusahaan" disabled />
       <h6 style="width: 55px; margin-left: 50px; text-align: right;">Sampai</h6>
       <input *ngIf="tambahIndividu" type="date" class="browser-default" [(ngModel)]="tgl.sampai">
-      <input *ngIf="editIndividu" type="date" class="browser-default disabled" [(ngModel)]="selectedOption.sampai" disabled>
+      <input *ngIf="editIndividu" type="date" class="browser-default disabled" [(ngModel)]="selectedOption.sampai"
+        disabled>
     </div>
     <div class="right">
       <table class="responsive-table striped">
@@ -317,7 +318,7 @@
             <td>Senin</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="senin.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="senin.id_jadwal_kerja"
                   (change)="category('senin')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -334,7 +335,7 @@
             <td>Selasa</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="selasa.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="selasa.id_jadwal_kerja"
                   (change)="category('selasa')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -351,7 +352,7 @@
             <td>Rabu</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="rabu.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="rabu.id_jadwal_kerja"
                   (change)="category('rabu')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -368,7 +369,7 @@
             <td>Kamis</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="kamis.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="kamis.id_jadwal_kerja"
                   (change)="category('kamis')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -385,7 +386,7 @@
             <td>Jumat</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="jumat.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="jumat.id_jadwal_kerja"
                   (change)="category('jumat')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -402,7 +403,7 @@
             <td>Sabtu</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="sabtu.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="sabtu.id_jadwal_kerja"
                   (change)="category('sabtu')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}
@@ -419,7 +420,7 @@
             <td>Minggu</td>
             <td>
               <div style="display: flex;">
-                <select class="browser-default category table" [(ngModel)]="minggu.id_jadwalkerja"
+                <select class="browser-default category table" [(ngModel)]="minggu.id_jadwal_kerja"
                   (change)="category('minggu')">
                   <option *ngFor="let row of jadwalKerja" [value]="row.id">
                     {{ row.id }}

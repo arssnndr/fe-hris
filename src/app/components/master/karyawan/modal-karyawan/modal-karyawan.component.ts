@@ -117,7 +117,7 @@ export class ModalKaryawanComponent implements OnInit {
   ];
 
   karyawan: Karyawan = {
-    id: NaN,
+    nip: NaN,
     kewarganegaraan: this.kewarganegaraan[0].value,
     nik: NaN,
     nama_lengkap: '',
@@ -156,11 +156,11 @@ export class ModalKaryawanComponent implements OnInit {
     tgl_berakhir_kitas: '',
     nomor_rptka: NaN,
     tgl_berakhir_rptka: '',
-    id_perusahaan: this.perusahaan[0].value,
-    id_lokasi: this.lokasiKerja[0].value,
-    id_divisi: this.divisi[0].value,
-    id_departemen: this.departemen[0].value,
-    id_subdepartemen: this.subDepartemen[0].value,
+    perusahaan: this.perusahaan[0].value,
+    lokasi: this.lokasiKerja[0].value,
+    divisi: this.divisi[0].value,
+    departemen: this.departemen[0].value,
+    subdepartemen: this.subDepartemen[0].value,
     jabatan: this.jabatan[0].value,
     status_karyawan: this.statusKaryawan[0].value,
     nama_pemberi_referensi: '',
@@ -180,37 +180,32 @@ export class ModalKaryawanComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.data.name === 'tambah') {
-      this.isTambah = true;
-      this.isDelete = false;
-      this.isEdit = false;
+    switch (this.data.name) {
+      case 'tambah':
+        this.isTambah = true;
 
-      this.data.data.nama_lengkap === undefined
-        ? (this.karyawan.id = this.data.data.id)
-        : (this.karyawan = this.data.data);
-    } else if (this.data.name === 'delete') {
-      this.isTambah = false;
-      this.isDelete = true;
-      this.isEdit = false;
-    } else if (this.data.name === 'edit') {
-      this.isTambah = false;
-      this.isDelete = false;
-      this.isEdit = true;
+        this.data.data.nama_lengkap === undefined
+          ? (this.karyawan.nip = this.data.data.nip)
+          : (this.karyawan = this.data.data);
+        break;
+      case 'delete':
+        this.isDelete = true;
+        break;
+      case 'edit':
+        this.isEdit = true;
 
-      this.karyawan = this.data.data;
+        this.karyawan = this.data.data;
+        break;
     }
   }
 
   throwResult() {
-    if (
-      this.karyawan.nama_lengkap === '' ||
-      this.karyawan.tempat_lahir === '' ||
-      this.karyawan.tgl_lahir === '' ||
-      this.karyawan.id_perusahaan === '' ||
-      this.karyawan.id_lokasi === ''
-    ) {
-      alert('Data wajib belum terisi');
-    }
-    this.api.throwData(this.karyawan);
+    this.karyawan.nama_lengkap === '' ||
+    this.karyawan.tempat_lahir === '' ||
+    this.karyawan.tgl_lahir === '' ||
+    this.karyawan.perusahaan === '' ||
+    this.karyawan.lokasi === ''
+      ? alert('Data wajib belum terisi')
+      : this.api.throwData(this.karyawan);
   }
 }

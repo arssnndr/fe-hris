@@ -5,10 +5,7 @@
       <mat-tab label="Pribadi">
         <div class="right top">
           <h6>Kewarganegaraan</h6>
-          <select
-            class="browser-default"
-            [(ngModel)]="karyawan.kewarganegaraan"
-          >
+          <select class="browser-default" [(ngModel)]="karyawan.kewarganegaraan">
             <option *ngFor="let raw of kewarganegaraan" [value]="raw.value">
               {{ raw.value }}
             </option>
@@ -18,95 +15,54 @@
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>NIK</h6>
-          <input
-            type="number"
-            class="browser-default"
-            placeholder="Nomor Induk Kependudukan"
-            [(ngModel)]="karyawan.nik"
-          />
+          <input type="number" class="browser-default" placeholder="Nomor Induk Kependudukan"
+            [(ngModel)]="karyawan.nik" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
           <h6>Nomor Passport</h6>
-          <input
-            type="number"
-            class="browser-default"
-            placeholder="Nomor Passport"
-            [(ngModel)]="karyawan.nomor_passport"
-          />
+          <input type="number" class="browser-default" placeholder="Nomor Passport"
+            [(ngModel)]="karyawan.nomor_passport" />
         </div>
 
         <div class="right">
           <h6>
             Nama
-            <sup style="color: red" *ngIf="karyawan.nama_lengkap === ''"
-              >Wajib</sup
-            >
+            <sup style="color: red" *ngIf="karyawan.nama_lengkap === ''">Wajib</sup>
           </h6>
-          <input
-            type="text"
-            class="browser-default"
-            maxlength="150"
-            placeholder="Nama Lengkap"
-            [(ngModel)]="karyawan.nama_lengkap"
-          />
+          <input type="text" class="browser-default" maxlength="150" placeholder="Nama Lengkap"
+            [(ngModel)]="karyawan.nama_lengkap" />
         </div>
 
         <div class="right">
           <h6>
             Tempat Lahir
-            <sup style="color: red" *ngIf="karyawan.tempat_lahir === ''"
-              >Wajib</sup
-            >
+            <sup style="color: red" *ngIf="karyawan.tempat_lahir === ''">Wajib</sup>
           </h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Tempat Lahir"
-            [(ngModel)]="karyawan.tempat_lahir"
-          />
+          <input type="text" class="browser-default" placeholder="Tempat Lahir" [(ngModel)]="karyawan.tempat_lahir" />
         </div>
 
         <div class="right">
           <h6>
             Tgl Lahir
-            <sup style="color: red" *ngIf="karyawan.tgl_lahir === ''"
-              >Wajib</sup
-            >
+            <sup style="color: red" *ngIf="karyawan.tgl_lahir === ''">Wajib</sup>
           </h6>
-          <input
-            type="date"
-            class="browser-default tgl"
-            [(ngModel)]="karyawan.tgl_lahir"
-          />
+          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_lahir" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
           <h6>Tgl Pembuatan (Passport)</h6>
-          <input
-            type="date"
-            class="browser-default tgl"
-            [(ngModel)]="karyawan.tgl_pembuatan_passport"
-          />
+          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_pembuatan_passport" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
           <h6>Tgl Berakhir (Passport)</h6>
-          <input
-            type="date"
-            class="browser-default tgl"
-            [(ngModel)]="karyawan.tgl_berakhir_passport"
-          />
+          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_berakhir_passport" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
           <h6>Kebangsaan</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Kebangsaan"
-            [(ngModel)]="karyawan.kebangsaan"
-          />
+          <input type="text" class="browser-default" placeholder="Kebangsaan" [(ngModel)]="karyawan.kebangsaan" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
@@ -121,31 +77,17 @@
 
         <div class="right alamat" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Alamat</h6>
-          <textarea
-            class="perusahaan"
-            placeholder="Alamat Domisili"
-            [(ngModel)]="karyawan.alamat_domisili"
-          ></textarea>
+          <textarea class="perusahaan" placeholder="Alamat Domisili" [(ngModel)]="karyawan.alamat_domisili"></textarea>
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>RT/RW</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="RT/RW"
-            [(ngModel)]="karyawan.rt_rw"
-          />
+          <input type="text" class="browser-default" placeholder="RT/RW" [(ngModel)]="karyawan.rt_rw" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Kel/Desa</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Kel/Desa"
-            [(ngModel)]="karyawan.kel_desa"
-          />
+          <input type="text" class="browser-default" placeholder="Kel/Desa" [(ngModel)]="karyawan.kel_desa" />
         </div>
 
         <div class="right">
@@ -160,10 +102,7 @@
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Status Perkawinan</h6>
-          <select
-            class="browser-default"
-            [(ngModel)]="karyawan.status_perkawinan"
-          >
+          <select class="browser-default" [(ngModel)]="karyawan.status_perkawinan">
             <option *ngFor="let raw of statusPerkawinan" [value]="raw.value">
               {{ raw.value }}
             </option>
@@ -173,88 +112,47 @@
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nomor NPWP</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nomor NPWP"
-            [(ngModel)]="karyawan.nomor_npwp"
-          />
+          <input type="text" class="browser-default" placeholder="Nomor NPWP" [(ngModel)]="karyawan.nomor_npwp" />
         </div>
 
         <div class="right">
           <h6>Nomor Telepon</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nomor Telepon"
-            [(ngModel)]="karyawan.nomor_telepon"
-          />
+          <input type="text" class="browser-default" placeholder="Nomor Telepon" [(ngModel)]="karyawan.nomor_telepon" />
         </div>
 
         <div class="right">
           <h6>Email</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Email"
-            [(ngModel)]="karyawan.email"
-          />
+          <input type="text" class="browser-default" placeholder="Email" [(ngModel)]="karyawan.email" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
           <h6>Nomor Kitas</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nomor Kitas"
-            [(ngModel)]="karyawan.nomor_kitas"
-          />
+          <input type="text" class="browser-default" placeholder="Nomor Kitas" [(ngModel)]="karyawan.nomor_kitas" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
           <h6>Tgl Berakhir (Kitas)</h6>
-          <input
-            type="date"
-            class="browser-default tgl"
-            [(ngModel)]="karyawan.tgl_berakhir_kitas"
-          />
+          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_berakhir_kitas" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
           <h6>Nomor RPTKA</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nomor RPTKA"
-            [(ngModel)]="karyawan.nomor_rptka"
-          />
+          <input type="text" class="browser-default" placeholder="Nomor RPTKA" [(ngModel)]="karyawan.nomor_rptka" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
           <h6>Tgl Berakhir (RPTKA)</h6>
-          <input
-            type="date"
-            class="browser-default tgl"
-            [(ngModel)]="karyawan.tgl_berakhir_rptka"
-          />
+          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_berakhir_rptka" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
           <h6>Nomor NPWP</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nomor NPWP"
-            [(ngModel)]="karyawan.nomor_npwp"
-          />
+          <input type="text" class="browser-default" placeholder="Nomor NPWP" [(ngModel)]="karyawan.nomor_npwp" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Pendidikan Terakhir</h6>
-          <select
-            class="browser-default"
-            [(ngModel)]="karyawan.pendidikan_terakhir"
-          >
+          <select class="browser-default" [(ngModel)]="karyawan.pendidikan_terakhir">
             <option *ngFor="let raw of pendidikanTerakhir" [value]="raw.value">
               {{ raw.value }}
             </option>
@@ -264,72 +162,41 @@
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nomor Kartu BPJS TK</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nomor Kartu BPJS TK"
-            [(ngModel)]="karyawan.nomor_bpjs_tk"
-          />
+          <input type="text" class="browser-default" placeholder="Nomor Kartu BPJS TK"
+            [(ngModel)]="karyawan.nomor_bpjs_tk" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nomor Kartu BPJS Kesehatan</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nomor Kartu BPJS Kesehatan"
-            [(ngModel)]="karyawan.nomor_bpjs_kesehatan"
-          />
+          <input type="text" class="browser-default" placeholder="Nomor Kartu BPJS Kesehatan"
+            [(ngModel)]="karyawan.nomor_bpjs_kesehatan" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nama Fasker</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nama Faskes"
-            [(ngModel)]="karyawan.nama_faskes"
-          />
+          <input type="text" class="browser-default" placeholder="Nama Faskes" [(ngModel)]="karyawan.nama_faskes" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Alamat Faskes</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Alamat Faskes"
-            [(ngModel)]="karyawan.alamat_faskes"
-          />
+          <input type="text" class="browser-default" placeholder="Alamat Faskes" [(ngModel)]="karyawan.alamat_faskes" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nomor KK</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nomor KK"
-            [(ngModel)]="karyawan.nomor_kk"
-          />
+          <input type="text" class="browser-default" placeholder="Nomor KK" [(ngModel)]="karyawan.nomor_kk" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nama Kepala Keluarga</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nama Kepala Keluarga"
-            [(ngModel)]="karyawan.nama_kepala_keluarga"
-          />
+          <input type="text" class="browser-default" placeholder="Nama Kepala Keluarga"
+            [(ngModel)]="karyawan.nama_kepala_keluarga" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nama Ibu Kandung</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nama Ibu Kandung"
-            [(ngModel)]="karyawan.nama_ibu_kandung"
-          />
+          <input type="text" class="browser-default" placeholder="Nama Ibu Kandung"
+            [(ngModel)]="karyawan.nama_ibu_kandung" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
@@ -344,72 +211,43 @@
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nama Pasangan</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nama Pasangan"
-            [(ngModel)]="karyawan.nama_pasangan"
-          />
+          <input type="text" class="browser-default" placeholder="Nama Pasangan" [(ngModel)]="karyawan.nama_pasangan" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nama Anak Ke 1</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nama Anak Ke 1"
-            [(ngModel)]="karyawan.nama_anak_ke1"
-          />
+          <input type="text" class="browser-default" placeholder="Nama Anak Ke 1"
+            [(ngModel)]="karyawan.nama_anak_ke1" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nama Anak Ke 2</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nama Anak Ke 2"
-            [(ngModel)]="karyawan.nama_anak_ke2"
-          />
+          <input type="text" class="browser-default" placeholder="Nama Anak Ke 2"
+            [(ngModel)]="karyawan.nama_anak_ke2" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nama Anak Ke 3</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nama Anak Ke 3"
-            [(ngModel)]="karyawan.nama_anak_ke3"
-          />
+          <input type="text" class="browser-default" placeholder="Nama Anak Ke 3"
+            [(ngModel)]="karyawan.nama_anak_ke3" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nama Kontak Darurat</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nama Kontak Darurat"
-            [(ngModel)]="karyawan.nama_kontak_darurat"
-          />
+          <input type="text" class="browser-default" placeholder="Nama Kontak Darurat"
+            [(ngModel)]="karyawan.nama_kontak_darurat" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Nomor Telpon Darurat</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nomor Telpon Darurat"
-            [(ngModel)]="karyawan.nomor_telepon_darurat"
-          />
+          <input type="text" class="browser-default" placeholder="Nomor Telpon Darurat"
+            [(ngModel)]="karyawan.nomor_telepon_darurat" />
         </div>
 
         <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
           <h6>Hubungan Dengan Karyawan</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Hubungan Dengan Karyawan"
-            [(ngModel)]="karyawan.hubungan_dengan_karyawan"
-          />
+          <input type="text" class="browser-default" placeholder="Hubungan Dengan Karyawan"
+            [(ngModel)]="karyawan.hubungan_dengan_karyawan" />
         </div>
       </mat-tab>
 
@@ -417,11 +255,9 @@
         <div class="right top">
           <h6>
             Perusahaan
-            <sup style="color: red" *ngIf="karyawan.id_perusahaan === ''"
-              >Wajib</sup
-            >
+            <sup style="color: red" *ngIf="karyawan.perusahaan === ''">Wajib</sup>
           </h6>
-          <select class="browser-default" [(ngModel)]="karyawan.id_perusahaan">
+          <select class="browser-default" [(ngModel)]="karyawan.perusahaan">
             <option *ngFor="let raw of perusahaan" [value]="raw.value">
               {{ raw.value }}
             </option>
@@ -431,23 +267,16 @@
 
         <div class="right">
           <h6>NIP</h6>
-          <input
-            type="text"
-            class="browser-default disabled"
-            placeholder="000000"
-            [(ngModel)]="karyawan.id"
-            disabled
-          />
+          <input type="text" class="browser-default disabled" placeholder="000000" [(ngModel)]="karyawan.nip"
+            disabled />
         </div>
 
         <div class="right">
           <h6>
             Lokasi Kerja
-            <sup style="color: red" *ngIf="karyawan.id_lokasi === ''"
-              >Wajib</sup
-            >
+            <sup style="color: red" *ngIf="karyawan.lokasi === ''">Wajib</sup>
           </h6>
-          <select class="browser-default" [(ngModel)]="karyawan.id_lokasi">
+          <select class="browser-default" [(ngModel)]="karyawan.lokasi">
             <option *ngFor="let raw of lokasiKerja" [value]="raw.value">
               {{ raw.value }}
             </option>
@@ -457,7 +286,7 @@
 
         <div class="right">
           <h6>Divisi</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.id_divisi">
+          <select class="browser-default" [(ngModel)]="karyawan.divisi">
             <option *ngFor="let raw of divisi" [value]="raw.value">
               {{ raw.value }}
             </option>
@@ -467,7 +296,7 @@
 
         <div class="right">
           <h6>Departemen</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.id_departemen">
+          <select class="browser-default" [(ngModel)]="karyawan.departemen">
             <option *ngFor="let raw of departemen" [value]="raw.value">
               {{ raw.value }}
             </option>
@@ -477,10 +306,7 @@
 
         <div class="right">
           <h6>Sub Departemen</h6>
-          <select
-            class="browser-default"
-            [(ngModel)]="karyawan.id_subdepartemen"
-          >
+          <select class="browser-default" [(ngModel)]="karyawan.subdepartemen">
             <option *ngFor="let raw of subDepartemen" [value]="raw.value">
               {{ raw.value }}
             </option>
@@ -500,10 +326,7 @@
 
         <div class="right">
           <h6>Status Karyawan</h6>
-          <select
-            class="browser-default"
-            [(ngModel)]="karyawan.status_karyawan"
-          >
+          <select class="browser-default" [(ngModel)]="karyawan.status_karyawan">
             <option *ngFor="let raw of statusKaryawan" [value]="raw.value">
               {{ raw.value }}
             </option>
@@ -513,22 +336,14 @@
 
         <div class="right">
           <h6>Nama Pemberi Referensi</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nama Pemberi Referensi"
-            [(ngModel)]="karyawan.nama_pemberi_referensi"
-          />
+          <input type="text" class="browser-default" placeholder="Nama Pemberi Referensi"
+            [(ngModel)]="karyawan.nama_pemberi_referensi" />
         </div>
 
         <div class="right">
           <h6>Nama Atasan Langsung</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nama Atasan Langsung"
-            [(ngModel)]="karyawan.nama_atasan_langsung"
-          />
+          <input type="text" class="browser-default" placeholder="Nama Atasan Langsung"
+            [(ngModel)]="karyawan.nama_atasan_langsung" />
         </div>
       </mat-tab>
 
@@ -536,21 +351,12 @@
       <mat-tab label="Periode Kontrak">
         <div class="right top">
           <h6>Tgl Join</h6>
-          <input
-            type="date"
-            class="browser-default tgl"
-            [(ngModel)]="karyawan.tgl_join"
-          />
+          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_join" />
         </div>
 
         <div class="right">
           <h6>Nomor PKWTT</h6>
-          <input
-            type="text"
-            class="browser-default"
-            placeholder="Nomor PKWTT"
-            [(ngModel)]="karyawan.nomor_pkwtt"
-          />
+          <input type="text" class="browser-default" placeholder="Nomor PKWTT" [(ngModel)]="karyawan.nomor_pkwtt" />
         </div>
       </mat-tab>
 
@@ -558,37 +364,20 @@
       <mat-tab label="Gaji Karyawan">
         <div class="right top">
           <h6>Gaji Pokok</h6>
-          <input
-            type="text"
-            class="browser-default gajitgl"
-            placeholder="Gaji Pokok"
-            [(ngModel)]="karyawan.gaji_pokok"
-          />
-          <input
-            type="date"
-            class="browser-default tglgaji"
-            [(ngModel)]="karyawan.tgl_perubahan"
-          />
+          <input type="text" class="browser-default gajitgl" placeholder="Gaji Pokok"
+            [(ngModel)]="karyawan.gaji_pokok" />
+          <input type="date" class="browser-default tglgaji" [(ngModel)]="karyawan.tgl_perubahan" />
         </div>
 
         <div class="right">
           <h6>Uang Makan</h6>
-          <input
-            type="text"
-            class="browser-default gaji"
-            placeholder="Uang Makan"
-            [(ngModel)]="karyawan.uang_makan"
-          />
+          <input type="text" class="browser-default gaji" placeholder="Uang Makan" [(ngModel)]="karyawan.uang_makan" />
         </div>
 
         <div class="right">
           <h6>Uang Transport</h6>
-          <input
-            type="text"
-            class="browser-default gaji"
-            placeholder="Uang Transport"
-            [(ngModel)]="karyawan.uang_transport"
-          />
+          <input type="text" class="browser-default gaji" placeholder="Uang Transport"
+            [(ngModel)]="karyawan.uang_transport" />
         </div>
 
         <div class="right alamat">
@@ -600,28 +389,15 @@
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <div class="button">
-      <button
-        type="submit"
-        class="simpan waves-effect waves-light"
-        *ngIf="isTambah"
-        mat-dialog-close="simpan"
-        (click)="throwResult()"
-      >
+      <button type="submit" class="simpan waves-effect waves-light" *ngIf="isTambah" mat-dialog-close="simpan"
+        (click)="throwResult()">
         Simpan
       </button>
-      <button
-        type="submit"
-        class="simpan waves-effect waves-light"
-        *ngIf="isEdit"
-        mat-dialog-close="update"
-        (click)="throwResult()"
-      >
+      <button type="submit" class="simpan waves-effect waves-light" *ngIf="isEdit" mat-dialog-close="update"
+        (click)="throwResult()">
         Simpan
       </button>
-      <button
-        class="batal waves-effect waves-light transparent"
-        mat-dialog-close="batal"
-      >
+      <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
         Batal
       </button>
     </div>
@@ -631,21 +407,14 @@
 <!-- Modal delete -->
 <div *ngIf="isDelete">
   <mat-dialog-content class="delete">
-    <img
-      class="left"
-      src="../../../../../assets/icon/danger.svg"
-      alt="icon-danger"
-    />
+    <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger" />
     <p style="padding-left: 55px">Yakin data akan di void?</p>
   </mat-dialog-content>
   <mat-dialog-actions align="end" class="delete">
     <button class="ya waves-effect waves-light" mat-dialog-close="ya">
       Ya
     </button>
-    <button
-      class="tidak waves-effect waves-dark transparent"
-      mat-dialog-close="tidak"
-    >
+    <button class="tidak waves-effect waves-dark transparent" mat-dialog-close="tidak">
       Tidak
     </button>
   </mat-dialog-actions>

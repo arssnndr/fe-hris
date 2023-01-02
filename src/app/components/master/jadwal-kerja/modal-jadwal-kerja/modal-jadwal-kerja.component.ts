@@ -9,20 +9,20 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-jadwal-kerja.component.css'],
 })
 export class ModalJadwalKerjaComponent implements OnInit {
-  isTambah!: boolean;
-  isDelete!: boolean;
-  isEdit!: boolean;
+  isTambah = false
+  isDelete = false
+  isEdit = false
 
   jadwalKerja: JadwalKerja = {
-    id: '',
-    id_lokasi: '',
-    id_shift: '',
-    jam_kerja: '',
-    in: '',
-    out: '',
+    id_jadwal_kerja: '',
+    lokasi: '',
+    shift: '',
+    type: '',
+    masuk: '',
+    keluar: '',
     mulai_istirahat: '',
     selesai_istirahat: '',
-    total_jam_kerja: 0,
+    total: 0,
   };
 
   lokasi = [
@@ -56,48 +56,47 @@ export class ModalJadwalKerjaComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.data.name === 'tambah') {
-      this.isTambah = true;
-      this.isDelete = false;
-      this.isEdit = false;
+    switch (this.data.name) {
+      case 'tambah':
+        this.isTambah = true;
 
-      this.lokasiVal = this.lokasi[0].val;
-      this.shiftVal = this.shift[0].val;
-      this.jamKerjaVal = this.jamKerja[0].val;
+        this.lokasiVal = this.lokasi[0].val;
+        this.shiftVal = this.shift[0].val;
+        this.jamKerjaVal = this.jamKerja[0].val;
 
-      this.jadwalKerja.id = this.lokasiVal + this.shiftVal + this.jamKerjaVal;
-      this.jadwalKerja.id_lokasi = this.lokasi[0].value;
-      this.jadwalKerja.id_shift = this.shift[0].value;
-      this.jadwalKerja.jam_kerja = this.jamKerja[0].value;
-    } else if (this.data.name === 'delete') {
-      this.isTambah = false;
-      this.isDelete = true;
-      this.isEdit = false;
-    } else if (this.data.name === 'edit') {
-      this.isTambah = false;
-      this.isDelete = false;
-      this.isEdit = true;
+        this.jadwalKerja.id_jadwal_kerja =
+          this.lokasiVal + this.shiftVal + this.jamKerjaVal;
+        this.jadwalKerja.lokasi = this.lokasi[0].value;
+        this.jadwalKerja.shift = this.shift[0].value;
+        this.jadwalKerja.type = this.jamKerja[0].value;
+        break;
+      case 'delete':
+        this.isDelete = true;
+        break;
+      case 'edit':
+        this.isEdit = true;
 
-      this.jadwalKerja = this.data.data;
-      this.lokasiValue = this.data.data.id_lokasi;
-      this.shiftValue = this.data.data.id_shift;
-      this.jamKerjaValue = this.data.data.jam_kerja;
+        this.jadwalKerja = this.data.data;
+        this.lokasiValue = this.data.data.lokasi;
+        this.shiftValue = this.data.data.shift;
+        this.jamKerjaValue = this.data.data.type;
 
-      this.lokasi.find((res) => {
-        if (res.value === this.jadwalKerja.id_lokasi) {
-          this.lokasiVal = res.val;
-        }
-      });
-      this.shift.find((res) => {
-        if (res.value === this.jadwalKerja.id_shift) {
-          this.shiftVal = res.val;
-        }
-      });
-      this.jamKerja.find((res) => {
-        if (res.value === this.jadwalKerja.jam_kerja) {
-          this.jamKerjaVal = res.val;
-        }
-      });
+        this.lokasi.find((res) => {
+          if (res.value === this.jadwalKerja.lokasi) {
+            this.lokasiVal = res.val;
+          }
+        });
+        this.shift.find((res) => {
+          if (res.value === this.jadwalKerja.shift) {
+            this.shiftVal = res.val;
+          }
+        });
+        this.jamKerja.find((res) => {
+          if (res.value === this.jadwalKerja.type) {
+            this.jamKerjaVal = res.val;
+          }
+        });
+        break;
     }
   }
 
@@ -105,42 +104,38 @@ export class ModalJadwalKerjaComponent implements OnInit {
     this.lokasi.find((res) => {
       if (res.value === data.value) {
         this.lokasiVal = res.val;
-        this.jadwalKerja.id_lokasi = res.value;
+        this.jadwalKerja.lokasi = res.value;
       }
     });
     this.shift.find((res) => {
       if (res.value === data.value) {
         this.shiftVal = res.val;
-        this.jadwalKerja.id_shift = res.value;
+        this.jadwalKerja.shift = res.value;
       }
     });
     this.jamKerja.find((res) => {
       if (res.value === data.value) {
         this.jamKerjaVal = res.val;
-        this.jadwalKerja.jam_kerja = res.value;
+        this.jadwalKerja.type = res.value;
       }
     });
 
-    this.jadwalKerja.id =
+    this.jadwalKerja.id_jadwal_kerja =
       this.lokasiVal +
       this.shiftVal +
       this.jamKerjaVal +
-      this.jadwalKerja.in.slice(0, -3) +
-      this.jadwalKerja.out.slice(0, -3);
+      this.jadwalKerja.masuk.slice(0, -3) +
+      this.jadwalKerja.keluar.slice(0, -3);
 
-    let keluar = parseInt(this.jadwalKerja.out.slice(0, -3));
-    let masuk = parseInt(this.jadwalKerja.in.slice(0, -3));
+    let keluar = parseInt(this.jadwalKerja.keluar.slice(0, -3));
+    let masuk = parseInt(this.jadwalKerja.masuk.slice(0, -3));
     let mIstirahat = parseInt(this.jadwalKerja.selesai_istirahat.slice(0, -3));
     let sIstirahat = parseInt(this.jadwalKerja.mulai_istirahat.slice(0, -3));
-    if (
-      this.jadwalKerja.selesai_istirahat === '' ||
-      this.jadwalKerja.mulai_istirahat === ''
-    ) {
-      this.jadwalKerja.total_jam_kerja = keluar - masuk;
-    } else {
-      this.jadwalKerja.total_jam_kerja =
-        keluar - masuk - (mIstirahat - sIstirahat);
-    }
+
+    this.jadwalKerja.selesai_istirahat === '' ||
+    this.jadwalKerja.mulai_istirahat === ''
+      ? (this.jadwalKerja.total = keluar - masuk)
+      : (this.jadwalKerja.total = keluar - masuk - (mIstirahat - sIstirahat));
   }
 
   throwResult() {

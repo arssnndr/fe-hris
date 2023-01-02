@@ -35,10 +35,8 @@ export class UserComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        console.log(this.catchResult);
         this.api.postData(this.table, this.catchResult).subscribe((res) => {
           this.api.getData(this.table).subscribe((res) => {
             this.getMaxId = res[res.length - 1].id;

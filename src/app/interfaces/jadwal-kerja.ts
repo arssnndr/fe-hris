@@ -1,11 +1,11 @@
 export interface JadwalKerja {
-  id: string;
-  id_lokasi: string;
-  id_shift: string;
-  jam_kerja: string;
-  in: string;
-  out: string;
+  id_jadwal_kerja: string;
+  lokasi: string;
+  shift: string;
+  type: string;
+  masuk: string;
+  keluar: string;
   mulai_istirahat: string;
   selesai_istirahat: string;
-  total_jam_kerja: number;
+  total: number;
 }

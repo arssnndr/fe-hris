@@ -11,7 +11,7 @@ moment.locale('id');
   styleUrls: ['./setup-jadwal-kerja.component.css'],
 })
 export class SetupJadwalKerjaComponent implements OnInit {
-  tableDetail = 'ms_karyawan/';
+  tableDetail = 'trx_jadwalkerjadetail/';
   dataDetail!: any;
   dataDetailJadwalKerja!: any;
   tableCategory = 'trx_jadwalkerjacategory/';
@@ -46,7 +46,6 @@ export class SetupJadwalKerjaComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      // console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         this.api
@@ -70,7 +69,6 @@ export class SetupJadwalKerjaComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      // console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         console.log(this.catchResult);

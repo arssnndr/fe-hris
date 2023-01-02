@@ -21,10 +21,7 @@
             </button>
           </li>
           <li>
-            <button
-              class="tambah waves-effect waves-light"
-              (click)="tambahData()"
-            >
+            <button class="tambah waves-effect waves-light" (click)="tambahData()">
               Tambah
             </button>
           </li>
@@ -50,20 +47,17 @@
   </thead>
   <tbody>
     <tr *ngFor="let row of data">
-      <td (click)="editData(row)">{{ row.id }}</td>
-      <td (click)="editData(row)">{{ row.id_lokasi }}</td>
-      <td (click)="editData(row)">{{ row.id_shift }}</td>
-      <td (click)="editData(row)">{{ row.jam_kerja }}</td>
-      <td (click)="editData(row)">{{ row.in }}</td>
-      <td (click)="editData(row)">{{ row.out }}</td>
+      <td (click)="editData(row)">{{ row.id_jadwal_kerja }}</td>
+      <td (click)="editData(row)">{{ row.lokasi }}</td>
+      <td (click)="editData(row)">{{ row.shift }}</td>
+      <td (click)="editData(row)">{{ row.type }}</td>
+      <td (click)="editData(row)">{{ row.masuk }}</td>
+      <td (click)="editData(row)">{{ row.keluar }}</td>
       <td (click)="editData(row)">{{ row.mulai_istirahat }}</td>
       <td (click)="editData(row)">{{ row.selesai_istirahat }}</td>
-      <td (click)="editData(row)">{{ row.total_jam_kerja }} Jam</td>
+      <td (click)="editData(row)">{{ row.total }} Jam</td>
       <td>
-        <button
-          (click)="deleteData(row.id)"
-          class="waves-effect waves-light right red darken-2"
-        >
+        <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
           <i class="material-icons" style="font-size: 15px">close</i>
         </button>
       </td>

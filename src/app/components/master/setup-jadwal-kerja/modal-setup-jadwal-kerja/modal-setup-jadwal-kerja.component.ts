@@ -5,7 +5,7 @@ import { ApiService } from 'src/app/shared/api.service';
 moment.locale('id');
 
 interface UpdateJamKerja {
-  id_jadwalkerja: string;
+  id_jadwal_kerja: string;
   tgl: string;
   hari: string;
   in: string;
@@ -16,7 +16,7 @@ interface UpdateJamKerja {
 }
 
 interface JadwalKerjaCategory {
-  id_jadwalkerja: string;
+  id_jadwal_kerja: string;
   hari: string;
   in: string;
   out: string;
@@ -51,7 +51,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
   selectedOption!: any;
   tgl = { dari: '', sampai: '' };
   bagianKerjaFiltered: {
-    id_lokasi: string;
+    lokasi: string;
     divisi: string;
     departemen: string;
     sub_departemen: string;
@@ -63,7 +63,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
   idJadwalKerja!: any;
   updateJamKerja!: UpdateJamKerja;
   senin: JadwalKerjaCategory = {
-    id_jadwalkerja: '',
+    id_jadwal_kerja: '',
     hari: '',
     in: '',
     out: '',
@@ -72,7 +72,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     total_jam_kerja: 0,
   };
   selasa: JadwalKerjaCategory = {
-    id_jadwalkerja: '',
+    id_jadwal_kerja: '',
     hari: '',
     in: '',
     out: '',
@@ -81,7 +81,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     total_jam_kerja: 0,
   };
   rabu: JadwalKerjaCategory = {
-    id_jadwalkerja: '',
+    id_jadwal_kerja: '',
     hari: '',
     in: '',
     out: '',
@@ -90,7 +90,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     total_jam_kerja: 0,
   };
   kamis: JadwalKerjaCategory = {
-    id_jadwalkerja: '',
+    id_jadwal_kerja: '',
     hari: '',
     in: '',
     out: '',
@@ -99,7 +99,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     total_jam_kerja: 0,
   };
   jumat: JadwalKerjaCategory = {
-    id_jadwalkerja: '',
+    id_jadwal_kerja: '',
     hari: '',
     in: '',
     out: '',
@@ -108,7 +108,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     total_jam_kerja: 0,
   };
   sabtu: JadwalKerjaCategory = {
-    id_jadwalkerja: '',
+    id_jadwal_kerja: '',
     hari: '',
     in: '',
     out: '',
@@ -117,7 +117,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     total_jam_kerja: 0,
   };
   minggu: JadwalKerjaCategory = {
-    id_jadwalkerja: '',
+    id_jadwal_kerja: '',
     hari: '',
     in: '',
     out: '',
@@ -135,7 +135,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
 
       this.allData = data.data.all;
       this.jamKerja = data.data.dataJadwalKerja;
-      this.idJadwalKerja = data.data.dataJadwalKerja.id_jadwalkerja;
+      this.idJadwalKerja = data.data.dataJadwalKerja.id_jadwal_kerja;
       this.updateJamKerja = this.jamKerja;
     } else if (data.name === 'tambahCategory') {
       this.tambahCategory = true;
@@ -160,8 +160,8 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
       this.selectedOption = {
         id: '',
         nama_lengkap: '',
-        id_departemen: '',
-        id_perusahaan: '',
+        departemen: '',
+        perusahaan: '',
       };
     } else if (data.name === 'editIndividu') {
       this.editIndividu = true;
@@ -198,13 +198,13 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     this.api.getData(this.table).subscribe((res) => {
       this.jadwalKerja = res;
       if (this.tambahCategory || this.tambahIndividu) {
-        this.senin.id_jadwalkerja = res[0].id;
-        this.selasa.id_jadwalkerja = res[0].id;
-        this.rabu.id_jadwalkerja = res[0].id;
-        this.kamis.id_jadwalkerja = res[0].id;
-        this.jumat.id_jadwalkerja = res[0].id;
-        this.sabtu.id_jadwalkerja = res[0].id;
-        this.minggu.id_jadwalkerja = res[0].id;
+        this.senin.id_jadwal_kerja = res[0].id;
+        this.selasa.id_jadwal_kerja = res[0].id;
+        this.rabu.id_jadwal_kerja = res[0].id;
+        this.kamis.id_jadwal_kerja = res[0].id;
+        this.jumat.id_jadwal_kerja = res[0].id;
+        this.sabtu.id_jadwal_kerja = res[0].id;
+        this.minggu.id_jadwal_kerja = res[0].id;
       }
       this.category('senin');
       this.category('selasa');
@@ -216,7 +216,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     });
     this.api.getData(this.tableBagiankerja).subscribe((res) => {
       this.dataBagianKerja = res;
-      this.lokasiValue = res[0].id_lokasi;
+      this.lokasiValue = res[0].lokasi;
       this.divisiValue = res[0].divisi;
       this.departemenValue = res[0].departemen;
       this.subDepartemenValue = res[0].sub_departemen;
@@ -229,7 +229,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     this.jadwalKerja.filter((res: any) => {
       switch (day) {
         case 'senin':
-          if (this.senin.id_jadwalkerja === res.id) {
+          if (this.senin.id_jadwal_kerja === res.id) {
             this.senin.hari = 'Senin';
             this.senin.in = res.in;
             this.senin.out = res.out;
@@ -239,7 +239,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
           }
           break;
         case 'selasa':
-          if (this.selasa.id_jadwalkerja === res.id) {
+          if (this.selasa.id_jadwal_kerja === res.id) {
             this.selasa.hari = 'Selasa';
             this.selasa.in = res.in;
             this.selasa.out = res.out;
@@ -249,7 +249,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
           }
           break;
         case 'rabu':
-          if (this.rabu.id_jadwalkerja === res.id) {
+          if (this.rabu.id_jadwal_kerja === res.id) {
             this.rabu.hari = 'Rabu';
             this.rabu.in = res.in;
             this.rabu.out = res.out;
@@ -259,7 +259,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
           }
           break;
         case 'kamis':
-          if (this.kamis.id_jadwalkerja === res.id) {
+          if (this.kamis.id_jadwal_kerja === res.id) {
             this.kamis.hari = 'Kamis';
             this.kamis.in = res.in;
             this.kamis.out = res.out;
@@ -269,7 +269,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
           }
           break;
         case 'jumat':
-          if (this.jumat.id_jadwalkerja === res.id) {
+          if (this.jumat.id_jadwal_kerja === res.id) {
             this.jumat.hari = 'Jumat';
             this.jumat.in = res.in;
             this.jumat.out = res.out;
@@ -279,7 +279,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
           }
           break;
         case 'sabtu':
-          if (this.sabtu.id_jadwalkerja === res.id) {
+          if (this.sabtu.id_jadwal_kerja === res.id) {
             this.sabtu.hari = 'Sabtu';
             this.sabtu.in = res.in;
             this.sabtu.out = res.out;
@@ -289,7 +289,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
           }
           break;
         case 'minggu':
-          if (this.minggu.id_jadwalkerja === res.id) {
+          if (this.minggu.id_jadwal_kerja === res.id) {
             this.minggu.hari = 'Minggu';
             this.minggu.in = res.in;
             this.minggu.out = res.out;
@@ -306,7 +306,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
 
   filterBagianKerja() {
     this.dataBagianKerja.filter((res: any) => {
-      if (this.lokasiValue === res.id_lokasi) {
+      if (this.lokasiValue === res.lokasi) {
         this.bagianKerjaFiltered.push(res);
       }
     });
@@ -319,7 +319,7 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
       }
     });
     this.updateJamKerja = {
-      id_jadwalkerja: this.jamKerja.id,
+      id_jadwal_kerja: this.jamKerja.id,
       tgl: this.data.data.dataJadwalKerja.tgl,
       hari: this.data.data.dataJadwalKerja.hari,
       in: this.jamKerja.in,
@@ -361,8 +361,8 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
       let tambahIndividu = {
         id: this.selectedOption.id,
         nama_lengkap: this.selectedOption.nama_lengkap,
-        departemen: this.selectedOption.id_departemen,
-        perusahaan: this.selectedOption.id_perusahaan,
+        departemen: this.selectedOption.departemen,
+        perusahaan: this.selectedOption.perusahaan,
         dari: this.tgl.dari,
         sampai: this.tgl.sampai,
         senin: this.senin,

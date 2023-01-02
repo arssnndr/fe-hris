@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PageEvent } from '@angular/material/paginator';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalJadwalKerjaComponent } from './modal-jadwal-kerja/modal-jadwal-kerja.component';
 
@@ -44,7 +43,7 @@ export class JadwalKerjaComponent implements OnInit {
   }
 
   editData(data: any) {
-    let id = data.id
+    let id = data.id;
     const dialogRef = this.dialog.open(ModalJadwalKerjaComponent, {
       data: { name: 'edit', data: data },
     });

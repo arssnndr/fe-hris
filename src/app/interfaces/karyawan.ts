@@ -1,5 +1,5 @@
 export interface Karyawan {
-  id: number;
+  nip: number;
   kewarganegaraan: string;
   nik: number;
   nama_lengkap: string;
@@ -40,11 +40,11 @@ export interface Karyawan {
   nomor_rptka: number;
   tgl_berakhir_rptka: string;
 
-  id_perusahaan: string;
-  id_lokasi: string;
-  id_divisi: string;
-  id_departemen: string;
-  id_subdepartemen: string;
+  perusahaan: string;
+  lokasi: string;
+  divisi: string;
+  departemen: string;
+  subdepartemen: string;
   jabatan: string;
   status_karyawan: string;
   nama_pemberi_referensi: string;

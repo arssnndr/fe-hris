@@ -26,31 +26,28 @@ export class ModalLokasiComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.data.name === 'tambah') {
-      this.isTambah = true;
-      this.isDelete = false;
-      this.isEdit = false;
+    switch (this.data.name) {
+      case 'tambah':
+        this.isTambah = true;
 
-      this.idValue = this.data.data;
-    } else if (this.data.name === 'delete') {
-      this.isTambah = false;
-      this.isDelete = true;
-      this.isEdit = false;
-    } else if (this.data.name === 'edit') {
-      this.isTambah = false;
-      this.isDelete = false;
-      this.isEdit = true;
+        this.idValue = this.data.data;
+        break;
+      case 'delete':
+        this.isDelete = true;
+        break;
+      case 'edit':
+        this.isEdit = true;
 
-      this.idValue = this.data.data.id;
-      this.keteranganValue = this.data.data.keterangan;
-      this.inisialValue = this.data.data.inisial_lokasi;
-      this.alamatValue = this.data.data.alamat_lokasi;
+        this.idValue = this.data.data.id;
+        this.keteranganValue = this.data.data.keterangan;
+        this.inisialValue = this.data.data.inisial_lokasi;
+        this.alamatValue = this.data.data.alamat_lokasi;
+        break;
     }
   }
 
   throwResult() {
     this.lokasi = {
-      id: this.idValue,
       keterangan: this.keteranganValue,
       inisial_lokasi: this.inisialValue,
       alamat_lokasi: this.alamatValue,

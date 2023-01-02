@@ -19,8 +19,8 @@
             <tr *ngFor="let row of dataDetailJadwalKerja, index as i">
               <td (click)="editDataDetail(i)">{{ dateFormat(row.tgl) }}</td>
               <td (click)="editDataDetail(i)">{{ row.hari }}</td>
-              <td (click)="editDataDetail(i)">{{ row.id_jadwalkerja }}</td>
-              <td (click)="editDataDetail(i)">{{ row.in }} - {{ row.out }}</td>
+              <td (click)="editDataDetail(i)">{{ row.id_jadwal_kerja }}</td>
+              <td (click)="editDataDetail(i)">{{ row.masuk }} - {{ row.keluar }}</td>
               <td (click)="editDataDetail(i)">
                 {{ row.mulai_istirahat }} - {{ row.selesai_istirahat }}
               </td>
@@ -55,8 +55,8 @@
                 <div align="end" style="width: 100%; display: flex;">
                   <h6 style="margin-top: 8%; margin-right: 10px; margin-left: 5px;">Lokasi</h6>
                   <select class="browser-default" [(ngModel)]="cek" (change)="filter()">
-                    <option *ngFor="let row of dataDetail" [value]="row.id_perusahaan">
-                      {{ row.id_perusahaan }}
+                    <option *ngFor="let row of dataDetail" [value]="row.perusahaan">
+                      {{ row.perusahaan }}
                     </option>
                   </select>
                   <button class="space"></button>
@@ -79,7 +79,7 @@
             <tr *ngFor="let row of dataDetail">
               <td>{{ row.id }}</td>
               <td>{{ row.nama_lengkap }}</td>
-              <td>{{ row.id_perusahaan }}</td>
+              <td>{{ row.perusahaan }}</td>
             </tr>
           </tbody>
         </table>
@@ -201,7 +201,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let row of dataIndividu">
-            <td (click)="editDataIndividu(row)">{{ row.id }}</td>
+            <td (click)="editDataIndividu(row)">{{ row.nip }}</td>
             <td (click)="editDataIndividu(row)">{{ row.nama_lengkap }}</td>
             <td (click)="editDataIndividu(row)">{{ row.departemen }}</td>
             <td (click)="editDataIndividu(row)">{{ row.perusahaan }}</td>

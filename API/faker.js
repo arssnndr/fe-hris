@@ -10,6 +10,7 @@ const database = {
   ms_userid: [],
   ms_karyawan: [],
   trx_jadwalkerja: [],
+  trx_jadwalkerjadetail: [],
   trx_jadwalkerjacategory: [],
   trx_jadwalkerjaindividu: [],
   ms_kalenderkerja: [],
@@ -190,7 +191,7 @@ const statusKaryawan = ["PKWT", "PKWTT", "Magang", "Informal", "Harian"];
 const statusPerkawinan = ["Kawin", "Belum kawin", "Cerai"];
 const akses = ["Lokasi", "Perusahaan", "All"];
 const jenisBagian = ["Divisi", "Departemen", "Sub Departemen"];
-const loop = 10;
+const loop = 12;
 const departemen = divisi;
 const subDepartemen = divisi;
 
@@ -206,8 +207,8 @@ for (var i = 1; i <= loop; i++) {
 
 // bagian_kerja
 for (var i = 1; i <= loop; i++) {
-  const lokasiRes = faker.helpers.arrayElement(lokasi)
-  
+  const lokasiRes = faker.helpers.arrayElement(lokasi);
+
   database.ms_bagiankerja.push({
     id: i,
     jenis_bagian: faker.helpers.arrayElement(jenisBagian),
@@ -293,7 +294,7 @@ for (var i = 1; i <= loop; i++) {
     nomor_rptka: faker.random.numeric(20),
     tgl_berakhir_rptka: sliceDate(faker.date.future()),
     perusahaan: perusahaanRes.nama,
-    lokasi: lokasiRes.keterangan,
+    lokasi: lokasiRes.inisial,
     divisi: faker.helpers.arrayElement(divisi),
     departemen: faker.helpers.arrayElement(departemen),
     subdepartemen: faker.helpers.arrayElement(subDepartemen),
@@ -314,37 +315,98 @@ for (var i = 1; i <= loop; i++) {
 // ms_userid
 for (var i = 1; i <= loop; i++) {
   const username = faker.name.fullName();
+  const perusahaanRes = faker.helpers.arrayElement(perusahaan);
   const lokasiRes = faker.helpers.arrayElement(lokasi);
-  const role = {
-    view: faker.datatype.boolean(),
-    edit: faker.datatype.boolean(),
-    download: faker.datatype.boolean(),
-  };
+
+  function role(view, edit, download) {
+    return { view: view, edit: edit, download: download };
+  }
 
   database.ms_userid.push({
     id: i,
+    nip: faker.random.numeric(6),
     username: username,
     email: faker.internet.email(username),
     lokasi: lokasiRes.inisial,
-    perusahaan: lokasiRes.keterangan,
+    perusahaan: perusahaanRes.nama,
     akses: faker.helpers.arrayElement(akses),
     password: faker.internet.password(8),
-    bagian_kerja: role,
-    perusahaan: role,
-    lokasi: role,
-    user: role,
-    karyawan: role,
-    jadwal_kerja: role,
-    setup_jadwal_kerja: role,
-    kalender_kerja: role,
-    status_kehadiran: role,
-    list_kehadiran: role,
-    lembur: role,
-    download: role,
-    mesin_finger: role,
-    setup_mesin_finger: role,
-    ganti_nip: role,
-    status: faker.datatype.boolean(),
+    role_bagian_kerja: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_perusahaan: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_lokasi: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_user: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_karyawan: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_jadwal_kerja: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_setup_jadwal_kerja: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_kalender_kerja: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_status_kehadiran: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_list_kehadiran: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_lembur: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_download: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_mesin_finger: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_setup_mesin_finger: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_ganti_nip: role(
+      faker.datatype.boolean(),
+      faker.datatype.boolean(),
+      faker.datatype.boolean()
+    ),
+    role_status: faker.datatype.boolean(),
   });
 }
 
@@ -359,15 +421,60 @@ for (var i = 1; i <= loop; i++) {
   const jamKerjaRes = faker.helpers.arrayElement(jamKerja);
 
   database.trx_jadwalkerja.push({
-    id:
+    id: i,
+    id_jadwal_kerja:
       lokasiRes.id + jamKerjaRes.shiftId + jamKerjaRes.typeId + jamKerjaRes.id,
-    inisial_lokasi: lokasiRes.inisial,
+    lokasi: lokasiRes.inisial,
     shift: jamKerjaRes.shift,
+    type: jamKerjaRes.type,
     masuk: jamKerjaRes.masuk,
     keluar: jamKerjaRes.keluar,
     mulai_istirahat: jamKerjaRes.mulaiIstirahat,
     selesai_istirahat: jamKerjaRes.selesaiIstirahat,
     total: jamKerjaRes.total,
+  });
+}
+
+// trx_jadwalkerjadetail
+function dateToDay(date) {
+  return moment(date, "DD-MM-YYYY").format("dddd");
+}
+for (var i = 1; i <= loop; i++) {
+  const perusahaanRes = faker.helpers.arrayElement(perusahaan);
+  const lokasiRes = faker.helpers.arrayElement(lokasi);
+  const jamKerjaRes = faker.helpers.arrayElement(jamKerja);
+  let jadwalKerja = [];
+
+  for (var z = 1; z <= 12; z++) {
+    let x;
+    z.toString().length === 1 ? (x = `0${z}`) : (x = z.toString());
+    for (var j = 1; j <= moment(`${x}-2023`, "MM-YYYY").daysInMonth(); j++) {
+      jadwalKerja.push({
+        id_jadwal_kerja:
+          lokasiRes.id +
+          jamKerjaRes.shiftId +
+          jamKerjaRes.typeId +
+          jamKerjaRes.id,
+        tgl: `${j}-${x}-2023`,
+        hari: dateToDay(`${j}-${x}-2023`),
+        masuk: jamKerjaRes.masuk,
+        keluar: jamKerjaRes.keluar,
+        mulai_istirahat: jamKerjaRes.mulaiIstirahat,
+        selesai_istirahat: jamKerjaRes.selesaiIstirahat,
+        total: jamKerjaRes.total,
+      });
+    }
+  }
+
+  database.trx_jadwalkerjadetail.push({
+    id: i,
+    nip: faker.random.numeric(6),
+    nama_lengkap: faker.name.fullName(),
+    perusahaan: perusahaanRes.inisial,
+    divisi: faker.helpers.arrayElement(divisi),
+    departemen: faker.helpers.arrayElement(departemen),
+    sub_departemen: faker.helpers.arrayElement(subDepartemen),
+    jadwal_kerja: jadwalKerja,
   });
 }
 
@@ -391,11 +498,8 @@ for (var i = 1; i <= loop; i++) {
 }
 
 // trx_jadwalkerjaindividu
-function dateToDay(date) {
-  moment(date, "dd-mm-yyyy").format("dddd");
-}
 for (var i = 1; i <= loop; i++) {
-  const tgl = sliceDate(faker.date.future());
+  const tgl = moment(sliceDate(faker.date.future())).format("DD-MM-YYYY");
   const lokasiRes = faker.helpers.arrayElement(lokasi);
   const jamKerjaRes = faker.helpers.arrayElement(jamKerja);
 
