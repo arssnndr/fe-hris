@@ -442,14 +442,25 @@ function dateToDay(date) {
 for (var i = 1; i <= loop; i++) {
   const perusahaanRes = faker.helpers.arrayElement(perusahaan);
   const lokasiRes = faker.helpers.arrayElement(lokasi);
-  const jamKerjaRes = faker.helpers.arrayElement(jamKerja);
-  let jadwalKerja = [];
+  let jan = [];
+  let feb = [];
+  let mar = [];
+  let apr = [];
+  let mei = [];
+  let jun = [];
+  let jul = [];
+  let agu = [];
+  let sep = [];
+  let okt = [];
+  let nov = [];
+  let des = [];
 
   for (var z = 1; z <= 12; z++) {
     let x;
     z.toString().length === 1 ? (x = `0${z}`) : (x = z.toString());
     for (var j = 1; j <= moment(`${x}-2023`, "MM-YYYY").daysInMonth(); j++) {
-      jadwalKerja.push({
+      const jamKerjaRes = faker.helpers.arrayElement(jamKerja);
+      const data = {
         id_jadwal_kerja:
           lokasiRes.id +
           jamKerjaRes.shiftId +
@@ -462,7 +473,45 @@ for (var i = 1; i <= loop; i++) {
         mulai_istirahat: jamKerjaRes.mulaiIstirahat,
         selesai_istirahat: jamKerjaRes.selesaiIstirahat,
         total: jamKerjaRes.total,
-      });
+      };
+      switch (z) {
+        case 1:
+          jan.push(data);
+          break;
+        case 2:
+          feb.push(data);
+          break;
+        case 3:
+          mar.push(data);
+          break;
+        case 4:
+          apr.push(data);
+          break;
+        case 5:
+          mei.push(data);
+          break;
+        case 6:
+          jun.push(data);
+          break;
+        case 7:
+          jul.push(data);
+          break;
+        case 8:
+          agu.push(data);
+          break;
+        case 9:
+          sep.push(data);
+          break;
+        case 10:
+          okt.push(data);
+          break;
+        case 11:
+          nov.push(data);
+          break;
+        case 12:
+          des.push(data);
+          break;
+      }
     }
   }
 
@@ -474,7 +523,7 @@ for (var i = 1; i <= loop; i++) {
     divisi: faker.helpers.arrayElement(divisi),
     departemen: faker.helpers.arrayElement(departemen),
     sub_departemen: faker.helpers.arrayElement(subDepartemen),
-    jadwal_kerja: jadwalKerja,
+    jadwal_kerja: [jan, feb, mar, apr, mei, jun, jul, agu, sep, okt, nov, des],
   });
 }
 

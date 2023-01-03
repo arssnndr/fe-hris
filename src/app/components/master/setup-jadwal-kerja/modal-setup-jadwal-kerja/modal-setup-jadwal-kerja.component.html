@@ -1,29 +1,34 @@
 <!-- MODAL EDIT DETAIL -->
 <div class="tambah" *ngIf="editDetail">
-  <h2 mat-dialog-title>Jadwal Kerja - {{dateFormat(data.data.dataJadwalKerja.tgl)}}</h2>
+  <h2 mat-dialog-title>Jadwal Kerja - {{dateFormat(data.data.dataProfil.jadwal_kerja[data.data.indexJadwalKerja].tgl)}}
+  </h2>
   <mat-dialog-content>
     <div class="right">
       <h6>NIP</h6>
-      <input type="text" class="browser-default nip" disabled [value]="data.data.all.nip" />
-      <p class="nama">{{data.data.all.nama_lengkap}}</p>
+      <input type="text" class="browser-default nip" disabled [value]="data.data.dataProfil.nip" />
+      <p class="nama">{{data.data.dataProfil.nama_lengkap}}</p>
     </div>
     <div class="right">
       <h6>Divisi</h6>
-      <input type="text" class="browser-default disabled subdepartemen" disabled [value]="data.data.all.divisi" />
+      <input type="text" class="browser-default disabled subdepartemen" disabled
+        [value]="data.data.dataProfil.divisi" />
     </div>
     <div class="right">
       <h6>Departemen</h6>
-      <input type="text" class="browser-default disabled subdepartemen" disabled [value]="data.data.all.departemen" />
+      <input type="text" class="browser-default disabled subdepartemen" disabled
+        [value]="data.data.dataProfil.departemen" />
     </div>
     <div class="right">
       <h6>Sub Departemen</h6>
       <input type="text" class="browser-default disabled subdepartemen" disabled
-        [value]="data.data.all.sub_departemen" />
+        [value]="data.data.dataProfil.sub_departemen" />
     </div>
     <div class="right">
       <h6>Jadwal</h6>
-      <select class="browser-default" [(ngModel)]="idJadwalKerja" (change)="filter()">
-        <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+      <select class="browser-default"
+        [(ngModel)]="data.data.dataProfil.jadwal_kerja[data.data.indexJadwalKerja].id_jadwal_kerja"
+        (change)="filterJadwalKerja()">
+        <option *ngFor="let row of allJadwalKerja" [value]="row.id_jadwal_kerja">
           {{ row.id_jadwal_kerja }}
         </option>
       </select>
@@ -31,19 +36,19 @@
     </div>
     <div class="right">
       <h6>Jam Masuk</h6>
-      <input type="time" class="browser-default disabled" [value]="jamKerja.masuk" />
+      <input type="time" class="browser-default disabled" [value]="selectedJadwalKerja.masuk" />
       <h6 style="width: 25px">s.d</h6>
-      <input type="time" class="browser-default disabled sd" [value]="jamKerja.masuk" />
+      <input type="time" class="browser-default disabled sd" [value]="selectedJadwalKerja.keluar" />
     </div>
     <div class="right">
       <h6>Jam Istirahat</h6>
-      <input type="time" class="browser-default disabled" [value]="jamKerja.mulai_istirahat" />
+      <input type="time" class="browser-default disabled" [value]="selectedJadwalKerja.mulai_istirahat" />
       <h6 style="width: 25px">s.d</h6>
-      <input type="time" class="browser-default disabled sd" [value]="jamKerja.selesai_istirahat" />
+      <input type="time" class="browser-default disabled sd" [value]="selectedJadwalKerja.selesai_istirahat" />
     </div>
     <div class="right">
       <h6>Total Jam Kerja</h6>
-      <input type="text" class="browser-default disabled total" disabled [value]="jamKerja.total" />
+      <input type="text" class="browser-default disabled total" disabled [value]="selectedJadwalKerja.total" />
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
@@ -56,7 +61,7 @@
   </mat-dialog-actions>
 </div>
 
-<!-- MODAL TAMBAH OR EDIT CATEGORY -->
+<!-- MODAL TAMBAH OR EDIT CATEGORY
 <div class="tambah" *ngIf="tambahCategory || editCategory">
   <h2 mat-dialog-title>Jadwal Kerja By Category</h2>
   <mat-dialog-content>
@@ -65,7 +70,7 @@
       <select *ngIf="tambahCategory" class="browser-default category" [(ngModel)]="lokasiValue"
         (change)="filterBagianKerja()">
         <option *ngFor="let row of dataBagianKerja" [value]="row.lokasi">
-          {{ row.id_lokasi }}
+          {{ row.id_jadwal_kerja_lokasi }}
         </option>
       </select>
       <select *ngIf="editCategory" class="browser-default category disabled" disabled>
@@ -138,16 +143,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="senin.id_jadwal_kerja"
                   (change)="category('senin')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{senin.in + ' - ' + senin.out}}</td>
+            <td>{{senin.masuk + ' - ' + senin.keluar}}</td>
             <td>{{senin.mulai_istirahat + ' - ' + senin.selesai_istirahat}}</td>
-            <td>{{senin.total_jam_kerja}}</td>
+            <td>{{senin.total}}</td>
           </tr>
           <tr>
             <td>Selasa</td>
@@ -155,16 +160,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="selasa.id_jadwal_kerja"
                   (change)="category('selasa')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{selasa.in + ' - ' + selasa.out}}</td>
+            <td>{{selasa.masuk + ' - ' + selasa.keluar}}</td>
             <td>{{selasa.mulai_istirahat + ' - ' + selasa.selesai_istirahat}}</td>
-            <td>{{selasa.total_jam_kerja}}</td>
+            <td>{{selasa.total}}</td>
           </tr>
           <tr>
             <td>Rabu</td>
@@ -172,16 +177,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="rabu.id_jadwal_kerja"
                   (change)="category('rabu')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{rabu.in + ' - ' + rabu.out}}</td>
+            <td>{{rabu.masuk + ' - ' + rabu.keluar}}</td>
             <td>{{rabu.mulai_istirahat + ' - ' + rabu.selesai_istirahat}}</td>
-            <td>{{rabu.total_jam_kerja}}</td>
+            <td>{{rabu.total}}</td>
           </tr>
           <tr>
             <td>Kamis</td>
@@ -189,16 +194,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="kamis.id_jadwal_kerja"
                   (change)="category('kamis')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{kamis.in + ' - ' + kamis.out}}</td>
+            <td>{{kamis.masuk + ' - ' + kamis.keluar}}</td>
             <td>{{kamis.mulai_istirahat + ' - ' + kamis.selesai_istirahat}}</td>
-            <td>{{kamis.total_jam_kerja}}</td>
+            <td>{{kamis.total}}</td>
           </tr>
           <tr>
             <td>Jumat</td>
@@ -206,16 +211,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="jumat.id_jadwal_kerja"
                   (change)="category('jumat')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{jumat.in + ' - ' + jumat.out}}</td>
+            <td>{{jumat.masuk + ' - ' + jumat.keluar}}</td>
             <td>{{jumat.mulai_istirahat + ' - ' + jumat.selesai_istirahat}}</td>
-            <td>{{jumat.total_jam_kerja}}</td>
+            <td>{{jumat.total}}</td>
           </tr>
           <tr>
             <td>Sabtu</td>
@@ -223,16 +228,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="sabtu.id_jadwal_kerja"
                   (change)="category('sabtu')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{sabtu.in + ' - ' + sabtu.out}}</td>
+            <td>{{sabtu.masuk + ' - ' + sabtu.keluar}}</td>
             <td>{{sabtu.mulai_istirahat + ' - ' + sabtu.selesai_istirahat}}</td>
-            <td>{{sabtu.total_jam_kerja}}</td>
+            <td>{{sabtu.total}}</td>
           </tr>
           <tr>
             <td>Minggu</td>
@@ -240,16 +245,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="minggu.id_jadwal_kerja"
                   (change)="category('minggu')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{minggu.in + ' - ' + minggu.out}}</td>
+            <td>{{minggu.masuk + ' - ' + minggu.keluar}}</td>
             <td>{{minggu.mulai_istirahat + ' - ' + minggu.selesai_istirahat}}</td>
-            <td>{{minggu.total_jam_kerja}}</td>
+            <td>{{minggu.total}}</td>
           </tr>
         </tbody>
       </table>
@@ -265,7 +270,7 @@
   </mat-dialog-actions>
 </div>
 
-<!-- MODAL TAMBAH OR EDIT INDIVIDU -->
+MODAL TAMBAH OR EDIT INDIVIDU
 <div class="tambah" *ngIf="tambahIndividu || editIndividu">
   <h2 mat-dialog-title>Jadwal Kerja By Individu</h2>
   <mat-dialog-content>
@@ -320,16 +325,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="senin.id_jadwal_kerja"
                   (change)="category('senin')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{senin.in + ' - ' + senin.out}}</td>
+            <td>{{senin.masuk + ' - ' + senin.keluar}}</td>
             <td>{{senin.mulai_istirahat + ' - ' + senin.selesai_istirahat}}</td>
-            <td>{{senin.total_jam_kerja}}</td>
+            <td>{{senin.total}}</td>
           </tr>
           <tr>
             <td>Selasa</td>
@@ -337,16 +342,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="selasa.id_jadwal_kerja"
                   (change)="category('selasa')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{selasa.in + ' - ' + selasa.out}}</td>
+            <td>{{selasa.masuk + ' - ' + selasa.keluar}}</td>
             <td>{{selasa.mulai_istirahat + ' - ' + selasa.selesai_istirahat}}</td>
-            <td>{{selasa.total_jam_kerja}}</td>
+            <td>{{selasa.total}}</td>
           </tr>
           <tr>
             <td>Rabu</td>
@@ -354,16 +359,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="rabu.id_jadwal_kerja"
                   (change)="category('rabu')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{rabu.in + ' - ' + rabu.out}}</td>
+            <td>{{rabu.masuk + ' - ' + rabu.keluar}}</td>
             <td>{{rabu.mulai_istirahat + ' - ' + rabu.selesai_istirahat}}</td>
-            <td>{{rabu.total_jam_kerja}}</td>
+            <td>{{rabu.total}}</td>
           </tr>
           <tr>
             <td>Kamis</td>
@@ -371,16 +376,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="kamis.id_jadwal_kerja"
                   (change)="category('kamis')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{kamis.in + ' - ' + kamis.out}}</td>
+            <td>{{kamis.masuk + ' - ' + kamis.keluar}}</td>
             <td>{{kamis.mulai_istirahat + ' - ' + kamis.selesai_istirahat}}</td>
-            <td>{{kamis.total_jam_kerja}}</td>
+            <td>{{kamis.total}}</td>
           </tr>
           <tr>
             <td>Jumat</td>
@@ -388,16 +393,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="jumat.id_jadwal_kerja"
                   (change)="category('jumat')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{jumat.in + ' - ' + jumat.out}}</td>
+            <td>{{jumat.masuk + ' - ' + jumat.keluar}}</td>
             <td>{{jumat.mulai_istirahat + ' - ' + jumat.selesai_istirahat}}</td>
-            <td>{{jumat.total_jam_kerja}}</td>
+            <td>{{jumat.total}}</td>
           </tr>
           <tr>
             <td>Sabtu</td>
@@ -405,16 +410,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="sabtu.id_jadwal_kerja"
                   (change)="category('sabtu')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{sabtu.in + ' - ' + sabtu.out}}</td>
+            <td>{{sabtu.masuk + ' - ' + sabtu.keluar}}</td>
             <td>{{sabtu.mulai_istirahat + ' - ' + sabtu.selesai_istirahat}}</td>
-            <td>{{sabtu.total_jam_kerja}}</td>
+            <td>{{sabtu.total}}</td>
           </tr>
           <tr>
             <td>Minggu</td>
@@ -422,16 +427,16 @@
               <div style="display: flex;">
                 <select class="browser-default category table" [(ngModel)]="minggu.id_jadwal_kerja"
                   (change)="category('minggu')">
-                  <option *ngFor="let row of jadwalKerja" [value]="row.id">
-                    {{ row.id }}
+                  <option *ngFor="let row of jadwalKerja" [value]="row.id_jadwal_kerja">
+                    {{ row.id_jadwal_kerja }}
                   </option>
                 </select>
                 <button class="space category"></button>
               </div>
             </td>
-            <td>{{minggu.in + ' - ' + minggu.out}}</td>
+            <td>{{minggu.masuk + ' - ' + minggu.keluar}}</td>
             <td>{{minggu.mulai_istirahat + ' - ' + minggu.selesai_istirahat}}</td>
-            <td>{{minggu.total_jam_kerja}}</td>
+            <td>{{minggu.total}}</td>
           </tr>
         </tbody>
       </table>
@@ -447,7 +452,7 @@
   </mat-dialog-actions>
 </div>
 
-<!-- MODAL DELETE CATEGORY -->
+MODAL DELETE CATEGORY
 <div *ngIf="deleteCategory || deleteIndividu">
   <mat-dialog-content class="delete">
     <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger" />
@@ -461,4 +466,4 @@
       Tidak
     </button>
   </mat-dialog-actions>
-</div>
+</div> -->
