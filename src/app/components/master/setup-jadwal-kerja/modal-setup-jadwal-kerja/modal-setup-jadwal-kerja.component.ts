@@ -29,9 +29,11 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     switch (data.name) {
       case 'editDetail':
         this.editDetail = true;
-        
+
         this.selectedJadwalKerja =
-          data.data.dataProfil.jadwal_kerja[data.data.indexJadwalKerja];
+          data.data.dataProfil.jadwal_kerja[data.data.indexBln][
+            data.data.indexTgl
+          ];
         break;
       case 'tambahCategory':
         this.tambahCategory = true;
@@ -64,25 +66,26 @@ export class ModalSetupJadwalKerjaComponent implements OnInit {
     this.allJadwalKerja.map((res: any) => {
       if (
         res.id_jadwal_kerja ===
-        this.data.data.dataProfil.jadwal_kerja[this.data.data.indexJadwalKerja]
-          .id_jadwal_kerja
+        this.data.data.dataProfil.jadwal_kerja[this.data.data.indexBln][
+          this.data.data.indexTgl
+        ].id_jadwal_kerja
       ) {
         this.selectedJadwalKerja = res;
 
-        this.data.data.dataProfil.jadwal_kerja[
-          this.data.data.indexJadwalKerja
+        this.data.data.dataProfil.jadwal_kerja[this.data.data.indexBln][
+          this.data.data.indexTgl
         ].masuk = res.masuk;
-        this.data.data.dataProfil.jadwal_kerja[
-          this.data.data.indexJadwalKerja
+        this.data.data.dataProfil.jadwal_kerja[this.data.data.indexBln][
+          this.data.data.indexTgl
         ].keluar = res.keluar;
-        this.data.data.dataProfil.jadwal_kerja[
-          this.data.data.indexJadwalKerja
+        this.data.data.dataProfil.jadwal_kerja[this.data.data.indexBln][
+          this.data.data.indexTgl
         ].mulai_istirahat = res.mulai_istirahat;
-        this.data.data.dataProfil.jadwal_kerja[
-          this.data.data.indexJadwalKerja
+        this.data.data.dataProfil.jadwal_kerja[this.data.data.indexBln][
+          this.data.data.indexTgl
         ].selesai_istirahat = res.selesai_istirahat;
-        this.data.data.dataProfil.jadwal_kerja[
-          this.data.data.indexJadwalKerja
+        this.data.data.dataProfil.jadwal_kerja[this.data.data.indexBln][
+          this.data.data.indexTgl
         ].total = res.total;
       }
     });

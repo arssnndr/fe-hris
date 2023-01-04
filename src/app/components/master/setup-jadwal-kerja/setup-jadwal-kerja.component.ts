@@ -13,10 +13,11 @@ moment.locale('id');
 export class SetupJadwalKerjaComponent implements OnInit {
   tableDetail = 'trx_jadwalkerjadetail/';
   dataDetailAll!: any;
-  dataDetailProfil!: any;
+  dataDetailProfil = { id: '', nama_lengkap: '', nip: '', jadwal_kerja: '' };
   dataDetailJadwalKerja!: any;
   dataDetailJadwalKerjaPerMonth: any[] = [];
   yearMonth = moment().format('YYYY-MM');
+  dataSearchNip: any[] = [];
 
   tableCategory = 'trx_jadwalkerjacategory/';
   dataCategory!: any;
@@ -41,20 +42,26 @@ export class SetupJadwalKerjaComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // START DETAIL
   dateFormat(date: any) {
     return moment(date, 'DD-MM-YYYY').format('DD MMM YYYY');
   }
 
   selectProfil(id: any) {
     this.dataDetailAll.map((res: any) => {
-      res.id === id ? (this.dataDetailProfil = res) : null;
+      if (res.id === id) {
+        this.dataDetailProfil = res;
+      }
     });
     this.dataDetailJadwalKerja = this.dataDetailProfil.jadwal_kerja;
+    this.selectMonth();
   }
 
   selectMonth() {
     this.dataDetailJadwalKerjaPerMonth = [];
-    this.dataDetailJadwalKerja.map((res: any) => {
+    this.dataDetailJadwalKerja[
+      Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
+    ].map((res: any) => {
       if (
         res.tgl.includes(moment(this.yearMonth, 'YYYY-MM').format('MM-YYYY'))
       ) {
@@ -63,13 +70,29 @@ export class SetupJadwalKerjaComponent implements OnInit {
     });
   }
 
+  searchNip(nip: any) {
+    this.dataSearchNip = [];
+    this.dataDetailAll.map((res: any) => {
+      if (res.nip.includes(nip.value)) {
+        this.dataSearchNip.push(res);
+      }
+    });
+  }
+
+  selectNip(data: any) {
+    this.dataDetailProfil = data;
+    this.dataDetailJadwalKerja = data.jadwal_kerja;
+    this.selectMonth();
+  }
+
   editDataDetail(i: number) {
     const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
       data: {
         name: 'editDetail',
         data: {
           dataProfil: this.dataDetailProfil,
-          indexJadwalKerja: i,
+          indexBln: Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1,
+          indexTgl: i,
         },
       },
     });
@@ -85,6 +108,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
       }
     });
   }
+  // END DETAIL
 
   // tambahDataCategory() {
   //   const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
