@@ -40,6 +40,12 @@ const perusahaan = [
 ];
 const lokasi = [
   {
+    id: "TMS0",
+    inisial: "TMS HO",
+    keterangan: "The Master Steel HO",
+    alamat: "Jl. HOS Cokroaminoto No.49",
+  },
+  {
     id: "TMS1",
     inisial: "TMS 1",
     keterangan: "The Master Steel 1",
@@ -62,12 +68,6 @@ const lokasi = [
     inisial: "TMS 4",
     keterangan: "The Master Steel 4",
     alamat: "Jl. Pulo Lentut No.3 Pulogadung",
-  },
-  {
-    id: "TMS0",
-    inisial: "TMS HO",
-    keterangan: "The Master Steel HO",
-    alamat: "Jl. HOS Cokroaminoto No.49",
   },
 ];
 const divisi = [
@@ -195,24 +195,12 @@ const loop = 12;
 const departemen = divisi;
 const subDepartemen = divisi;
 
-// login
-for (var i = 1; i <= loop; i++) {
-  database.login.push({
-    id: i,
-    email: faker.internet.email(),
-    password: faker.internet.password(),
-    status: faker.datatype.boolean(),
-  });
-}
-
 // bagian_kerja
-for (var i = 1; i <= loop; i++) {
-  const lokasiRes = faker.helpers.arrayElement(lokasi);
-
+for (var i = 0; i < 5; i++) {
   database.ms_bagiankerja.push({
     id: i,
     jenis_bagian: faker.helpers.arrayElement(jenisBagian),
-    lokasi: lokasiRes.inisial,
+    lokasi: faker.helpers.arrayElement(lokasi).inisial,
     divisi: faker.helpers.arrayElement(divisi),
     departemen: faker.helpers.arrayElement(departemen),
     sub_departemen: faker.helpers.arrayElement(subDepartemen),
@@ -221,37 +209,34 @@ for (var i = 1; i <= loop; i++) {
 }
 
 // ms_perusahaan
-for (var i = 1; i <= loop; i++) {
+for (var i = 0; i < loop; i++) {
   const res = faker.helpers.arrayElement(perusahaan);
   database.ms_perusahaan.push({
     id: i,
     inisial: res.inisial,
-    nama_perusahaan: res.nama,
-    alamat_perusahaan: res.alamat,
+    nama: res.nama,
+    alamat: res.alamat,
     status: faker.datatype.boolean(),
   });
 }
 
 // ms_lokasi
-for (var i = 1; i <= loop; i++) {
+for (var i = 0; i < loop; i++) {
   const res = faker.helpers.arrayElement(lokasi);
   database.ms_lokasi.push({
     id: i,
+    inisial: res.inisial,
     keterangan: res.keterangan,
-    inisial_lokasi: res.inisial,
-    alamat_lokasi: res.alamat,
+    alamat: res.alamat,
     status: faker.datatype.boolean(),
   });
 }
 
 // ms_karyawan
 function sliceDate(data) {
-  JSON.stringify(data).slice(1, 11);
+  return JSON.stringify(data).slice(1, 11);
 }
-for (var i = 1; i <= loop; i++) {
-  const perusahaanRes = faker.helpers.arrayElement(perusahaan);
-  const lokasiRes = faker.helpers.arrayElement(lokasi);
-
+for (var i = 0; i < loop; i++) {
   database.ms_karyawan.push({
     id: i,
     nip: faker.random.numeric(6),
@@ -293,11 +278,11 @@ for (var i = 1; i <= loop; i++) {
     tgl_berakhir_kitas: sliceDate(faker.date.future()),
     nomor_rptka: faker.random.numeric(20),
     tgl_berakhir_rptka: sliceDate(faker.date.future()),
-    perusahaan: perusahaanRes.nama,
-    lokasi: lokasiRes.inisial,
+    perusahaan: database.ms_perusahaan[i].nama,
+    lokasi: database.ms_lokasi[i].inisial,
     divisi: faker.helpers.arrayElement(divisi),
     departemen: faker.helpers.arrayElement(departemen),
-    subdepartemen: faker.helpers.arrayElement(subDepartemen),
+    sub_departemen: faker.helpers.arrayElement(subDepartemen),
     jabatan: faker.helpers.arrayElement(jabatan),
     status_karyawan: faker.helpers.arrayElement(statusKaryawan),
     nama_pemberi_referensi: faker.name.fullName(),
@@ -309,14 +294,13 @@ for (var i = 1; i <= loop; i++) {
     uang_makan: faker.datatype.number({ min: 10000, max: 100000 }),
     uang_transport: faker.datatype.number({ min: 25000, max: 250000 }),
     note: faker.random.words(10),
+    status: faker.datatype.boolean(),
   });
 }
 
 // ms_userid
-for (var i = 1; i <= loop; i++) {
-  const username = faker.name.fullName();
-  const perusahaanRes = faker.helpers.arrayElement(perusahaan);
-  const lokasiRes = faker.helpers.arrayElement(lokasi);
+for (var i = 0; i < loop; i++) {
+  const username = database.ms_karyawan[i].nama_lengkap;
 
   function role(view, edit, download) {
     return { view: view, edit: edit, download: download };
@@ -327,8 +311,8 @@ for (var i = 1; i <= loop; i++) {
     nip: faker.random.numeric(6),
     username: username,
     email: faker.internet.email(username),
-    lokasi: lokasiRes.inisial,
-    perusahaan: perusahaanRes.nama,
+    lokasi: database.ms_lokasi[i].inisial,
+    perusahaan: database.ms_perusahaan[i].nama,
     akses: faker.helpers.arrayElement(akses),
     password: faker.internet.password(8),
     role_bagian_kerja: role(
@@ -410,13 +394,18 @@ for (var i = 1; i <= loop; i++) {
   });
 }
 
-// trx_jadwalkerja
-for (var i = 1; i <= loop; i++) {
-  // jadwalkerjakeun.push({
-  //   tgl: daykeun + moment().format("-MM-YYYY"),
-  //   hari: moment(daykeun + "-12-2022", "DD-MM-YYYY").format("dddd"),
-  // });
+// login
+for (var i = 0; i < loop; i++) {
+  database.login.push({
+    id: i,
+    email: database.ms_userid[i].email,
+    password: database.ms_userid[i].password,
+    status: faker.datatype.boolean(),
+  });
+}
 
+// trx_jadwalkerja
+for (var i = 0; i < loop; i++) {
   const lokasiRes = faker.helpers.arrayElement(lokasi);
   const jamKerjaRes = faker.helpers.arrayElement(jamKerja);
 
@@ -439,9 +428,7 @@ for (var i = 1; i <= loop; i++) {
 function dateToDay(date) {
   return moment(date, "DD-MM-YYYY").format("dddd");
 }
-for (var i = 1; i <= loop; i++) {
-  const perusahaanRes = faker.helpers.arrayElement(perusahaan);
-  const lokasiRes = faker.helpers.arrayElement(lokasi);
+for (var i = 0; i < loop; i++) {
   let jan = [];
   let feb = [];
   let mar = [];
@@ -459,20 +446,18 @@ for (var i = 1; i <= loop; i++) {
     let x;
     z.toString().length === 1 ? (x = `0${z}`) : (x = z.toString());
     for (var j = 1; j <= moment(`${x}-2023`, "MM-YYYY").daysInMonth(); j++) {
-      const jamKerjaRes = faker.helpers.arrayElement(jamKerja);
+      const trxJadwalKerja = faker.helpers.arrayElement(
+        database.trx_jadwalkerja
+      );
       const data = {
-        id_jadwal_kerja:
-          lokasiRes.id +
-          jamKerjaRes.shiftId +
-          jamKerjaRes.typeId +
-          jamKerjaRes.id,
+        id_jadwal_kerja: trxJadwalKerja.id_jadwal_kerja,
         tgl: `${j}-${x}-2023`,
         hari: dateToDay(`${j}-${x}-2023`),
-        masuk: jamKerjaRes.masuk,
-        keluar: jamKerjaRes.keluar,
-        mulai_istirahat: jamKerjaRes.mulaiIstirahat,
-        selesai_istirahat: jamKerjaRes.selesaiIstirahat,
-        total: jamKerjaRes.total,
+        masuk: trxJadwalKerja.masuk,
+        keluar: trxJadwalKerja.keluar,
+        mulai_istirahat: trxJadwalKerja.mulai_istirahat,
+        selesai_istirahat: trxJadwalKerja.selesai_istirahat,
+        total: trxJadwalKerja.total,
       };
       switch (z) {
         case 1:
@@ -517,58 +502,63 @@ for (var i = 1; i <= loop; i++) {
 
   database.trx_jadwalkerjadetail.push({
     id: i,
-    nip: faker.random.numeric(6),
-    nama_lengkap: faker.name.fullName(),
-    perusahaan: perusahaanRes.inisial,
-    divisi: faker.helpers.arrayElement(divisi),
-    departemen: faker.helpers.arrayElement(departemen),
-    sub_departemen: faker.helpers.arrayElement(subDepartemen),
+    nip: database.ms_karyawan[i].nip,
+    nama_lengkap: database.ms_karyawan[i].nama_lengkap,
+    perusahaan: database.ms_karyawan[i].perusahaan,
+    divisi: database.ms_karyawan[i].divisi,
+    departemen: database.ms_karyawan[i].departemen,
+    sub_departemen: database.ms_karyawan[i].sub_departemen,
     jadwal_kerja: [jan, feb, mar, apr, mei, jun, jul, agu, sep, okt, nov, des],
   });
 }
 
 // trx_jadwalkerjacategory
-for (var i = 1; i <= loop; i++) {
+let jadwalKerja = [];
+for (var i = 0; i < loop; i++) {
+  jadwalKerja = [];
+  let hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
+
+  for (let j = 0; j < 7; j++) {
+    let data = {
+      hari: hari[j],
+      id_jadwal_kerja: database.trx_jadwalkerja[j].id_jadwal_kerja,
+      masuk: database.trx_jadwalkerja[j].masuk,
+      keluar: database.trx_jadwalkerja[j].keluar,
+      mulai_istirahat: database.trx_jadwalkerja[j].mulai_istirahat,
+      selesai_istirahat: database.trx_jadwalkerja[j].selesai_istirahat,
+      total: database.trx_jadwalkerja[j].total,
+    };
+    jadwalKerja.push(data);
+  }
+
   database.trx_jadwalkerjacategory.push({
     id: i,
-    lokasi: faker.helpers.arrayElement(lokasi).keterangan,
-    divisi: faker.helpers.arrayElement(divisi),
-    departemen: faker.helpers.arrayElement(departemen),
-    sub_departemen: faker.helpers.arrayElement(subDepartemen),
-    senin: database.trx_jadwalkerja[faker.datatype.number(7)],
-    selasa: database.trx_jadwalkerja[faker.datatype.number(7)],
-    rabu: database.trx_jadwalkerja[faker.datatype.number(7)],
-    kamis: database.trx_jadwalkerja[faker.datatype.number(7)],
-    jumat: database.trx_jadwalkerja[faker.datatype.number(7)],
-    sabtu: database.trx_jadwalkerja[faker.datatype.number(7)],
-    minggu: database.trx_jadwalkerja[faker.datatype.number(7)],
+    lokasi: database.ms_karyawan[i].lokasi,
+    divisi: database.ms_karyawan[i].divisi,
+    departemen: database.ms_karyawan[i].departemen,
+    sub_departemen: database.ms_karyawan[i].sub_departemen,
+    jadwal_kerja: jadwalKerja,
     status: faker.datatype.boolean(),
   });
 }
 
 // trx_jadwalkerjaindividu
-for (var i = 1; i <= loop; i++) {
-  const tgl = moment(sliceDate(faker.date.future())).format("DD-MM-YYYY");
-  const lokasiRes = faker.helpers.arrayElement(lokasi);
-  const jamKerjaRes = faker.helpers.arrayElement(jamKerja);
-
+for (var i = 0; i < loop; i++) {
   database.trx_jadwalkerjaindividu.push({
     id: i,
-    tanggal: tgl,
-    hari: dateToDay(tgl),
-    lokasi: lokasiRes.inisial,
-    shift: jamKerjaRes.shift,
-    jam_kerja: jamKerjaRes.type,
-    in: jamKerjaRes.masuk,
-    out: jamKerjaRes.keluar,
-    mulai_istirahat: jamKerjaRes.mulaiIstirahat,
-    selesai_istirahat: jamKerjaRes.selesaiIstirahat,
-    total_jam_kerja: jamKerjaRes.total,
+    nip: database.ms_karyawan[i].nip,
+    nama_lengkap: database.ms_karyawan[i].nama_lengkap,
+    departemen: database.ms_karyawan[i].departemen,
+    perusahaan: database.ms_karyawan[i].perusahaan,
+    dari: moment(sliceDate(faker.date.recent())).format("YYYY-MM-DD"),
+    sampai: moment(sliceDate(faker.date.future())).format("YYYY-MM-DD"),
+    jadwal_kerja: jadwalKerja,
+    status: faker.datatype.boolean(),
   });
 }
 
 // ms_kalenderkerja
-for (var i = 1; i <= loop; i++) {
+for (var i = 0; i < loop; i++) {
   const tgl = sliceDate(faker.date.future());
   const lokasiRes = faker.helpers.arrayElement(lokasi);
 

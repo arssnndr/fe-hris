@@ -93,7 +93,7 @@
     </div>
   </mat-tab>
 
-  <!-- CATEGORY
+  <!-- CATEGORY -->
   <mat-tab label="Category">
     <div class="content category">
       <div class="right">
@@ -115,7 +115,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of dataCategory">
+          <tr *ngFor="let row of dataCategoryAll">
             <td (click)="editDataCategory(row)">{{ row.lokasi }}</td>
             <td (click)="editDataCategory(row)">{{ row.divisi }}</td>
             <td (click)="editDataCategory(row)">{{ row.departemen }}</td>
@@ -131,7 +131,7 @@
     </div>
   </mat-tab>
 
-  UPLOAD
+  <!-- UPLOAD -->
   <mat-tab label="Upload">
     <div class="content">
       <div class="file-field input-field" style="display: inline-flex; margin-left: 0px">
@@ -170,21 +170,21 @@
           <tr>
             <th>NIP</th>
             <th>Nama</th>
-            <th *ngFor="let row of dataDetail, index as i">{{i + 1}}</th>
+            <th *ngFor="let row of dataDetailAll[0].jadwal_kerja[0], index as i">{{i + 1}}</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of dataDetail">
+          <tr *ngFor="let row of dataDetailAll, index as i">
             <td>{{ row.id }}</td>
             <td>{{ row.nama_lengkap }}</td>
-            <td *ngFor="let rowJadwalKerja of row.jadwal_kerja">{{rowJadwalKerja.id_jadwalkerja}}</td>
+            <td *ngFor="let rowJadwalKerja of row.jadwal_kerja[0]">{{rowJadwalKerja.id_jadwal_kerja}}</td>
           </tr>
         </tbody>
       </table>
     </div>
   </mat-tab>
 
-  INDIVIDU
+  <!-- INDIVIDU -->
   <mat-tab label="Individu">
     <div class="content category">
       <div class="right">
@@ -206,7 +206,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of dataIndividu">
+          <tr *ngFor="let row of dataIndividuAll">
             <td (click)="editDataIndividu(row)">{{ row.nip }}</td>
             <td (click)="editDataIndividu(row)">{{ row.nama_lengkap }}</td>
             <td (click)="editDataIndividu(row)">{{ row.departemen }}</td>
@@ -220,5 +220,5 @@
         </tbody>
       </table>
     </div>
-  </mat-tab> -->
+  </mat-tab>
 </mat-tab-group>
