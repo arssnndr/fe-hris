@@ -18,8 +18,7 @@ export class KalenderKerjaComponent implements OnInit {
   tableBagianKerja = 'ms_bagiankerja/';
   dataBagianKerja!: any;
 
-  tahun = ['2022', '2023'];
-
+  tahun = ['2023', '2024'];
   lokasi = ['TMS HO', 'TMS 1', 'TMS 2', 'TMS 3', 'TMS 4'];
 
   tahunValue!: string;
@@ -80,8 +79,8 @@ export class KalenderKerjaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tahunValue = '2022';
-    this.lokasiValue = 'TMS HO';
+    this.tahunValue = this.tahun[0];
+    this.lokasiValue = this.lokasi[0];
     this.getAllData();
   }
 

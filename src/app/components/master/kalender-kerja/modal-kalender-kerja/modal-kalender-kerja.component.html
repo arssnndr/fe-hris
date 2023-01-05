@@ -30,15 +30,15 @@
         <div class="right" style="margin-top: 10px;">
             <h6>Lokasi</h6>
             <select *ngIf="isTambah" class="browser-default" (change)="onChange('lokasi', $event.target)">
-                <option *ngFor="let raw of data.data" [value]="raw.id_lokasi">
-                    {{ raw.id_lokasi }}
+                <option *ngFor="let raw of data.data" [value]="raw.lokasi">
+                    {{ raw.lokasi }}
                 </option>
             </select>
 
             <select *ngIf="isEdit" class="browser-default" [ngModel]="tambahData.lokasi"
                 (change)="onChange('lokasi', $event.target)">
-                <option *ngFor="let raw of data.data.dataBagianKerja" [value]="raw.id_lokasi">
-                    {{ raw.id_lokasi }}
+                <option *ngFor="let raw of data.data.dataBagianKerja" [value]="raw.lokasi">
+                    {{ raw.lokasi }}
                 </option>
             </select>
             <button class="space">&nbsp;</button>

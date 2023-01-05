@@ -196,7 +196,7 @@ const departemen = divisi;
 const subDepartemen = divisi;
 
 // bagian_kerja
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < loop; i++) {
   database.ms_bagiankerja.push({
     id: i,
     jenis_bagian: faker.helpers.arrayElement(jenisBagian),
@@ -560,17 +560,16 @@ for (var i = 0; i < loop; i++) {
 // ms_kalenderkerja
 for (var i = 0; i < loop; i++) {
   const tgl = sliceDate(faker.date.future());
-  const lokasiRes = faker.helpers.arrayElement(lokasi);
 
   database.ms_kalenderkerja.push({
     id: i,
     tgl: tgl,
     hari: dateToDay(tgl),
     keterangan: faker.lorem.words(5),
-    lokasi: lokasiRes.keterangan,
-    divisi: faker.helpers.arrayElement(divisi),
-    departemen: faker.helpers.arrayElement(departemen),
-    sub_departemen: faker.helpers.arrayElement(subDepartemen),
+    lokasi: database.ms_bagiankerja[i].lokasi,
+    divisi: database.ms_bagiankerja[i].divisi,
+    departemen: database.ms_bagiankerja[i].departemen,
+    sub_departemen: database.ms_bagiankerja[i].sub_departemen,
     potong_cuti: faker.datatype.boolean(),
     status: faker.datatype.boolean(),
   });
