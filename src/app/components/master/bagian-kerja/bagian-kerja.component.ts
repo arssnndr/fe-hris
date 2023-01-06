@@ -3,6 +3,9 @@ import { ApiService } from 'src/app/shared/api.service';
 import { PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalBagianKerjaComponent } from './modal-bagian-kerja/modal-bagian-kerja.component';
+import xlsx from 'json-as-xlsx';
+import * as moment from 'moment';
+moment.locale('id');
 
 @Component({
   selector: 'app-bagian-kerja',
@@ -22,6 +25,48 @@ export class BagianKerjaComponent implements OnInit {
   lokasiValue = '';
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    this.getAllData();
+  }
+
+  printData() {
+    let content = this.data.map((res: any) => ({
+      jenis: res.jenis_bagian,
+      lokasi: res.lokasi,
+      uplink: res.divisi === undefined ? res.departemen : res.divisi,
+      deskripsi: res.sub_departemen,
+    }));
+
+    console.log(content);
+
+    let data = [
+      {
+        sheet: 'Sheet1',
+        columns: [
+          { label: 'Jenis', value: 'jenis' },
+          { label: 'Lokasi', value: 'lokasi' },
+          { label: 'Uplink', value: 'uplink' },
+          { label: 'Deskripsi', value: 'deskripsi' },
+        ],
+        content: content,
+      },
+    ];
+
+    let settings = {
+      fileName: 'MySpreadsheet', // Name of the resulting spreadsheet
+      extraLength: 3, // A bigger number means that columns will be wider
+      writeMode: 'writeFile', // The available parameters are 'WriteFile' and 'write'. This setting is optional. Useful in such cases https://docs.sheetjs.com/docs/solutions/output#example-remote-file
+      writeOptions: {}, // Style options from https://docs.sheetjs.com/docs/api/write-options
+      RTL: false, // Display the columns from right-to-left (the default value is false)
+    };
+
+    let callback = function (sheet: any) {
+      console.log('Download complete:', sheet);
+    };
+
+    xlsx(data, settings, callback);
+  }
 
   tambahData() {
     const dialogRef = this.dialog.open(ModalBagianKerjaComponent, {
@@ -78,10 +123,6 @@ export class BagianKerjaComponent implements OnInit {
     this.getPageData();
   }
 
-  ngOnInit(): void {
-    this.getAllData();
-  }
-
   uplink(jenisBagian: string, rowDivisi: string, rowDepartemen: string) {
     let tempData;
     if (jenisBagian === 'Departemen') {
@@ -124,6 +165,10 @@ export class BagianKerjaComponent implements OnInit {
         )
         .subscribe((res) => {
           this.data = res;
+
+          this.data.map((res: any) => {
+            console.log(res);
+          });
         });
     } else {
       this.api
