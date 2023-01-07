@@ -1,82 +1,39 @@
 <mat-sidenav-container autosize>
-  <mat-sidenav
-    #sidenav
-    class="z-depth-3"
-    mode="side"
-    opened="true"
-  >
+  <mat-sidenav *ngIf="isLogin" #sidenav class="z-depth-3" mode="side" opened="true">
     <mat-nav-list>
-      <mat-list-item
-        routerLink="dashboard"
-        class="logo white"
-        style="margin-top: 30px; margin-bottom: 50px"
-      >
+      <mat-list-item routerLink="dashboard" class="logo white" style="margin-top: 30px; margin-bottom: 50px">
         <div class="center-align">
           <span>
-            <img
-              *ngIf="isExpanded || isShowing"
-              src="../../assets/logo/logo.png"
-              alt="Logo Perusahaan"
-            />
-            <img
-              style="max-width: 33px"
-              *ngIf="!isExpanded && !isShowing"
-              src="../../assets/logo/logo-only.png"
-              alt="Logo Only"
-            />
+            <img *ngIf="isExpanded || isShowing" src="../../assets/logo/logo.png" alt="Logo Perusahaan" />
+            <img style="max-width: 33px" *ngIf="!isExpanded && !isShowing" src="../../assets/logo/logo-only.png"
+              alt="Logo Only" />
           </span>
         </div>
       </mat-list-item>
 
       <div id="masterMenu">
-        <mat-list-item
-          (click)="showSubmenu = !showSubmenu"
-          class="parent"
-          style="color: #d32f2f"
-        >
+        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" style="color: #d32f2f">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             Master
           </span>
           <mat-icon mat-list-icon> topic </mat-icon>
-          <mat-icon
-            class="menu-button"
-            [ngClass]="{ rotated: showSubmenu }"
-            *ngIf="isExpanded || isShowing"
-          >
+          <mat-icon class="menu-button" [ngClass]="{ rotated: showSubmenu }" *ngIf="isExpanded || isShowing">
             expand_more
           </mat-icon>
           {{ isMD() }}
         </mat-list-item>
-        <div
-          class="submenu"
-          [ngClass]="{ expanded: showSubmenu }"
-          *ngIf="isShowing || isExpanded"
-          [ngStyle]="{ display: masterDisplay }"
-        >
-          <mat-list-item href="" routerLink="bagian-kerja"
-            >Bagian Kerja</mat-list-item
-          >
-          <mat-list-item href="" routerLink="perusahaan"
-            >Perusahaan</mat-list-item
-          >
+        <div class="submenu" [ngClass]="{ expanded: showSubmenu }" *ngIf="isShowing || isExpanded"
+          [ngStyle]="{ display: masterDisplay }">
+          <mat-list-item href="" routerLink="bagian-kerja">Bagian Kerja</mat-list-item>
+          <mat-list-item href="" routerLink="perusahaan">Perusahaan</mat-list-item>
           <mat-list-item href="" routerLink="lokasi">Lokasi</mat-list-item>
           <mat-list-item href="" routerLink="user">User</mat-list-item>
           <mat-list-item href="" routerLink="karyawan">Karyawan</mat-list-item>
-          <mat-list-item href="" routerLink="jadwal-kerja"
-            >Jadwal Kerja</mat-list-item
-          >
-          <mat-list-item href="" routerLink="setup-jadwal-kerja"
-            >Set Up Jadwal Kerja</mat-list-item
-          >
-          <mat-list-item href="" routerLink="kalender-kerja"
-            >Kalender Kerja</mat-list-item
-          >
-          <mat-list-item href="" routerLink="mesin-finger"
-            >Mesin Finger</mat-list-item
-          >
-          <mat-list-item href="" routerLink="setup-mesin-finger"
-            >Set Up Mesin Finger</mat-list-item
-          >
+          <mat-list-item href="" routerLink="jadwal-kerja">Jadwal Kerja</mat-list-item>
+          <mat-list-item href="" routerLink="setup-jadwal-kerja">Set Up Jadwal Kerja</mat-list-item>
+          <mat-list-item href="" routerLink="kalender-kerja">Kalender Kerja</mat-list-item>
+          <mat-list-item href="" routerLink="mesin-finger">Mesin Finger</mat-list-item>
+          <mat-list-item href="" routerLink="setup-mesin-finger">Set Up Mesin Finger</mat-list-item>
         </div>
       </div>
 
@@ -118,30 +75,18 @@
       </div>
 
       <div id="downloadMenu">
-        <mat-list-item
-          (click)="showSubSubMenu = !showSubSubMenu"
-          class="parent"
-          style="color: #575757"
-        >
+        <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent" style="color: #575757">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             Download
           </span>
           <mat-icon mat-list-icon> download </mat-icon>
-          <mat-icon
-            class="menu-button"
-            [ngClass]="{ rotated: showSubSubMenu }"
-            *ngIf="isExpanded || isShowing"
-          >
+          <mat-icon class="menu-button" [ngClass]="{ rotated: showSubSubMenu }" *ngIf="isExpanded || isShowing">
             expand_more
           </mat-icon>
           {{ isDD() }}
         </mat-list-item>
-        <div
-          class="submenu"
-          [ngClass]="{ expanded: showSubSubMenu }"
-          *ngIf="isShowing || isExpanded"
-          [ngStyle]="{ display: downloadDisplay }"
-        >
+        <div class="submenu" [ngClass]="{ expanded: showSubSubMenu }" *ngIf="isShowing || isExpanded"
+          [ngStyle]="{ display: downloadDisplay }">
           <mat-list-item>Download Data Payroll</mat-list-item>
           <mat-list-item>Download report</mat-list-item>
           <mat-list-item>Log history</mat-list-item>
@@ -151,33 +96,21 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <div class="topButton">
-      <button
-        mat-mini-fab
-        class="transparent"
-        (click)="isExpanded = !isExpanded"
-      >
-        <mat-icon *ngIf="!isExpanded" style="color: #d32f2f"
-          >arrow_forward</mat-icon
-        >
-        <mat-icon *ngIf="isExpanded" style="color: #d32f2f"
-          >arrow_back</mat-icon
-        >
+    <div *ngIf="isLogin" class="topButton">
+      <button mat-mini-fab class="transparent" (click)="isExpanded = !isExpanded">
+        <mat-icon *ngIf="!isExpanded" style="color: #d32f2f">arrow_forward</mat-icon>
+        <mat-icon *ngIf="isExpanded" style="color: #d32f2f">arrow_back</mat-icon>
       </button>
 
       <div class="right">
         <span class="left" style="margin-right: 10px">
           <ul style="text-align: right">
-            <li style="color: #d32f2f">Nurdiansyah</li>
+            <li style="color: #d32f2f">{{email}}</li>
             <li>TMS HO</li>
           </ul>
         </span>
         <span>
-          <button
-            mat-fab
-            class="imageButton transparent z-depth-0"
-            [matMenuTriggerFor]="menu"
-          ></button>
+          <button mat-fab class="imageButton transparent z-depth-0" [matMenuTriggerFor]="menu"></button>
           <mat-menu style="background-color: #fff9f9" #menu>
             <button mat-menu-item>
               <span>
@@ -185,7 +118,7 @@
               </span>
               Ganti Password
             </button>
-            <button mat-menu-item routerLink="login">
+            <button mat-menu-item routerLink="login" (click)="logOut()">
               <span>
                 <mat-icon>logout</mat-icon>
               </span>

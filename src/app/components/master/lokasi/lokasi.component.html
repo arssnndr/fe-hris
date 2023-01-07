@@ -4,7 +4,7 @@
     <div class="nav-wrapper row">
       <div class="col s3">
         <form (ngSubmit)="searchData(search.value)">
-          <input #search class="search" type="text" name="search" placeholder="Cari Nama/Inisial Lokasi.." />
+          <input #search class="search" type="text" name="search" placeholder="Cari Inisial/Nama Lokasi.." />
         </form>
       </div>
       <div class="col s9">
@@ -32,19 +32,19 @@
 <table class="responsive-table striped">
   <thead>
     <tr>
-      <th>ID Lokasi</th>
-      <th>Lokasi</th>
+      <!-- <th>ID Lokasi</th> -->
       <th>Inisial</th>
+      <th>Nama Lokasi</th>
       <th>Alamat</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let row of data">
-      <td (click)="editData(row)">{{ row.id }}</td>
+      <!-- <td (click)="editData(row)">{{ row.id }}</td> -->
+      <td (click)="editData(row)">{{ row.inisial }}</td>
       <td (click)="editData(row)">{{ row.keterangan }}</td>
-      <td (click)="editData(row)">{{ row.inisial_lokasi }}</td>
-      <td (click)="editData(row)">{{ row.alamat_lokasi }}</td>
+      <td (click)="editData(row)">{{ row.alamat }}</td>
       <td>
         <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
           <i class="material-icons" style="font-size: 15px">close</i>

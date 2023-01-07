@@ -85,7 +85,7 @@ export class JadwalKerjaComponent implements OnInit {
       });
     } else {
       this.api
-        .getData(this.table + '?id_lokasi_like=' + this.lokasiValue)
+        .getData(this.table + '?lokasi_like=' + this.lokasiValue)
         .subscribe((res) => {
           this.data = res;
         });

@@ -38,8 +38,6 @@ export class BagianKerjaComponent implements OnInit {
       deskripsi: res.sub_departemen,
     }));
 
-    console.log(content);
-
     let data = [
       {
         sheet: 'Sheet1',
@@ -165,10 +163,6 @@ export class BagianKerjaComponent implements OnInit {
         )
         .subscribe((res) => {
           this.data = res;
-
-          this.data.map((res: any) => {
-            console.log(res);
-          });
         });
     } else {
       this.api

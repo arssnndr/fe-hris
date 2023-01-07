@@ -43,8 +43,8 @@
     <tr *ngFor="let row of data">
       <td (click)="editData(row)">{{ row.id }}</td>
       <td (click)="editData(row)">{{ row.inisial }}</td>
-      <td (click)="editData(row)">{{ row.nama_perusahaan }}</td>
-      <td (click)="editData(row)">{{ row.alamat_perusahaan }}</td>
+      <td (click)="editData(row)">{{ row.nama }}</td>
+      <td (click)="editData(row)">{{ row.alamat }}</td>
       <td>
         <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
           <i class="material-icons" style="font-size: 15px">close</i>

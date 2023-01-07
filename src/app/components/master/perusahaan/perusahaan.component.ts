@@ -46,6 +46,7 @@ export class PerusahaanComponent implements OnInit {
   }
 
   editData(data: any) {
+    console.log(data);
     const dialogRef = this.dialog.open(ModalPerusahaanComponent, {
       data: { name: 'edit', data: data },
     });
@@ -117,7 +118,7 @@ export class PerusahaanComponent implements OnInit {
           });
       } else if (this.perusahaan) {
         this.api
-          .getData(this.table + '?nama_perusahaan_like=' + this.dataSearch)
+          .getData(this.table + '?nama_like=' + this.dataSearch)
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -170,7 +171,7 @@ export class PerusahaanComponent implements OnInit {
               (this.pageIndex + 1) +
               '&_limit=' +
               this.pageSize +
-              '&nama_perusahaan_like=' +
+              '&nama_like=' +
               this.dataSearch
           )
           .subscribe((res) => {

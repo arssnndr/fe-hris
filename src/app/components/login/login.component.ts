@@ -19,6 +19,9 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if (localStorage.getItem('key') !== null) {
+      this.router.navigateByUrl('/dashboard');
+    }
     this.loginForm = this.formBuilder.group({
       email: '',
       password: '',
@@ -26,11 +29,11 @@ export class LoginComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.loginForm.value);
     this.http
       .post(env.api + 'login/', this.loginForm.getRawValue())
-      .subscribe(() => {
-        this.router.navigate(['/dashboard']);
+      .subscribe((res: any) => {
+        localStorage.setItem('key', res.email);
+        window.location.replace('/dashboard');
       });
   }
 }

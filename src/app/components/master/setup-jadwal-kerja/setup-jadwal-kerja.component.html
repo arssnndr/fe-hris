@@ -175,7 +175,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let row of dataDetailAll, index as i">
-            <td>{{ row.id }}</td>
+            <td>{{ row.nip }}</td>
             <td>{{ row.nama_lengkap }}</td>
             <td *ngFor="let rowJadwalKerja of row.jadwal_kerja[0]">{{rowJadwalKerja.id_jadwal_kerja}}</td>
           </tr>

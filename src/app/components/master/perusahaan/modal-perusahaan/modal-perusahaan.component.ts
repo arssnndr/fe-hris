@@ -40,8 +40,8 @@ export class ModalPerusahaanComponent implements OnInit {
 
         this.idValue = this.data.data.id;
         this.inisialValue = this.data.data.inisial;
-        this.namaValue = this.data.data.nama_perusahaan;
-        this.alamatValue = this.data.data.alamat_perusahaan;
+        this.namaValue = this.data.data.nama;
+        this.alamatValue = this.data.data.alamat;
         break;
     }
   }
@@ -61,8 +61,8 @@ export class ModalPerusahaanComponent implements OnInit {
   throwResult() {
     this.perusahaan = {
       inisial: this.inisialValue,
-      nama_perusahaan: this.namaValue,
-      alamat_perusahaan: this.alamatValue,
+      nama: this.namaValue,
+      alamat: this.alamatValue,
     };
     this.api.throwData(this.perusahaan);
   }
