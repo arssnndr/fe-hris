@@ -56,48 +56,6 @@ export class ModalKaryawanComponent implements OnInit {
     { value: 'K/I/2' },
     { value: 'K/I/3' },
   ];
-
-  perusahaan = [
-    { value: 'Indika Jasa Parama' },
-    { value: 'Royalindo Investa Wijaya' },
-    { value: 'The Master Steel Manufactory' },
-    { value: 'Donata Agung Perkasa' },
-    { value: 'Lain-lain' },
-  ];
-  lokasiKerja = [
-    { value: 'TMS HO' },
-    { value: 'TMS 1' },
-    { value: 'TMS 2' },
-    { value: 'TMS 3' },
-    { value: 'TMS 4' },
-  ];
-  divisi = [
-    { value: 'IT' },
-    { value: 'GA' },
-    { value: 'Finance' },
-    { value: 'Marketing' },
-    { value: 'Sales' },
-    { value: 'Purchase' },
-    { value: 'HRD' },
-  ];
-  departemen = [
-    { value: 'SAT Developer' },
-    { value: 'Support' },
-    { value: 'Project' },
-    { value: 'Marketing' },
-    { value: 'Sales' },
-    { value: 'Purchase' },
-    { value: 'HRD' },
-  ];
-  subDepartemen = [
-    { value: 'SAT Developer' },
-    { value: 'Support' },
-    { value: 'Project' },
-    { value: 'Marketing' },
-    { value: 'Sales' },
-    { value: 'Purchase' },
-    { value: 'HRD' },
-  ];
   jabatan = [
     { value: 'Staff/Crew' },
     { value: 'Foreman' },
@@ -115,6 +73,12 @@ export class ModalKaryawanComponent implements OnInit {
     { value: 'Informal' },
     { value: 'Harian' },
   ];
+
+  perusahaan: string[] = [''];
+  lokasi: string[] = [''];
+  divisi: string[] = [''];
+  departemen: string[] = [''];
+  subDepartemen: string[] = [''];
 
   karyawan: Karyawan = {
     nip: NaN,
@@ -156,11 +120,11 @@ export class ModalKaryawanComponent implements OnInit {
     tgl_berakhir_kitas: '',
     nomor_rptka: NaN,
     tgl_berakhir_rptka: '',
-    perusahaan: this.perusahaan[0].value,
-    lokasi: this.lokasiKerja[0].value,
-    divisi: this.divisi[0].value,
-    departemen: this.departemen[0].value,
-    subdepartemen: this.subDepartemen[0].value,
+    perusahaan: '',
+    lokasi: '',
+    divisi: '',
+    departemen: '',
+    sub_departemen: '',
     jabatan: this.jabatan[0].value,
     status_karyawan: this.statusKaryawan[0].value,
     nama_pemberi_referensi: '',
@@ -177,7 +141,26 @@ export class ModalKaryawanComponent implements OnInit {
   constructor(
     private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
-  ) {}
+  ) {
+    api.getData('ms_perusahaan/').subscribe((res: any) => {
+      this.perusahaan = [];
+      res.forEach((res: any) => {
+        this.perusahaan.push(res.nama);
+      });
+    });
+    api.getData('ms_bagiankerja/').subscribe((res: any) => {
+      this.lokasi = [];
+      this.divisi = [];
+      this.departemen = [];
+      this.subDepartemen = [];
+      res.forEach((res: any) => {
+        this.lokasi.push(res.lokasi);
+        this.divisi.push(res.divisi);
+        this.departemen.push(res.departemen);
+        this.subDepartemen.push(res.sub_departemen);
+      });
+    });
+  }
 
   ngOnInit(): void {
     switch (this.data.name) {
@@ -187,6 +170,11 @@ export class ModalKaryawanComponent implements OnInit {
         this.data.data.nama_lengkap === undefined
           ? (this.karyawan.nip = this.data.data.nip)
           : (this.karyawan = this.data.data);
+        this.karyawan.perusahaan = this.perusahaan[0];
+        this.karyawan.lokasi = this.lokasi[0];
+        this.karyawan.divisi = this.divisi[0];
+        this.karyawan.departemen = this.departemen[0];
+        this.karyawan.sub_departemen = this.subDepartemen[0];
         break;
       case 'delete':
         this.isDelete = true;

@@ -1,0 +1,96 @@
+div.tambah {
+    width: 700px;
+}
+
+h2 {
+    text-align: left;
+    margin: 0px 45px 20px;
+}
+
+mat-dialog-content {
+    padding: 0px;
+    margin: 0px 45px;
+}
+
+mat-dialog-content div {
+    display: inline-flex;
+}
+
+mat-dialog-content.delete {
+    padding: 0px;
+    margin: 0px 40px;
+    width: 410px;
+}
+
+mat-dialog-actions {
+    padding: 0px;
+    margin: 10px 40px 0px;
+    /* width: 410px; */
+}
+
+input.date {
+    margin-right: 255.37px;
+    width: 150px;
+    padding: 5px;
+    border: 1px solid #00000050;
+    border-radius: 2px;
+    height: 3rem;
+}
+
+input.keterangan {
+    width: 405.37px;
+    padding: 5px;
+    border: 1px solid #00000050;
+    border-radius: 2px;
+    height: 3rem;
+}
+
+.disabled {
+    background-color: #f1f1f1;
+}
+
+select {
+    margin-right: 0px;
+    width: 400px;
+    padding: 5px;
+    border: 1px solid #00000050;
+    border-style: solid none solid solid;
+    border-radius: 2px 0px 0px 2px;
+    height: 3rem;
+}
+
+button.space {
+    height: 45px;
+    margin-right: 0px;
+    padding: 0px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #00000050;
+    border-style: solid solid solid none;
+    border-radius: 0px 2px 2px 0px;
+}
+
+h6 {
+    margin: 10px;
+    padding: 0px;
+}
+
+button.tidak,
+button.batal {
+    color: #d85d5d;
+    border: 1px solid #d85d5d;
+    border-radius: 1px;
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+}
+
+button.ya,
+button.simpan {
+    color: #ffffff;
+    background-color: #d85d5d;
+    border: 1px solid #d85d5d;
+    border-radius: 1px;
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+}

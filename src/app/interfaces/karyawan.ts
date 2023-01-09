@@ -44,7 +44,7 @@ export interface Karyawan {
   lokasi: string;
   divisi: string;
   departemen: string;
-  subdepartemen: string;
+  sub_departemen: string;
   jabatan: string;
   status_karyawan: string;
   nama_pemberi_referensi: string;

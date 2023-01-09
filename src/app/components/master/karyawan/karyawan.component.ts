@@ -57,21 +57,21 @@ export class KaryawanComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'update') {
-        this.catchResult = this.api.catchData();
-        let data = this.catchResult;
-        let id = this.catchResult.id;
+        let catchResult = this.api.catchData();
         if (
           this.catchResult.nama_lengkap === '' ||
           this.catchResult.tempat_lahir === '' ||
           this.catchResult.tgl_lahir === '' ||
-          this.catchResult.id_perusahaan === '' ||
-          this.catchResult.id_lokasi === ''
+          this.catchResult.perusahaan === '' ||
+          this.catchResult.lokasi === ''
         ) {
           this.editData(this.catchResult);
         } else {
-          this.api.updateData(this.table, data, id).subscribe((res) => {
-            this.getPageData();
-          });
+          this.api
+            .updateData(this.table, catchResult, catchResult.id)
+            .subscribe((res) => {
+              this.getPageData();
+            });
         }
       }
     });

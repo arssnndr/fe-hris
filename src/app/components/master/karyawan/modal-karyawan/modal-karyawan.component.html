@@ -28,7 +28,7 @@
         <div class="right">
           <h6>
             Nama
-            <sup style="color: red" *ngIf="karyawan.nama_lengkap === ''">Wajib</sup>
+            <span style="color: red" *ngIf="karyawan.nama_lengkap === ''">*</span>
           </h6>
           <input type="text" class="browser-default" maxlength="150" placeholder="Nama Lengkap"
             [(ngModel)]="karyawan.nama_lengkap" />
@@ -37,7 +37,7 @@
         <div class="right">
           <h6>
             Tempat Lahir
-            <sup style="color: red" *ngIf="karyawan.tempat_lahir === ''">Wajib</sup>
+            <span style="color: red" *ngIf="karyawan.tempat_lahir === ''">*</span>
           </h6>
           <input type="text" class="browser-default" placeholder="Tempat Lahir" [(ngModel)]="karyawan.tempat_lahir" />
         </div>
@@ -45,7 +45,7 @@
         <div class="right">
           <h6>
             Tgl Lahir
-            <sup style="color: red" *ngIf="karyawan.tgl_lahir === ''">Wajib</sup>
+            <span style="color: red" *ngIf="karyawan.tgl_lahir === ''">*</span>
           </h6>
           <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_lahir" />
         </div>
@@ -255,11 +255,16 @@
         <div class="right top">
           <h6>
             Perusahaan
-            <sup style="color: red" *ngIf="karyawan.perusahaan === ''">Wajib</sup>
+            <span style="color: red">*</span>
           </h6>
-          <select class="browser-default" [(ngModel)]="karyawan.perusahaan">
-            <option *ngFor="let raw of perusahaan" [value]="raw.value">
-              {{ raw.value }}
+          <select *ngIf="isTambah" class="browser-default" [(ngModel)]="karyawan.perusahaan">
+            <option *ngFor="let raw of perusahaan" [value]="raw">
+              {{ raw }}
+            </option>
+          </select>
+          <select *ngIf="isEdit" class="browser-default" [(ngModel)]="karyawan.perusahaan">
+            <option *ngFor="let raw of perusahaan" [value]="raw">
+              {{ raw }}
             </option>
           </select>
           <button class="space"></button>
@@ -274,11 +279,11 @@
         <div class="right">
           <h6>
             Lokasi Kerja
-            <sup style="color: red" *ngIf="karyawan.lokasi === ''">Wajib</sup>
+            <span style="color: red" *ngIf="karyawan.lokasi === ''">*</span>
           </h6>
           <select class="browser-default" [(ngModel)]="karyawan.lokasi">
-            <option *ngFor="let raw of lokasiKerja" [value]="raw.value">
-              {{ raw.value }}
+            <option *ngFor="let raw of lokasi" [value]="raw">
+              {{ raw }}
             </option>
           </select>
           <button class="space"></button>
@@ -287,8 +292,8 @@
         <div class="right">
           <h6>Divisi</h6>
           <select class="browser-default" [(ngModel)]="karyawan.divisi">
-            <option *ngFor="let raw of divisi" [value]="raw.value">
-              {{ raw.value }}
+            <option *ngFor="let raw of divisi" [value]="raw">
+              {{ raw }}
             </option>
           </select>
           <button class="space"></button>
@@ -297,8 +302,8 @@
         <div class="right">
           <h6>Departemen</h6>
           <select class="browser-default" [(ngModel)]="karyawan.departemen">
-            <option *ngFor="let raw of departemen" [value]="raw.value">
-              {{ raw.value }}
+            <option *ngFor="let raw of departemen" [value]="raw">
+              {{ raw }}
             </option>
           </select>
           <button class="space"></button>
@@ -306,9 +311,9 @@
 
         <div class="right">
           <h6>Sub Departemen</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.subdepartemen">
-            <option *ngFor="let raw of subDepartemen" [value]="raw.value">
-              {{ raw.value }}
+          <select class="browser-default" [(ngModel)]="karyawan.sub_departemen">
+            <option *ngFor="let raw of subDepartemen" [value]="raw">
+              {{ raw }}
             </option>
           </select>
           <button class="space"></button>

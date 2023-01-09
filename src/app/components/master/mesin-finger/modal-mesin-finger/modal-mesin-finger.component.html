@@ -1,0 +1,77 @@
+<!-- Modal delete -->
+<div *ngIf="isDelete">
+    <mat-dialog-content class="delete">
+        <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger" />
+        <p style="padding-left: 55px">Yakin data akan di void?</p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button class="ya waves-effect waves-light" mat-dialog-close="ya">
+            Ya
+        </button>
+        <button class="tidak waves-effect waves-dark transparent" mat-dialog-close="tidak">
+            Tidak
+        </button>
+    </mat-dialog-actions>
+</div>
+
+<!-- Modal tambah or edit -->
+<div class="tambah" *ngIf="isTambah || isEdit">
+    <h2 mat-dialog-title>Mesin Finger</h2>
+    <mat-dialog-content>
+        <div class="right" style="margin-top: 10px;">
+            <h6>Nama Mesin</h6>
+            <input type="text" class="browser-default keterangan" placeholder="Nama Mesin"
+                [(ngModel)]="tambahData.nama">
+        </div>
+        <div class="right" style="margin-top: 10px;">
+            <h6>Serial Number</h6>
+            <input type="text" class="browser-default keterangan" placeholder="Serial Number"
+                [(ngModel)]="tambahData.serial">
+        </div>
+        <div class="right" style="margin-top: 10px;">
+            <h6>Lokasi</h6>
+            <select *ngIf="isTambah" class="browser-default" [(ngModel)]="tambahData.lokasi">
+                <option *ngFor="let raw of lokasi" [value]="raw.inisial">
+                    {{ raw.inisial }}
+                </option>
+            </select>
+
+            <select *ngIf="isEdit" class="browser-default" [(ngModel)]="data.data.lokasi">
+                <option *ngFor="let raw of lokasi" [value]="raw.inisial">
+                    {{ raw.inisial }}
+                </option>
+            </select>
+            <button class="space">&nbsp;</button>
+        </div>
+        <div class="right" style="margin-top: 10px;">
+            <h6>Alamat IP</h6>
+            <input type="text" class="browser-default keterangan" placeholder="Alamat IP" [(ngModel)]="tambahData.ip">
+        </div>
+        <div class="right" style="margin-top: 10px;">
+            <h6>Port</h6>
+            <input type="text" class="browser-default keterangan" placeholder="Port" [(ngModel)]="tambahData.port">
+        </div>
+        <div class="right" style="width: 405.37px;">
+            <span style="color: #000000DE; font-size: 17.25px; margin-right: 10px;">
+                Finger
+            </span>
+            <mat-checkbox class="mat-warn" [(ngModel)]="tambahData.finger" style="margin-right:25px"></mat-checkbox>
+            <span style="color: #000000DE; font-size: 17.25px; margin-right: 10px;">
+                Kartu
+            </span>
+            <mat-checkbox class="mat-warn" [(ngModel)]="tambahData.kartu" style="margin-right:25px"></mat-checkbox>
+            <span style="color: #000000DE; font-size: 17.25px; margin-right: 10px;">
+                Wajah
+            </span>
+            <mat-checkbox class="mat-warn" [(ngModel)]="tambahData.wajah"></mat-checkbox>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+            Simpan
+        </button>
+        <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
+            Batal
+        </button>
+    </mat-dialog-actions>
+</div>

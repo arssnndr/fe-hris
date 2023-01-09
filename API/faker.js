@@ -14,6 +14,7 @@ const database = {
   trx_jadwalkerjacategory: [],
   trx_jadwalkerjaindividu: [],
   ms_kalenderkerja: [],
+  ms_mesinfinger: [],
 };
 
 const perusahaan = [
@@ -186,6 +187,12 @@ const jabatan = [
   "Senior Manager",
   "General Manager",
   "Director",
+];
+const mesinFinger = [
+  "Solution X100c",
+  "Interactive X2000",
+  "Solution X900",
+  "Solution X609",
 ];
 const statusKaryawan = ["PKWT", "PKWTT", "Magang", "Informal", "Harian"];
 const statusPerkawinan = ["Kawin", "Belum kawin", "Cerai"];
@@ -571,6 +578,22 @@ for (var i = 0; i < loop; i++) {
     departemen: database.ms_bagiankerja[i].departemen,
     sub_departemen: database.ms_bagiankerja[i].sub_departemen,
     potong_cuti: faker.datatype.boolean(),
+    status: faker.datatype.boolean(),
+  });
+}
+
+// ms_mesinfinger
+for (var i = 0; i < 4; i++) {
+  database.ms_mesinfinger.push({
+    id: i,
+    nama: mesinFinger[i],
+    serial: faker.phone.number("OID61100961104002##"),
+    lokasi: lokasi[i].inisial,
+    ip: faker.internet.ipv4(),
+    port: faker.internet.port().toString(),
+    finger: faker.datatype.boolean(),
+    kartu: faker.datatype.boolean(),
+    wajah: faker.datatype.boolean(),
     status: faker.datatype.boolean(),
   });
 }
