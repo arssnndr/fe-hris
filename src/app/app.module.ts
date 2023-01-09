@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // angular material
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -20,6 +22,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
 
 // component
 import { AppComponent } from './app.component';
@@ -39,11 +42,6 @@ import { StatusKehadiranComponent } from './components/status-kehadiran/status-k
 import { ListKehadiranComponent } from './components/list-kehadiran/list-kehadiran.component';
 import { LemburComponent } from './components/lembur/lembur.component';
 import { GantiNipComponent } from './components/ganti-nip/ganti-nip.component';
-import { MatSelectModule } from '@angular/material/select';
-
-// form
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ModalBagianKerjaComponent } from './components/master/bagian-kerja/modal-bagian-kerja/modal-bagian-kerja.component';
 import { ModalPerusahaanComponent } from './components/master/perusahaan/modal-perusahaan/modal-perusahaan.component';
 import { ModalLokasiComponent } from './components/master/lokasi/modal-lokasi/modal-lokasi.component';
@@ -53,6 +51,7 @@ import { ModalJadwalKerjaComponent } from './components/master/jadwal-kerja/moda
 import { ModalSetupJadwalKerjaComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja/modal-setup-jadwal-kerja.component';
 import { ModalKalenderKerjaComponent } from './components/master/kalender-kerja/modal-kalender-kerja/modal-kalender-kerja.component';
 import { ModalMesinFingerComponent } from './components/master/mesin-finger/modal-mesin-finger/modal-mesin-finger.component';
+import { ModalSetupMesinFingerComponent } from './components/master/setup-mesin-finger/modal-setup-mesin-finger/modal-setup-mesin-finger.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +81,7 @@ import { ModalMesinFingerComponent } from './components/master/mesin-finger/moda
     ModalSetupJadwalKerjaComponent,
     ModalKalenderKerjaComponent,
     ModalMesinFingerComponent,
+    ModalSetupMesinFingerComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -90,6 +90,8 @@ import { ModalMesinFingerComponent } from './components/master/mesin-finger/moda
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     // angular material
     MatSidenavModule,
@@ -108,10 +110,6 @@ import { ModalMesinFingerComponent } from './components/master/mesin-finger/moda
     MatTabsModule,
     MatGridListModule,
     MatSlideToggleModule,
-
-    // form
-    FormsModule,
-    ReactiveFormsModule,
   ],
 })
 export class AppModule {}

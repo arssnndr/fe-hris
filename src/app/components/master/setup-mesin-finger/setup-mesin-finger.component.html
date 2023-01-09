@@ -1,1 +1,43 @@
-<p>setup-mesin-finger works!</p>
+<h4>Setup Mesin Finger</h4>
+<div class="nav">
+    <nav class="transparent z-depth-0">
+        <div class="nav-wrapper row">
+            <div class="col s9">
+                <form (ngSubmit)="searchData(search.value)">
+                    <input #search class="search" type="text" name="search" placeholder="Cari NIP/Nama Karyawan.." />
+                </form>
+            </div>
+            <div class="col s3">
+                <ul class="right">
+                    <li>
+                        <button class="tambah waves-effect waves-light" (click)="event()">
+                            Event
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<table class="responsive-table striped">
+    <thead>
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Departemen</th>
+            <th>Lokasi</th>
+            <th>Mesin</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data">
+            <td>{{ row.nip }}</td>
+            <td>{{ row.nama_lengkap }}</td>
+            <td>{{ row.departemen }}</td>
+            <td>{{ row.lokasi }}</td>
+            <td>{{ row.mesin }}</td>
+            <td>{{ row.status }}</td>
+        </tr>
+    </tbody>
+</table>

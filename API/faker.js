@@ -15,6 +15,7 @@ const database = {
   trx_jadwalkerjaindividu: [],
   ms_kalenderkerja: [],
   ms_mesinfinger: [],
+  ms_setupmesinfinger: [],
 };
 
 const perusahaan = [
@@ -595,6 +596,19 @@ for (var i = 0; i < 4; i++) {
     kartu: faker.datatype.boolean(),
     wajah: faker.datatype.boolean(),
     status: faker.datatype.boolean(),
+  });
+}
+
+// ms_setupmesinfinger
+for (var i = 0; i < loop; i++) {
+  database.ms_setupmesinfinger.push({
+    id: i,
+    nip: database.ms_karyawan[i].nip,
+    nama_lengkap: database.ms_karyawan[i].nama_lengkap,
+    departemen: database.ms_karyawan[i].departemen,
+    lokasi: database.ms_karyawan[i].lokasi,
+    mesin: faker.helpers.arrayElement(mesinFinger),
+    status: faker.helpers.arrayElement(["Delete", "Daftar"]),
   });
 }
 
