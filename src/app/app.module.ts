@@ -23,6 +23,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 // component
 import { AppComponent } from './app.component';
@@ -110,6 +111,7 @@ import { ModalSetupMesinFingerComponent } from './components/master/setup-mesin-
     MatTabsModule,
     MatGridListModule,
     MatSlideToggleModule,
+    MatRadioModule,
   ],
 })
 export class AppModule {}

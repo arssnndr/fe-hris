@@ -22,7 +22,7 @@ export class SetupMesinFingerComponent implements OnInit {
 
   event() {
     const dialogRef = this.dialog.open(ModalSetupMesinFingerComponent, {
-      data: { name: 'tambah' },
+      data: { name: 'event' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

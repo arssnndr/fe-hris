@@ -6716,7 +6716,7 @@ textarea.materialize-textarea {
 
 /* Radio Buttons
    ========================================================================== */
-[type="radio"]:not(:checked),
+/* [type="radio"]:not(:checked),
 [type="radio"]:checked {
   position: absolute;
   opacity: 0;
@@ -6752,10 +6752,10 @@ textarea.materialize-textarea {
   z-index: 0;
   -webkit-transition: .28s ease;
   transition: .28s ease;
-}
+} */
 
 /* Unchecked styles */
-[type="radio"]:not(:checked) + span:before,
+/* [type="radio"]:not(:checked) + span:before,
 [type="radio"]:not(:checked) + span:after,
 [type="radio"]:checked + span:before,
 [type="radio"]:checked + span:after,
@@ -6772,10 +6772,10 @@ textarea.materialize-textarea {
 [type="radio"]:not(:checked) + span:after {
   -webkit-transform: scale(0);
           transform: scale(0);
-}
+} */
 
 /* Checked styles */
-[type="radio"]:checked + span:before {
+/* [type="radio"]:checked + span:before {
   border: 2px solid transparent;
 }
 
@@ -6793,32 +6793,32 @@ textarea.materialize-textarea {
 [type="radio"]:checked + span:after {
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
-}
+} */
 
 /* Radio With gap */
-[type="radio"].with-gap:checked + span:after {
+/* [type="radio"].with-gap:checked + span:after {
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
-}
+} */
 
 /* Focused styles */
-[type="radio"].tabbed:focus + span:before {
+/* [type="radio"].tabbed:focus + span:before {
   -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* Disabled Radio With gap */
-[type="radio"].with-gap:disabled:checked + span:before {
+/* [type="radio"].with-gap:disabled:checked + span:before {
   border: 2px solid rgba(0, 0, 0, 0.42);
 }
 
 [type="radio"].with-gap:disabled:checked + span:after {
   border: none;
   background-color: rgba(0, 0, 0, 0.42);
-}
+} */
 
 /* Disabled style */
-[type="radio"]:disabled:not(:checked) + span:before,
+/* [type="radio"]:disabled:not(:checked) + span:before,
 [type="radio"]:disabled:checked + span:before {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.42);
@@ -6835,7 +6835,7 @@ textarea.materialize-textarea {
 [type="radio"]:disabled:checked + span:after {
   background-color: rgba(0, 0, 0, 0.42);
   border-color: #949494;
-}
+} */
 
 /* Checkboxes
    ========================================================================== */
@@ -8486,10 +8486,19 @@ input[type=range]::-ms-thumb {
   visibility: visible;
   -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
           animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-  -webkit-transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
 }
 
 .tap-target {
@@ -8542,10 +8551,19 @@ input[type=range]::-ms-thumb {
 
 .tap-target-wave::after {
   visibility: hidden;
-  -webkit-transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s;
-  transition: opacity .3s, transform .3s, visibility 0s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s,
+ -webkit-transform .3s;
   z-index: -1;
 }
 
