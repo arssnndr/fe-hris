@@ -3,7 +3,7 @@
     <h2 mat-dialog-title>Setup Mesin Finger</h2>
     <mat-dialog-content>
 
-        <div style="height: 50px; padding-left: 15px;">
+        <div style="display: flex; height: 50px; padding-left: 15px;">
             <mat-radio-group [(ngModel)]="isKaryawan" style="display: flex; margin: 15px 0;"
                 (change)="changeKaryawan()">
                 <mat-radio-button value="semuaKaryawan" style="margin-right: 25px;">
@@ -17,6 +17,15 @@
                     </span>
                 </mat-radio-button>
             </mat-radio-group>
+            <div *ngIf="!isSemuaKaryawan" style="display: block; margin-left: auto;">
+                <input type="text" class="browser-default" [(ngModel)]="nip" (input)="searchNip()"
+                    [matAutocomplete]="auto" placeholder="Search NIP..">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredKaryawan" (click)="selectKaryawan(option)">
+                        {{ option.nip }}
+                    </mat-option>
+                </mat-autocomplete>
+            </div>
         </div>
 
         <div class="right" *ngIf="!isSemuaKaryawan">
@@ -27,21 +36,29 @@
                         <th>Nama</th>
                         <th>Lokasi</th>
                         <th>Departemen</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="text" class="browser-default"></td>
-                        <td>ab</td>
-                        <td>ab</td>
-                        <td>ab</td>
+                    <tr *ngFor="let karyawan of selectedKaryawan, index as i">
+                        <td>{{ karyawan.nip }}</td>
+                        <td>{{ karyawan.nama_lengkap }}</td>
+                        <td>{{ karyawan.lokasi }}</td>
+                        <td>{{ karyawan.departemen }}</td>
+                        <td>
+                            <button *ngIf="karyawan.nip !== ''" (click)="deleteKaryawan(i)"
+                                class="waves-effect waves-light right red darken-2">
+                                <i class="material-icons" style="font-size: 15px">close</i>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <fieldset>
-            <legend>Sumber</legend>
+            <legend *ngIf="finger === 'tarik'">Sumber</legend>
+            <legend *ngIf="finger === 'kirim'">Tujuan</legend>
             <div class="right">
                 <h6>Lokasi</h6>
                 <select class="browser-default" [(ngModel)]="data.lokasi">
@@ -66,7 +83,7 @@
             <div style="display: block;">
                 <div style="display: flex;">
                     <mat-radio-group style="margin: 7.5px 15px;" [(ngModel)]="tarik" (change)="funcTarik()">
-                        <mat-radio-button style="margin-bottom: 15px;" value="log">
+                        <mat-radio-button style="margin-bottom: 15px;" value="log" (click)="finger = 'tarik'">
                             <span style="color: #000000DE; font-size: 17.25px;">
                                 Tarik data Log
                             </span>
@@ -79,8 +96,8 @@
                         </mat-radio-button>
                     </mat-radio-group>
                 </div>
-                <div style="padding-left: 30px; display: flex;" *ngIf="isFinger">
-                    <mat-radio-group style="margin: 7.5px 15px;" [(ngModel)]="finger">
+                <div style="padding-left: 30px; display: flex;">
+                    <mat-radio-group style="margin: 7.5px 15px;" [(ngModel)]="finger" [disabled]="!isFinger">
                         <mat-radio-button style="margin-bottom: 15px;" value="tarik">
                             <span style="color: #000000DE; font-size: 17.25px;">
                                 Tarik
@@ -122,8 +139,8 @@
 
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button type="submit" class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
-            Simpan
+        <button type="submit" class="simpan waves-effect waves-light" mat-dialog-close="ok" (click)="throwResult()">
+            Ok
         </button>
         <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
             Batal

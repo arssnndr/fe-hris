@@ -8,12 +8,22 @@ import { ApiService } from 'src/app/shared/api.service';
 })
 export class ModalSetupMesinFingerComponent implements OnInit {
   isKaryawan: string = 'semuaKaryawan';
-  isSemuaKaryawan: boolean = false;
+  isSemuaKaryawan: boolean = true;
 
   data = { lokasi: '', mesin: { nama: '', ip: '', lokasi: '' } };
 
   tableKaryawan = 'ms_karyawan/';
   dataKaryawan!: any[];
+  nip!: string;
+  filteredKaryawan!: any[];
+  selectedKaryawan: any[] = [
+    {
+      nip: '',
+      nama_lengkap: '',
+      lokasi: '',
+      departemen: '',
+    },
+  ];
 
   tableMesin = 'ms_mesinfinger/';
   mesin: any[] = [];
@@ -22,13 +32,8 @@ export class ModalSetupMesinFingerComponent implements OnInit {
   lokasi: any[] = [];
 
   tarik: string = 'log';
-  funcTarik() {
-    this.tarik === 'finger' ? (this.isFinger = true) : (this.isFinger = false);
-  }
-
   isFinger: boolean = false;
   finger: string = 'tarik';
-
   delSing!: string;
 
   constructor(public api: ApiService) {
@@ -69,5 +74,34 @@ export class ModalSetupMesinFingerComponent implements OnInit {
       : (this.isSemuaKaryawan = true);
   }
 
-  throwResult() {}
+  funcTarik() {
+    this.tarik === 'finger' ? (this.isFinger = true) : (this.isFinger = false);
+  }
+
+  searchNip() {
+    this.filteredKaryawan = [];
+    this.dataKaryawan.filter((res: any) => {
+      if (res.nip.includes(this.nip)) {
+        this.filteredKaryawan.push(res);
+      }
+    });
+  }
+
+  selectKaryawan(data: any) {
+    if (
+      this.selectedKaryawan[0] === undefined ||
+      this.selectedKaryawan[0].nip === ''
+    ) {
+      this.selectedKaryawan = [];
+    }
+    this.selectedKaryawan.push(data);
+  }
+
+  deleteKaryawan(index: number) {
+    this.selectedKaryawan.splice(index, 1);
+  }
+
+  throwResult() {
+    this.api.throwData(this.data);
+  }
 }

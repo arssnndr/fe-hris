@@ -26,21 +26,19 @@ export class SetupMesinFingerComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
+      if (result === 'ok') {
         let catchResult = this.api.catchData();
-        this.api.postData(this.table, catchResult).subscribe(() => {
-          this.getAllData();
-        });
+        console.log(catchResult);
+        // this.api.postData(this.table, catchResult).subscribe(() => {
+        //   this.getAllData();
+        // });
       }
     });
   }
 
   getAllData() {
-    this.api.getData(this.table).subscribe((res) => {
-      this.data = res;
-    });
-    if (this.dataSearch.length !== 0) {
-      this.searchNip
+    this.dataSearch.length !== 0
+      ? this.searchNip
         ? this.api
             .getData(this.table + '?nip_like=' + this.dataSearch)
             .subscribe((res) => {
@@ -55,11 +53,11 @@ export class SetupMesinFingerComponent implements OnInit {
         : this.api
             .getData(this.table + '?nama_lengkap_like=' + this.dataSearch)
             .subscribe((res) => {
-              if (res.length !== 0) {
-                this.data = res;
-              }
-            });
-    }
+              res.length !== 0 ? (this.data = res) : (this.data = []);
+            })
+      : this.api.getData(this.table).subscribe((res) => {
+          this.data = res;
+        });
   }
 
   searchData(data: any) {
