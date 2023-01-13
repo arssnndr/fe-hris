@@ -1,0 +1,175 @@
+mat-dialog-content {
+    padding: 0px;
+    margin: 0px 25px;
+    width: 650px;
+}
+
+mat-dialog-content div {
+    display: inline-flex;
+}
+
+h2 {
+    text-align: left;
+    margin: 0px 40px 20px;
+}
+
+h6 {
+    margin: 10px;
+    padding: 0px;
+}
+
+input.nip {
+    margin-bottom: 5px;
+    margin-right: 10px;
+    width: 100px;
+    padding: 5px;
+    border: 1px solid #00000050;
+    border-radius: 2px;
+    height: 3rem;
+}
+
+input {
+    margin-bottom: 5px;
+    margin-right: 10px;
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    padding: 5px;
+    border: 1px solid #00000050;
+    border-radius: 2px;
+    height: 3rem;
+}
+
+select {
+    margin-bottom: 5px;
+    margin-right: 0px;
+    background-color: rgb(255, 255, 255);
+    width: 387px;
+    padding: 5px;
+    border: 1px solid #00000050;
+    border-style: solid none solid solid;
+    border-radius: 2px 0px 0px 2px;
+    height: 3rem;
+}
+
+button.space {
+    height: 45px;
+    width: 13px;
+    margin-right: 10px;
+    padding-top: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #00000050;
+    border-style: solid solid solid none;
+    border-radius: 0px 2px 2px 0px;
+}
+
+mat-dialog-actions {
+    padding: 0px;
+    margin: 0px 30px;
+}
+
+button.tidak,
+button.batal {
+    color: #d85d5d;
+    border: 1px solid #d85d5d;
+    border-radius: 1px;
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+}
+
+button.ya,
+button.simpan {
+    color: #ffffff;
+    background-color: #d85d5d;
+    border: 1px solid #d85d5d;
+    border-radius: 1px;
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+}
+
+/*
+
+mat-dialog-content.delete {
+    padding: 0px;
+    margin: 0px 40px;
+}
+
+input.user {
+    margin-bottom: 5px;
+    margin-right: 10px;
+    width: 150px;
+    padding: 5px;
+    border: 1px solid #00000050;
+    border-radius: 2px;
+    height: 3rem;
+}
+
+input.disabled {
+    background-color: #f1f1f1;
+}
+
+input.password {
+    margin-bottom: 5px;
+    margin-right: 0px;
+    background-color: rgb(255, 255, 255);
+    width: 360px;
+    padding: 5px;
+    border: 1px solid #00000050;
+    border-style: solid none solid solid;
+    border-radius: 2px 0px 0px 2px;
+    height: 3rem;
+}
+
+div.konfirm {
+    width: 410px;
+    margin-top: -5px;
+}
+
+button.visible {
+    height: 45px;
+    width: 40px;
+    margin-right: 10px;
+    padding-top: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #00000050;
+    border-style: solid solid solid none;
+    border-radius: 0px 2px 2px 0px;
+}
+
+table {
+    width: 400px;
+    margin-right: 10px;
+}
+
+tr {
+    border: none;
+}
+
+th {
+    background-color: #ffe6e6;
+    border-radius: 0px;
+    padding: 15px 15px;
+    text-align: center;
+}
+
+th:first-child {
+    background-color: #ffe6e6;
+    border-radius: 0px;
+    padding: 15px 15px;
+    text-align: left;
+}
+
+td {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+td:first-child {
+    padding: 10px 15px;
+    text-align: left;
+}
+
+tbody tr:hover {
+    background-color: rgba(128, 128, 128, 0.048);
+} */

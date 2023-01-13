@@ -1,15 +1,182 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PageEvent } from '@angular/material/paginator';
+import { ApiService } from 'src/app/shared/api.service';
+import { ModalStatusKehadiranComponent } from './modal-status-kehadiran/modal-status-kehadiran.component';
 
 @Component({
   selector: 'app-status-kehadiran',
   templateUrl: './status-kehadiran.component.html',
-  styleUrls: ['./status-kehadiran.component.css']
+  styleUrls: ['./status-kehadiran.component.css'],
 })
 export class StatusKehadiranComponent implements OnInit {
+  table = 'ms_statuskehadiran/';
+  dataSearch = '';
+  pageSize = 50;
+  pageIndex = 0;
+  pageSizeOption = [50, 100, 150, 200];
+  showFirstLastButtons = false;
+  data!: any;
+  length: any;
+  inisial = true;
+  perusahaan = false;
 
-  constructor() { }
+  constructor(private api: ApiService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
+    this.tambahData();
+    this.getAllData();
   }
 
+  tambahData() {
+    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
+      data: { name: 'tambah' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'simpan') {
+        let catchResult = this.api.catchData();
+        console.log(catchResult);
+        // this.api.postData(this.table, catchResult).subscribe((res) => {
+        //   this.length = this.length + 1;
+        //   this.getPageData();
+        // });
+      }
+    });
+  }
+
+  deleteData(id: number) {
+    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
+      data: { name: 'delete' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'ya') {
+        this.api.deleteData(this.table + id).subscribe(() => {
+          this.length = this.length - 1;
+          this.getPageData();
+        });
+      }
+    });
+  }
+
+  editData(data: any) {
+    console.log(data);
+    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
+      data: { name: 'edit', data: data },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'simpan') {
+        let catchResult = this.api.catchData();
+        this.api
+          .updateData(this.table, catchResult, catchResult.id)
+          .subscribe((res) => {
+            this.getPageData();
+          });
+      }
+    });
+  }
+
+  handlePageEvent(event: PageEvent) {
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    this.getPageData();
+  }
+
+  getAllData() {
+    if (this.dataSearch.length === 0) {
+      this.api.getData(this.table).subscribe((res) => {
+        this.length = res.length;
+        this.pageSize = 50;
+        this.pageIndex = 0;
+        this.getPageData();
+      });
+    } else {
+      if (this.inisial) {
+        this.api
+          .getData(this.table + '?nip_like=' + this.dataSearch)
+          .subscribe((res) => {
+            this.length = res.length;
+            this.pageSize = 50;
+            this.pageIndex = 0;
+            if (res.length === 0) {
+              this.inisial = false;
+              this.perusahaan = true;
+              this.getAllData();
+            } else {
+              this.getPageData();
+            }
+          });
+      } else if (this.perusahaan) {
+        this.api
+          .getData(this.table + '?nama_lengkap_like=' + this.dataSearch)
+          .subscribe((res) => {
+            this.length = res.length;
+            this.pageSize = 50;
+            this.pageIndex = 0;
+            if (res.length === 0) {
+              this.perusahaan = false;
+              this.inisial = true;
+              this.getAllData();
+            } else {
+              this.getPageData();
+            }
+          });
+      }
+    }
+  }
+
+  getPageData() {
+    if (this.dataSearch.length === 0) {
+      this.api
+        .getData(
+          this.table +
+            '?_page=' +
+            (this.pageIndex + 1) +
+            '&_limit=' +
+            this.pageSize
+        )
+        .subscribe((res) => {
+          this.data = res;
+        });
+    } else {
+      if (this.inisial) {
+        this.api
+          .getData(
+            this.table +
+              '?_page=' +
+              (this.pageIndex + 1) +
+              '&_limit=' +
+              this.pageSize +
+              '&nip_like=' +
+              this.dataSearch
+          )
+          .subscribe((res) => {
+            this.data = res;
+          });
+      } else if (this.perusahaan) {
+        this.api
+          .getData(
+            this.table +
+              '?_page=' +
+              (this.pageIndex + 1) +
+              '&_limit=' +
+              this.pageSize +
+              '&nama_lengkap_like=' +
+              this.dataSearch
+          )
+          .subscribe((res) => {
+            this.data = res;
+          });
+      }
+    }
+  }
+
+  searchData(data: any) {
+    this.dataSearch = data;
+    this.pageIndex = 0;
+    this.getAllData();
+    this.getPageData();
+  }
 }

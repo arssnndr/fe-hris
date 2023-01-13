@@ -16,7 +16,10 @@ const database = {
   ms_kalenderkerja: [],
   ms_mesinfinger: [],
   ms_setupmesinfinger: [],
+  ms_statuskehadiran: [],
 };
+
+const loop = 250;
 
 const perusahaan = [
   {
@@ -195,16 +198,79 @@ const mesinFinger = [
   "Solution X900",
   "Solution X609",
 ];
+const keteranganCuti = [
+  "Menikah",
+  "Anak Menikah",
+  "Anak Khitanan",
+  "Baptis Anak",
+  "Istri Melahirkan",
+  "Keluarga Meninggal",
+  "Keluarga Sakit",
+  "Haji/Umroh",
+  "Haid",
+  "Melahirkan",
+  "Sakit",
+];
+const cuti = [
+  {
+    status: "Cuti Tahunan",
+    no_form: faker.phone.number("CT########"),
+    tgl_muncul_hakcuti_dari: moment("24-01-2023", "DD-MM-YYYY").format(
+      "DD MMM YYYY"
+    ),
+    tgl_muncul_hakcuti_sampai: moment("24-01-2023", "DD-MM-YYYY").format(
+      "DD MMM YYYY"
+    ),
+    tgl_mulai: moment(faker.date.soon(1), "YYYY-MM-DD").format("DD MMM YYYY"),
+    tgl_selesai: moment(faker.date.soon(5), "YYYY-MM-DD").format("DD MMM YYYY"),
+    petugas_pengganti: {
+      nip: faker.random.numeric(6),
+      nama: faker.name.fullName(),
+    },
+    hakcuti_terambil: 0,
+    hakcuti_tersedia: 12,
+    ambil_cuti: 2,
+    sisa_cuti: 10,
+  },
+  {
+    status: "Cuti Khusus",
+    no_form: faker.phone.number("CK########"),
+    tgl_mulai: moment(faker.date.soon(1), "YYYY-MM-DD").format("DD MMM YYYY"),
+    tgl_selesai: moment(faker.date.soon(90), "YYYY-MM-DD").format(
+      "DD MMM YYYY"
+    ),
+    petugas_pengganti: {
+      nip: faker.random.numeric(6),
+      nama: faker.name.fullName(),
+    },
+    hakcuti_tersedia: 90,
+    ambil_cuti: 90,
+  },
+  {
+    status: "Izin",
+    no_form: faker.phone.number("IZ########"),
+    izin_seharian: faker.datatype.boolean(),
+    tgl_mulai: moment(faker.date.soon(1), "YYYY-MM-DD").format("DD MMM YYYY"),
+    tgl_selesai: moment(faker.date.soon(5), "YYYY-MM-DD").format("DD MMM YYYY"),
+  },
+  {
+    status: "Perjalanan Dinas",
+    no_form: faker.phone.number("PD########"),
+    dinas_dalkot: faker.datatype.boolean(),
+    alamat_tujuan: faker.helpers.arrayElement(lokasi).alamat,
+    tgl_mulai: moment(faker.date.soon(1), "YYYY-MM-DD").format("DD MMM YYYY"),
+    tgl_selesai: moment(faker.date.soon(5), "YYYY-MM-DD").format("DD MMM YYYY"),
+  },
+];
 const statusKaryawan = ["PKWT", "PKWTT", "Magang", "Informal", "Harian"];
 const statusPerkawinan = ["Kawin", "Belum kawin", "Cerai"];
 const akses = ["Lokasi", "Perusahaan", "All"];
 const jenisBagian = ["Divisi", "Departemen", "Sub Departemen"];
-const loop = 12;
 const departemen = divisi;
 const subDepartemen = divisi;
 
 // bagian_kerja
-for (var i = 0; i < loop; i++) {
+for (var i = 0; i < 75; i++) {
   database.ms_bagiankerja.push({
     id: i,
     jenis_bagian: faker.helpers.arrayElement(jenisBagian),
@@ -308,7 +374,7 @@ for (var i = 0; i < loop; i++) {
 }
 
 // ms_userid
-for (var i = 0; i < loop; i++) {
+for (var i = 0; i < 30; i++) {
   const karyawan = database.ms_karyawan[i];
 
   function role(view, edit, download) {
@@ -404,7 +470,7 @@ for (var i = 0; i < loop; i++) {
 }
 
 // login
-for (var i = 0; i < loop; i++) {
+for (var i = 0; i < 30; i++) {
   database.login.push({
     id: i,
     email: database.ms_userid[i].email,
@@ -522,7 +588,7 @@ for (var i = 0; i < loop; i++) {
 
 // trx_jadwalkerjacategory
 let jadwalKerja = [];
-for (var i = 0; i < loop; i++) {
+for (var i = 0; i < 75; i++) {
   jadwalKerja = [];
   let hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
 
@@ -566,7 +632,7 @@ for (var i = 0; i < loop; i++) {
 }
 
 // ms_kalenderkerja
-for (var i = 0; i < loop; i++) {
+for (var i = 0; i < 35; i++) {
   const tgl = sliceDate(faker.date.future());
 
   database.ms_kalenderkerja.push({
@@ -609,6 +675,28 @@ for (var i = 0; i < loop; i++) {
     lokasi: database.ms_karyawan[i].lokasi,
     mesin: faker.helpers.arrayElement(mesinFinger),
     status: faker.helpers.arrayElement(["Delete", "Daftar"]),
+  });
+}
+
+// ms_statuskehadiran
+for (var i = 0; i < 15; i++) {
+  const karyawan = database.ms_karyawan[i];
+  const cutiValue = faker.helpers.arrayElement(cuti);
+  const keterangan =
+    cutiValue.status === "Cuti Tahunan"
+      ? "Liburan"
+      : cutiValue.status === "Izin"
+      ? "Ngambil rapor anak"
+      : cutiValue.status === "Perjalanan Dinas"
+      ? "Implementasi"
+      : faker.helpers.arrayElement(keteranganCuti);
+
+  database.ms_statuskehadiran.push({
+    id: i,
+    nip: karyawan.nip,
+    nama_lengkap: karyawan.nama_lengkap,
+    cuti: cutiValue,
+    keterangan: keterangan,
   });
 }
 
