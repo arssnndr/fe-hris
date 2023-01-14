@@ -5,10 +5,11 @@
         <div class="right">
             <h6>NIP</h6>
             <input class="browser-default nip" type="text" [matAutocomplete]="auto" [(ngModel)]="dataForUpload.nip"
-                (input)="searchNip()" />
+                (input)="searchNip('')" />
             <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of filteredKaryawan" (click)="selectNip(option)">{{ option.nip
-                    }}</mat-option>
+                <mat-option *ngFor="let option of filteredKaryawan" (click)="selectNip(option, '')">
+                    {{ option.nip }}
+                </mat-option>
             </mat-autocomplete>
             <span style="width: 300px; height: 45px">
                 <p>{{ dataForUpload.nama_lengkap }}</p>
@@ -17,7 +18,7 @@
 
         <div class="right">
             <h6>Status</h6>
-            <select class="browser-default" [(ngModel)]="selectedCuti" (change)="changeStatus()">
+            <select class="browser-default" [(ngModel)]="selectedCuti">
                 <option *ngFor="let row of cuti" [value]="row">
                     {{ row }}
                 </option>
@@ -25,53 +26,65 @@
             <button class="space"></button>
         </div>
 
-        <div class="right">
-            <h6>No Form</h6>
-            <input type="text" class="browser-default" />
-        </div>
+        <!-- CUTI TAHUNAN -->
+        <div *ngIf="selectedCuti === cuti[0]" style="display: block;">
+            <div class="right">
+                <h6>No Form</h6>
+                <input type="text" class="browser-default" [(ngModel)]="cutiTahunan.no_form" />
+            </div>
 
-        <div class="right">
-            <h6>Tanggal Muncul Hak Cuti</h6>
-            <input type="date" class="browser-default" style="width: 150px; margin-right: 55px;" />
-            <h6 style="width: 25px">s.d</h6>
-            <input type="date" class="browser-default" style="width: 150px;" />
-        </div>
-        <div class="right">
-            <h6>Tanggal Cuti</h6>
-            <input type="date" class="browser-default" style="width: 150px; margin-right: 55px;" />
-            <h6 style="width: 25px">s.d</h6>
-            <input type="date" class="browser-default" style="width: 150px;" />
-        </div>
+            <div class="right">
+                <h6>Tanggal Muncul Hak Cuti</h6>
+                <input type="date" class="browser-default" style="width: 150px; margin-right: 55px;"
+                    [(ngModel)]="cutiTahunan.tgl_muncul_hakcuti_dari" />
+                <h6 style="width: 25px">s.d</h6>
+                <input type="date" class="browser-default" style="width: 150px;"
+                    [(ngModel)]="cutiTahunan.tgl_muncul_hakcuti_sampai" />
+            </div>
+            <div class="right">
+                <h6>Tanggal Cuti</h6>
+                <input type="date" class="browser-default" style="width: 150px; margin-right: 55px;"
+                    [(ngModel)]="cutiTahunan.tgl_mulai" />
+                <h6 style="width: 25px">s.d</h6>
+                <input type="date" class="browser-default" style="width: 150px;"
+                    [(ngModel)]="cutiTahunan.tgl_selesai" />
+            </div>
 
-        <div class="right">
-            <h6>Keterangan</h6>
-            <input type="text" class="browser-default" />
-        </div>
-        
-        <div class="right">
-            <h6>NIP</h6>
-            <input class="browser-default nip" type="text" [matAutocomplete]="auto" [(ngModel)]="dataForUpload.nip"
-                (input)="searchNip()" />
-            <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of filteredKaryawan" (click)="selectNip(option)">{{ option.nip
-                    }}</mat-option>
-            </mat-autocomplete>
-            <span style="width: 300px; height: 45px">
-                <p>{{ dataForUpload.nama_lengkap }}</p>
-            </span>
-        </div>
+            <div class="right">
+                <h6>Keterangan</h6>
+                <input type="text" class="browser-default" [(ngModel)]="dataForUpload.keterangan" />
+            </div>
 
-        <div class="right">
-            <h6>Hak Cuti Yang Telah Diambil</h6>
-            <input type="text" class="browser-default" placeholder="12 Hari" style="width: 100px;" />
-            <h6 style="width: 170px; text-align: right; ">Cuti Yang Diambil</h6>
-            <input type="text" class="browser-default" placeholder="12 Hari" style="width: 100px;" />
-        </div>
-        <div class="right">
-            <h6>Hak Cuti Tersedia</h6>
-            <input type="text" class="browser-default" placeholder="12 Hari" style="width: 100px;" />
-            <h6 style="width: 170px; text-align: right; ">Sisa Hak Cuti</h6>
-            <input type="text" class="browser-default" placeholder="12 Hari" style="width: 100px;" />
+            <div class="right">
+                <h6>Petugas Pengganti</h6>
+                <input class="browser-default nip" type="text" [matAutocomplete]="auto"
+                    [(ngModel)]="cutiTahunan.petugas_pengganti.nip" (input)="searchNip('pengganti')" />
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredKaryawan" (click)="selectNip(option, 'pengganti')">
+                        {{ option.nip }}
+                    </mat-option>
+                </mat-autocomplete>
+                <span style="width: 300px; height: 45px">
+                    <p>{{ cutiTahunan.petugas_pengganti.nama_lengkap }}</p>
+                </span>
+            </div>
+
+            <div class="right">
+                <h6>Hak Cuti Yang Telah Diambil</h6>
+                <input type="text" class="browser-default" style="width: 100px;"
+                    [(ngModel)]="cutiTahunan.hakcuti_terambil" />
+                <h6 style="width: 170px; text-align: right; ">Cuti Yang Diambil</h6>
+                <input type="text" class="browser-default" placeholder="12 Hari" style="width: 100px;"
+                    [(ngModel)]="cutiTahunan.ambil_cuti" />
+            </div>
+            <div class="right">
+                <h6>Hak Cuti Tersedia</h6>
+                <input type="text" class="browser-default" placeholder="12 Hari" style="width: 100px;"
+                    [(ngModel)]="cutiTahunan.hakcuti_tersedia" />
+                <h6 style="width: 170px; text-align: right; ">Sisa Hak Cuti</h6>
+                <input type="text" class="browser-default" placeholder="12 Hari" style="width: 100px;"
+                    [(ngModel)]="cutiTahunan.sisa_cuti" />
+            </div>
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">

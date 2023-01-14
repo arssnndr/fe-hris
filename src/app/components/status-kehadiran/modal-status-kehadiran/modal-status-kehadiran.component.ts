@@ -23,6 +23,50 @@ export class ModalStatusKehadiranComponent implements OnInit {
 
   cuti: any[] = ['Cuti Tahunan', 'Cuti Khusus', 'Izin', 'Perjalanan Dinas'];
   selectedCuti: string = this.cuti[0];
+  dataCuti!: any;
+
+  cutiTahunan = {
+    status: 'Cuti Tahunan',
+    no_form: '',
+    tgl_muncul_hakcuti_dari: '',
+    tgl_muncul_hakcuti_sampai: '',
+    tgl_mulai: '',
+    tgl_selesai: '',
+    petugas_pengganti: {
+      nip: '',
+      nama_lengkap: '',
+    },
+    hakcuti_terambil: 0,
+    hakcuti_tersedia: 0,
+    ambil_cuti: 0,
+    sisa_cuti: 0,
+  };
+  cutiKhusus = {
+    status: '',
+    no_form: '',
+    tgl_mulai: '',
+    tgl_selesai: '',
+    petugas_pengganti: {
+      nip: '',
+      nama_lengkap: '',
+    },
+    hakcuti_tersedia: 0,
+    ambil_cuti: 0,
+  };
+  izin = {
+    status: '',
+    izin_seharian: false,
+    tgl_mulai: '',
+    tgl_selesai: '',
+  };
+  perjalanan_dinas = {
+    status: '',
+    no_form: '',
+    dinas_dalkot: false,
+    alamat_tujuan: '',
+    tgl_mulai: '',
+    tgl_selesai: '',
+  };
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any },
@@ -41,24 +85,40 @@ export class ModalStatusKehadiranComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  searchNip() {
+  searchNip(to: string) {
     this.filteredKaryawan = [];
-    this.allKaryawan.filter((res) => {
-      if (res.nip.includes(this.dataForUpload.nip)) {
-        this.filteredKaryawan.push(res);
-      }
-    });
+    if (to === 'pengganti') {
+      this.allKaryawan.filter((res) => {
+        if (res.nip.includes(this.cutiTahunan.petugas_pengganti.nip)) {
+          this.filteredKaryawan.push(res);
+        }
+      });
+    } else {
+      this.allKaryawan.filter((res) => {
+        if (res.nip.includes(this.dataForUpload.nip)) {
+          this.filteredKaryawan.push(res);
+        }
+      });
+    }
   }
 
-  selectNip(data: any) {
-    this.dataForUpload.nip = data.nip;
-    this.dataForUpload.nama_lengkap = data.nama_lengkap;
+  selectNip(data: any, to: string) {
+    if (to === 'pengganti') {
+      this.cutiTahunan.petugas_pengganti.nip = data.nip;
+      this.cutiTahunan.petugas_pengganti.nama_lengkap = data.nama_lengkap;
+
+      this.cutiKhusus.petugas_pengganti.nip = data.nip;
+      this.cutiKhusus.petugas_pengganti.nama_lengkap = data.nama_lengkap;
+    } else {
+      this.dataForUpload.nip = data.nip;
+      this.dataForUpload.nama_lengkap = data.nama_lengkap;
+    }
   }
 
-  changeStatus() {
+  throwResult() {
     switch (this.selectedCuti) {
       case this.cuti[0]:
-        console.log('tahunan');
+        this.dataForUpload.cuti = this.cutiTahunan;
         break;
       case this.cuti[1]:
         console.log('khusus');
@@ -70,10 +130,6 @@ export class ModalStatusKehadiranComponent implements OnInit {
         console.log('dinas');
         break;
     }
-  }
-
-  throwResult() {
-    console.log(this.selectedCuti);
     this.api.throwData(this.dataForUpload);
   }
 }

@@ -225,7 +225,7 @@ const cuti = [
     tgl_selesai: moment(faker.date.soon(5), "YYYY-MM-DD").format("DD MMM YYYY"),
     petugas_pengganti: {
       nip: faker.random.numeric(6),
-      nama: faker.name.fullName(),
+      nama_lengkap: faker.name.fullName(),
     },
     hakcuti_terambil: 0,
     hakcuti_tersedia: 12,
@@ -241,7 +241,7 @@ const cuti = [
     ),
     petugas_pengganti: {
       nip: faker.random.numeric(6),
-      nama: faker.name.fullName(),
+      nama_lengkap: faker.name.fullName(),
     },
     hakcuti_tersedia: 90,
     ambil_cuti: 90,
