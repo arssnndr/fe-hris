@@ -8,6 +8,10 @@ mat-dialog-content div {
     display: inline-flex;
 }
 
+mat-dialog-content.delete {
+    width: 460px;
+}
+
 h2 {
     text-align: left;
     margin: 0px 40px 20px;
@@ -90,10 +94,6 @@ button.simpan {
 
 /*
 
-mat-dialog-content.delete {
-    padding: 0px;
-    margin: 0px 40px;
-}
 
 input.user {
     margin-bottom: 5px;

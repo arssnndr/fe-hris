@@ -24,7 +24,6 @@ export class StatusKehadiranComponent implements OnInit {
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.tambahData();
     this.getAllData();
   }
 

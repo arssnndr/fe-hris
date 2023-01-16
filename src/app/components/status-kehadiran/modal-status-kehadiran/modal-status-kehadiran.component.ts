@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/shared/api.service';
 })
 export class ModalStatusKehadiranComponent implements OnInit {
   isTambah: boolean = false;
+  isDelete: boolean = false;
 
   dataForUpload = {
     nip: '',
@@ -100,6 +101,8 @@ export class ModalStatusKehadiranComponent implements OnInit {
       case 'tambah':
         this.isTambah = true;
         break;
+      case 'delete':
+        this.isDelete = true;
     }
   }
 
