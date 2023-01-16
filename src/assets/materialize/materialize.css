@@ -6840,16 +6840,16 @@ textarea.materialize-textarea {
 /* Checkboxes
    ========================================================================== */
 /* Remove default checkbox */
-[type="checkbox"]:not(:checked),
+/* [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
 
-[type="checkbox"] {
+[type="checkbox"] { */
   /* checkbox aspect */
-}
+/* }
 
 [type="checkbox"] + span:not(.lever) {
   position: relative;
@@ -6922,10 +6922,10 @@ textarea.materialize-textarea {
 [type="checkbox"]:checked:disabled + span:before {
   border-right: 2px solid rgba(0, 0, 0, 0.42);
   border-bottom: 2px solid rgba(0, 0, 0, 0.42);
-}
+} */
 
 /* Indeterminate checkbox */
-[type="checkbox"]:indeterminate + span:not(.lever):before {
+/* [type="checkbox"]:indeterminate + span:not(.lever):before {
   top: -11px;
   left: -12px;
   width: 10px;
@@ -6955,9 +6955,9 @@ textarea.materialize-textarea {
 [type="checkbox"].filled-in + span:not(.lever):after {
   content: '';
   left: 0;
-  position: absolute;
+  position: absolute; */
   /* .1s delay is for check animation */
-  -webkit-transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+  /* -webkit-transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
   transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
   z-index: 1;
 }
@@ -7036,7 +7036,7 @@ textarea.materialize-textarea {
 [type="checkbox"].filled-in:disabled:checked + span:not(.lever):after {
   background-color: #949494;
   border-color: #949494;
-}
+} */
 
 /* Switch
    ========================================================================== */

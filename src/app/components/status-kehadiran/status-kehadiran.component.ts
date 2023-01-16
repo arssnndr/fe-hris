@@ -36,11 +36,10 @@ export class StatusKehadiranComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'simpan') {
         let catchResult = this.api.catchData();
-        console.log(catchResult);
-        // this.api.postData(this.table, catchResult).subscribe((res) => {
-        //   this.length = this.length + 1;
-        //   this.getPageData();
-        // });
+        this.api.postData(this.table, catchResult).subscribe(() => {
+          this.length = this.length + 1;
+          this.getPageData();
+        });
       }
     });
   }
