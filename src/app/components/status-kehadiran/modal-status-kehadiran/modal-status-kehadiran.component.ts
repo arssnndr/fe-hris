@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/shared/api.service';
 export class ModalStatusKehadiranComponent implements OnInit {
   isTambah: boolean = false;
   isDelete: boolean = false;
+  isEdit: boolean = false;
 
   dataForUpload = {
     nip: '',
@@ -74,11 +75,11 @@ export class ModalStatusKehadiranComponent implements OnInit {
     tgl_mulai: '',
     tgl_selesai: '',
   };
-  jumlahHariIzin!: number;
-  changeJumlahHariIzin() {
-    this.jumlahHariIzin =
+  changeJumlahHariIzin(tglMulai: string, tglSelesai: string) {
+    return (
       Number(this.izin.tgl_selesai.slice(8)) -
-      Number(this.izin.tgl_mulai.slice(8));
+      Number(this.izin.tgl_mulai.slice(8))
+    );
   }
   perjalananDinas = {
     status: 'Perjalanan Dinas',
@@ -103,6 +104,19 @@ export class ModalStatusKehadiranComponent implements OnInit {
         break;
       case 'delete':
         this.isDelete = true;
+        break;
+      case 'edit':
+        this.isEdit = true;
+        this.dataForUpload = data.data;
+        this.selectedCuti = data.data.cuti.status;
+        data.data.cuti.status === this.cutiTahunan.status
+          ? (this.cutiTahunan = data.data.cuti)
+          : data.data.cuti.status === this.cutiKhusus.status
+          ? (this.cutiKhusus = data.data.cuti)
+          : data.data.cuti.status === this.izin.status
+          ? (this.izin = data.data.cuti)
+          : (this.perjalananDinas = data.data.cuti);
+        break;
     }
   }
 

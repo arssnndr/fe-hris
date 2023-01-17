@@ -40,7 +40,7 @@
         <tr *ngFor="let row of data">
             <td (click)="editData(row)">{{ row.nip }}</td>
             <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
-            <td (click)="editData(row)">{{ row.cuti.tgl_mulai }}</td>
+            <td (click)="editData(row)">{{ formatDate(row.cuti.tgl_mulai) }}</td>
             <td (click)="editData(row)">{{ row.cuti.status }}</td>
             <td (click)="editData(row)">{{ row.keterangan }}</td>
             <td>

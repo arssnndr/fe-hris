@@ -216,13 +216,13 @@ const cuti = [
     status: "Cuti Tahunan",
     no_form: faker.phone.number("CT########"),
     tgl_muncul_hakcuti_dari: moment("24-01-2023", "DD-MM-YYYY").format(
-      "DD MMM YYYY"
+      "YYYY-MM-DD"
     ),
     tgl_muncul_hakcuti_sampai: moment("24-01-2023", "DD-MM-YYYY").format(
-      "DD MMM YYYY"
+      "YYYY-MM-DD"
     ),
-    tgl_mulai: moment(faker.date.soon(1), "YYYY-MM-DD").format("DD MMM YYYY"),
-    tgl_selesai: moment(faker.date.soon(5), "YYYY-MM-DD").format("DD MMM YYYY"),
+    tgl_mulai: moment(faker.date.soon(1)).format("YYYY-MM-DD"),
+    tgl_selesai: moment(faker.date.soon(5)).format("YYYY-MM-DD"),
     petugas_pengganti: {
       nip: faker.random.numeric(6),
       nama_lengkap: faker.name.fullName(),
@@ -235,10 +235,8 @@ const cuti = [
   {
     status: "Cuti Khusus",
     no_form: faker.phone.number("CK########"),
-    tgl_mulai: moment(faker.date.soon(1), "YYYY-MM-DD").format("DD MMM YYYY"),
-    tgl_selesai: moment(faker.date.soon(90), "YYYY-MM-DD").format(
-      "DD MMM YYYY"
-    ),
+    tgl_mulai: moment(faker.date.soon(1)).format("YYYY-MM-DD"),
+    tgl_selesai: moment(faker.date.soon(90)).format("YYYY-MM-DD"),
     petugas_pengganti: {
       nip: faker.random.numeric(6),
       nama_lengkap: faker.name.fullName(),
@@ -250,16 +248,16 @@ const cuti = [
     status: "Izin",
     no_form: faker.phone.number("IZ########"),
     izin_seharian: faker.datatype.boolean(),
-    tgl_mulai: moment(faker.date.soon(1), "YYYY-MM-DD").format("DD MMM YYYY"),
-    tgl_selesai: moment(faker.date.soon(5), "YYYY-MM-DD").format("DD MMM YYYY"),
+    tgl_mulai: moment(faker.date.soon(1)).format("YYYY-MM-DD"),
+    tgl_selesai: moment(faker.date.soon(5)).format("YYYY-MM-DD"),
   },
   {
     status: "Perjalanan Dinas",
     no_form: faker.phone.number("PD########"),
     dinas_dalkot: faker.datatype.boolean(),
     alamat_tujuan: faker.helpers.arrayElement(lokasi).alamat,
-    tgl_mulai: moment(faker.date.soon(1), "YYYY-MM-DD").format("DD MMM YYYY"),
-    tgl_selesai: moment(faker.date.soon(5), "YYYY-MM-DD").format("DD MMM YYYY"),
+    tgl_mulai: moment(faker.date.soon(1)).format('YYYY-MM-DD[T]HH:mm'),
+    tgl_selesai: moment(faker.date.soon(5)).format('YYYY-MM-DD[T]HH:mm'),
   },
 ];
 const statusKaryawan = ["PKWT", "PKWTT", "Magang", "Informal", "Harian"];

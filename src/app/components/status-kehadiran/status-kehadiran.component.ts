@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
+import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalStatusKehadiranComponent } from './modal-status-kehadiran/modal-status-kehadiran.component';
 
@@ -25,6 +26,10 @@ export class StatusKehadiranComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllData();
+  }
+
+  formatDate(date: string) {
+    return moment(date).format('DD MMM YYYY');
   }
 
   tambahData() {
@@ -59,7 +64,6 @@ export class StatusKehadiranComponent implements OnInit {
   }
 
   editData(data: any) {
-    console.log(data);
     const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
       data: { name: 'edit', data: data },
     });
@@ -69,7 +73,7 @@ export class StatusKehadiranComponent implements OnInit {
         let catchResult = this.api.catchData();
         this.api
           .updateData(this.table, catchResult, catchResult.id)
-          .subscribe((res) => {
+          .subscribe(() => {
             this.getPageData();
           });
       }
