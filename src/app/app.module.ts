@@ -54,6 +54,7 @@ import { ModalKalenderKerjaComponent } from './components/master/kalender-kerja/
 import { ModalMesinFingerComponent } from './components/master/mesin-finger/modal-mesin-finger/modal-mesin-finger.component';
 import { ModalSetupMesinFingerComponent } from './components/master/setup-mesin-finger/modal-setup-mesin-finger/modal-setup-mesin-finger.component';
 import { ModalStatusKehadiranComponent } from './components/status-kehadiran/modal-status-kehadiran/modal-status-kehadiran.component';
+import { ModalListKehadiranComponent } from './components/list-kehadiran/modal-list-kehadiran/modal-list-kehadiran.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { ModalStatusKehadiranComponent } from './components/status-kehadiran/mod
     ModalMesinFingerComponent,
     ModalSetupMesinFingerComponent,
     ModalStatusKehadiranComponent,
+    ModalListKehadiranComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

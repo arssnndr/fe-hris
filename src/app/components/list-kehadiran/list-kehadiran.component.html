@@ -1,1 +1,120 @@
-<p>list-kehadiran works!</p>
+<h4>List Kehadiran</h4>
+
+<div class="content row" style="display: flex">
+    <div class="col s8" style="margin-right: 10px">
+        <table class="responsive-table striped">
+            <thead>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Hari</th>
+                    <th>Jadwal Kerja</th>
+                    <th>Jadwal Istirahat</th>
+                    <th>Masuk</th>
+                    <th>Keluar</th>
+                    <th>Status</th>
+                    <th>JK</th>
+                    <th>TI</th>
+                    <th>OT</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of dataDetailJadwalKerjaPerMonth, index as i">
+                    <td (click)="editDataDetail(i)">{{ dateFormat(row.tgl) }}</td>
+                    <td (click)="editDataDetail(i)">{{ row.hari }}</td>
+                    <td (click)="editDataDetail(i)">{{ row.masuk }} - {{ row.keluar }}</td>
+                    <td (click)="editDataDetail(i)">
+                        {{ row.mulai_istirahat }} - {{ row.selesai_istirahat }}
+                    </td>
+                    <td (click)="editDataDetail(i)">{{ row.masuk }}</td>
+                    <td (click)="editDataDetail(i)">{{ row.keluar }}</td>
+                    <td (click)="editDataDetail(i)">HT</td>
+                    <td (click)="editDataDetail(i)">9</td>
+                    <td (click)="editDataDetail(i)">0</td>
+                    <td (click)="editDataDetail(i)">0</td>
+                    <td>
+                        <button mat-icon-button color="warn" [matMenuTriggerFor]="menu">
+                            <img src="../../../assets/icon/list_edit.svg">
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item>
+                                Cuti Tahunan
+                            </button>
+                            <button mat-menu-item>
+                                Cuti Khusus
+                            </button>
+                            <button mat-menu-item>
+                                Izin
+                            </button>
+                            <button mat-menu-item>
+                                Perjalanan Dinas
+                            </button>
+                        </mat-menu>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col s4" style="display: flexbox">
+        <button class="download waves-effect waves-dark transparent right">
+            Download
+        </button>
+        <div style="display: inline-flex; width: 100%">
+            <h6>Periode</h6>
+            <div style="margin-left: auto; display: inline-flex">
+                <mat-checkbox style="margin: 7px 7px 0px 0px"></mat-checkbox>
+                <h6>Akhir</h6>
+            </div>
+        </div>
+        <input type="month" class="browser-default" [(ngModel)]="yearMonth" (change)="selectMonth()" />
+        <h6>Nama</h6>
+        <div style="display: inline-flex; width: 100%">
+            <input type="text" class="nip browser-default" [value]="dataDetailProfil.nip" [matAutocomplete]="auto"
+                (input)="searchNip($event.target)" />
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of dataSearchNip" (click)="selectNip(option)">
+                    {{ option.nip }}
+                </mat-option>
+            </mat-autocomplete>
+            <div style="margin-left: 7px">
+                <p>{{ dataDetailProfil.nama_lengkap }}</p>
+            </div>
+            <div style="margin-left: auto">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>filter_list</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <div style="display: block;">
+                        <div align="end" style="width: 100%; display: flex;">
+                            <h6 style="margin-top: 8%; margin-right: 10px; margin-left: 5px;">Lokasi</h6>
+                            <select class="browser-default">
+                                <option *ngFor="let row of dataDetailAll" [value]="row.perusahaan">
+                                    {{ row.perusahaan }}
+                                </option>
+                            </select>
+                            <button class="space"></button>
+                        </div>
+                        <div align="end" style="width: 100%;">disini perusahaan</div>
+                        <div align="end" style="width: 100%;">disini divisi</div>
+                    </div>
+                </mat-menu>
+            </div>
+        </div>
+        <table class="responsive-table striped">
+            <thead>
+                <tr>
+                    <th>NIP</th>
+                    <th>Nama</th>
+                    <th>Perusahaan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of dataDetailAll">
+                    <td (click)="selectProfil(row.id)">{{ row.nip }}</td>
+                    <td (click)="selectProfil(row.id)">{{ row.nama_lengkap }}</td>
+                    <td (click)="selectProfil(row.id)">{{ row.perusahaan }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

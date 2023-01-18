@@ -1,0 +1,168 @@
+h4 {
+    color: #000000;
+    font-size: 24px;
+}
+
+input.nip {
+    width: 25%;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 12px;
+}
+
+input[type="date"],
+input[type="month"] {
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 12px;
+}
+
+div.col {
+    padding: 0px;
+}
+
+th {
+    background-color: #ffe6e6;
+    border-radius: 0px;
+    padding: 15px 15px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}
+
+td {
+    padding: 10px 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+td:last-child {
+    padding: 5px;
+    width: 50px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff4f4;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+tbody tr:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+button.download {
+    color: #d85d5d;
+    border: 1px solid #d85d5d;
+    border-radius: 1px;
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+}
+
+
+/* 
+  
+  mat-tab-group {
+    font-family: "Lato", sans-serif;
+  }
+  
+  mat-paginator {
+    font-family: "Lato", sans-serif;
+    font-size: 15px;
+  }
+  
+  select {
+    margin-top: 7px;
+    margin-bottom: 5px;
+    margin-right: 0px;
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    height: 50px;
+    padding: 5px;
+    border: 1px solid #00000050;
+    border-style: solid none solid solid;
+    border-radius: 2px 0px 0px 2px;
+  }
+  
+  button.space {
+    height: 50px;
+    width: 13px;
+    margin-top: 7px;
+    margin-right: 10px;
+    padding-top: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #00000050;
+    border-style: solid solid solid none;
+    border-radius: 0px 2px 2px 0px;
+  }
+  
+  li a {
+    margin: 5px;
+  }
+  
+  a.waves-dark {
+    border: 1px solid #d32f2f;
+  }
+  
+  .nav {
+    margin-bottom: 20px;
+  }
+  
+  td button {
+    border: 0px;
+    border-radius: 5px;
+    font-size: 12.5px;
+    color: white;
+    padding: 3px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px;
+    height: 22px;
+    width: 22px;
+  }
+  
+  button.print {
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 1px;
+    width: 100px;
+    height: 50px;
+    margin: 5px 0px 5px 5px;
+  }
+  
+  button.tambah {
+    color: #ffffff;
+    background-color: #d85d5d;
+    border: 1px solid #d85d5d;
+    border-radius: 1px;
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+  }
+  
+  div.content {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  div.content.category {
+    margin-top: 0px;
+    width: 100%;
+  }
+  
+  div.mat-tab-list {
+    border: 0px;
+    border-bottom-style: none;
+  }
+  
+  div.mat-tab-body-content {
+    border: 0px;
+    border-top-style: none;
+  } */
