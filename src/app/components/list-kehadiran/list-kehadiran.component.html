@@ -20,18 +20,17 @@
             </thead>
             <tbody>
                 <tr *ngFor="let row of dataDetailJadwalKerjaPerMonth, index as i">
-                    <td (click)="editDataDetail(i)">{{ dateFormat(row.tgl) }}</td>
-                    <td (click)="editDataDetail(i)">{{ row.hari }}</td>
-                    <td (click)="editDataDetail(i)">{{ row.masuk }} - {{ row.keluar }}</td>
-                    <td (click)="editDataDetail(i)">
-                        {{ row.mulai_istirahat }} - {{ row.selesai_istirahat }}
-                    </td>
-                    <td (click)="editDataDetail(i)">{{ row.masuk }}</td>
-                    <td (click)="editDataDetail(i)">{{ row.keluar }}</td>
-                    <td (click)="editDataDetail(i)">HT</td>
-                    <td (click)="editDataDetail(i)">9</td>
-                    <td (click)="editDataDetail(i)">0</td>
-                    <td (click)="editDataDetail(i)">0</td>
+                    <td (click)="editKehadiran(i)">{{ dateFormat(row.tgl) }}</td>
+                    <td (click)="editKehadiran(i)">{{ row.hari }}</td>
+                    <td (click)="editKehadiran(i)">{{ sliceTime(row.masuk) }} - {{ sliceTime(row.keluar) }}</td>
+                    <td (click)="editKehadiran(i)">{{ sliceTime(row.mulai_istirahat) }} - {{
+                        sliceTime(row.selesai_istirahat) }}</td>
+                    <td (click)="editKehadiran(i)">{{ row.masuk }}</td>
+                    <td (click)="editKehadiran(i)">{{ row.keluar }}</td>
+                    <td (click)="editKehadiran(i)">{{ row.status_kehadiran }}</td>
+                    <td (click)="editKehadiran(i)">{{ row.total }}</td>
+                    <td (click)="editKehadiran(i)">0</td>
+                    <td (click)="editKehadiran(i)">0</td>
                     <td>
                         <button mat-icon-button color="warn" [matMenuTriggerFor]="menu">
                             <img src="../../../assets/icon/list_edit.svg">

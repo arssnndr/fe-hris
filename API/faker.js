@@ -17,6 +17,7 @@ const database = {
   ms_mesinfinger: [],
   ms_setupmesinfinger: [],
   ms_statuskehadiran: [],
+  trx_listkehadiran: [],
 };
 
 const loop = 250;
@@ -256,9 +257,23 @@ const cuti = [
     no_form: faker.phone.number("PD########"),
     dinas_dalkot: faker.datatype.boolean(),
     alamat_tujuan: faker.helpers.arrayElement(lokasi).alamat,
-    tgl_mulai: moment(faker.date.soon(1)).format('YYYY-MM-DD[T]HH:mm'),
-    tgl_selesai: moment(faker.date.soon(5)).format('YYYY-MM-DD[T]HH:mm'),
+    tgl_mulai: moment(faker.date.soon(1)).format("YYYY-MM-DD[T]HH:mm"),
+    tgl_selesai: moment(faker.date.soon(5)).format("YYYY-MM-DD[T]HH:mm"),
   },
+];
+const statusKehadiran = [
+  "HT",
+  "PA",
+  "DDK",
+  "DLK",
+  "Cuti",
+  "CK",
+  "CB",
+  "Mangkir",
+  "ISP",
+  "ISH",
+  "Hadir",
+  "Off",
 ];
 const statusKaryawan = ["PKWT", "PKWTT", "Magang", "Informal", "Harian"];
 const statusPerkawinan = ["Kawin", "Belum kawin", "Cerai"];
@@ -695,6 +710,93 @@ for (var i = 0; i < 15; i++) {
     nama_lengkap: karyawan.nama_lengkap,
     cuti: cutiValue,
     keterangan: keterangan,
+  });
+}
+
+// trx_listkehadiran
+
+for (var i = 0; i < loop; i++) {
+  let jan = [];
+  let feb = [];
+  let mar = [];
+  let apr = [];
+  let mei = [];
+  let jun = [];
+  let jul = [];
+  let agu = [];
+  let sep = [];
+  let okt = [];
+  let nov = [];
+  let des = [];
+
+  for (var z = 1; z <= 12; z++) {
+    let x;
+    z.toString().length === 1 ? (x = `0${z}`) : (x = z.toString());
+    for (var j = 1; j <= moment(`${x}-2023`, "MM-YYYY").daysInMonth(); j++) {
+      const trxJadwalKerja = faker.helpers.arrayElement(
+        database.trx_jadwalkerja
+      );
+      const data = {
+        id_jadwal_kerja: trxJadwalKerja.id_jadwal_kerja,
+        tgl: `${j}-${x}-2023`,
+        hari: dateToDay(`${j}-${x}-2023`),
+        masuk: trxJadwalKerja.masuk,
+        keluar: trxJadwalKerja.keluar,
+        mulai_istirahat: trxJadwalKerja.mulai_istirahat,
+        selesai_istirahat: trxJadwalKerja.selesai_istirahat,
+        total: trxJadwalKerja.total,
+        status_kehadiran: faker.helpers.arrayElement(statusKehadiran),
+      };
+      switch (z) {
+        case 1:
+          jan.push(data);
+          break;
+        case 2:
+          feb.push(data);
+          break;
+        case 3:
+          mar.push(data);
+          break;
+        case 4:
+          apr.push(data);
+          break;
+        case 5:
+          mei.push(data);
+          break;
+        case 6:
+          jun.push(data);
+          break;
+        case 7:
+          jul.push(data);
+          break;
+        case 8:
+          agu.push(data);
+          break;
+        case 9:
+          sep.push(data);
+          break;
+        case 10:
+          okt.push(data);
+          break;
+        case 11:
+          nov.push(data);
+          break;
+        case 12:
+          des.push(data);
+          break;
+      }
+    }
+  }
+
+  database.trx_listkehadiran.push({
+    id: i,
+    nip: database.ms_karyawan[i].nip,
+    nama_lengkap: database.ms_karyawan[i].nama_lengkap,
+    perusahaan: database.ms_karyawan[i].perusahaan,
+    divisi: database.ms_karyawan[i].divisi,
+    departemen: database.ms_karyawan[i].departemen,
+    sub_departemen: database.ms_karyawan[i].sub_departemen,
+    jadwal_kerja: [jan, feb, mar, apr, mei, jun, jul, agu, sep, okt, nov, des],
   });
 }
 

@@ -1,1 +1,68 @@
-<p>modal-list-kehadiran works!</p>
+<div>
+    <h2 mat-dialog-title>Edit Kehadiran</h2>
+    <mat-dialog-content>
+        <div class="right">
+            <h6>Tanggal</h6>
+            <input type="text" class="browser-default date" disabled />
+        </div>
+        <div class="right" style="margin-bottom: 10px;">
+            <h6>Jadwal Kerja</h6>
+            <input type="text" class="browser-default jamKerja" disabled />
+            <input type="text" class="browser-default jamIstirahat" disabled />
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Jam</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>17 agustus 1945</td>
+                        <td>19:45</td>
+                        <td>
+                            <div class="switch">
+                                <label style="height: 50px; padding-top: 10px;">
+                                    <input [(ngModel)]="cek" type="checkbox">
+                                    <span class="lever" style="margin-left: 0px;"></span>
+                                    <span style="color: #000000DE; font-size: 17.25px;">
+                                        {{ cek ? 'Masuk' : 'Keluar'}}
+                                    </span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="waves-effect waves-light right red darken-2">
+                                <i class="material-icons" style="font-size: 15px">close</i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="right">
+            <h6>status</h6>
+            <select class="browser-default">
+                <option> HT </option>
+                <option value="mangkir">Mangkir</option>
+            </select>
+            <button class="space"></button>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button class="manual waves-effect waves-light transparent" mat-dialog-close="manual">
+            Absen Manual
+        </button>
+        <button type="submit" class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+            Simpan
+        </button>
+        <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
+            Batal
+        </button>
+    </mat-dialog-actions>
+</div>

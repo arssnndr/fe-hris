@@ -10,19 +10,13 @@ import { ModalListKehadiranComponent } from './modal-list-kehadiran/modal-list-k
   styleUrls: ['./list-kehadiran.component.css'],
 })
 export class ListKehadiranComponent implements OnInit {
-  tableDetail = 'trx_jadwalkerjadetail/';
+  tableDetail = 'trx_listkehadiran/';
   dataDetailAll: any[] = [{ jadwal_kerja: '' }];
   dataDetailProfil = { id: '', nama_lengkap: '', nip: '', jadwal_kerja: '' };
   dataDetailJadwalKerja!: any;
   dataDetailJadwalKerjaPerMonth: any[] = [];
   yearMonth = moment().format('YYYY-MM');
   dataSearchNip: any[] = [];
-
-  tableCategory = 'trx_jadwalkerjacategory/';
-  dataCategoryAll!: any;
-
-  tableIndividu = 'trx_jadwalkerjaindividu/';
-  dataIndividuAll!: any;
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
@@ -33,19 +27,14 @@ export class ListKehadiranComponent implements OnInit {
       this.dataDetailJadwalKerja = res[0].jadwal_kerja;
       this.selectMonth();
     });
-
-    this.api.getData(this.tableCategory).subscribe((res) => {
-      this.dataCategoryAll = res;
-    });
-
-    this.api.getData(this.tableIndividu).subscribe((res) => {
-      this.dataIndividuAll = res;
-    });
   }
 
-  // DETAIL
   dateFormat(date: any) {
     return moment(date, 'DD-MM-YYYY').format('DD MMM YYYY');
+  }
+
+  sliceTime(time: any) {
+    return time.slice(0, 2)
   }
 
   selectProfil(id: any) {
@@ -86,10 +75,10 @@ export class ListKehadiranComponent implements OnInit {
     this.selectMonth();
   }
 
-  editDataDetail(i: number) {
+  editKehadiran(i: number) {
     const dialogRef = this.dialog.open(ModalListKehadiranComponent, {
       data: {
-        name: 'editDetail',
+        name: 'editKehadiran',
         data: {
           dataProfil: this.dataDetailProfil,
           indexBln: Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1,
