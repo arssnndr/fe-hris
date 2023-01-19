@@ -55,7 +55,7 @@
     </mat-dialog-content>
 
     <mat-dialog-actions align="end">
-        <button class="manual waves-effect waves-light transparent" mat-dialog-close="manual">
+        <button class="manual waves-effect waves-light transparent" (click)="absenManual()">
             Absen Manual
         </button>
         <button type="submit" class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
