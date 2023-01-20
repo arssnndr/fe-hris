@@ -3,12 +3,14 @@
     <mat-dialog-content>
         <div class="right">
             <h6>Tanggal</h6>
-            <input type="text" class="browser-default date" disabled />
+            <input type="text" class="browser-default date" [value]="data.data.tgl" disabled />
         </div>
         <div class="right" style="margin-bottom: 10px;">
             <h6>Jadwal Kerja</h6>
-            <input type="text" class="browser-default jamKerja" disabled />
-            <input type="text" class="browser-default jamIstirahat" disabled />
+            <input type="text" class="browser-default jamKerja" [value]="data.data.masuk + ' - ' + data.data.keluar"
+                disabled />
+            <input type="text" class="browser-default jamIstirahat"
+                [value]="data.data.mulai_istirahat + ' - ' + data.data.selesai_istirahat" disabled />
         </div>
         <div>
             <table>
@@ -21,16 +23,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>17 agustus 1945</td>
-                        <td>19:45</td>
+                    <tr *ngFor="let row of table">
+                        <td>{{ formatDate(row.tgl) }}</td>
+                        <td>{{ row.jam }}</td>
                         <td>
                             <div class="switch">
                                 <label style="height: 50px; padding-top: 10px;">
-                                    <input [(ngModel)]="cek" type="checkbox">
+                                    <input [(ngModel)]="row.isIn" type="checkbox">
                                     <span class="lever" style="margin-left: 0px;"></span>
                                     <span style="color: #000000DE; font-size: 17.25px;">
-                                        {{ cek ? 'Masuk' : 'Keluar'}}
+                                        {{ row.isIn ? 'Masuk' : 'Keluar'}}
                                     </span>
                                 </label>
                             </div>
@@ -47,8 +49,7 @@
         <div class="right">
             <h6>status</h6>
             <select class="browser-default">
-                <option> HT </option>
-                <option value="mangkir">Mangkir</option>
+                <option *ngFor="let row of status" [value]="data.data.status_kehadiran">{{ row }}</option>
             </select>
             <button class="space"></button>
         </div>

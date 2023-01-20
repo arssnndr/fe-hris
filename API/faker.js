@@ -20,7 +20,7 @@ const database = {
   trx_listkehadiran: [],
 };
 
-const loop = 250;
+const loop = 100;
 
 const perusahaan = [
   {
@@ -714,7 +714,6 @@ for (var i = 0; i < 15; i++) {
 }
 
 // trx_listkehadiran
-
 for (var i = 0; i < loop; i++) {
   let jan = [];
   let feb = [];

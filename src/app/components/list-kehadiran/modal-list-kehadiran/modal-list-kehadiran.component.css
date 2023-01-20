@@ -24,9 +24,9 @@ mat-dialog-actions {
 }
 
 input.date {
-    margin-right: 255.37px;
+    margin-right: 305.37px;
     margin-bottom: 10px;
-    width: 150px;
+    width: 100px;
     padding: 5px;
     border: 1px solid #00000050;
     border-radius: 2px;
@@ -35,7 +35,7 @@ input.date {
 
 input.jamKerja {
     margin-right: 10px;
-    width: 150px;
+    width: 100px;
     padding: 5px;
     border: 1px solid #00000050;
     border-radius: 2px;
@@ -43,8 +43,8 @@ input.jamKerja {
 }
 
 input.jamIstirahat {
-    margin-right: 95.37px;
-    width: 150px;
+    margin-right: 195.37px;
+    width: 100px;
     padding: 5px;
     border: 1px solid #00000050;
     border-radius: 2px;

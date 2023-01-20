@@ -34,7 +34,7 @@ export class ListKehadiranComponent implements OnInit {
   }
 
   sliceTime(time: any) {
-    return time.slice(0, 2)
+    return time.slice(0, 2);
   }
 
   selectProfil(id: any) {
@@ -75,15 +75,12 @@ export class ListKehadiranComponent implements OnInit {
     this.selectMonth();
   }
 
-  editKehadiran(i: number) {
+  editKehadiran(data: any) {
     const dialogRef = this.dialog.open(ModalListKehadiranComponent, {
       data: {
         name: 'editKehadiran',
-        data: {
-          dataProfil: this.dataDetailProfil,
-          indexBln: Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1,
-          indexTgl: i,
-        },
+        data: data,
+        dataProfil: this.dataDetailProfil,
       },
     });
 
