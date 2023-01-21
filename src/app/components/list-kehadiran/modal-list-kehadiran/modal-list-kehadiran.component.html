@@ -3,14 +3,17 @@
     <mat-dialog-content>
         <div class="right">
             <h6>Tanggal</h6>
-            <input type="text" class="browser-default date" [value]="data.data.tgl" disabled />
+            <input type="text" class="browser-default date"
+                [value]="formatDate(data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].tgl)" disabled />
         </div>
         <div class="right" style="margin-bottom: 10px;">
             <h6>Jadwal Kerja</h6>
-            <input type="text" class="browser-default jamKerja" [value]="data.data.masuk + ' - ' + data.data.keluar"
+            <input type="text" class="browser-default jamKerja"
+                [value]="data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].masuk + ' - ' + data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].keluar"
                 disabled />
             <input type="text" class="browser-default jamIstirahat"
-                [value]="data.data.mulai_istirahat + ' - ' + data.data.selesai_istirahat" disabled />
+                [value]="data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].mulai_istirahat + ' - ' + data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].selesai_istirahat"
+                disabled />
         </div>
         <div>
             <table>
@@ -23,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let row of table">
+                    <tr *ngFor="let row of table, index as i">
                         <td>{{ formatDate(row.tgl) }}</td>
                         <td>{{ row.jam }}</td>
                         <td>
@@ -38,7 +41,7 @@
                             </div>
                         </td>
                         <td>
-                            <button class="waves-effect waves-light right red darken-2">
+                            <button class="waves-effect waves-light right red darken-2" (click)="deleteData(i)">
                                 <i class="material-icons" style="font-size: 15px">close</i>
                             </button>
                         </td>
@@ -48,8 +51,9 @@
         </div>
         <div class="right">
             <h6>status</h6>
-            <select class="browser-default">
-                <option *ngFor="let row of status" [value]="data.data.status_kehadiran">{{ row }}</option>
+            <select class="browser-default"
+                [(ngModel)]="data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].status_kehadiran">
+                <option *ngFor="let row of status">{{ row }}</option>
             </select>
             <button class="space"></button>
         </div>

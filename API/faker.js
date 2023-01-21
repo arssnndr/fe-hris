@@ -736,7 +736,6 @@ for (var i = 0; i < loop; i++) {
         database.trx_jadwalkerja
       );
       const data = {
-        id_jadwal_kerja: trxJadwalKerja.id_jadwal_kerja,
         tgl: `${j}-${x}-2023`,
         hari: dateToDay(`${j}-${x}-2023`),
         masuk: trxJadwalKerja.masuk,
@@ -792,9 +791,6 @@ for (var i = 0; i < loop; i++) {
     nip: database.ms_karyawan[i].nip,
     nama_lengkap: database.ms_karyawan[i].nama_lengkap,
     perusahaan: database.ms_karyawan[i].perusahaan,
-    divisi: database.ms_karyawan[i].divisi,
-    departemen: database.ms_karyawan[i].departemen,
-    sub_departemen: database.ms_karyawan[i].sub_departemen,
     jadwal_kerja: [jan, feb, mar, apr, mei, jun, jul, agu, sep, okt, nov, des],
   });
 }

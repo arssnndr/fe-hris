@@ -30,18 +30,22 @@ export class ModalListKehadiranComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private api: ApiService
   ) {
-    console.log(data);
     this.table.push(
       {
-        tgl: data.data.tgl,
-        jam: data.data.masuk,
+        tgl: data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl]
+          .tgl,
+        jam: data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl]
+          .masuk,
         isIn: true,
       },
       {
-        tgl: data.data.tgl,
-        jam: data.data.keluar,
+        tgl: data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl]
+          .tgl,
+        jam: data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl]
+          .keluar,
         isIn: false,
       }
     );
@@ -53,19 +57,42 @@ export class ModalListKehadiranComponent implements OnInit {
     return moment(date, 'DD-MM-YYYY').format('D MMM YYYY');
   }
 
+  deleteData(index: number) {
+    this.table.splice(index, index - 1);
+  }
+
   absenManual() {
     const dialogRef = this.dialog.open(AbsenManualComponent, {
       data: {
-        nip: this.data.dataProfil.nip,
-        nama: this.data.dataProfil.nama_lengkap,
-        tgl: this.data.data.tgl,
+        nip: this.data.data.nip,
+        nama: this.data.data.nama_lengkap,
+        tgl: this.data.data.jadwal_kerja[this.data.index.indexBln][
+          this.data.index.indexTgl
+        ].tgl,
       },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
+      if (result !== undefined) {
+        result.status
+          ? (this.data.data.jadwal_kerja[this.data.index.indexBln][
+              this.data.index.indexTgl
+            ].masuk = result.jam)
+          : (this.data.data.jadwal_kerja[this.data.index.indexBln][
+              this.data.index.indexTgl
+            ].keluar = result.jam);
+        this.table.push({
+          tgl: this.data.data.jadwal_kerja[this.data.index.indexBln][
+            this.data.index.indexTgl
+          ].tgl,
+          jam: result.jam,
+          isIn: result.status,
+        });
+      }
     });
   }
 
-  throwResult() {}
+  throwResult() {
+    this.api.throwData(this.data.data);
+  }
 }

@@ -16,9 +16,7 @@ export class AbsenManualComponent implements OnInit {
     private api: ApiService,
     @Inject(MAT_DIALOG_DATA)
     public data: { nip: string; nama: string; tgl: string }
-  ) {
-    console.log(data);
-  }
+  ) {}
 
   ngOnInit(): void {}
 

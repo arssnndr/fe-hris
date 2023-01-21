@@ -75,12 +75,15 @@ export class ListKehadiranComponent implements OnInit {
     this.selectMonth();
   }
 
-  editKehadiran(data: any) {
+  editKehadiran(index: number) {
     const dialogRef = this.dialog.open(ModalListKehadiranComponent, {
       data: {
         name: 'editKehadiran',
-        data: data,
-        dataProfil: this.dataDetailProfil,
+        data: this.dataDetailProfil,
+        index: {
+          indexBln: Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1,
+          indexTgl: index,
+        },
       },
     });
 
@@ -88,7 +91,7 @@ export class ListKehadiranComponent implements OnInit {
       if (result === 'simpan') {
         let catchResult = this.api.catchData();
         this.api
-          .updateData(this.tableDetail, catchResult, this.dataDetailProfil.id)
+          .updateData(this.tableDetail, catchResult, catchResult.id)
           .subscribe(() => {
             this.selectProfil(catchResult.id);
           });
