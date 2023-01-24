@@ -75,7 +75,7 @@ export class ModalStatusKehadiranComponent implements OnInit {
     tgl_mulai: '',
     tgl_selesai: '',
   };
-  changeJumlahHariIzin(tglMulai: string, tglSelesai: string) {
+  changeJumlahHariIzin() {
     return (
       Number(this.izin.tgl_selesai.slice(8)) -
       Number(this.izin.tgl_mulai.slice(8))
@@ -91,7 +91,7 @@ export class ModalStatusKehadiranComponent implements OnInit {
   };
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any },
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private api: ApiService
   ) {
     api.getData(this.tableKaryawan).subscribe((res) => {
@@ -116,6 +116,30 @@ export class ModalStatusKehadiranComponent implements OnInit {
           : data.data.cuti.status === this.izin.status
           ? (this.izin = data.data.cuti)
           : (this.perjalananDinas = data.data.cuti);
+        break;
+      case 'cutiTahunan':
+        this.isTambah = true;
+        this.dataForUpload.nip = data.nip;
+        this.dataForUpload.nama_lengkap = data.nama_lengkap;
+        this.selectedCuti = 'Cuti Tahunan';
+        break;
+      case 'cutiKhusus':
+        this.isTambah = true;
+        this.dataForUpload.nip = data.nip;
+        this.dataForUpload.nama_lengkap = data.nama_lengkap;
+        this.selectedCuti = 'Cuti Khusus';
+        break;
+      case 'izin':
+        this.isTambah = true;
+        this.dataForUpload.nip = data.nip;
+        this.dataForUpload.nama_lengkap = data.nama_lengkap;
+        this.selectedCuti = 'Izin';
+        break;
+      case 'perjalananDinas':
+        this.isTambah = true;
+        this.dataForUpload.nip = data.nip;
+        this.dataForUpload.nama_lengkap = data.nama_lengkap;
+        this.selectedCuti = 'Perjalanan Dinas';
         break;
     }
   }

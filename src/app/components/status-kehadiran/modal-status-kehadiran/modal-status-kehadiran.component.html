@@ -159,13 +159,13 @@
                     [(ngModel)]="izin.tgl_mulai" />
                 <h6 style="width: 25px">s.d</h6>
                 <input type="date" class="browser-default" style="width: 150px;" [(ngModel)]="izin.tgl_selesai"
-                    (input)="changeJumlahHariIzin(izin.tgl_mulai, izin.tgl_selesai)" />
+                    (input)="changeJumlahHariIzin()" />
             </div>
 
             <div class="right">
                 <h6>Jumlah Hari Izin</h6>
                 <input class="browser-default nip" type="text" style="margin-right: 310px;"
-                    [value]="changeJumlahHariIzin(izin.tgl_mulai, izin.tgl_selesai)" />
+                    [value]="changeJumlahHariIzin()" />
             </div>
 
             <div class="right">

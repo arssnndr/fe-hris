@@ -1,66 +1,70 @@
 <div>
-    <h2 mat-dialog-title>Edit Kehadiran</h2>
+    <h2 *ngIf="data.name === 'editKehadiran'" mat-dialog-title>Edit Kehadiran</h2>
     <mat-dialog-content>
-        <div class="right">
-            <h6>Tanggal</h6>
-            <input type="text" class="browser-default date"
-                [value]="formatDate(data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].tgl)" disabled />
-        </div>
-        <div class="right" style="margin-bottom: 10px;">
-            <h6>Jadwal Kerja</h6>
-            <input type="text" class="browser-default jamKerja"
-                [value]="data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].masuk + ' - ' + data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].keluar"
-                disabled />
-            <input type="text" class="browser-default jamIstirahat"
-                [value]="data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].mulai_istirahat + ' - ' + data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].selesai_istirahat"
-                disabled />
-        </div>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tanggal</th>
-                        <th>Jam</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let row of table, index as i">
-                        <td>{{ formatDate(row.tgl) }}</td>
-                        <td>{{ row.jam }}</td>
-                        <td>
-                            <div class="switch">
-                                <label style="height: 50px; padding-top: 10px;">
-                                    <input [(ngModel)]="row.isIn" type="checkbox">
-                                    <span class="lever" style="margin-left: 0px;"></span>
-                                    <span style="color: #000000DE; font-size: 17.25px;">
-                                        {{ row.isIn ? 'Masuk' : 'Keluar'}}
-                                    </span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <button class="waves-effect waves-light right red darken-2" (click)="deleteData(i)">
-                                <i class="material-icons" style="font-size: 15px">close</i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="right">
-            <h6>status</h6>
-            <select class="browser-default"
-                [(ngModel)]="data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].status_kehadiran">
-                <option *ngFor="let row of status">{{ row }}</option>
-            </select>
-            <button class="space"></button>
+        <!-- Edit list kehadiran -->
+        <div *ngIf="data.name === 'editKehadiran'" style="display: block;">
+            <div class="right">
+                <h6>Tanggal</h6>
+                <input type="text" class="browser-default date"
+                    [value]="formatDate(data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].tgl)"
+                    disabled />
+            </div>
+            <div class="right" style="margin-bottom: 10px;">
+                <h6>Jadwal Kerja</h6>
+                <input type="text" class="browser-default jamKerja"
+                    [value]="data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].masuk + ' - ' + data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].keluar"
+                    disabled />
+                <input type="text" class="browser-default jamIstirahat"
+                    [value]="data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].mulai_istirahat + ' - ' + data.data.jadwal_kerja[data.index.indexBln][data.index.indexTgl].selesai_istirahat"
+                    disabled />
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Jam</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of table, index as i">
+                            <td>{{ formatDate(row.tgl) }}</td>
+                            <td>{{ row.jam }}</td>
+                            <td>
+                                <div class="switch">
+                                    <label style="height: 50px; padding-top: 10px;">
+                                        <input [(ngModel)]="row.isIn" type="checkbox">
+                                        <span class="lever" style="margin-left: 0px;"></span>
+                                        <span style="color: #000000DE; font-size: 17.25px;">
+                                            {{ row.isIn ? 'Masuk' : 'Keluar'}}
+                                        </span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="waves-effect waves-light right red darken-2" (click)="deleteData(i)">
+                                    <i class="material-icons" style="font-size: 15px">close</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="right">
+                <h6>status</h6>
+                <select class="browser-default" [(ngModel)]="statusKehadiran">
+                    <option *ngFor=" let row of status">{{ row }}</option>
+                </select>
+                <button class="space"></button>
+            </div>
         </div>
     </mat-dialog-content>
 
     <mat-dialog-actions align="end">
-        <button class="manual waves-effect waves-light transparent" (click)="absenManual()">
+        <button *ngIf="data.name === 'editKehadiran'" class="manual waves-effect waves-light transparent"
+            (click)="absenManual()">
             Absen Manual
         </button>
         <button type="submit" class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">

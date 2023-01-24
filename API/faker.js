@@ -260,6 +260,20 @@ const cuti = [
     tgl_mulai: moment(faker.date.soon(1)).format("YYYY-MM-DD[T]HH:mm"),
     tgl_selesai: moment(faker.date.soon(5)).format("YYYY-MM-DD[T]HH:mm"),
   },
+  {
+    status: "Mangkir",
+  },
+  { status: "Hadir" },
+  { status: "Hadir" },
+  { status: "Hadir" },
+  { status: "Hadir" },
+  { status: "Hadir" },
+  { status: "Hadir" },
+  { status: "Hadir" },
+  { status: "Hadir" },
+  { status: "Hadir" },
+  { status: "Hadir" },
+  { status: "Hadir" },
 ];
 const statusKehadiran = [
   "HT",
@@ -366,7 +380,7 @@ for (var i = 0; i < loop; i++) {
     tgl_berakhir_kitas: sliceDate(faker.date.future()),
     nomor_rptka: faker.random.numeric(20),
     tgl_berakhir_rptka: sliceDate(faker.date.future()),
-    perusahaan: resPerusahaan.nama,
+    perusahaan: resPerusahaan.inisial,
     lokasi: resBagianKerja.lokasi,
     divisi: resBagianKerja.divisi,
     departemen: resBagianKerja.departemen,
@@ -692,7 +706,7 @@ for (var i = 0; i < loop; i++) {
 }
 
 // ms_statuskehadiran
-for (var i = 0; i < 15; i++) {
+for (var i = 0; i < loop; i++) {
   const karyawan = database.ms_karyawan[i];
   const cutiValue = faker.helpers.arrayElement(cuti);
   const keterangan =
@@ -702,6 +716,10 @@ for (var i = 0; i < 15; i++) {
       ? "Ngambil rapor anak"
       : cutiValue.status === "Perjalanan Dinas"
       ? "Implementasi"
+      : cutiValue.status === "Mangkir"
+      ? ""
+      : cutiValue.status === "Hadir"
+      ? ""
       : faker.helpers.arrayElement(keteranganCuti);
 
   database.ms_statuskehadiran.push({
@@ -735,6 +753,19 @@ for (var i = 0; i < loop; i++) {
       const trxJadwalKerja = faker.helpers.arrayElement(
         database.trx_jadwalkerja
       );
+      const cutiValue = faker.helpers.arrayElement(cuti);
+      const keterangan =
+        cutiValue.status === "Cuti Tahunan"
+          ? "Liburan"
+          : cutiValue.status === "Izin"
+          ? "Ngambil rapor anak"
+          : cutiValue.status === "Perjalanan Dinas"
+          ? "Implementasi"
+          : cutiValue.status === "Mangkir"
+          ? ""
+          : cutiValue.status === "Hadir"
+          ? ""
+          : faker.helpers.arrayElement(keteranganCuti);
       const data = {
         tgl: `${j}-${x}-2023`,
         hari: dateToDay(`${j}-${x}-2023`),
@@ -743,7 +774,10 @@ for (var i = 0; i < loop; i++) {
         mulai_istirahat: trxJadwalKerja.mulai_istirahat,
         selesai_istirahat: trxJadwalKerja.selesai_istirahat,
         total: trxJadwalKerja.total,
-        status_kehadiran: faker.helpers.arrayElement(statusKehadiran),
+        status_kehadiran: {
+          cuti: cutiValue,
+          keterangan: keterangan,
+        },
       };
       switch (z) {
         case 1:

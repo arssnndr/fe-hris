@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
+import { ModalStatusKehadiranComponent } from '../status-kehadiran/modal-status-kehadiran/modal-status-kehadiran.component';
 import { ModalListKehadiranComponent } from './modal-list-kehadiran/modal-list-kehadiran.component';
 
 @Component({
@@ -12,6 +13,7 @@ import { ModalListKehadiranComponent } from './modal-list-kehadiran/modal-list-k
 export class ListKehadiranComponent implements OnInit {
   tableDetail = 'trx_listkehadiran/';
   dataDetailAll: any[] = [{ jadwal_kerja: '' }];
+  idProfil!: number;
   dataDetailProfil = { id: '', nama_lengkap: '', nip: '', jadwal_kerja: '' };
   dataDetailJadwalKerja!: any;
   dataDetailJadwalKerjaPerMonth: any[] = [];
@@ -24,6 +26,7 @@ export class ListKehadiranComponent implements OnInit {
     this.api.getData(this.tableDetail).subscribe((res) => {
       this.dataDetailAll = res;
       this.dataDetailProfil = res[0];
+      this.selectProfil(res[0].id);
       this.dataDetailJadwalKerja = res[0].jadwal_kerja;
       this.selectMonth();
     });
@@ -38,6 +41,7 @@ export class ListKehadiranComponent implements OnInit {
   }
 
   selectProfil(id: any) {
+    this.idProfil = id;
     this.dataDetailAll.map((res: any) => {
       if (res.id === id) {
         this.dataDetailProfil = res;
@@ -97,5 +101,138 @@ export class ListKehadiranComponent implements OnInit {
           });
       }
     });
+  }
+
+  cutiTahunan(index: number) {
+    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
+      data: {
+        name: 'cutiTahunan',
+        nip: this.dataDetailProfil.nip,
+        nama_lengkap: this.dataDetailProfil.nama_lengkap,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'simpan') {
+        this.api.getData(this.tableDetail + this.idProfil).subscribe((res) => {
+          res.jadwal_kerja[
+            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
+          ][index].status_kehadiran.cuti = this.api.catchData().cuti;
+          res.jadwal_kerja[
+            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
+          ][index].status_kehadiran.keterangan =
+            this.api.catchData().keterangan;
+          this.api
+            .updateData(this.tableDetail, res, res.id)
+            .subscribe((res) => {
+              this.ngOnInit();
+            });
+        });
+      }
+    });
+  }
+
+  cutiKhusus(index: number) {
+    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
+      data: {
+        name: 'cutiKhusus',
+        nip: this.dataDetailProfil.nip,
+        nama_lengkap: this.dataDetailProfil.nama_lengkap,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'simpan') {
+        this.api.getData(this.tableDetail + this.idProfil).subscribe((res) => {
+          res.jadwal_kerja[
+            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
+          ][index].status_kehadiran.cuti = this.api.catchData().cuti;
+          res.jadwal_kerja[
+            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
+          ][index].status_kehadiran.keterangan =
+            this.api.catchData().keterangan;
+          this.api
+            .updateData(this.tableDetail, res, res.id)
+            .subscribe((res) => {
+              this.ngOnInit();
+            });
+        });
+      }
+    });
+  }
+
+  izin(index: number) {
+    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
+      data: {
+        name: 'izin',
+        nip: this.dataDetailProfil.nip,
+        nama_lengkap: this.dataDetailProfil.nama_lengkap,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'simpan') {
+        this.api.getData(this.tableDetail + this.idProfil).subscribe((res) => {
+          res.jadwal_kerja[
+            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
+          ][index].status_kehadiran.cuti = this.api.catchData().cuti;
+          res.jadwal_kerja[
+            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
+          ][index].status_kehadiran.keterangan =
+            this.api.catchData().keterangan;
+          this.api
+            .updateData(this.tableDetail, res, res.id)
+            .subscribe((res) => {
+              this.ngOnInit();
+            });
+        });
+      }
+    });
+  }
+
+  perjalananDinas(index: number) {
+    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
+      data: {
+        name: 'perjalananDinas',
+        nip: this.dataDetailProfil.nip,
+        nama_lengkap: this.dataDetailProfil.nama_lengkap,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'simpan') {
+        this.api.getData(this.tableDetail + this.idProfil).subscribe((res) => {
+          res.jadwal_kerja[
+            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
+          ][index].status_kehadiran.cuti = this.api.catchData().cuti;
+          res.jadwal_kerja[
+            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
+          ][index].status_kehadiran.keterangan =
+            this.api.catchData().keterangan;
+          this.api
+            .updateData(this.tableDetail, res, res.id)
+            .subscribe((res) => {
+              this.ngOnInit();
+            });
+        });
+      }
+    });
+  }
+
+  statusKehadiran(data: any) {
+    switch (data.cuti.status) {
+      case 'Cuti Tahunan':
+        return 'Cuti';
+      case 'Cuti Khusus':
+        return 'CK';
+      case 'Izin':
+        return data.cuti.izin_seharian ? 'ISP' : 'ISH';
+      case 'Perjalanan Dinas':
+        return data.cuti.dinas_dalkot ? 'DDK' : 'DLK';
+      case 'Mangkir':
+        return 'Mangkir';
+      default:
+        return 'Hadir';
+    }
   }
 }
