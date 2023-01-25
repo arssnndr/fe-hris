@@ -1,1 +1,61 @@
-<p>lembur works!</p>
+<h4>Lembur</h4>
+<div class="nav">
+    <nav class="transparent z-depth-0">
+        <div class="nav-wrapper row">
+            <div class="col s3">
+                <form (ngSubmit)="searchData(search.value)">
+                    <input #search class="search" type="text" name="search" placeholder="Cari NIP/Nama User.." />
+                </form>
+            </div>
+            <div class="col s3" style="display: inline-flex;">
+                <h6>Tanggal</h6>
+                <input class="browser-default tanggal" type="date" name="tanggal" />
+            </div>
+            <div class="col s6">
+                <ul class="right">
+                    <li>
+                        <mat-paginator class="transparent" (page)="handlePageEvent($event)" [length]="length"
+                            [pageSize]="pageSize" [pageSizeOptions]="pageSizeOption"
+                            [showFirstLastButtons]="showFirstLastButtons" [pageIndex]="pageIndex">
+                        </mat-paginator>
+                    </li>
+                    <li>
+                        <button class="tambah waves-effect waves-light" (click)="tambahData()">
+                            Tambah
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<table class="responsive-table striped">
+    <thead>
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Jadwal</th>
+            <th>Jam Kerja</th>
+            <th>Total Jam Lembur Bulan Ini</th>
+            <th>Alasan Lembur</th>
+            <th>Jenis</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data">
+            <td (click)="editData(row)">{{ row.nip }}</td>
+            <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
+            <td (click)="editData(row)">{{ sliceDate(row.masuk) + ' - ' + sliceDate(row.keluar) }}</td>
+            <td (click)="editData(row)">{{ row.masuk + ' - ' + row.keluar }}</td>
+            <td (click)="editData(row)">{{ row.total_lembur_bulanini }}</td>
+            <td (click)="editData(row)">{{ row.alasan_lembur }}</td>
+            <td (click)="editData(row)">{{ row.jenis_lembur }}</td>
+            <td>
+                <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
+                    <i class="material-icons" style="font-size: 15px">close</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

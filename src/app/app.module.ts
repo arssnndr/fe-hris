@@ -56,6 +56,7 @@ import { ModalSetupMesinFingerComponent } from './components/master/setup-mesin-
 import { ModalStatusKehadiranComponent } from './components/status-kehadiran/modal-status-kehadiran/modal-status-kehadiran.component';
 import { ModalListKehadiranComponent } from './components/list-kehadiran/modal-list-kehadiran/modal-list-kehadiran.component';
 import { AbsenManualComponent } from './components/list-kehadiran/modal-list-kehadiran/absen-manual/absen-manual.component';
+import { ModalLemburComponent } from './components/lembur/modal-lembur/modal-lembur.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { AbsenManualComponent } from './components/list-kehadiran/modal-list-keh
     ModalStatusKehadiranComponent,
     ModalListKehadiranComponent,
     AbsenManualComponent,
+    ModalLemburComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

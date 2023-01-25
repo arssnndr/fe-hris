@@ -18,6 +18,7 @@ const database = {
   ms_setupmesinfinger: [],
   ms_statuskehadiran: [],
   trx_listkehadiran: [],
+  ms_lembur: [],
 };
 
 const loop = 100;
@@ -826,6 +827,41 @@ for (var i = 0; i < loop; i++) {
     nama_lengkap: database.ms_karyawan[i].nama_lengkap,
     perusahaan: database.ms_karyawan[i].perusahaan,
     jadwal_kerja: [jan, feb, mar, apr, mei, jun, jul, agu, sep, okt, nov, des],
+  });
+}
+
+// ms_lembur
+function sliceTime(data) {
+  return parseInt(data.slice(0, 3));
+}
+for (var i = 0; i < 5; i++) {
+  let bla = 0;
+  i % 2 === 0 ? (bla = 1) : (bla = 0);
+  database.ms_lembur.push({
+    id: i,
+    nip: database.ms_karyawan[i].nip,
+    nama_lengkap: database.ms_karyawan[i].nama_lengkap,
+    no_spkl: faker.phone.number("TMS/##/##"),
+    tgl: sliceDate(faker.date.soon()),
+    jenis_lembur: faker.helpers.arrayElement([
+      "Lembur Biasa",
+      "Tanpa Istirahat",
+    ]),
+    masuk: database.trx_jadwalkerja[i].masuk,
+    keluar: database.trx_jadwalkerja[i].keluar,
+    jam_lembur_mulai: sliceTime(database.trx_jadwalkerja[i].keluar),
+    jam_lembur_selesai: sliceTime(database.trx_jadwalkerja[i].keluar) + 2,
+    mulai_istirahat: database.trx_jadwalkerja[i].mulai_istirahat,
+    selesai_istirahat: database.trx_jadwalkerja[i].selesai_istirahat,
+    tanpa_istirahat: bla,
+    jam_lembur_hariini: bla + 2,
+    total_lembur_bulanini: faker.helpers.arrayElement([
+      10, 12, 15, 17, 19, 20, 21, 23, 25,
+    ]),
+    alasan_lembur: faker.helpers.arrayElement([
+      "Kurang Karyawan",
+      "Banyak Kerjaan",
+    ]),
   });
 }
 
