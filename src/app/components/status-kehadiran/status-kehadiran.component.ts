@@ -137,7 +137,8 @@ export class StatusKehadiranComponent implements OnInit {
             '?_page=' +
             (this.pageIndex + 1) +
             '&_limit=' +
-            this.pageSize
+            this.pageSize +
+            '&cuti.status=Cuti Tahunan&cuti.status=Cuti Khusus&cuti.status=Izin&cuti.status=Perjalanan Dinas'
         )
         .subscribe((res) => {
           this.data = res;
@@ -152,7 +153,8 @@ export class StatusKehadiranComponent implements OnInit {
               '&_limit=' +
               this.pageSize +
               '&nip_like=' +
-              this.dataSearch
+              this.dataSearch +
+              '&cuti.status=Cuti Tahunan&cuti.status=Cuti Khusus&cuti.status=Izin&cuti.status=Perjalanan Dinas'
           )
           .subscribe((res) => {
             this.data = res;
@@ -166,7 +168,8 @@ export class StatusKehadiranComponent implements OnInit {
               '&_limit=' +
               this.pageSize +
               '&nama_lengkap_like=' +
-              this.dataSearch
+              this.dataSearch +
+              '&cuti.status=Cuti Tahunan&cuti.status=Cuti Khusus&cuti.status=Izin&cuti.status=Perjalanan Dinas'
           )
           .subscribe((res) => {
             this.data = res;

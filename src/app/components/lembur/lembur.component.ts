@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
-import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
-import { ModalStatusKehadiranComponent } from '../status-kehadiran/modal-status-kehadiran/modal-status-kehadiran.component';
 import { ModalLemburComponent } from './modal-lembur/modal-lembur.component';
 
 @Component({
