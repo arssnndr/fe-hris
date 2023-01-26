@@ -4,6 +4,7 @@ import { PageEvent } from '@angular/material/paginator';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalStatusKehadiranComponent } from '../status-kehadiran/modal-status-kehadiran/modal-status-kehadiran.component';
+import { ModalLemburComponent } from './modal-lembur/modal-lembur.component';
 
 @Component({
   selector: 'app-lembur',
@@ -13,6 +14,7 @@ import { ModalStatusKehadiranComponent } from '../status-kehadiran/modal-status-
 export class LemburComponent implements OnInit {
   table = 'ms_lembur/';
   dataSearch = '';
+  tgl = '';
   pageSize = 50;
   pageIndex = 0;
   pageSizeOption = [50, 100, 150, 200];
@@ -28,16 +30,12 @@ export class LemburComponent implements OnInit {
     this.getAllData();
   }
 
-  // formatDate(date: string) {
-  //   return moment(date).format('DD MMM YYYY');
-  // }
-
   sliceDate(date: string) {
     return date.slice(0, 2);
   }
 
   tambahData() {
-    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
+    const dialogRef = this.dialog.open(ModalLemburComponent, {
       data: { name: 'tambah' },
     });
 
@@ -53,7 +51,7 @@ export class LemburComponent implements OnInit {
   }
 
   deleteData(id: number) {
-    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
+    const dialogRef = this.dialog.open(ModalLemburComponent, {
       data: { name: 'delete' },
     });
 
@@ -68,7 +66,8 @@ export class LemburComponent implements OnInit {
   }
 
   editData(data: any) {
-    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
+    console.log(data);
+    const dialogRef = this.dialog.open(ModalLemburComponent, {
       data: { name: 'edit', data: data },
     });
 
@@ -92,16 +91,33 @@ export class LemburComponent implements OnInit {
 
   getAllData() {
     if (this.dataSearch.length === 0) {
-      this.api.getData(this.table).subscribe((res) => {
-        this.length = res.length;
-        this.pageSize = 50;
-        this.pageIndex = 0;
-        this.getPageData();
-      });
+      if (this.tgl.length === 0) {
+        this.api.getData(this.table).subscribe((res) => {
+          this.length = res.length;
+          this.pageSize = 50;
+          this.pageIndex = 0;
+          this.getPageData();
+        });
+      } else {
+        this.api
+          .getData(this.table + '?tgl_like=' + this.tgl)
+          .subscribe((res) => {
+            this.length = res.length;
+            this.pageSize = 50;
+            this.pageIndex = 0;
+            this.getPageData();
+          });
+      }
     } else {
       if (this.inisial) {
         this.api
-          .getData(this.table + '?nip_like=' + this.dataSearch)
+          .getData(
+            this.table +
+              '?nip_like=' +
+              this.dataSearch +
+              '&tgl_like=' +
+              this.tgl
+          )
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -116,7 +132,13 @@ export class LemburComponent implements OnInit {
           });
       } else if (this.perusahaan) {
         this.api
-          .getData(this.table + '?nama_lengkap_like=' + this.dataSearch)
+          .getData(
+            this.table +
+              '?nama_lengkap_like=' +
+              this.dataSearch +
+              '&tgl_like=' +
+              this.tgl
+          )
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -141,7 +163,9 @@ export class LemburComponent implements OnInit {
             '?_page=' +
             (this.pageIndex + 1) +
             '&_limit=' +
-            this.pageSize
+            this.pageSize +
+            '&tgl_like=' +
+            this.tgl
         )
         .subscribe((res) => {
           this.data = res;
@@ -156,7 +180,9 @@ export class LemburComponent implements OnInit {
               '&_limit=' +
               this.pageSize +
               '&nip_like=' +
-              this.dataSearch
+              this.dataSearch +
+              '&tgl_like=' +
+              this.tgl
           )
           .subscribe((res) => {
             this.data = res;
@@ -170,7 +196,9 @@ export class LemburComponent implements OnInit {
               '&_limit=' +
               this.pageSize +
               '&nama_lengkap_like=' +
-              this.dataSearch
+              this.dataSearch +
+              '&tgl_like=' +
+              this.tgl
           )
           .subscribe((res) => {
             this.data = res;
@@ -181,6 +209,13 @@ export class LemburComponent implements OnInit {
 
   searchData(data: any) {
     this.dataSearch = data;
+    this.pageIndex = 0;
+    this.getAllData();
+    this.getPageData();
+  }
+
+  filterTgl(date: any) {
+    this.tgl = date.value;
     this.pageIndex = 0;
     this.getAllData();
     this.getPageData();

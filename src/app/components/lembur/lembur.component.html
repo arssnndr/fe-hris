@@ -9,7 +9,7 @@
             </div>
             <div class="col s3" style="display: inline-flex;">
                 <h6>Tanggal</h6>
-                <input class="browser-default tanggal" type="date" name="tanggal" />
+                <input class="browser-default tanggal" type="date" name="tanggal" (input)="filterTgl($event.target)" />
             </div>
             <div class="col s6">
                 <ul class="right">
