@@ -13,3 +13,100 @@
         </button>
     </mat-dialog-actions>
 </div>
+
+<!-- Modal Tambah Data -->
+<div *ngIf="isTambah || isEdit">
+    <h2 mat-dialog-title>Lembur</h2>
+    <mat-dialog-content>
+        <div>
+            <h6>NIP</h6>
+            <input class=" browser-default" type="text" style="margin-right: 10px; width: 100px;"
+                [matAutocomplete]="auto" />
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option>
+                    bla
+                </mat-option>
+            </mat-autocomplete>
+            <span style="width: 250px; height: 45px;">
+                <p>bla</p>
+            </span>
+        </div>
+        <br>
+
+        <div>
+            <h6>No SPKL</h6>
+            <input type=" text" class="browser-default" style="width: 245px;">
+            <h6>Tanggal</h6>
+            <input type="date" class="browser-default" style="width: 130px; padding: 7.5px;">
+        </div>
+        <br>
+
+        <div>
+            <h6>Jenis Lembur</h6>
+            <select name="jenisLembur" id="jenisLembur" class="browser-default" [(ngModel)]="jenisLemburValue"
+                style="width: 245px; border-color: #00000090;">
+                <option *ngFor="let row of jenisLembur" [value]="row">{{ row }}</option>
+            </select>
+        </div>
+        <br>
+
+        <div>
+            <h6>Jam Kerja</h6>
+            <input type="time" name="jamKerjaMulai" id="jamKerjaMulai" class="browser-default"
+                style="width: 100px; padding: 7.5px;" disabled>
+            <h6 style="width: 25px; margin-left: 10px;">s.d</h6>
+            <input type="time" name="jamKerjaSelesai" id="jamKerjaSelesai" class="browser-default"
+                style="width: 100px; padding: 7.5px;" disabled>
+            <h6>Jadwal Jam Kerja</h6>
+            <input type="text" name="jadwalJamKerja" id="jadwalJamKerja" class="browser-default" style="width: 130px;"
+                disabled>
+        </div>
+        <br>
+
+        <div>
+            <h6 *ngIf="jenisLemburValue === jenisLembur[0]">Jam Lembur OT</h6>
+            <h6 *ngIf="jenisLemburValue === jenisLembur[1]">Jam Lembur TI</h6>
+            <input type="time" name="jamLemburOTMulai" id="jamLemburOTMulai" class="browser-default"
+                style="width: 100px; padding: 7.5px;">
+            <h6 style="width: 25px; margin-left: 10px;">s.d</h6>
+            <input type="time" name="jamLemburOTSelesai" id="jamLemburOTSelesai" class="browser-default"
+                style="width: 100px; padding: 7.5px;">
+        </div>
+        <br>
+
+        <div>
+            <h6>Jadwal Jam Istirahat</h6>
+            <input type="text" name="jadwalJamIstirahat" id="jadwalJamistirahat" class="browser-default"
+                style="width: 100px;" disabled>
+            <h6 style="width: 305px;">Tanpa Istirahat (Jam)</h6>
+            <input *ngIf="jenisLemburValue === jenisLembur[0]" type="number" name="tanpaIstirahat" id="tanpaIstirahat"
+                class="browser-default" style="width: 130px;" placeholder="-" disabled>
+            <input *ngIf="jenisLemburValue === jenisLembur[1]" type="number" name="tanpaIstirahat" id="tanpaIstirahat"
+                class="browser-default" style="width: 130px;">
+        </div>
+        <br>
+
+        <div>
+            <h6>Jam Lembur Hari Ini</h6>
+            <input type="text" name="jamLemburHariIni" id="jamLemburHariIni" class="browser-default"
+                style="width: 100px;" disabled>
+            <h6 style="width: 305px;">Akumulasi Jam Lembur Bulan Ini</h6>
+            <input type="text" name="akumulasiJamLemburBulanIni" id="akumulasiJamLemburBulanIni" class="browser-default"
+                style="width: 130px;" disabled>
+        </div>
+        <br>
+
+        <div>
+            <h6>Alasan Lembur</h6>
+            <input type=" text" class="browser-default" style="width: 245px;">
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end" style="margin-bottom: 0px;">
+        <button type="submit" class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+            Simpan
+        </button>
+        <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
+            Batal
+        </button>
+    </mat-dialog-actions>
+</div>

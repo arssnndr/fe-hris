@@ -12,6 +12,9 @@ export class ModalLemburComponent {
   isDelete: boolean = false;
   isEdit: boolean = false;
 
+  jenisLembur = ['Lembur Biasa', 'Tanpa Istirahat'];
+  jenisLemburValue = this.jenisLembur[0];
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private api: ApiService
@@ -20,6 +23,16 @@ export class ModalLemburComponent {
       case 'delete':
         this.isDelete = true;
         break;
+      case 'tambah':
+        this.isTambah = true;
+        break;
+      case 'edit':
+        this.isEdit = true;
+        break;
     }
+  }
+
+  throwResult() {
+    console.log('throw');
   }
 }

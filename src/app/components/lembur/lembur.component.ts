@@ -64,7 +64,6 @@ export class LemburComponent implements OnInit {
   }
 
   editData(data: any) {
-    console.log(data);
     const dialogRef = this.dialog.open(ModalLemburComponent, {
       data: { name: 'edit', data: data },
     });
