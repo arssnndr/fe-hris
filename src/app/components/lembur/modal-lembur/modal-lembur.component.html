@@ -21,29 +21,30 @@
         <div>
             <h6>NIP</h6>
             <input class=" browser-default" type="text" style="margin-right: 10px; width: 100px;"
-                [matAutocomplete]="auto" />
+                [matAutocomplete]="auto" (input)="searchNip($event.target)" [ngModel]="dataForUpload.nip" />
             <mat-autocomplete #auto="matAutocomplete">
-                <mat-option>
-                    bla
+                <mat-option *ngFor="let row of searchNipKaryawan" (click)="selectKaryawan(row)">
+                    {{ row.nip }}
                 </mat-option>
             </mat-autocomplete>
             <span style="width: 250px; height: 45px;">
-                <p>bla</p>
+                <p>{{ dataForUpload.nama_lengkap }}</p>
             </span>
         </div>
         <br>
 
         <div>
             <h6>No SPKL</h6>
-            <input type=" text" class="browser-default" style="width: 245px;">
+            <input type=" text" class="browser-default" style="width: 245px;" [(ngModel)]="dataForUpload.no_spkl">
             <h6>Tanggal</h6>
-            <input type="date" class="browser-default" style="width: 130px; padding: 7.5px;">
+            <input type="date" class="browser-default" style="width: 130px; padding: 7.5px;"
+                [(ngModel)]="dataForUpload.tgl">
         </div>
         <br>
 
         <div>
             <h6>Jenis Lembur</h6>
-            <select name="jenisLembur" id="jenisLembur" class="browser-default" [(ngModel)]="jenisLemburValue"
+            <select name="jenisLembur" id="jenisLembur" class="browser-default" [(ngModel)]="dataForUpload.jenis_lembur"
                 style="width: 245px; border-color: #00000090;">
                 <option *ngFor="let row of jenisLembur" [value]="row">{{ row }}</option>
             </select>
@@ -53,52 +54,55 @@
         <div>
             <h6>Jam Kerja</h6>
             <input type="time" name="jamKerjaMulai" id="jamKerjaMulai" class="browser-default"
-                style="width: 100px; padding: 7.5px;" disabled>
+                style="width: 100px; padding: 7.5px;" [ngModel]="dataForUpload.masuk" disabled>
             <h6 style="width: 25px; margin-left: 10px;">s.d</h6>
             <input type="time" name="jamKerjaSelesai" id="jamKerjaSelesai" class="browser-default"
-                style="width: 100px; padding: 7.5px;" disabled>
+                style="width: 100px; padding: 7.5px;" [ngModel]="dataForUpload.keluar" disabled>
             <h6>Jadwal Jam Kerja</h6>
             <input type="text" name="jadwalJamKerja" id="jadwalJamKerja" class="browser-default" style="width: 130px;"
-                disabled>
+                [ngModel]="dataForUpload.masuk + ' - ' + dataForUpload.keluar" disabled>
         </div>
         <br>
 
         <div>
-            <h6 *ngIf="jenisLemburValue === jenisLembur[0]">Jam Lembur OT</h6>
-            <h6 *ngIf="jenisLemburValue === jenisLembur[1]">Jam Lembur TI</h6>
+            <h6 *ngIf="dataForUpload.jenis_lembur === jenisLembur[0]">Jam Lembur OT</h6>
+            <h6 *ngIf="dataForUpload.jenis_lembur === jenisLembur[1]">Jam Lembur TI</h6>
             <input type="time" name="jamLemburOTMulai" id="jamLemburOTMulai" class="browser-default"
-                style="width: 100px; padding: 7.5px;">
+                style="width: 100px; padding: 7.5px;" [(ngModel)]="dataForUpload.jam_lembur_mulai">
             <h6 style="width: 25px; margin-left: 10px;">s.d</h6>
             <input type="time" name="jamLemburOTSelesai" id="jamLemburOTSelesai" class="browser-default"
-                style="width: 100px; padding: 7.5px;">
+                style="width: 100px; padding: 7.5px;" [(ngModel)]="dataForUpload.jam_lembur_selesai"
+                (input)="akumulasi()">
         </div>
         <br>
 
         <div>
             <h6>Jadwal Jam Istirahat</h6>
             <input type="text" name="jadwalJamIstirahat" id="jadwalJamistirahat" class="browser-default"
-                style="width: 100px;" disabled>
+                style="width: 100px;"
+                [ngModel]="dataForUpload.mulai_istirahat + ' - ' + dataForUpload.selesai_istirahat" disabled>
             <h6 style="width: 305px;">Tanpa Istirahat (Jam)</h6>
-            <input *ngIf="jenisLemburValue === jenisLembur[0]" type="number" name="tanpaIstirahat" id="tanpaIstirahat"
-                class="browser-default" style="width: 130px;" placeholder="-" disabled>
-            <input *ngIf="jenisLemburValue === jenisLembur[1]" type="number" name="tanpaIstirahat" id="tanpaIstirahat"
-                class="browser-default" style="width: 130px;">
+            <input *ngIf="dataForUpload.jenis_lembur === jenisLembur[0]" type="number" name="tanpaIstirahat"
+                id="tanpaIstirahat" class="browser-default" style="width: 130px;" placeholder="-" disabled>
+            <input *ngIf="dataForUpload.jenis_lembur === jenisLembur[1]" type="number" name="tanpaIstirahat"
+                id="tanpaIstirahat" class="browser-default" style="width: 130px;"
+                [(ngModel)]="dataForUpload.tanpa_istirahat">
         </div>
         <br>
 
         <div>
             <h6>Jam Lembur Hari Ini</h6>
             <input type="text" name="jamLemburHariIni" id="jamLemburHariIni" class="browser-default"
-                style="width: 100px;" disabled>
+                style="width: 100px;" [ngModel]="dataForUpload.jam_lembur_hariini" disabled>
             <h6 style="width: 305px;">Akumulasi Jam Lembur Bulan Ini</h6>
             <input type="text" name="akumulasiJamLemburBulanIni" id="akumulasiJamLemburBulanIni" class="browser-default"
-                style="width: 130px;" disabled>
+                style="width: 130px;" [ngModel]="dataForUpload.total_lembur_bulanini" disabled>
         </div>
         <br>
 
         <div>
             <h6>Alasan Lembur</h6>
-            <input type=" text" class="browser-default" style="width: 245px;">
+            <input type=" text" class="browser-default" style="width: 245px;" [(ngModel)]="dataForUpload.alasan_lembur">
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end" style="margin-bottom: 0px;">
