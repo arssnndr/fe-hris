@@ -1,0 +1,48 @@
+<h4>Otorisasi</h4>
+<div class="nav">
+    <nav class="transparent z-depth-0">
+        <div class="nav-wrapper row">
+            <div class="col s3">
+                <form (ngSubmit)="searchData(search.value)">
+                    <input #search class="search" type="text" name="search" placeholder="Cari NIP/Nama User.." />
+                </form>
+            </div>
+            <div class="col s9">
+                <ul class="right">
+                    <li>
+                        <mat-paginator class="transparent" (page)="handlePageEvent($event)" [length]="length"
+                            [pageSize]="pageSize" [pageSizeOptions]="pageSizeOption"
+                            [showFirstLastButtons]="showFirstLastButtons" [pageIndex]="pageIndex">
+                        </mat-paginator>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<table class="responsive-table striped">
+    <thead>
+        <tr>
+            <th>NIP</th>
+            <th>User</th>
+            <th>Email</th>
+            <th>Lokasi</th>
+            <th>Perusahaan</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data">
+            <td (click)="editData(row)">{{ row.nip }}</td>
+            <td (click)="editData(row)">{{ row.username }}</td>
+            <td (click)="editData(row)">{{ row.email }}</td>
+            <td (click)="editData(row)">{{ row.lokasi }}</td>
+            <td (click)="editData(row)">{{ row.perusahaan }}</td>
+            <td>
+                <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
+                    <i class="material-icons" style="font-size: 15px">close</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

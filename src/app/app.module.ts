@@ -57,6 +57,8 @@ import { ModalStatusKehadiranComponent } from './components/status-kehadiran/mod
 import { ModalListKehadiranComponent } from './components/list-kehadiran/modal-list-kehadiran/modal-list-kehadiran.component';
 import { AbsenManualComponent } from './components/list-kehadiran/modal-list-kehadiran/absen-manual/absen-manual.component';
 import { ModalLemburComponent } from './components/lembur/modal-lembur/modal-lembur.component';
+import { OtoritasComponent } from './components/master/otoritas/otoritas.component';
+import { ModalOtoritasComponent } from './components/master/otoritas/modal-otoritas/modal-otoritas.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +93,8 @@ import { ModalLemburComponent } from './components/lembur/modal-lembur/modal-lem
     ModalListKehadiranComponent,
     AbsenManualComponent,
     ModalLemburComponent,
+    OtoritasComponent,
+    ModalOtoritasComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

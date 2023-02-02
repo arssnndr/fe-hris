@@ -18,8 +18,8 @@ export class UserComponent implements OnInit {
   showFirstLastButtons = false;
   data!: any;
   length: any;
-  inisial = true;
-  perusahaan = false;
+  nip = true;
+  nama = false;
   catchResult: any;
   getMaxId = 0;
 
@@ -99,22 +99,22 @@ export class UserComponent implements OnInit {
         this.getPageData();
       });
     } else {
-      if (this.inisial) {
+      if (this.nip) {
         this.api
-          .getData(this.table + '?id_like=' + this.dataSearch)
+          .getData(this.table + '?nip_like=' + this.dataSearch)
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
             this.pageIndex = 0;
             if (res.length === 0) {
-              this.inisial = false;
-              this.perusahaan = true;
+              this.nip = false;
+              this.nama = true;
               this.getAllData();
             } else {
               this.getPageData();
             }
           });
-      } else if (this.perusahaan) {
+      } else if (this.nama) {
         this.api
           .getData(this.table + '?username_like=' + this.dataSearch)
           .subscribe((res) => {
@@ -122,8 +122,8 @@ export class UserComponent implements OnInit {
             this.pageSize = 50;
             this.pageIndex = 0;
             if (res.length === 0) {
-              this.perusahaan = false;
-              this.inisial = true;
+              this.nama = false;
+              this.nip = true;
               this.getAllData();
             } else {
               this.getPageData();
@@ -147,7 +147,7 @@ export class UserComponent implements OnInit {
           this.data = res;
         });
     } else {
-      if (this.inisial) {
+      if (this.nip) {
         this.api
           .getData(
             this.table +
@@ -155,13 +155,13 @@ export class UserComponent implements OnInit {
               (this.pageIndex + 1) +
               '&_limit=' +
               this.pageSize +
-              '&id_like=' +
+              '&nip_like=' +
               this.dataSearch
           )
           .subscribe((res) => {
             this.data = res;
           });
-      } else if (this.perusahaan) {
+      } else if (this.nama) {
         this.api
           .getData(
             this.table +

@@ -6,6 +6,7 @@ import { BagianKerjaComponent } from './components/master/bagian-kerja/bagian-ke
 import { PerusahaanComponent } from './components/master/perusahaan/perusahaan.component';
 import { LokasiComponent } from './components/master/lokasi/lokasi.component';
 import { UserComponent } from './components/master/user/user.component';
+import { OtoritasComponent } from './components/master/otoritas/otoritas.component';
 import { KaryawanComponent } from './components/master/karyawan/karyawan.component';
 import { JadwalKerjaComponent } from './components/master/jadwal-kerja/jadwal-kerja.component';
 import { SetupJadwalKerjaComponent } from './components/master/setup-jadwal-kerja/setup-jadwal-kerja.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'perusahaan', component: PerusahaanComponent },
   { path: 'lokasi', component: LokasiComponent },
   { path: 'user', component: UserComponent },
+  { path: 'otoritas', component: OtoritasComponent },
   { path: 'karyawan', component: KaryawanComponent },
   { path: 'jadwal-kerja', component: JadwalKerjaComponent },
   { path: 'setup-jadwal-kerja', component: SetupJadwalKerjaComponent },

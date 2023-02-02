@@ -1,10 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
-import { FormControl } from '@angular/forms';
-import { map, startWith } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { Karyawan } from 'src/app/interfaces/karyawan';
 import { User } from 'src/app/interfaces/user';
 
 @Component({
@@ -13,10 +9,6 @@ import { User } from 'src/app/interfaces/user';
   styleUrls: ['./modal-user.component.css'],
 })
 export class ModalUserComponent implements OnInit {
-  myControl = new FormControl<string | Karyawan>('');
-  options: Karyawan[] = [];
-  filteredOptions: Observable<Karyawan[]> | undefined;
-
   isTambah = false;
   isDelete = false;
   isEdit = false;
@@ -24,13 +16,15 @@ export class ModalUserComponent implements OnInit {
   hide2 = true;
 
   tableKaryawan = 'ms_karyawan/';
+  filteredKaryawan!: any;
+
   tableUserId = 'ms_userid/';
 
-  akses = [{ value: 'Lokasi' }, { value: 'Perusahaan' }, { value: 'All' }];
+  akses = ['Lokasi', 'Perusahaan', 'All'];
   konfirmPassword = '';
 
   dataUser: User = {
-    nip: 0,
+    nip: '',
     username: '',
     email: '',
     lokasi: '',
@@ -121,22 +115,7 @@ export class ModalUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.dataUser.akses = this.akses[0].value;
-    this.api.getData(this.tableKaryawan).subscribe((res) => {
-      this.options = res;
-    });
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map((value) => {
-        const cek = Number(value);
-        if (isNaN(cek)) {
-          const name = typeof value === 'string' ? value : value?.nama_lengkap;
-          return name ? this._filterName(name as string) : this.options.slice();
-        } else {
-          return value ? this._filterId(cek) : this.options.slice();
-        }
-      })
-    );
+    this.dataUser.akses = this.akses[0];
     switch (this.data.name) {
       case 'tambah':
         this.isTambah = true;
@@ -153,41 +132,39 @@ export class ModalUserComponent implements OnInit {
     }
   }
 
+  searchKaryawan(data: any) {
+    this.api
+      .getData(this.tableKaryawan + '?nip_like=' + data.value)
+      .subscribe((res) => {
+        res.length === 0
+          ? this.api
+              .getData(this.tableKaryawan + '?nama_lengkap_like=' + data.value)
+              .subscribe((ress) => {
+                this.filteredKaryawan = ress;
+              })
+          : (this.filteredKaryawan = res);
+      });
+  }
+
+  selectKaryawan(data: any) {
+    this.dataUser.nip = data.nip;
+    this.dataUser.username = data.nama_lengkap;
+    this.dataUser.email = data.email;
+    this.dataUser.lokasi = data.lokasi;
+    this.dataUser.perusahaan = data.perusahaan;
+    this.api.getData(this.tableUserId + '?nip=' + data.nip).subscribe((res) => {
+      if (res.length !== 0) {
+        window.alert('NIP telah terdaftar sebagai User');
+      }
+    });
+  }
+
   pwd(input: any) {
     this.dataUser.password = input.value;
   }
 
   konfirmPwd(input: any) {
     this.konfirmPassword = input.value;
-  }
-
-  displayFn(karyawan: Karyawan) {
-    this.dataUser.nip = karyawan.nip;
-    this.dataUser.username = karyawan.nama_lengkap;
-    this.dataUser.email = karyawan.email;
-    this.dataUser.lokasi = karyawan.lokasi;
-    this.dataUser.perusahaan = karyawan.perusahaan;
-    this.api
-      .getData(this.tableUserId + '?nip_like=' + this.dataUser.nip)
-      .subscribe((res) => {
-        if (res[0] !== undefined) {
-          if (res[0].nip === this.dataUser.nip) {
-            return window.alert('NIP telah terdaftar sebagai User');
-          }
-        }
-      });
-  }
-
-  private _filterName(data: string): Karyawan[] {
-    const filterValue = data.toLowerCase();
-
-    return this.options.filter((option) =>
-      option.nama_lengkap.toLowerCase().includes(filterValue)
-    );
-  }
-
-  private _filterId(id: number): Karyawan[] {
-    return this.options.filter((option) => option.nip === id);
   }
 
   throwResult() {
