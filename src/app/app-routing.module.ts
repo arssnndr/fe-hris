@@ -16,7 +16,6 @@ import { SetupMesinFingerComponent } from './components/master/setup-mesin-finge
 import { StatusKehadiranComponent } from './components/status-kehadiran/status-kehadiran.component';
 import { ListKehadiranComponent } from './components/list-kehadiran/list-kehadiran.component';
 import { LemburComponent } from './components/lembur/lembur.component';
-import { GantiNipComponent } from './components/ganti-nip/ganti-nip.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -35,7 +34,6 @@ const routes: Routes = [
   { path: 'status-kehadiran', component: StatusKehadiranComponent },
   { path: 'list-kehadiran', component: ListKehadiranComponent },
   { path: 'lembur', component: LemburComponent },
-  { path: 'ganti-nip', component: GantiNipComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 

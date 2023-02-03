@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { GantiNipComponent } from './components/ganti-nip/ganti-nip.component';
+import { ApiService } from './shared/api.service';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +36,7 @@ export class AppComponent {
   }
   // end navbar
 
-  constructor() {}
+  constructor(private dialog: MatDialog, private api: ApiService) {}
 
   ngOnInit(): void {
     if (localStorage.getItem('key') !== null) {
@@ -42,6 +45,10 @@ export class AppComponent {
     } else {
       this.isLogin = false;
     }
+  }
+
+  gantiNip() {
+    this.dialog.open(GantiNipComponent);
   }
 
   logOut() {

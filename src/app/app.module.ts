@@ -59,6 +59,7 @@ import { AbsenManualComponent } from './components/list-kehadiran/modal-list-keh
 import { ModalLemburComponent } from './components/lembur/modal-lembur/modal-lembur.component';
 import { OtoritasComponent } from './components/master/otoritas/otoritas.component';
 import { ModalOtoritasComponent } from './components/master/otoritas/modal-otoritas/modal-otoritas.component';
+import { ModalGantiNipComponent } from './components/ganti-nip/modal-ganti-nip/modal-ganti-nip.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { ModalOtoritasComponent } from './components/master/otoritas/modal-otori
     ModalLemburComponent,
     OtoritasComponent,
     ModalOtoritasComponent,
+    ModalGantiNipComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

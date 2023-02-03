@@ -1,1 +1,62 @@
-<p>ganti-nip works!</p>
+<div>
+    <h2 mat-dialog-title>Ganti NIP</h2>
+    <mat-dialog-content>
+        <div style="display: block;">
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NIP Lama</th>
+                            <th>Nama</th>
+                            <th>Perusahaan</th>
+                            <th>NIP Baru</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of selectedKaryawan, index as i">
+                            <td>
+                                <input type="text" name="nip" id="nip" class="browser-default" [matAutocomplete]="auto"
+                                    (input)="searchKaryawan($event.target)" [ngModel]="nipLama[i]"
+                                    [placeholder]="nipLama[i]">
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of filteredKaryawan"
+                                        (click)="selectKaryawan(option, i)">
+                                        {{option.nip}} - {{option.nama_lengkap}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </td>
+                            <td>{{ row.nama_lengkap }}</td>
+                            <td>
+                                <select name="perusahaan" id="perusahaan" class="browser-default"
+                                    [(ngModel)]="selectedPerusahaan[i]" (change)="selectPerusahaan($event.target, i)">
+                                    <option *ngFor="let option of perusahaan" [value]="option">
+                                        {{option}}
+                                    </option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="genNip" id="genNip" class="browser-default"
+                                    [value]="nipBaru[i] === undefined ? '' : nipBaru[i]">
+                            </td>
+                            <td *ngIf="checkTable[i]">
+                                <mat-icon style="color: green;">{{'done'}}</mat-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button *ngIf="isKeluar" type="submit" class="simpan waves-effect waves-light" mat-dialog-close="keluar">
+            Keluar
+        </button>
+        <button *ngIf="!isKeluar" type="submit" class="simpan waves-effect waves-light" (click)="konfirm()">
+            Ganti
+        </button>
+        <button *ngIf="!isKeluar" class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
+            Batal
+        </button>
+    </mat-dialog-actions>
+</div>
