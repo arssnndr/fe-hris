@@ -52,23 +52,27 @@ export class GantiNipComponent implements OnInit {
   }
 
   selectKaryawan(data: any, index: number) {
-    let perusahaan = '';
-    this.perusahaan.map((res: any) => {
-      if (res.includes(data.perusahaan)) {
-        perusahaan = res;
-      }
-    });
-    if (index < this.count) {
-      this.nipLama[index] = data.nip;
-      this.selectedKaryawan[index] = data;
-      this.selectedPerusahaan[index] = perusahaan;
+    if (this.nipLama.includes(data.nip)) {
+      window.alert('Karyawan telah dipilih!');
     } else {
-      this.nipLama[this.count] = data.nip;
-      this.nipLama.push('');
-      this.selectedKaryawan[this.count] = data;
-      this.selectedPerusahaan[this.count] = perusahaan;
-      this.selectedKaryawan.push({ nip: '' });
-      this.count += 1;
+      let perusahaan = '';
+      this.perusahaan.map((res: any) => {
+        if (res.includes(data.perusahaan)) {
+          perusahaan = res;
+        }
+      });
+      if (index < this.count) {
+        this.nipLama[index] = data.nip;
+        this.selectedKaryawan[index] = data;
+        this.selectedPerusahaan[index] = perusahaan;
+      } else {
+        this.nipLama[this.count] = data.nip;
+        this.nipLama.push('');
+        this.selectedKaryawan[this.count] = data;
+        this.selectedPerusahaan[this.count] = perusahaan;
+        this.selectedKaryawan.push({ nip: '' });
+        this.count += 1;
+      }
     }
   }
 
@@ -80,37 +84,59 @@ export class GantiNipComponent implements OnInit {
   konfirm() {
     const dialogRef = this.dialog.open(ModalGantiNipComponent);
 
-    dialogRef.afterClosed().subscribe((res) => {
+    dialogRef.afterClosed().subscribe(async (res) => {
       if (res === 'ya') {
-        this.nipBaru = [];
+        let maxNip: any[] = [];
         for (let i = 0; i < this.selectedKaryawan.length - 1; i++) {
           let nip: any[] = [];
-          this.api
+          await this.api
             .getData(
               this.tableKaryawan +
                 '?perusahaan=' +
                 this.selectedKaryawan[i].perusahaan
             )
-            .subscribe((ress) => {
+            .toPromise()
+            .then((ress) => {
               ress.map((val: any) => {
                 nip.push(val.nip);
               });
-              let newNip = Math.max(...nip) + 1;
-              this.selectedKaryawan[i].nip = newNip;
-              this.nipBaru.push(newNip.toString());
-              this.api
-                .updateData(
-                  this.tableKaryawan,
-                  this.selectedKaryawan[i],
-                  this.selectedKaryawan[i].id
-                )
-                .subscribe(() => {
-                  this.checkTable.push(true);
-                });
+              maxNip.push(Math.max(...nip) + 1);
+            });
+        }
+
+        maxNip = this.getUniqueArray(maxNip);
+
+        for (let i = 0; i < this.selectedKaryawan.length - 1; i++) {
+          this.selectedKaryawan[i].nip = maxNip[i];
+          this.api
+            .updateData(
+              this.tableKaryawan,
+              this.selectedKaryawan[i],
+              this.selectedKaryawan[i].id
+            )
+            .subscribe(() => {
+              this.nipBaru.push(this.selectedKaryawan[i].nip);
+              this.checkTable.push(true);
             });
         }
       }
       this.isKeluar = true;
     });
+  }
+
+  getUniqueArray(arr: any[]) {
+    let uniqueArray: any[] = [];
+    arr.reduce((_acc, currentValue) => {
+      if (!uniqueArray.includes(currentValue)) {
+        uniqueArray.push(currentValue);
+      } else {
+        let newValue = currentValue + 1;
+        while (uniqueArray.includes(newValue)) {
+          newValue++;
+        }
+        uniqueArray.push(newValue);
+      }
+    }, []);
+    return uniqueArray;
   }
 }

@@ -38,8 +38,8 @@
                                 <input type="text" name="genNip" id="genNip" class="browser-default"
                                     [value]="nipBaru[i] === undefined ? '' : nipBaru[i]">
                             </td>
-                            <td *ngIf="checkTable[i]">
-                                <mat-icon style="color: green;">{{'done'}}</mat-icon>
+                            <td>
+                                <mat-icon *ngIf="checkTable[i]" style="color: green;">{{'done'}}</mat-icon>
                             </td>
                         </tr>
                     </tbody>
