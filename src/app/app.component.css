@@ -72,3 +72,7 @@ img {
 .imageButton:active {
   transform: translateY(4px);
 }
+
+.active {
+  background-color: #e0e0e0;
+}
