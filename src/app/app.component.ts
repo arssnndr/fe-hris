@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { DownloadDataPayrollComponent } from './components/download-data-payroll/download-data-payroll.component';
 import { GantiNipComponent } from './components/ganti-nip/ganti-nip.component';
 
 @Component({
@@ -20,7 +21,7 @@ export class AppComponent {
   masterDisplay = 'block';
   downloadDisplay = 'block';
 
-  previous: any[] = [];
+  previous!: string;
   bagianKerja: boolean = false;
   perusahaan: boolean = false;
   lokasi: boolean = false;
@@ -60,10 +61,10 @@ export class AppComponent {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
-        const camelCase = event.url.replace(/-([a-z])/g, (match: string[]) =>
-          match[1].toUpperCase()
-        );
-        this.setActive(camelCase.replace(/\//g, ''));
+        this.previous = event.url
+          .replace(/-([a-z])/g, (match: string[]) => match[1].toUpperCase())
+          .replace(/\//g, '');
+        this.setActive(this.previous);
       });
   }
 
@@ -81,8 +82,16 @@ export class AppComponent {
       .open(GantiNipComponent)
       .afterClosed()
       .subscribe(() => {
-        this.setActive(this.previous[this.previous.length - 2]);
-        this.previous = [];
+        this.setActive(this.previous);
+      });
+  }
+
+  funcDownloadDataPayroll() {
+    this.dialog
+      .open(DownloadDataPayrollComponent)
+      .afterClosed()
+      .subscribe(() => {
+        this.setActive(this.previous);
       });
   }
 
@@ -92,7 +101,6 @@ export class AppComponent {
   }
 
   setActive(item: string) {
-    this.previous.push(item);
     this.bagianKerja = false;
     this.perusahaan = false;
     this.lokasi = false;

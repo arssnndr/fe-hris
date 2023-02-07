@@ -60,6 +60,7 @@ import { ModalLemburComponent } from './components/lembur/modal-lembur/modal-lem
 import { OtoritasComponent } from './components/master/otoritas/otoritas.component';
 import { ModalOtoritasComponent } from './components/master/otoritas/modal-otoritas/modal-otoritas.component';
 import { ModalGantiNipComponent } from './components/ganti-nip/modal-ganti-nip/modal-ganti-nip.component';
+import { DownloadDataPayrollComponent } from './components/download-data-payroll/download-data-payroll.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { ModalGantiNipComponent } from './components/ganti-nip/modal-ganti-nip/m
     OtoritasComponent,
     ModalOtoritasComponent,
     ModalGantiNipComponent,
+    DownloadDataPayrollComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

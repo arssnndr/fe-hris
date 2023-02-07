@@ -58,6 +58,7 @@
           <mat-icon *ngIf="isExpanded || isShowing"> </mat-icon>
         </mat-list-item>
       </div>
+
       <div id="listKehadiran">
         <mat-list-item style="color: #575757" routerLink="list-kehadiran" (click)="setActive('listKehadiran')"
           [ngClass]="{'active': listKehadiran}">
@@ -68,6 +69,7 @@
           <mat-icon *ngIf="isExpanded || isShowing"> </mat-icon>
         </mat-list-item>
       </div>
+
       <div id="lembur">
         <mat-list-item style="color: #575757" routerLink="lembur" (click)="setActive('lembur')"
           [ngClass]="{'active': lembur}">
@@ -78,6 +80,7 @@
           <mat-icon *ngIf="isExpanded || isShowing"> </mat-icon>
         </mat-list-item>
       </div>
+
       <div id="gantiNIP">
         <mat-list-item style="color: #575757" (click)="funcGantiNip()" (click)="setActive('gantiNip')"
           [ngClass]="{'active': gantiNip}">
@@ -102,12 +105,16 @@
         </mat-list-item>
         <div class="submenu" [ngClass]="{ expanded: showSubSubMenu }" *ngIf="isShowing || isExpanded"
           [ngStyle]="{ display: downloadDisplay }">
-          <mat-list-item (click)="setActive('downloadDataPayroll')" [ngClass]="{'active': downloadDataPayroll}">Download
-            Data Payroll</mat-list-item>
-          <mat-list-item (click)="setActive('downloadReport')" [ngClass]="{'active': downloadReport}">Download
-            report</mat-list-item>
-          <mat-list-item (click)="setActive('logHistory')" [ngClass]="{'active': logHistory}">Log
-            history</mat-list-item>
+          <mat-list-item (click)="funcDownloadDataPayroll()" (click)="setActive('downloadDataPayroll')"
+            [ngClass]="{'active': downloadDataPayroll}">
+            Download Data Payroll
+          </mat-list-item>
+          <mat-list-item (click)="setActive('downloadReport')" [ngClass]="{'active': downloadReport}">
+            Download report
+          </mat-list-item>
+          <mat-list-item (click)="setActive('logHistory')" [ngClass]="{'active': logHistory}">
+            Log history
+          </mat-list-item>
         </div>
       </div>
     </mat-nav-list>

@@ -1,0 +1,41 @@
+<div>
+    <h2 mat-dialog-title>Download Data Payroll</h2>
+    <mat-dialog-content>
+        <div style="margin-bottom: 10px">
+            <div style="display: inline-flex">
+                <h6 style="width: 100px; text-align: right; margin-right: 10px;">Start Date</h6>
+                <input type="date" name="startDate" id="startDate" class="browser-default" [(ngModel)]="data.startDate"
+                    style="width:150px; height: 45px; padding: 5px">
+            </div>
+            <div style="display: inline-flex">
+                <h6 style="width: 100px; text-align: right; margin-right: 10px;">End Date</h6>
+                <input type="date" name="endDate" id="endDate" class="browser-default" [(ngModel)]="data.endDate"
+                    style=" width:150px; height: 45px; padding: 5px">
+            </div>
+        </div>
+        <div style="margin-bottom: 10px">
+            <div style="display: inline-flex">
+                <h6 style="width: 100px; text-align: right; margin-right: 10px;">Perusahaan</h6>
+                <select name="perusahaan" id="perusahaan" class="browser-default" [(ngModel)]="data.perusahaan"
+                    style="width:150px; height: 45px; border: 1px solid #00000080">
+                    <option *ngFor="let option of dataPerusahaan" [value]="option.inisial">
+                        {{ option.inisial + ' - ' + option.nama }}
+                    </option>
+                </select>
+            </div>
+            <div style="display: inline-flex">
+                <h6 style="width: 100px; text-align: right; margin-right: 10px;">Lokasi</h6>
+                <select name="lokasi" id="lokasi" class="browser-default" [(ngModel)]="data.lokasi"
+                    style="width:150px; height: 45px; border: 1px solid #00000080">
+                    <option *ngFor="let option of dataLokasi" [value]="option.inisial">{{ option.inisial }}</option>
+                </select>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end" style="margin-top: 10px">
+        <button class="download waves-effect waves-light" (click)="download()"
+            style="width: 100px; height: 50px; margin-left: 5px">Download</button>
+        <button class="batal waves-effect waves-light transparent" mat-dialog-close
+            style="width: 100px; height: 50px; margin-left: 5px">Batal</button>
+    </mat-dialog-actions>
+</div>
