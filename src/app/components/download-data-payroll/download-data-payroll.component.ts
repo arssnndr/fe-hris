@@ -1,6 +1,5 @@
-import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
 

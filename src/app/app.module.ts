@@ -61,6 +61,7 @@ import { OtoritasComponent } from './components/master/otoritas/otoritas.compone
 import { ModalOtoritasComponent } from './components/master/otoritas/modal-otoritas/modal-otoritas.component';
 import { ModalGantiNipComponent } from './components/ganti-nip/modal-ganti-nip/modal-ganti-nip.component';
 import { DownloadDataPayrollComponent } from './components/download-data-payroll/download-data-payroll.component';
+import { DownloadReportComponent } from './components/download-report/download-report.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { DownloadDataPayrollComponent } from './components/download-data-payroll
     ModalOtoritasComponent,
     ModalGantiNipComponent,
     DownloadDataPayrollComponent,
+    DownloadReportComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

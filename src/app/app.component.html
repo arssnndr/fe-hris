@@ -12,7 +12,8 @@
       </mat-list-item>
 
       <div id="masterMenu">
-        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" style="color: #d32f2f">
+        <mat-list-item (click)="isExpanded = true" (click)="showSubmenu = !showSubmenu" class="parent"
+          style="color: #d32f2f">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             Master
           </span>
@@ -93,7 +94,8 @@
       </div>
 
       <div id="downloadMenu">
-        <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent" style="color: #575757">
+        <mat-list-item (click)="isExpanded = true" (click)="showSubSubMenu = !showSubSubMenu" class="parent"
+          style="color: #575757">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             Download
           </span>
@@ -109,7 +111,8 @@
             [ngClass]="{'active': downloadDataPayroll}">
             Download Data Payroll
           </mat-list-item>
-          <mat-list-item (click)="setActive('downloadReport')" [ngClass]="{'active': downloadReport}">
+          <mat-list-item (click)="funcDownloadReport()" (click)="setActive('downloadReport')"
+            [ngClass]="{'active': downloadReport}">
             Download report
           </mat-list-item>
           <mat-list-item (click)="setActive('logHistory')" [ngClass]="{'active': logHistory}">

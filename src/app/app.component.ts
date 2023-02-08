@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { DownloadDataPayrollComponent } from './components/download-data-payroll/download-data-payroll.component';
+import { DownloadReportComponent } from './components/download-report/download-report.component';
 import { GantiNipComponent } from './components/ganti-nip/ganti-nip.component';
 
 @Component({
@@ -89,6 +90,15 @@ export class AppComponent {
   funcDownloadDataPayroll() {
     this.dialog
       .open(DownloadDataPayrollComponent)
+      .afterClosed()
+      .subscribe(() => {
+        this.setActive(this.previous);
+      });
+  }
+
+  funcDownloadReport() {
+    this.dialog
+      .open(DownloadReportComponent)
       .afterClosed()
       .subscribe(() => {
         this.setActive(this.previous);

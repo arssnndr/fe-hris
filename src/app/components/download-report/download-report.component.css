@@ -1,0 +1,28 @@
+select {
+  width: 340px;
+  height: 45px;
+  border: 1px solid #00000080;
+}
+
+input {
+  width: 125px;
+  height: 45px;
+  padding: 5px;
+}
+
+h6 {
+  width: 128px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.download {
+  background-color: #d85d5d;
+  border: 1px solid #d85d5d;
+  color: white;
+}
+
+.batal {
+  border: 1px solid #d85d5d;
+  color: #d85d5d;
+}

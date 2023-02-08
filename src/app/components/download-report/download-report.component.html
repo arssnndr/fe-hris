@@ -1,0 +1,72 @@
+<div>
+    <h2 mat-dialog-title>Download Report</h2>
+    <mat-dialog-content>
+        <div style="margin-bottom: 10px">
+            <div style="display: inline-flex">
+                <h6>Lokasi</h6>
+                <select name="lokasi" id="lokasi" class="browser-default" [(ngModel)]="data.lokasi">
+                    <option *ngFor="let option of dataLokasi" [value]="option.inisial">{{ option.inisial }}</option>
+                </select>
+            </div>
+        </div>
+        <div style="margin-bottom: 10px">
+            <div style="display: inline-flex">
+                <h6>Perusahaan</h6>
+                <select name="perusahaan" id="perusahaan" class="browser-default" [(ngModel)]="data.perusahaan">
+                    <option *ngFor="let option of dataPerusahaan" [value]="option.nama">{{ option.nama }}</option>
+                </select>
+            </div>
+        </div>
+        <div style="margin-bottom: 10px">
+            <div style="display: inline-flex">
+                <h6>Divisi</h6>
+                <select name="divisi" id="divisi" class="browser-default" [(ngModel)]="data.divisi">
+                    <option *ngFor="let option of dataBagianKerja" [value]="option.divisi">{{ option.divisi }}</option>
+                </select>
+            </div>
+        </div>
+        <div style="margin-bottom: 10px">
+            <div style="display: inline-flex">
+                <h6>Departemen</h6>
+                <select name="departemen" id="departemen" class="browser-default" [(ngModel)]="data.departemen">
+                    <option *ngFor="let option of dataBagianKerja" [value]="option.departemen">{{ option.departemen }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div style="margin-bottom: 10px">
+            <div style="display: inline-flex">
+                <h6>Sub Departemen</h6>
+                <select name="subDepartemen" id="subDepartemen" class="browser-default"
+                    [(ngModel)]="data.subDepartemen">
+                    <option *ngFor="let option of dataBagianKerja" [value]="option.sub_departemen">{{
+                        option.sub_departemen }}</option>
+                </select>
+            </div>
+        </div>
+        <div style="margin-bottom: 10px">
+            <div style="display: inline-flex">
+                <h6>Start Date</h6>
+                <input type="date" name="startDate" id="startDate" class="browser-default" [(ngModel)]="data.startDate">
+            </div>
+            <div style="display: inline-flex">
+                <h6 style="width: 70px; margin-left: 10px">End Date</h6>
+                <input type="date" name="endDate" id="endDate" class="browser-default" [(ngModel)]="data.endDate">
+            </div>
+        </div>
+        <div style="margin-bottom: 10px">
+            <div style="display: inline-flex">
+                <h6>Status</h6>
+                <select name="status" id="status" class="browser-default" [(ngModel)]="data.status">
+                    <option *ngFor="let option of status" [value]="option">{{ option }}</option>
+                </select>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button class="download waves-effect waves-light" (click)="download()"
+            style="width: 100px; height: 50px; margin-left: 5px">Download</button>
+        <button class="batal waves-effect waves-light transparent" mat-dialog-close
+            style="width: 100px; height: 50px; margin-left: 5px">Batal</button>
+    </mat-dialog-actions>
+</div>
