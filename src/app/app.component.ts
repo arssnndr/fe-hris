@@ -75,6 +75,7 @@ export class AppComponent {
       this.email = localStorage.getItem('key');
     } else {
       this.isLogin = false;
+      this.router.navigate(['/login']);
     }
   }
 
@@ -183,6 +184,8 @@ export class AppComponent {
         break;
       case 'logHistory':
         this.logHistory = true;
+        break;
+      case 'login':
         break;
       default:
         this.router.navigate(['/dashboard']);
