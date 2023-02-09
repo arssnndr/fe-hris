@@ -19,6 +19,7 @@ const database = {
   ms_statuskehadiran: [],
   trx_listkehadiran: [],
   ms_lembur: [],
+  log_history: [],
 };
 
 const loop = 100;
@@ -290,6 +291,46 @@ const statusKehadiran = [
   "Hadir",
   "Off",
 ];
+const menu = [
+  "Dashboard",
+  "Bagian Kerja",
+  "Perusahaan",
+  "Lokasi",
+  "User",
+  "Otoritas",
+  "Karyawan",
+  "Jadwal Kerja",
+  "Setup Jadwal Kerja",
+  "Kalender Kerja",
+  "Mesin Finger",
+  "Setup Mesin Finger",
+  "Status Kehadiran",
+  "List Kehadiran",
+  "Lembur",
+  "Ganti Nip",
+  "Download Data Payroll",
+  "Download Report",
+  "Log History",
+];
+const table = [
+  "ms_bagiankerja",
+  "ms_perusahaan",
+  "ms_lokasi",
+  "ms_userid",
+  "ms_karyawan",
+  "trx_jadwalkerja",
+  "trx_jadwalkerjadetail",
+  "trx_jadwalkerjacategory",
+  "trx_jadwalkerjaindividu",
+  "ms_kalenderkerja",
+  "ms_mesinfinger",
+  "ms_setupmesinfinger",
+  "ms_statuskehadiran",
+  "trx_listkehadiran",
+  "ms_lembur",
+  "log_history",
+];
+const action = ["Edit", "View", "Void"];
 const statusKaryawan = ["PKWT", "PKWTT", "Magang", "Informal", "Harian"];
 const statusPerkawinan = ["Kawin", "Belum kawin", "Cerai"];
 const akses = ["Lokasi", "Perusahaan", "All"];
@@ -862,6 +903,26 @@ for (var i = 0; i < 5; i++) {
       "Kurang Karyawan",
       "Banyak Kerjaan",
     ]),
+  });
+}
+
+// log_history
+for (var i = 0; i < 11; i++) {
+  const user = faker.helpers.arrayElement(database.ms_userid);
+  database.log_history.push({
+    id: i,
+    log_id: faker.helpers.arrayElement([
+      "23/MS-" + user.lokasi + "/" + user.perusahaan,
+      "23/MS-" + user.lokasi + "/" + user.perusahaan,
+      "23/MS-" + user.lokasi + "/" + user.perusahaan,
+      "23/MS-" + user.lokasi + "/" + user.perusahaan,
+      "23/MS-" + user.lokasi + "/" + user.perusahaan,
+    ]),
+    user_id: user.username,
+    tgl: faker.date.past(),
+    menu: faker.helpers.arrayElement(menu),
+    table: faker.helpers.arrayElement(table),
+    action: faker.helpers.arrayElement(action),
   });
 }
 

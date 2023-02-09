@@ -1,0 +1,37 @@
+<div>
+    <div mat-dialog-title style="margin-bottom: 0px; margin-top: -24px; margin-right: -24px" align="end">
+        <a mat-icon-button class="transparent" mat-dialog-close><mat-icon>close</mat-icon></a>
+    </div>
+    <mat-dialog-content>
+        <div>
+            <table class="responsive-table striped">
+                <thead>
+                    <tr>
+                        <th>UserID</th>
+                        <th>Tanggal</th>
+                        <th>Menu</th>
+                        <th>LogID</th>
+                        <th>TableName</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of dataLogHistory">
+                        <td>{{ row.user_id }}</td>
+                        <td>{{ formatTgl(row.tgl) }}</td>
+                        <td>{{ row.menu }}</td>
+                        <td>{{ row.log_id }}</td>
+                        <td>{{ row.table }}</td>
+                        <td>{{ row.action }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end" style="margin-top:15px">
+        <button class="download waves-effect waves-light" (click)="download()"
+            style="width: 100px; height: 50px; margin-left: 5px">Download</button>
+        <button class="delete waves-effect waves-light transparent" (click)="delete()"
+            style="width: 100px; height: 50px; margin-left: 5px">Delete</button>
+    </mat-dialog-actions>
+</div>

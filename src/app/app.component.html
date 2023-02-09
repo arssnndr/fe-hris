@@ -115,7 +115,8 @@
             [ngClass]="{'active': downloadReport}">
             Download report
           </mat-list-item>
-          <mat-list-item (click)="setActive('logHistory')" [ngClass]="{'active': logHistory}">
+          <mat-list-item (click)="funcLogHistory()" (click)="setActive('logHistory')"
+            [ngClass]="{'active': logHistory}">
             Log history
           </mat-list-item>
         </div>

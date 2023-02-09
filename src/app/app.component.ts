@@ -5,6 +5,7 @@ import { filter } from 'rxjs/operators';
 import { DownloadDataPayrollComponent } from './components/download-data-payroll/download-data-payroll.component';
 import { DownloadReportComponent } from './components/download-report/download-report.component';
 import { GantiNipComponent } from './components/ganti-nip/ganti-nip.component';
+import { LogHistoryComponent } from './components/log-history/log-history.component';
 
 @Component({
   selector: 'app-root',
@@ -106,6 +107,15 @@ export class AppComponent {
       });
   }
 
+  funcLogHistory() {
+    this.dialog
+      .open(LogHistoryComponent)
+      .afterClosed()
+      .subscribe(() => {
+        this.setActive(this.previous);
+      });
+  }
+
   logOut() {
     localStorage.clear();
     window.location.replace('/login');
@@ -133,36 +143,58 @@ export class AppComponent {
     switch (item) {
       case 'bagianKerja':
         this.bagianKerja = true;
+        this.isExpanded = true;
+        this.showSubmenu = true;
         break;
       case 'perusahaan':
         this.perusahaan = true;
+        this.isExpanded = true;
+        this.showSubmenu = true;
         break;
       case 'lokasi':
         this.lokasi = true;
+        this.isExpanded = true;
+        this.showSubmenu = true;
         break;
       case 'user':
         this.user = true;
+        this.isExpanded = true;
+        this.showSubmenu = true;
         break;
       case 'otoritas':
         this.otoritas = true;
+        this.isExpanded = true;
+        this.showSubmenu = true;
         break;
       case 'karyawan':
         this.karyawan = true;
+        this.isExpanded = true;
+        this.showSubmenu = true;
         break;
       case 'jadwalKerja':
         this.jadwalKerja = true;
+        this.isExpanded = true;
+        this.showSubmenu = true;
         break;
       case 'setupJadwalkerja':
         this.setupJadwalkerja = true;
+        this.isExpanded = true;
+        this.showSubmenu = true;
         break;
       case 'kalenderKerja':
         this.kalenderKerja = true;
+        this.isExpanded = true;
+        this.showSubmenu = true;
         break;
       case 'mesinFinger':
         this.mesinFinger = true;
+        this.isExpanded = true;
+        this.showSubmenu = true;
         break;
       case 'setupMesinFinger':
         this.setupMesinFinger = true;
+        this.isExpanded = true;
+        this.showSubmenu = true;
         break;
       case 'statusKehadiran':
         this.statusKehadiran = true;

@@ -1,0 +1,40 @@
+th {
+  background-color: #ffe6e6;
+  border-radius: 0px;
+  padding: 15px 5px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+th,
+td:nth-last-child(1) {
+  padding-right: 15px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fff4f4;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+tbody tr:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+mat-dialog-content {
+  padding-right: 0px;
+  margin-right: 0px;
+}
+
+.download {
+  background-color: #d85d5d;
+  border: 1px solid #d85d5d;
+  color: white;
+}
+
+.delete {
+  border: 1px solid #d85d5d;
+  color: #d85d5d;
+}
