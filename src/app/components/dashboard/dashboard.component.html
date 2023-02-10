@@ -1,74 +1,38 @@
 <h4>Dashboard</h4>
-<h5>Jumlah Karyawan Tanggal 18 Nov 2022</h5>
-<div class="ex">
-    <mat-card class="transparent z-depth-0">
-        <h6>ALL</h6>
-        <mat-card-content>
-            <div id="chart1"></div>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class="transparent z-depth-0">
-        <mat-card-title>
-            <h6>HO</h6>
-        </mat-card-title>
-        <mat-card-content>
-            <div id="chart2"></div>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class="transparent z-depth-0">
-        <mat-card-title>
-            <h6>TMS 1</h6>
-        </mat-card-title>
-        <mat-card-content>
-            <div id="chart3"></div>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class="transparent z-depth-0">
-        <mat-card-title>
-            <h6>TMS 2</h6>
-        </mat-card-title>
-        <mat-card-content>
-            <div id="chart4"></div>
-        </mat-card-content>
-    </mat-card>
-</div>
+<div>
+    <h5>Jumlah Karyawan Tanggal 18 Nov 2022</h5>
+    <div class="row">
+        <div *ngFor="let row of jmlKaryawan" style="display: inline-flex;">
+            <mat-card *ngIf="row.for === 'jumlahKaryawan'" class="transparent z-depth-0">
+                <mat-card-header>
+                    <mat-card-title>{{ row.chartName }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <canvas [id]="row.chartName + 'jumlahKaryawan'"></canvas>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
 
-<h5>Status Kehadiran Bulan September 2022</h5>
-<div class="ex">
-    <mat-card class="transparent z-depth-0">
-        <h6>ALL</h6>
-        <mat-card-content>
-            <div id="chart5"></div>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class="transparent z-depth-0">
-        <mat-card-title>
-            <h6>HO</h6>
-        </mat-card-title>
-        <mat-card-content>
-            <div id="chart6"></div>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class="transparent z-depth-0">
-        <mat-card-title>
-            <h6>TMS 1</h6>
-        </mat-card-title>
-        <mat-card-content>
-            <div id="chart7"></div>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class="transparent z-depth-0">
-        <mat-card-title>
-            <h6>TMS 2</h6>
-        </mat-card-title>
-        <mat-card-content>
-            <div id="chart8"></div>
-        </mat-card-content>
-    </mat-card>
+    <h5>Status Kehadiran Bulan September 2022</h5>
+    <div class="row">
+        <div *ngFor="let row of jmlKaryawan" style="display: inline-flex;">
+            <mat-card *ngIf="row.for === 'statusKehadiran'" class="transparent z-depth-0">
+                <mat-card-header>
+                    <mat-card-title>
+                        <h6>{{ row.chartName }}</h6>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <canvas [id]="row.chartName + 'statusKehadiran'"></canvas>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
 </div>
 
 <h5>Lembur Bulan September 2022</h5>
-<div class="ex">
+<div class="row">
     <table class="responsive-table">
         <thead>
             <tr>
