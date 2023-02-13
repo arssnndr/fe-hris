@@ -3,7 +3,7 @@ import { ApiService } from 'src/app/shared/api.service';
 import { PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalBagianKerjaComponent } from './modal-bagian-kerja/modal-bagian-kerja.component';
-import xlsx from 'json-as-xlsx';
+import { utils, writeFileXLSX } from 'xlsx';
 import * as moment from 'moment';
 moment.locale('id');
 
@@ -32,38 +32,41 @@ export class BagianKerjaComponent implements OnInit {
 
   printData() {
     let content = this.data.map((res: any) => ({
-      jenis: res.jenis_bagian,
-      lokasi: res.lokasi,
-      uplink: res.divisi === undefined ? res.departemen : res.divisi,
-      deskripsi: res.sub_departemen,
+      Jenis: res.jenis_bagian,
+      Lokasi: res.lokasi,
+      Uplink: res.divisi === undefined ? res.departemen : res.divisi,
+      Deskripsi: res.sub_departemen,
     }));
+    const ws = utils.json_to_sheet(content);
+    const wsTemp = utils.json_to_sheet(content);
+    let length = Number(ws['!ref']?.slice(4));
+    let cell = 4;
 
-    let data = [
-      {
-        sheet: 'Sheet1',
-        columns: [
-          { label: 'Jenis', value: 'jenis' },
-          { label: 'Lokasi', value: 'lokasi' },
-          { label: 'Uplink', value: 'uplink' },
-          { label: 'Deskripsi', value: 'deskripsi' },
-        ],
-        content: content,
-      },
-    ];
+    ws['!ref'] = 'A1:D' + (length + cell);
+    for (let i = 1; i <= 4; i++) {
+      ws['A' + i] = { t: 's', v: '' };
+      ws['B' + i] = { t: 's', v: '' };
+      ws['C' + i] = { t: 's', v: '' };
+      ws['D' + i] = { t: 's', v: '' };
+    }
 
-    let settings = {
-      fileName: 'MySpreadsheet', // Name of the resulting spreadsheet
-      extraLength: 3, // A bigger number means that columns will be wider
-      writeMode: 'writeFile', // The available parameters are 'WriteFile' and 'write'. This setting is optional. Useful in such cases https://docs.sheetjs.com/docs/solutions/output#example-remote-file
-      writeOptions: {}, // Style options from https://docs.sheetjs.com/docs/api/write-options
-      // RTL: false, // Display the columns from right-to-left (the default value is false)
-    };
+    ws['A1'] = { t: 's', v: 'Bagian Kerja' };
+    ws['C1'] = { t: 's', v: 'Tanggal Cetak' };
+    ws['C2'] = { t: 's', v: 'User :' };
+    ws['D1'] = { t: 's', v: moment().format('DD MMM YYYY') };
+    ws['D2'] = { t: 's', v: window.localStorage.getItem('key') };
 
-    let callback = function (sheet: any) {
-      console.log('Download complete:', sheet);
-    };
+    for (let i = 0; i < length; i++) {
+      ws['A' + (i + cell)] = wsTemp['A' + (i + 1)];
+      ws['B' + (i + cell)] = wsTemp['B' + (i + 1)];
+      ws['C' + (i + cell)] = wsTemp['C' + (i + 1)];
+      ws['D' + (i + cell)] = wsTemp['D' + (i + 1)];
+    }
 
-    xlsx(data, settings, callback)
+    const wb = utils.book_new();
+
+    utils.book_append_sheet(wb, ws);
+    writeFileXLSX(wb, 'Bagian Kerja.xlsx');
   }
 
   tambahData() {
