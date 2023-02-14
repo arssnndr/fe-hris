@@ -31,7 +31,7 @@ export class AppComponent {
   otoritas: boolean = false;
   karyawan: boolean = false;
   jadwalKerja: boolean = false;
-  setupJadwalkerja: boolean = false;
+  setupJadwalKerja: boolean = false;
   kalenderKerja: boolean = false;
   mesinFinger: boolean = false;
   setupMesinFinger: boolean = false;
@@ -129,7 +129,7 @@ export class AppComponent {
     this.otoritas = false;
     this.karyawan = false;
     this.jadwalKerja = false;
-    this.setupJadwalkerja = false;
+    this.setupJadwalKerja = false;
     this.kalenderKerja = false;
     this.mesinFinger = false;
     this.setupMesinFinger = false;
@@ -176,8 +176,8 @@ export class AppComponent {
         this.isExpanded = true;
         this.showSubmenu = true;
         break;
-      case 'setupJadwalkerja':
-        this.setupJadwalkerja = true;
+      case 'setupJadwalKerja':
+        this.setupJadwalKerja = true;
         this.isExpanded = true;
         this.showSubmenu = true;
         break;

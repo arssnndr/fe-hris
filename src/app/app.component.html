@@ -25,33 +25,25 @@
         </mat-list-item>
         <div class="submenu" [ngClass]="{ expanded: showSubmenu }" *ngIf="isShowing || isExpanded"
           [ngStyle]="{ display: masterDisplay }">
-          <mat-list-item routerLink="bagian-kerja" (click)="setActive('bagianKerja')"
-            [ngClass]="{'active': bagianKerja}">Bagian Kerja</mat-list-item>
-          <mat-list-item routerLink="perusahaan" (click)="setActive('perusahaan')"
-            [ngClass]="{'active': perusahaan}">Perusahaan</mat-list-item>
-          <mat-list-item routerLink="lokasi" (click)="setActive('lokasi')"
-            [ngClass]="{'active': lokasi}">Lokasi</mat-list-item>
-          <mat-list-item routerLink="user" (click)="setActive('user')" [ngClass]="{'active': user}">User</mat-list-item>
-          <mat-list-item routerLink="otoritas" (click)="setActive('otoritas')"
-            [ngClass]="{'active': otoritas}">Otoritas</mat-list-item>
-          <mat-list-item routerLink="karyawan" (click)="setActive('karyawan')"
-            [ngClass]="{'active': karyawan}">Karyawan</mat-list-item>
-          <mat-list-item routerLink="jadwal-kerja" (click)="setActive('jadwalKerja')"
-            [ngClass]="{'active': jadwalKerja}">Jadwal Kerja</mat-list-item>
-          <mat-list-item routerLink="setup-jadwal-kerja" (click)="setActive('setupJadwalkerja')"
-            [ngClass]="{'active': setupJadwalkerja}">Set Up Jadwal Kerja</mat-list-item>
-          <mat-list-item routerLink="kalender-kerja" (click)="setActive('kalenderKerja')"
-            [ngClass]="{'active': kalenderKerja}">Kalender Kerja</mat-list-item>
-          <mat-list-item routerLink="mesin-finger" (click)="setActive('mesinFinger')"
-            [ngClass]="{'active': mesinFinger}">Mesin Finger</mat-list-item>
-          <mat-list-item routerLink="setup-mesin-finger" (click)="setActive('setupMesinFinger')"
-            [ngClass]="{'active': setupMesinFinger}">Set Up Mesin Finger</mat-list-item>
+          <mat-list-item routerLink="bagian-kerja" [ngClass]="{'active': bagianKerja}">Bagian Kerja</mat-list-item>
+          <mat-list-item routerLink="perusahaan" [ngClass]="{'active': perusahaan}">Perusahaan</mat-list-item>
+          <mat-list-item routerLink="lokasi" [ngClass]="{'active': lokasi}">Lokasi</mat-list-item>
+          <mat-list-item routerLink="user" [ngClass]="{'active': user}">User</mat-list-item>
+          <mat-list-item routerLink="otoritas" [ngClass]="{'active': otoritas}">Otoritas</mat-list-item>
+          <mat-list-item routerLink="karyawan" [ngClass]="{'active': karyawan}">Karyawan</mat-list-item>
+          <mat-list-item routerLink="jadwal-kerja" [ngClass]="{'active': jadwalKerja}">Jadwal Kerja</mat-list-item>
+          <mat-list-item routerLink="setup-jadwal-kerja" [ngClass]="{'active': setupJadwalKerja}">Set Up Jadwal
+            Kerja</mat-list-item>
+          <mat-list-item routerLink="kalender-kerja" [ngClass]="{'active': kalenderKerja}">Kalender
+            Kerja</mat-list-item>
+          <mat-list-item routerLink="mesin-finger" [ngClass]="{'active': mesinFinger}">Mesin Finger</mat-list-item>
+          <mat-list-item routerLink="setup-mesin-finger" [ngClass]="{'active': setupMesinFinger}">Set Up Mesin
+            Finger</mat-list-item>
         </div>
       </div>
 
       <div id="statusKehadiran">
-        <mat-list-item style="color: #575757" routerLink="status-kehadiran" (click)="setActive('statusKehadiran')"
-          [ngClass]="{'active': statusKehadiran}">
+        <mat-list-item style="color: #575757" routerLink="status-kehadiran" [ngClass]="{'active': statusKehadiran}">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             Status Kehadiran
           </span>
@@ -61,8 +53,7 @@
       </div>
 
       <div id="listKehadiran">
-        <mat-list-item style="color: #575757" routerLink="list-kehadiran" (click)="setActive('listKehadiran')"
-          [ngClass]="{'active': listKehadiran}">
+        <mat-list-item style="color: #575757" routerLink="list-kehadiran" [ngClass]="{'active': listKehadiran}">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             List Kehadiran
           </span>
@@ -72,8 +63,7 @@
       </div>
 
       <div id="lembur">
-        <mat-list-item style="color: #575757" routerLink="lembur" (click)="setActive('lembur')"
-          [ngClass]="{'active': lembur}">
+        <mat-list-item style="color: #575757" routerLink="lembur" [ngClass]="{'active': lembur}">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             Lembur
           </span>
@@ -83,8 +73,7 @@
       </div>
 
       <div id="gantiNIP">
-        <mat-list-item style="color: #575757" (click)="funcGantiNip()" (click)="setActive('gantiNip')"
-          [ngClass]="{'active': gantiNip}">
+        <mat-list-item style="color: #575757" (click)="funcGantiNip()" [ngClass]="{'active': gantiNip}">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             Ganti NIP
           </span>
@@ -107,16 +96,13 @@
         </mat-list-item>
         <div class="submenu" [ngClass]="{ expanded: showSubSubMenu }" *ngIf="isShowing || isExpanded"
           [ngStyle]="{ display: downloadDisplay }">
-          <mat-list-item (click)="funcDownloadDataPayroll()" (click)="setActive('downloadDataPayroll')"
-            [ngClass]="{'active': downloadDataPayroll}">
+          <mat-list-item (click)="funcDownloadDataPayroll()" [ngClass]="{'active': downloadDataPayroll}">
             Download Data Payroll
           </mat-list-item>
-          <mat-list-item (click)="funcDownloadReport()" (click)="setActive('downloadReport')"
-            [ngClass]="{'active': downloadReport}">
+          <mat-list-item (click)="funcDownloadReport()" [ngClass]="{'active': downloadReport}">
             Download report
           </mat-list-item>
-          <mat-list-item (click)="funcLogHistory()" (click)="setActive('logHistory')"
-            [ngClass]="{'active': logHistory}">
+          <mat-list-item (click)="funcLogHistory()" [ngClass]="{'active': logHistory}">
             Log history
           </mat-list-item>
         </div>

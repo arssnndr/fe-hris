@@ -168,3 +168,28 @@ button.simpan {
   height: 50px;
   margin: 5px;
 }
+
+mat-dialog-content.filter {
+  height: fit-content;
+  width: fit-content;
+  margin: 0px;
+  padding: 0px;
+}
+
+mat-dialog-actions.filter {
+  height: fit-content;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 0px;
+  padding: 0px;
+}
+
+select.filter {
+  width: 250px;
+  border: 1px solid #00000050;
+}
+
+p.filter {
+  width: 120px;
+  margin-right: 10px;
+}

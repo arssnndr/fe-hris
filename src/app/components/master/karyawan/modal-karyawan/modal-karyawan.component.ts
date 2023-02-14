@@ -12,6 +12,15 @@ export class ModalKaryawanComponent implements OnInit {
   isTambah = false;
   isDelete = false;
   isEdit = false;
+  isFilter = false;
+
+  filter = {
+    lokasi: '',
+    divisi: '',
+    departemen: '',
+    subDepartemen: '',
+    perusahaan: '',
+  };
 
   kewarganegaraan = [{ value: 'WNI' }, { value: 'WNA' }];
   jenisKelamin = [{ value: 'Laki-Laki' }, { value: 'Perempuan' }];
@@ -148,13 +157,17 @@ export class ModalKaryawanComponent implements OnInit {
         this.perusahaan.push(res.nama);
       });
     });
-    api.getData('ms_bagiankerja/').subscribe((res: any) => {
+    api.getData('ms_lokasi/').subscribe((res) => {
       this.lokasi = [];
+      res.forEach((ress: any) => {
+        this.lokasi.push(ress.inisial);
+      });
+    });
+    api.getData('ms_bagiankerja/').subscribe((res: any) => {
       this.divisi = [];
       this.departemen = [];
       this.subDepartemen = [];
       res.forEach((res: any) => {
-        this.lokasi.push(res.lokasi);
         this.divisi.push(res.divisi);
         this.departemen.push(res.departemen);
         this.subDepartemen.push(res.sub_departemen);
@@ -183,6 +196,13 @@ export class ModalKaryawanComponent implements OnInit {
         this.isEdit = true;
 
         this.karyawan = this.data.data;
+        break;
+      case 'filter':
+        this.isFilter = true;
+
+        if (this.data.data !== undefined) {
+          this.filter = this.data.data;
+        }
         break;
     }
   }

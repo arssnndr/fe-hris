@@ -2,10 +2,10 @@
 <div class="nav">
   <nav class="transparent z-depth-0">
     <div class="nav-wrapper row">
-      <div class="col s3">
-        <form (ngSubmit)="searchData(search.value)">
-          <input #search class="search" type="text" name="search" placeholder="Cari Nama Karyawan.." />
-        </form>
+      <div class="col s3" style="display: inline-flex;">
+        <input (input)="searchData($event.target)" #search class="browser-default search" type="text" name="search"
+          placeholder="Cari Nama Karyawan.." />
+        <button align="bottom" class="transparent filter" (click)="filter()"><mat-icon>filter_alt</mat-icon></button>
       </div>
       <div class="col s9">
         <ul class="right">
@@ -15,14 +15,45 @@
             </mat-paginator>
           </li>
           <li>
-            <button class="download waves-effect waves-dark transparent">
+            <button class="download waves-effect waves-dark transparent" [matMenuTriggerFor]="menuHistory">
               Download History
-            </button>
+            </button><mat-menu #menuHistory="matMenu">
+              <button mat-menu-item>
+                <mat-icon><i class="material-icons menu">perm_contact_calendar</i></mat-icon>
+                <span>Status</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon><i class="material-icons menu">card_travel</i></mat-icon>
+                <span>Penugasan</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon><i class="material-icons menu">receipt</i></mat-icon>
+                <span>Gaji Karyawan</span>
+              </button>
+            </mat-menu>
           </li>
           <li>
-            <button class="download waves-effect waves-dark transparent">
+            <button class="download waves-effect waves-dark transparent" [matMenuTriggerFor]="menu">
               Download
             </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon><i class="material-icons menu">perm_contact_calendar</i></mat-icon>
+                <span>Pribadi</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon><i class="material-icons menu">card_travel</i></mat-icon>
+                <span>Pekerjaan & Organisasi</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon><i class="material-icons menu">class</i></mat-icon>
+                <span>Periode Kontrak</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon><i class="material-icons menu">receipt</i></mat-icon>
+                <span>Gaji Karyawan</span>
+              </button>
+            </mat-menu>
           </li>
           <li>
             <button class="tambah waves-effect waves-light" (click)="tambahData(tmpData)">

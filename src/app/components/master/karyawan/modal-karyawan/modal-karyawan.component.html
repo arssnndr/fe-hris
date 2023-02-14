@@ -424,3 +424,58 @@
     </button>
   </mat-dialog-actions>
 </div>
+
+<!-- Modal Filter -->
+<div *ngIf="isFilter">
+  <mat-dialog-content class="filter">
+    <div style="display: block">
+      <div style="display: inline-flex">
+        <p class="filter">Lokasi</p>
+        <select name="lokasi" id="lokasi" class="browser-default filter" [(ngModel)]="filter.lokasi">
+          <option value="">All</option>
+          <option *ngFor="let row of lokasi" [value]="row">{{ row }}</option>
+        </select>
+      </div>
+      <br>
+      <div style="display: inline-flex">
+        <p class="filter">Divisi</p>
+        <select name="divisi" id="divisi" class="browser-default filter" [(ngModel)]="filter.divisi">
+          <option value="">All</option>
+          <option *ngFor="let row of divisi" [value]="row">{{ row }}</option>
+        </select>
+      </div>
+      <br>
+      <div style="display: inline-flex">
+        <p class="filter">Departemen</p>
+        <select name="departemen" id="departemen" class="browser-default filter" [(ngModel)]="filter.departemen">
+          <option value="">All</option>
+          <option *ngFor="let row of departemen" [value]="row">{{ row }}</option>
+        </select>
+      </div>
+      <br>
+      <div style="display: inline-flex">
+        <p class="filter">Sub Departemen</p>
+        <select name="subDepartemen" id="subDepartemen" class="browser-default filter" [(ngModel)]="filter.subDepartemen">
+          <option value="">All</option>
+          <option *ngFor="let row of subDepartemen" [value]="row">{{ row }}</option>
+        </select>
+      </div>
+      <br>
+      <div style="display: inline-flex">
+        <p class="filter">Nama Perusahaan</p>
+        <select name="perusahaan" id="perusahaan" class="browser-default filter" [(ngModel)]="filter.perusahaan">
+          <option value="">All</option>
+          <option *ngFor="let row of perusahaan" [value]="row">{{ row }}</option>
+        </select>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="filter">
+    <button class="simpan waves-effect waves-light" [mat-dialog-close]="filter">
+      Simpan
+    </button>
+    <button class="batal waves-effect waves-dark transparent" [mat-dialog-close]="undefined">
+      Batal
+    </button>
+  </mat-dialog-actions>
+</div>

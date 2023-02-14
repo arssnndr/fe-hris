@@ -422,7 +422,7 @@ for (var i = 0; i < loop; i++) {
     tgl_berakhir_kitas: sliceDate(faker.date.future()),
     nomor_rptka: faker.random.numeric(20),
     tgl_berakhir_rptka: sliceDate(faker.date.future()),
-    perusahaan: resPerusahaan.inisial,
+    perusahaan: resPerusahaan.nama,
     lokasi: resBagianKerja.lokasi,
     divisi: resBagianKerja.divisi,
     departemen: resBagianKerja.departemen,

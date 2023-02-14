@@ -20,8 +20,28 @@ export class KaryawanComponent implements OnInit {
   length: any;
   catchResult: any;
   tmpData: any;
+  dataFilter: any;
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    this.getAllData();
+  }
+
+  filter() {
+    this.dialog
+      .open(ModalKaryawanComponent, {
+        data: { name: 'filter', data: this.dataFilter },
+      })
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.dataFilter = res;
+          this.pageIndex = 0;
+          this.getAllData();
+        }
+      });
+  }
 
   tambahData(data: any) {
     const dialogRef = this.dialog.open(ModalKaryawanComponent, {
@@ -29,7 +49,6 @@ export class KaryawanComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         if (
@@ -69,7 +88,7 @@ export class KaryawanComponent implements OnInit {
         } else {
           this.api
             .updateData(this.table, catchResult, catchResult.id)
-            .subscribe((res) => {
+            .subscribe(() => {
               this.getPageData();
             });
         }
@@ -98,65 +117,240 @@ export class KaryawanComponent implements OnInit {
     this.getPageData();
   }
 
-  ngOnInit(): void {
-    this.getAllData();
-  }
-
   getAllData() {
-    if (this.dataSearch.length === 0) {
-      this.api.getData(this.table).subscribe((res) => {
-        this.length = res.length;
-        this.tmpData = { id: parseInt(res[res.length - 1].id) + 1 };
-        this.pageSize = 50;
-        this.pageIndex = 0;
-        this.getPageData();
-      });
-    } else {
-      this.api
-        .getData(this.table + '?nama_lengkap_like=' + this.dataSearch)
-        .subscribe((res) => {
+    if (this.dataFilter === undefined) {
+      if (this.dataSearch.length === 0) {
+        this.api.getData(this.table).subscribe((res) => {
           this.length = res.length;
+          this.tmpData = { id: parseInt(res[res.length - 1].id) + 1 };
           this.pageSize = 50;
           this.pageIndex = 0;
           this.getPageData();
         });
+      } else {
+        this.api
+          .getData(this.table + '?nama_lengkap_like=' + this.dataSearch)
+          .subscribe((res) => {
+            if (res.length === 0) {
+              this.api
+                .getData(this.table + '?nip_like=' + this.dataSearch)
+                .subscribe((ress) => {
+                  this.length = ress.length;
+                  this.pageSize = 50;
+                  this.pageIndex = 0;
+                  this.getPageData();
+                });
+            } else {
+              this.length = res.length;
+              this.pageSize = 50;
+              this.pageIndex = 0;
+              this.getPageData();
+            }
+          });
+      }
+    } else {
+      if (this.dataSearch.length === 0) {
+        this.api
+          .getData(
+            this.table +
+              '?lokasi_like=' +
+              this.dataFilter.lokasi +
+              '&divisi_like=' +
+              this.dataFilter.divisi +
+              '&departemen_like=' +
+              this.dataFilter.departemen +
+              '&sub_departemen_like=' +
+              this.dataFilter.subDepartemen +
+              '&perusahaan_like=' +
+              this.dataFilter.perusahaan
+          )
+          .subscribe((res) => {
+            if (res.length !== 0) {
+              this.tmpData = { id: parseInt(res[res.length - 1].id) + 1 };
+            }
+            this.length = res.length;
+            this.pageSize = 50;
+            this.pageIndex = 0;
+            this.getPageData();
+          });
+      } else {
+        this.api
+          .getData(
+            this.table +
+              '?nama_lengkap_like=' +
+              this.dataSearch +
+              '&lokasi_like=' +
+              this.dataFilter.lokasi +
+              '&divisi_like=' +
+              this.dataFilter.divisi +
+              '&departemen_like=' +
+              this.dataFilter.departemen +
+              '&sub_departemen_like=' +
+              this.dataFilter.subDepartemen +
+              '&perusahaan_like=' +
+              this.dataFilter.perusahaan
+          )
+          .subscribe((res) => {
+            if (res.length === 0) {
+              this.api
+                .getData(
+                  this.table +
+                    '?nip_like=' +
+                    this.dataSearch +
+                    '&lokasi_like=' +
+                    this.dataFilter.lokasi +
+                    '&divisi_like=' +
+                    this.dataFilter.divisi +
+                    '&departemen_like=' +
+                    this.dataFilter.departemen +
+                    '&sub_departemen_like=' +
+                    this.dataFilter.subDepartemen +
+                    '&perusahaan_like=' +
+                    this.dataFilter.perusahaan
+                )
+                .subscribe((ress) => {
+                  this.length = ress.length;
+                  this.pageSize = 50;
+                  this.pageIndex = 0;
+                  this.getPageData();
+                });
+            } else {
+              this.length = res.length;
+              this.pageSize = 50;
+              this.pageIndex = 0;
+              this.getPageData();
+            }
+          });
+      }
     }
   }
 
   getPageData() {
-    if (this.dataSearch.length === 0) {
-      this.api
-        .getData(
-          this.table +
-            '?_page=' +
-            (this.pageIndex + 1) +
-            '&_limit=' +
-            this.pageSize
-        )
-        .subscribe((res) => {
-          this.data = res;
-        });
+    if (this.dataFilter === undefined) {
+      if (this.dataSearch.length === 0) {
+        this.api
+          .getData(
+            this.table +
+              '?_page=' +
+              (this.pageIndex + 1) +
+              '&_limit=' +
+              this.pageSize
+          )
+          .subscribe((res) => {
+            this.data = res;
+          });
+      } else {
+        this.api
+          .getData(
+            this.table +
+              '?_page=' +
+              (this.pageIndex + 1) +
+              '&_limit=' +
+              this.pageSize +
+              '&nama_lengkap_like=' +
+              this.dataSearch
+          )
+          .subscribe((res) => {
+            if (res.length === 0) {
+              this.api
+                .getData(
+                  this.table +
+                    '?_page=' +
+                    (this.pageIndex + 1) +
+                    '&_limit=' +
+                    this.pageSize +
+                    '&nip_like=' +
+                    this.dataSearch
+                )
+                .subscribe((ress) => {
+                  this.data = ress;
+                });
+            } else {
+              this.data = res;
+            }
+          });
+      }
     } else {
-      this.api
-        .getData(
-          this.table +
-            '?_page=' +
-            (this.pageIndex + 1) +
-            '&_limit=' +
-            this.pageSize +
-            '&nama_lengkap_like=' +
-            this.dataSearch
-        )
-        .subscribe((res) => {
-          this.data = res;
-        });
+      if (this.dataSearch.length === 0) {
+        this.api
+          .getData(
+            this.table +
+              '?_page=' +
+              (this.pageIndex + 1) +
+              '&_limit=' +
+              this.pageSize +
+              '&lokasi_like=' +
+              this.dataFilter.lokasi +
+              '&divisi_like=' +
+              this.dataFilter.divisi +
+              '&departemen_like=' +
+              this.dataFilter.departemen +
+              '&sub_departemen_like=' +
+              this.dataFilter.subDepartemen +
+              '&perusahaan_like=' +
+              this.dataFilter.perusahaan
+          )
+          .subscribe((res) => {
+            this.data = res;
+          });
+      } else {
+        this.api
+          .getData(
+            this.table +
+              '?_page=' +
+              (this.pageIndex + 1) +
+              '&_limit=' +
+              this.pageSize +
+              '&nama_lengkap_like=' +
+              this.dataSearch +
+              '&lokasi_like=' +
+              this.dataFilter.lokasi +
+              '&divisi_like=' +
+              this.dataFilter.divisi +
+              '&departemen_like=' +
+              this.dataFilter.departemen +
+              '&sub_departemen_like=' +
+              this.dataFilter.subDepartemen +
+              '&perusahaan_like=' +
+              this.dataFilter.perusahaan
+          )
+          .subscribe((res) => {
+            if (res.length === 0) {
+              this.api
+                .getData(
+                  this.table +
+                    '?_page=' +
+                    (this.pageIndex + 1) +
+                    '&_limit=' +
+                    this.pageSize +
+                    '&nip_like=' +
+                    this.dataSearch +
+                    '&lokasi_like=' +
+                    this.dataFilter.lokasi +
+                    '&divisi_like=' +
+                    this.dataFilter.divisi +
+                    '&departemen_like=' +
+                    this.dataFilter.departemen +
+                    '&sub_departemen_like=' +
+                    this.dataFilter.subDepartemen +
+                    '&perusahaan_like=' +
+                    this.dataFilter.perusahaan
+                )
+                .subscribe((ress) => {
+                  this.data = ress;
+                });
+            } else {
+              this.data = res;
+            }
+          });
+      }
     }
   }
 
   searchData(data: any) {
+    data = data.value;
     this.dataSearch = data;
     this.pageIndex = 0;
     this.getAllData();
-    this.getPageData();
   }
 }

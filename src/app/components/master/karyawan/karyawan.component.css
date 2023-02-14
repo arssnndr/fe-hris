@@ -8,12 +8,17 @@ mat-paginator {
   font-size: 15px;
 }
 
+.material-icons.menu {
+  color: #d85d5d;
+}
+
 input[type="text"] {
-  width: 100%;
+  width: 80%;
   height: 50px;
   box-sizing: border-box;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-style: solid none solid solid;
+  border-radius: 3px 0px 0px 3px;
   background-color: white;
   background-image: url("../../../../assets/icon/search.svg");
   background-size: 24px;
@@ -21,6 +26,15 @@ input[type="text"] {
   background-position-x: 7.5px;
   background-position-y: 50%;
   padding: 12px 20px 12px 40px;
+}
+
+.filter {
+  height: 50px;
+  border: 1px solid #ccc;
+  border-style: solid solid solid none;
+  border-radius: 0px 3px 3px 0px;
+  margin-top: auto;
+  margin-bottom: 8px;
 }
 
 div.col {
