@@ -1,195 +1,33 @@
-h2 {
-  text-align: left;
-  margin: 0px 40px 20px;
-}
-
-mat-dialog-content.tambah,
-mat-dialog-content.edit {
-  padding: 0px;
-  margin: 0px 40px;
-  width: 700px;
-  height: 1000px;
-}
-
-mat-dialog-content.delete {
-  padding: 0px;
-  margin: 0px 40px;
-  width: 460px;
-}
-
-mat-dialog-content div {
-  display: inline-flex;
-}
-
-mat-dialog-actions {
-  padding: 0px;
-  margin: 0px 40px;
-  width: 700px;
-}
-
-mat-dialog-actions.delete {
-  padding: 0px;
-  margin: 0px 40px;
-  width: 460px;
-}
-
-input {
-  margin-bottom: 5px;
-  background-color: rgb(255, 255, 255);
-  width: 420px;
-  padding: 5px;
-  border: 1px solid #00000050;
-  border-radius: 2px;
-  height: 3rem;
-}
-
-input.disabled {
-  background-color: #f1f1f1;
-}
-
-input.tgl {
-  margin: 0px 290px 5px 0px;
-  background-color: rgb(255, 255, 255);
-  width: 130px;
-  padding: 5px;
-  border: 1px solid #00000050;
-  border-radius: 2px;
-  height: 3rem;
-}
-
-input.tglgaji {
-  margin-right: 0px;
-  background-color: rgb(255, 255, 255);
-  width: 130px;
-  padding: 5px;
-  border: 1px solid #00000050;
-  border-radius: 2px;
-  height: 3rem;
-}
-
-input.gaji {
-  margin-bottom: 5px;
-  margin-right: 180px;
-  background-color: rgb(255, 255, 255);
-  width: 380px;
-  padding: 5px;
-  border: 1px solid #00000050;
-  border-radius: 2px;
-  height: 3rem;
-}
-
-input.gajitgl {
-  margin-bottom: 5px;
-  margin-right: 50px;
-  background-color: rgb(255, 255, 255);
-  width: 380px;
-  padding: 5px;
-  border: 1px solid #00000050;
-  border-radius: 2px;
-  height: 3rem;
-}
-
-select {
-  margin-bottom: 5px;
-  margin-right: 0px;
-  background-color: rgb(255, 255, 255);
-  width: 407px;
-  padding: 5px;
-  border: 1px solid #00000050;
-  border-style: solid none solid solid;
-  border-radius: 2px 0px 0px 2px;
-  height: 3rem;
-}
-
-button.space {
-  height: 45px;
-  width: 13px;
-  padding-top: 5px;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid #00000050;
-  border-style: solid solid solid none;
-  border-radius: 0px 2px 2px 0px;
-}
-
-textarea.perusahaan {
-  margin-bottom: 5px;
-  background-color: rgb(255, 255, 255);
-  width: 420px;
-  padding: 5px;
-  border: 1px solid #00000050;
-  border-radius: 2px;
-  height: 100px;
-}
-
-textarea {
-  margin-bottom: 5px;
-  background-color: rgb(255, 255, 255);
-  width: 560px;
-  padding: 5px;
-  border: 1px solid #00000050;
-  border-radius: 2px;
-  height: 100px;
-}
-
-div.top {
-  margin-top: 20px;
-}
-
-img {
-  margin: 10px 0px;
-}
-
-h6 {
-  margin: 10px;
-  padding: 0px;
-}
-
-/* div.button {
-  margin: 0px -10px 0px 0px;
-} */
-
-button.tidak,
-button.batal {
-  color: #d85d5d;
-  border: 1px solid #d85d5d;
-  border-radius: 1px;
-  width: 100px;
+button.ya {
   height: 50px;
-  margin: 5px 0px 5px 5px;
-}
-
-button.ya,
-button.simpan {
-  color: #ffffff;
+  width: 100px;
+  color: white;
   background-color: #d85d5d;
   border: 1px solid #d85d5d;
-  border-radius: 1px;
-  width: 100px;
+}
+
+button.tidak {
+  margin-left: 10px;
   height: 50px;
-  margin: 5px;
+  width: 100px;
+  color: #d85d5d;
+  border: 1px solid #d85d5d;
 }
 
-mat-dialog-content.filter {
-  height: fit-content;
-  width: fit-content;
-  margin: 0px;
-  padding: 0px;
+.filter .container {
+  width: min-content;
 }
 
-mat-dialog-actions.filter {
-  height: fit-content;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: 0px;
-  padding: 0px;
+.filter div.form {
+  display: inline-flex;
+  margin-bottom: 10px;
 }
 
-select.filter {
-  width: 250px;
-  border: 1px solid #00000050;
-}
-
-p.filter {
-  width: 120px;
+.filter p {
+  width: 115px;
   margin-right: 10px;
+}
+
+.filter select {
+  width: 250px;
 }

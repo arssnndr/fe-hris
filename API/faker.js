@@ -339,16 +339,20 @@ const departemen = divisi;
 const subDepartemen = divisi;
 
 // bagian_kerja
-for (var i = 0; i < 75; i++) {
+begin = 0;
+begin1 = 0
+for (var i = 0; i < 17; i++) {
   database.ms_bagiankerja.push({
     id: i,
-    jenis_bagian: faker.helpers.arrayElement(jenisBagian),
-    lokasi: faker.helpers.arrayElement(lokasi).inisial,
-    divisi: faker.helpers.arrayElement(divisi),
-    departemen: faker.helpers.arrayElement(departemen),
-    sub_departemen: faker.helpers.arrayElement(subDepartemen),
+    jenis_bagian: jenisBagian[begin1],
+    lokasi: lokasi[begin].inisial,
+    divisi: divisi[i],
+    departemen: departemen[i + 1],
+    sub_departemen: subDepartemen[i + 2],
     status: faker.datatype.boolean(),
   });
+  begin < 4 ? begin++ : (begin = 0);
+  begin1 < 2 ? begin1++ : (begin1 = 0);
 }
 
 // ms_perusahaan
@@ -701,7 +705,7 @@ for (var i = 0; i < loop; i++) {
 }
 
 // ms_kalenderkerja
-for (var i = 0; i < 35; i++) {
+for (var i = 0; i < 17; i++) {
   const tgl = sliceDate(faker.date.future());
 
   database.ms_kalenderkerja.push({
