@@ -1,20 +1,22 @@
 button.ya {
   height: 50px;
   width: 100px;
+  margin-right: 10px;
   color: white;
   background-color: #d85d5d;
   border: 1px solid #d85d5d;
 }
 
 button.tidak {
-  margin-left: 10px;
   height: 50px;
   width: 100px;
   color: #d85d5d;
   border: 1px solid #d85d5d;
 }
 
-.filter .container {
+/* FILTER */
+
+.filter div.container {
   width: min-content;
 }
 
@@ -30,4 +32,86 @@ button.tidak {
 
 .filter select {
   width: 250px;
+}
+
+/* TAMBAH */
+
+.tambah {
+  padding-right: 10px;
+}
+
+.tambah div.container {
+  width: 680px;
+}
+
+.tambah div.form {
+  display: inline-flex;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.tambah p {
+  width: 200px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.tambah select {
+  width: 400px;
+  height: 45px;
+  border: 1px solid #00000040;
+}
+
+.tambah input[type="text"] {
+  width: 400px;
+  height: 45px;
+  padding: 5px;
+  border: 1px solid #00000040;
+}
+
+.tambah input[type="date"] {
+  width: 125px;
+  height: 45px;
+  padding: 5px;
+  border: 1px solid #00000040;
+}
+
+.tambah textarea {
+  width: 400px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid #00000040;
+}
+
+.tambah input:disabled {
+  background-color: #00000014;
+}
+
+table {
+  width: 400px;
+}
+
+th {
+  background-color: #ffe6e6;
+  border-radius: 0px;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+td {
+  padding: 5px;
+  font-size: 14px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fff4f4;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+tbody tr:hover {
+  background-color: rgba(128, 128, 128, 0.1);
 }

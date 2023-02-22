@@ -9,7 +9,10 @@
     "test": "ng test",
     "server": "npm run generatedb & npm run json",
     "generatedb": "node ./API/faker.js > ./API/db.json",
-    "json": "json-server ./API/db.json"
+    "json": "json-server ./API/db.json",
+    "add": "git add . & npm run commit",
+    "commit": "git commit -m checkpoint & npm run push",
+    "push": "git push"
   },
   "private": true,
   "dependencies": {

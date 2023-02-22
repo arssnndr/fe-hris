@@ -12,6 +12,7 @@ import { ModalKaryawanComponent } from './modal-karyawan/modal-karyawan.componen
 export class KaryawanComponent implements OnInit {
   tableKaryawan: string = 'ms_karyawan/';
   dataKaryawan: any;
+  biggestNip: any[] = [];
 
   search: string = '';
   filter: any;
@@ -28,6 +29,19 @@ export class KaryawanComponent implements OnInit {
   ngOnInit(): void {
     this.api.getData(this.tableKaryawan).subscribe((res) => {
       this.paginator.length = res.length;
+
+      const setPerusahaan = [...new Set(res.map((val: any) => val.perusahaan))];
+
+      setPerusahaan.forEach((val) => {
+        const setNip = res.map((ress: any) =>
+          ress.perusahaan === val ? ress.nip : '0'
+        );
+        this.biggestNip.push({
+          perusahaan: val,
+          nip: Math.max(...setNip.map(Number)),
+        });
+      });
+
       this.getDataPerPage();
     });
   }
@@ -43,7 +57,7 @@ export class KaryawanComponent implements OnInit {
         this.filter.lokasi.length === 0 &&
         this.filter.divisi.length === 0 &&
         this.filter.departemen.length === 0 &&
-        this.filter.subDepartemen.length === 0 &&
+        this.filter.sub_departemen.length === 0 &&
         this.filter.perusahaan.length === 0
       ) {
         this.filter = undefined;
@@ -57,7 +71,7 @@ export class KaryawanComponent implements OnInit {
           '&departemen_like=' +
           this.filter.departemen +
           '&sub_departemen_like=' +
-          this.filter.subDepartemen +
+          this.filter.sub_departemen +
           '&perusahaan_like=' +
           this.filter.perusahaan;
       }
@@ -95,6 +109,37 @@ export class KaryawanComponent implements OnInit {
         if (res !== undefined) {
           this.filter = res;
           this.getDataPerPage();
+        }
+      });
+  }
+
+  tambahData() {
+    this.dialog
+      .open(ModalKaryawanComponent, { data: { name: 'tambah' } })
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.biggestNip.forEach((val) => {
+            if (val.perusahaan === res.perusahaan) {
+              res.nip = (val.nip + 1).toString();
+            }
+          });
+          this.api.postData(this.tableKaryawan, res).subscribe(() => {
+            this.ngOnInit();
+          });
+        }
+      });
+  }
+
+  editData(data: any) {
+    this.dialog
+      .open(ModalKaryawanComponent, { data: { name: 'edit', data: data } })
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.api.updateData(this.tableKaryawan, res, res.id).subscribe(() => {
+            this.getDataPerPage();
+          });
         }
       });
   }

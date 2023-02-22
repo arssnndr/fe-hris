@@ -58,7 +58,7 @@
             </mat-menu>
           </li>
           <li>
-            <button class="tambah waves-effect waves-light">
+            <button class="tambah waves-effect waves-light" (click)="tambahData()">
               Tambah
             </button>
           </li>
@@ -81,12 +81,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let row of dataKaryawan">
-      <td>{{ row.nip }}</td>
-      <td>{{ row.nama_lengkap }}</td>
-      <td>{{ row.departemen }}</td>
-      <td>{{ row.jabatan }}</td>
-      <td>{{ row.perusahaan }}</td>
-      <td>{{ row.lokasi }}</td>
+      <td (click)="editData(row)">{{ row.nip }}</td>
+      <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
+      <td (click)="editData(row)">{{ row.departemen }}</td>
+      <td (click)="editData(row)">{{ row.jabatan }}</td>
+      <td (click)="editData(row)">{{ row.perusahaan }}</td>
+      <td (click)="editData(row)">{{ row.lokasi }}</td>
       <td>
         <button class="waves-effect waves-light right red darken-2" (click)="deleteData(row.id)">
           <i class="material-icons" style="font-size: 15px">close</i>

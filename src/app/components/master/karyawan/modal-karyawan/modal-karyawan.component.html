@@ -18,48 +18,12 @@
 <div *ngIf="isFilter">
   <mat-dialog-content class="filter">
     <div class="container">
-      <div class="form">
-        <p>Lokasi</p>
-        <select name="lokasi" id="lokasi" class="browser-default" [(ngModel)]="filter.lokasi">
+      <div *ngFor="let row of formFilter; index as i" class="form">
+        <p>{{ row.label }}</p>
+        <select [name]="row.id" [id]="row.id" class="browser-default" [(ngModel)]="filter[row.id]">
           <option value="">All</option>
-          <option *ngFor="let row of dataLokasi" [value]="row.inisial">
-            {{ row.inisial }}
-          </option>
-        </select>
-      </div>
-      <div class="form">
-        <p>Divisi</p>
-        <select name="divisi" id="divisi" class="browser-default" [(ngModel)]="filter.divisi">
-          <option value="">All</option>
-          <option *ngFor="let row of dataBagianKerja" [value]="row.divisi">
-            {{ row.divisi }}
-          </option>
-        </select>
-      </div>
-      <div class="form">
-        <p>Departemen</p>
-        <select name="departemen" id="departemen" class="browser-default" [(ngModel)]="filter.departemen">
-          <option value="">All</option>
-          <option *ngFor="let row of dataBagianKerja" [value]="row.departemen">
-            {{ row.departemen }}
-          </option>
-        </select>
-      </div>
-      <div class="form">
-        <p>Sub Departemen</p>
-        <select name="subDepartemen" id="subDepartemen" class="browser-default" [(ngModel)]="filter.subDepartemen">
-          <option value="">All</option>
-          <option *ngFor="let row of dataBagianKerja" [value]="row.sub_departemen">
-            {{ row.sub_departemen }}
-          </option>
-        </select>
-      </div>
-      <div class="form">
-        <p>Perusahaan</p>
-        <select name="perusahaan" id="perusahaan" class="browser-default" [(ngModel)]="filter.perusahaan">
-          <option value="">All</option>
-          <option *ngFor="let row of dataPerusahaan" [value]="row.nama">
-            {{ row.nama }}
+          <option *ngFor="let option of row.value" [value]="option">
+            {{ option }}
           </option>
         </select>
       </div>
@@ -72,5 +36,164 @@
     <button class="tidak waves-effect waves-dark transparent" [mat-dialog-close]="undefined">
       Batal
     </button>
+  </mat-dialog-actions>
+</div>
+
+<!-- MODAL TAMBAH DATA -->
+<div *ngIf="isTambah || isEdit">
+  <mat-dialog-content class="tambah">
+    <div class="container">
+      <mat-tab-group dynamicHeight mat-align-tabs="center">
+
+        <mat-tab label="Pribadi">
+          <div *ngIf="tambah.kewarganegaraan === 'WNI'">
+            <div class="form" *ngFor="let row of formTabPribadiWni">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+                  row.placeholder === undefined ? row.label : row.placeholder
+                " [(ngModel)]="tambah[row.id]" />
+              <select *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id" class="browser-default"
+                [(ngModel)]="tambah[row.id]">
+                <option *ngFor="let option of row.value" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+              <textarea *ngIf="row.form === 'textarea'" [name]="row.id" [id]="row.id" cols="30" rows="10"
+                [placeholder]="row.label" [(ngModel)]="tambah[row.id]"></textarea>
+            </div>
+          </div>
+          <div *ngIf="tambah.kewarganegaraan === 'WNA'">
+            <div class="form" *ngFor="let row of formTabPribadiWna">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+                  row.placeholder === undefined ? row.label : row.placeholder
+                " [(ngModel)]="tambah[row.id]" />
+              <select *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id" class="browser-default"
+                [(ngModel)]="tambah[row.id]">
+                <option *ngFor="let option of row.value" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+              <textarea *ngIf="row.form === 'textarea'" [name]="row.id" [id]="row.id" cols="30" rows="10"
+                [placeholder]="row.label" [(ngModel)]="tambah[row.id]"></textarea>
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Pekerjaan & Organisasi">
+          <div class="form" *ngFor="let row of formTabPekerjaanOrganisasi">
+            <p>{{ row.label }}</p>
+            <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+                row.placeholder === undefined ? row.label : row.placeholder
+              " [(ngModel)]="tambah[row.id]" disabled="{{ row.disable }}" />
+            <select *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id" class="browser-default"
+              [(ngModel)]="tambah[row.id]">
+              <option *ngFor="let option of row.value" [value]="option">
+                {{ option }}
+              </option>
+            </select>
+            <textarea *ngIf="row.form === 'textarea'" [name]="row.id" [id]="row.id" cols="30" rows="10"
+              [placeholder]="row.label" [(ngModel)]="tambah[row.id]"></textarea>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Periode Kontrak">
+          <div *ngIf="isEdit" style="margin-top: 5px; margin-left: 210px">
+            <button class="ya waves-effect waves-light" (click)="perpanjangKontrak()">
+              Perpanjang Kontrak
+            </button>
+            <button class="ya waves-effect waves-light" (click)="terminasi()">Terminasi</button>
+          </div>
+          <div *ngIf="tambah.status_karyawan === 'PKWTT' && !isEdit">
+            <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwtt">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
+                [(ngModel)]="tambah[row.id]" />
+            </div>
+          </div>
+          <div *ngIf="tambah.status_karyawan === 'PKWTT' && isEdit">
+            <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwttEdit">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
+                [(ngModel)]="tambah[row.id]" />
+            </div>
+          </div>
+          <div *ngIf="tambah.status_karyawan === 'PKWT' && !isEdit">
+            <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwt">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+                  row.placeholder === undefined ? row.label : row.placeholder
+                " [(ngModel)]="tambah[row.id]" />
+            </div>
+          </div>
+          <div *ngIf="tambah.status_karyawan === 'PKWT' && isEdit">
+            <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwtEdit">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+                  row.placeholder === undefined ? row.label : row.placeholder
+                " [(ngModel)]="tambah[row.id]" />
+            </div>
+            <div *ngIf="isEdit" class="form">
+              <p>Data Kontrak</p>
+              <table class="responsive-table striped">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nomor PKWT</th>
+                    <th>Awal-Akhir Kontrak</th>
+                    <th>Awal-Akhir Cuti</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of tambah.data_kontrak; index as i">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ row.nomor_pkwt }}</td>
+                    <td>
+                      {{ formatDate(row.mulai_kontrak) }} <br />
+                      {{ formatDate(row.akhir_kontrak) }}
+                    </td>
+                    <td>
+                      {{ formatDate(row.tgl_muncul_hak_cuti) }} <br />
+                      {{ formatDate(row.tgl_berakhir_hak_cuti) }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div *ngIf="
+              tambah.status_karyawan === 'Magang' ||
+              tambah.status_karyawan === 'Informal' ||
+              tambah.status_karyawan === 'Harian'">
+            <div class="form" *ngFor="let row of formTabPeriodeKontrakMagang">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
+                [(ngModel)]="tambah[row.id]" />
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Gaji Karyawan">
+          <div class="form" *ngFor="let row of formTabGajiKaryawan">
+            <p>{{ row.label }}</p>
+            <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
+              [(ngModel)]="tambah[row.id]" />
+            <textarea *ngIf="row.form === 'textarea'" [name]="row.id" [id]="row.id" cols="30" rows="10"
+              [placeholder]="row.label" [(ngModel)]="tambah[row.id]"></textarea>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions style="margin: 0px;">
+    <div style="margin-left: 400px; margin-top: 10px">
+      <button style="height: 45.8px; width: 85.8px;" class="ya waves-effect waves-light" [mat-dialog-close]="tambah">
+        Simpan
+      </button>
+      <button style="height: 45.8px; width: 85.8px;" class="tidak waves-effect waves-dark transparent"
+        [mat-dialog-close]="undefined">
+        Batal
+      </button>
+    </div>
   </mat-dialog-actions>
 </div>

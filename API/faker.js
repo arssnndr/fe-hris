@@ -22,12 +22,12 @@ const database = {
   log_history: [],
 };
 
-const loop = 100;
+const loop = 55;
 
 const perusahaan = [
   {
     inisial: "IJP",
-    nama: "Indika Jasa Parama",
+    nama: "Indika Jasa Pahrama",
     alamat: "Jl. Raya Bekasi KM.21, Ruko PTC Block B8",
   },
   {
@@ -98,6 +98,7 @@ const divisi = [
   "Sales",
   "Purchase",
   "HRD",
+  "Implementasi",
 ];
 const jamKerja = [
   {
@@ -186,7 +187,6 @@ const statusPajak = [
   "K/I/3",
 ];
 const jabatan = [
-  "Staff/Crew",
   "Foreman",
   "Supervisor",
   "Specialis",
@@ -194,6 +194,7 @@ const jabatan = [
   "Senior Manager",
   "General Manager",
   "Director",
+  "Staff",
 ];
 const mesinFinger = [
   "Solution X100c",
@@ -332,7 +333,7 @@ const table = [
 ];
 const action = ["Edit", "View", "Void"];
 const statusKaryawan = ["PKWT", "PKWTT", "Magang", "Informal", "Harian"];
-const statusPerkawinan = ["Kawin", "Belum kawin", "Cerai"];
+const statusPerkawinan = ["Kawin", "Belum Kawin", "Cerai"];
 const akses = ["Lokasi", "Perusahaan", "All"];
 const jenisBagian = ["Divisi", "Departemen", "Sub Departemen"];
 const departemen = divisi;
@@ -340,15 +341,15 @@ const subDepartemen = divisi;
 
 // bagian_kerja
 begin = 0;
-begin1 = 0
-for (var i = 0; i < 17; i++) {
+begin1 = 0;
+for (var i = 0; i < 20; i++) {
   database.ms_bagiankerja.push({
     id: i,
     jenis_bagian: jenisBagian[begin1],
     lokasi: lokasi[begin].inisial,
     divisi: divisi[i],
-    departemen: departemen[i + 1],
-    sub_departemen: subDepartemen[i + 2],
+    departemen: faker.helpers.arrayElement(departemen),
+    sub_departemen: faker.helpers.arrayElement(subDepartemen),
     status: faker.datatype.boolean(),
   });
   begin < 4 ? begin++ : (begin = 0);
@@ -390,13 +391,14 @@ for (var i = 0; i < loop; i++) {
     nip: resPerusahaan.id.toString() + faker.random.numeric(4),
     kewarganegaraan: faker.helpers.arrayElement(["WNI", "WNA"]),
     nik: faker.random.numeric(16),
+    pin_finger: faker.random.numeric(6),
     nama_lengkap: nama,
     tempat_lahir: faker.address.cityName(),
     tgl_lahir: sliceDate(faker.date.birthdate()),
-    jenis_kelamin: faker.helpers.arrayElement(["Laki-Laki", "Perempuan"]),
+    jenis_kelamin: faker.helpers.arrayElement(["Laki-laki", "Perempuan"]),
     alamat_domisili: faker.address.city(),
     rt_rw: faker.random.numeric(2) + "/" + faker.random.numeric(2),
-    kel_desa: faker.address.city(),
+    kel_des: faker.address.city(),
     agama: faker.helpers.arrayElement(agama),
     status_perkawinan: faker.helpers.arrayElement(statusPerkawinan),
     nomor_npwp: faker.random.numeric(16),
@@ -416,7 +418,7 @@ for (var i = 0; i < loop; i++) {
     nama_anak_ke2: faker.name.fullName(),
     nama_anak_ke3: faker.name.fullName(),
     nama_kontak_darurat: faker.name.fullName(),
-    nomor_telepon_darurat: faker.phone.number("+62 8## #### ####"),
+    nomor_kontak_darurat: faker.phone.number("+62 8## #### ####"),
     hubungan_dengan_karyawan: faker.random.words(2),
     nomor_passport: faker.random.numeric(7),
     tgl_pembuatan_passport: sliceDate(faker.date.past()),
@@ -437,6 +439,35 @@ for (var i = 0; i < loop; i++) {
     nama_atasan_langsung: faker.name.fullName(),
     tgl_join: sliceDate(faker.date.past()),
     nomor_pkwtt: faker.random.alphaNumeric(20),
+    nomor_pkwt: faker.random.alphaNumeric(20),
+    kontrak_ke: faker.helpers.arrayElement([1, 2, 3, 4, 5]),
+    mulai_kontrak: sliceDate(faker.date.past()),
+    akhir_kontrak: sliceDate(faker.date.future()),
+    nomor_surat_kerja: faker.random.alphaNumeric(20),
+    tgl_mulai_kerja: sliceDate(faker.date.past()),
+    tgl_akhir_kerja: sliceDate(faker.date.future()),
+    tgl_muncul_hak_cuti: sliceDate(faker.date.past()),
+    tgl_berakhir_hak_cuti: sliceDate(faker.date.future()),
+    tgl_efektif_terminasi: sliceDate(faker.date.future()),
+    alasan_terminasi: faker.random.words(5),
+    masa_kerja: faker.random.numeric(3),
+    banyak_hak_cuti: faker.datatype.number({ max: 12 }),
+    data_kontrak: [
+      {
+        nomor_pkwt: faker.random.alphaNumeric(20),
+        mulai_kontrak: sliceDate(faker.date.past()),
+        akhir_kontrak: sliceDate(faker.date.future()),
+        tgl_muncul_hak_cuti: sliceDate(faker.date.past()),
+        tgl_berakhir_hak_cuti: sliceDate(faker.date.future()),
+      },
+      {
+        nomor_pkwt: faker.random.alphaNumeric(20),
+        mulai_kontrak: sliceDate(faker.date.past()),
+        akhir_kontrak: sliceDate(faker.date.future()),
+        tgl_muncul_hak_cuti: sliceDate(faker.date.past()),
+        tgl_berakhir_hak_cuti: sliceDate(faker.date.future()),
+      },
+    ],
     gaji_pokok: faker.datatype.number({ min: 3000000, max: 99000000 }),
     tgl_perubahan: sliceDate(faker.date.recent()),
     uang_makan: faker.datatype.number({ min: 10000, max: 100000 }),
@@ -661,7 +692,7 @@ for (var i = 0; i < loop; i++) {
 
 // trx_jadwalkerjacategory
 let jadwalKerja = [];
-for (var i = 0; i < 75; i++) {
+for (var i = 0; i < 7; i++) {
   jadwalKerja = [];
   let hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
 

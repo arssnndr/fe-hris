@@ -1,0 +1,39 @@
+<div>
+    <h6 mat-dialog-title>Perpanjang Kontrak</h6>
+    <mat-dialog-content>
+        <div class="container">
+            <div *ngIf="data.name === 'PKWT'">
+                <div class="form" *ngFor="let row of formPkwt">
+                    <p>{{row.label}}</p>
+                    <input class="browser-default" [type]="row.type" [name]="row.id" [id]="row.id"
+                        [(ngModel)]="setData[row.id]">
+                    <p *ngIf="row.type === 'number'" style="width: fit-content; margin-left: 10px">Hari</p>
+                </div>
+            </div>
+            <div *ngIf="data.name === 'PKWTT'">
+                <div class="form" *ngFor="let row of formPkwtt">
+                    <p>{{row.label}}</p>
+                    <input class="browser-default" [type]="row.type" [name]="row.id" [id]="row.id"
+                        [(ngModel)]="setData[row.id]">
+                    <p *ngIf="row.type === 'number'" style="width: fit-content; margin-left: 10px">Hari</p>
+                </div>
+            </div>
+            <div *ngIf="data.name === 'Magang'">
+                <div class="form" *ngFor="let row of formMagang">
+                    <p>{{row.label}}</p>
+                    <input class="browser-default" [type]="row.type" [name]="row.id" [id]="row.id"
+                        [(ngModel)]="setData[row.id]">
+                    <p *ngIf="row.type === 'number'" style="width: fit-content; margin-left: 10px">Hari</p>
+                </div>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button class="tambah waves-effect waves-light" [mat-dialog-close]="setData">
+            Tambah
+        </button>
+        <button class="batal waves-effect waves-dark transparent" [mat-dialog-close]="undefined">
+            Batal
+        </button>
+    </mat-dialog-actions>
+</div>
