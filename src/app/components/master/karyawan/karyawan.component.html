@@ -19,8 +19,9 @@
           <li>
             <button class="download waves-effect waves-dark transparent" [matMenuTriggerFor]="menuHistory">
               Download History
-            </button><mat-menu #menuHistory="matMenu">
-              <button mat-menu-item>
+            </button>
+            <mat-menu #menuHistory="matMenu">
+              <button mat-menu-item (click)="printData()">
                 <mat-icon><i class="material-icons menu">perm_contact_calendar</i></mat-icon>
                 <span>Status</span>
               </button>

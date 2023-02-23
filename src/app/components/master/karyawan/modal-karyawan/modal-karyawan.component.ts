@@ -87,6 +87,10 @@ export class ModalKaryawanComponent implements OnInit {
     status_karyawan: 'PKWTT',
     nama_pemberi_referensi: '',
     nama_atasan_langsung: '',
+    lokasi_detasir: '',
+    tgl_mulai_detasir: '',
+    tgl_akhir_detasir: '',
+    alasan_detasir: '',
 
     tgl_join: moment().format('YYYY-MM-DD'),
     nomor_pkwtt: '',
@@ -557,7 +561,7 @@ export class ModalKaryawanComponent implements OnInit {
   ];
 
   constructor(
-    private api: ApiService,
+    api: ApiService,
     @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any },
     private dialog: MatDialog
   ) {
@@ -572,6 +576,13 @@ export class ModalKaryawanComponent implements OnInit {
 
         this.tambah = data.data;
         this.tambah.kontrak_ke = this.tambah.data_kontrak.length + 1;
+        this.formTabPekerjaanOrganisasi.splice(11, 0, {
+          id: 'lokasi_detasir',
+          form: 'select',
+          label: 'Lokasi Detasir',
+          value: [],
+        });
+        this.detasir();
         break;
       case 'delete':
         this.isDelete = true;
@@ -596,6 +607,10 @@ export class ModalKaryawanComponent implements OnInit {
       this.formTabPekerjaanOrganisasi.forEach((val) => {
         if (val.id === 'lokasi') {
           val.value = listLokasi;
+        }
+        if (val.id === 'lokasi_detasir') {
+          val.value = listLokasi;
+          val.value?.push('Tidak ada');
         }
       });
     });
@@ -782,6 +797,38 @@ export class ModalKaryawanComponent implements OnInit {
           }
         );
         break;
+    }
+  }
+
+  detasir() {
+    if (this.tambah.lokasi_detasir === 'Tidak ada') {
+      this.formTabPekerjaanOrganisasi.splice(12, 3);
+    } else {
+      this.formTabPekerjaanOrganisasi.splice(
+        12,
+        0,
+        {
+          id: 'tgl_mulai_detasir',
+          form: 'input',
+          type: 'date',
+          label: 'Tanggal Mulai Detasir',
+          disable: false,
+        },
+        {
+          id: 'tgl_akhir_detasir',
+          form: 'input',
+          type: 'date',
+          label: 'Tanggal Akhir Detasir',
+          disable: false,
+        },
+        {
+          id: 'alasan_detasir',
+          form: 'textarea',
+          type: '',
+          label: 'Alasan Detasir',
+          disable: false,
+        }
+      );
     }
   }
 }

@@ -87,7 +87,7 @@
                 row.placeholder === undefined ? row.label : row.placeholder
               " [(ngModel)]="tambah[row.id]" disabled="{{ row.disable }}" />
             <select *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id" class="browser-default"
-              [(ngModel)]="tambah[row.id]">
+              [(ngModel)]="tambah[row.id]" (change)="detasir()">
               <option *ngFor="let option of row.value" [value]="option">
                 {{ option }}
               </option>
