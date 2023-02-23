@@ -64,6 +64,7 @@ import { DownloadDataPayrollComponent } from './components/download-data-payroll
 import { DownloadReportComponent } from './components/download-report/download-report.component';
 import { LogHistoryComponent } from './components/log-history/log-history.component';
 import { ModalLogHistoryComponent } from './components/log-history/modal-log-history/modal-log-history.component';
+import { ModalPerpanjangKontrakComponent } from './components/master/karyawan/modal-karyawan/modal-perpanjang-kontrak/modal-perpanjang-kontrak.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { ModalLogHistoryComponent } from './components/log-history/modal-log-his
     DownloadReportComponent,
     LogHistoryComponent,
     ModalLogHistoryComponent,
+    ModalPerpanjangKontrakComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -9,7 +9,10 @@
     "test": "ng test",
     "server": "npm run generatedb & npm run json",
     "generatedb": "node ./API/faker.js > ./API/db.json",
-    "json": "json-server ./API/db.json"
+    "json": "json-server ./API/db.json -p 4100",
+    "add": "git add . & npm run commit",
+    "commit": "git commit -m checkpoint & npm run push",
+    "push": "git push"
   },
   "private": true,
   "dependencies": {
@@ -32,7 +35,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.8",
-    "@angular/cli": "^15.1.2",
+    "@angular/cli": "^15.1.6",
     "@angular/compiler-cli": "^14.2.0",
     "@faker-js/faker": "^7.6.0",
     "@types/jasmine": "~4.0.0",

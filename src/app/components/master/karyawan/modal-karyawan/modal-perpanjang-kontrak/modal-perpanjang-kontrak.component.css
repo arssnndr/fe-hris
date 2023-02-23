@@ -1,0 +1,57 @@
+mat-dialog-content,
+mat-dialog-actions {
+  margin: 0px;
+  padding: 0px;
+}
+
+mat-dialog-actions {
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+
+div.container {
+  display: block;
+  width: min-content;
+}
+
+div.form {
+  display: inline-flex;
+  width: 100%;
+  margin-top: 5px;
+}
+
+p {
+  width: 200px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+input {
+  height: 45px;
+  padding: 5px;
+}
+
+input[type="text"] {
+  width: 300px;
+}
+
+input[type="date"] {
+  width: 125px;
+}
+
+input[type="number"] {
+  width: 45px;
+}
+
+button {
+  height: 45.8px;
+  width: 85.8px;
+  background-color: #d85d5d;
+  border: 1px solid #d85d5d;
+  color: #d85d5d;
+}
+
+button.tambah {
+  color: white;
+  margin-right: 10px;
+}

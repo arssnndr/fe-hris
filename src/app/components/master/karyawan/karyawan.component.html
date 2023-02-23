@@ -3,22 +3,25 @@
   <nav class="transparent z-depth-0">
     <div class="nav-wrapper row">
       <div class="col s3" style="display: inline-flex;">
-        <input (input)="searchData($event.target)" #search class="browser-default search" type="text" name="search"
-          placeholder="Cari Nama Karyawan.." />
-        <button align="bottom" class="transparent filter" (click)="filter()"><mat-icon>filter_alt</mat-icon></button>
+        <input class="browser-default search" type="text" name="search" placeholder="Cari Nama Karyawan.."
+          [(ngModel)]="search" (input)="ngOnInit()" />
+        <button align="bottom" class="transparent filter"
+          (click)="filterData()"><mat-icon>filter_alt</mat-icon></button>
       </div>
       <div class="col s9">
         <ul class="right">
           <li>
-            <mat-paginator class="transparent" (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
-              [pageSizeOptions]="pageSizeOption" [showFirstLastButtons]="showFirstLastButtons" [pageIndex]="pageIndex">
+            <mat-paginator class="transparent" [length]="paginator.length" [pageSize]="paginator.pageSize"
+              [pageIndex]="paginator.pageIndex" [pageSizeOptions]="paginator.pageSizeOptions"
+              (page)="handlePageEvent($event)">
             </mat-paginator>
           </li>
           <li>
             <button class="download waves-effect waves-dark transparent" [matMenuTriggerFor]="menuHistory">
               Download History
-            </button><mat-menu #menuHistory="matMenu">
-              <button mat-menu-item>
+            </button>
+            <mat-menu #menuHistory="matMenu">
+              <button mat-menu-item (click)="printData()">
                 <mat-icon><i class="material-icons menu">perm_contact_calendar</i></mat-icon>
                 <span>Status</span>
               </button>
@@ -56,7 +59,7 @@
             </mat-menu>
           </li>
           <li>
-            <button class="tambah waves-effect waves-light" (click)="tambahData(tmpData)">
+            <button class="tambah waves-effect waves-light" (click)="tambahData()">
               Tambah
             </button>
           </li>
@@ -78,7 +81,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of data">
+    <tr *ngFor="let row of dataKaryawan">
       <td (click)="editData(row)">{{ row.nip }}</td>
       <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
       <td (click)="editData(row)">{{ row.departemen }}</td>
@@ -86,7 +89,7 @@
       <td (click)="editData(row)">{{ row.perusahaan }}</td>
       <td (click)="editData(row)">{{ row.lokasi }}</td>
       <td>
-        <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
+        <button class="waves-effect waves-light right red darken-2" (click)="deleteData(row.id)">
           <i class="material-icons" style="font-size: 15px">close</i>
         </button>
       </td>

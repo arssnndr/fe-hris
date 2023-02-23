@@ -1,481 +1,199 @@
-<!-- Modal tambah or edit data -->
-<div *ngIf="isTambah || isEdit">
-  <mat-dialog-content class="tambah">
-    <mat-tab-group mat-align-tabs="center">
-      <mat-tab label="Pribadi">
-        <div class="right top">
-          <h6>Kewarganegaraan</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.kewarganegaraan">
-            <option *ngFor="let raw of kewarganegaraan" [value]="raw.value">
-              {{ raw.value }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>NIK</h6>
-          <input type="number" class="browser-default" placeholder="Nomor Induk Kependudukan"
-            [(ngModel)]="karyawan.nik" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
-          <h6>Nomor Passport</h6>
-          <input type="number" class="browser-default" placeholder="Nomor Passport"
-            [(ngModel)]="karyawan.nomor_passport" />
-        </div>
-
-        <div class="right">
-          <h6>
-            Nama
-            <span style="color: red" *ngIf="karyawan.nama_lengkap === ''">*</span>
-          </h6>
-          <input type="text" class="browser-default" maxlength="150" placeholder="Nama Lengkap"
-            [(ngModel)]="karyawan.nama_lengkap" />
-        </div>
-
-        <div class="right">
-          <h6>
-            Tempat Lahir
-            <span style="color: red" *ngIf="karyawan.tempat_lahir === ''">*</span>
-          </h6>
-          <input type="text" class="browser-default" placeholder="Tempat Lahir" [(ngModel)]="karyawan.tempat_lahir" />
-        </div>
-
-        <div class="right">
-          <h6>
-            Tgl Lahir
-            <span style="color: red" *ngIf="karyawan.tgl_lahir === ''">*</span>
-          </h6>
-          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_lahir" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
-          <h6>Tgl Pembuatan (Passport)</h6>
-          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_pembuatan_passport" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
-          <h6>Tgl Berakhir (Passport)</h6>
-          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_berakhir_passport" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
-          <h6>Kebangsaan</h6>
-          <input type="text" class="browser-default" placeholder="Kebangsaan" [(ngModel)]="karyawan.kebangsaan" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Jenis Kelamin</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.jenis_kelamin">
-            <option *ngFor="let raw of jenisKelamin" [value]="raw.value">
-              {{ raw.value }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right alamat" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Alamat</h6>
-          <textarea class="perusahaan" placeholder="Alamat Domisili" [(ngModel)]="karyawan.alamat_domisili"></textarea>
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>RT/RW</h6>
-          <input type="text" class="browser-default" placeholder="RT/RW" [(ngModel)]="karyawan.rt_rw" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Kel/Desa</h6>
-          <input type="text" class="browser-default" placeholder="Kel/Desa" [(ngModel)]="karyawan.kel_desa" />
-        </div>
-
-        <div class="right">
-          <h6>Agama</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.agama">
-            <option *ngFor="let raw of agama" [value]="raw.value">
-              {{ raw.value }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Status Perkawinan</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.status_perkawinan">
-            <option *ngFor="let raw of statusPerkawinan" [value]="raw.value">
-              {{ raw.value }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nomor NPWP</h6>
-          <input type="text" class="browser-default" placeholder="Nomor NPWP" [(ngModel)]="karyawan.nomor_npwp" />
-        </div>
-
-        <div class="right">
-          <h6>Nomor Telepon</h6>
-          <input type="text" class="browser-default" placeholder="Nomor Telepon" [(ngModel)]="karyawan.nomor_telepon" />
-        </div>
-
-        <div class="right">
-          <h6>Email</h6>
-          <input type="text" class="browser-default" placeholder="Email" [(ngModel)]="karyawan.email" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
-          <h6>Nomor Kitas</h6>
-          <input type="text" class="browser-default" placeholder="Nomor Kitas" [(ngModel)]="karyawan.nomor_kitas" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
-          <h6>Tgl Berakhir (Kitas)</h6>
-          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_berakhir_kitas" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
-          <h6>Nomor RPTKA</h6>
-          <input type="text" class="browser-default" placeholder="Nomor RPTKA" [(ngModel)]="karyawan.nomor_rptka" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
-          <h6>Tgl Berakhir (RPTKA)</h6>
-          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_berakhir_rptka" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNA'">
-          <h6>Nomor NPWP</h6>
-          <input type="text" class="browser-default" placeholder="Nomor NPWP" [(ngModel)]="karyawan.nomor_npwp" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Pendidikan Terakhir</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.pendidikan_terakhir">
-            <option *ngFor="let raw of pendidikanTerakhir" [value]="raw.value">
-              {{ raw.value }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nomor Kartu BPJS TK</h6>
-          <input type="text" class="browser-default" placeholder="Nomor Kartu BPJS TK"
-            [(ngModel)]="karyawan.nomor_bpjs_tk" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nomor Kartu BPJS Kesehatan</h6>
-          <input type="text" class="browser-default" placeholder="Nomor Kartu BPJS Kesehatan"
-            [(ngModel)]="karyawan.nomor_bpjs_kesehatan" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nama Fasker</h6>
-          <input type="text" class="browser-default" placeholder="Nama Faskes" [(ngModel)]="karyawan.nama_faskes" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Alamat Faskes</h6>
-          <input type="text" class="browser-default" placeholder="Alamat Faskes" [(ngModel)]="karyawan.alamat_faskes" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nomor KK</h6>
-          <input type="text" class="browser-default" placeholder="Nomor KK" [(ngModel)]="karyawan.nomor_kk" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nama Kepala Keluarga</h6>
-          <input type="text" class="browser-default" placeholder="Nama Kepala Keluarga"
-            [(ngModel)]="karyawan.nama_kepala_keluarga" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nama Ibu Kandung</h6>
-          <input type="text" class="browser-default" placeholder="Nama Ibu Kandung"
-            [(ngModel)]="karyawan.nama_ibu_kandung" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Status Pajak</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.status_pajak">
-            <option *ngFor="let raw of statusPajak" [value]="raw.value">
-              {{ raw.value }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nama Pasangan</h6>
-          <input type="text" class="browser-default" placeholder="Nama Pasangan" [(ngModel)]="karyawan.nama_pasangan" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nama Anak Ke 1</h6>
-          <input type="text" class="browser-default" placeholder="Nama Anak Ke 1"
-            [(ngModel)]="karyawan.nama_anak_ke1" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nama Anak Ke 2</h6>
-          <input type="text" class="browser-default" placeholder="Nama Anak Ke 2"
-            [(ngModel)]="karyawan.nama_anak_ke2" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nama Anak Ke 3</h6>
-          <input type="text" class="browser-default" placeholder="Nama Anak Ke 3"
-            [(ngModel)]="karyawan.nama_anak_ke3" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nama Kontak Darurat</h6>
-          <input type="text" class="browser-default" placeholder="Nama Kontak Darurat"
-            [(ngModel)]="karyawan.nama_kontak_darurat" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Nomor Telpon Darurat</h6>
-          <input type="text" class="browser-default" placeholder="Nomor Telpon Darurat"
-            [(ngModel)]="karyawan.nomor_telepon_darurat" />
-        </div>
-
-        <div class="right" *ngIf="karyawan.kewarganegaraan === 'WNI'">
-          <h6>Hubungan Dengan Karyawan</h6>
-          <input type="text" class="browser-default" placeholder="Hubungan Dengan Karyawan"
-            [(ngModel)]="karyawan.hubungan_dengan_karyawan" />
-        </div>
-      </mat-tab>
-
-      <mat-tab label="Pekerjaan & Organisasi">
-        <div class="right top">
-          <h6>
-            Perusahaan
-            <span style="color: red">*</span>
-          </h6>
-          <select *ngIf="isTambah" class="browser-default" [(ngModel)]="karyawan.perusahaan">
-            <option *ngFor="let raw of perusahaan" [value]="raw">
-              {{ raw }}
-            </option>
-          </select>
-          <select *ngIf="isEdit" class="browser-default" [(ngModel)]="karyawan.perusahaan">
-            <option *ngFor="let raw of perusahaan" [value]="raw">
-              {{ raw }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right">
-          <h6>NIP</h6>
-          <input type="text" class="browser-default disabled" placeholder="000000" [(ngModel)]="karyawan.nip"
-            disabled />
-        </div>
-
-        <div class="right">
-          <h6>
-            Lokasi Kerja
-            <span style="color: red" *ngIf="karyawan.lokasi === ''">*</span>
-          </h6>
-          <select class="browser-default" [(ngModel)]="karyawan.lokasi">
-            <option *ngFor="let raw of lokasi" [value]="raw">
-              {{ raw }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right">
-          <h6>Divisi</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.divisi">
-            <option *ngFor="let raw of divisi" [value]="raw">
-              {{ raw }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right">
-          <h6>Departemen</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.departemen">
-            <option *ngFor="let raw of departemen" [value]="raw">
-              {{ raw }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right">
-          <h6>Sub Departemen</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.sub_departemen">
-            <option *ngFor="let raw of subDepartemen" [value]="raw">
-              {{ raw }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right">
-          <h6>Jabatan</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.jabatan">
-            <option *ngFor="let raw of jabatan" [value]="raw.value">
-              {{ raw.value }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right">
-          <h6>Status Karyawan</h6>
-          <select class="browser-default" [(ngModel)]="karyawan.status_karyawan">
-            <option *ngFor="let raw of statusKaryawan" [value]="raw.value">
-              {{ raw.value }}
-            </option>
-          </select>
-          <button class="space"></button>
-        </div>
-
-        <div class="right">
-          <h6>Nama Pemberi Referensi</h6>
-          <input type="text" class="browser-default" placeholder="Nama Pemberi Referensi"
-            [(ngModel)]="karyawan.nama_pemberi_referensi" />
-        </div>
-
-        <div class="right">
-          <h6>Nama Atasan Langsung</h6>
-          <input type="text" class="browser-default" placeholder="Nama Atasan Langsung"
-            [(ngModel)]="karyawan.nama_atasan_langsung" />
-        </div>
-      </mat-tab>
-
-      <!-- MAT TAB PERIODE KONTRAK -->
-      <mat-tab label="Periode Kontrak">
-        <div class="right top">
-          <h6>Tgl Join</h6>
-          <input type="date" class="browser-default tgl" [(ngModel)]="karyawan.tgl_join" />
-        </div>
-
-        <div class="right">
-          <h6>Nomor PKWTT</h6>
-          <input type="text" class="browser-default" placeholder="Nomor PKWTT" [(ngModel)]="karyawan.nomor_pkwtt" />
-        </div>
-      </mat-tab>
-
-      <!-- MAT TAB GAJI KARYAWAN -->
-      <mat-tab label="Gaji Karyawan">
-        <div class="right top">
-          <h6>Gaji Pokok</h6>
-          <input type="text" class="browser-default gajitgl" placeholder="Gaji Pokok"
-            [(ngModel)]="karyawan.gaji_pokok" />
-          <input type="date" class="browser-default tglgaji" [(ngModel)]="karyawan.tgl_perubahan" />
-        </div>
-
-        <div class="right">
-          <h6>Uang Makan</h6>
-          <input type="text" class="browser-default gaji" placeholder="Uang Makan" [(ngModel)]="karyawan.uang_makan" />
-        </div>
-
-        <div class="right">
-          <h6>Uang Transport</h6>
-          <input type="text" class="browser-default gaji" placeholder="Uang Transport"
-            [(ngModel)]="karyawan.uang_transport" />
-        </div>
-
-        <div class="right alamat">
-          <h6>Note</h6>
-          <textarea placeholder="Note" [(ngModel)]="karyawan.note"></textarea>
-        </div>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
-    <div class="button">
-      <button type="submit" class="simpan waves-effect waves-light" *ngIf="isTambah" mat-dialog-close="simpan"
-        (click)="throwResult()">
-        Simpan
-      </button>
-      <button type="submit" class="simpan waves-effect waves-light" *ngIf="isEdit" mat-dialog-close="update"
-        (click)="throwResult()">
-        Simpan
-      </button>
-      <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
-        Batal
-      </button>
-    </div>
-  </mat-dialog-actions>
-</div>
-
-<!-- Modal delete -->
+<!-- MODAL DELETE -->
 <div *ngIf="isDelete">
-  <mat-dialog-content class="delete">
+  <mat-dialog-content>
     <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger" />
     <p style="padding-left: 55px">Yakin data akan di void?</p>
   </mat-dialog-content>
-  <mat-dialog-actions align="end" class="delete">
-    <button class="ya waves-effect waves-light" mat-dialog-close="ya">
+  <mat-dialog-actions align="end">
+    <button style="margin-left: 100px" class="ya waves-effect waves-light" mat-dialog-close="ya">
       Ya
     </button>
-    <button class="tidak waves-effect waves-dark transparent" mat-dialog-close="tidak">
+    <button class="tidak waves-effect waves-dark transparent" [mat-dialog-close]="undefined">
       Tidak
     </button>
   </mat-dialog-actions>
 </div>
 
-<!-- Modal Filter -->
+<!-- MODAL FILTER DATA -->
 <div *ngIf="isFilter">
   <mat-dialog-content class="filter">
-    <div style="display: block">
-      <div style="display: inline-flex">
-        <p class="filter">Lokasi</p>
-        <select name="lokasi" id="lokasi" class="browser-default filter" [(ngModel)]="filter.lokasi">
+    <div class="container">
+      <div *ngFor="let row of formFilter; index as i" class="form">
+        <p>{{ row.label }}</p>
+        <select [name]="row.id" [id]="row.id" class="browser-default" [(ngModel)]="filter[row.id]">
           <option value="">All</option>
-          <option *ngFor="let row of lokasi" [value]="row">{{ row }}</option>
-        </select>
-      </div>
-      <br>
-      <div style="display: inline-flex">
-        <p class="filter">Divisi</p>
-        <select name="divisi" id="divisi" class="browser-default filter" [(ngModel)]="filter.divisi">
-          <option value="">All</option>
-          <option *ngFor="let row of divisi" [value]="row">{{ row }}</option>
-        </select>
-      </div>
-      <br>
-      <div style="display: inline-flex">
-        <p class="filter">Departemen</p>
-        <select name="departemen" id="departemen" class="browser-default filter" [(ngModel)]="filter.departemen">
-          <option value="">All</option>
-          <option *ngFor="let row of departemen" [value]="row">{{ row }}</option>
-        </select>
-      </div>
-      <br>
-      <div style="display: inline-flex">
-        <p class="filter">Sub Departemen</p>
-        <select name="subDepartemen" id="subDepartemen" class="browser-default filter" [(ngModel)]="filter.subDepartemen">
-          <option value="">All</option>
-          <option *ngFor="let row of subDepartemen" [value]="row">{{ row }}</option>
-        </select>
-      </div>
-      <br>
-      <div style="display: inline-flex">
-        <p class="filter">Nama Perusahaan</p>
-        <select name="perusahaan" id="perusahaan" class="browser-default filter" [(ngModel)]="filter.perusahaan">
-          <option value="">All</option>
-          <option *ngFor="let row of perusahaan" [value]="row">{{ row }}</option>
+          <option *ngFor="let option of row.value" [value]="option">
+            {{ option }}
+          </option>
         </select>
       </div>
     </div>
   </mat-dialog-content>
-  <mat-dialog-actions class="filter">
-    <button class="simpan waves-effect waves-light" [mat-dialog-close]="filter">
+  <mat-dialog-actions align="end">
+    <button class="ya waves-effect waves-light" [mat-dialog-close]="filter">
       Simpan
     </button>
-    <button class="batal waves-effect waves-dark transparent" [mat-dialog-close]="undefined">
+    <button class="tidak waves-effect waves-dark transparent" [mat-dialog-close]="undefined">
       Batal
     </button>
+  </mat-dialog-actions>
+</div>
+
+<!-- MODAL TAMBAH DATA -->
+<div *ngIf="isTambah || isEdit">
+  <mat-dialog-content class="tambah">
+    <div class="container">
+      <mat-tab-group dynamicHeight mat-align-tabs="center">
+
+        <mat-tab label="Pribadi">
+          <div *ngIf="tambah.kewarganegaraan === 'WNI'">
+            <div class="form" *ngFor="let row of formTabPribadiWni">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+                  row.placeholder === undefined ? row.label : row.placeholder
+                " [(ngModel)]="tambah[row.id]" />
+              <select *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id" class="browser-default"
+                [(ngModel)]="tambah[row.id]">
+                <option *ngFor="let option of row.value" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+              <textarea *ngIf="row.form === 'textarea'" [name]="row.id" [id]="row.id" cols="30" rows="10"
+                [placeholder]="row.label" [(ngModel)]="tambah[row.id]"></textarea>
+            </div>
+          </div>
+          <div *ngIf="tambah.kewarganegaraan === 'WNA'">
+            <div class="form" *ngFor="let row of formTabPribadiWna">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+                  row.placeholder === undefined ? row.label : row.placeholder
+                " [(ngModel)]="tambah[row.id]" />
+              <select *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id" class="browser-default"
+                [(ngModel)]="tambah[row.id]">
+                <option *ngFor="let option of row.value" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+              <textarea *ngIf="row.form === 'textarea'" [name]="row.id" [id]="row.id" cols="30" rows="10"
+                [placeholder]="row.label" [(ngModel)]="tambah[row.id]"></textarea>
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Pekerjaan & Organisasi">
+          <div class="form" *ngFor="let row of formTabPekerjaanOrganisasi">
+            <p>{{ row.label }}</p>
+            <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+                row.placeholder === undefined ? row.label : row.placeholder
+              " [(ngModel)]="tambah[row.id]" disabled="{{ row.disable }}" />
+            <select *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id" class="browser-default"
+              [(ngModel)]="tambah[row.id]" (change)="detasir()">
+              <option *ngFor="let option of row.value" [value]="option">
+                {{ option }}
+              </option>
+            </select>
+            <textarea *ngIf="row.form === 'textarea'" [name]="row.id" [id]="row.id" cols="30" rows="10"
+              [placeholder]="row.label" [(ngModel)]="tambah[row.id]"></textarea>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Periode Kontrak">
+          <div *ngIf="isEdit" style="margin-top: 5px; margin-left: 210px">
+            <button class="ya waves-effect waves-light" (click)="perpanjangKontrak()">
+              Perpanjang Kontrak
+            </button>
+            <button class="ya waves-effect waves-light" (click)="terminasi()">Terminasi</button>
+          </div>
+          <div *ngIf="tambah.status_karyawan === 'PKWTT' && !isEdit">
+            <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwtt">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
+                [(ngModel)]="tambah[row.id]" />
+            </div>
+          </div>
+          <div *ngIf="tambah.status_karyawan === 'PKWTT' && isEdit">
+            <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwttEdit">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
+                [(ngModel)]="tambah[row.id]" />
+            </div>
+          </div>
+          <div *ngIf="tambah.status_karyawan === 'PKWT' && !isEdit">
+            <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwt">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+                  row.placeholder === undefined ? row.label : row.placeholder
+                " [(ngModel)]="tambah[row.id]" />
+            </div>
+          </div>
+          <div *ngIf="tambah.status_karyawan === 'PKWT' && isEdit">
+            <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwtEdit">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+                  row.placeholder === undefined ? row.label : row.placeholder
+                " [(ngModel)]="tambah[row.id]" />
+            </div>
+            <div *ngIf="isEdit" class="form">
+              <p>Data Kontrak</p>
+              <table class="responsive-table striped">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nomor PKWT</th>
+                    <th>Awal-Akhir Kontrak</th>
+                    <th>Awal-Akhir Cuti</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of tambah.data_kontrak; index as i">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ row.nomor_pkwt }}</td>
+                    <td>
+                      {{ formatDate(row.mulai_kontrak) }} <br />
+                      {{ formatDate(row.akhir_kontrak) }}
+                    </td>
+                    <td>
+                      {{ formatDate(row.tgl_muncul_hak_cuti) }} <br />
+                      {{ formatDate(row.tgl_berakhir_hak_cuti) }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div *ngIf="
+              tambah.status_karyawan === 'Magang' ||
+              tambah.status_karyawan === 'Informal' ||
+              tambah.status_karyawan === 'Harian'">
+            <div class="form" *ngFor="let row of formTabPeriodeKontrakMagang">
+              <p>{{ row.label }}</p>
+              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
+                [(ngModel)]="tambah[row.id]" />
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Gaji Karyawan">
+          <div class="form" *ngFor="let row of formTabGajiKaryawan">
+            <p>{{ row.label }}</p>
+            <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
+              [(ngModel)]="tambah[row.id]" />
+            <textarea *ngIf="row.form === 'textarea'" [name]="row.id" [id]="row.id" cols="30" rows="10"
+              [placeholder]="row.label" [(ngModel)]="tambah[row.id]"></textarea>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions style="margin: 0px;">
+    <div style="margin-left: 400px; margin-top: 10px">
+      <button style="height: 45.8px; width: 85.8px;" class="ya waves-effect waves-light" [mat-dialog-close]="tambah">
+        Simpan
+      </button>
+      <button style="height: 45.8px; width: 85.8px;" class="tidak waves-effect waves-dark transparent"
+        [mat-dialog-close]="undefined">
+        Batal
+      </button>
+    </div>
   </mat-dialog-actions>
 </div>
