@@ -165,51 +165,86 @@ export class KaryawanComponent implements OnInit {
     return moment(date).format('DD MMM YYYY');
   }
 
-  printData() {
-    let content = this.dataKaryawan.map((res: any) => ({
-      NIP: res.nip,
-      'Nama Karyawan': res.nama_lengkap,
-      'Tanggal Lahir': this.formatDate(res.tgl_lahir),
-      'Tanggal Join': this.formatDate(res.tgl_join),
-      'Status Karyawan': res.status_karyawan,
-      'Tanggal Efektif Terminasi': this.formatDate(res.tgl_efektif_terminasi),
-      'Alasan Terminasi': res.alasan_terminasi,
-    }));
-    const ws = utils.json_to_sheet(content);
-    const wsTemp = utils.json_to_sheet(content);
-    let length = Number(ws['!ref']?.slice(4));
-    let cell = 4;
+  printData(name: string) {
+    let header: any[] = [];
+    let content;
+    let column;
 
-    ws['!ref'] = 'A1:G' + (length + cell);
-    for (let i = 1; i <= 4; i++) {
-      ws['A' + i] = { t: 's', v: '' };
-      ws['B' + i] = { t: 's', v: '' };
-      ws['C' + i] = { t: 's', v: '' };
-      ws['D' + i] = { t: 's', v: '' };
-      ws['E' + i] = { t: 's', v: '' };
-      ws['F' + i] = { t: 's', v: '' };
-      ws['G' + i] = { t: 's', v: '' };
+    switch (name) {
+      case 'History Status':
+        header = [
+          ['A1', 'History Status'],
+          ['F1', 'Tanggal Cetak'],
+          ['F2', 'User :'],
+          ['G1', moment().format('DD MMM YYYY')],
+          ['G2', window.localStorage.getItem('key')],
+        ];
+        content = this.dataKaryawan.map((res: any) => ({
+          NIP: res.nip,
+          'Nama Karyawan': res.nama_lengkap,
+          'Tanggal Lahir': this.formatDate(res.tgl_lahir),
+          'Tanggal Join': this.formatDate(res.tgl_join),
+          'Status Karyawan': res.status_karyawan,
+          'Tanggal Efektif Terminasi': this.formatDate(
+            res.tgl_efektif_terminasi
+          ),
+          'Alasan Terminasi': res.alasan_terminasi,
+        }));
+        break;
+
+      case 'History Penugasan':
+        header = [
+          ['A1', 'History Penugasan'],
+          ['L1', 'Tanggal Cetak'],
+          ['L2', 'User :'],
+          ['M1', moment().format('DD MMM YYYY')],
+          ['M2', window.localStorage.getItem('key')],
+        ];
+        content = this.dataKaryawan.map((res: any) => ({
+          NIP: res.nip,
+          'Nama Karyawan': res.nama_lengkap,
+          'Tanggal Lahir': res.tgl_lahir,
+          'Tanggal Perubahan': res.tgl_perubahan_detasir,
+          'Lokasi Kerja': res.lokasi,
+          Divisi: res.divisi,
+          Departemen: res.departemen,
+          'Sub Departemen': res.sub_departemen,
+          Jabatan: res.jabatan,
+          'Tanggal Mulai Detasir': res.tgl_mulai_detasir,
+          'Tanggal Akhir Detasir': res.tgl_akhir_detasir,
+          'Lokasi Detasir': res.lokasi_detasir,
+          'Alasan Detasir': res.alasan_detasir,
+        }));
+        break;
     }
 
-    ws['A1'] = { t: 's', v: 'History Status' };
-    ws['F1'] = { t: 's', v: 'Tanggal Cetak' };
-    ws['F2'] = { t: 's', v: 'User :' };
-    ws['G1'] = { t: 's', v: moment().format('DD MMM YYYY') };
-    ws['G2'] = { t: 's', v: window.localStorage.getItem('key') };
+    column = String.fromCharCode(Object.keys(content[0]).length + 64);
+
+    const ws = utils.json_to_sheet(content);
+    const wsTemp = utils.json_to_sheet(content);
+
+    let length = Number(ws['!ref']?.split(column, 2)[1]);
+    let gap = 4;
+
+    ws['!ref'] = 'A1:' + column + (length + gap);
+    for (let i = 1; i <= 4; i++) {
+      Object.keys(content[0]).forEach((_, index) => {
+        ws[String.fromCharCode(65 + index) + i] = { t: 's', v: '' };
+      });
+    }
+
+    header.forEach((res) => (ws[res[0]] = { t: 's', v: res[1] }));
 
     for (let i = 0; i < length; i++) {
-      ws['A' + (i + cell)] = wsTemp['A' + (i + 1)];
-      ws['B' + (i + cell)] = wsTemp['B' + (i + 1)];
-      ws['C' + (i + cell)] = wsTemp['C' + (i + 1)];
-      ws['D' + (i + cell)] = wsTemp['D' + (i + 1)];
-      ws['E' + (i + cell)] = wsTemp['E' + (i + 1)];
-      ws['F' + (i + cell)] = wsTemp['F' + (i + 1)];
-      ws['G' + (i + cell)] = wsTemp['G' + (i + 1)];
+      Object.keys(content[0]).forEach((_, index) => {
+        ws[String.fromCharCode(65 + index) + (i + gap)] =
+          wsTemp[String.fromCharCode(65 + index) + (i + 1)];
+      });
     }
 
     const wb = utils.book_new();
 
     utils.book_append_sheet(wb, ws);
-    writeFileXLSX(wb, 'Bagian Kerja.xlsx');
+    writeFileXLSX(wb, name + '.xlsx');
   }
 }

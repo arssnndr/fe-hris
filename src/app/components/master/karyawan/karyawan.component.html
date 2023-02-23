@@ -21,11 +21,11 @@
               Download History
             </button>
             <mat-menu #menuHistory="matMenu">
-              <button mat-menu-item (click)="printData()">
+              <button mat-menu-item (click)="printData('History Status')">
                 <mat-icon><i class="material-icons menu">perm_contact_calendar</i></mat-icon>
                 <span>Status</span>
               </button>
-              <button mat-menu-item>
+              <button mat-menu-item (click)="printData('History Penugasan')">
                 <mat-icon><i class="material-icons menu">card_travel</i></mat-icon>
                 <span>Penugasan</span>
               </button>

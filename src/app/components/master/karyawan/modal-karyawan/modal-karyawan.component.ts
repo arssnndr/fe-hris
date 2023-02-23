@@ -87,6 +87,7 @@ export class ModalKaryawanComponent implements OnInit {
     status_karyawan: 'PKWTT',
     nama_pemberi_referensi: '',
     nama_atasan_langsung: '',
+    tgl_perubahan_detasir: moment().format('YYYY-MM-DD'),
     lokasi_detasir: '',
     tgl_mulai_detasir: '',
     tgl_akhir_detasir: '',
@@ -108,7 +109,7 @@ export class ModalKaryawanComponent implements OnInit {
     banyak_hak_cuti: 12,
     data_kontrak: [],
 
-    tgl_perubahan: moment().format('YYYY-MM-DD'),
+    tgl_perubahan_gaji: moment().format('YYYY-MM-DD'),
     gaji_pokok: '',
     uang_makan: '',
     uang_transport: '',
@@ -576,6 +577,14 @@ export class ModalKaryawanComponent implements OnInit {
 
         this.tambah = data.data;
         this.tambah.kontrak_ke = this.tambah.data_kontrak.length + 1;
+
+        this.formTabPekerjaanOrganisasi.splice(2, 0, {
+          id: 'tgl_perubahan_detasir',
+          form: 'input',
+          type: 'date',
+          label: 'Tanggal Perubahan Detasir',
+          disable: false,
+        });
         this.formTabPekerjaanOrganisasi.splice(11, 0, {
           id: 'lokasi_detasir',
           form: 'select',
@@ -802,10 +811,10 @@ export class ModalKaryawanComponent implements OnInit {
 
   detasir() {
     if (this.tambah.lokasi_detasir === 'Tidak ada') {
-      this.formTabPekerjaanOrganisasi.splice(12, 3);
+      this.formTabPekerjaanOrganisasi.splice(13, 3);
     } else {
       this.formTabPekerjaanOrganisasi.splice(
-        12,
+        13,
         0,
         {
           id: 'tgl_mulai_detasir',
