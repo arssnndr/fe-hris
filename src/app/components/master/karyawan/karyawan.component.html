@@ -29,7 +29,7 @@
                 <mat-icon><i class="material-icons menu">card_travel</i></mat-icon>
                 <span>Penugasan</span>
               </button>
-              <button mat-menu-item>
+              <button mat-menu-item (click)="printData('History Gaji Karyawan')">
                 <mat-icon><i class="material-icons menu">receipt</i></mat-icon>
                 <span>Gaji Karyawan</span>
               </button>
@@ -40,19 +40,19 @@
               Download
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item>
+              <button mat-menu-item (click)="printData('Karyawan Pribadi')">
                 <mat-icon><i class="material-icons menu">perm_contact_calendar</i></mat-icon>
                 <span>Pribadi</span>
               </button>
-              <button mat-menu-item>
+              <button mat-menu-item (click)="printData('Pekerjaan & Organisasi')">
                 <mat-icon><i class="material-icons menu">card_travel</i></mat-icon>
                 <span>Pekerjaan & Organisasi</span>
               </button>
-              <button mat-menu-item>
+              <button mat-menu-item (click)="printData('Periode Kontrak')">
                 <mat-icon><i class="material-icons menu">class</i></mat-icon>
                 <span>Periode Kontrak</span>
               </button>
-              <button mat-menu-item>
+              <button mat-menu-item (click)="printData('Gaji Karyawan')">
                 <mat-icon><i class="material-icons menu">receipt</i></mat-icon>
                 <span>Gaji Karyawan</span>
               </button>
