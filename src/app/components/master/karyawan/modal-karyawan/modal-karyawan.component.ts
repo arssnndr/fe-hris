@@ -554,7 +554,7 @@ export class ModalKaryawanComponent implements OnInit {
     },
     { id: 'note', form: 'textarea', label: 'Note' },
     {
-      id: 'tgl_perubahan',
+      id: 'tgl_perubahan_gaji',
       form: 'input',
       type: 'date',
       label: 'Tanggal Perubahan',
@@ -585,7 +585,7 @@ export class ModalKaryawanComponent implements OnInit {
           label: 'Tanggal Perubahan Detasir',
           disable: false,
         });
-        this.formTabPekerjaanOrganisasi.splice(11, 0, {
+        this.formTabPekerjaanOrganisasi.splice(12, 0, {
           id: 'lokasi_detasir',
           form: 'select',
           label: 'Lokasi Detasir',
