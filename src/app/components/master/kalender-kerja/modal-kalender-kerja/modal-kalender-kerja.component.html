@@ -18,78 +18,18 @@
 <div class="tambah" *ngIf="isTambah || isEdit">
     <h2 mat-dialog-title>Kalender Kerja</h2>
     <mat-dialog-content>
-        <div class="right">
-            <h6>Tanggal</h6>
-            <input type="date" class="browser-default date" [(ngModel)]="tambahData.tgl" (change)="getHari()" />
-        </div>
-        <div class="right" style="margin-top: 10px;">
-            <h6>Keterangan</h6>
-            <input type="text" class="browser-default keterangan" placeholder="Cuti Bersama"
-                [(ngModel)]="tambahData.keterangan">
-        </div>
-        <div class="right" style="margin-top: 10px;">
-            <h6>Lokasi</h6>
-            <select *ngIf="isTambah" class="browser-default" (change)="onChange('lokasi', $event.target)">
-                <option *ngFor="let raw of data.data" [value]="raw.lokasi">
-                    {{ raw.lokasi }}
-                </option>
-            </select>
+        <div style="display: block;" *ngFor="let row of setForm">
+            <div class="right" style="margin-top: 10px;">
+                <h6>{{row.label}}</h6>
+                <input *ngIf="row.form === 'input'" [type]="row.type" [placeholder]="row.label" class="browser-default"
+                    [(ngModel)]="tambahData[row.id]" />
 
-            <select *ngIf="isEdit" class="browser-default" [ngModel]="tambahData.lokasi"
-                (change)="onChange('lokasi', $event.target)">
-                <option *ngFor="let raw of data.data.dataBagianKerja" [value]="raw.lokasi">
-                    {{ raw.lokasi }}
-                </option>
-            </select>
-            <button class="space">&nbsp;</button>
-        </div>
-        <div class="right" style="margin-top: 10px;">
-            <h6>Divisi</h6>
-            <select *ngIf="isTambah" class="browser-default" (change)="onChange('divisi', $event.target)">
-                <option *ngFor="let raw of data.data" [value]="raw.divisi">
-                    {{ raw.divisi }}
-                </option>
-            </select>
-
-            <select *ngIf="isEdit" class="browser-default" [ngModel]="tambahData.divisi"
-                (change)="onChange('divisi', $event.target)">
-                <option *ngFor="let raw of data.data.dataBagianKerja" [value]="raw.divisi">
-                    {{ raw.divisi }}
-                </option>
-            </select>
-            <button class="space">&nbsp;</button>
-        </div>
-        <div class="right" style="margin-top: 10px;">
-            <h6>Departemen</h6>
-            <select *ngIf="isTambah" class="browser-default" (change)="onChange('departemen', $event.target)">
-                <option *ngFor="let raw of data.data" [value]="raw.departemen">
-                    {{ raw.departemen }}
-                </option>
-            </select>
-
-            <select *ngIf="isEdit" class="browser-default" [ngModel]="tambahData.departemen"
-                (change)="onChange('departemen', $event.target)">
-                <option *ngFor="let raw of data.data.dataBagianKerja" [value]="raw.departemen">
-                    {{ raw.departemen }}
-                </option>
-            </select>
-            <button class="space">&nbsp;</button>
-        </div>
-        <div class="right" style="margin-top: 10px;">
-            <h6>Sub Departemen</h6>
-            <select *ngIf="isTambah" class="browser-default" (change)="onChange('subDepartemen', $event.target)">
-                <option *ngFor="let raw of data.data" [value]="raw.sub_departemen">
-                    {{ raw.sub_departemen }}
-                </option>
-            </select>
-
-            <select *ngIf="isEdit" class="browser-default" [ngModel]="tambahData.sub_departemen"
-                (change)="onChange('subDepartemen', $event.target)">
-                <option *ngFor="let raw of data.data.dataBagianKerja" [value]="raw.sub_departemen">
-                    {{ raw.sub_departemen }}
-                </option>
-            </select>
-            <button class="space">&nbsp;</button>
+                <select *ngIf="row.form === 'select'" class="browser-default" [(ngModel)]="tambahData[row.id]">
+                    <option *ngFor="let option of row.value" [value]="option">
+                        {{ option }}
+                    </option>
+                </select>
+            </div>
         </div>
         <div class="right" style="width: 405.37px;">
             <div class="switch">
@@ -104,10 +44,10 @@
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+        <button class="simpan waves-effect waves-light" [mat-dialog-close]="tambahData">
             Simpan
         </button>
-        <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
+        <button class="batal waves-effect waves-light transparent" [mat-dialog-close]="undefined">
             Batal
         </button>
     </mat-dialog-actions>
