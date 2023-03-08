@@ -1,0 +1,78 @@
+div.container {
+  display: block;
+  width: max-content;
+}
+
+div.body {
+  display: block;
+  width: max-content;
+  margin: 20px;
+}
+
+div.form {
+  display: block;
+  width: max-content;
+}
+
+div.component {
+  display: inline-flex;
+  width: max-content;
+  margin: 5px 0px;
+}
+
+div.actions {
+  display: flex;
+  width: 100%;
+  padding: 0px 20px;
+}
+
+div.button {
+  display: flex;
+  margin-left: auto;
+  margin-right: 0px;
+}
+
+/* TEXT */
+p {
+  margin: auto 10px;
+  width: 135px;
+  text-align: right;
+}
+
+p.name {
+  text-align: left;
+  width: max-content;
+}
+
+/* FORM */
+input,
+select {
+  width: 130px;
+  height: 40px;
+  border: 1px solid #808080aa;
+  padding: 5px;
+}
+
+input[type="text"] {
+  width: 425px;
+  height: 40px;
+  border: 1px solid #808080aa;
+}
+
+/* BUTTON */
+button.simpan {
+  width: 100px;
+  height: 50px;
+  margin-right: 10px;
+  background-color: #d85d5d;
+  color: white;
+  border: 1px solid #d85d5d;
+}
+
+button.batal {
+  width: 100px;
+  height: 50px;
+  background-color: #00000000;
+  color: #d85d5d;
+  border: 1px solid #d85d5d;
+}

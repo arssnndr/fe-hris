@@ -5,7 +5,7 @@ export interface JadwalKerja {
   type: string;
   masuk: string;
   keluar: string;
-  mulai_istirahat: string;
-  selesai_istirahat: string;
+  start_break: string;
+  end_break: string;
   total: number;
 }

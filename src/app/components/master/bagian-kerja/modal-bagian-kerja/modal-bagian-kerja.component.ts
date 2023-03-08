@@ -1,5 +1,6 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { BagianKerja } from '../../../../interfaces/bagian-kerja';
 
@@ -14,6 +15,8 @@ export class ModalBagianKerjaComponent implements OnInit {
   isEdit = false;
   isDepartemen = false;
   isSubDepartemen = false;
+
+  tabelBagianKerja = 'ms_bagiankerja/';
 
   jenisValue = '';
   lokasiValue = '';
@@ -45,9 +48,12 @@ export class ModalBagianKerjaComponent implements OnInit {
 
   bagiankerja: BagianKerja | undefined;
 
+  isBlur = false;
+
   constructor(
     private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; edit: any }
+    @Inject(MAT_DIALOG_DATA) public data: { name: string; edit: any },
+    private dialogRef: MatDialogRef<ModalBagianKerjaComponent>
   ) {}
 
   ngOnInit(): void {
@@ -87,6 +93,25 @@ export class ModalBagianKerjaComponent implements OnInit {
       departemen: this.departemenValue,
       sub_departemen: this.subDepartemenValue,
     };
-    this.api.throwData(this.bagiankerja);
+    this.api.getData(this.tabelBagianKerja).subscribe((res) => {
+      let isAlert;
+      for (let val of res) {
+        if (
+          val.lokasi === this.lokasiValue &&
+          val.sub_departemen === this.subDepartemenValue
+        ) {
+          isAlert = true;
+          break;
+        } else {
+          isAlert = false;
+        }
+      }
+      if (isAlert) {
+        window.alert('Nama sudah ada.');
+      } else {
+        this.api.throwData(this.bagiankerja);
+        this.dialogRef.close('simpan');
+      }
+    });
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Perusahaan } from 'src/app/interfaces/perusahaan';
 import { ApiService } from 'src/app/shared/api.service';
 
@@ -13,6 +13,10 @@ export class ModalPerusahaanComponent implements OnInit {
   isDelete = false;
   isEdit = false;
 
+  isBlur = false;
+
+  tabelPerusahaan = 'ms_perusahaan/';
+
   idValue = 0;
   inisialValue = '';
   namaValue = '';
@@ -22,7 +26,8 @@ export class ModalPerusahaanComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
+    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any },
+    private dialogRef: MatDialogRef<ModalPerusahaanComponent>
   ) {}
 
   ngOnInit(): void {
@@ -64,6 +69,35 @@ export class ModalPerusahaanComponent implements OnInit {
       nama: this.namaValue,
       alamat: this.alamatValue,
     };
-    this.api.throwData(this.perusahaan);
+
+    let isValid = false;
+
+    if (
+      this.inisialValue.length === 0 ||
+      this.namaValue.length === 0 ||
+      this.alamatValue.length === 0
+    ) {
+      window.alert('Data belum lengkap.');
+    } else {
+      this.api.getData(this.tabelPerusahaan).subscribe((res) => {
+        for (let val of res) {
+          if (this.isEdit) {
+            isValid = true;
+            break;
+          }
+          if (val.nama === this.namaValue) {
+            window.alert('Nama Perusahaan sudah di insert.');
+            isValid = false;
+            break;
+          } else {
+            isValid = true;
+          }
+        }
+        if (isValid) {
+          this.api.throwData(this.perusahaan);
+          this.dialogRef.close('simpan');
+        }
+      });
+    }
   }
 }

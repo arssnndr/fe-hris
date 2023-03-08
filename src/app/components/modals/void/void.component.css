@@ -1,0 +1,35 @@
+div.container {
+    width: 350px;
+}
+
+div.content {
+  display: flex;
+}
+
+div.actions {
+  display: flex;
+  margin-top: 20px;
+  justify-content: right;
+}
+
+p {
+  margin-left: 20px;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  border: 1px solid #d85d5d;
+}
+
+button.ya {
+  background-color: rgba(0, 0, 0, 0);
+  color: #d85d5d;
+  margin-right: 5px;
+}
+
+button.tidak {
+  background-color: #d85d5d;
+  color: white;
+  margin-left: 5px;
+}

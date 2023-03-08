@@ -49,7 +49,6 @@ import { ModalLokasiComponent } from './components/master/lokasi/modal-lokasi/mo
 import { ModalUserComponent } from './components/master/user/modal-user/modal-user.component';
 import { ModalKaryawanComponent } from './components/master/karyawan/modal-karyawan/modal-karyawan.component';
 import { ModalJadwalKerjaComponent } from './components/master/jadwal-kerja/modal-jadwal-kerja/modal-jadwal-kerja.component';
-import { ModalSetupJadwalKerjaComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja/modal-setup-jadwal-kerja.component';
 import { ModalKalenderKerjaComponent } from './components/master/kalender-kerja/modal-kalender-kerja/modal-kalender-kerja.component';
 import { ModalMesinFingerComponent } from './components/master/mesin-finger/modal-mesin-finger/modal-mesin-finger.component';
 import { ModalSetupMesinFingerComponent } from './components/master/setup-mesin-finger/modal-setup-mesin-finger/modal-setup-mesin-finger.component';
@@ -65,6 +64,11 @@ import { DownloadReportComponent } from './components/download-report/download-r
 import { LogHistoryComponent } from './components/log-history/log-history.component';
 import { ModalLogHistoryComponent } from './components/log-history/modal-log-history/modal-log-history.component';
 import { ModalPerpanjangKontrakComponent } from './components/master/karyawan/modal-karyawan/modal-perpanjang-kontrak/modal-perpanjang-kontrak.component';
+import { ModalSetupJadwalKerjaDetailComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-detail/modal-setup-jadwal-kerja-detail.component';
+import { ModalSetupJadwalKerjaCategoryComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-category/modal-setup-jadwal-kerja-category.component';
+import { ModalSetupJadwalKerjaUploadComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-upload/modal-setup-jadwal-kerja-upload.component';
+import { ModalSetupJadwalKerjaIndividuComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-individu/modal-setup-jadwal-kerja-individu.component';
+import { VoidComponent } from './components/modals/void/void.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +95,6 @@ import { ModalPerpanjangKontrakComponent } from './components/master/karyawan/mo
     ModalUserComponent,
     ModalKaryawanComponent,
     ModalJadwalKerjaComponent,
-    ModalSetupJadwalKerjaComponent,
     ModalKalenderKerjaComponent,
     ModalMesinFingerComponent,
     ModalSetupMesinFingerComponent,
@@ -107,6 +110,11 @@ import { ModalPerpanjangKontrakComponent } from './components/master/karyawan/mo
     LogHistoryComponent,
     ModalLogHistoryComponent,
     ModalPerpanjangKontrakComponent,
+    ModalSetupJadwalKerjaDetailComponent,
+    ModalSetupJadwalKerjaCategoryComponent,
+    ModalSetupJadwalKerjaUploadComponent,
+    ModalSetupJadwalKerjaIndividuComponent,
+    VoidComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

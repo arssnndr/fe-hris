@@ -1,0 +1,39 @@
+<!-- MODAL EDIT JADWAL KERJA DETAIL -->
+<div class="container">
+    <h5>Jadwal Kerja - {{formatDate(data.tgl)}}</h5>
+
+    <div class="body">
+        <div class="form" *ngFor="let row of formModalEditJadwalKerja">
+            <div class="component">
+                <p>{{row.label}}</p>
+                <input *ngIf="row.form==='input'" [type]="row.type" [name]="row.id" [id]="row.id"
+                    [ngModel]="selectedJadwalKerja[row.id]!==undefined?selectedJadwalKerja[row.id]:row.value"
+                    [disabled]="row.disable" class="browser-default">
+                <p *ngIf="row.id==='nip'" class="name">{{data.editData.nama_lengkap}}</p>
+
+                <p *ngIf="row.isCouple" class="couple">{{row.couple.label}}</p>
+                <input *ngIf="row.isCouple" [type]="row.couple.type" [id]="row.couple.id"
+                    [ngModel]="selectedJadwalKerja[row.couple.id]!==undefined?selectedJadwalKerja[row.couple.id]:row.value"
+                    [disabled]="row.couple.disable" class="browser-default">
+
+                <select *ngIf="row.form==='select'" [name]="row.id" [id]="row.id" [disabled]="row.disable"
+                    [ngModel]="selectedJadwalKerja.id_jadwal_kerja" (change)="changeIdJadwalKerja($event.target)"
+                    class="browser-default">
+                    <option *ngFor="let option of row.value" [value]="option">{{option}}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions">
+        <div class="button">
+            <button class="simpan waves-effect waves-light" [mat-dialog-close]="data.editData">
+                Simpan
+            </button>
+            <button class="batal waves-effect waves-dark" [mat-dialog-close]="undefined">
+                Batal
+            </button>
+        </div>
+    </div>
+</div>

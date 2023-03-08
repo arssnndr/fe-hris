@@ -31,7 +31,7 @@ const perusahaan = [
   },
   {
     inisial: "TMS",
-    nama: "The Master Steel Manufactory",
+    nama: "The Master Steel",
     alamat: "Jl. HOS Cokroaminoto No.49",
   },
   {
@@ -374,7 +374,6 @@ for (let i = 1; i <= divisi.length; i++) {
     divisi: randomArray(divisi),
     departemen: randomArray(departemen),
     sub_departemen: randomArray(subDepartemen),
-    status: faker.datatype.boolean(),
   });
   i % 3 === 0 ? (count = 0) : count++;
 }
@@ -386,7 +385,6 @@ for (let i = 1; i <= perusahaan.length; i++) {
     inisial: perusahaan[i - 1].inisial,
     nama: perusahaan[i - 1].nama,
     alamat: perusahaan[i - 1].alamat,
-    status: faker.datatype.boolean(),
   });
 }
 
@@ -397,7 +395,6 @@ for (let i = 1; i <= lokasi.length; i++) {
     inisial: lokasi[i - 1].inisial,
     nama: lokasi[i - 1].nama,
     alamat: lokasi[i - 1].alamat,
-    status: faker.datatype.boolean(),
   });
 }
 
@@ -496,7 +493,6 @@ for (let i = 1; i <= divisi.length; i++) {
     uang_makan: randomNumber({ min: 10000, max: 100000 }),
     uang_transport: randomNumber({ min: 25000, max: 250000 }),
     note: randomWord(10),
-    status: faker.datatype.boolean(),
   });
   i % 4 === 0 ? (count = 0) : count++;
 }
@@ -580,15 +576,15 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
     count = 0;
     for (let k = 1; k <= getDaysInMonth(j, 2023); k++) {
       let jadwalKerjaRes = database.trx_jadwalkerja[count];
-      let date = `2023-${j}-${k}`;
+      let date = moment(`2023-${j}-${k}`, "YYYY-MM-DD").format("YYYY-MM-DD");
       jadwalKerja.push({
         id_jadwal_kerja: jadwalKerjaRes.id_jadwal_kerja,
         tgl: date,
         hari: dateToDay(date),
         masuk: jadwalKerjaRes.masuk,
         keluar: jadwalKerjaRes.keluar,
-        mulai_istirahat: jadwalKerjaRes.start_break,
-        selesai_istirahat: jadwalKerjaRes.end_break,
+        start_break: jadwalKerjaRes.start_break,
+        end_break: jadwalKerjaRes.end_break,
         total: jadwalKerjaRes.total,
       });
       k % 5 === 0 ? (count = 0) : count++;
@@ -614,10 +610,10 @@ for (let i = 1; i <= database.ms_bagiankerja.length; i++) {
   let jadwalKerja = [];
 
   count = 0;
-  for (let j = 1; j < hari.length; j++) {
+  for (let j = 1; j <= hari.length; j++) {
     let jadwalKerjaRes = database.trx_jadwalkerja[count];
     let data = {
-      hari: hari[j],
+      hari: hari[j - 1],
       id_jadwal_kerja: jadwalKerjaRes.id_jadwal_kerja,
       masuk: jadwalKerjaRes.masuk,
       keluar: jadwalKerjaRes.keluar,
@@ -635,7 +631,6 @@ for (let i = 1; i <= database.ms_bagiankerja.length; i++) {
     departemen: departemen,
     sub_departemen: sub_departemen,
     jadwal_kerja: jadwalKerja,
-    status: faker.datatype.boolean(),
   });
 }
 
@@ -648,7 +643,7 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
     count = 0;
     for (let k = 1; k <= getDaysInMonth(j, 2023); k++) {
       let jadwalKerjaRes = database.trx_jadwalkerja[count];
-      let date = `2023-${j}-${k}`;
+      let date = moment(`2023-${j}-${k}`, "YYYY-MM-DD").format("YYYY-MM-DD");
       jadwalKerja.push({
         id_jadwal_kerja: jadwalKerjaRes.id_jadwal_kerja,
         tgl: date,
@@ -671,7 +666,6 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
     dari: sliceDate(faker.date.recent()),
     sampai: sliceDate(faker.date.future()),
     jadwal_kerja: jadwalKerja,
-    status: faker.datatype.boolean(),
   });
 }
 
@@ -691,7 +685,6 @@ for (let i = 1; i <= database.ms_bagiankerja.length; i++) {
     departemen: departemen,
     sub_departemen: sub_departemen,
     potong_cuti: faker.datatype.boolean(),
-    status: faker.datatype.boolean(),
   });
 }
 
@@ -708,7 +701,6 @@ for (let i = 1; i <= lokasi.length; i++) {
     finger: faker.datatype.boolean(),
     kartu: faker.datatype.boolean(),
     wajah: faker.datatype.boolean(),
-    status: faker.datatype.boolean(),
   });
   i % mesinFinger.length === 0 ? (count = 0) : count++;
 }
@@ -746,6 +738,7 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
     id: i,
     nip: nip,
     nama_lengkap: nama_lengkap,
+    tgl: moment(faker.date.recent()).format("YYYY-MM-DD"),
     status_cuti: status,
     no_form: no_form,
     hak_cuti_tersedia: hakcuti_tersedia,
@@ -783,9 +776,15 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
           keterangan = randomArray(keteranganCuti);
           break;
       }
-      const date = `2023-${j}-${k}`;
-      const start = `2023-${j}-${k + faker.datatype.number({ max: 2 })}`;
-      const end = `2023-${j}-${k + faker.datatype.number({ min: 3, max: 9 })}`;
+      const date = moment(`2023-${j}-${k}`, "YYYY-MM-DD").format("YYYY-MM-DD");
+      const start = moment(
+        `2023-${j}-${k + faker.datatype.number({ max: 2 })}`,
+        "YYYY-MM-DD"
+      ).format("YYYY-MM-DD");
+      const end = moment(
+        `2023-${j}-${k + faker.datatype.number({ min: 3, max: 9 })}`,
+        "YYYY-MM-DD"
+      ).format("YYYY-MM-DD");
       const total_cuti = Number(
         moment
           .duration(moment(end, "YYYY-MM-DD").diff(moment(start, "YYYY-MM-DD")))

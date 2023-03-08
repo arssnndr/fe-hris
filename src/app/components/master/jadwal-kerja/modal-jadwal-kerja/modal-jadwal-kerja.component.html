@@ -68,14 +68,15 @@
       <h6>Jam Masuk</h6>
       <input type="time" class="browser-default" [(ngModel)]="jadwalKerja.masuk" (input)="onChange($event.target)" />
       <h6 style="width: 25px">s.d</h6>
-      <input type="time" class="browser-default sd" [(ngModel)]="jadwalKerja.keluar" (input)="onChange($event.target)" />
+      <input type="time" class="browser-default sd" [(ngModel)]="jadwalKerja.keluar"
+        (input)="onChange($event.target)" />
     </div>
     <div class="right">
       <h6>Jam Istirahat</h6>
-      <input type="time" class="browser-default" [(ngModel)]="jadwalKerja.mulai_istirahat"
+      <input type="time" class="browser-default" [(ngModel)]="jadwalKerja.start_break"
         (input)="onChange($event.target)" />
       <h6 style="width: 25px">s.d</h6>
-      <input type="time" class="browser-default sd" [(ngModel)]="jadwalKerja.selesai_istirahat"
+      <input type="time" class="browser-default sd" [(ngModel)]="jadwalKerja.end_break"
         (input)="onChange($event.target)" />
     </div>
     <div class="right">

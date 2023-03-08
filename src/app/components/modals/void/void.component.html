@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="content">
+        <img src="../../../../assets/icon/danger.svg" alt="danger-icon" />
+        <p>Yakin data akan di void?</p>
+    </div>
+
+    <div class="actions">
+        <button class="ya waves-effect waves-dark" mat-dialog-close="ya">Ya</button>
+        <button class="tidak waves-effect waves-light" [mat-dialog-close]="undefined">
+            Tidak
+        </button>
+    </div>
+</div>

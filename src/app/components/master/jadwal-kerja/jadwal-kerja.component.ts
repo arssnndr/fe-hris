@@ -120,8 +120,8 @@ export class JadwalKerjaComponent implements OnInit {
       'Jam Kerja': res.type,
       'Jadwal Jam masuk': res.masuk,
       'Jadwal Jam Pulang': res.keluar,
-      'Jadwal Jam Mulai Istirahat': res.mulai_istirahat,
-      'Jadwal jam Selesai Istirahat': res.selesai_istirahat,
+      'Jadwal Jam Mulai Istirahat': res.start_break,
+      'Jadwal jam Selesai Istirahat': res.end_break,
       'Total Jam Kerja': res.total,
     }));
 

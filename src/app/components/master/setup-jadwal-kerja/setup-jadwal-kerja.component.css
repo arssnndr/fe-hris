@@ -1,90 +1,50 @@
-h4 {
-  color: #000000;
-  font-size: 24px;
+div.content {
+  margin-top: 20px;
+  display: flex;
+  overflow-x: hidden;
 }
 
-mat-tab-group {
-  font-family: "Lato", sans-serif;
-}
-
-mat-paginator {
-  font-family: "Lato", sans-serif;
-  font-size: 15px;
-}
-
-input.nip {
-  width: 25%;
-  height: 50px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 12px;
-
-}
-
-input[type="date"],
-input[type="month"] {
-  width: 100%;
-  height: 50px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 12px;
-}
-
-select {
-  margin-top: 7px;
-  margin-bottom: 5px;
-  margin-right: 0px;
-  background-color: rgb(255, 255, 255);
-  width: 200px;
-  height: 50px;
-  padding: 5px;
-  border: 1px solid #00000050;
-  border-style: solid none solid solid;
-  border-radius: 2px 0px 0px 2px;
-}
-
-button.space {
-  height: 50px;
-  width: 13px;
-  margin-top: 7px;
+div.left {
+  width: 70%;
   margin-right: 10px;
-  padding-top: 5px;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid #00000050;
-  border-style: solid solid solid none;
-  border-radius: 0px 2px 2px 0px;
 }
 
-div.col {
-  padding: 0px;
+div.right {
+  width: 30%;
+  margin-left: 10px;
 }
 
-li a {
-  margin: 5px;
+div.nip-name {
+  width: 100%;
+  display: inline-flex;
+  margin-bottom: 15px;
 }
 
-a.waves-dark {
-  border: 1px solid #d32f2f;
+div.button {
+  position: absolute;
+  z-index: 2;
+  top: 1;
+  right: 0;
+  display: flex;
 }
 
-.nav {
-  margin-bottom: 20px;
+/* TABEL */
+th,
+td {
+  text-align: center;
 }
 
 th {
   background-color: #ffe6e6;
   border-radius: 0px;
-  padding: 15px 15px;
+  padding: 20px 10px;
   font-size: 14px;
   font-weight: normal;
-  text-align: center;
 }
 
 td {
-  padding: 10px 15px;
+  padding: 10px;
   font-size: 14px;
-  text-align: center;
 }
 
 tbody tr:nth-child(odd) {
@@ -99,67 +59,120 @@ tbody tr:hover {
   background-color: rgba(128, 128, 128, 0.1);
 }
 
-td button {
-  border: 0px;
-  border-radius: 5px;
-  font-size: 12.5px;
-  color: white;
-  padding: 3px;
-  text-align: center;
-  text-decoration: none;
-  margin: 4px;
-  height: 22px;
-  width: 22px;
+table.profil {
+  width: 100%;
 }
 
+table.profil thead,
+table.profil tr {
+  display: table;
+  width: 100%;
+}
+
+table.profil tbody {
+  width: 100%;
+  height: 450px;
+  display: block;
+  overflow-y: scroll;
+}
+
+table.profil th,
+table.profil td {
+  text-align: left;
+}
+
+table.profil th:nth-child(1) {
+  width: 75px;
+}
+
+table.profil td:nth-child(1) {
+  width: 75px;
+}
+
+table.profil th:nth-child(2) {
+  width: 200px;
+}
+
+table.profil td:nth-child(2) {
+  width: 200px;
+}
+
+table.category td:nth-last-child(1) {
+  width: 60px;
+}
+
+/* BUTTON */
 button.print {
-  color: black;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 1px;
   width: 100px;
   height: 50px;
-  margin: 5px 0px 5px 5px;
+  background-color: rgba(128, 128, 128, 0);
+  border: 1px solid grey;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button.download {
-  color: #d85d5d;
+  width: 96px;
+  height: 48px;
+  background-color: rgba(128, 128, 128, 0);
   border: 1px solid #d85d5d;
-  border-radius: 1px;
-  width: 100px;
-  height: 50px;
-  margin: 5px;
+  color: #d85d5d;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button.tambah {
-  color: #ffffff;
+  width: 96px;
+  height: 48px;
   background-color: #d85d5d;
   border: 1px solid #d85d5d;
-  border-radius: 1px;
-  width: 100px;
-  height: 50px;
-  margin: 5px;
+  color: white;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-td:last-child {
+button.filter {
+  background-color: rgba(128, 128, 128, 0);
+  border-style: none;
+  margin-left: auto;
+}
+
+button.void {
+  background-color: rgba(128, 128, 128, 0);
+  border-style: none;
+  margin-left: auto;
+}
+
+button.void mat-icon {
+  background-color: #d85d5d;
+  border-radius: 5px;
+  color: white;
+}
+
+/* INPUT */
+input#periode {
+  height: 40px;
+  width: 100%;
   padding: 5px;
 }
 
-div.content {
-  margin-top: 20px;
-  width: 100%;
+input#nip {
+  height: 40px;
+  width: 100px;
+  padding: 5px;
 }
 
-div.content.category {
-  margin-top: 0px;
-  width: 100%;
+/* TEXT */
+p.name {
+  margin: auto 10px auto 10px;
 }
 
-div.mat-tab-list {
-  border: 0px;
-  border-bottom-style: none;
-}
-
-div.mat-tab-body-content {
-  border: 0px;
-  border-top-style: none;
+p.label {
+  margin-bottom: 5px;
 }

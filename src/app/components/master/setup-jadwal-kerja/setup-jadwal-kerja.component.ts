@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ApiService } from 'src/app/shared/api.service';
-import { ModalSetupJadwalKerjaComponent } from './modal-setup-jadwal-kerja/modal-setup-jadwal-kerja.component';
 import * as moment from 'moment';
-moment.locale('id');
+import { ApiService } from 'src/app/shared/api.service';
+import { VoidComponent } from '../../modals/void/void.component';
+import { ModalSetupJadwalKerjaCategoryComponent } from './modal-setup-jadwal-kerja-category/modal-setup-jadwal-kerja-category.component';
+import { ModalSetupJadwalKerjaDetailComponent } from './modal-setup-jadwal-kerja-detail/modal-setup-jadwal-kerja-detail.component';
 
 @Component({
   selector: 'app-setup-jadwal-kerja',
@@ -11,201 +12,128 @@ moment.locale('id');
   styleUrls: ['./setup-jadwal-kerja.component.css'],
 })
 export class SetupJadwalKerjaComponent implements OnInit {
-  tableDetail = 'trx_jadwalkerjadetail/';
-  dataDetailAll: any[] = [{ jadwal_kerja: '' }];
-  dataDetailProfil = { id: '', nama_lengkap: '', nip: '', jadwal_kerja: '' };
-  dataDetailJadwalKerja!: any;
-  dataDetailJadwalKerjaPerMonth: any[] = [];
-  yearMonth = moment().format('YYYY-MM');
-  dataSearchNip: any[] = [];
-
-  tableCategory = 'trx_jadwalkerjacategory/';
-  dataCategoryAll!: any;
-
-  tableIndividu = 'trx_jadwalkerjaindividu/';
-  dataIndividuAll!: any;
-
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.api.getData(this.tableDetail).subscribe((res) => {
-      this.dataDetailAll = res;
-      this.dataDetailProfil = res[0];
-      this.dataDetailJadwalKerja = res[0].jadwal_kerja;
-      this.selectMonth();
-    });
+    this.getDataJadwalKerjaDetail();
+    this.getDataJadwalKerjaCategory();
+  }
 
-    this.api.getData(this.tableCategory).subscribe((res) => {
-      this.dataCategoryAll = res;
-    });
+  formatDate(date: string) {
+    return moment(date).format('DD MMM YYYY');
+  }
 
-    this.api.getData(this.tableIndividu).subscribe((res) => {
-      this.dataIndividuAll = res;
-    });
+  formatYearMonth(date: string) {
+    return moment(date).format('YYYY-MM');
   }
 
   // DETAIL
-  dateFormat(date: any) {
-    return moment(date, 'DD-MM-YYYY').format('DD MMM YYYY');
-  }
+  tabelJadwalKerjaDetail = 'trx_jadwalkerjadetail/';
+  dataJadwalKerjaDetail: any;
+  dataJadwalKerjaPerMonth: any;
+  dataFiltered: any;
+  dataSelected: any;
 
-  selectProfil(id: any) {
-    this.dataDetailAll.map((res: any) => {
-      if (res.id === id) {
-        this.dataDetailProfil = res;
-      }
-    });
-    this.dataDetailJadwalKerja = this.dataDetailProfil.jadwal_kerja;
-    this.selectMonth();
-  }
+  periode = moment().format('YYYY-MM');
+  indexProfile = 0;
 
-  selectMonth() {
-    this.dataDetailJadwalKerjaPerMonth = [];
-    this.dataDetailJadwalKerja[
-      Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
-    ].map((res: any) => {
-      if (
-        res.tgl.includes(moment(this.yearMonth, 'YYYY-MM').format('MM-YYYY'))
-      ) {
-        this.dataDetailJadwalKerjaPerMonth.push(res);
-      }
+  getDataJadwalKerjaDetail() {
+    this.api.getData(this.tabelJadwalKerjaDetail).subscribe((res) => {
+      this.dataJadwalKerjaDetail = res;
+      this.dataSelected = res[0];
+      this.getDataJadwalKerjaPerMonth(this.indexProfile, this.periode);
     });
   }
 
-  searchNip(nip: any) {
-    this.dataSearchNip = [];
-    this.dataDetailAll.map((res: any) => {
-      if (res.nip.includes(nip.value)) {
-        this.dataSearchNip.push(res);
+  getDataJadwalKerjaPerMonth(index: number, periode: string) {
+    this.indexProfile = index;
+    this.dataSelected = this.dataJadwalKerjaDetail[index];
+    this.dataJadwalKerjaPerMonth = [];
+    this.dataJadwalKerjaDetail[index].jadwal_kerja.forEach((res: any) => {
+      if (periode === this.formatYearMonth(res.tgl)) {
+        this.dataJadwalKerjaPerMonth.push(res);
       }
     });
+  }
+
+  filterNip(nip: any) {
+    this.api
+      .getData(this.tabelJadwalKerjaDetail + '?nip_like=' + nip.value)
+      .subscribe((res) => (this.dataFiltered = res));
   }
 
   selectNip(data: any) {
-    this.dataDetailProfil = data;
-    this.dataDetailJadwalKerja = data.jadwal_kerja;
-    this.selectMonth();
+    this.dataSelected = data;
   }
 
-  editDataDetail(i: number) {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: {
-        name: 'editDetail',
+  selectJadwalKerja(tgl: string) {
+    this.dialog
+      .open(ModalSetupJadwalKerjaDetailComponent, {
         data: {
-          dataProfil: this.dataDetailProfil,
-          indexBln: Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1,
-          indexTgl: i,
+          event: 'editJadwalKerjaDetail',
+          editData: this.dataSelected,
+          tgl: tgl,
         },
-      },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
+      })
+      .afterClosed()
+      .subscribe((res: any) => {
         this.api
-          .updateData(this.tableDetail, catchResult, this.dataDetailProfil.id)
+          .updateData(this.tabelJadwalKerjaDetail, res, res.id)
           .subscribe(() => {
-            this.selectProfil(catchResult.id);
+            this.ngOnInit();
           });
-      }
-    });
+      });
   }
 
   // CATEGORY
-  tambahDataCategory() {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'tambahCategory' },
-    });
+  isButton = false;
+  tabelJadwalKerjaCategory = 'trx_jadwalkerjacategory/';
+  dataJadwalKerjaCategory: any;
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api.postData(this.tableCategory, catchResult).subscribe(() => {
-          this.ngOnInit();
-        });
-      }
-    });
+  selectedIndex = 1;
+
+  getDataJadwalKerjaCategory() {
+    this.api
+      .getData(this.tabelJadwalKerjaCategory)
+      .subscribe((res) => (this.dataJadwalKerjaCategory = res));
   }
 
-  editDataCategory(data: any) {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'editCategory', data: data },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api
-          .updateData(this.tableCategory, catchResult, data.id)
-          .subscribe(() => {
-            this.ngOnInit();
-          });
-      }
-    });
+  tambahJadwalKerjaCategory() {
+    this.dialog
+      .open(ModalSetupJadwalKerjaCategoryComponent)
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.api
+            .postData(this.tabelJadwalKerjaCategory, res)
+            .subscribe(() => this.getDataJadwalKerjaCategory);
+        }
+      });
   }
 
-  deleteDataCategory(id: number) {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'deleteCategory' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'ya') {
-        this.api.deleteData(this.tableCategory + id).subscribe(() => {
-          this.ngOnInit();
-        });
-      }
-    });
+  editJadwalKerjaCategory(data: any) {
+    this.dialog
+      .open(ModalSetupJadwalKerjaCategoryComponent, { data: data })
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.api
+            .updateData(this.tabelJadwalKerjaCategory, res, data.id)
+            .subscribe(() => this.getDataJadwalKerjaCategory());
+        }
+      });
   }
 
-  // INDIVIDU
-  tambahDataIndividu() {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: {
-        name: 'tambahIndividu',
-      },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        console.log(catchResult);
-        this.api.postData(this.tableIndividu, catchResult).subscribe(() => {
-          this.ngOnInit();
-        });
-      }
-    });
-  }
-
-  editDataIndividu(data: any) {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'editIndividu', data: data },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api
-          .updateData(this.tableIndividu, catchResult, data.id)
-          .subscribe(() => {
-            this.ngOnInit();
-          });
-      }
-      this.ngOnInit();
-    });
-  }
-
-  deleteDataIndividu(id: number) {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'deleteIndividu' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'ya') {
-        this.api.deleteData(this.tableIndividu + id).subscribe(() => {
-          this.ngOnInit();
-        });
-      }
-    });
+  void(id: number) {
+    this.dialog
+      .open(VoidComponent)
+      .afterClosed()
+      .subscribe((res) => {
+        if (res === 'ya') {
+          this.api
+            .deleteData(this.tabelJadwalKerjaCategory + id)
+            .subscribe(() => this.getDataJadwalKerjaCategory());
+        }
+      });
   }
 }

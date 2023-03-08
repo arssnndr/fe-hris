@@ -1,5 +1,5 @@
 export interface Lokasi {
-  keterangan: string;
+  nama: string;
   inisial: string;
   alamat: string;
 }
