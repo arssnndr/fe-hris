@@ -142,7 +142,6 @@ export class StatusKehadiranComponent implements OnInit {
         )
         .subscribe((res) => {
           this.data = res;
-          console.log(res)
         });
     } else {
       if (this.inisial) {

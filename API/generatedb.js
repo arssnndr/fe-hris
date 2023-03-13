@@ -638,24 +638,23 @@ for (let i = 1; i <= database.ms_bagiankerja.length; i++) {
 for (let i = 1; i <= database.ms_karyawan.length; i++) {
   const { nip, nama_lengkap, departemen, perusahaan } =
     database.ms_karyawan[i - 1];
+  let hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
   let jadwalKerja = [];
-  for (let j = 1; j <= 12; j++) {
-    count = 0;
-    for (let k = 1; k <= getDaysInMonth(j, 2023); k++) {
-      let jadwalKerjaRes = database.trx_jadwalkerja[count];
-      let date = moment(`2023-${j}-${k}`, "YYYY-MM-DD").format("YYYY-MM-DD");
-      jadwalKerja.push({
-        id_jadwal_kerja: jadwalKerjaRes.id_jadwal_kerja,
-        tgl: date,
-        hari: dateToDay(date),
-        masuk: jadwalKerjaRes.masuk,
-        keluar: jadwalKerjaRes.keluar,
-        mulai_istirahat: jadwalKerjaRes.start_break,
-        selesai_istirahat: jadwalKerjaRes.end_break,
-        total: jadwalKerjaRes.total,
-      });
-      k % database.trx_jadwalkerja.length === 0 ? (count = 0) : count++;
-    }
+
+  count = 0;
+  for (let j = 1; j <= hari.length; j++) {
+    let jadwalKerjaRes = database.trx_jadwalkerja[count];
+    let data = {
+      hari: hari[j - 1],
+      id_jadwal_kerja: jadwalKerjaRes.id_jadwal_kerja,
+      masuk: jadwalKerjaRes.masuk,
+      keluar: jadwalKerjaRes.keluar,
+      start_break: jadwalKerjaRes.start_break,
+      end_break: jadwalKerjaRes.end_break,
+      total: jadwalKerjaRes.total,
+    };
+    jadwalKerja.push(data);
+    j % database.trx_jadwalkerja.length === 0 ? (count = 0) : count++;
   }
   database.trx_jadwalkerjaindividu.push({
     id: i,

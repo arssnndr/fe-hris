@@ -31,7 +31,6 @@ export class PerusahaanComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         this.api.postData(this.table, this.catchResult).subscribe((res) => {

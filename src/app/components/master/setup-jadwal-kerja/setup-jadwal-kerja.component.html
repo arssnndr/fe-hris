@@ -13,7 +13,7 @@
     <button class="download waves-effect waves-dark">
         Download
     </button>
-    <button class="tambah waves-effect waves-light">
+    <button class="tambah waves-effect waves-light" (click)="tambahJadwalKerjaIndividu()">
         Tambah
     </button>
 </div>
@@ -104,7 +104,7 @@
                         <td (click)="editJadwalKerjaCategory(row)">{{row.departemen}}</td>
                         <td (click)="editJadwalKerjaCategory(row)">{{row.sub_departemen}}</td>
                         <td>
-                            <button class="void" (click)="void(row.id)">
+                            <button class="void" (click)="voidCategory(row.id)">
                                 <mat-icon class="waves-effect waves-light" fontIcon="close"></mat-icon>
                             </button>
                         </td>
@@ -116,5 +116,31 @@
 
     <mat-tab label="Upload">Upload</mat-tab>
 
-    <mat-tab label="Individu">Individu</mat-tab>
+    <!-- CATEGORY -->
+    <mat-tab label="Individu">
+        <div class="content">
+            <table class="responsive-tabel striped category">
+                <thead>
+                    <th>NIP</th>
+                    <th>Nama</th>
+                    <th>Departemen</th>
+                    <th>Perusahaan</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of dataJadwalKerjaIndividu">
+                        <td (click)="editJadwalKerjaIndividu(row)">{{row.nip}}</td>
+                        <td (click)="editJadwalKerjaIndividu(row)">{{row.nama_lengkap}}</td>
+                        <td (click)="editJadwalKerjaIndividu(row)">{{row.departemen}}</td>
+                        <td (click)="editJadwalKerjaIndividu(row)">{{row.perusahaan}}</td>
+                        <td>
+                            <button class="void" (click)="voidIndividu(row.id)">
+                                <mat-icon class="waves-effect waves-light" fontIcon="close"></mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </mat-tab>
 </mat-tab-group>
