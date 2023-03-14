@@ -32,8 +32,8 @@ Run `npm run server` for run fake API.
 
 - ### Paginate
 
-  - GET http://localhost:3000/ms_bagiankerja?\_page=7
-  - GET http://localhost:3000/ms_bagiankerja?\_page=7&\_limit=20
+  - GET http://localhost:3000/ms_bagiankerja?_page=7
+  - GET http://localhost:3000/ms_bagiankerja?_page=7&_limit=20
 
 - ### Filter
 
