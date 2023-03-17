@@ -1,5 +1,4 @@
 const { faker } = require("@faker-js/faker");
-const fs = require("fs");
 let moment = require("moment");
 moment.locale("id");
 
@@ -719,10 +718,17 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
 }
 
 // ms_statuskehadiran
+function formatDate(date) {
+  return moment(date).format("YYYY-MM-DD");
+}
+function formatDateTime(date) {
+  return moment(date).format("YYYY-MM-DDTHH:MM");
+}
 count = 0;
 for (let i = 1; i <= database.ms_karyawan.length; i++) {
   const { nip, nama_lengkap } = database.ms_karyawan[i - 1];
   const { status, no_form, hakcuti_tersedia } = randomArray(cuti);
+  const pengganti = randomArray(database.ms_karyawan);
   let keterangan;
   switch (status) {
     case "Perjalanan Dinas":
@@ -737,10 +743,29 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
     id: i,
     nip: nip,
     nama_lengkap: nama_lengkap,
-    tgl: moment(faker.date.recent()).format("YYYY-MM-DD"),
     status_cuti: status,
     no_form: no_form,
+    tgl_muncul_hak_cuti: formatDate(faker.date.past()),
+    tgl_berakhir_hak_cuti: formatDate(faker.date.future()),
+    tgl_mulai_cuti: formatDate(faker.date.soon(1)),
+    tgl_selesai_cuti: formatDate(faker.date.soon(5)),
+    tgl_mulai_izin: formatDate(faker.date.soon(1)),
+    tgl_selesai_izin: formatDate(faker.date.soon(4)),
+    waktu_izin_mulai: "09:00",
+    waktu_izin_selesai: "12:00",
+    nama_pengganti: pengganti.nama_lengkap,
+    nip_pengganti: pengganti.nip,
+    hak_cuti_telah_diambil: randomNumber(1),
+    hak_cuti_diambil: randomNumber(1),
     hak_cuti_tersedia: hakcuti_tersedia,
+    hak_cuti_tersisa: randomNumber(1),
+    izin_sehari_penuh: faker.datatype.boolean(),
+    dinas_luar_kota: faker.datatype.boolean(),
+    kota_tujuan_dinas: faker.address.cityName(),
+    alamat_tujuan_dinas: faker.address.streetAddress(),
+    tgl_berangkat: formatDateTime(faker.date.soon()),
+    tgl_pulang: formatDateTime(faker.date.future()),
+    jumlah_hari_izin: randomNumber(1),
     keterangan: keterangan,
   });
   i % cuti.length === 0 ? (count = 0) : count++;

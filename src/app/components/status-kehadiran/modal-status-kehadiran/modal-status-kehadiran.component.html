@@ -1,239 +1,44 @@
-<!-- Modal Tambah Data -->
-<div *ngIf="isTambah || isEdit">
-    <h2 mat-dialog-title>Status Kehadiran</h2>
-    <mat-dialog-content>
-        <div class="right">
-            <h6>NIP</h6>
-            <input class="browser-default nip" type="text" [matAutocomplete]="auto" [(ngModel)]="dataForUpload.nip"
-                (input)="searchNip('')" />
-            <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of filteredKaryawan" (click)="selectNip(option, '')">
-                    {{ option.nip }}
-                </mat-option>
+<div class="container">
+    <div class="title">
+        <h5>
+            Status Kehadiran - {{dataResult.status_cuti}}
+            {{dataResult.status_cuti==='Izin'?dataResult.izin_sehari_penuh?'Sehari Penuh': 'Setengah Hari':''}}
+        </h5>
+    </div>
+    <div class="content">
+        <div class="form" *ngFor="let row of formInput">
+            <p class="label">{{row.label}}</p>
+            <input *ngIf="row.form==='input' && row.type!=='checkbox' && row.autocomplete" [type]="row.type"
+                [name]="row.id" [id]="row.id" [ngModel]="dataResult[row.id]" [matAutocomplete]="auto"
+                (ngModelChange)="getKaryawan($event)" class="browser-default">
+            <p *ngIf="row.id==='nip'" class="nama">{{dataResult.nama_lengkap}}</p>
+            <p *ngIf="row.id==='nip_pengganti'" class="nama">{{dataResult.nama_pengganti}}</p>
+
+            <mat-autocomplete #auto>
+                <mat-option *ngFor="let option of filteredKaryawan"
+                    (onSelectionChange)="selectKaryawan(option, row.id==='nip'?false:true)">{{option.nip}}</mat-option>
             </mat-autocomplete>
-            <span style="width: 300px; height: 45px">
-                <p>{{ dataForUpload.nama_lengkap }}</p>
-            </span>
-        </div>
 
-        <div class="right">
-            <h6>Status</h6>
-            <select class="browser-default" [(ngModel)]="selectedCuti">
-                <option *ngFor="let row of cuti" [value]="row">
-                    {{ row }}
-                </option>
+            <input *ngIf="row.form==='input' && row.type!=='checkbox' && !row.autocomplete" [type]="row.type"
+                [name]="row.id" [id]="row.id" [(ngModel)]="dataResult[row.id]" class="browser-default">
+
+            <input *ngIf="row.type==='checkbox'" [type]="row.type" [name]="row.id" [id]="row.id"
+                [checked]="dataResult[row.id]" (change)="onChecked(row.id)" class="browser-default">
+            <p *ngIf="row.type==='checkbox'" class="nama">{{row.labelRight}}</p>
+
+            <p *ngIf="row.couple !== undefined" class="split">{{row.couple.label}}</p>
+            <input *ngIf="row.couple !== undefined" [type]="row.couple.type" [(ngModel)]="dataResult[row.couple.id]"
+                class="browser-default">
+
+            <select *ngIf="row.form==='select'" [name]="row.id" [id]="row.id" [(ngModel)]="dataResult.status_cuti"
+                (ngModelChange)="onStatusChange($event)" class="browser-default">
+                <option *ngFor="let option of row.option" [value]="option">{{option}}</option>
             </select>
-            <button class="space"></button>
         </div>
+    </div>
 
-        <!-- CUTI TAHUNAN -->
-        <div *ngIf="selectedCuti === cuti[0]" style="display: block;">
-            <div class="right">
-                <h6>No Form</h6>
-                <input type="text" class="browser-default" [(ngModel)]="cutiTahunan.no_form" />
-            </div>
-
-            <div class="right">
-                <h6>Tanggal Muncul Hak Cuti</h6>
-                <input type="date" class="browser-default" style="width: 150px; margin-right: 55px;"
-                    [(ngModel)]="cutiTahunan.tgl_muncul_hakcuti_dari" />
-                <h6 style="width: 25px">s.d</h6>
-                <input type="date" class="browser-default" style="width: 150px;"
-                    [(ngModel)]="cutiTahunan.tgl_muncul_hakcuti_sampai" />
-            </div>
-            <div class="right">
-                <h6>Tanggal Cuti</h6>
-                <input type="date" class="browser-default" style="width: 150px; margin-right: 55px;"
-                    [(ngModel)]="cutiTahunan.tgl_mulai" />
-                <h6 style="width: 25px">s.d</h6>
-                <input type="date" class="browser-default" style="width: 150px;"
-                    [(ngModel)]="cutiTahunan.tgl_selesai" />
-            </div>
-
-            <div class="right">
-                <h6>Keterangan</h6>
-                <input type="text" class="browser-default" [(ngModel)]="dataForUpload.keterangan" />
-            </div>
-
-            <div class="right">
-                <h6>Petugas Pengganti</h6>
-                <input class="browser-default nip" type="text" [matAutocomplete]="auto"
-                    [(ngModel)]="cutiTahunan.petugas_pengganti.nip" (input)="searchNip('penggantiCutiTahunan')" />
-                <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredKaryawan"
-                        (click)="selectNip(option, 'penggantiCutiTahunan')">
-                        {{ option.nip }}
-                    </mat-option>
-                </mat-autocomplete>
-                <span style="width: 300px; height: 45px">
-                    <p>{{ cutiTahunan.petugas_pengganti.nama_lengkap }}</p>
-                </span>
-            </div>
-
-            <div class="right">
-                <h6>Hak Cuti Yang Telah Diambil</h6>
-                <input type="text" class="browser-default" style="width: 100px;"
-                    [(ngModel)]="cutiTahunan.hakcuti_terambil" />
-                <h6 style="width: 170px; text-align: right; ">Cuti Yang Diambil</h6>
-                <input type="text" class="browser-default" placeholder="12 Hari" style="width: 100px;"
-                    [(ngModel)]="cutiTahunan.ambil_cuti" />
-            </div>
-            <div class="right">
-                <h6>Hak Cuti Tersedia</h6>
-                <input type="text" class="browser-default" placeholder="12 Hari" style="width: 100px;"
-                    [(ngModel)]="cutiTahunan.hakcuti_tersedia" />
-                <h6 style="width: 170px; text-align: right; ">Sisa Hak Cuti</h6>
-                <input type="text" class="browser-default" placeholder="12 Hari" style="width: 100px;"
-                    [(ngModel)]="cutiTahunan.sisa_cuti" />
-            </div>
-        </div>
-
-        <!-- CUTI KHUSUS -->
-        <div *ngIf="selectedCuti === cuti[1]" style="display: block;">
-            <div class="right">
-                <h6>No Form</h6>
-                <input type="text" class="browser-default" [(ngModel)]="cutiKhusus.no_form" />
-            </div>
-
-            <div class="right">
-                <h6>Keterangan</h6>
-                <select class="browser-default" [(ngModel)]="dataForUpload.keterangan">
-                    <option *ngFor="let row of keteranganCutiKhusus" [value]="row">
-                        {{ row }}
-                    </option>
-                </select>
-                <button class="space"></button>
-            </div>
-
-            <div class="right">
-                <h6>Tanggal Cuti</h6>
-                <input type="date" class="browser-default" style="width: 150px; margin-right: 55px;"
-                    [(ngModel)]="cutiKhusus.tgl_mulai" />
-                <h6 style="width: 25px">s.d</h6>
-                <input type="date" class="browser-default" style="width: 150px;" [(ngModel)]="cutiKhusus.tgl_selesai" />
-            </div>
-
-            <div class="right">
-                <h6>Petugas Pengganti</h6>
-                <input class="browser-default nip" type="text" [matAutocomplete]="auto"
-                    [(ngModel)]="cutiKhusus.petugas_pengganti.nip" (input)="searchNip('penggantiCutiKhusus')" />
-                <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredKaryawan"
-                        (click)="selectNip(option, 'penggantiCutiKhusus')">
-                        {{ option.nip }}
-                    </mat-option>
-                </mat-autocomplete>
-                <span style="width: 300px; height: 45px">
-                    <p>{{ cutiKhusus.petugas_pengganti.nama_lengkap }}</p>
-                </span>
-            </div>
-
-            <div class="right">
-                <h6>Hak Cuti</h6>
-                <input type="text" class="browser-default" style="width: 100px;"
-                    [(ngModel)]="cutiKhusus.hakcuti_tersedia" />
-                <h6 style="width: 170px; text-align: right; ">Cuti Yang Diambil</h6>
-                <input type="text" class="browser-default" placeholder="12 Hari" style="width: 100px;"
-                    [(ngModel)]="cutiKhusus.ambil_cuti" />
-            </div>
-        </div>
-
-        <!-- IZIN -->
-        <div *ngIf="selectedCuti === cuti[2]" style="display: block;">
-            <div class="right" style="width: 410px; margin-bottom: 5px;">
-                <mat-checkbox class="mat-warn" style="margin-right:10px"
-                    [(ngModel)]="izin.izin_seharian"></mat-checkbox>
-                <span style="color: #000000DE; font-size: 17.25px; margin-right: 10px;">
-                    Izin Sehari Penuh
-                </span>
-            </div>
-
-            <div class="right">
-                <h6>No Form</h6>
-                <input type="text" class="browser-default" [(ngModel)]="izin.no_form" />
-            </div>
-
-            <div class="right">
-                <h6>Tanggal Izin</h6>
-                <input type="date" class="browser-default" style="width: 150px; margin-right: 55px;"
-                    [(ngModel)]="izin.tgl_mulai" />
-                <h6 style="width: 25px">s.d</h6>
-                <input type="date" class="browser-default" style="width: 150px;" [(ngModel)]="izin.tgl_selesai"
-                    (input)="changeJumlahHariIzin()" />
-            </div>
-
-            <div class="right">
-                <h6>Jumlah Hari Izin</h6>
-                <input class="browser-default nip" type="text" style="margin-right: 310px;"
-                    [value]="changeJumlahHariIzin()" />
-            </div>
-
-            <div class="right">
-                <h6>Keterangan</h6>
-                <input type="text" class="browser-default" [(ngModel)]="dataForUpload.keterangan" />
-            </div>
-        </div>
-
-        <!-- PERJALANAN DINAS -->
-        <div *ngIf="selectedCuti === cuti[3]" style="display: block;">
-            <div class="right" style="width: 410px; margin-bottom: 5px;">
-                <mat-checkbox class="mat-warn" style="margin-right:10px"
-                    [(ngModel)]="perjalananDinas.dinas_dalkot"></mat-checkbox>
-                <span style="color: #000000DE; font-size: 17.25px; margin-right: 10px;">
-                    Dinas Dalam Kota
-                </span>
-            </div>
-
-            <div class="right">
-                <h6>No Form</h6>
-                <input type="text" class="browser-default" [(ngModel)]="perjalananDinas.no_form" />
-            </div>
-
-            <div class="right">
-                <h6>Alamat Tujuan Dinas</h6>
-                <input type="text" class="browser-default" [(ngModel)]="perjalananDinas.alamat_tujuan" />
-            </div>
-
-            <div class="right">
-                <h6>Tanggal Keberangkatan</h6>
-                <input type="datetime-local" class="browser-default" style="width: 160px; margin-right: 250px;"
-                    [(ngModel)]="perjalananDinas.tgl_mulai" />
-            </div>
-
-            <div class="right">
-                <h6>Tanggal Kepulangan</h6>
-                <input type="datetime-local" class="browser-default" style="width: 160px; margin-right: 250px;"
-                    [(ngModel)]="perjalananDinas.tgl_selesai" />
-            </div>
-
-            <div class="right">
-                <h6>Keterangan</h6>
-                <input type="text" class="browser-default" [(ngModel)]="dataForUpload.keterangan" />
-            </div>
-        </div>
-    </mat-dialog-content>
-    <mat-dialog-actions align="end">
-        <button type="submit" class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
-            Simpan
-        </button>
-        <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
-            Batal
-        </button>
-    </mat-dialog-actions>
-</div>
-
-<!-- Modal delete data -->
-<div *ngIf="isDelete">
-    <mat-dialog-content class="delete">
-        <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger" />
-        <p style="padding-left: 55px">Yakin data akan di void?</p>
-    </mat-dialog-content>
-    <mat-dialog-actions align="end">
-        <button class="ya waves-effect waves-light" mat-dialog-close="ya">
-            Ya
-        </button>
-        <button class="tidak waves-effect waves-dark transparent" mat-dialog-close="tidak">
-            Tidak
-        </button>
-    </mat-dialog-actions>
+    <div class="actions">
+        <button class="tambah waves-effect waves-light" [mat-dialog-close]="dataResult">Tambah</button>
+        <button class="batal waves-effect waves-dark" [mat-dialog-close]="undefined">Batal</button>
+    </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-modal-status-kehadiran',
@@ -8,195 +9,305 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-status-kehadiran.component.css'],
 })
 export class ModalStatusKehadiranComponent implements OnInit {
-  isTambah: boolean = false;
-  isDelete: boolean = false;
-  isEdit: boolean = false;
+  filteredKaryawan: any;
 
-  dataForUpload = {
-    nip: '',
-    nama_lengkap: '',
-    cuti: {},
-    keterangan: '',
-  };
+  dataResult: any;
 
-  tableKaryawan: string = 'ms_karyawan/';
-  allKaryawan: any[] = [];
-  filteredKaryawan: any[] = [];
-
-  cuti: any[] = ['Cuti Tahunan', 'Cuti Khusus', 'Izin', 'Perjalanan Dinas'];
-  selectedCuti: string = this.cuti[0];
-  dataCuti!: any;
-
-  cutiTahunan = {
-    status: 'Cuti Tahunan',
-    no_form: '',
-    tgl_muncul_hakcuti_dari: '',
-    tgl_muncul_hakcuti_sampai: '',
-    tgl_mulai: '',
-    tgl_selesai: '',
-    petugas_pengganti: {
-      nip: '',
-      nama_lengkap: '',
+  formInput = [
+    {
+      form: 'input',
+      type: 'number',
+      id: 'nip',
+      label: 'NIP',
+      autocomplete: true,
     },
-    hakcuti_terambil: 0,
-    hakcuti_tersedia: 0,
-    ambil_cuti: 0,
-    sisa_cuti: 0,
-  };
-  cutiKhusus = {
-    status: 'Cuti Khusus',
-    no_form: '',
-    tgl_mulai: '',
-    tgl_selesai: '',
-    petugas_pengganti: {
-      nip: '',
-      nama_lengkap: '',
+    {
+      form: 'select',
+      id: 'status',
+      label: 'Status',
+      option: ['Cuti Tahunan', 'Cuti Khusus', 'Perjalanan Dinas', 'Izin'],
     },
-    hakcuti_tersedia: 0,
-    ambil_cuti: 0,
-  };
-  keteranganCutiKhusus: any[] = [
-    'Menikah',
-    'Anak Menikah',
-    'Anak Khitanan',
-    'Baptis Anak',
-    'Istri Melahirkan',
-    'Keluarga Meninggal',
-    'Keluarga Sakit',
-    'Haji/Umroh',
-    'Haid',
-    'Melahirkan',
-    'Sakit',
+    {
+      labelRight: '',
+      couple: {
+        label: '',
+        type: '',
+        id: '',
+      },
+    },
   ];
-  izin = {
-    status: 'Izin',
-    no_form: '',
-    izin_seharian: false,
-    tgl_mulai: '',
-    tgl_selesai: '',
-  };
-  changeJumlahHariIzin() {
-    return (
-      Number(this.izin.tgl_selesai.slice(8)) -
-      Number(this.izin.tgl_mulai.slice(8))
-    );
-  }
-  perjalananDinas = {
-    status: 'Perjalanan Dinas',
-    no_form: '',
-    dinas_dalkot: false,
-    alamat_tujuan: '',
-    tgl_mulai: '',
-    tgl_selesai: '',
-  };
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private api: ApiService
-  ) {
-    api.getData(this.tableKaryawan).subscribe((res) => {
-      this.allKaryawan = res;
-    });
-
-    switch (data.name) {
-      case 'tambah':
-        this.isTambah = true;
-        break;
-      case 'delete':
-        this.isDelete = true;
-        break;
-      case 'edit':
-        this.isEdit = true;
-        this.dataForUpload = data.data;
-        this.selectedCuti = data.data.cuti.status;
-        data.data.cuti.status === this.cutiTahunan.status
-          ? (this.cutiTahunan = data.data.cuti)
-          : data.data.cuti.status === this.cutiKhusus.status
-          ? (this.cutiKhusus = data.data.cuti)
-          : data.data.cuti.status === this.izin.status
-          ? (this.izin = data.data.cuti)
-          : (this.perjalananDinas = data.data.cuti);
-        break;
-      case 'cutiTahunan':
-        this.isTambah = true;
-        this.dataForUpload.nip = data.nip;
-        this.dataForUpload.nama_lengkap = data.nama_lengkap;
-        this.selectedCuti = 'Cuti Tahunan';
-        break;
-      case 'cutiKhusus':
-        this.isTambah = true;
-        this.dataForUpload.nip = data.nip;
-        this.dataForUpload.nama_lengkap = data.nama_lengkap;
-        this.selectedCuti = 'Cuti Khusus';
-        break;
-      case 'izin':
-        this.isTambah = true;
-        this.dataForUpload.nip = data.nip;
-        this.dataForUpload.nama_lengkap = data.nama_lengkap;
-        this.selectedCuti = 'Izin';
-        break;
-      case 'perjalananDinas':
-        this.isTambah = true;
-        this.dataForUpload.nip = data.nip;
-        this.dataForUpload.nama_lengkap = data.nama_lengkap;
-        this.selectedCuti = 'Perjalanan Dinas';
-        break;
-    }
-  }
-
-  ngOnInit(): void {}
-
-  searchNip(to: string) {
-    this.filteredKaryawan = [];
-    if (to === 'penggantiCutiTahunan') {
-      this.allKaryawan.filter((res) => {
-        if (res.nip.includes(this.cutiTahunan.petugas_pengganti.nip)) {
-          this.filteredKaryawan.push(res);
-        }
-      });
-    } else if (to === 'penggantiCutiKhusus') {
-      this.allKaryawan.filter((res) => {
-        if (res.nip.includes(this.cutiKhusus.petugas_pengganti.nip)) {
-          this.filteredKaryawan.push(res);
-        }
-      });
+  constructor(@Inject(MAT_DIALOG_DATA) data: any, private api: ApiService) {
+    if (data !== null) {
+      this.dataResult = data;
     } else {
-      this.allKaryawan.filter((res) => {
-        if (res.nip.includes(this.dataForUpload.nip)) {
-          this.filteredKaryawan.push(res);
-        }
-      });
+      this.dataResult = {
+        nip: '',
+        nama_lengkap: '',
+        status_cuti: 'Cuti Tahunan',
+        no_form: '',
+        tgl_muncul_hak_cuti: '',
+        tgl_berakhir_hak_cuti: '',
+        tgl_mulai_cuti: '',
+        tgl_selesai_cuti: '',
+        tgl_mulai_izin: '',
+        tgl_selesai_izin: '',
+        waktu_izin_mulai: '',
+        waktu_izin_selesai: '',
+        nama_pengganti: '',
+        nip_pengganti: '',
+        hak_cuti_telah_diambil: '',
+        hak_cuti_diambil: '',
+        hak_cuti_tersedia: 0,
+        hak_cuti_tersisa: '',
+        izin_sehari_penuh: false,
+        dinas_luar_kota: false,
+        kota_tujuan_dinas: '',
+        alamat_tujuan_dinas: '',
+        tgl_berangkat: '',
+        tgl_pulang: '',
+        jumlah_hari_izin: '',
+        keterangan: '',
+      };
     }
   }
 
-  selectNip(data: any, to: string) {
-    if (to === 'penggantiCutiTahunan') {
-      this.cutiTahunan.petugas_pengganti.nip = data.nip;
-      this.cutiTahunan.petugas_pengganti.nama_lengkap = data.nama_lengkap;
-    } else if (to === 'penggantiCutiKhusus') {
-      this.cutiKhusus.petugas_pengganti.nip = data.nip;
-      this.cutiKhusus.petugas_pengganti.nama_lengkap = data.nama_lengkap;
+  ngOnInit(): void {
+    this.onStatusChange(this.dataResult.status_cuti);
+  }
+
+  getKaryawan(nip: string) {
+    this.api
+      .getData(environment.tabelKaryawan + '?nip_like=' + nip)
+      .subscribe((res) => (this.filteredKaryawan = res));
+  }
+
+  selectKaryawan(data: any, isPengganti: boolean) {
+    if (isPengganti) {
+      this.dataResult.nip_pengganti = data.nip;
+      this.dataResult.nama_pengganti = data.nama_lengkap;
     } else {
-      this.dataForUpload.nip = data.nip;
-      this.dataForUpload.nama_lengkap = data.nama_lengkap;
+      this.dataResult.nip = data.nip;
+      this.dataResult.nama_lengkap = data.nama_lengkap;
     }
   }
 
-  throwResult() {
-    switch (this.selectedCuti) {
-      case this.cuti[0]:
-        this.dataForUpload.cuti = this.cutiTahunan;
+  onStatusChange(event: string) {
+    const formIzinSehariPenuh = {
+      form: 'input',
+      type: 'checkbox',
+      id: 'izin_sehari_penuh',
+      labelRight: 'Izin Sehari Penuh',
+    };
+    const formDinasLuarKota = {
+      form: 'input',
+      type: 'checkbox',
+      id: 'dinas_luar_kota',
+      labelRight: 'Dinas Luar Kota',
+    };
+    const formKotaTujuanDinas = {
+      form: 'input',
+      type: 'text',
+      id: 'kota_tujuan_dinas',
+      label: 'Kota Tujuan Dinas',
+    };
+    const formAlamatTujuanDinas = {
+      form: 'input',
+      type: 'text',
+      id: 'alamat_tujuan_dinas',
+      label: 'Alamat Tujuan Dinas',
+    };
+    const formTglBerangkat = {
+      form: 'input',
+      type: 'datetime-local',
+      id: 'tgl_berangkat',
+      label: 'Tanggal Berangkat',
+    };
+    const formTglPulang = {
+      form: 'input',
+      type: 'datetime-local',
+      id: 'tgl_pulang',
+      label: 'Tanggal Pulang',
+    };
+    const formNoForm = {
+      form: 'input',
+      type: 'text',
+      id: 'no_form',
+      label: 'No Form',
+    };
+    const formTglMunculHakCuti = {
+      form: 'input',
+      type: 'date',
+      id: 'tgl_muncul_hak_cuti',
+      label: 'Tanggal Muncul Hak Cuti',
+      couple: {
+        type: 'date',
+        id: 'tgl_berakhir_hak_cuti',
+        label: 's.d',
+      },
+    };
+    const formTglMulaiCuti = {
+      form: 'input',
+      type: 'date',
+      id: 'tgl_mulai_cuti',
+      label: 'Tanggal Cuti',
+      couple: {
+        type: 'date',
+        id: 'tgl_selesai_cuti',
+        label: 's.d',
+      },
+    };
+    const formTglIzin = {
+      form: 'input',
+      type: 'date',
+      id: 'tgl_mulai_izin',
+      label: 'Tanggal Izin',
+    };
+    const formTglIzinCouple = {
+      form: 'input',
+      type: 'date',
+      id: 'tgl_mulai_izin',
+      label: 'Tanggal Izin',
+      couple: {
+        type: 'date',
+        id: 'tgl_selesai_izin',
+        label: 's.d',
+      },
+    };
+    const formWaktuIzin = {
+      form: 'input',
+      type: 'time',
+      id: 'waktu_izin_mulai',
+      label: 'Waktu Izin',
+      couple: {
+        type: 'time',
+        id: 'waktu_izin_selesai',
+        label: 's.d',
+      },
+    };
+    const formKeterangan = {
+      form: 'input',
+      type: 'text',
+      id: 'keterangan',
+      label: 'Keterangan',
+    };
+    const formNipPengganti = {
+      form: 'input',
+      type: 'number',
+      id: 'nip_pengganti',
+      label: 'Petugas Pengganti',
+      autocomplete: true,
+    };
+    const formHakCutiTelahDiambil = {
+      form: 'input',
+      type: 'number',
+      id: 'hak_cuti_telah_diambil',
+      label: 'Hak Cuti Telah Diambil',
+      couple: {
+        type: 'number',
+        id: 'hak_cuti_diambil',
+        label: 'Cuti Yang Diambil',
+      },
+    };
+    const formHakCutiTersedia = {
+      form: 'input',
+      type: 'number',
+      id: 'hak_cuti_tersedia',
+      label: 'Hak Cuti Tersedia',
+      couple: {
+        type: 'number',
+        id: 'hak_cuti_tersisa',
+        label: 'Sisa Hak Cuti',
+      },
+    };
+    const formJumlahIzin = {
+      form: 'input',
+      type: 'number',
+      id: 'jumlah_hari_izin',
+      label: 'Jumlah Hari Izin',
+    };
+
+    let neededForm: any[] = [];
+
+    this.formInput.splice(2);
+
+    switch (event) {
+      case 'Cuti Tahunan':
+        neededForm = [
+          formNoForm,
+          formTglMunculHakCuti,
+          formTglMulaiCuti,
+          formKeterangan,
+          formNipPengganti,
+          formHakCutiTelahDiambil,
+          formHakCutiTersedia,
+        ];
         break;
-      case this.cuti[1]:
-        this.dataForUpload.cuti = this.cutiKhusus;
+      case 'Cuti Khusus':
+        neededForm = [
+          formNoForm,
+          formKeterangan,
+          formTglMulaiCuti,
+          formNipPengganti,
+          formHakCutiTersedia,
+        ];
         break;
-      case this.cuti[2]:
-        this.dataForUpload.cuti = this.izin;
+      case 'Izin':
+        this.dataResult.izin_sehari_penuh
+          ? (neededForm = [
+              formIzinSehariPenuh,
+              formNoForm,
+              formTglIzinCouple,
+              formJumlahIzin,
+              formKeterangan,
+            ])
+          : (neededForm = [
+              formIzinSehariPenuh,
+              formNoForm,
+              formTglIzin,
+              formWaktuIzin,
+              formKeterangan,
+            ]);
         break;
-      case this.cuti[3]:
-        this.dataForUpload.cuti = this.perjalananDinas;
+      case 'Perjalanan Dinas':
+        this.dataResult.dinas_luar_kota
+          ? (neededForm = [
+              formDinasLuarKota,
+              formNoForm,
+              formKotaTujuanDinas,
+              formAlamatTujuanDinas,
+              formTglBerangkat,
+              formTglPulang,
+              formKeterangan,
+            ])
+          : (neededForm = [
+              formDinasLuarKota,
+              formNoForm,
+              formAlamatTujuanDinas,
+              formTglBerangkat,
+              formTglPulang,
+              formKeterangan,
+            ]);
         break;
     }
-    this.api.throwData(this.dataForUpload);
+
+    this.formInput.push(...neededForm);
+  }
+
+  onChecked(event: string) {
+    switch (event) {
+      case 'dinas_luar_kota':
+        this.dataResult.dinas_luar_kota
+          ? (this.dataResult.dinas_luar_kota = false)
+          : (this.dataResult.dinas_luar_kota = true);
+        break;
+      case 'izin_sehari_penuh':
+        this.dataResult.izin_sehari_penuh
+          ? (this.dataResult.izin_sehari_penuh = false)
+          : (this.dataResult.izin_sehari_penuh = true);
+        break;
+    }
+
+    this.onStatusChange(this.dataResult.status_cuti);
   }
 }
