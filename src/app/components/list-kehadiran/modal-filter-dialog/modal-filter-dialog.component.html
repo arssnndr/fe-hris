@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="contents">
+        <div class="select" *ngFor="let row of form">
+            <p>{{row.label}}</p>
+            <select [name]="row.id" [id]="row.id" [(ngModel)]="result[row.id]" class="browser-default">
+                <option *ngFor="let option of row.options" [value]="option">{{option}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button class="simpan waves-effect waves-light" [mat-dialog-close]="result">Simpan</button>
+        <button class="batal waves-effect waves-dark" [mat-dialog-close]="undefined">Batal</button>
+    </div>
+</div>

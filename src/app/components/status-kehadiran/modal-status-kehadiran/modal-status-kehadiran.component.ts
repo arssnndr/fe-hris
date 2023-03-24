@@ -25,7 +25,7 @@ export class ModalStatusKehadiranComponent implements OnInit {
       form: 'select',
       id: 'status',
       label: 'Status',
-      option: ['Cuti Tahunan', 'Cuti Khusus', 'Perjalanan Dinas', 'Izin'],
+      option: ['Cuti Tahunan', 'Cuti Khusus', 'Izin', 'Perjalanan Dinas'],
     },
     {
       labelRight: '',

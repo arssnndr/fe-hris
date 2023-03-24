@@ -69,6 +69,7 @@ import { ModalSetupJadwalKerjaCategoryComponent } from './components/master/setu
 import { ModalSetupJadwalKerjaUploadComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-upload/modal-setup-jadwal-kerja-upload.component';
 import { ModalSetupJadwalKerjaIndividuComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-individu/modal-setup-jadwal-kerja-individu.component';
 import { VoidComponent } from './components/modals/void/void.component';
+import { ModalFilterDialogComponent } from './components/list-kehadiran/modal-filter-dialog/modal-filter-dialog.component';
 
 @NgModule({
   declarations: [
@@ -115,6 +116,7 @@ import { VoidComponent } from './components/modals/void/void.component';
     ModalSetupJadwalKerjaUploadComponent,
     ModalSetupJadwalKerjaIndividuComponent,
     VoidComponent,
+    ModalFilterDialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -442,7 +442,7 @@ for (let i = 1; i <= divisi.length; i++) {
     tgl_berakhir_kitas: sliceDate(faker.date.future()),
     nomor_rptka: randomNumber(20),
     tgl_berakhir_rptka: sliceDate(faker.date.future()),
-    perusahaan: randomArray(perusahaan).inisial,
+    perusahaan: randomArray(perusahaan).nama,
     lokasi: randomArray(lokasi).inisial,
     divisi: randomArray(divisi),
     departemen: randomArray(departemen),
@@ -801,19 +801,7 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
           break;
       }
       const date = moment(`2023-${j}-${k}`, "YYYY-MM-DD").format("YYYY-MM-DD");
-      const start = moment(
-        `2023-${j}-${k + faker.datatype.number({ max: 2 })}`,
-        "YYYY-MM-DD"
-      ).format("YYYY-MM-DD");
-      const end = moment(
-        `2023-${j}-${k + faker.datatype.number({ min: 3, max: 9 })}`,
-        "YYYY-MM-DD"
-      ).format("YYYY-MM-DD");
-      const total_cuti = Number(
-        moment
-          .duration(moment(end, "YYYY-MM-DD").diff(moment(start, "YYYY-MM-DD")))
-          .asDays()
-      );
+      const pengganti = randomArray(database.ms_karyawan);
       k === random
         ? jadwalKerja.push({
             tgl: date,
@@ -826,10 +814,27 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
             total: total,
             status_cuti: status,
             no_form: no_form,
-            mulai_cuti: start,
-            selesai_cuti: end,
-            cuti_diambil: total_cuti,
-            sisa_cuti: hakcuti_tersedia - total_cuti,
+            tgl_muncul_hak_cuti: formatDate(faker.date.past()),
+            tgl_berakhir_hak_cuti: formatDate(faker.date.future()),
+            tgl_mulai_cuti: formatDate(faker.date.soon(1)),
+            tgl_selesai_cuti: formatDate(faker.date.soon(5)),
+            tgl_mulai_izin: formatDate(faker.date.soon(1)),
+            tgl_selesai_izin: formatDate(faker.date.soon(4)),
+            waktu_izin_mulai: "09:00",
+            waktu_izin_selesai: "12:00",
+            nama_pengganti: pengganti.nama_lengkap,
+            nip_pengganti: pengganti.nip,
+            hak_cuti_telah_diambil: randomNumber(1),
+            hak_cuti_diambil: randomNumber(1),
+            hak_cuti_tersedia: hakcuti_tersedia,
+            hak_cuti_tersisa: randomNumber(1),
+            izin_sehari_penuh: faker.datatype.boolean(),
+            dinas_luar_kota: faker.datatype.boolean(),
+            kota_tujuan_dinas: faker.address.cityName(),
+            alamat_tujuan_dinas: faker.address.streetAddress(),
+            tgl_berangkat: formatDateTime(faker.date.soon()),
+            tgl_pulang: formatDateTime(faker.date.future()),
+            jumlah_hari_izin: randomNumber(1),
             keterangan: keterangan,
           })
         : jadwalKerja.push({

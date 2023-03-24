@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as moment from 'moment';
-import { ApiService } from 'src/app/shared/api.service';
 
 @Component({
   selector: 'app-absen-manual',
@@ -9,13 +8,23 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./absen-manual.component.css'],
 })
 export class AbsenManualComponent implements OnInit {
-  status: boolean = false;
-  jam!: string;
+  date = new Date();
+  dataAbsenManual: any = {
+    jam: `${
+      this.date.getHours().toString().length === 1
+        ? 0 + this.date.getHours()
+        : this.date.getHours()
+    }:${
+      this.date.getMinutes().toString().length === 1
+        ? 0 + this.date.getMinutes()
+        : this.date.getMinutes()
+    }`,
+    isMasuk: false,
+  };
 
   constructor(
-    private api: ApiService,
     @Inject(MAT_DIALOG_DATA)
-    public data: { nip: string; nama: string; tgl: string }
+    public data: any
   ) {}
 
   ngOnInit(): void {}
