@@ -1,0 +1,78 @@
+div.container {
+  width: max-content;
+}
+
+div.content,
+div.actions {
+  width: 100%;
+  margin-top: 20px;
+}
+
+div.actions {
+  display: flex;
+  justify-content: right;
+}
+
+div.form {
+  display: flex;
+  margin: 10px 0px;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  border: 1px solid #d85d5d;
+}
+
+button.simpan {
+  background-color: #d85d5d;
+  color: white;
+  margin-right: 5px;
+}
+
+button.batal {
+  background-color: #00000000;
+  color: #d85d5d;
+  margin-left: 5px;
+}
+
+select {
+  width: 400px;
+  height: 40px;
+}
+
+select.tabel {
+  width: 150px;
+}
+
+p {
+  margin: auto;
+  margin-right: 10px;
+  text-align: right;
+}
+
+th {
+  background-color: #ffe6e6;
+  border-radius: 0px;
+  padding: 20px 10px;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+}
+
+td {
+  padding: 10px;
+  font-size: 14px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fff4f4;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+tbody tr:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}

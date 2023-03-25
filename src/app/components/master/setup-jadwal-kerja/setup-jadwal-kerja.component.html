@@ -1,224 +1,146 @@
-<h4>Setup Jadwal Kerja</h4>
+<h5>Setup Jadwal Kerja</h5>
 
-<mat-tab-group>
-  <!-- DETAIL -->
-  <mat-tab label="Detail">
-    <div class="content row" style="display: flex">
-      <div class="col s8" style="margin-right: 10px">
-        <table class="responsive-table striped">
-          <thead>
-            <tr>
-              <th>Tanggal</th>
-              <th>Hari</th>
-              <th>Jadwal</th>
-              <th>Jadwal Kerja</th>
-              <th>Jadwal Istirahat</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let row of dataDetailJadwalKerjaPerMonth, index as i">
-              <td (click)="editDataDetail(i)">{{ dateFormat(row.tgl) }}</td>
-              <td (click)="editDataDetail(i)">{{ row.hari }}</td>
-              <td (click)="editDataDetail(i)">{{ row.id_jadwal_kerja }}</td>
-              <td (click)="editDataDetail(i)">{{ row.masuk }} - {{ row.keluar }}</td>
-              <td (click)="editDataDetail(i)">
-                {{ row.mulai_istirahat }} - {{ row.selesai_istirahat }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col s4" style="display: flexbox">
-        <button class="print waves-effect waves-dark transparent right">
-          Print
-        </button>
-        <div style="display: inline-flex; width: 100%">
-          <h6>Periode</h6>
-          <div style="margin-left: auto; display: inline-flex">
-            <mat-checkbox style="margin: 7px 7px 0px 0px"></mat-checkbox>
-            <h6>Akhir</h6>
-          </div>
-        </div>
-        <input type="month" class="browser-default" [(ngModel)]="yearMonth" (change)="selectMonth()" />
-        <h6>Nama</h6>
-        <div style="display: inline-flex; width: 100%">
-          <input type="text" class="nip browser-default" [value]="dataDetailProfil.nip" [matAutocomplete]="auto"
-            (input)="searchNip($event.target)" />
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of dataSearchNip" (click)="selectNip(option)">
-              {{ option.nip }}
-            </mat-option>
-          </mat-autocomplete>
-          <div style="margin-left: 7px">
-            <p>{{ dataDetailProfil.nama_lengkap }}</p>
-          </div>
-          <div style="margin-left: auto">
-            <button mat-icon-button [matMenuTriggerFor]="menu">
-              <mat-icon>filter_list</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-              <div style="display: block;">
-                <div align="end" style="width: 100%; display: flex;">
-                  <h6 style="margin-top: 8%; margin-right: 10px; margin-left: 5px;">Lokasi</h6>
-                  <select class="browser-default">
-                    <option *ngFor="let row of dataDetailAll" [value]="row.perusahaan">
-                      {{ row.perusahaan }}
-                    </option>
-                  </select>
-                  <button class="space"></button>
+<div class="button" *ngIf="selectedIndex ===1">
+    <button class="download waves-effect waves-dark">
+        Download
+    </button>
+    <button class="tambah waves-effect waves-light" (click)="tambahJadwalKerjaCategory()">
+        Tambah
+    </button>
+</div>
+
+<div class="button" *ngIf="selectedIndex === 3">
+    <button class="download waves-effect waves-dark">
+        Download
+    </button>
+    <button class="tambah waves-effect waves-light" (click)="tambahJadwalKerjaIndividu()">
+        Tambah
+    </button>
+</div>
+<mat-tab-group color="warn" [(selectedIndex)]="selectedIndex">
+
+    <!-- DETAIL -->
+    <mat-tab label="Detail">
+        <div class="content">
+            <div class="left">
+                <table class="responsive-tabel striped jadwal">
+                    <thead>
+                        <th>Tanggal</th>
+                        <th>Hari</th>
+                        <th>Jadwal</th>
+                        <th>Jadwal Kerja</th>
+                        <th>Jadwal istirahat</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of dataJadwalKerjaPerMonth" (click)="selectJadwalKerja(row.tgl)">
+                            <td>{{formatDate(row.tgl)}}</td>
+                            <td>{{row.hari}}</td>
+                            <td>{{row.id_jadwal_kerja}}</td>
+                            <td>{{row.masuk+' - '+row.keluar}}</td>
+                            <td>{{row.start_break+' - '+row.end_break}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="right">
+                <button class="print">
+                    Print
+                </button>
+
+                <p class="label">Periode</p>
+                <input type="month" name="periode" id="periode" [(ngModel)]="periode"
+                    (input)="getDataJadwalKerjaPerMonth(indexProfile, periode)">
+
+                <p class="label">Nama</p>
+                <div class="nip-name">
+
+                    <input type="number" name="nip" id="nip" class="browser-default" [matAutocomplete]="auto"
+                        (input)="filterNip($event.target)" [value]="dataSelected===undefined?'':dataSelected.nip">
+                    <mat-autocomplete #auto>
+                        <mat-option *ngFor="let row of dataFiltered" (click)="selectNip(row)">{{row.nip}}</mat-option>
+                    </mat-autocomplete>
+                    <p class="name">{{dataSelected===undefined?'':dataSelected.nama_lengkap}}</p>
+
+                    <button class="filter">
+                        <mat-icon fontIcon="filter_list"></mat-icon>
+                    </button>
                 </div>
-                <div align="end" style="width: 100%;">disini perusahaan</div>
-                <div align="end" style="width: 100%;">disini divisi</div>
-              </div>
-            </mat-menu>
-          </div>
-        </div>
-        <table class="responsive-table striped">
-          <thead>
-            <tr>
-              <th>NIP</th>
-              <th>Nama</th>
-              <th>Perusahaan</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let row of dataDetailAll">
-              <td (click)="selectProfil(row.id)">{{ row.nip }}</td>
-              <td (click)="selectProfil(row.id)">{{ row.nama_lengkap }}</td>
-              <td (click)="selectProfil(row.id)">{{ row.perusahaan }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </mat-tab>
 
-  <!-- CATEGORY -->
-  <mat-tab label="Category">
-    <div class="content category">
-      <div class="right">
-        <button class="download waves-effect waves-dark transparent">
-          Download
-        </button>
-        <button class="tambah waves-effect waves-light" (click)="tambahDataCategory()">
-          Tambah
-        </button>
-      </div>
-      <table class="responsive-table striped">
-        <thead>
-          <tr>
-            <th>Lokasi</th>
-            <th>Divisi</th>
-            <th>Departemen</th>
-            <th>Sub Departemen</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let row of dataCategoryAll">
-            <td (click)="editDataCategory(row)">{{ row.lokasi }}</td>
-            <td (click)="editDataCategory(row)">{{ row.divisi }}</td>
-            <td (click)="editDataCategory(row)">{{ row.departemen }}</td>
-            <td (click)="editDataCategory(row)">{{ row.sub_departemen }}</td>
-            <td>
-              <button (click)="deleteDataCategory(row.id)" class="waves-effect waves-light right red darken-2">
-                <i class="material-icons" style="font-size: 15px">close</i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </mat-tab>
+                <table class="responsive-tabel striped profil">
+                    <thead>
+                        <th>NIP</th>
+                        <th>Nama</th>
+                        <th>Perusahaan</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of dataJadwalKerjaDetail, index as i"
+                            (click)="getDataJadwalKerjaPerMonth(i, periode)">
+                            <td>{{row.nip}}</td>
+                            <td>{{row.nama_lengkap}}</td>
+                            <td>{{row.perusahaan}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </mat-tab>
 
-  <!-- UPLOAD -->
-  <mat-tab label="Upload">
-    <div class="content">
-      <div class="file-field input-field" style="display: inline-flex; margin-left: 0px">
-        <div style="margin-right: 10px; width: 75px; text-align: right">
-          <h6>Input File</h6>
+    <!-- CATEGORY -->
+    <mat-tab label="Category">
+        <div class="content">
+            <table class="responsive-tabel striped category">
+                <thead>
+                    <th>Lokasi</th>
+                    <th>Divisi</th>
+                    <th>Departemen</th>
+                    <th>Sub Departemen</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of dataJadwalKerjaCategory">
+                        <td (click)="editJadwalKerjaCategory(row)">{{row.lokasi}}</td>
+                        <td (click)="editJadwalKerjaCategory(row)">{{row.divisi}}</td>
+                        <td (click)="editJadwalKerjaCategory(row)">{{row.departemen}}</td>
+                        <td (click)="editJadwalKerjaCategory(row)">{{row.sub_departemen}}</td>
+                        <td>
+                            <button class="void" (click)="voidCategory(row.id)">
+                                <mat-icon class="waves-effect waves-light" fontIcon="close"></mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div>
-          <input style="
-              height: 50px;
-              width: 250px;
-              border: 1px solid rgba(0, 0, 0, 0.5);
-              border-style: solid none solid solid;
-            " class="file-path validate browser-default" type="text" />
-        </div>
-        <div class="btn transparent z-depth-0" style="
-            color: rgba(0, 0, 0, 0.5);
-            height: 50px;
-            border: 1px solid rgba(0, 0, 0, 0.5);
-            border-style: solid solid solid none;
-          ">
-          <i class="material-icons">folder</i>
-          <input type="file" multiple />
-        </div>
-      </div>
-      <br />
-      <div style="display: inline-flex">
-        <div style="margin-right: 10px; width: 75px; text-align: right">
-          <h6>Periode</h6>
-        </div>
-        <div>
-          <input type="date" style="height: 50px; border: 1px solid rgba(0, 0, 0, 0.5)" name="periode" id="periode" />
-        </div>
-      </div>
-      <table class="responsive-table striped">
-        <thead>
-          <tr>
-            <th>NIP</th>
-            <th>Nama</th>
-            <th *ngFor="let row of dataDetailAll[0].jadwal_kerja[0], index as i">{{i + 1}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let row of dataDetailAll, index as i">
-            <td>{{ row.nip }}</td>
-            <td>{{ row.nama_lengkap }}</td>
-            <td *ngFor="let rowJadwalKerja of row.jadwal_kerja[0]">{{rowJadwalKerja.id_jadwal_kerja}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </mat-tab>
+    </mat-tab>
 
-  <!-- INDIVIDU -->
-  <mat-tab label="Individu">
-    <div class="content category">
-      <div class="right">
-        <button class="download waves-effect waves-dark transparent">
-          Download
-        </button>
-        <button class="tambah waves-effect waves-light" (click)="tambahDataIndividu()">
-          Tambah
-        </button>
-      </div>
-      <table class="responsive-table striped">
-        <thead>
-          <tr>
-            <th>NIP</th>
-            <th>Nama</th>
-            <th>Departemen</th>
-            <th>Perusahaan</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let row of dataIndividuAll">
-            <td (click)="editDataIndividu(row)">{{ row.nip }}</td>
-            <td (click)="editDataIndividu(row)">{{ row.nama_lengkap }}</td>
-            <td (click)="editDataIndividu(row)">{{ row.departemen }}</td>
-            <td (click)="editDataIndividu(row)">{{ row.perusahaan }}</td>
-            <td>
-              <button (click)="deleteDataIndividu(row.id)" class="waves-effect waves-light right red darken-2">
-                <i class="material-icons" style="font-size: 15px">close</i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </mat-tab>
+    <mat-tab label="Upload">Upload</mat-tab>
+
+    <!-- CATEGORY -->
+    <mat-tab label="Individu">
+        <div class="content">
+            <table class="responsive-tabel striped category">
+                <thead>
+                    <th>NIP</th>
+                    <th>Nama</th>
+                    <th>Departemen</th>
+                    <th>Perusahaan</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of dataJadwalKerjaIndividu">
+                        <td (click)="editJadwalKerjaIndividu(row)">{{row.nip}}</td>
+                        <td (click)="editJadwalKerjaIndividu(row)">{{row.nama_lengkap}}</td>
+                        <td (click)="editJadwalKerjaIndividu(row)">{{row.departemen}}</td>
+                        <td (click)="editJadwalKerjaIndividu(row)">{{row.perusahaan}}</td>
+                        <td>
+                            <button class="void" (click)="voidIndividu(row.id)">
+                                <mat-icon class="waves-effect waves-light" fontIcon="close"></mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </mat-tab>
 </mat-tab-group>

@@ -121,6 +121,10 @@ export class KaryawanComponent implements OnInit {
       .afterClosed()
       .subscribe((res) => {
         if (res !== undefined) {
+          res.perusahaan = res.perusahaan
+            .split(' ')
+            .map((word: any) => word.charAt(0))
+            .join('');
           this.biggestNip.forEach((val) => {
             if (val.perusahaan === res.perusahaan) {
               res.nip = (val.nip + 1).toString();
@@ -203,15 +207,15 @@ export class KaryawanComponent implements OnInit {
         content = this.dataKaryawan.map((res: any) => ({
           NIP: res.nip,
           'Nama Karyawan': res.nama_lengkap,
-          'Tanggal Lahir': res.tgl_lahir,
-          'Tanggal Perubahan': res.tgl_perubahan_detasir,
+          'Tanggal Lahir': this.formatDate(res.tgl_lahir),
+          'Tanggal Perubahan': this.formatDate(res.tgl_perubahan_detasir),
           'Lokasi Kerja': res.lokasi,
           Divisi: res.divisi,
           Departemen: res.departemen,
           'Sub Departemen': res.sub_departemen,
           Jabatan: res.jabatan,
-          'Tanggal Mulai Detasir': res.tgl_mulai_detasir,
-          'Tanggal Akhir Detasir': res.tgl_akhir_detasir,
+          'Tanggal Mulai Detasir': this.formatDate(res.tgl_akhir_detasir),
+          'Tanggal Akhir Detasir': this.formatDate(res.tgl_akhir_detasir),
           'Lokasi Detasir': res.lokasi_detasir,
           'Alasan Detasir': res.alasan_detasir,
         }));
@@ -228,8 +232,8 @@ export class KaryawanComponent implements OnInit {
         content = this.dataKaryawan.map((res: any) => ({
           NIP: res.nip,
           'Nama Karyawan': res.nama_lengkap,
-          'Tanggal Lahir': res.tgl_lahir,
-          'Tanggal Perubahan': res.tgl_perubahan_detasir,
+          'Tanggal Lahir': this.formatDate(res.tgl_lahir),
+          'Tanggal Perubahan': this.formatDate(res.tgl_perubahan_detasir),
           'Gaji Pokok': res.gaji_pokok.toLocaleString('id-ID', {
             style: 'currency',
             currency: 'IDR',
@@ -259,7 +263,7 @@ export class KaryawanComponent implements OnInit {
           'Nama Karyawan': res.nama_lengkap,
           Kewarganegaraan: res.kewarganegaraan,
           'Tempat Lahir': res.tempat_lahir,
-          'Tanggal Lahir': res.tgl_lahir,
+          'Tanggal Lahir': this.formatDate(res.tgl_lahir),
           'Jenis Kelamin': res.jenis_kelamin,
           NIK: res.nik,
           'Nomor NPWP': res.nomor_npwp,
@@ -331,15 +335,17 @@ export class KaryawanComponent implements OnInit {
           NIP: res.nip,
           'Nama Karyawan': res.nama_lengkap,
           'Status Karyawan': res.status_karyawan,
-          'Tanggal Join': res.tgl_join,
+          'Tanggal Join': this.formatDate(res.tgl_join),
           'Nomor PKWT': res.nomor_pkwt,
           'Nomor PKWTT': res.nomor_pkwtt,
           'Kontrak Ke': res.kontrak_ke,
           'Mulai Kontrak': res.mulai_kontrak,
           'Akhir Kontrak': res.akhir_kontrak,
           'Masa Kerja': res.masa_kerja,
-          'Tanggal Muncul Hak cuti': res.tgl_muncul_hak_cuti,
-          'Tanggal Berakhir Hak Cuti': res.tgl_berakhir_hak_cuti,
+          'Tanggal Muncul Hak cuti': this.formatDate(res.tgl_muncul_hak_cuti),
+          'Tanggal Berakhir Hak Cuti': this.formatDate(
+            res.tgl_berakhir_hak_cuti
+          ),
         }));
         break;
 

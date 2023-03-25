@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { BaseRouteReuseStrategy } from '@angular/router';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalPerpanjangKontrakComponent } from './modal-perpanjang-kontrak/modal-perpanjang-kontrak.component';
@@ -30,10 +29,10 @@ export class ModalKaryawanComponent implements OnInit {
 
   formFilter = [
     { id: 'lokasi', label: 'Lokasi', value: [] },
+    { id: 'perusahaan', label: 'Perusahaan', value: [] },
     { id: 'divisi', label: 'Divisi', value: [] },
     { id: 'departemen', label: 'Departemen', value: [] },
-    { id: 'sub_departemen', label: 'Sub Departemen', value: [] },
-    { id: 'perusahaan', label: 'Perusahaan', value: [] },
+    { id: 'sub_departemen', label: 'Sub Departemen', value: [''] },
   ];
 
   tambah: any = {
@@ -363,7 +362,7 @@ export class ModalKaryawanComponent implements OnInit {
   ];
 
   formTabPekerjaanOrganisasi = [
-    { id: 'perusahaan', form: 'select', label: 'Perusahaan', value: [] },
+    { id: 'perusahaan', form: 'select', label: 'Perusahaan', value: [''] },
     {
       id: 'nip',
       form: 'input',
@@ -380,14 +379,14 @@ export class ModalKaryawanComponent implements OnInit {
       placeholder: '000000',
       disable: true,
     },
-    { id: 'lokasi', form: 'select', label: 'Lokasi Kerja', value: [] },
-    { id: 'divisi', form: 'select', label: 'Divisi', value: [] },
-    { id: 'departemen', form: 'select', label: 'Departemen', value: [] },
+    { id: 'lokasi', form: 'select', label: 'Lokasi Kerja', value: [''] },
+    { id: 'divisi', form: 'select', label: 'Divisi', value: [''] },
+    { id: 'departemen', form: 'select', label: 'Departemen', value: [''] },
     {
       id: 'sub_departemen',
       form: 'select',
       label: 'Sub Departemen',
-      value: [],
+      value: [''],
     },
     {
       id: 'jabatan',
@@ -641,7 +640,10 @@ export class ModalKaryawanComponent implements OnInit {
     api.getData(this.tableBagianKerja).subscribe((res) => {
       const listDivisi = res.map((val: any) => val.divisi);
       const listDepartemen = res.map((val: any) => val.departemen);
-      const listSubDepartemen = res.map((val: any) => val.sub_departemen);
+      let listSubDepartemen: any[] = [];
+      listSubDepartemen.push(
+        ...new Set(res.map((val: any) => val.sub_departemen))
+      );
       this.formFilter.forEach((val) => {
         switch (val.id) {
           case 'divisi':

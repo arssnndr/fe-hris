@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/shared/api.service';
 import { PageEvent } from '@angular/material/paginator';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ModalBagianKerjaComponent } from './modal-bagian-kerja/modal-bagian-kerja.component';
 import { utils, writeFileXLSX } from 'xlsx';
 import * as moment from 'moment';
@@ -14,13 +14,16 @@ moment.locale('id');
 })
 export class BagianKerjaComponent implements OnInit {
   table = 'ms_bagiankerja/';
+  data!: any;
+
   dataSearch = '';
+
   pageSize = 50;
   pageIndex = 0;
   pageSizeOption = [50, 100, 150, 200];
   showFirstLastButtons = false;
-  data!: any;
   length: any;
+
   catchResult: any;
   lokasiValue = '';
 
@@ -77,7 +80,7 @@ export class BagianKerjaComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        this.api.postData(this.table, this.catchResult).subscribe((res) => {
+        this.api.postData(this.table, this.catchResult).subscribe(() => {
           this.length = this.length + 1;
           this.getPageData();
         });
@@ -144,7 +147,7 @@ export class BagianKerjaComponent implements OnInit {
       });
     } else {
       this.api
-        .getData(this.table + '?keterangan_like=' + this.dataSearch)
+        .getData(this.table + '?sub_departemen_like=' + this.dataSearch)
         .subscribe((res) => {
           this.length = res.length;
           this.pageSize = 50;
@@ -175,7 +178,7 @@ export class BagianKerjaComponent implements OnInit {
             (this.pageIndex + 1) +
             '&_limit=' +
             this.pageSize +
-            '&keterangan_like=' +
+            '&sub_departemen_like=' +
             this.dataSearch
         )
         .subscribe((res) => {

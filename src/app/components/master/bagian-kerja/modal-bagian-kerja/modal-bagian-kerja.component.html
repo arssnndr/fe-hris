@@ -40,11 +40,16 @@
     </div>
     <div class="right">
       <h6>Deskripsi</h6>
-      <input type="text" class="browser-default" [(ngModel)]="subDepartemenValue" />
+      <div style="display:block">
+        <input (blur)="isBlur=true" type="text" class="browser-default" [(ngModel)]="subDepartemenValue" minlength="2"
+          maxlength="50" />
+        <p *ngIf="subDepartemenValue.length===0 && isBlur" style="margin:0px">Data belum terisi</p>
+        <p *ngIf="subDepartemenValue.length===1" style="margin:0px">Minimal 2 karakter</p>
+      </div>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+    <button class="simpan waves-effect waves-light" [disabled]="subDepartemenValue.length<2" (click)="throwResult()">
       Simpan
     </button>
     <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
@@ -75,11 +80,16 @@
     </div>
     <div class="right">
       <h6>Deskripsi</h6>
-      <input type="text" class="browser-default" (keyup)="onKey($event.target)" [value]="data.edit.sub_departemen" />
+      <div style="display:block">
+        <input (blur)="isBlur=true" type="text" class="browser-default" (keyup)="onKey($event.target)"
+          [value]="data.edit.sub_departemen" minlength="2" maxlength="50" />
+        <p *ngIf="subDepartemenValue.length===0 && isBlur" style="margin:0px">Data belum terisi</p>
+        <p *ngIf="subDepartemenValue.length===1" style="margin:0px">Minimal 2 karakter</p>
+      </div>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+    <button class="simpan waves-effect waves-light" (click)="throwResult()">
       Simpan
     </button>
     <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">

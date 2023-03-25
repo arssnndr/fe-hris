@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PageEvent } from '@angular/material/paginator';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
+import { environment } from 'src/environments/environment';
+import { VoidComponent } from '../modals/void/void.component';
 import { ModalStatusKehadiranComponent } from './modal-status-kehadiran/modal-status-kehadiran.component';
 
 @Component({
@@ -11,18 +12,19 @@ import { ModalStatusKehadiranComponent } from './modal-status-kehadiran/modal-st
   styleUrls: ['./status-kehadiran.component.css'],
 })
 export class StatusKehadiranComponent implements OnInit {
-  table = 'ms_statuskehadiran/';
-  dataSearch = '';
-  pageSize = 50;
-  pageIndex = 0;
-  pageSizeOption = [50, 100, 150, 200];
-  showFirstLastButtons = false;
-  data!: any;
-  length: any;
-  inisial = true;
-  perusahaan = false;
+  dataStatusKehadiran: any[] = [];
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  searchName: string = '';
+  searchNip: string = '';
+
+  paginator = {
+    length: 0,
+    pageIndex: 0,
+    pageSize: 50,
+    pageSizeOptions: [50, 100, 150, 200],
+  };
+
+  constructor(private api: ApiService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getAllData();
@@ -32,156 +34,91 @@ export class StatusKehadiranComponent implements OnInit {
     return moment(date).format('DD MMM YYYY');
   }
 
-  tambahData() {
-    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
-      data: { name: 'tambah' },
-    });
+  getAllData() {
+    this.api
+      .getData(
+        environment.tabelStatusKehadiran +
+          '?nama_lengkap_like=' +
+          this.searchName +
+          '&nip_like=' +
+          this.searchNip
+      )
+      .subscribe((res) => {
+        this.dataStatusKehadiran = res;
+        this.paginator.length = res.length;
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api.postData(this.table, catchResult).subscribe(() => {
-          this.length = this.length + 1;
-          this.getPageData();
-        });
-      }
-    });
+        this.getPage();
+      });
   }
 
-  deleteData(id: number) {
-    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
-      data: { name: 'delete' },
-    });
+  getPage() {
+    this.api
+      .getData(
+        environment.tabelStatusKehadiran +
+          '?_page=' +
+          (this.paginator.pageIndex + 1) +
+          '&_limit=' +
+          this.paginator.pageSize +
+          '&nama_lengkap_like=' +
+          this.searchName +
+          '&nip_like=' +
+          this.searchNip
+      )
+      .subscribe((res) => {
+        this.dataStatusKehadiran = res;
+      });
+  }
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'ya') {
-        this.api.deleteData(this.table + id).subscribe(() => {
-          this.length = this.length - 1;
-          this.getPageData();
-        });
-      }
-    });
+  search(data: any) {
+    data = data.value;
+
+    isNaN(data) ? (this.searchName = data) : (this.searchNip = data);
+
+    this.getAllData();
+  }
+
+  onChangePage(page: any) {
+    this.paginator.length = page.length;
+    this.paginator.pageIndex = page.pageIndex;
+    this.paginator.pageSize = page.pageSize;
+    this.getPage();
+  }
+
+  tambahData() {
+    this.dialog
+      .open(ModalStatusKehadiranComponent)
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.api
+            .postData(environment.tabelStatusKehadiran, res)
+            .subscribe(() => this.getAllData());
+        }
+      });
   }
 
   editData(data: any) {
-    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
-      data: { name: 'edit', data: data },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api
-          .updateData(this.table, catchResult, catchResult.id)
-          .subscribe(() => {
-            this.getPageData();
-          });
-      }
-    });
-  }
-
-  handlePageEvent(event: PageEvent) {
-    this.pageSize = event.pageSize;
-    this.pageIndex = event.pageIndex;
-    this.getPageData();
-  }
-
-  getAllData() {
-    if (this.dataSearch.length === 0) {
-      this.api.getData(this.table).subscribe((res) => {
-        this.length = res.length;
-        this.pageSize = 50;
-        this.pageIndex = 0;
-        this.getPageData();
+    this.dialog
+      .open(ModalStatusKehadiranComponent, { data: data })
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.api
+            .updateData(environment.tabelStatusKehadiran, res, res.id)
+            .subscribe(() => this.getAllData());
+        }
       });
-    } else {
-      if (this.inisial) {
-        this.api
-          .getData(this.table + '?nip_like=' + this.dataSearch)
-          .subscribe((res) => {
-            this.length = res.length;
-            this.pageSize = 50;
-            this.pageIndex = 0;
-            if (res.length === 0) {
-              this.inisial = false;
-              this.perusahaan = true;
-              this.getAllData();
-            } else {
-              this.getPageData();
-            }
-          });
-      } else if (this.perusahaan) {
-        this.api
-          .getData(this.table + '?nama_lengkap_like=' + this.dataSearch)
-          .subscribe((res) => {
-            this.length = res.length;
-            this.pageSize = 50;
-            this.pageIndex = 0;
-            if (res.length === 0) {
-              this.perusahaan = false;
-              this.inisial = true;
-              this.getAllData();
-            } else {
-              this.getPageData();
-            }
-          });
-      }
-    }
   }
 
-  getPageData() {
-    if (this.dataSearch.length === 0) {
-      this.api
-        .getData(
-          this.table +
-            '?_page=' +
-            (this.pageIndex + 1) +
-            '&_limit=' +
-            this.pageSize +
-            '&cuti.status=Cuti Tahunan&cuti.status=Cuti Khusus&cuti.status=Izin&cuti.status=Perjalanan Dinas'
-        )
-        .subscribe((res) => {
-          this.data = res;
-        });
-    } else {
-      if (this.inisial) {
-        this.api
-          .getData(
-            this.table +
-              '?_page=' +
-              (this.pageIndex + 1) +
-              '&_limit=' +
-              this.pageSize +
-              '&nip_like=' +
-              this.dataSearch +
-              '&cuti.status=Cuti Tahunan&cuti.status=Cuti Khusus&cuti.status=Izin&cuti.status=Perjalanan Dinas'
-          )
-          .subscribe((res) => {
-            this.data = res;
-          });
-      } else if (this.perusahaan) {
-        this.api
-          .getData(
-            this.table +
-              '?_page=' +
-              (this.pageIndex + 1) +
-              '&_limit=' +
-              this.pageSize +
-              '&nama_lengkap_like=' +
-              this.dataSearch +
-              '&cuti.status=Cuti Tahunan&cuti.status=Cuti Khusus&cuti.status=Izin&cuti.status=Perjalanan Dinas'
-          )
-          .subscribe((res) => {
-            this.data = res;
-          });
-      }
-    }
-  }
-
-  searchData(data: any) {
-    this.dataSearch = data;
-    this.pageIndex = 0;
-    this.getAllData();
-    this.getPageData();
+  voidData(id: number) {
+    this.dialog
+      .open(VoidComponent)
+      .afterClosed()
+      .subscribe((res) => {
+        if (res === 'ya')
+          this.api
+            .deleteData(environment.tabelStatusKehadiran + id)
+            .subscribe(() => this.getAllData());
+      });
   }
 }

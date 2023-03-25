@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ApiService } from 'src/app/shared/api.service';
-import { ModalSetupJadwalKerjaComponent } from './modal-setup-jadwal-kerja/modal-setup-jadwal-kerja.component';
 import * as moment from 'moment';
-moment.locale('id');
+import { ApiService } from 'src/app/shared/api.service';
+import { VoidComponent } from '../../modals/void/void.component';
+import { ModalSetupJadwalKerjaCategoryComponent } from './modal-setup-jadwal-kerja-category/modal-setup-jadwal-kerja-category.component';
+import { ModalSetupJadwalKerjaDetailComponent } from './modal-setup-jadwal-kerja-detail/modal-setup-jadwal-kerja-detail.component';
+import { ModalSetupJadwalKerjaIndividuComponent } from './modal-setup-jadwal-kerja-individu/modal-setup-jadwal-kerja-individu.component';
 
 @Component({
   selector: 'app-setup-jadwal-kerja',
@@ -11,201 +13,273 @@ moment.locale('id');
   styleUrls: ['./setup-jadwal-kerja.component.css'],
 })
 export class SetupJadwalKerjaComponent implements OnInit {
-  tableDetail = 'trx_jadwalkerjadetail/';
-  dataDetailAll: any[] = [{ jadwal_kerja: '' }];
-  dataDetailProfil = { id: '', nama_lengkap: '', nip: '', jadwal_kerja: '' };
-  dataDetailJadwalKerja!: any;
-  dataDetailJadwalKerjaPerMonth: any[] = [];
-  yearMonth = moment().format('YYYY-MM');
-  dataSearchNip: any[] = [];
-
-  tableCategory = 'trx_jadwalkerjacategory/';
-  dataCategoryAll!: any;
-
-  tableIndividu = 'trx_jadwalkerjaindividu/';
-  dataIndividuAll!: any;
-
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
+  selectedIndex = 0;
+
   ngOnInit(): void {
-    this.api.getData(this.tableDetail).subscribe((res) => {
-      this.dataDetailAll = res;
-      this.dataDetailProfil = res[0];
-      this.dataDetailJadwalKerja = res[0].jadwal_kerja;
-      this.selectMonth();
-    });
+    this.getDataJadwalKerjaDetail();
+    this.getDataJadwalKerjaCategory();
 
-    this.api.getData(this.tableCategory).subscribe((res) => {
-      this.dataCategoryAll = res;
-    });
+    this.getDataJadwalKerjaIndividu();
+  }
 
-    this.api.getData(this.tableIndividu).subscribe((res) => {
-      this.dataIndividuAll = res;
-    });
+  formatDate(date: string) {
+    return moment(date).format('DD MMM YYYY');
+  }
+
+  formatYearMonth(date: string) {
+    return moment(date).format('YYYY-MM');
   }
 
   // DETAIL
-  dateFormat(date: any) {
-    return moment(date, 'DD-MM-YYYY').format('DD MMM YYYY');
-  }
+  tabelJadwalKerjaDetail = 'trx_jadwalkerjadetail/';
+  dataJadwalKerjaDetail: any;
+  dataJadwalKerjaPerMonth: any;
+  dataFiltered: any;
+  dataSelected: any;
 
-  selectProfil(id: any) {
-    this.dataDetailAll.map((res: any) => {
-      if (res.id === id) {
-        this.dataDetailProfil = res;
-      }
-    });
-    this.dataDetailJadwalKerja = this.dataDetailProfil.jadwal_kerja;
-    this.selectMonth();
-  }
+  periode = moment().format('YYYY-MM');
+  indexProfile = 0;
 
-  selectMonth() {
-    this.dataDetailJadwalKerjaPerMonth = [];
-    this.dataDetailJadwalKerja[
-      Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
-    ].map((res: any) => {
-      if (
-        res.tgl.includes(moment(this.yearMonth, 'YYYY-MM').format('MM-YYYY'))
-      ) {
-        this.dataDetailJadwalKerjaPerMonth.push(res);
-      }
+  getDataJadwalKerjaDetail() {
+    this.api.getData(this.tabelJadwalKerjaDetail).subscribe((res) => {
+      this.dataJadwalKerjaDetail = res;
+      this.dataSelected = res[0];
+      this.getDataJadwalKerjaPerMonth(this.indexProfile, this.periode);
     });
   }
 
-  searchNip(nip: any) {
-    this.dataSearchNip = [];
-    this.dataDetailAll.map((res: any) => {
-      if (res.nip.includes(nip.value)) {
-        this.dataSearchNip.push(res);
+  getDataJadwalKerjaPerMonth(index: number, periode: string) {
+    this.indexProfile = index;
+    this.dataSelected = this.dataJadwalKerjaDetail[index];
+    this.dataJadwalKerjaPerMonth = [];
+    this.dataJadwalKerjaDetail[index].jadwal_kerja.forEach((res: any) => {
+      if (periode === this.formatYearMonth(res.tgl)) {
+        this.dataJadwalKerjaPerMonth.push(res);
       }
     });
+  }
+
+  filterNip(nip: any) {
+    this.api
+      .getData(this.tabelJadwalKerjaDetail + '?nip_like=' + nip.value)
+      .subscribe((res) => (this.dataFiltered = res));
   }
 
   selectNip(data: any) {
-    this.dataDetailProfil = data;
-    this.dataDetailJadwalKerja = data.jadwal_kerja;
-    this.selectMonth();
+    this.dataSelected = data;
   }
 
-  editDataDetail(i: number) {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: {
-        name: 'editDetail',
+  selectJadwalKerja(tgl: string) {
+    this.dialog
+      .open(ModalSetupJadwalKerjaDetailComponent, {
         data: {
-          dataProfil: this.dataDetailProfil,
-          indexBln: Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1,
-          indexTgl: i,
+          event: 'editJadwalKerjaDetail',
+          editData: this.dataSelected,
+          tgl: tgl,
         },
-      },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
+      })
+      .afterClosed()
+      .subscribe((res: any) => {
         this.api
-          .updateData(this.tableDetail, catchResult, this.dataDetailProfil.id)
+          .updateData(this.tabelJadwalKerjaDetail, res, res.id)
           .subscribe(() => {
-            this.selectProfil(catchResult.id);
+            this.ngOnInit();
           });
-      }
-    });
+      });
   }
 
   // CATEGORY
-  tambahDataCategory() {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'tambahCategory' },
-    });
+  isButton = false;
+  tabelJadwalKerjaCategory = 'trx_jadwalkerjacategory/';
+  dataJadwalKerjaCategory: any;
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api.postData(this.tableCategory, catchResult).subscribe(() => {
-          this.ngOnInit();
-        });
-      }
-    });
+  getDataJadwalKerjaCategory() {
+    this.api
+      .getData(this.tabelJadwalKerjaCategory)
+      .subscribe((res) => (this.dataJadwalKerjaCategory = res));
   }
 
-  editDataCategory(data: any) {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'editCategory', data: data },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api
-          .updateData(this.tableCategory, catchResult, data.id)
-          .subscribe(() => {
-            this.ngOnInit();
-          });
-      }
-    });
+  tambahJadwalKerjaCategory() {
+    this.dialog
+      .open(ModalSetupJadwalKerjaCategoryComponent)
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.api
+            .postData(this.tabelJadwalKerjaCategory, res)
+            .subscribe(() => this.getDataJadwalKerjaCategory);
+        }
+      });
   }
 
-  deleteDataCategory(id: number) {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'deleteCategory' },
-    });
+  editJadwalKerjaCategory(data: any) {
+    this.dialog
+      .open(ModalSetupJadwalKerjaCategoryComponent, { data: data })
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.api
+            .updateData(this.tabelJadwalKerjaCategory, res, data.id)
+            .subscribe(() => this.getDataJadwalKerjaCategory());
+        }
+      });
+  }
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'ya') {
-        this.api.deleteData(this.tableCategory + id).subscribe(() => {
-          this.ngOnInit();
-        });
-      }
-    });
+  voidCategory(id: number) {
+    this.dialog
+      .open(VoidComponent)
+      .afterClosed()
+      .subscribe((res) => {
+        if (res === 'ya') {
+          this.api
+            .deleteData(this.tabelJadwalKerjaCategory + id)
+            .subscribe(() => this.getDataJadwalKerjaCategory());
+        }
+      });
   }
 
   // INDIVIDU
-  tambahDataIndividu() {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: {
-        name: 'tambahIndividu',
-      },
-    });
+  tabelJadwalKerjaIndividu = 'trx_jadwalkerjaindividu/';
+  dataJadwalKerjaIndividu: any;
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        console.log(catchResult);
-        this.api.postData(this.tableIndividu, catchResult).subscribe(() => {
-          this.ngOnInit();
-        });
-      }
-    });
+  getDataJadwalKerjaIndividu() {
+    this.api
+      .getData(this.tabelJadwalKerjaIndividu)
+      .subscribe((res) => (this.dataJadwalKerjaIndividu = res));
   }
 
-  editDataIndividu(data: any) {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'editIndividu', data: data },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api
-          .updateData(this.tableIndividu, catchResult, data.id)
-          .subscribe(() => {
-            this.ngOnInit();
-          });
-      }
-      this.ngOnInit();
-    });
+  tambahJadwalKerjaIndividu() {
+    this.dialog
+      .open(ModalSetupJadwalKerjaIndividuComponent)
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.api
+            .postData(this.tabelJadwalKerjaIndividu, res)
+            .subscribe(() => this.getDataJadwalKerjaIndividu());
+        }
+      });
   }
 
-  deleteDataIndividu(id: number) {
-    const dialogRef = this.dialog.open(ModalSetupJadwalKerjaComponent, {
-      data: { name: 'deleteIndividu' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'ya') {
-        this.api.deleteData(this.tableIndividu + id).subscribe(() => {
-          this.ngOnInit();
-        });
-      }
-    });
+  editJadwalKerjaIndividu(data: any) {
+    this.dialog
+      .open(ModalSetupJadwalKerjaIndividuComponent, { data: data })
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.api
+            .updateData(this.tabelJadwalKerjaIndividu, res, data.id)
+            .subscribe(() => this.getDataJadwalKerjaIndividu());
+        }
+      });
   }
+
+  voidIndividu(id: number) {
+    this.dialog
+      .open(VoidComponent)
+      .afterClosed()
+      .subscribe((res) => {
+        if (res === 'ya') {
+          this.api
+            .deleteData(this.tabelJadwalKerjaIndividu + id)
+            .subscribe(() => this.getDataJadwalKerjaIndividu());
+        }
+      });
+  }
+
+  // printData(name: string) {
+  //   let header: any[] = [];
+  //   let content;
+  //   let column;
+
+  //   switch (name) {
+  //     case 'History Status':
+  //       header = [
+  //         ['A1', name],
+  //         ['F1', 'Tanggal Cetak'],
+  //         ['F2', 'User :'],
+  //         ['G1', moment().format('DD MMM YYYY')],
+  //         ['G2', window.localStorage.getItem('key')],
+  //       ];
+  //       content = this.dataJadwalKerjaCategory.map((res: any) => ({
+  //         NIP: res.nip,
+  //         'Nama Karyawan': res.nama_lengkap,
+  //         'Tanggal Lahir': this.formatDate(res.tgl_lahir),
+  //         'Tanggal Join': this.formatDate(res.tgl_join),
+  //         'Status Karyawan': res.status_karyawan,
+  //         'Tanggal Efektif Terminasi': this.formatDate(
+  //           res.tgl_efektif_terminasi
+  //         ),
+  //         'Alasan Terminasi': res.alasan_terminasi,
+  //       }));
+  //       break;
+
+  //     case 'History Penugasan':
+  //       header = [
+  //         ['A1', name],
+  //         ['L1', 'Tanggal Cetak'],
+  //         ['L2', 'User :'],
+  //         ['M1', moment().format('DD MMM YYYY')],
+  //         ['M2', window.localStorage.getItem('key')],
+  //       ];
+  //       content = this.dataKaryawan.map((res: any) => ({
+  //         NIP: res.nip,
+  //         'Nama Karyawan': res.nama_lengkap,
+  //         'Tanggal Lahir': this.formatDate(res.tgl_lahir),
+  //         'Tanggal Perubahan': this.formatDate(res.tgl_perubahan_detasir),
+  //         'Lokasi Kerja': res.lokasi,
+  //         Divisi: res.divisi,
+  //         Departemen: res.departemen,
+  //         'Sub Departemen': res.sub_departemen,
+  //         Jabatan: res.jabatan,
+  //         'Tanggal Mulai Detasir': this.formatDate(res.tgl_akhir_detasir),
+  //         'Tanggal Akhir Detasir': this.formatDate(res.tgl_akhir_detasir),
+  //         'Lokasi Detasir': res.lokasi_detasir,
+  //         'Alasan Detasir': res.alasan_detasir,
+  //       }));
+  //       break;
+  //   }
+
+  //   column =
+  //     Object.keys(content[0]).length > 25
+  //       ? 'A' + String.fromCharCode((Object.keys(content[0]).length % 26) + 64)
+  //       : String.fromCharCode(Object.keys(content[0]).length + 64);
+
+  //   const ws = utils.json_to_sheet(content);
+  //   const wsTemp = utils.json_to_sheet(content);
+
+  //   let length = Number(ws['!ref']?.split(column, 2)[1]);
+  //   let gap = 4;
+
+  //   ws['!ref'] = 'A1:' + column + (length + gap);
+  //   for (let i = 1; i <= 4; i++) {
+  //     Object.keys(content[0]).forEach((_, index) => {
+  //       index > 25
+  //         ? (ws['A' + String.fromCharCode(65 + index - 26) + i] = {
+  //             t: 's',
+  //             v: '',
+  //           })
+  //         : (ws[String.fromCharCode(65 + index) + i] = { t: 's', v: '' });
+  //     });
+  //   }
+
+  //   header.forEach((res) => (ws[res[0]] = { t: 's', v: res[1] }));
+
+  //   for (let i = 0; i < length; i++) {
+  //     Object.keys(content[0]).forEach((_, index) => {
+  //       index > 25
+  //         ? (ws['A' + String.fromCharCode(65 + index - 26) + (i + gap)] =
+  //             wsTemp['A' + String.fromCharCode(65 + index - 26) + (i + 1)])
+  //         : (ws[String.fromCharCode(65 + index) + (i + gap)] =
+  //             wsTemp[String.fromCharCode(65 + index) + (i + 1)]);
+  //     });
+  //   }
+
+  //   const wb = utils.book_new();
+
+  //   utils.book_append_sheet(wb, ws);
+  //   writeFileXLSX(wb, name + '.xlsx');
+  // }
 }

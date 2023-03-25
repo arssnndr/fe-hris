@@ -4,7 +4,14 @@
 
 export const environment = {
   production: false,
-  api: 'http://localhost:4100/'
+  api: 'http://localhost:4100/',
+  tabelKaryawan: 'ms_karyawan/',
+  tabelStatusKehadiran: 'ms_statuskehadiran/',
+  tabelListKehadiran: 'trx_listkehadiran/',
+  tabelLokasi: 'ms_lokasi/',
+  tabelPerusahaan: 'ms_perusahaan/',
+  tabelBagianKerja: 'ms_bagiankerja/',
+  tabelLembur: 'ms_lembur/',
 };
 
 /*

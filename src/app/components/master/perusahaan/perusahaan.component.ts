@@ -31,7 +31,6 @@ export class PerusahaanComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
         this.api.postData(this.table, this.catchResult).subscribe((res) => {
@@ -46,7 +45,6 @@ export class PerusahaanComponent implements OnInit {
   }
 
   editData(data: any) {
-    console.log(data);
     const dialogRef = this.dialog.open(ModalPerusahaanComponent, {
       data: { name: 'edit', data: data },
     });
@@ -54,11 +52,11 @@ export class PerusahaanComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        let data = this.catchResult;
-        let id = this.catchResult.id;
-        this.api.updateData(this.table, data, id).subscribe((res) => {
-          this.getPageData();
-        });
+        this.api
+          .updateData(this.table, this.catchResult, data.id)
+          .subscribe(() => {
+            this.getPageData();
+          });
       }
     });
   }

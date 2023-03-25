@@ -1,53 +1,49 @@
-<h4>Status Kehadiran</h4>
-<div class="nav">
-    <nav class="transparent z-depth-0">
-        <div class="nav-wrapper row">
-            <div class="col s3">
-                <form (ngSubmit)="searchData(search.value)">
-                    <input #search class="search" type="text" name="search" placeholder="Cari NIP/Nama User.." />
-                </form>
-            </div>
-            <div class="col s9">
-                <ul class="right">
-                    <li>
-                        <mat-paginator class="transparent" (page)="handlePageEvent($event)" [length]="length"
-                            [pageSize]="pageSize" [pageSizeOptions]="pageSizeOption"
-                            [showFirstLastButtons]="showFirstLastButtons" [pageIndex]="pageIndex">
-                        </mat-paginator>
-                    </li>
-                    <li>
-                        <button class="tambah waves-effect waves-light" (click)="tambahData()">
-                            Tambah
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<div class="header">
+    <div class="title">
+        <h5>Status Kehadiran</h5>
+    </div>
+
+    <div class="navbar">
+        <input type="text" name="search" id="search" placeholder="Cari NIP atau Nama" (input)="search($event.target)"
+            class="browser-default">
+
+        <mat-paginator [length]="paginator.length" [pageSize]="paginator.pageSize"
+            [pageSizeOptions]="paginator.pageSizeOptions" (page)="onChangePage($event)">
+        </mat-paginator>
+
+        <button class="tambah waves-effect waves-light" (click)="tambahData()">Tambah</button>
+    </div>
 </div>
-<table class="responsive-table striped">
-    <thead>
-        <tr>
-            <th>NIP</th>
-            <th>Nama</th>
-            <th>Tanggal</th>
-            <th>Status</th>
-            <th>Keterangan</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let row of data">
-            <td (click)="editData(row)">{{ row.nip }}</td>
-            <td (click)="editData(row)">{{ row.nama_lengkap }}</td>
-            <td (click)="editData(row)">{{ formatDate(row.cuti.tgl_mulai) }}</td>
-            <td (click)="editData(row)">{{ row.cuti.status }}</td>
-            <td (click)="editData(row)">{{ row.keterangan }}</td>
-            <td>
-                <button (click)="deleteData(row.id)" class="waves-effect waves-light right red darken-2">
-                    <i class="material-icons" style="font-size: 15px">close</i>
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+
+<div class="body">
+    <div class="content">
+        <table class="responsive-table striped">
+            <thead>
+                <tr>
+                    <th>NIP</th>
+                    <th>Nama</th>
+                    <th>Tanggal</th>
+                    <th>Status</th>
+                    <th>Keterangan</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of dataStatusKehadiran">
+                    <td (click)="editData(row)">{{row.nip}}</td>
+                    <td (click)="editData(row)">{{row.nama_lengkap}}</td>
+                    <td (click)="editData(row)">
+                        {{formatDate(row.status_cuti==='Izin'?row.tgl_mulai_izin:row.tgl_mulai_cuti)}}</td>
+                    <td (click)="editData(row)">{{row.status_cuti}}</td>
+                    <td (click)="editData(row)">{{row.keterangan}}</td>
+                    <td>
+                        <button class="void transparent">
+                            <mat-icon class="waves-effect waves-light" fontIcon="close"
+                                (click)="voidData(row.id)"></mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="container">
+    <h5>Jadwal Kerja Individu</h5>
+
+    <div class="content">
+        <div class="form">
+            <p>NIP</p>
+            <input type="number" name="" id="" class="browser-default" (input)="filterKaryawan($event.target)"
+                [matAutocomplete]="auto" [value]="dataJadwalKerjaIndividu.nip">
+            <p class="nama">{{dataJadwalKerjaIndividu.nama_lengkap}}</p>
+            <mat-autocomplete #auto>
+                <mat-option *ngFor="let option of filteredKaryawan" [value]="option.nip"
+                    (click)="selectKaryawan(option)">{{option.nip}}</mat-option>
+            </mat-autocomplete>
+        </div>
+
+        <div class="form">
+            <p>Departemen</p>
+            <input [value]="dataJadwalKerjaIndividu.departemen" type="text" name="departemen" id="departemen"
+                class="browser-default" disabled>
+
+            <p>Dari</p>
+            <input [(ngModel)]="dataJadwalKerjaIndividu.dari" type="date" name="dari" id="dari" class="browser-default">
+        </div>
+
+        <div class="form">
+            <p>Perusahaan</p>
+            <input [value]="dataJadwalKerjaIndividu.perusahaan" type="text" name="perusahaan" id="perusahaan"
+                class="browser-default" disabled>
+
+            <p>Sampai</p>
+            <input [(ngModel)]="dataJadwalKerjaIndividu.sampai" type="date" name="sampai" id="sampai"
+                class="browser-default">
+        </div>
+
+        <div class="table">
+            <table class="responsive-tabel striped">
+                <thead>
+                    <th>Hari</th>
+                    <th>Jadwal</th>
+                    <th>Jam Kerja</th>
+                    <th>Jam Istirahat</th>
+                    <th>Total</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of tabelContents, index as i">
+                        <td>{{ row.hari }}</td>
+                        <td>
+                            <select [name]="row.hari" [id]="row.hari" class="tabel browser-default"
+                                (change)="change($event.target, row.hari)"
+                                [ngModel]="dataJadwalKerjaIndividu.jadwal_kerja[i].id_jadwal_kerja === ''? 'OFF':dataJadwalKerjaIndividu.jadwal_kerja[i].id_jadwal_kerja">
+                                <option *ngFor="let option of dataIdJadwalKerja" [value]="option">
+                                    {{ option }}
+                                </option>
+                            </select>
+                        </td>
+                        <td>{{ row.jamKerja }}</td>
+                        <td>{{ row.jamIstirahat }}</td>
+                        <td>{{ row.total }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="actions">
+            <button class="simpan waves-effect waves-light" [mat-dialog-close]="dataJadwalKerjaIndividu">Simpan</button>
+            <button class="batal waves-effect waves-dark" [mat-dialog-close]="undefined">Batal</button>
+        </div>
+    </div>

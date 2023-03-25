@@ -39,7 +39,7 @@ export class ModalLokasiComponent implements OnInit {
         this.isEdit = true;
 
         this.idValue = this.data.data.id;
-        this.keteranganValue = this.data.data.keterangan;
+        this.keteranganValue = this.data.data.nama;
         this.inisialValue = this.data.data.inisial;
         this.alamatValue = this.data.data.alamat;
         break;
@@ -48,7 +48,7 @@ export class ModalLokasiComponent implements OnInit {
 
   throwResult() {
     this.lokasi = {
-      keterangan: this.keteranganValue,
+      nama: this.keteranganValue,
       inisial: this.inisialValue,
       alamat: this.alamatValue,
     };

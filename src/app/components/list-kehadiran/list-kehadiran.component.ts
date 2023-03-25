@@ -1,10 +1,11 @@
-import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
+import { environment } from 'src/environments/environment';
 import { utils, writeFileXLSX } from 'xlsx';
 import { ModalStatusKehadiranComponent } from '../status-kehadiran/modal-status-kehadiran/modal-status-kehadiran.component';
+import { ModalFilterDialogComponent } from './modal-filter-dialog/modal-filter-dialog.component';
 import { ModalListKehadiranComponent } from './modal-list-kehadiran/modal-list-kehadiran.component';
 
 @Component({
@@ -13,239 +14,198 @@ import { ModalListKehadiranComponent } from './modal-list-kehadiran/modal-list-k
   styleUrls: ['./list-kehadiran.component.css'],
 })
 export class ListKehadiranComponent implements OnInit {
-  tableDetail = 'trx_listkehadiran/';
-  dataDetailAll: any[] = [{ jadwal_kerja: '' }];
-  idProfil!: number;
-  dataDetailProfil = {
-    id: '',
-    nama_lengkap: '',
-    nip: '',
-    jadwal_kerja: '',
-    jabatan: '',
-    lokasi: '',
-    divisi: '',
-    departemen: '',
-    sub_departemen: '',
+  dataListKehadiran: any;
+  selectedDataListKehadiran: any;
+  jadwalKerjaPerMonth: any;
+
+  filteredDataListKehadiran: any;
+
+  selectedMonth = moment().format('YYYY-MM');
+
+  filterProfile = {
+    lokasi: 'All',
+    perusahaan: 'All',
+    divisi: 'All',
+    departemen: 'All',
+    sub_departemen: 'All',
   };
-  dataDetailJadwalKerja!: any;
-  dataDetailJadwalKerjaPerMonth: any[] = [];
-  yearMonth = moment().format('YYYY-MM');
-  dataSearchNip: any[] = [];
 
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.api.getData(this.tableDetail).subscribe((res) => {
-      this.dataDetailAll = res;
-      this.dataDetailProfil = res[0];
-      this.selectProfil(res[0].id);
-      this.dataDetailJadwalKerja = res[0].jadwal_kerja;
-      this.selectMonth();
-    });
+    this.getDataListKehadiran();
   }
 
-  dateFormat(date: any) {
-    return moment(date, 'DD-MM-YYYY').format('DD MMM YYYY');
+  formatDate(date: string) {
+    return moment(date).format('DD MMM YYYY');
   }
 
-  sliceTime(time: any) {
-    return time.slice(0, 2);
+  splitTime(time: any) {
+    return time.split(':')[0];
   }
 
-  selectProfil(id: any) {
-    this.idProfil = id;
-    this.dataDetailAll.map((res: any) => {
-      if (res.id === id) {
-        this.dataDetailProfil = res;
-      }
-    });
-    this.dataDetailJadwalKerja = this.dataDetailProfil.jadwal_kerja;
-    this.selectMonth();
+  getDataListKehadiran() {
+    const lokasi =
+      this.filterProfile.lokasi === 'All' ? '' : this.filterProfile.lokasi;
+
+    const perusahaan =
+      this.filterProfile.perusahaan === 'All'
+        ? ''
+        : this.filterProfile.perusahaan;
+
+    const divisi =
+      this.filterProfile.divisi === 'All' ? '' : this.filterProfile.divisi;
+
+    const departemen =
+      this.filterProfile.departemen === 'All'
+        ? ''
+        : this.filterProfile.departemen;
+
+    const sub_departemen =
+      this.filterProfile.sub_departemen === 'All'
+        ? ''
+        : this.filterProfile.sub_departemen;
+
+    this.api
+      .getData(
+        environment.tabelListKehadiran +
+          '?lokasi_like=' +
+          lokasi +
+          '&perusahaan_like=' +
+          perusahaan +
+          '&divisi_like=' +
+          divisi +
+          '&departemen_like=' +
+          departemen +
+          '&sub_departemen_like=' +
+          sub_departemen
+      )
+      .subscribe((res) => {
+        this.dataListKehadiran = res;
+        this.selectedDataListKehadiran = res[0];
+        this.getJadwalKerjaPerMonth(this.selectedMonth);
+      });
   }
 
-  selectMonth() {
-    this.dataDetailJadwalKerjaPerMonth = [];
-    this.dataDetailJadwalKerja[
-      Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
-    ].map((res: any) => {
-      if (
-        res.tgl.includes(moment(this.yearMonth, 'YYYY-MM').format('MM-YYYY'))
-      ) {
-        this.dataDetailJadwalKerjaPerMonth.push(res);
-      }
-    });
+  getJadwalKerjaPerMonth(month: any) {
+    this.jadwalKerjaPerMonth =
+      this.selectedDataListKehadiran?.jadwal_kerja.filter((res: any) =>
+        res.tgl.includes(month)
+      );
   }
 
-  searchNip(nip: any) {
-    this.dataSearchNip = [];
-    this.dataDetailAll.map((res: any) => {
-      if (res.nip.includes(nip.value)) {
-        this.dataSearchNip.push(res);
-      }
-    });
+  filterDataListKehadiran(nip: any) {
+    nip = nip.value;
+    this.api
+      .getData(environment.tabelListKehadiran + '?nip_like=' + nip)
+      .subscribe((res) => (this.filteredDataListKehadiran = res));
   }
 
-  selectNip(data: any) {
-    this.dataDetailProfil = data;
-    this.dataDetailJadwalKerja = data.jadwal_kerja;
-    this.selectMonth();
+  selectDataListKehadiran(event: any) {
+    this.selectedDataListKehadiran = event;
+    this.getJadwalKerjaPerMonth(this.selectedMonth);
   }
 
-  editKehadiran(index: number) {
-    const dialogRef = this.dialog.open(ModalListKehadiranComponent, {
-      data: {
-        name: 'editKehadiran',
-        data: this.dataDetailProfil,
-        index: {
-          indexBln: Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1,
-          indexTgl: index,
-        },
-      },
-    });
+  filterDialog() {
+    const element = document.getElementById('filter');
+    const rect = element!.getBoundingClientRect();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.position = {
+      top: `${rect.bottom}px`,
+      right: `${rect.right - rect.left}px`,
+    };
+    dialogConfig.width = 'max-content';
+    dialogConfig.height = 'max-content';
+    dialogConfig.data = this.filterProfile;
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api
-          .updateData(this.tableDetail, catchResult, catchResult.id)
-          .subscribe(() => {
-            this.selectProfil(catchResult.id);
-          });
-      }
-    });
+    this.dialog
+      .open(ModalFilterDialogComponent, dialogConfig)
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          this.filterProfile = res;
+          this.getDataListKehadiran();
+        }
+      });
   }
 
-  cutiTahunan(index: number) {
-    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
-      data: {
-        name: 'cutiTahunan',
-        nip: this.dataDetailProfil.nip,
-        nama_lengkap: this.dataDetailProfil.nama_lengkap,
-      },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        this.api.getData(this.tableDetail + this.idProfil).subscribe((res) => {
-          res.jadwal_kerja[
-            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
-          ][index].status_kehadiran.cuti = this.api.catchData().cuti;
-          res.jadwal_kerja[
-            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
-          ][index].status_kehadiran.keterangan =
-            this.api.catchData().keterangan;
+  editJadwalkerja(event: any) {
+    this.dialog
+      .open(ModalListKehadiranComponent, {
+        data: { data: this.selectedDataListKehadiran, date: event.tgl },
+      })
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
           this.api
-            .updateData(this.tableDetail, res, res.id)
-            .subscribe((res) => {
-              this.ngOnInit();
-            });
-        });
-      }
-    });
+            .updateData(environment.tabelListKehadiran, res, res.id)
+            .subscribe(() => this.getDataListKehadiran());
+        }
+      });
   }
 
-  cutiKhusus(index: number) {
-    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
-      data: {
-        name: 'cutiKhusus',
-        nip: this.dataDetailProfil.nip,
-        nama_lengkap: this.dataDetailProfil.nama_lengkap,
-      },
-    });
+  cuti(event: string, data: any) {
+    data.nip = this.selectedDataListKehadiran.nip;
+    data.nama_lengkap = this.selectedDataListKehadiran.nama_lengkap;
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        this.api.getData(this.tableDetail + this.idProfil).subscribe((res) => {
-          res.jadwal_kerja[
-            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
-          ][index].status_kehadiran.cuti = this.api.catchData().cuti;
-          res.jadwal_kerja[
-            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
-          ][index].status_kehadiran.keterangan =
-            this.api.catchData().keterangan;
-          this.api
-            .updateData(this.tableDetail, res, res.id)
-            .subscribe((res) => {
-              this.ngOnInit();
-            });
+    if (data.status_cuti === 'Hadir' || data.status_cuti === 'Mangkir') {
+      data.status_cuti = event;
+
+      this.api
+        .getData(environment.tabelStatusKehadiran + '?nip_like=' + data.nip)
+        .subscribe((res) => {
+          const {
+            hak_cuti_diambil,
+            hak_cuti_telah_diambil,
+            hak_cuti_tersedia,
+            hak_cuti_tersisa,
+            tgl_berakhir_hak_cuti,
+            tgl_muncul_hak_cuti,
+          } = res[0];
+
+          data.hak_cuti_diambil = hak_cuti_diambil;
+          data.hak_cuti_telah_diambil = hak_cuti_telah_diambil;
+          data.hak_cuti_tersedia = hak_cuti_tersedia;
+          data.hak_cuti_tersisa = hak_cuti_tersisa;
+          data.tgl_berakhir_hak_cuti = tgl_berakhir_hak_cuti;
+          data.tgl_muncul_hak_cuti = tgl_muncul_hak_cuti;
         });
-      }
-    });
-  }
-
-  izin(index: number) {
-    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
-      data: {
-        name: 'izin',
-        nip: this.dataDetailProfil.nip,
-        nama_lengkap: this.dataDetailProfil.nama_lengkap,
-      },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        this.api.getData(this.tableDetail + this.idProfil).subscribe((res) => {
-          res.jadwal_kerja[
-            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
-          ][index].status_kehadiran.cuti = this.api.catchData().cuti;
-          res.jadwal_kerja[
-            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
-          ][index].status_kehadiran.keterangan =
-            this.api.catchData().keterangan;
-          this.api
-            .updateData(this.tableDetail, res, res.id)
-            .subscribe((res) => {
-              this.ngOnInit();
-            });
-        });
-      }
-    });
-  }
-
-  perjalananDinas(index: number) {
-    const dialogRef = this.dialog.open(ModalStatusKehadiranComponent, {
-      data: {
-        name: 'perjalananDinas',
-        nip: this.dataDetailProfil.nip,
-        nama_lengkap: this.dataDetailProfil.nama_lengkap,
-      },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        this.api.getData(this.tableDetail + this.idProfil).subscribe((res) => {
-          res.jadwal_kerja[
-            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
-          ][index].status_kehadiran.cuti = this.api.catchData().cuti;
-          res.jadwal_kerja[
-            Number(moment(this.yearMonth, 'YYYY-MM').format('MM')) - 1
-          ][index].status_kehadiran.keterangan =
-            this.api.catchData().keterangan;
-          this.api
-            .updateData(this.tableDetail, res, res.id)
-            .subscribe((res) => {
-              this.ngOnInit();
-            });
-        });
-      }
-    });
-  }
-
-  statusKehadiran(data: any) {
-    switch (data.cuti.status) {
-      case 'Cuti Tahunan':
-        return 'Cuti';
-      case 'Cuti Khusus':
-        return 'CK';
-      case 'Izin':
-        return data.cuti.izin_seharian ? 'ISP' : 'ISH';
-      case 'Perjalanan Dinas':
-        return data.cuti.dinas_dalkot ? 'DDK' : 'DLK';
-      case 'Mangkir':
-        return 'Mangkir';
-      default:
-        return 'Hadir';
     }
+
+    this.dialog
+      .open(ModalStatusKehadiranComponent, {
+        data: data,
+      })
+      .afterClosed()
+      .subscribe((res) => {
+        if (res !== undefined) {
+          delete res['nip'];
+          delete res['nama_lengkap'];
+
+          this.selectedDataListKehadiran.jadwal_kerja.forEach(
+            (val: any, index: number) => {
+              if (val.tgl === res.tgl)
+                this.selectedDataListKehadiran.jadwal_kerja[index] = res;
+            }
+          );
+
+          this.api
+            .updateData(
+              environment.tabelListKehadiran,
+              this.selectedDataListKehadiran,
+              this.selectedDataListKehadiran.id
+            )
+            .subscribe(() => this.getDataListKehadiran());
+        } else {
+          this.getDataListKehadiran();
+        }
+      });
+  }
+
+  dateFormat(date: string) {
+    return moment(date).format('DD MMM YYYY');
   }
 
   printData(name: string) {
@@ -261,32 +221,28 @@ export class ListKehadiranComponent implements OnInit {
       ['A6', 'Departemen'],
       ['A7', 'Sub Departemen'],
       ['A8', 'Periode'],
-      ['B1', ': ' + this.dataDetailProfil.nip],
-      ['B2', ': ' + this.dataDetailProfil.nama_lengkap],
-      ['B3', ': ' + this.dataDetailProfil.jabatan],
-      ['B4', ': ' + this.dataDetailProfil.lokasi],
-      ['B5', ': ' + this.dataDetailProfil.divisi],
-      ['B6', ': ' + this.dataDetailProfil.departemen],
-      ['B7', ': ' + this.dataDetailProfil.sub_departemen],
-      ['B8', ': ' + moment(this.yearMonth, 'YYYY-MM').format('MMM YYYY')],
+      ['B1', ': ' + this.selectedDataListKehadiran.nip],
+      ['B2', ': ' + this.selectedDataListKehadiran.nama_lengkap],
+      ['B3', ': ' + this.selectedDataListKehadiran.jabatan],
+      ['B4', ': ' + this.selectedDataListKehadiran.lokasi],
+      ['B5', ': ' + this.selectedDataListKehadiran.divisi],
+      ['B6', ': ' + this.selectedDataListKehadiran.departemen],
+      ['B7', ': ' + this.selectedDataListKehadiran.sub_departemen],
+      ['B8', ': ' + moment(this.selectedMonth, 'YYYY-MM').format('MMM YYYY')],
       ['J1', 'Tanggal Cetak'],
       ['J2', 'User'],
       ['K1', ': ' + moment().format('DD MMM YYYY')],
       ['K2', ': ' + window.localStorage.getItem('key')],
     ];
-    content = this.dataDetailJadwalKerjaPerMonth.map((res: any) => ({
+    content = this.jadwalKerjaPerMonth.map((res: any) => ({
       Tanggal: this.dateFormat(res.tgl),
       Hari: res.hari,
       'ID Jadwal Kerja': res.id_jadwal_kerja,
-      'Jadwal Kerja':
-        this.sliceTime(res.masuk) + ' - ' + this.sliceTime(res.keluar),
-      'Jadwal Istirahat':
-        this.sliceTime(res.mulai_istirahat) +
-        ' - ' +
-        this.sliceTime(res.selesai_istirahat),
+      'Jadwal Kerja': res.masuk + ' - ' + res.keluar,
+      'Jadwal Istirahat': res.start_break + ' - ' + res.end_break,
       'Jam masuk': res.masuk,
       'Jam Keluar': res.keluar,
-      Status: this.statusKehadiran(res.status_kehadiran),
+      Status: res.status_cuti,
       'JK (Jam Kerja)': res.total,
       'TI (Tanpa Istirahat)': '',
       'OT (Over Time)': '',

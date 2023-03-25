@@ -9,9 +9,9 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-jadwal-kerja.component.css'],
 })
 export class ModalJadwalKerjaComponent implements OnInit {
-  isTambah = false
-  isDelete = false
-  isEdit = false
+  isTambah = false;
+  isDelete = false;
+  isEdit = false;
 
   jadwalKerja: JadwalKerja = {
     id_jadwal_kerja: '',
@@ -20,8 +20,8 @@ export class ModalJadwalKerjaComponent implements OnInit {
     type: '',
     masuk: '',
     keluar: '',
-    mulai_istirahat: '',
-    selesai_istirahat: '',
+    start_break: '',
+    end_break: '',
     total: 0,
   };
 
@@ -129,11 +129,14 @@ export class ModalJadwalKerjaComponent implements OnInit {
 
     let keluar = parseInt(this.jadwalKerja.keluar.slice(0, -3));
     let masuk = parseInt(this.jadwalKerja.masuk.slice(0, -3));
-    let mIstirahat = parseInt(this.jadwalKerja.selesai_istirahat.slice(0, -3));
-    let sIstirahat = parseInt(this.jadwalKerja.mulai_istirahat.slice(0, -3));
+    let mIstirahat = parseInt(this.jadwalKerja.start_break.slice(0, -3));
+    let sIstirahat = parseInt(
+      this.jadwalKerja.end_break === undefined
+        ? ''
+        : this.jadwalKerja.end_break.slice(0, -3)
+    );
 
-    this.jadwalKerja.selesai_istirahat === '' ||
-    this.jadwalKerja.mulai_istirahat === ''
+    this.jadwalKerja.start_break === '' || this.jadwalKerja.end_break === ''
       ? (this.jadwalKerja.total = keluar - masuk)
       : (this.jadwalKerja.total = keluar - masuk - (mIstirahat - sIstirahat));
   }

@@ -8,19 +8,30 @@
     </div>
     <div class="right">
       <h6>inisial</h6>
-      <input [(ngModel)]="inisialValue" type="text" class="browser-default" />
+      <div style="display:block">
+        <input (blur)="isBlur=true" [(ngModel)]="inisialValue" type="text" class="browser-default" minlength="2"
+          maxlength="5" />
+        <p style="margin:0px; margin-bottom:5px" *ngIf="inisialValue.length===0&&isBlur">Data belum terisi</p>
+      </div>
     </div>
     <div class="right">
       <h6>Nama Perusahaan</h6>
-      <input [(ngModel)]="namaValue" type="text" class="browser-default" />
+      <div style="display:block">
+        <input (blur)="isBlur=true" [(ngModel)]="namaValue" type="text" class="browser-default" minlength="6"
+          maxlength="50" />
+        <p style="margin:0px; margin-bottom:5px" *ngIf="namaValue.length===0&&isBlur">Data belum terisi</p>
+      </div>
     </div>
     <div class="right alamat">
       <h6>Alamat</h6>
-      <textarea [(ngModel)]="alamatValue"></textarea>
+      <div style="display:block">
+        <textarea (blur)="isBlur=true" [(ngModel)]="alamatValue" maxlength="255"></textarea>
+        <p style="margin:0px; margin-bottom:5px" *ngIf="alamatValue.length===0&&isBlur">Data belum terisi</p>
+      </div>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button type="submit" class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+    <button type="submit" class="simpan waves-effect waves-light" (click)="throwResult()">
       Simpan
     </button>
     <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
@@ -39,19 +50,34 @@
     </div>
     <div class="right">
       <h6>inisial</h6>
-      <input [value]="data.data.inisial" (keyup)="inisial($event.target)" type="text" class="browser-default" />
+      <div style="display:block">
+        <p *ngIf="inisialValue.length===0&&isBlur">Data belum terisi</p>
+      </div>
+      <div style="display:block">
+        <input (blur)="isBlur=true" id="bla" [value]="data.data.inisial" (keyup)="inisial($event.target)" type="text"
+          class="browser-default" minlength="2" maxlength="5" />
+        <p style="margin:0px; margin-bottom:5px" *ngIf="inisialValue.length===0&&isBlur">Data belum terisi</p>
+      </div>
     </div>
     <div class="right">
       <h6>Nama Perusahaan</h6>
-      <input [value]="data.data.nama" (keyup)="nama($event.target)" type="text" class="browser-default" />
+      <div style="display:block">
+        <input (blur)="isBlur=true" [value]="data.data.nama" (keyup)="nama($event.target)" type="text"
+          class="browser-default" minlength="6" maxlength="50" />
+        <p style="margin:0px; margin-bottom:5px" *ngIf="namaValue.length===0&&isBlur">Data belum terisi</p>
+      </div>
     </div>
     <div class="right alamat">
       <h6>Alamat</h6>
-      <textarea [value]="data.data.alamat" (keyup)="alamat($event.target)"></textarea>
+      <div style="display:block">
+        <textarea (blur)="isBlur=true" [value]="data.data.alamat" (keyup)="alamat($event.target)"
+          maxlength="255"></textarea>
+        <p style="margin:0px; margin-bottom:5px" *ngIf="alamatValue.length===0&&isBlur">Data belum terisi</p>
+      </div>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button type="submit" class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+    <button type="submit" class="simpan waves-effect waves-light" (click)="throwResult()">
       Simpan
     </button>
     <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">

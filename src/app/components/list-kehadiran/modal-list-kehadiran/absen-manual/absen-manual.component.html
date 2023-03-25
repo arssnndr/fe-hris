@@ -3,21 +3,21 @@
         <div style="display: block; width: 320px;">
             <div class="right" style="display: inline-flex; margin-bottom: 10px;">
                 <h6 for="nip" style="margin-right: 10px;">NIP</h6>
-                <input type="text" name="nip" id="nip" class="browser-default" style="width: 100px; padding: 5px; border: 1px solid #00000050; border-radius: 2px;
-                height: 3rem;" [value]="data.nip" disabled>
+                <input [ngModel]="data.nip" type="text" name="nip" id="nip" class="browser-default" style="width: 100px; padding: 5px; border: 1px solid #00000050; border-radius: 2px;
+                height: 3rem;" disabled>
                 <h6 for="nip" style="margin-left: 10px; width: 140px;">{{ data.nama }}</h6>
             </div>
 
             <div class="right" style="display: inline-flex; margin-bottom: 10px;">
                 <h6 for="tanggal" style="margin-right: 10px;">Tanggal</h6>
-                <input type="text" name="tanggal" id="tanggal" class="browser-default" style="width: 250px; padding: 5px; border: 1px solid #00000050; border-radius: 2px;
-                height: 3rem;" [value]="formatDate(data.tgl)" disabled>
+                <input [ngModel]="data.tgl" type="text" name="tanggal" id="tanggal" class="browser-default" style="width: 250px; padding: 5px; border: 1px solid #00000050; border-radius: 2px;
+                height: 3rem;" disabled>
             </div>
 
             <div class="right" style="display: inline-flex;">
                 <h6 for="jam" style="margin-right: 10px;">Jam</h6>
                 <input type="time" name="jam" id="jam" class="browser-default" style="width: 100px; padding: 5px; border: 1px solid #00000050; border-radius: 2px;
-                height: 3rem; margin-right: 150px;" [(ngModel)]="jam">
+                height: 3rem; margin-right: 150px;" [(ngModel)]="dataAbsenManual.jam">
             </div>
 
 
@@ -25,10 +25,10 @@
                 <h6 style="margin-right: 10px;">Status</h6>
                 <div class="switch" style="padding-top: 7.5px;">
                     <label style="height: 50px; padding-top: 10px;">
-                        <input [(ngModel)]="status" type="checkbox">
+                        <input [(ngModel)]="dataAbsenManual.isMasuk" type="checkbox">
                         <span class="lever" style="margin-left: 0px;"></span>
                         <span style="color: #000000DE; font-size: 17.25px;">
-                            {{ status ? 'Masuk' : 'Keluar'}}
+                            {{ dataAbsenManual.isMasuk ? 'Masuk' : 'Keluar'}}
                         </span>
                     </label>
                 </div>
@@ -36,7 +36,7 @@
         </div>
     </mat-dialog-content>
     <mat-dialog-actions class="right">
-        <button type="submit" class="simpan waves-effect waves-light" [mat-dialog-close]="{jam, status}">
+        <button type="submit" class="simpan waves-effect waves-light" [mat-dialog-close]="dataAbsenManual">
             Simpan
         </button>
         <button class="batal waves-effect waves-light transparent" [mat-dialog-close]="undefined">

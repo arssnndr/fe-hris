@@ -1,48 +1,42 @@
-h4 {
-  color: #000000;
-  font-size: 24px;
+div.content {
+  margin-top: 20px;
+  display: flex;
+  overflow-x: hidden;
 }
 
-input.nip {
-  width: 25%;
-  height: 50px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 12px;
+div.left {
+  width: 70%;
+  margin-right: 10px;
 }
 
-input[type="date"],
-input[type="month"] {
+div.right {
+  width: 30%;
+  margin-left: 10px;
+}
+
+div.nip-name {
   width: 100%;
-  height: 50px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 12px;
+  display: inline-flex;
+  margin-bottom: 15px;
 }
 
-div.col {
-  padding: 0px;
+/* TABEL */
+th,
+td {
+  text-align: center;
 }
 
 th {
   background-color: #ffe6e6;
   border-radius: 0px;
-  padding: 15px 15px;
+  padding: 20px 10px;
   font-size: 14px;
   font-weight: normal;
-  text-align: center;
 }
 
 td {
-  padding: 10px 15px;
+  padding: 10px;
   font-size: 14px;
-  text-align: center;
-}
-
-td:last-child {
-  padding: 5px;
-  width: 50px;
 }
 
 tbody tr:nth-child(odd) {
@@ -57,65 +51,80 @@ tbody tr:hover {
   background-color: rgba(128, 128, 128, 0.1);
 }
 
-table.list-profile {
+table.profil {
   width: 100%;
-  border-collapse: collapse;
 }
 
-thead.list-profile th:nth-child(1) {
-  text-align: left;
-  width: 100px;
-  padding: 10px;
-}
-
-thead.list-profile th:nth-child(2) {
-  text-align: left;
-  width: 150px;
-  padding: 10px;
-}
-
-thead.list-profile th:nth-child(3) {
-  text-align: left;
-  width: auto;
-  padding: 10px;
-}
-
-thead.list-profile,
-tbody.list-profile tr {
+table.profil thead,
+table.profil tr {
   display: table;
   width: 100%;
-  table-layout: fixed;
 }
 
-tbody.list-profile {
+table.profil tbody {
+  width: 100%;
+  height: 450px;
   display: block;
-  height: 500px;
   overflow-y: scroll;
 }
 
-tbody.list-profile td:nth-child(1) {
-  width: 100px;
-  padding: 10px;
+table.profil th,
+table.profil td {
   text-align: left;
 }
 
-tbody.list-profile td:nth-child(2) {
-  width: 150px;
-  padding: 10px;
-  text-align: left;
+table.profil th:nth-child(1) {
+  width: 75px;
 }
 
-tbody.list-profile td:nth-child(3) {
-  width: auto;
-  padding: 10px;
-  text-align: left;
+table.profil td:nth-child(1) {
+  width: 75px;
 }
 
-button.download {
-  color: #d85d5d;
-  border: 1px solid #d85d5d;
-  border-radius: 1px;
+table.profil th:nth-child(2) {
+  width: 200px;
+}
+
+table.profil td:nth-child(2) {
+  width: 200px;
+}
+
+/* BUTTON */
+button.print {
   width: 100px;
   height: 50px;
-  margin: 5px;
+  background-color: rgba(128, 128, 128, 0);
+  border: 1px solid grey;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.filter {
+  background-color: rgba(128, 128, 128, 0);
+  border-style: none;
+  margin-left: auto;
+}
+
+/* INPUT */
+input#periode {
+  height: 40px;
+  width: 100%;
+  padding: 5px;
+}
+
+input#nip {
+  height: 40px;
+  width: 100px;
+  padding: 5px;
+}
+
+/* TEXT */
+p.name {
+  margin: auto 10px auto 10px;
+}
+
+p.label {
+  margin-bottom: 5px;
 }

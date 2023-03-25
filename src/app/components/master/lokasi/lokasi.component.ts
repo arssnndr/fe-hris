@@ -31,10 +31,9 @@ export class LokasiComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        this.api.postData(this.table, this.catchResult).subscribe((res) => {
+        this.api.postData(this.table, this.catchResult).subscribe(() => {
           this.api.getData(this.table).subscribe((res) => {
             this.getMaxId = res[res.length - 1].id;
           });
@@ -53,11 +52,11 @@ export class LokasiComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'simpan') {
         this.catchResult = this.api.catchData();
-        let data = this.catchResult;
-        let id = this.catchResult.id;
-        this.api.updateData(this.table, data, id).subscribe((res) => {
-          this.getPageData();
-        });
+        this.api
+          .updateData(this.table, this.catchResult, data.id)
+          .subscribe((res) => {
+            this.getPageData();
+          });
       }
     });
   }
@@ -102,7 +101,7 @@ export class LokasiComponent implements OnInit {
     } else {
       if (this.inisial) {
         this.api
-          .getData(this.table + '?inisial_lokasi_like=' + this.dataSearch)
+          .getData(this.table + '?inisial_like=' + this.dataSearch)
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -117,7 +116,7 @@ export class LokasiComponent implements OnInit {
           });
       } else if (this.perusahaan) {
         this.api
-          .getData(this.table + '?keterangan_like=' + this.dataSearch)
+          .getData(this.table + '?nama_like=' + this.dataSearch)
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -156,7 +155,7 @@ export class LokasiComponent implements OnInit {
               (this.pageIndex + 1) +
               '&_limit=' +
               this.pageSize +
-              '&inisial_lokasi_like=' +
+              '&inisial_like=' +
               this.dataSearch
           )
           .subscribe((res) => {
@@ -170,7 +169,7 @@ export class LokasiComponent implements OnInit {
               (this.pageIndex + 1) +
               '&_limit=' +
               this.pageSize +
-              '&keterangan_like=' +
+              '&nama_like=' +
               this.dataSearch
           )
           .subscribe((res) => {

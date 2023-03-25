@@ -45,7 +45,6 @@ export class DownloadDataPayrollComponent {
     if (duration >= 31) {
       window.alert('Rentan Waktu Melebihi 31 Hari!.');
     } else {
-      console.log(this.data);
       this.dialogRef.close();
     }
   }

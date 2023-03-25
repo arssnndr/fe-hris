@@ -1,0 +1,56 @@
+<div class="container">
+    <h5>Jadwal Kerja Category</h5>
+
+    <div class="content">
+        <div class="form" *ngFor="let row of formTambahJadwalKerja">
+            <p>{{ row.label }}</p>
+
+            <select [name]="row.id" [id]="row.id" class="browser-default" [(ngModel)]="setData[row.id]">
+                <option *ngFor="let option of row.value" [value]="option">
+                    {{ option }}
+                </option>
+            </select>
+        </div>
+
+        <div class="table">
+            <table class="responsive-tabel striped">
+                <thead>
+                    <th>Hari</th>
+                    <th>Jadwal</th>
+                    <th>Jam Kerja</th>
+                    <th>Jam Istirahat</th>
+                    <th>Total</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of tabelContents, index as i">
+                        <td>{{ row.hari }}</td>
+                        <td>
+                            <select *ngIf="data===null" [name]="row.hari" [id]="row.hari" class="tabel browser-default"
+                                (change)="selectIdChange($event.target, row.hari)">
+                                <option *ngFor="let option of dataIdJadwalKerja" [value]="option">
+                                    {{ option }}
+                                </option>
+                            </select>
+
+                            <select *ngIf="data!==null" [name]="row.hari" [id]="row.hari" class="tabel browser-default"
+                                (change)="selectIdChange($event.target, row.hari)"
+                                [(ngModel)]="data.jadwal_kerja[i].id_jadwal_kerja">
+                                <option *ngFor="let option of dataIdJadwalKerja" [value]="option">
+                                    {{ option }}
+                                </option>
+                            </select>
+                        </td>
+                        <td>{{ row.jamKerja }}</td>
+                        <td>{{ row.jamIstirahat }}</td>
+                        <td>{{ row.total }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button class="simpan waves-effect waves-light" [mat-dialog-close]="setData">Simpan</button>
+        <button class="batal waves-effect waves-dark" [matDialogClose]="undefined">Batal</button>
+    </div>
+</div>
