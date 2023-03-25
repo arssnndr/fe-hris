@@ -11,6 +11,7 @@ export const environment = {
   tabelLokasi: 'ms_lokasi/',
   tabelPerusahaan: 'ms_perusahaan/',
   tabelBagianKerja: 'ms_bagiankerja/',
+  tabelLembur: 'ms_lembur/',
 };
 
 /*

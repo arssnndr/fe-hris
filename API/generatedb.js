@@ -726,7 +726,16 @@ function formatDateTime(date) {
 }
 count = 0;
 for (let i = 1; i <= database.ms_karyawan.length; i++) {
-  const { nip, nama_lengkap } = database.ms_karyawan[i - 1];
+  const {
+    nip,
+    nama_lengkap,
+    jabatan,
+    divisi,
+    departemen,
+    sub_departemen,
+    lokasi,
+    perusahaan,
+  } = database.ms_karyawan[i - 1];
   const { status, no_form, hakcuti_tersedia } = randomArray(cuti);
   const pengganti = randomArray(database.ms_karyawan);
   let keterangan;
@@ -743,6 +752,12 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
     id: i,
     nip: nip,
     nama_lengkap: nama_lengkap,
+    lokasi: lokasi,
+    perusahaan: perusahaan,
+    jabatan: jabatan,
+    divisi: divisi,
+    departemen: departemen,
+    sub_departemen: sub_departemen,
     status_cuti: status,
     no_form: no_form,
     tgl_muncul_hak_cuti: formatDate(faker.date.past()),
@@ -753,6 +768,7 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
     tgl_selesai_izin: formatDate(faker.date.soon(4)),
     waktu_izin_mulai: "09:00",
     waktu_izin_selesai: "12:00",
+    total_waktu_izin: 12 - 9,
     nama_pengganti: pengganti.nama_lengkap,
     nip_pengganti: pengganti.nip,
     hak_cuti_telah_diambil: randomNumber(1),
@@ -871,7 +887,16 @@ function sliceTime(data) {
 }
 count = 0;
 for (let i = 1; i <= database.ms_karyawan.length; i++) {
-  const { nip, nama_lengkap } = database.ms_karyawan[i - 1];
+  const {
+    nip,
+    nama_lengkap,
+    jabatan,
+    divisi,
+    departemen,
+    sub_departemen,
+    lokasi,
+    perusahaan,
+  } = database.ms_karyawan[i - 1];
   const { masuk, keluar, start_break, end_break } =
     database.trx_jadwalkerja[count];
   const TI = randomArray(["Lembur Biasa", "Tanpa Istirahat"]);
@@ -879,6 +904,12 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
     id: i,
     nip: nip,
     nama_lengkap: nama_lengkap,
+    lokasi: lokasi,
+    perusahaan: perusahaan,
+    jabatan: jabatan,
+    divisi: divisi,
+    departemen: departemen,
+    sub_departemen: sub_departemen,
     no_spkl: customNumber("TMS/##/##"),
     tgl: sliceDate(faker.date.soon()),
     jenis_lembur: TI,
