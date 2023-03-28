@@ -138,7 +138,7 @@ export class ModalJadwalKerjaComponent implements OnInit {
 
     this.jadwalKerja.start_break === '' || this.jadwalKerja.end_break === ''
       ? (this.jadwalKerja.total = keluar - masuk)
-      : (this.jadwalKerja.total = keluar - masuk - (mIstirahat - sIstirahat));
+      : (this.jadwalKerja.total = keluar - masuk - (sIstirahat - mIstirahat));
   }
 
   throwResult() {

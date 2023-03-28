@@ -12,6 +12,8 @@ export const environment = {
   tabelPerusahaan: 'ms_perusahaan/',
   tabelBagianKerja: 'ms_bagiankerja/',
   tabelLembur: 'ms_lembur/',
+  tabelJadwalKerjaIndividu: 'trx_jadwalkerjaindividu/',
+  tabelJadwalKerja: 'trx_jadwalkerja/',
 };
 
 /*

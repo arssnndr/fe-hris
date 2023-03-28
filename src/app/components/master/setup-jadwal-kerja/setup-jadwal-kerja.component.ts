@@ -6,6 +6,8 @@ import { VoidComponent } from '../../modals/void/void.component';
 import { ModalSetupJadwalKerjaCategoryComponent } from './modal-setup-jadwal-kerja-category/modal-setup-jadwal-kerja-category.component';
 import { ModalSetupJadwalKerjaDetailComponent } from './modal-setup-jadwal-kerja-detail/modal-setup-jadwal-kerja-detail.component';
 import { ModalSetupJadwalKerjaIndividuComponent } from './modal-setup-jadwal-kerja-individu/modal-setup-jadwal-kerja-individu.component';
+import * as XLSX from 'xlsx';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-setup-jadwal-kerja',
@@ -22,6 +24,10 @@ export class SetupJadwalKerjaComponent implements OnInit {
     this.getDataJadwalKerjaCategory();
 
     this.getDataJadwalKerjaIndividu();
+
+    for (let i = 1; i < 32; i++) {
+      this.dataUpload[0].push(i);
+    }
   }
 
   formatDate(date: string) {
@@ -82,11 +88,13 @@ export class SetupJadwalKerjaComponent implements OnInit {
       })
       .afterClosed()
       .subscribe((res: any) => {
-        this.api
-          .updateData(this.tabelJadwalKerjaDetail, res, res.id)
-          .subscribe(() => {
-            this.ngOnInit();
-          });
+        if (res !== undefined) {
+          this.api
+            .updateData(this.tabelJadwalKerjaDetail, res, res.id)
+            .subscribe(() => {
+              this.ngOnInit();
+            });
+        }
       });
   }
 
@@ -138,6 +146,104 @@ export class SetupJadwalKerjaComponent implements OnInit {
             .subscribe(() => this.getDataJadwalKerjaCategory());
         }
       });
+  }
+
+  // UPLOAD
+  dataUpload: any = [['NIP', 'Nama']];
+  isJadwalKerja: any;
+
+  isValid: any = false;
+  isFile = false;
+  periodeUpload = moment().format('YYYY-MM');
+  fileName: string = '';
+
+  onFileChange(evt: any) {
+    const target: DataTransfer = <DataTransfer>evt.target;
+    if (target.files.length > 1) {
+      throw new Error('Cannot use multiple files');
+    }
+
+    if (target.files.length === 1) {
+      this.fileName = evt.target.files[0] ? evt.target.files[0].name : '';
+      const reader: FileReader = new FileReader();
+      reader.onload = (e: any) => {
+        const bstr: string = e.target.result;
+        const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
+
+        const wsname: string = wb.SheetNames[0];
+        const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+
+        this.dataUpload = <XLSX.AOA2SheetOpts>(
+          XLSX.utils.sheet_to_json(ws, { header: 1 })
+        );
+        this.isJadwalKerja = <XLSX.AOA2SheetOpts>(
+          XLSX.utils.sheet_to_json(ws, { header: 1 })
+        );
+        this.isFile = true;
+
+        this.api
+          .getData(environment.tabelKaryawan)
+          .subscribe((res) =>
+            this.api
+              .getData(environment.tabelJadwalKerja)
+              .subscribe((ress) => this.validation(res, ress))
+          );
+      };
+      reader.readAsBinaryString(target.files[0]);
+    }
+  }
+
+  validation(dataKaryawan: any, dataJadwalKerja: any) {
+    this.dataUpload.forEach((res: any, index: number) => {
+      if (index > 0) {
+        res.forEach((ress: any, ind: number) => {
+          if (ind < 2) {
+            for (let emp of dataKaryawan) {
+              if (ind === 0) {
+                if (emp.nip.toString() === ress.toString()) {
+                  this.isJadwalKerja[index][ind] = true;
+                  break;
+                } else {
+                  this.isJadwalKerja[index][ind] = false;
+                }
+              }
+              if (ind === 1) {
+                if (emp.nama_lengkap === ress) {
+                  this.isJadwalKerja[index][ind] = true;
+                  break;
+                } else {
+                  this.isJadwalKerja[index][ind] = false;
+                }
+              }
+            }
+          }
+
+          if (ind > 1) {
+            for (let jdwl of dataJadwalKerja) {
+              if (jdwl.id_jadwal_kerja === ress || ress === 'OFF') {
+                this.isJadwalKerja[index][ind] = true;
+                break;
+              } else {
+                this.isJadwalKerja[index][ind] = false;
+              }
+            }
+          }
+        });
+      }
+    });
+
+    const tmp: any[] = [];
+    this.isJadwalKerja.forEach((res: any, index: number) => {
+      if (index > 0) {
+        tmp.push(...res.filter((ress: any) => ress === false));
+      }
+    });
+    this.isValid =
+      tmp.filter((res: any) => res === false)[0] === undefined ? true : false;
+  }
+
+  uploadData() {
+    console.log(this.dataUpload);
   }
 
   // INDIVIDU

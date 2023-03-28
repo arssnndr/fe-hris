@@ -812,34 +812,35 @@ export class ModalKaryawanComponent implements OnInit {
   }
 
   detasir() {
-    if (this.tambah.lokasi_detasir === 'Tidak ada') {
+    if (this.isEdit) {
       this.formTabPekerjaanOrganisasi.splice(13, 3);
-    } else {
-      this.formTabPekerjaanOrganisasi.splice(
-        13,
-        0,
-        {
-          id: 'tgl_mulai_detasir',
-          form: 'input',
-          type: 'date',
-          label: 'Tanggal Mulai Detasir',
-          disable: false,
-        },
-        {
-          id: 'tgl_akhir_detasir',
-          form: 'input',
-          type: 'date',
-          label: 'Tanggal Akhir Detasir',
-          disable: false,
-        },
-        {
-          id: 'alasan_detasir',
-          form: 'textarea',
-          type: '',
-          label: 'Alasan Detasir',
-          disable: false,
-        }
-      );
+      if (this.tambah.lokasi_detasir !== 'Tidak ada') {
+        this.formTabPekerjaanOrganisasi.splice(
+          13,
+          0,
+          {
+            id: 'tgl_mulai_detasir',
+            form: 'input',
+            type: 'date',
+            label: 'Tanggal Mulai Detasir',
+            disable: false,
+          },
+          {
+            id: 'tgl_akhir_detasir',
+            form: 'input',
+            type: 'date',
+            label: 'Tanggal Akhir Detasir',
+            disable: false,
+          },
+          {
+            id: 'alasan_detasir',
+            form: 'textarea',
+            type: '',
+            label: 'Alasan Detasir',
+            disable: false,
+          }
+        );
+      }
     }
   }
 }
