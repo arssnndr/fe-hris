@@ -32,7 +32,7 @@ export class GantiNipComponent implements OnInit {
     this.api.getData(this.tablePerusahaan).subscribe((res) => {
       this.perusahaan = [];
       res.map((val: any) => {
-        this.perusahaan.push(val.inisial + ' - ' + val.nama);
+        this.perusahaan.push(val.nama);
       });
     });
   }
@@ -78,7 +78,7 @@ export class GantiNipComponent implements OnInit {
 
   selectPerusahaan(data: any, index: number) {
     data = data.value;
-    this.selectedKaryawan[index].perusahaan = data.slice(0, 3);
+    this.selectedKaryawan[index].perusahaan = data;
   }
 
   konfirm() {
@@ -119,8 +119,8 @@ export class GantiNipComponent implements OnInit {
               this.checkTable.push(true);
             });
         }
+        this.isKeluar = true;
       }
-      this.isKeluar = true;
     });
   }
 

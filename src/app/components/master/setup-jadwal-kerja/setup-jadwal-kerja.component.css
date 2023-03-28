@@ -1,7 +1,25 @@
 div.content {
   margin-top: 20px;
   display: flex;
+}
+
+div.content.detail {
   overflow-x: hidden;
+}
+
+div.content.upload {
+  display: block;
+  overflow-x: hidden;
+}
+
+div.tabel {
+  overflow-x: auto;
+}
+
+div.header {
+  display: flex;
+  width: 100%;
+  margin: 5px 0px;
 }
 
 div.left {
@@ -101,6 +119,10 @@ table.category td:nth-last-child(1) {
   width: 60px;
 }
 
+table.upload {
+  overflow-x: scroll;
+}
+
 /* BUTTON */
 button.print {
   width: 100px;
@@ -155,6 +177,16 @@ button.void mat-icon {
   color: white;
 }
 
+button.void.upload {
+  margin: 0px;
+  padding: 0px 10px 0px 85px;
+  height: 40px;
+}
+
+button.upload {
+  margin-left: 85px;
+}
+
 /* INPUT */
 input#periode {
   height: 40px;
@@ -162,10 +194,32 @@ input#periode {
   padding: 5px;
 }
 
+input#periode.upload {
+  width: 150px;
+  border-radius: 4px;
+}
+
 input#nip {
   height: 40px;
   width: 100px;
   padding: 5px;
+}
+
+input[type="file"] {
+  /* visibility: hidden; */
+  display: none;
+}
+
+.custom-file-upload {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid grey;
+  padding: 5px;
+  cursor: pointer;
+  height: 40px;
+  width: 300px;
+  align-items: center;
 }
 
 /* TEXT */
@@ -175,4 +229,27 @@ p.name {
 
 p.label {
   margin-bottom: 5px;
+}
+
+p.label.upload {
+  width: 75px;
+  text-align: right;
+  margin: auto 10px auto 0px;
+}
+
+p.nama.upload {
+  font-size: 14px;
+  color: #000000de;
+  width: 100%;
+  margin: auto;
+}
+
+p.valid.upload {
+  margin: auto auto auto 0px;
+}
+
+/* IMG */
+img.file-icon {
+  height: 25px;
+  width: 25px;
 }

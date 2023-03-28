@@ -400,9 +400,10 @@ for (let i = 1; i <= lokasi.length; i++) {
 // ms_karyawan
 count = 0;
 for (let i = 1; i <= divisi.length; i++) {
+  const dbPerusahaan = randomArray(database.ms_perusahaan);
   database.ms_karyawan.push({
     id: i,
-    nip: database.ms_perusahaan[count].id + randomNumber(4),
+    nip: dbPerusahaan.id + randomNumber(4),
     kewarganegaraan: randomArray(kewarganegaraan),
     nik: randomNumber(16),
     pin_finger: randomNumber(6),
@@ -442,7 +443,7 @@ for (let i = 1; i <= divisi.length; i++) {
     tgl_berakhir_kitas: sliceDate(faker.date.future()),
     nomor_rptka: randomNumber(20),
     tgl_berakhir_rptka: sliceDate(faker.date.future()),
-    perusahaan: randomArray(perusahaan).nama,
+    perusahaan: dbPerusahaan.nama,
     lokasi: randomArray(lokasi).inisial,
     divisi: randomArray(divisi),
     departemen: randomArray(departemen),

@@ -21,7 +21,7 @@
 
     <!-- DETAIL -->
     <mat-tab label="Detail">
-        <div class="content">
+        <div class="content detail">
             <div class="left">
                 <table class="responsive-tabel striped jadwal">
                     <thead>
@@ -114,9 +114,56 @@
         </div>
     </mat-tab>
 
-    <mat-tab label="Upload">Upload</mat-tab>
+    <!-- UPLOAD -->
+    <mat-tab label="Upload">
+        <div class="content upload">
+            <div class="header">
+                <p class="label upload">Upload File</p>
+                <label class="custom-file-upload">
+                    <p class="nama upload">{{fileName}}</p>
+                    <input type="file" multiple="false" (change)="onFileChange($event)" class="browser-default">
+                    <img class="file-icon" src="../../../../assets/icon/folder.svg" alt="Folder Icon">
+                </label>
+            </div>
+            <div class="header">
+                <p class="label upload">Periode</p>
+                <input type="month" name="periode" id="periode" [(ngModel)]="periodeUpload"
+                    class="browser-default upload">
+            </div>
+            <div class="header">
+                <button *ngIf="isValid && isFile" class="void upload">
+                    <mat-icon fontIcon="check"></mat-icon>
+                </button>
+                <p *ngIf="isValid && isFile" class="valid upload">Data Sudah Valid, Silahkan Upload</p>
+                <br>
+                <button *ngIf="!isValid && isFile" class="void upload">
+                    <mat-icon fontIcon="close"></mat-icon>
+                </button>
+                <p *ngIf="!isValid && isFile" class="valid upload">Data Tidak Valid, Mohon Koreksi Kembali</p>
+            </div>
+            <div *ngIf="isValid && isFile" class="header">
+                <button class="waves-effect waves-light tambah upload" (click)="uploadData()">Upload</button>
+            </div>
 
-    <!-- CATEGORY -->
+            <div class="tabel">
+                <table class="responsive-tabel striped upload">
+                    <thead>
+                        <th *ngFor="let row of dataUpload[0]">{{row}}</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let _ of dataUpload, index as i">
+                            <td *ngFor="let row of dataUpload[i+1], index as ii">
+                                <span *ngIf="isJadwalKerja[i+1][ii]">{{row}}</span>
+                                <span *ngIf="!isJadwalKerja[i+1][ii]" style="color: red">{{row}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </mat-tab>
+
+    <!-- INDIVIDU -->
     <mat-tab label="Individu">
         <div class="content">
             <table class="responsive-tabel striped category">

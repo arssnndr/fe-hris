@@ -16,8 +16,8 @@
                         <tr *ngFor="let row of selectedKaryawan, index as i">
                             <td>
                                 <input type="text" name="nip" id="nip" class="browser-default" [matAutocomplete]="auto"
-                                    (input)="searchKaryawan($event.target)" [ngModel]="nipLama[i]"
-                                    [placeholder]="nipLama[i]">
+                                    (input)="searchKaryawan($event.target)"
+                                    [ngModel]="nipLama[i]===undefined?'':nipLama[i]">
                                 <mat-autocomplete #auto="matAutocomplete">
                                     <mat-option *ngFor="let option of filteredKaryawan"
                                         (click)="selectKaryawan(option, i)">
