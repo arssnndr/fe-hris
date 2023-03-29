@@ -799,6 +799,9 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
     departemen,
     sub_departemen,
     perusahaan,
+    gaji_pokok,
+    uang_makan,
+    uang_transport,
   } = database.ms_karyawan[i - 1];
   let jadwalKerja = [];
   for (let j = 1; j <= 12; j++) {
@@ -878,6 +881,9 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
     departemen: departemen,
     sub_departemen: sub_departemen,
     perusahaan: perusahaan,
+    gaji_pokok: gaji_pokok,
+    uang_makan: uang_makan,
+    uang_transport: uang_transport,
     jadwal_kerja: jadwalKerja,
   });
 }
