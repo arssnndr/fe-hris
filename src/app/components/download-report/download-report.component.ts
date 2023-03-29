@@ -113,7 +113,12 @@ export class DownloadReportComponent {
               (val.tgl_selesai_izin >= startDate &&
                 val.tgl_selesai_izin <= endDate)
           );
-          this.printData('Laporan ' + this.data.status);
+
+          if (res.length !== 0) {
+            this.printData('Laporan ' + this.data.status);
+          } else {
+            window.alert('Data tidak ditemukan!');
+          }
         });
     };
 
@@ -124,7 +129,12 @@ export class DownloadReportComponent {
           this.downloadData = res.filter(
             (val: any) => val.tgl >= startDate && val.tgl <= endDate
           );
-          this.printData('Laporan ' + status);
+
+          if (res.length !== 0) {
+            this.printData('Laporan ' + status);
+          } else {
+            window.alert('Data tidak ditemukan!');
+          }
         });
     };
 
