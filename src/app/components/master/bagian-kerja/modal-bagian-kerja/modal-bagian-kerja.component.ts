@@ -1,8 +1,7 @@
-import { DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
-import { BagianKerja } from '../../../../interfaces/bagian-kerja';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-modal-bagian-kerja',
@@ -10,108 +9,89 @@ import { BagianKerja } from '../../../../interfaces/bagian-kerja';
   styleUrls: ['./modal-bagian-kerja.component.css'],
 })
 export class ModalBagianKerjaComponent implements OnInit {
-  isTambah = false;
-  isDelete = false;
-  isEdit = false;
-  isDepartemen = false;
-  isSubDepartemen = false;
+  jenis = ['Divisi', 'Departemen', 'Sub Departemen'];
+  lokasi = ['TMS HO', 'TMS 1', 'TMS 2', 'TMS 3', 'TMS 4'];
+  divisi = ['IT', 'GA', 'Finance'];
+  departemen = ['SAT', 'IT Support', 'Jaringan'];
 
-  tabelBagianKerja = 'ms_bagiankerja/';
-
-  jenisValue = '';
-  lokasiValue = '';
-  divisiValue = '';
-  departemenValue = '';
-  subDepartemenValue = '';
-
-  jenis = [
-    { value: 'Divisi' },
-    { value: 'Departemen' },
-    { value: 'Sub Departemen' },
-  ];
-
-  lokasi = [
-    { value: 'TMS HO' },
-    { value: 'TMS 1' },
-    { value: 'TMS 2' },
-    { value: 'TMS 3' },
-    { value: 'TMS 4' },
-  ];
-
-  divisi = [{ value: 'IT' }, { value: 'GA' }, { value: 'Finance' }];
-
-  departemen = [
-    { value: 'SAT' },
-    { value: 'IT Support' },
-    { value: 'Jaringan' },
-  ];
-
-  bagiankerja: BagianKerja | undefined;
+  bagianKerja = {
+    jenis_bagian: '',
+    lokasi: '',
+    divisi: '',
+    departemen: '',
+    sub_departemen: '',
+  };
 
   isBlur = false;
+  isDivisi = false;
+  isDepartemen = false;
 
   constructor(
     private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; edit: any },
+    @Inject(MAT_DIALOG_DATA) data: any,
     private dialogRef: MatDialogRef<ModalBagianKerjaComponent>
-  ) {}
+  ) {
+    if (data !== null) {
+      this.bagianKerja = data;
+      this.changeBagianKerja();
+    } else {
+      this.bagianKerja.jenis_bagian = this.jenis[0];
+      this.bagianKerja.lokasi = this.lokasi[0];
+    }
+  }
 
-  ngOnInit(): void {
-    switch (this.data.name) {
-      case 'tambah':
-        this.isTambah = true;
+  ngOnInit(): void {}
 
-        this.jenisValue = this.jenis[0].value;
-        this.lokasiValue = this.lokasi[0].value;
-        this.divisiValue = this.divisi[0].value;
-        this.departemenValue = this.departemen[0].value;
+  changeBagianKerja() {
+    switch (this.bagianKerja.jenis_bagian) {
+      case this.jenis[0]:
+        this.isDivisi = false;
+        this.bagianKerja.divisi = '';
+
+        this.isDepartemen = false;
+        this.bagianKerja.departemen = '';
         break;
-      case 'delete':
-        this.isDelete = true;
-        break;
-      case 'edit':
-        this.isEdit = true;
+      case this.jenis[1]:
+        this.isDivisi = true;
+        this.bagianKerja.divisi = this.divisi[0];
 
-        this.jenisValue = this.data.edit.jenis_bagian;
-        this.lokasiValue = this.data.edit.lokasi;
-        this.divisiValue = this.data.edit.divisi;
-        this.departemenValue = this.data.edit.departemen;
-        this.subDepartemenValue = this.data.edit.sub_departemen;
+        this.isDepartemen = false;
+        this.bagianKerja.departemen = '';
+        break;
+      case this.jenis[2]:
+        this.isDivisi = false;
+        this.bagianKerja.divisi = '';
+
+        this.isDepartemen = true;
+        this.bagianKerja.departemen = this.departemen[0];
         break;
     }
   }
 
-  onKey(event: any) {
-    this.subDepartemenValue = event.value;
-  }
+  actionSimpan() {
+    this.bagianKerja.sub_departemen.length < 2
+      ? (this.isBlur = true)
+      : this.api.getData(environment.tabelBagianKerja).subscribe((result) => {
+          let isAlert;
 
-  throwResult() {
-    this.bagiankerja = {
-      jenis_bagian: this.jenisValue,
-      lokasi: this.lokasiValue,
-      divisi: this.divisiValue,
-      departemen: this.departemenValue,
-      sub_departemen: this.subDepartemenValue,
-    };
-    this.api.getData(this.tabelBagianKerja).subscribe((res) => {
-      let isAlert;
-      for (let val of res) {
-        if (
-          val.lokasi === this.lokasiValue &&
-          val.sub_departemen === this.subDepartemenValue
-        ) {
-          isAlert = true;
-          break;
-        } else {
-          isAlert = false;
-        }
-      }
-      if (isAlert) {
-        window.alert('Nama sudah ada.');
-      } else {
-        this.api.throwData(this.bagiankerja);
-        this.dialogRef.close('simpan');
-      }
-    });
+          for (let value of result) {
+            if (
+              value.jenis_bagian === this.bagianKerja.jenis_bagian &&
+              value.lokasi === this.bagianKerja.lokasi &&
+              value.sub_departemen === this.bagianKerja.sub_departemen
+            ) {
+              isAlert = true;
+              break;
+            } else {
+              isAlert = false;
+            }
+          }
+
+          if (isAlert) {
+            window.alert('Nama sudah ada');
+          } else {
+            this.dialogRef.close(this.bagianKerja);
+          }
+        });
   }
 }
