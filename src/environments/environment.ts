@@ -14,6 +14,7 @@ export const environment = {
   tabelLembur: 'ms_lembur/',
   tabelJadwalKerjaIndividu: 'trx_jadwalkerjaindividu/',
   tabelJadwalKerja: 'trx_jadwalkerja/',
+  tabelLogHistory: 'log_history/',
 };
 
 /*

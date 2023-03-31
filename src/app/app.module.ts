@@ -62,7 +62,6 @@ import { ModalGantiNipComponent } from './components/ganti-nip/modal-ganti-nip/m
 import { DownloadDataPayrollComponent } from './components/download-data-payroll/download-data-payroll.component';
 import { DownloadReportComponent } from './components/download-report/download-report.component';
 import { LogHistoryComponent } from './components/log-history/log-history.component';
-import { ModalLogHistoryComponent } from './components/log-history/modal-log-history/modal-log-history.component';
 import { ModalPerpanjangKontrakComponent } from './components/master/karyawan/modal-karyawan/modal-perpanjang-kontrak/modal-perpanjang-kontrak.component';
 import { ModalSetupJadwalKerjaDetailComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-detail/modal-setup-jadwal-kerja-detail.component';
 import { ModalSetupJadwalKerjaCategoryComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-category/modal-setup-jadwal-kerja-category.component';
@@ -109,7 +108,6 @@ import { ModalFilterDialogComponent } from './components/list-kehadiran/modal-fi
     DownloadDataPayrollComponent,
     DownloadReportComponent,
     LogHistoryComponent,
-    ModalLogHistoryComponent,
     ModalPerpanjangKontrakComponent,
     ModalSetupJadwalKerjaDetailComponent,
     ModalSetupJadwalKerjaCategoryComponent,
