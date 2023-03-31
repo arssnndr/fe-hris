@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Perusahaan } from 'src/app/interfaces/perusahaan';
 import { ApiService } from 'src/app/shared/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-modal-perusahaan',
@@ -10,12 +11,8 @@ import { ApiService } from 'src/app/shared/api.service';
 })
 export class ModalPerusahaanComponent implements OnInit {
   isTambah = false;
-  isDelete = false;
   isEdit = false;
-
   isBlur = false;
-
-  tabelPerusahaan = 'ms_perusahaan/';
 
   idValue = 0;
   inisialValue = '';
@@ -26,30 +23,27 @@ export class ModalPerusahaanComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any },
+    @Inject(MAT_DIALOG_DATA) data: { name: string; data: any },
     private dialogRef: MatDialogRef<ModalPerusahaanComponent>
-  ) {}
-
-  ngOnInit(): void {
-    switch (this.data.name) {
+  ) {
+    switch (data.name) {
       case 'tambah':
         this.isTambah = true;
 
-        this.idValue = this.data.data;
-        break;
-      case 'delete':
-        this.isDelete = true;
+        this.idValue = data.data;
         break;
       case 'edit':
         this.isEdit = true;
 
-        this.idValue = this.data.data.id;
-        this.inisialValue = this.data.data.inisial;
-        this.namaValue = this.data.data.nama;
-        this.alamatValue = this.data.data.alamat;
+        this.idValue = data.data.id;
+        this.inisialValue = data.data.inisial;
+        this.namaValue = data.data.nama;
+        this.alamatValue = data.data.alamat;
         break;
     }
   }
+
+  ngOnInit(): void {}
 
   inisial(data: any) {
     this.inisialValue = data.value;
@@ -79,7 +73,7 @@ export class ModalPerusahaanComponent implements OnInit {
     ) {
       window.alert('Data belum lengkap.');
     } else {
-      this.api.getData(this.tabelPerusahaan).subscribe((res) => {
+      this.api.getData(environment.tabelPerusahaan).subscribe((res) => {
         for (let val of res) {
           if (this.isEdit) {
             isValid = true;

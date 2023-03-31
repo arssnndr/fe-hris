@@ -14,6 +14,7 @@ export class ModalKaryawanComponent implements OnInit {
   isDelete = false;
   isEdit = false;
   isFilter = false;
+  isPerpanjangKontrak = true;
 
   tableLokasi: string = 'ms_lokasi/';
   tablePerusahaan: string = 'ms_perusahaan/';
@@ -747,12 +748,23 @@ export class ModalKaryawanComponent implements OnInit {
               this.tambah.tgl_mulai_kerja = res.tgl_mulai_kerja;
               this.tambah.tgl_akhir_kerja = res.tgl_akhir_kerja;
               break;
+            case 'Harian':
+              this.tambah.nomor_surat_kerja = res.nomor_surat_kerja;
+              this.tambah.tgl_mulai_kerja = res.tgl_mulai_kerja;
+              this.tambah.tgl_akhir_kerja = res.tgl_akhir_kerja;
+              break;
+            case 'Informal':
+              this.tambah.nomor_surat_kerja = res.nomor_surat_kerja;
+              this.tambah.tgl_mulai_kerja = res.tgl_mulai_kerja;
+              this.tambah.tgl_akhir_kerja = res.tgl_akhir_kerja;
+              break;
           }
         }
       });
   }
 
   terminasi() {
+    this.isPerpanjangKontrak = false;
     switch (this.tambah.status_karyawan) {
       case 'PKWT':
         this.formTabPeriodeKontrakPkwtEdit.splice(
@@ -791,6 +803,42 @@ export class ModalKaryawanComponent implements OnInit {
         );
         break;
       case 'Magang':
+        this.formTabPeriodeKontrakMagang.splice(
+          3,
+          0,
+          {
+            id: 'tgl_efektif_terminasi',
+            form: 'input',
+            type: 'date',
+            label: 'Tanggal Efektif Terminasi',
+          },
+          {
+            id: 'alasan_terminasi',
+            form: 'input',
+            type: 'text',
+            label: 'Alasan Terminasi',
+          }
+        );
+        break;
+      case 'Harian':
+        this.formTabPeriodeKontrakMagang.splice(
+          3,
+          0,
+          {
+            id: 'tgl_efektif_terminasi',
+            form: 'input',
+            type: 'date',
+            label: 'Tanggal Efektif Terminasi',
+          },
+          {
+            id: 'alasan_terminasi',
+            form: 'input',
+            type: 'text',
+            label: 'Alasan Terminasi',
+          }
+        );
+        break;
+      case 'Informal':
         this.formTabPeriodeKontrakMagang.splice(
           3,
           0,

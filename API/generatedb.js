@@ -468,8 +468,8 @@ for (let i = 1; i <= divisi.length; i++) {
     tgl_akhir_kerja: sliceDate(faker.date.future()),
     tgl_muncul_hak_cuti: sliceDate(faker.date.past()),
     tgl_berakhir_hak_cuti: sliceDate(faker.date.future()),
-    tgl_efektif_terminasi: sliceDate(faker.date.future()),
-    alasan_terminasi: randomWord(5),
+    tgl_efektif_terminasi: moment().format("YYYY-MM-DD"),
+    alasan_terminasi: "",
     masa_kerja: randomNumber(3),
     banyak_hak_cuti: randomNumber({ max: 12 }),
     data_kontrak: [

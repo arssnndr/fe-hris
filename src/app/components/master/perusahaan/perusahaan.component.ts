@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { ApiService } from 'src/app/shared/api.service';
+import { VoidComponent } from '../../modals/void/void.component';
 import { ModalPerusahaanComponent } from './modal-perusahaan/modal-perusahaan.component';
 
 @Component({
@@ -62,21 +63,20 @@ export class PerusahaanComponent implements OnInit {
   }
 
   deleteData(id: number) {
-    const dialogRef = this.dialog.open(ModalPerusahaanComponent, {
-      data: { name: 'delete' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'ya') {
-        this.api.deleteData(this.table + id).subscribe(() => {
-          this.api.getData(this.table).subscribe((res) => {
-            this.getMaxId = res[res.length - 1].id;
+    this.dialog
+      .open(VoidComponent)
+      .afterClosed()
+      .subscribe((result) => {
+        if (result === 'ya') {
+          this.api.deleteData(this.table + id).subscribe(() => {
+            this.api.getData(this.table).subscribe((res) => {
+              this.getMaxId = res[res.length - 1].id;
+            });
+            this.length = this.length - 1;
+            this.getPageData();
           });
-          this.length = this.length - 1;
-          this.getPageData();
-        });
-      }
-    });
+        }
+      });
   }
 
   handlePageEvent(event: PageEvent) {

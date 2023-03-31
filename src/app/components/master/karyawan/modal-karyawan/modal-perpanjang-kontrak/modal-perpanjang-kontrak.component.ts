@@ -63,6 +63,7 @@ export class ModalPerpanjangKontrakComponent {
     { id: 'tgl_mulai_kerja', type: 'date', label: 'Tanggal Mulai Kerja' },
     { id: 'tgl_akhir_kerja', type: 'date', label: 'Tanggal Akhir Kerja' },
   ];
+  
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
   ) {

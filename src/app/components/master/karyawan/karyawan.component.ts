@@ -4,6 +4,7 @@ import { PageEvent } from '@angular/material/paginator';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
 import { utils, writeFileXLSX } from 'xlsx';
+import { VoidComponent } from '../../modals/void/void.component';
 import { ModalKaryawanComponent } from './modal-karyawan/modal-karyawan.component';
 
 @Component({
@@ -146,13 +147,15 @@ export class KaryawanComponent implements OnInit {
           this.api.updateData(this.tableKaryawan, res, res.id).subscribe(() => {
             this.getDataPerPage();
           });
+        } else {
+          this.getDataPerPage();
         }
       });
   }
 
   deleteData(id: number) {
     this.dialog
-      .open(ModalKaryawanComponent, { data: { name: 'delete' } })
+      .open(VoidComponent)
       .afterClosed()
       .subscribe((res) => {
         if (res === 'ya') {

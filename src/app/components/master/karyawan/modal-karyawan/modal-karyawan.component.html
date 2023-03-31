@@ -39,7 +39,7 @@
   </mat-dialog-actions>
 </div>
 
-<!-- MODAL TAMBAH DATA -->
+<!-- MODAL TAMBAH & EDIT DATA -->
 <div *ngIf="isTambah || isEdit">
   <mat-dialog-content class="tambah">
     <div class="container">
@@ -99,7 +99,9 @@
 
         <mat-tab label="Periode Kontrak">
           <div *ngIf="isEdit" style="margin-top: 5px; margin-left: 210px">
-            <button class="ya waves-effect waves-light" (click)="perpanjangKontrak()">
+            <button
+              *ngIf="isPerpanjangKontrak && tambah.status_karyawan !== 'Harian' && tambah.status_karyawan !== 'Informal'"
+              class="ya waves-effect waves-light" (click)="perpanjangKontrak()">
               Perpanjang Kontrak
             </button>
             <button class="ya waves-effect waves-light" (click)="terminasi()">Terminasi</button>

@@ -7,15 +7,12 @@ mat-dialog-content {
   padding: 0px;
   margin: 0px 40px;
   width: 475px;
+  overflow: hidden;
 }
 
 mat-dialog-content div {
   display: inline-flex;
-}
-
-mat-dialog-content.delete {
-  padding: 0px;
-  margin: 0px 40px;
+  height: auto;
 }
 
 mat-dialog-actions {
@@ -25,7 +22,7 @@ mat-dialog-actions {
 }
 
 input {
-  margin-bottom: 5px;
+  margin-top: 5px;
   background-color: rgb(255, 255, 255);
   width: 300px;
   padding: 5px;
@@ -39,7 +36,7 @@ input.disabled {
 }
 
 textarea {
-  margin-bottom: 5px;
+  margin-top: 5px;
   background-color: rgb(255, 255, 255);
   width: 300px;
   padding: 5px;
@@ -48,8 +45,8 @@ textarea {
   height: 90px;
 }
 
-div.alamat{
-    height: 100px;
+div.alamat {
+  height: 100px;
 }
 
 img {
