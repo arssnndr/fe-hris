@@ -8,6 +8,7 @@ import { ModalSetupJadwalKerjaDetailComponent } from './modal-setup-jadwal-kerja
 import { ModalSetupJadwalKerjaIndividuComponent } from './modal-setup-jadwal-kerja-individu/modal-setup-jadwal-kerja-individu.component';
 import * as XLSX from 'xlsx';
 import { environment } from 'src/environments/environment';
+import { utils, writeFileXLSX } from 'xlsx';
 
 @Component({
   selector: 'app-setup-jadwal-kerja',
@@ -295,97 +296,141 @@ export class SetupJadwalKerjaComponent implements OnInit {
       });
   }
 
-  // printData(name: string) {
-  //   let header: any[] = [];
-  //   let content;
-  //   let column;
+  printData(name: string) {
+    let header: any[] = [];
+    let content: any;
+    let column;
+    let gap = 0;
 
-  //   switch (name) {
-  //     case 'History Status':
-  //       header = [
-  //         ['A1', name],
-  //         ['F1', 'Tanggal Cetak'],
-  //         ['F2', 'User :'],
-  //         ['G1', moment().format('DD MMM YYYY')],
-  //         ['G2', window.localStorage.getItem('key')],
-  //       ];
-  //       content = this.dataJadwalKerjaCategory.map((res: any) => ({
-  //         NIP: res.nip,
-  //         'Nama Karyawan': res.nama_lengkap,
-  //         'Tanggal Lahir': this.formatDate(res.tgl_lahir),
-  //         'Tanggal Join': this.formatDate(res.tgl_join),
-  //         'Status Karyawan': res.status_karyawan,
-  //         'Tanggal Efektif Terminasi': this.formatDate(
-  //           res.tgl_efektif_terminasi
-  //         ),
-  //         'Alasan Terminasi': res.alasan_terminasi,
-  //       }));
-  //       break;
+    switch (name) {
+      case 'Setup Jadwal Kerja Detail':
+        header = [
+          ['A1', 'NIP'],
+          ['A2', 'Nama Karyawan'],
+          ['A3', 'Perusahaan'],
+          ['A4', 'Divisi'],
+          ['A5', 'Departemen'],
+          ['A6', 'Sub Departemen'],
+          ['A7', 'Periode'],
+          ['B1', ': ' + this.dataSelected.nip],
+          ['B2', ': ' + this.dataSelected.nama_lengkap],
+          ['B3', ': ' + this.dataSelected.perusahaan],
+          ['B4', ': ' + this.dataSelected.divisi],
+          ['B5', ': ' + this.dataSelected.departemen],
+          ['B6', ': ' + this.dataSelected.sub_departemen],
+          ['B7', ': ' + moment(this.periode, 'YYYY-MM').format('MMM YYYY')],
+          ['G1', 'Tanggal Cetak'],
+          ['G2', 'User'],
+          ['H1', ': ' + moment().format('DD MMM YYYY')],
+          ['H2', ': ' + window.localStorage.getItem('key')],
+        ];
+        content = this.dataJadwalKerjaPerMonth.map((res: any) => ({
+          Tanggal: moment(res.tgl).format('DD MMM YYYY'),
+          Hari: res.hari,
+          'ID Jadwal Kerja': res.id_jadwal_kerja,
+          'Jadwal Kerja': res.masuk + ' - ' + res.keluar,
+          'Jadwal Istirahat': res.start_break + ' - ' + res.end_break,
+          'Jam masuk': res.masuk,
+          'Jam Keluar': res.keluar,
+          Total: res.total,
+        }));
 
-  //     case 'History Penugasan':
-  //       header = [
-  //         ['A1', name],
-  //         ['L1', 'Tanggal Cetak'],
-  //         ['L2', 'User :'],
-  //         ['M1', moment().format('DD MMM YYYY')],
-  //         ['M2', window.localStorage.getItem('key')],
-  //       ];
-  //       content = this.dataKaryawan.map((res: any) => ({
-  //         NIP: res.nip,
-  //         'Nama Karyawan': res.nama_lengkap,
-  //         'Tanggal Lahir': this.formatDate(res.tgl_lahir),
-  //         'Tanggal Perubahan': this.formatDate(res.tgl_perubahan_detasir),
-  //         'Lokasi Kerja': res.lokasi,
-  //         Divisi: res.divisi,
-  //         Departemen: res.departemen,
-  //         'Sub Departemen': res.sub_departemen,
-  //         Jabatan: res.jabatan,
-  //         'Tanggal Mulai Detasir': this.formatDate(res.tgl_akhir_detasir),
-  //         'Tanggal Akhir Detasir': this.formatDate(res.tgl_akhir_detasir),
-  //         'Lokasi Detasir': res.lokasi_detasir,
-  //         'Alasan Detasir': res.alasan_detasir,
-  //       }));
-  //       break;
-  //   }
+        gap = 9;
+        break;
 
-  //   column =
-  //     Object.keys(content[0]).length > 25
-  //       ? 'A' + String.fromCharCode((Object.keys(content[0]).length % 26) + 64)
-  //       : String.fromCharCode(Object.keys(content[0]).length + 64);
+      case 'Setup Jadwal Kerja Category':
+        header = [
+          ['A1', name],
+          ['J1', 'Tanggal Cetak'],
+          ['J2', 'User'],
+          ['K1', ': ' + moment().format('DD MMM YYYY')],
+          ['K2', ': ' + window.localStorage.getItem('key')],
+        ];
+        content = this.dataJadwalKerjaCategory.map((res: any) => ({
+          Lokasi: res.lokasi,
+          Divisi: res.divisi,
+          Departemen: res.departemen,
+          'Sub Departemen': res.sub_departemen,
+        }));
 
-  //   const ws = utils.json_to_sheet(content);
-  //   const wsTemp = utils.json_to_sheet(content);
+        this.dataJadwalKerjaCategory.forEach((res: any, index: number) => {
+          res.jadwal_kerja.forEach((ress: any) => {
+            content[index][ress.hari] = ress.id_jadwal_kerja;
+          });
+        });
 
-  //   let length = Number(ws['!ref']?.split(column, 2)[1]);
-  //   let gap = 4;
+        gap = 5;
+        break;
 
-  //   ws['!ref'] = 'A1:' + column + (length + gap);
-  //   for (let i = 1; i <= 4; i++) {
-  //     Object.keys(content[0]).forEach((_, index) => {
-  //       index > 25
-  //         ? (ws['A' + String.fromCharCode(65 + index - 26) + i] = {
-  //             t: 's',
-  //             v: '',
-  //           })
-  //         : (ws[String.fromCharCode(65 + index) + i] = { t: 's', v: '' });
-  //     });
-  //   }
+      case 'Setup Jadwal Kerja Individu':
+        header = [
+          ['A1', name],
+          ['A2', 'Dari :'],
+          ['B2', this.formatDate(this.dataJadwalKerjaIndividu[0].dari)],
+          ['C2', 's.d'],
+          ['D2', this.formatDate(this.dataJadwalKerjaIndividu[0].sampai)],
+          ['J1', 'Tanggal Cetak'],
+          ['J2', 'User'],
+          ['K1', ': ' + moment().format('DD MMM YYYY')],
+          ['K2', ': ' + window.localStorage.getItem('key')],
+        ];
+        content = this.dataJadwalKerjaIndividu.map((res: any) => ({
+          NIP: res.nip,
+          'Nama Karyawan': res.nama_lengkap,
+          Perusahaan: res.perusahaan,
+          Departemen: res.departemen,
+        }));
 
-  //   header.forEach((res) => (ws[res[0]] = { t: 's', v: res[1] }));
+        this.dataJadwalKerjaIndividu.forEach((res: any, index: number) => {
+          res.jadwal_kerja.forEach((ress: any) => {
+            content[index][ress.hari] = ress.id_jadwal_kerja;
+          });
+        });
 
-  //   for (let i = 0; i < length; i++) {
-  //     Object.keys(content[0]).forEach((_, index) => {
-  //       index > 25
-  //         ? (ws['A' + String.fromCharCode(65 + index - 26) + (i + gap)] =
-  //             wsTemp['A' + String.fromCharCode(65 + index - 26) + (i + 1)])
-  //         : (ws[String.fromCharCode(65 + index) + (i + gap)] =
-  //             wsTemp[String.fromCharCode(65 + index) + (i + 1)]);
-  //     });
-  //   }
+        gap = 5;
+        break;
+    }
 
-  //   const wb = utils.book_new();
+    if (content != undefined) {
+      column =
+        Object.keys(content[0]).length > 25
+          ? 'A' +
+            String.fromCharCode((Object.keys(content[0]).length % 26) + 64)
+          : String.fromCharCode(Object.keys(content[0]).length + 64);
 
-  //   utils.book_append_sheet(wb, ws);
-  //   writeFileXLSX(wb, name + '.xlsx');
-  // }
+      const ws = utils.json_to_sheet(content);
+      const wsTemp = utils.json_to_sheet(content);
+
+      let length = Number(ws['!ref']?.split(column, 2)[1]);
+
+      ws['!ref'] = 'A1:' + column + (length + gap);
+      for (let i = 1; i <= gap; i++) {
+        Object.keys(content[0]).forEach((_, index) => {
+          index > 25
+            ? (ws['A' + String.fromCharCode(65 + index - 26) + i] = {
+                t: 's',
+                v: '',
+              })
+            : (ws[String.fromCharCode(65 + index) + i] = { t: 's', v: '' });
+        });
+      }
+
+      header.forEach((res) => (ws[res[0]] = { t: 's', v: res[1] }));
+
+      for (let i = 0; i < length; i++) {
+        Object.keys(content[0]).forEach((_, index) => {
+          index > 25
+            ? (ws['A' + String.fromCharCode(65 + index - 26) + (i + gap)] =
+                wsTemp['A' + String.fromCharCode(65 + index - 26) + (i + 1)])
+            : (ws[String.fromCharCode(65 + index) + (i + gap)] =
+                wsTemp[String.fromCharCode(65 + index) + (i + 1)]);
+        });
+      }
+
+      const wb = utils.book_new();
+
+      utils.book_append_sheet(wb, ws);
+      writeFileXLSX(wb, name + '.xlsx');
+    }
+  }
 }

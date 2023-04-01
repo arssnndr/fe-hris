@@ -1,7 +1,7 @@
 <h5>Setup Jadwal Kerja</h5>
 
 <div class="button" *ngIf="selectedIndex ===1">
-    <button class="download waves-effect waves-dark">
+    <button class="download waves-effect waves-dark" (click)="printData('Setup Jadwal Kerja Category')">
         Download
     </button>
     <button class="tambah waves-effect waves-light" (click)="tambahJadwalKerjaCategory()">
@@ -10,7 +10,7 @@
 </div>
 
 <div class="button" *ngIf="selectedIndex === 3">
-    <button class="download waves-effect waves-dark">
+    <button class="download waves-effect waves-dark" (click)="printData('Setup Jadwal Kerja Individu')">
         Download
     </button>
     <button class="tambah waves-effect waves-light" (click)="tambahJadwalKerjaIndividu()">
@@ -44,7 +44,7 @@
             </div>
 
             <div class="right">
-                <button class="print">
+                <button class="print" (click)="printData('Setup Jadwal Kerja Detail')">
                     Print
                 </button>
 
