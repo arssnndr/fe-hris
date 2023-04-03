@@ -69,16 +69,20 @@ export class JadwalKerjaComponent implements OnInit {
   }
 
   deleteData(id: number) {
-    this.dialog
-      .open(VoidComponent)
-      .afterClosed()
-      .subscribe((result) => {
-        if (result === 'ya') {
-          this.api.deleteData(this.table + id).subscribe(() => {
-            this.ngOnInit();
-          });
-        }
-      });
+    if (this.akses.edit) {
+      this.dialog
+        .open(VoidComponent)
+        .afterClosed()
+        .subscribe((result) => {
+          if (result === 'ya') {
+            this.api.deleteData(this.table + id).subscribe(() => {
+              this.ngOnInit();
+            });
+          }
+        });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   ngOnInit(): void {

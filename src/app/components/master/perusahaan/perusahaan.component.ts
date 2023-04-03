@@ -11,6 +11,8 @@ import { ModalPerusahaanComponent } from './modal-perusahaan/modal-perusahaan.co
   styleUrls: ['./perusahaan.component.css'],
 })
 export class PerusahaanComponent implements OnInit {
+  akses = this.api.akses.role_perusahaan;
+
   table = 'ms_perusahaan/';
   dataSearch = '';
   pageSize = 50;
@@ -27,22 +29,29 @@ export class PerusahaanComponent implements OnInit {
   constructor(private api: ApiService, public dialog: MatDialog) {}
 
   tambahData() {
-    const dialogRef = this.dialog.open(ModalPerusahaanComponent, {
-      data: { name: 'tambah', data: this.getMaxId + 1 },
-    });
+    if (this.akses.edit) {
+      this.dialog
+        .open(ModalPerusahaanComponent, {
+          data: { name: 'tambah', data: this.getMaxId + 1 },
+        })
+        .afterClosed()
+        .subscribe((result) => {
+          if (result === 'simpan') {
+            this.catchResult = this.api.catchData();
+            this.api.postData(this.table, this.catchResult).subscribe(() => {
+              this.length = this.length + 1;
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        this.catchResult = this.api.catchData();
-        this.api.postData(this.table, this.catchResult).subscribe((res) => {
-          this.api.getData(this.table).subscribe((res) => {
-            this.getMaxId = res[res.length - 1].id;
-          });
-          this.length = this.length + 1;
-          this.getPageData();
+              this.api.getData(this.table).subscribe((res) => {
+                this.getMaxId = res[res.length - 1].id;
+              });
+
+              this.getPageData();
+            });
+          }
         });
-      }
-    });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   editData(data: any) {
@@ -63,20 +72,24 @@ export class PerusahaanComponent implements OnInit {
   }
 
   deleteData(id: number) {
-    this.dialog
-      .open(VoidComponent)
-      .afterClosed()
-      .subscribe((result) => {
-        if (result === 'ya') {
-          this.api.deleteData(this.table + id).subscribe(() => {
-            this.api.getData(this.table).subscribe((res) => {
-              this.getMaxId = res[res.length - 1].id;
+    if (this.akses.edit) {
+      this.dialog
+        .open(VoidComponent)
+        .afterClosed()
+        .subscribe((result) => {
+          if (result === 'ya') {
+            this.api.deleteData(this.table + id).subscribe(() => {
+              this.api.getData(this.table).subscribe((res) => {
+                this.getMaxId = res[res.length - 1].id;
+              });
+              this.length = this.length - 1;
+              this.getPageData();
             });
-            this.length = this.length - 1;
-            this.getPageData();
-          });
-        }
-      });
+          }
+        });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   handlePageEvent(event: PageEvent) {

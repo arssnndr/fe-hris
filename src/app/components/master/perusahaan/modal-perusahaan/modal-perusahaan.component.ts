@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./modal-perusahaan.component.css'],
 })
 export class ModalPerusahaanComponent implements OnInit {
+  akses = this.api.akses.role_perusahaan.edit;
+
   isTambah = false;
   isEdit = false;
   isBlur = false;
