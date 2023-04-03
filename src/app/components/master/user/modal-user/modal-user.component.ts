@@ -9,9 +9,8 @@ import { User } from 'src/app/interfaces/user';
   styleUrls: ['./modal-user.component.css'],
 })
 export class ModalUserComponent implements OnInit {
-  isTambah = false;
-  isDelete = false;
-  isEdit = false;
+  aksesEdit = this.api.akses.role_user.edit;
+
   hide1 = true;
   hide2 = true;
 
@@ -124,28 +123,17 @@ export class ModalUserComponent implements OnInit {
     },
   };
 
-  constructor(
-    private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
-  ) {}
-
-  ngOnInit(): void {
-    this.dataUser.akses = this.akses[0];
-    switch (this.data.name) {
-      case 'tambah':
-        this.isTambah = true;
-        break;
-      case 'delete':
-        this.isDelete = true;
-        break;
-      case 'edit':
-        this.isEdit = true;
-
-        this.dataUser = this.data.data;
-        this.konfirmPassword = this.data.data.password;
-        break;
+  constructor(private api: ApiService, @Inject(MAT_DIALOG_DATA) data: any) {
+    if (data != null) {
+      this.dataUser = data;
+      this.dataUser.password = data.password;
+      this.konfirmPassword = data.password;
+    } else {
+      this.dataUser.akses = this.akses[0];
     }
   }
+
+  ngOnInit(): void {}
 
   searchKaryawan(data: any) {
     this.api
@@ -167,6 +155,7 @@ export class ModalUserComponent implements OnInit {
     this.dataUser.email = data.email;
     this.dataUser.lokasi = data.lokasi;
     this.dataUser.perusahaan = data.perusahaan;
+
     this.api.getData(this.tableUserId + '?nip=' + data.nip).subscribe((res) => {
       if (res.length !== 0) {
         window.alert('NIP telah terdaftar sebagai User');
@@ -174,15 +163,7 @@ export class ModalUserComponent implements OnInit {
     });
   }
 
-  pwd(input: any) {
-    this.dataUser.password = input.value;
-  }
-
   konfirmPwd(input: any) {
     this.konfirmPassword = input.value;
-  }
-
-  throwResult() {
-    this.api.throwData(this.dataUser);
   }
 }

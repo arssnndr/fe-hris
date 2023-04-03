@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalUserComponent } from './modal-user/modal-user.component';
+import { Router } from '@angular/router';
+import { VoidComponent } from '../../modals/void/void.component';
 
 @Component({
   selector: 'app-user',
@@ -10,6 +12,8 @@ import { ModalUserComponent } from './modal-user/modal-user.component';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
+  akses = this.api.akses.role_user;
+
   table = 'ms_userid/';
   dataSearch = '';
   pageSize = 50;
@@ -23,64 +27,70 @@ export class UserComponent implements OnInit {
   catchResult: any;
   getMaxId = 0;
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['dashboard']);
+  }
 
   ngOnInit(): void {
     this.getAllData();
   }
 
   tambahData() {
-    const dialogRef = this.dialog.open(ModalUserComponent, {
-      data: { name: 'tambah', id: this.getMaxId + 1 },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        this.catchResult = this.api.catchData();
-        this.api.postData(this.table, this.catchResult).subscribe((res) => {
-          this.api.getData(this.table).subscribe((res) => {
-            this.getMaxId = res[res.length - 1].id;
-          });
-          this.length = this.length + 1;
-          this.getPageData();
+    if (this.akses.edit) {
+      this.dialog
+        .open(ModalUserComponent)
+        .afterClosed()
+        .subscribe((result) => {
+          if (result != undefined) {
+            this.api.postData(this.table, result).subscribe(() => {
+              this.length = this.length + 1;
+              this.getPageData();
+            });
+          }
         });
-      }
-    });
-  }
-
-  deleteData(id: number) {
-    const dialogRef = this.dialog.open(ModalUserComponent, {
-      data: { name: 'delete' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'ya') {
-        this.api.deleteData(this.table + id).subscribe(() => {
-          this.api.getData(this.table).subscribe((res) => {
-            this.getMaxId = res[res.length - 1].id;
-          });
-          this.length = this.length - 1;
-          this.getPageData();
-        });
-      }
-    });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   editData(data: any) {
-    const dialogRef = this.dialog.open(ModalUserComponent, {
-      data: { name: 'edit', data: data },
-    });
+    this.dialog
+      .open(ModalUserComponent, {
+        data: data,
+      })
+      .afterClosed()
+      .subscribe((result) => {
+        if (result != undefined) {
+          this.api
+            .updateData(this.table, result, result.id)
+            .subscribe(() => this.getPageData());
+        }
+      });
+  }
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        this.catchResult = this.api.catchData();
-        let data = this.catchResult;
-        let id = this.catchResult.id;
-        this.api.updateData(this.table, data, id).subscribe((res) => {
-          this.getPageData();
+  deleteData(id: number) {
+    if (this.akses.edit) {
+      this.dialog
+        .open(VoidComponent)
+        .afterClosed()
+        .subscribe((result) => {
+          if (result === 'ya') {
+            this.api.deleteData(this.table + id).subscribe(() => {
+              this.api.getData(this.table).subscribe((res) => {
+                this.getMaxId = res[res.length - 1].id;
+              });
+              this.length = this.length - 1;
+              this.getPageData();
+            });
+          }
         });
-      }
-    });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   handlePageEvent(event: PageEvent) {
