@@ -26,6 +26,11 @@ export interface User {
     edit: boolean;
     download: boolean;
   };
+  role_otoritas: {
+    view: boolean;
+    edit: boolean;
+    download: boolean;
+  };
   role_karyawan: {
     view: boolean;
     edit: boolean;

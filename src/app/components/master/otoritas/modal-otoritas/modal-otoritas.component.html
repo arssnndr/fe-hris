@@ -107,6 +107,18 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Otoritas</td>
+                        <td>
+                            <mat-checkbox class="mat-warn" [(ngModel)]="dataUser.role_otoritas.view"></mat-checkbox>
+                        </td>
+                        <td>
+                            <mat-checkbox class="mat-warn" [(ngModel)]="dataUser.role_otoritas.edit"></mat-checkbox>
+                        </td>
+                        <td>
+                            <mat-checkbox class="mat-warn" [(ngModel)]="dataUser.role_otoritas.download"></mat-checkbox>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Karyawan</td>
                         <td>
                             <mat-checkbox class="mat-warn" [(ngModel)]="dataUser.role_karyawan.view"></mat-checkbox>
@@ -263,30 +275,28 @@
                         <td>Download Report</td>
                         <td>
                             <mat-checkbox class="mat-warn"
-                                [(ngModel)]="dataUser.role_download_data_payroll.view"></mat-checkbox>
+                                [(ngModel)]="dataUser.role_download_report.view"></mat-checkbox>
                         </td>
                         <td>
                             <mat-checkbox class="mat-warn"
-                                [(ngModel)]="dataUser.role_download_data_payroll.edit"></mat-checkbox>
+                                [(ngModel)]="dataUser.role_download_report.edit"></mat-checkbox>
                         </td>
                         <td>
                             <mat-checkbox class="mat-warn"
-                                [(ngModel)]="dataUser.role_download_data_payroll.download"></mat-checkbox>
+                                [(ngModel)]="dataUser.role_download_report.download"></mat-checkbox>
                         </td>
                     </tr>
                     <tr>
                         <td>Log History</td>
                         <td>
-                            <mat-checkbox class="mat-warn"
-                                [(ngModel)]="dataUser.role_download_data_payroll.view"></mat-checkbox>
+                            <mat-checkbox class="mat-warn" [(ngModel)]="dataUser.role_log_history.view"></mat-checkbox>
+                        </td>
+                        <td>
+                            <mat-checkbox class="mat-warn" [(ngModel)]="dataUser.role_log_history.edit"></mat-checkbox>
                         </td>
                         <td>
                             <mat-checkbox class="mat-warn"
-                                [(ngModel)]="dataUser.role_download_data_payroll.edit"></mat-checkbox>
-                        </td>
-                        <td>
-                            <mat-checkbox class="mat-warn"
-                                [(ngModel)]="dataUser.role_download_data_payroll.download"></mat-checkbox>
+                                [(ngModel)]="dataUser.role_log_history.download"></mat-checkbox>
                         </td>
                     </tr>
                 </tbody>

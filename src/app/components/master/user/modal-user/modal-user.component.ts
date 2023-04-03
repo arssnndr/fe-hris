@@ -117,6 +117,11 @@ export class ModalUserComponent implements OnInit {
       download: false,
     },
     status: true,
+    role_otoritas: {
+      view: false,
+      edit: false,
+      download: false,
+    },
   };
 
   constructor(

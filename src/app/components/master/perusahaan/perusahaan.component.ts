@@ -4,6 +4,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { ApiService } from 'src/app/shared/api.service';
 import { VoidComponent } from '../../modals/void/void.component';
 import { ModalPerusahaanComponent } from './modal-perusahaan/modal-perusahaan.component';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-perusahaan',
@@ -26,7 +27,13 @@ export class PerusahaanComponent implements OnInit {
   catchResult: any;
   getMaxId = 0;
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    public dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['/dashboard']);
+  }
 
   tambahData() {
     if (this.akses.edit) {

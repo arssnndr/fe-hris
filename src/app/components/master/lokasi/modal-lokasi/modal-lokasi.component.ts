@@ -9,8 +9,9 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-lokasi.component.css'],
 })
 export class ModalLokasiComponent implements OnInit {
+  akses = this.api.akses.role_lokasi.edit;
+
   isTambah = false;
-  isDelete = false;
   isEdit = false;
 
   idValue = 0;
@@ -18,7 +19,7 @@ export class ModalLokasiComponent implements OnInit {
   inisialValue = '';
   alamatValue = '';
 
-  lokasi: Lokasi | undefined;
+  lokasi!: Lokasi;
 
   constructor(
     private api: ApiService,
@@ -31,9 +32,6 @@ export class ModalLokasiComponent implements OnInit {
         this.isTambah = true;
 
         this.idValue = this.data.data;
-        break;
-      case 'delete':
-        this.isDelete = true;
         break;
       case 'edit':
         this.isEdit = true;

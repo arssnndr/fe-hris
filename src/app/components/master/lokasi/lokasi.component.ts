@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalLokasiComponent } from './modal-lokasi/modal-lokasi.component';
+import { Router } from '@angular/router';
+import { VoidComponent } from '../../modals/void/void.component';
 
 @Component({
   selector: 'app-lokasi',
@@ -10,6 +12,8 @@ import { ModalLokasiComponent } from './modal-lokasi/modal-lokasi.component';
   styleUrls: ['./lokasi.component.css'],
 })
 export class LokasiComponent implements OnInit {
+  akses = this.api.akses.role_lokasi;
+
   table = 'ms_lokasi/';
   dataSearch = '';
   pageSize = 50;
@@ -23,25 +27,35 @@ export class LokasiComponent implements OnInit {
   catchResult: any;
   getMaxId = 0;
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['dashboard']);
+  }
 
   tambahData() {
-    const dialogRef = this.dialog.open(ModalLokasiComponent, {
-      data: { name: 'tambah', data: this.getMaxId + 1 },
-    });
+    if (this.akses.edit) {
+      const dialogRef = this.dialog.open(ModalLokasiComponent, {
+        data: { name: 'tambah', data: this.getMaxId + 1 },
+      });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        this.catchResult = this.api.catchData();
-        this.api.postData(this.table, this.catchResult).subscribe(() => {
-          this.api.getData(this.table).subscribe((res) => {
-            this.getMaxId = res[res.length - 1].id;
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result === 'simpan') {
+          this.catchResult = this.api.catchData();
+          this.api.postData(this.table, this.catchResult).subscribe(() => {
+            this.api.getData(this.table).subscribe((res) => {
+              this.getMaxId = res[res.length - 1].id;
+            });
+            this.length = this.length + 1;
+            this.getPageData();
           });
-          this.length = this.length + 1;
-          this.getPageData();
-        });
-      }
-    });
+        }
+      });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   editData(data: any) {
@@ -62,21 +76,24 @@ export class LokasiComponent implements OnInit {
   }
 
   deleteData(id: number) {
-    const dialogRef = this.dialog.open(ModalLokasiComponent, {
-      data: { name: 'delete' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'ya') {
-        this.api.deleteData(this.table + id).subscribe(() => {
-          this.api.getData(this.table).subscribe((res) => {
-            this.getMaxId = res[res.length - 1].id;
-          });
-          this.length = this.length - 1;
-          this.getPageData();
+    if (this.akses.edit) {
+      this.dialog
+        .open(VoidComponent)
+        .afterClosed()
+        .subscribe((result) => {
+          if (result === 'ya') {
+            this.api.deleteData(this.table + id).subscribe(() => {
+              this.api.getData(this.table).subscribe((res) => {
+                this.getMaxId = res[res.length - 1].id;
+              });
+              this.length = this.length - 1;
+              this.getPageData();
+            });
+          }
         });
-      }
-    });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   handlePageEvent(event: PageEvent) {

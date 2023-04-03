@@ -522,6 +522,7 @@ for (let i = 1; i <= lokasi.length; i++) {
     role_perusahaan: role(),
     role_lokasi: role(),
     role_user: role(),
+    role_otoritas: role(),
     role_karyawan: role(),
     role_jadwal_kerja: role(),
     role_setup_jadwal_kerja: role(),

@@ -6,6 +6,7 @@ import { ModalBagianKerjaComponent } from './modal-bagian-kerja/modal-bagian-ker
 import { utils, writeFileXLSX } from 'xlsx';
 import * as moment from 'moment';
 import { VoidComponent } from '../../modals/void/void.component';
+import { Router } from '@angular/router';
 moment.locale('id');
 
 @Component({
@@ -30,7 +31,14 @@ export class BagianKerjaComponent implements OnInit {
   catchResult: any;
   lokasiValue = '';
 
-  constructor(private api: ApiService, private dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    console.log(this.akses.view);
+    if (!this.akses.view) router.navigate(['/dashboard']);
+  }
 
   ngOnInit(): void {
     this.getAllData();

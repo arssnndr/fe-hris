@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/shared/api.service';
 import { utils, writeFileXLSX } from 'xlsx';
 import { ModalJadwalKerjaComponent } from './modal-jadwal-kerja/modal-jadwal-kerja.component';
 import { VoidComponent } from '../../modals/void/void.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-jadwal-kerja',
@@ -29,7 +30,13 @@ export class JadwalKerjaComponent implements OnInit {
   ];
   lokasiValue = this.lokasi[0].value;
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    public dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['/dashboard']);
+  }
 
   tambahData() {
     if (this.akses.edit) {

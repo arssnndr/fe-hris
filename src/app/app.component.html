@@ -26,31 +26,31 @@
         <div class="submenu" [ngClass]="{ expanded: showSubmenu }" *ngIf="isShowing || isExpanded"
           [ngStyle]="{ display: masterDisplay }">
           <mat-list-item routerLink="bagian-kerja" [ngClass]="{'active': bagianKerja}"
-            [ngStyle]="!akses.role_bagian_kerja.view?{display: 'none'}:{}">Bagian Kerja</mat-list-item>
+            *ngIf="akses.role_bagian_kerja.view">Bagian Kerja</mat-list-item>
           <mat-list-item routerLink="perusahaan" [ngClass]="{'active': perusahaan}"
-            [ngStyle]="!akses.role_perusahaan.view?{display: 'none'}:{}">Perusahaan</mat-list-item>
+            *ngIf="akses.role_perusahaan.view">Perusahaan</mat-list-item>
           <mat-list-item routerLink="lokasi" [ngClass]="{'active': lokasi}"
-            [ngStyle]="!akses.role_lokasi.view?{display: 'none'}:{}">Lokasi</mat-list-item>
+            *ngIf="akses.role_lokasi.view">Lokasi</mat-list-item>
           <mat-list-item routerLink="user" [ngClass]="{'active': user}"
-            [ngStyle]="!akses.role_user.view?{display: 'none'}:{}">User</mat-list-item>
+            *ngIf="akses.role_user.view">User</mat-list-item>
           <mat-list-item routerLink="otoritas" [ngClass]="{'active': otoritas}"
-            [ngStyle]="!akses.role_user.view?{display: 'none'}:{}">Otoritas</mat-list-item>
+            *ngIf="akses.role_otoritas.view">Otoritas</mat-list-item>
           <mat-list-item routerLink="karyawan" [ngClass]="{'active': karyawan}"
-            [ngStyle]="!akses.role_karyawan.view?{display: 'none'}:{}">Karyawan</mat-list-item>
+            *ngIf="akses.role_karyawan.view">Karyawan</mat-list-item>
           <mat-list-item routerLink="jadwal-kerja" [ngClass]="{'active': jadwalKerja}"
-            [ngStyle]="!akses.role_jadwal_kerja.view?{display: 'none'}:{}">Jadwal Kerja</mat-list-item>
+            *ngIf="akses.role_jadwal_kerja.view">Jadwal Kerja</mat-list-item>
           <mat-list-item routerLink="setup-jadwal-kerja" [ngClass]="{'active': setupJadwalKerja}"
-            [ngStyle]="!akses.role_setup_jadwal_kerja.view?{display: 'none'}:{}">Set Up Jadwal Kerja</mat-list-item>
+            *ngIf="akses.role_setup_jadwal_kerja.view">Set Up Jadwal Kerja</mat-list-item>
           <mat-list-item routerLink="kalender-kerja" [ngClass]="{'active': kalenderKerja}"
-            [ngStyle]="!akses.role_kalender_kerja.view?{display: 'none'}:{}">Kalender Kerja</mat-list-item>
+            *ngIf="akses.role_kalender_kerja.view">Kalender Kerja</mat-list-item>
           <mat-list-item routerLink="mesin-finger" [ngClass]="{'active': mesinFinger}"
-            [ngStyle]="!akses.role_mesin_finger.view?{display: 'none'}:{}">Mesin Finger</mat-list-item>
+            *ngIf="akses.role_mesin_finger.view">Mesin Finger</mat-list-item>
           <mat-list-item routerLink="setup-mesin-finger" [ngClass]="{'active': setupMesinFinger}"
-            [ngStyle]="!akses.role_setup_mesin_finger.view?{display: 'none'}:{}">Set Up Mesin Finger</mat-list-item>
+            *ngIf="akses.role_setup_mesin_finger.view">Set Up Mesin Finger</mat-list-item>
         </div>
       </div>
 
-      <div id="statusKehadiran">
+      <div id="statusKehadiran" *ngIf="akses.role_status_kehadiran.view">
         <mat-list-item style="color: #575757" routerLink="status-kehadiran" [ngClass]="{'active': statusKehadiran}">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             Status Kehadiran
@@ -60,7 +60,7 @@
         </mat-list-item>
       </div>
 
-      <div id="listKehadiran">
+      <div id="listKehadiran" *ngIf="akses.role_list_kehadiran.view">
         <mat-list-item style="color: #575757" routerLink="list-kehadiran" [ngClass]="{'active': listKehadiran}">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             List Kehadiran
@@ -70,7 +70,7 @@
         </mat-list-item>
       </div>
 
-      <div id="lembur">
+      <div id="lembur" *ngIf="akses.role_lembur.view">
         <mat-list-item style="color: #575757" routerLink="lembur" [ngClass]="{'active': lembur}">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             Lembur
@@ -80,7 +80,7 @@
         </mat-list-item>
       </div>
 
-      <div id="gantiNIP">
+      <div id="gantiNIP" *ngIf="akses.role_ganti_nip.view">
         <mat-list-item style="color: #575757" (click)="funcGantiNip()" [ngClass]="{'active': gantiNip}">
           <span class="full-width" *ngIf="isExpanded || isShowing">
             Ganti NIP
@@ -90,7 +90,8 @@
         </mat-list-item>
       </div>
 
-      <div id="downloadMenu">
+      <div id="downloadMenu"
+        *ngIf="akses.role_download_data_payroll.view || akses.role_download_report.view || akses.role_log_history.view">
         <mat-list-item (click)="isExpanded = true" (click)="showSubSubMenu = !showSubSubMenu" class="parent"
           style="color: #575757">
           <span class="full-width" *ngIf="isExpanded || isShowing">
@@ -104,13 +105,16 @@
         </mat-list-item>
         <div class="submenu" [ngClass]="{ expanded: showSubSubMenu }" *ngIf="isShowing || isExpanded"
           [ngStyle]="{ display: downloadDisplay }">
-          <mat-list-item (click)="funcDownloadDataPayroll()" [ngClass]="{'active': downloadDataPayroll}">
+          <mat-list-item (click)="funcDownloadDataPayroll()" [ngClass]="{'active': downloadDataPayroll}"
+            *ngIf="akses.role_download_data_payroll.view">
             Download Data Payroll
           </mat-list-item>
-          <mat-list-item (click)="funcDownloadReport()" [ngClass]="{'active': downloadReport}">
+          <mat-list-item (click)="funcDownloadReport()" [ngClass]="{'active': downloadReport}"
+            *ngIf="akses.role_download_report.view">
             Download report
           </mat-list-item>
-          <mat-list-item (click)="funcLogHistory()" [ngClass]="{'active': logHistory}">
+          <mat-list-item (click)="funcLogHistory()" [ngClass]="{'active': logHistory}"
+            *ngIf="akses.role_log_history.view">
             Log history
           </mat-list-item>
         </div>

@@ -46,6 +46,11 @@ export class ModalOtoritasComponent {
       edit: false,
       download: false,
     },
+    role_otoritas: {
+      view: false,
+      edit: false,
+      download: false,
+    },
     role_karyawan: {
       view: false,
       edit: false,
@@ -121,6 +126,7 @@ export class ModalOtoritasComponent {
 
   ngOnInit(): void {
     this.dataUser.akses = this.akses[0];
+
     switch (this.data.name) {
       case 'delete':
         this.isDelete = true;

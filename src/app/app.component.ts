@@ -85,10 +85,22 @@ export class AppComponent {
     if (user !== null) {
       this.isLogin = true;
       this.email = user.email;
+
+      this.api
+        .getData(environment.tabelUser + '?email=' + this.email)
+        .subscribe((res) => {
+          if (res.length == 0) {
+            this.isLogin = false;
+            this.router.navigate(['/login']);
+          } else {
+            localStorage.setItem('user', JSON.stringify(res[0]));
+          }
+        });
     } else {
       this.isLogin = false;
       this.router.navigate(['/login']);
     }
+
     console.log(this.akses);
   }
 
