@@ -9,6 +9,8 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-jadwal-kerja.component.css'],
 })
 export class ModalJadwalKerjaComponent implements OnInit {
+  akses = this.api.akses.role_jadwal_kerja.edit;
+
   isTambah = false;
   isDelete = false;
   isEdit = false;
@@ -69,9 +71,6 @@ export class ModalJadwalKerjaComponent implements OnInit {
         this.jadwalKerja.lokasi = this.lokasi[0].value;
         this.jadwalKerja.shift = this.shift[0].value;
         this.jadwalKerja.type = this.jamKerja[0].value;
-        break;
-      case 'delete':
-        this.isDelete = true;
         break;
       case 'edit':
         this.isEdit = true;
