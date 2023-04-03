@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./modal-bagian-kerja.component.css'],
 })
 export class ModalBagianKerjaComponent implements OnInit {
+  akses = this.api.akses.role_bagian_kerja.edit;
+
   jenis = ['Divisi', 'Departemen', 'Sub Departemen'];
   lokasi = ['TMS HO', 'TMS 1', 'TMS 2', 'TMS 3', 'TMS 4'];
   divisi = ['IT', 'GA', 'Finance'];

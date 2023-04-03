@@ -7,7 +7,11 @@ import { environment as env } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ApiService {
-  public throwCatchData: any;
+  throwCatchData: any;
+
+  storage: any = localStorage.getItem('user');
+  akses = JSON.parse(this.storage);
+
   constructor(private http: HttpClient) {}
 
   throwData(data: any) {

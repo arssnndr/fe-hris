@@ -46,6 +46,16 @@ export interface User {
     edit: boolean;
     download: boolean;
   };
+  role_mesin_finger: {
+    view: boolean;
+    edit: boolean;
+    download: boolean;
+  };
+  role_setup_mesin_finger: {
+    view: boolean;
+    edit: boolean;
+    download: boolean;
+  };
   role_status_kehadiran: {
     view: boolean;
     edit: boolean;
@@ -61,22 +71,22 @@ export interface User {
     edit: boolean;
     download: boolean;
   };
-  role_download: {
-    view: boolean;
-    edit: boolean;
-    download: boolean;
-  };
-  role_mesin_finger: {
-    view: boolean;
-    edit: boolean;
-    download: boolean;
-  };
-  role_setup_mesin_finger: {
-    view: boolean;
-    edit: boolean;
-    download: boolean;
-  };
   role_ganti_nip: {
+    view: boolean;
+    edit: boolean;
+    download: boolean;
+  };
+  role_download_data_payroll: {
+    view: boolean;
+    edit: boolean;
+    download: boolean;
+  };
+  role_download_report: {
+    view: boolean;
+    edit: boolean;
+    download: boolean;
+  };
+  role_log_history: {
     view: boolean;
     edit: boolean;
     download: boolean;

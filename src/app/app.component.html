@@ -25,20 +25,28 @@
         </mat-list-item>
         <div class="submenu" [ngClass]="{ expanded: showSubmenu }" *ngIf="isShowing || isExpanded"
           [ngStyle]="{ display: masterDisplay }">
-          <mat-list-item routerLink="bagian-kerja" [ngClass]="{'active': bagianKerja}">Bagian Kerja</mat-list-item>
-          <mat-list-item routerLink="perusahaan" [ngClass]="{'active': perusahaan}">Perusahaan</mat-list-item>
-          <mat-list-item routerLink="lokasi" [ngClass]="{'active': lokasi}">Lokasi</mat-list-item>
-          <mat-list-item routerLink="user" [ngClass]="{'active': user}">User</mat-list-item>
-          <mat-list-item routerLink="otoritas" [ngClass]="{'active': otoritas}">Otoritas</mat-list-item>
-          <mat-list-item routerLink="karyawan" [ngClass]="{'active': karyawan}">Karyawan</mat-list-item>
-          <mat-list-item routerLink="jadwal-kerja" [ngClass]="{'active': jadwalKerja}">Jadwal Kerja</mat-list-item>
-          <mat-list-item routerLink="setup-jadwal-kerja" [ngClass]="{'active': setupJadwalKerja}">Set Up Jadwal
-            Kerja</mat-list-item>
-          <mat-list-item routerLink="kalender-kerja" [ngClass]="{'active': kalenderKerja}">Kalender
-            Kerja</mat-list-item>
-          <mat-list-item routerLink="mesin-finger" [ngClass]="{'active': mesinFinger}">Mesin Finger</mat-list-item>
-          <mat-list-item routerLink="setup-mesin-finger" [ngClass]="{'active': setupMesinFinger}">Set Up Mesin
-            Finger</mat-list-item>
+          <mat-list-item routerLink="bagian-kerja" [ngClass]="{'active': bagianKerja}"
+            [ngStyle]="!akses.role_bagian_kerja.view?{display: 'none'}:{}">Bagian Kerja</mat-list-item>
+          <mat-list-item routerLink="perusahaan" [ngClass]="{'active': perusahaan}"
+            [ngStyle]="!akses.role_perusahaan.view?{display: 'none'}:{}">Perusahaan</mat-list-item>
+          <mat-list-item routerLink="lokasi" [ngClass]="{'active': lokasi}"
+            [ngStyle]="!akses.role_lokasi.view?{display: 'none'}:{}">Lokasi</mat-list-item>
+          <mat-list-item routerLink="user" [ngClass]="{'active': user}"
+            [ngStyle]="!akses.role_user.view?{display: 'none'}:{}">User</mat-list-item>
+          <mat-list-item routerLink="otoritas" [ngClass]="{'active': otoritas}"
+            [ngStyle]="!akses.role_user.view?{display: 'none'}:{}">Otoritas</mat-list-item>
+          <mat-list-item routerLink="karyawan" [ngClass]="{'active': karyawan}"
+            [ngStyle]="!akses.role_karyawan.view?{display: 'none'}:{}">Karyawan</mat-list-item>
+          <mat-list-item routerLink="jadwal-kerja" [ngClass]="{'active': jadwalKerja}"
+            [ngStyle]="!akses.role_jadwal_kerja.view?{display: 'none'}:{}">Jadwal Kerja</mat-list-item>
+          <mat-list-item routerLink="setup-jadwal-kerja" [ngClass]="{'active': setupJadwalKerja}"
+            [ngStyle]="!akses.role_setup_jadwal_kerja.view?{display: 'none'}:{}">Set Up Jadwal Kerja</mat-list-item>
+          <mat-list-item routerLink="kalender-kerja" [ngClass]="{'active': kalenderKerja}"
+            [ngStyle]="!akses.role_kalender_kerja.view?{display: 'none'}:{}">Kalender Kerja</mat-list-item>
+          <mat-list-item routerLink="mesin-finger" [ngClass]="{'active': mesinFinger}"
+            [ngStyle]="!akses.role_mesin_finger.view?{display: 'none'}:{}">Mesin Finger</mat-list-item>
+          <mat-list-item routerLink="setup-mesin-finger" [ngClass]="{'active': setupMesinFinger}"
+            [ngStyle]="!akses.role_setup_mesin_finger.view?{display: 'none'}:{}">Set Up Mesin Finger</mat-list-item>
         </div>
       </div>
 

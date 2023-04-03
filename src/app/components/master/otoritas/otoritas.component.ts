@@ -58,7 +58,9 @@ export class OtoritasComponent {
         let data = this.catchResult;
         let id = this.catchResult.id;
         this.api.updateData(this.table, data, id).subscribe((res) => {
+          localStorage.setItem('user', JSON.stringify(res));
           this.getPageData();
+          window.location.reload();
         });
       }
     });

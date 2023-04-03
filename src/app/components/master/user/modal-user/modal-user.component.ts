@@ -71,6 +71,16 @@ export class ModalUserComponent implements OnInit {
       edit: false,
       download: false,
     },
+    role_mesin_finger: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    role_setup_mesin_finger: {
+      view: false,
+      edit: false,
+      download: false,
+    },
     role_status_kehadiran: {
       view: false,
       edit: false,
@@ -86,22 +96,22 @@ export class ModalUserComponent implements OnInit {
       edit: false,
       download: false,
     },
-    role_download: {
-      view: false,
-      edit: false,
-      download: false,
-    },
-    role_mesin_finger: {
-      view: false,
-      edit: false,
-      download: false,
-    },
-    role_setup_mesin_finger: {
-      view: false,
-      edit: false,
-      download: false,
-    },
     role_ganti_nip: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    role_download_data_payroll: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    role_download_report: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    role_log_history: {
       view: false,
       edit: false,
       download: false,
