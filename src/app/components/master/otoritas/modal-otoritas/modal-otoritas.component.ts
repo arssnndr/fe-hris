@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, ElementRef, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from 'src/app/interfaces/user';
 import { ApiService } from 'src/app/shared/api.service';
@@ -9,8 +9,8 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-otoritas.component.css'],
 })
 export class ModalOtoritasComponent {
-  isDelete = false;
-  isEdit = false;
+  aksesEdit = this.api.akses.role_otoritas.edit;
+
   hide1 = true;
   hide2 = true;
 
@@ -119,27 +119,13 @@ export class ModalOtoritasComponent {
     status: true,
   };
 
-  constructor(
-    private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
-  ) {}
-
-  ngOnInit(): void {
-    this.dataUser.akses = this.akses[0];
-
-    switch (this.data.name) {
-      case 'delete':
-        this.isDelete = true;
-        break;
-      case 'edit':
-        this.isEdit = true;
-
-        this.dataUser = this.data.data;
-        break;
+  constructor(private api: ApiService, @Inject(MAT_DIALOG_DATA) data: any) {
+    if (data != null) {
+      this.dataUser = data;
     }
   }
 
-  throwResult() {
-    this.api.throwData(this.dataUser);
+  ngOnInit(): void {
+    this.dataUser.akses = this.akses[0];
   }
 }
