@@ -16,6 +16,7 @@ export const environment = {
   tabelJadwalKerja: 'trx_jadwalkerja/',
   tabelLogHistory: 'log_history/',
   tabelUser: 'ms_userid/',
+  tabelKalenderKerja: 'ms_kalenderkerja/',
 };
 
 /*
