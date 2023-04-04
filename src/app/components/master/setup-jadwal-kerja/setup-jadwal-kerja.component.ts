@@ -9,6 +9,7 @@ import { ModalSetupJadwalKerjaIndividuComponent } from './modal-setup-jadwal-ker
 import * as XLSX from 'xlsx';
 import { environment } from 'src/environments/environment';
 import { utils, writeFileXLSX } from 'xlsx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setup-jadwal-kerja',
@@ -16,7 +17,15 @@ import { utils, writeFileXLSX } from 'xlsx';
   styleUrls: ['./setup-jadwal-kerja.component.css'],
 })
 export class SetupJadwalKerjaComponent implements OnInit {
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  akses = this.api.akses.role_setup_jadwal_kerja;
+
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['dashboard']);
+  }
 
   selectedIndex = 0;
 
@@ -111,16 +120,20 @@ export class SetupJadwalKerjaComponent implements OnInit {
   }
 
   tambahJadwalKerjaCategory() {
-    this.dialog
-      .open(ModalSetupJadwalKerjaCategoryComponent)
-      .afterClosed()
-      .subscribe((res) => {
-        if (res !== undefined) {
-          this.api
-            .postData(this.tabelJadwalKerjaCategory, res)
-            .subscribe(() => this.getDataJadwalKerjaCategory);
-        }
-      });
+    if (this.akses.edit) {
+      this.dialog
+        .open(ModalSetupJadwalKerjaCategoryComponent)
+        .afterClosed()
+        .subscribe((res) => {
+          if (res !== undefined) {
+            this.api
+              .postData(this.tabelJadwalKerjaCategory, res)
+              .subscribe(() => this.getDataJadwalKerjaCategory);
+          }
+        });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   editJadwalKerjaCategory(data: any) {
@@ -137,16 +150,20 @@ export class SetupJadwalKerjaComponent implements OnInit {
   }
 
   voidCategory(id: number) {
-    this.dialog
-      .open(VoidComponent)
-      .afterClosed()
-      .subscribe((res) => {
-        if (res === 'ya') {
-          this.api
-            .deleteData(this.tabelJadwalKerjaCategory + id)
-            .subscribe(() => this.getDataJadwalKerjaCategory());
-        }
-      });
+    if (this.akses.edit) {
+      this.dialog
+        .open(VoidComponent)
+        .afterClosed()
+        .subscribe((res) => {
+          if (res === 'ya') {
+            this.api
+              .deleteData(this.tabelJadwalKerjaCategory + id)
+              .subscribe(() => this.getDataJadwalKerjaCategory());
+          }
+        });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   // UPLOAD
@@ -258,16 +275,20 @@ export class SetupJadwalKerjaComponent implements OnInit {
   }
 
   tambahJadwalKerjaIndividu() {
-    this.dialog
-      .open(ModalSetupJadwalKerjaIndividuComponent)
-      .afterClosed()
-      .subscribe((res) => {
-        if (res !== undefined) {
-          this.api
-            .postData(this.tabelJadwalKerjaIndividu, res)
-            .subscribe(() => this.getDataJadwalKerjaIndividu());
-        }
-      });
+    if (this.akses.edit) {
+      this.dialog
+        .open(ModalSetupJadwalKerjaIndividuComponent)
+        .afterClosed()
+        .subscribe((res) => {
+          if (res !== undefined) {
+            this.api
+              .postData(this.tabelJadwalKerjaIndividu, res)
+              .subscribe(() => this.getDataJadwalKerjaIndividu());
+          }
+        });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   editJadwalKerjaIndividu(data: any) {
@@ -284,153 +305,161 @@ export class SetupJadwalKerjaComponent implements OnInit {
   }
 
   voidIndividu(id: number) {
-    this.dialog
-      .open(VoidComponent)
-      .afterClosed()
-      .subscribe((res) => {
-        if (res === 'ya') {
-          this.api
-            .deleteData(this.tabelJadwalKerjaIndividu + id)
-            .subscribe(() => this.getDataJadwalKerjaIndividu());
-        }
-      });
+    if (this.akses.edit) {
+      this.dialog
+        .open(VoidComponent)
+        .afterClosed()
+        .subscribe((res) => {
+          if (res === 'ya') {
+            this.api
+              .deleteData(this.tabelJadwalKerjaIndividu + id)
+              .subscribe(() => this.getDataJadwalKerjaIndividu());
+          }
+        });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   printData(name: string) {
-    let header: any[] = [];
-    let content: any;
-    let column;
-    let gap = 0;
+    if (this.akses.download) {
+      let header: any[] = [];
+      let content: any;
+      let column;
+      let gap = 0;
 
-    switch (name) {
-      case 'Setup Jadwal Kerja Detail':
-        header = [
-          ['A1', 'NIP'],
-          ['A2', 'Nama Karyawan'],
-          ['A3', 'Perusahaan'],
-          ['A4', 'Divisi'],
-          ['A5', 'Departemen'],
-          ['A6', 'Sub Departemen'],
-          ['A7', 'Periode'],
-          ['B1', ': ' + this.dataSelected.nip],
-          ['B2', ': ' + this.dataSelected.nama_lengkap],
-          ['B3', ': ' + this.dataSelected.perusahaan],
-          ['B4', ': ' + this.dataSelected.divisi],
-          ['B5', ': ' + this.dataSelected.departemen],
-          ['B6', ': ' + this.dataSelected.sub_departemen],
-          ['B7', ': ' + moment(this.periode, 'YYYY-MM').format('MMM YYYY')],
-          ['G1', 'Tanggal Cetak'],
-          ['G2', 'User'],
-          ['H1', ': ' + moment().format('DD MMM YYYY')],
-          ['H2', ': ' + window.localStorage.getItem('key')],
-        ];
-        content = this.dataJadwalKerjaPerMonth.map((res: any) => ({
-          Tanggal: moment(res.tgl).format('DD MMM YYYY'),
-          Hari: res.hari,
-          'ID Jadwal Kerja': res.id_jadwal_kerja,
-          'Jadwal Kerja': res.masuk + ' - ' + res.keluar,
-          'Jadwal Istirahat': res.start_break + ' - ' + res.end_break,
-          'Jam masuk': res.masuk,
-          'Jam Keluar': res.keluar,
-          Total: res.total,
-        }));
+      switch (name) {
+        case 'Setup Jadwal Kerja Detail':
+          header = [
+            ['A1', 'NIP'],
+            ['A2', 'Nama Karyawan'],
+            ['A3', 'Perusahaan'],
+            ['A4', 'Divisi'],
+            ['A5', 'Departemen'],
+            ['A6', 'Sub Departemen'],
+            ['A7', 'Periode'],
+            ['B1', ': ' + this.dataSelected.nip],
+            ['B2', ': ' + this.dataSelected.nama_lengkap],
+            ['B3', ': ' + this.dataSelected.perusahaan],
+            ['B4', ': ' + this.dataSelected.divisi],
+            ['B5', ': ' + this.dataSelected.departemen],
+            ['B6', ': ' + this.dataSelected.sub_departemen],
+            ['B7', ': ' + moment(this.periode, 'YYYY-MM').format('MMM YYYY')],
+            ['G1', 'Tanggal Cetak'],
+            ['G2', 'User'],
+            ['H1', ': ' + moment().format('DD MMM YYYY')],
+            ['H2', ': ' + window.localStorage.getItem('key')],
+          ];
+          content = this.dataJadwalKerjaPerMonth.map((res: any) => ({
+            Tanggal: moment(res.tgl).format('DD MMM YYYY'),
+            Hari: res.hari,
+            'ID Jadwal Kerja': res.id_jadwal_kerja,
+            'Jadwal Kerja': res.masuk + ' - ' + res.keluar,
+            'Jadwal Istirahat': res.start_break + ' - ' + res.end_break,
+            'Jam masuk': res.masuk,
+            'Jam Keluar': res.keluar,
+            Total: res.total,
+          }));
 
-        gap = 9;
-        break;
+          gap = 9;
+          break;
 
-      case 'Setup Jadwal Kerja Category':
-        header = [
-          ['A1', name],
-          ['J1', 'Tanggal Cetak'],
-          ['J2', 'User'],
-          ['K1', ': ' + moment().format('DD MMM YYYY')],
-          ['K2', ': ' + window.localStorage.getItem('key')],
-        ];
-        content = this.dataJadwalKerjaCategory.map((res: any) => ({
-          Lokasi: res.lokasi,
-          Divisi: res.divisi,
-          Departemen: res.departemen,
-          'Sub Departemen': res.sub_departemen,
-        }));
+        case 'Setup Jadwal Kerja Category':
+          header = [
+            ['A1', name],
+            ['J1', 'Tanggal Cetak'],
+            ['J2', 'User'],
+            ['K1', ': ' + moment().format('DD MMM YYYY')],
+            ['K2', ': ' + window.localStorage.getItem('key')],
+          ];
+          content = this.dataJadwalKerjaCategory.map((res: any) => ({
+            Lokasi: res.lokasi,
+            Divisi: res.divisi,
+            Departemen: res.departemen,
+            'Sub Departemen': res.sub_departemen,
+          }));
 
-        this.dataJadwalKerjaCategory.forEach((res: any, index: number) => {
-          res.jadwal_kerja.forEach((ress: any) => {
-            content[index][ress.hari] = ress.id_jadwal_kerja;
+          this.dataJadwalKerjaCategory.forEach((res: any, index: number) => {
+            res.jadwal_kerja.forEach((ress: any) => {
+              content[index][ress.hari] = ress.id_jadwal_kerja;
+            });
           });
-        });
 
-        gap = 5;
-        break;
+          gap = 5;
+          break;
 
-      case 'Setup Jadwal Kerja Individu':
-        header = [
-          ['A1', name],
-          ['A2', 'Dari :'],
-          ['B2', this.formatDate(this.dataJadwalKerjaIndividu[0].dari)],
-          ['C2', 's.d'],
-          ['D2', this.formatDate(this.dataJadwalKerjaIndividu[0].sampai)],
-          ['J1', 'Tanggal Cetak'],
-          ['J2', 'User'],
-          ['K1', ': ' + moment().format('DD MMM YYYY')],
-          ['K2', ': ' + window.localStorage.getItem('key')],
-        ];
-        content = this.dataJadwalKerjaIndividu.map((res: any) => ({
-          NIP: res.nip,
-          'Nama Karyawan': res.nama_lengkap,
-          Perusahaan: res.perusahaan,
-          Departemen: res.departemen,
-        }));
+        case 'Setup Jadwal Kerja Individu':
+          header = [
+            ['A1', name],
+            ['A2', 'Dari :'],
+            ['B2', this.formatDate(this.dataJadwalKerjaIndividu[0].dari)],
+            ['C2', 's.d'],
+            ['D2', this.formatDate(this.dataJadwalKerjaIndividu[0].sampai)],
+            ['J1', 'Tanggal Cetak'],
+            ['J2', 'User'],
+            ['K1', ': ' + moment().format('DD MMM YYYY')],
+            ['K2', ': ' + window.localStorage.getItem('key')],
+          ];
+          content = this.dataJadwalKerjaIndividu.map((res: any) => ({
+            NIP: res.nip,
+            'Nama Karyawan': res.nama_lengkap,
+            Perusahaan: res.perusahaan,
+            Departemen: res.departemen,
+          }));
 
-        this.dataJadwalKerjaIndividu.forEach((res: any, index: number) => {
-          res.jadwal_kerja.forEach((ress: any) => {
-            content[index][ress.hari] = ress.id_jadwal_kerja;
+          this.dataJadwalKerjaIndividu.forEach((res: any, index: number) => {
+            res.jadwal_kerja.forEach((ress: any) => {
+              content[index][ress.hari] = ress.id_jadwal_kerja;
+            });
           });
-        });
 
-        gap = 5;
-        break;
-    }
-
-    if (content != undefined) {
-      column =
-        Object.keys(content[0]).length > 25
-          ? 'A' +
-            String.fromCharCode((Object.keys(content[0]).length % 26) + 64)
-          : String.fromCharCode(Object.keys(content[0]).length + 64);
-
-      const ws = utils.json_to_sheet(content);
-      const wsTemp = utils.json_to_sheet(content);
-
-      let length = Number(ws['!ref']?.split(column, 2)[1]);
-
-      ws['!ref'] = 'A1:' + column + (length + gap);
-      for (let i = 1; i <= gap; i++) {
-        Object.keys(content[0]).forEach((_, index) => {
-          index > 25
-            ? (ws['A' + String.fromCharCode(65 + index - 26) + i] = {
-                t: 's',
-                v: '',
-              })
-            : (ws[String.fromCharCode(65 + index) + i] = { t: 's', v: '' });
-        });
+          gap = 5;
+          break;
       }
 
-      header.forEach((res) => (ws[res[0]] = { t: 's', v: res[1] }));
+      if (content != undefined) {
+        column =
+          Object.keys(content[0]).length > 25
+            ? 'A' +
+              String.fromCharCode((Object.keys(content[0]).length % 26) + 64)
+            : String.fromCharCode(Object.keys(content[0]).length + 64);
 
-      for (let i = 0; i < length; i++) {
-        Object.keys(content[0]).forEach((_, index) => {
-          index > 25
-            ? (ws['A' + String.fromCharCode(65 + index - 26) + (i + gap)] =
-                wsTemp['A' + String.fromCharCode(65 + index - 26) + (i + 1)])
-            : (ws[String.fromCharCode(65 + index) + (i + gap)] =
-                wsTemp[String.fromCharCode(65 + index) + (i + 1)]);
-        });
+        const ws = utils.json_to_sheet(content);
+        const wsTemp = utils.json_to_sheet(content);
+
+        let length = Number(ws['!ref']?.split(column, 2)[1]);
+
+        ws['!ref'] = 'A1:' + column + (length + gap);
+        for (let i = 1; i <= gap; i++) {
+          Object.keys(content[0]).forEach((_, index) => {
+            index > 25
+              ? (ws['A' + String.fromCharCode(65 + index - 26) + i] = {
+                  t: 's',
+                  v: '',
+                })
+              : (ws[String.fromCharCode(65 + index) + i] = { t: 's', v: '' });
+          });
+        }
+
+        header.forEach((res) => (ws[res[0]] = { t: 's', v: res[1] }));
+
+        for (let i = 0; i < length; i++) {
+          Object.keys(content[0]).forEach((_, index) => {
+            index > 25
+              ? (ws['A' + String.fromCharCode(65 + index - 26) + (i + gap)] =
+                  wsTemp['A' + String.fromCharCode(65 + index - 26) + (i + 1)])
+              : (ws[String.fromCharCode(65 + index) + (i + gap)] =
+                  wsTemp[String.fromCharCode(65 + index) + (i + 1)]);
+          });
+        }
+
+        const wb = utils.book_new();
+
+        utils.book_append_sheet(wb, ws);
+        writeFileXLSX(wb, name + '.xlsx');
       }
-
-      const wb = utils.book_new();
-
-      utils.book_append_sheet(wb, ws);
-      writeFileXLSX(wb, name + '.xlsx');
+    } else {
+      window.alert('Anda tidak memiliki Akses');
     }
   }
 }

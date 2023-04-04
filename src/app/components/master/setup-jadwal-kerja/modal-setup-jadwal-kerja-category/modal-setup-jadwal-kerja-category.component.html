@@ -5,7 +5,8 @@
         <div class="form" *ngFor="let row of formTambahJadwalKerja">
             <p>{{ row.label }}</p>
 
-            <select [name]="row.id" [id]="row.id" class="browser-default" [(ngModel)]="setData[row.id]">
+            <select [name]="row.id" [id]="row.id" class="browser-default" [(ngModel)]="setData[row.id]"
+                [disabled]="!akses">
                 <option *ngFor="let option of row.value" [value]="option">
                     {{ option }}
                 </option>
@@ -25,16 +26,16 @@
                     <tr *ngFor="let row of tabelContents, index as i">
                         <td>{{ row.hari }}</td>
                         <td>
-                            <select *ngIf="data===null" [name]="row.hari" [id]="row.hari" class="tabel browser-default"
-                                (change)="selectIdChange($event.target, row.hari)">
+                            <select *ngIf="isData" [name]="row.hari" [id]="row.hari" class="tabel browser-default"
+                                (change)="selectIdChange($event.target, row.hari)" [disabled]="!akses">
                                 <option *ngFor="let option of dataIdJadwalKerja" [value]="option">
                                     {{ option }}
                                 </option>
                             </select>
 
-                            <select *ngIf="data!==null" [name]="row.hari" [id]="row.hari" class="tabel browser-default"
+                            <select *ngIf="!isData" [name]="row.hari" [id]="row.hari" class="tabel browser-default"
                                 (change)="selectIdChange($event.target, row.hari)"
-                                [(ngModel)]="data.jadwal_kerja[i].id_jadwal_kerja">
+                                [(ngModel)]="data.jadwal_kerja[i].id_jadwal_kerja" [disabled]="!akses">
                                 <option *ngFor="let option of dataIdJadwalKerja" [value]="option">
                                     {{ option }}
                                 </option>
@@ -50,7 +51,7 @@
     </div>
 
     <div class="actions">
-        <button class="simpan waves-effect waves-light" [mat-dialog-close]="setData">Simpan</button>
+        <button class="simpan waves-effect waves-light" [mat-dialog-close]="setData" [disabled]="!akses">Simpan</button>
         <button class="batal waves-effect waves-dark" [matDialogClose]="undefined">Batal</button>
     </div>
 </div>

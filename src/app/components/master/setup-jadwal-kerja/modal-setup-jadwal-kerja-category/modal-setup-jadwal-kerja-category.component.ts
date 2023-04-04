@@ -8,7 +8,18 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-setup-jadwal-kerja-category.component.css'],
 })
 export class ModalSetupJadwalKerjaCategoryComponent {
-  constructor(api: ApiService, @Inject(MAT_DIALOG_DATA) public data: any) {
+  akses = this.api.akses.role_setup_jadwal_kerja.edit;
+  isData = false;
+  data: any;
+
+  constructor(private api: ApiService, @Inject(MAT_DIALOG_DATA) data: any) {
+    if (data != null) {
+      this.isData = true;
+      this.data = data;
+    } else {
+      this.isData = false;
+    }
+
     api.getData(this.tabelBagianKerja).subscribe((res) => {
       let temp: any;
       this.formTambahJadwalKerja.forEach((val: any, index: number) => {

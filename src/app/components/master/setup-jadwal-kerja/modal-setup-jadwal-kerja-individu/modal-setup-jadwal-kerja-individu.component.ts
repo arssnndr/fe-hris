@@ -8,6 +8,8 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-setup-jadwal-kerja-individu.component.css'],
 })
 export class ModalSetupJadwalKerjaIndividuComponent {
+  akses = this.api.akses.role_setup_jadwal_kerja.edit;
+
   constructor(private api: ApiService, @Inject(MAT_DIALOG_DATA) data: any) {
     if (data !== null) {
       this.dataJadwalKerjaIndividu = data;
