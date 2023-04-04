@@ -17,6 +17,7 @@ export const environment = {
   tabelLogHistory: 'log_history/',
   tabelUser: 'ms_userid/',
   tabelKalenderKerja: 'ms_kalenderkerja/',
+  tabelMesinFinger: 'ms_mesinfinger/',
 };
 
 /*
