@@ -1,19 +1,3 @@
-<!-- MODAL DELETE -->
-<div *ngIf="isDelete">
-  <mat-dialog-content>
-    <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger" />
-    <p style="padding-left: 55px">Yakin data akan di void?</p>
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
-    <button style="margin-left: 100px" class="ya waves-effect waves-light" mat-dialog-close="ya">
-      Ya
-    </button>
-    <button class="tidak waves-effect waves-dark transparent" [mat-dialog-close]="undefined">
-      Tidak
-    </button>
-  </mat-dialog-actions>
-</div>
-
 <!-- MODAL FILTER DATA -->
 <div *ngIf="isFilter">
   <mat-dialog-content class="filter">
@@ -49,11 +33,12 @@
           <div *ngIf="tambah.kewarganegaraan === 'WNI'">
             <div class="form" *ngFor="let row of formTabPribadiWni">
               <p>{{ row.label }}</p>
-              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+              <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
+                [placeholder]="
                   row.placeholder === undefined ? row.label : row.placeholder
                 " [(ngModel)]="tambah[row.id]" />
-              <select *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id" class="browser-default"
-                [(ngModel)]="tambah[row.id]">
+              <select [disabled]="!akses" *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id"
+                class="browser-default" [(ngModel)]="tambah[row.id]">
                 <option *ngFor="let option of row.value" [value]="option">
                   {{ option }}
                 </option>
@@ -65,11 +50,12 @@
           <div *ngIf="tambah.kewarganegaraan === 'WNA'">
             <div class="form" *ngFor="let row of formTabPribadiWna">
               <p>{{ row.label }}</p>
-              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+              <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
+                [placeholder]="
                   row.placeholder === undefined ? row.label : row.placeholder
                 " [(ngModel)]="tambah[row.id]" />
-              <select *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id" class="browser-default"
-                [(ngModel)]="tambah[row.id]">
+              <select [disabled]="!akses" *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id"
+                class="browser-default" [(ngModel)]="tambah[row.id]">
                 <option *ngFor="let option of row.value" [value]="option">
                   {{ option }}
                 </option>
@@ -83,11 +69,12 @@
         <mat-tab label="Pekerjaan & Organisasi">
           <div class="form" *ngFor="let row of formTabPekerjaanOrganisasi">
             <p>{{ row.label }}</p>
-            <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+            <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
+              [placeholder]="
                 row.placeholder === undefined ? row.label : row.placeholder
               " [(ngModel)]="tambah[row.id]" [disabled]="row.disable||''" />
-            <select *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id" class="browser-default"
-              [(ngModel)]="tambah[row.id]" (change)="detasir()">
+            <select [disabled]="!akses" *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id"
+              class="browser-default" [(ngModel)]="tambah[row.id]" (change)="detasir()">
               <option *ngFor="let option of row.value" [value]="option">
                 {{ option }}
               </option>
@@ -99,31 +86,32 @@
 
         <mat-tab label="Periode Kontrak">
           <div *ngIf="isEdit" style="margin-top: 5px; margin-left: 210px">
-            <button
+            <button [disabled]="!akses"
               *ngIf="isPerpanjangKontrak && tambah.status_karyawan !== 'Harian' && tambah.status_karyawan !== 'Informal'"
               class="ya waves-effect waves-light" (click)="perpanjangKontrak()">
               Perpanjang Kontrak
             </button>
-            <button class="ya waves-effect waves-light" (click)="terminasi()">Terminasi</button>
+            <button [disabled]="!akses" class="ya waves-effect waves-light" (click)="terminasi()">Terminasi</button>
           </div>
           <div *ngIf="tambah.status_karyawan === 'PKWTT' && !isEdit">
             <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwtt">
               <p>{{ row.label }}</p>
-              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
-                [(ngModel)]="tambah[row.id]" />
+              <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
+                [placeholder]="row.label" [(ngModel)]="tambah[row.id]" />
             </div>
           </div>
           <div *ngIf="tambah.status_karyawan === 'PKWTT' && isEdit">
             <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwttEdit">
               <p>{{ row.label }}</p>
-              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
-                [(ngModel)]="tambah[row.id]" />
+              <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
+                [placeholder]="row.label" [(ngModel)]="tambah[row.id]" />
             </div>
           </div>
           <div *ngIf="tambah.status_karyawan === 'PKWT' && !isEdit">
             <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwt">
               <p>{{ row.label }}</p>
-              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+              <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
+                [placeholder]="
                   row.placeholder === undefined ? row.label : row.placeholder
                 " [(ngModel)]="tambah[row.id]" />
             </div>
@@ -131,7 +119,8 @@
           <div *ngIf="tambah.status_karyawan === 'PKWT' && isEdit">
             <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwtEdit">
               <p>{{ row.label }}</p>
-              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="
+              <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
+                [placeholder]="
                   row.placeholder === undefined ? row.label : row.placeholder
                 " [(ngModel)]="tambah[row.id]" />
             </div>
@@ -169,8 +158,8 @@
               tambah.status_karyawan === 'Harian'">
             <div class="form" *ngFor="let row of formTabPeriodeKontrakMagang">
               <p>{{ row.label }}</p>
-              <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
-                [(ngModel)]="tambah[row.id]" />
+              <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
+                [placeholder]="row.label" [(ngModel)]="tambah[row.id]" />
             </div>
           </div>
         </mat-tab>
@@ -178,10 +167,10 @@
         <mat-tab label="Gaji Karyawan">
           <div class="form" *ngFor="let row of formTabGajiKaryawan">
             <p>{{ row.label }}</p>
-            <input *ngIf="row.form === 'input'" [type]="row.type" class="browser-default" [placeholder]="row.label"
-              [(ngModel)]="tambah[row.id]" />
-            <textarea *ngIf="row.form === 'textarea'" [name]="row.id" [id]="row.id" cols="30" rows="10"
-              [placeholder]="row.label" [(ngModel)]="tambah[row.id]"></textarea>
+            <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
+              [placeholder]="row.label" [(ngModel)]="tambah[row.id]" />
+            <textarea [disabled]="!akses" *ngIf="row.form === 'textarea'" [name]="row.id" [id]="row.id" cols="30"
+              rows="10" [placeholder]="row.label" [(ngModel)]="tambah[row.id]"></textarea>
           </div>
         </mat-tab>
       </mat-tab-group>
@@ -189,7 +178,8 @@
   </mat-dialog-content>
   <mat-dialog-actions style="margin: 0px;">
     <div style="margin-left: 400px; margin-top: 10px">
-      <button style="height: 45.8px; width: 85.8px;" class="ya waves-effect waves-light" [mat-dialog-close]="tambah">
+      <button style="height: 45.8px; width: 85.8px;" class="ya waves-effect waves-light" [mat-dialog-close]="tambah"
+        [disabled]="!akses">
         Simpan
       </button>
       <button style="height: 45.8px; width: 85.8px;" class="tidak waves-effect waves-dark transparent"

@@ -10,6 +10,8 @@ import { ModalPerpanjangKontrakComponent } from './modal-perpanjang-kontrak/moda
   styleUrls: ['./modal-karyawan.component.css'],
 })
 export class ModalKaryawanComponent implements OnInit {
+  akses = this.api.akses.role_karyawan.edit;
+
   isTambah = false;
   isDelete = false;
   isEdit = false;
@@ -562,8 +564,8 @@ export class ModalKaryawanComponent implements OnInit {
   ];
 
   constructor(
-    api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any },
+    private api: ApiService,
+    @Inject(MAT_DIALOG_DATA) data: { name: string; data: any },
     private dialog: MatDialog
   ) {
     switch (data.name) {
@@ -592,9 +594,6 @@ export class ModalKaryawanComponent implements OnInit {
           value: [],
         });
         this.detasir();
-        break;
-      case 'delete':
-        this.isDelete = true;
         break;
       case 'filter':
         this.isFilter = true;
