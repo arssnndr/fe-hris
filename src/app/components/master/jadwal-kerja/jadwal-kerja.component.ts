@@ -32,7 +32,7 @@ export class JadwalKerjaComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    public dialog: MatDialog,
+    private dialog: MatDialog,
     router: Router
   ) {
     if (!this.akses.view) router.navigate(['/dashboard']);
@@ -40,39 +40,36 @@ export class JadwalKerjaComponent implements OnInit {
 
   tambahData() {
     if (this.akses.edit) {
-      const dialogRef = this.dialog.open(ModalJadwalKerjaComponent, {
-        data: { name: 'tambah' },
-      });
-
-      dialogRef.afterClosed().subscribe((result) => {
-        if (result === 'simpan') {
-          this.catchResult = this.api.catchData();
-          this.api.postData(this.table, this.catchResult).subscribe(() => {
-            this.ngOnInit();
-          });
-        }
-      });
+      this.dialog
+        .open(ModalJadwalKerjaComponent)
+        .afterClosed()
+        .subscribe((result) => {
+          if (result != undefined) {
+            this.catchResult = this.api.catchData();
+            this.api.postData(this.table, this.catchResult).subscribe(() => {
+              this.ngOnInit();
+            });
+          }
+        });
     } else {
       window.alert('Anda tidak memiliki Akses');
     }
   }
 
   editData(data: any) {
-    let id = data.id;
-    const dialogRef = this.dialog.open(ModalJadwalKerjaComponent, {
-      data: { name: 'edit', data: data },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        this.catchResult = this.api.catchData();
-        let data = this.catchResult;
-        this.api.updateData(this.table, data, id).subscribe(() => {
-          this.ngOnInit();
-        });
-      }
-      this.ngOnInit();
-    });
+    this.dialog
+      .open(ModalJadwalKerjaComponent, {
+        data: data,
+      })
+      .afterClosed()
+      .subscribe((result) => {
+        if (result != undefined) {
+          this.api.updateData(this.table, result, result.id).subscribe(() => {
+            this.ngOnInit();
+          });
+        }
+        this.ngOnInit();
+      });
   }
 
   deleteData(id: number) {
