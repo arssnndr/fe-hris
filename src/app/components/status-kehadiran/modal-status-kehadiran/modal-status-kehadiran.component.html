@@ -8,8 +8,8 @@
     <div class="content">
         <div class="form" *ngFor="let row of formInput">
             <p class="label">{{row.label}}</p>
-            <input *ngIf="row.form==='input' && row.type!=='checkbox' && row.autocomplete" [type]="row.type"
-                [name]="row.id" [id]="row.id" [ngModel]="dataResult[row.id]" [matAutocomplete]="auto"
+            <input [disabled]="!akses" *ngIf="row.form==='input' && row.type!=='checkbox' && row.autocomplete"
+                [type]="row.type" [name]="row.id" [id]="row.id" [ngModel]="dataResult[row.id]" [matAutocomplete]="auto"
                 (ngModelChange)="getKaryawan($event)" class="browser-default">
             <p *ngIf="row.id==='nip'" class="nama">{{dataResult.nama_lengkap}}</p>
             <p *ngIf="row.id==='nip_pengganti'" class="nama">{{dataResult.nama_pengganti}}</p>
@@ -19,26 +19,28 @@
                     (onSelectionChange)="selectKaryawan(option, row.id==='nip'?false:true)">{{option.nip}}</mat-option>
             </mat-autocomplete>
 
-            <input *ngIf="row.form==='input' && row.type!=='checkbox' && !row.autocomplete" [type]="row.type"
-                [name]="row.id" [id]="row.id" [(ngModel)]="dataResult[row.id]" class="browser-default">
+            <input [disabled]="!akses" *ngIf="row.form==='input' && row.type!=='checkbox' && !row.autocomplete"
+                [type]="row.type" [name]="row.id" [id]="row.id" [(ngModel)]="dataResult[row.id]"
+                class="browser-default">
 
-            <input *ngIf="row.type==='checkbox'" [type]="row.type" [name]="row.id" [id]="row.id"
+            <input [disabled]="!akses" *ngIf="row.type==='checkbox'" [type]="row.type" [name]="row.id" [id]="row.id"
                 [checked]="dataResult[row.id]" (change)="onChecked(row.id)" class="browser-default">
             <p *ngIf="row.type==='checkbox'" class="nama">{{row.labelRight}}</p>
 
             <p *ngIf="row.couple !== undefined" class="split">{{row.couple.label}}</p>
-            <input *ngIf="row.couple !== undefined" [type]="row.couple.type" [(ngModel)]="dataResult[row.couple.id]"
-                class="browser-default">
+            <input [disabled]="!akses" *ngIf="row.couple !== undefined" [type]="row.couple.type"
+                [(ngModel)]="dataResult[row.couple.id]" class="browser-default">
 
-            <select *ngIf="row.form==='select'" [name]="row.id" [id]="row.id" [(ngModel)]="dataResult.status_cuti"
-                (ngModelChange)="onStatusChange($event)" class="browser-default">
+            <select [disabled]="!akses" *ngIf="row.form==='select'" [name]="row.id" [id]="row.id"
+                [(ngModel)]="dataResult.status_cuti" (ngModelChange)="onStatusChange($event)" class="browser-default">
                 <option *ngFor="let option of row.option" [value]="option">{{option}}</option>
             </select>
         </div>
     </div>
 
     <div class="actions">
-        <button class="tambah waves-effect waves-light" [mat-dialog-close]="dataResult">Tambah</button>
+        <button class="tambah waves-effect waves-light" [mat-dialog-close]="dataResult"
+            [ngStyle]="akses?{visibility:'visible'}:{visibility:'hidden'}">Tambah</button>
         <button class="batal waves-effect waves-dark" [mat-dialog-close]="undefined">Batal</button>
     </div>
 </div>

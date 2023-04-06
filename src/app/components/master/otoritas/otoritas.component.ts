@@ -4,6 +4,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalOtoritasComponent } from './modal-otoritas/modal-otoritas.component';
 import { VoidComponent } from '../../modals/void/void.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-otoritas',
@@ -26,7 +27,13 @@ export class OtoritasComponent {
   catchResult: any;
   getMaxId = 0;
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    public dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['Dashboard']);
+  }
 
   ngOnInit(): void {
     this.getAllData();

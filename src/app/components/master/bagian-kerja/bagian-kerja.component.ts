@@ -36,7 +36,6 @@ export class BagianKerjaComponent implements OnInit {
     private dialog: MatDialog,
     router: Router
   ) {
-    console.log(this.akses.view);
     if (!this.akses.view) router.navigate(['/dashboard']);
   }
 

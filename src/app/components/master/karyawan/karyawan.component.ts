@@ -7,6 +7,7 @@ import { utils, writeFileXLSX } from 'xlsx';
 import { VoidComponent } from '../../modals/void/void.component';
 import { ModalKaryawanComponent } from './modal-karyawan/modal-karyawan.component';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-karyawan',
@@ -29,7 +30,13 @@ export class KaryawanComponent implements OnInit {
     pageSizeOptions: [50, 100, 150, 200],
   };
 
-  constructor(private api: ApiService, private dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['Dashboard']);
+  }
 
   ngOnInit(): void {
     this.api.getData(environment.tabelKaryawan).subscribe((res) => {

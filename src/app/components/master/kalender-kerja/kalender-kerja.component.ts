@@ -6,6 +6,7 @@ import * as moment from 'moment';
 import { utils, writeFileXLSX } from 'xlsx';
 import { environment } from 'src/environments/environment';
 import { VoidComponent } from '../../modals/void/void.component';
+import { Router } from '@angular/router';
 moment.locale('id');
 
 @Component({
@@ -24,7 +25,13 @@ export class KalenderKerjaComponent implements OnInit {
   filterYear = '';
   filterLokasi = '';
 
-  constructor(private api: ApiService, private dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['Dashboard']);
+  }
 
   ngOnInit(): void {
     this.api.getData(environment.tabelKalenderKerja).subscribe((res) => {

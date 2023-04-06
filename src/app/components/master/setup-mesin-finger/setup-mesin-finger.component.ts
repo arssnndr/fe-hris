@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalSetupMesinFingerComponent } from './modal-setup-mesin-finger/modal-setup-mesin-finger.component';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setup-mesin-finger',
@@ -14,7 +15,13 @@ export class SetupMesinFingerComponent implements OnInit {
 
   data: any;
 
-  constructor(private api: ApiService, private dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['Dashboard']);
+  }
 
   ngOnInit(event: any = '') {
     const param = isNaN(event)
