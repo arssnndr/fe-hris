@@ -7,6 +7,7 @@ import { utils, writeFileXLSX } from 'xlsx';
 import { ModalStatusKehadiranComponent } from '../status-kehadiran/modal-status-kehadiran/modal-status-kehadiran.component';
 import { ModalFilterDialogComponent } from './modal-filter-dialog/modal-filter-dialog.component';
 import { ModalListKehadiranComponent } from './modal-list-kehadiran/modal-list-kehadiran.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-kehadiran',
@@ -32,7 +33,13 @@ export class ListKehadiranComponent implements OnInit {
     sub_departemen: 'All',
   };
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (this.akses.view) router.navigate(['dashboard']);
+  }
 
   ngOnInit(): void {
     this.getDataListKehadiran();

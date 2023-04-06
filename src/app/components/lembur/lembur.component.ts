@@ -3,6 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalLemburComponent } from './modal-lembur/modal-lembur.component';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { VoidComponent } from '../modals/void/void.component';
 
 @Component({
   selector: 'app-lembur',
@@ -10,7 +13,8 @@ import { ModalLemburComponent } from './modal-lembur/modal-lembur.component';
   styleUrls: ['./lembur.component.css'],
 })
 export class LemburComponent implements OnInit {
-  table = 'ms_lembur/';
+  akses = this.api.akses.role_lembur;
+
   dataSearch = '';
   tgl = '';
   pageSize = 50;
@@ -22,7 +26,13 @@ export class LemburComponent implements OnInit {
   inisial = true;
   perusahaan = false;
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['dashboard']);
+  }
 
   ngOnInit(): void {
     this.getAllData();
@@ -33,51 +43,56 @@ export class LemburComponent implements OnInit {
   }
 
   tambahData() {
-    const dialogRef = this.dialog.open(ModalLemburComponent, {
-      data: { name: 'tambah' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api.postData(this.table, catchResult).subscribe(() => {
-          this.length = this.length + 1;
-          this.getPageData();
-        });
-      }
-    });
+    this.akses.edit
+      ? this.dialog
+          .open(ModalLemburComponent)
+          .afterClosed()
+          .subscribe((result) => {
+            if (result != undefined) {
+              this.api
+                .postData(environment.tabelLembur, result)
+                .subscribe(() => {
+                  this.length = this.length + 1;
+                  this.getPageData();
+                });
+            }
+          })
+      : alert('Anda tidak memiliki Akses');
   }
 
   deleteData(id: number) {
-    const dialogRef = this.dialog.open(ModalLemburComponent, {
-      data: { name: 'delete' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'ya') {
-        this.api.deleteData(this.table + id).subscribe(() => {
-          this.length = this.length - 1;
-          this.getPageData();
-        });
-      }
-    });
+    this.akses.edit
+      ? this.dialog
+          .open(VoidComponent)
+          .afterClosed()
+          .subscribe((result) => {
+            if (result === 'ya') {
+              this.api
+                .deleteData(environment.tabelLembur + id)
+                .subscribe(() => {
+                  this.length = this.length - 1;
+                  this.getPageData();
+                });
+            }
+          })
+      : alert('Anda tidak memiliki Akses');
   }
 
   editData(data: any) {
-    const dialogRef = this.dialog.open(ModalLemburComponent, {
-      data: { name: 'edit', data: data },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api
-          .updateData(this.table, catchResult, catchResult.id)
-          .subscribe(() => {
-            this.getPageData();
-          });
-      }
-    });
+    this.dialog
+      .open(ModalLemburComponent, {
+        data: data,
+      })
+      .afterClosed()
+      .subscribe((result) => {
+        if (result != undefined) {
+          this.api
+            .updateData(environment.tabelLembur, result, result.id)
+            .subscribe(() => {
+              this.getPageData();
+            });
+        }
+      });
   }
 
   handlePageEvent(event: PageEvent) {
@@ -89,7 +104,7 @@ export class LemburComponent implements OnInit {
   getAllData() {
     if (this.dataSearch.length === 0) {
       if (this.tgl.length === 0) {
-        this.api.getData(this.table).subscribe((res) => {
+        this.api.getData(environment.tabelLembur).subscribe((res) => {
           this.length = res.length;
           this.pageSize = 50;
           this.pageIndex = 0;
@@ -97,7 +112,7 @@ export class LemburComponent implements OnInit {
         });
       } else {
         this.api
-          .getData(this.table + '?tgl_like=' + this.tgl)
+          .getData(environment.tabelLembur + '?tgl_like=' + this.tgl)
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -109,7 +124,7 @@ export class LemburComponent implements OnInit {
       if (this.inisial) {
         this.api
           .getData(
-            this.table +
+            environment.tabelLembur +
               '?nip_like=' +
               this.dataSearch +
               '&tgl_like=' +
@@ -130,7 +145,7 @@ export class LemburComponent implements OnInit {
       } else if (this.perusahaan) {
         this.api
           .getData(
-            this.table +
+            environment.tabelLembur +
               '?nama_lengkap_like=' +
               this.dataSearch +
               '&tgl_like=' +
@@ -156,7 +171,7 @@ export class LemburComponent implements OnInit {
     if (this.dataSearch.length === 0) {
       this.api
         .getData(
-          this.table +
+          environment.tabelLembur +
             '?_page=' +
             (this.pageIndex + 1) +
             '&_limit=' +
@@ -171,7 +186,7 @@ export class LemburComponent implements OnInit {
       if (this.inisial) {
         this.api
           .getData(
-            this.table +
+            environment.tabelLembur +
               '?_page=' +
               (this.pageIndex + 1) +
               '&_limit=' +
@@ -187,7 +202,7 @@ export class LemburComponent implements OnInit {
       } else if (this.perusahaan) {
         this.api
           .getData(
-            this.table +
+            environment.tabelLembur +
               '?_page=' +
               (this.pageIndex + 1) +
               '&_limit=' +

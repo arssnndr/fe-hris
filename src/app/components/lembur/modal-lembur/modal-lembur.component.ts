@@ -9,9 +9,7 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-lembur.component.css'],
 })
 export class ModalLemburComponent {
-  isTambah: boolean = false;
-  isDelete: boolean = false;
-  isEdit: boolean = false;
+  akses = this.api.akses.role_lembur.edit;
 
   jenisLembur = ['Lembur Biasa', 'Tanpa Istirahat'];
 
@@ -36,22 +34,8 @@ export class ModalLemburComponent {
     alasan_lembur: '',
   };
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private api: ApiService
-  ) {
-    switch (data.name) {
-      case 'delete':
-        this.isDelete = true;
-        break;
-      case 'tambah':
-        this.isTambah = true;
-        break;
-      case 'edit':
-        this.isEdit = true;
-        this.dataForUpload = data.data;
-        break;
-    }
+  constructor(@Inject(MAT_DIALOG_DATA) data: any, private api: ApiService) {
+    if (data != null) this.dataForUpload = data;
   }
 
   searchNip(data: any) {
@@ -86,9 +70,5 @@ export class ModalLemburComponent {
       Number(this.dataForUpload.jam_lembur_mulai.split(':', 1));
     this.dataForUpload.total_lembur_bulanini =
       this.dataForUpload.jam_lembur_hariini;
-  }
-
-  throwResult() {
-    this.api.throwData(this.dataForUpload);
   }
 }
