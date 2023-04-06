@@ -100,8 +100,6 @@ export class AppComponent {
       this.isLogin = false;
       this.router.navigate(['/login']);
     }
-
-    console.log(this.akses);
   }
 
   funcGantiNip() {

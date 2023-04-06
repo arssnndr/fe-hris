@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
 import { environment } from 'src/environments/environment';
@@ -11,6 +12,8 @@ import { utils, writeFileXLSX } from 'xlsx';
   styleUrls: ['./download-report.component.css'],
 })
 export class DownloadReportComponent {
+  akses = this.api.akses.role_download_report;
+
   dataLokasi: any[] = [];
   dataPerusahaan: any[] = [];
   dataDivisi: any[] = [];
@@ -42,8 +45,11 @@ export class DownloadReportComponent {
 
   constructor(
     private api: ApiService,
-    private dialogRef: MatDialogRef<DownloadReportComponent>
+    private dialogRef: MatDialogRef<DownloadReportComponent>,
+    router: Router
   ) {
+    if (!this.akses.view) router.navigate(['dashboard']);
+
     api.getData(environment.tabelLokasi).subscribe((res) => {
       this.dataLokasi.push(...new Set(res.map((val: any) => val.inisial)));
       this.data.lokasi = this.dataLokasi[0];
@@ -72,6 +78,12 @@ export class DownloadReportComponent {
 
   formatDate(date: string) {
     return moment(date).format('DD MMM YYYY');
+  }
+
+  isDownloadAkses() {
+    this.akses.download
+      ? this.getDownloadData()
+      : alert('Anda tidak memiliki Akses');
   }
 
   getDownloadData() {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalGantiNipComponent } from './modal-ganti-nip/modal-ganti-nip.component';
+import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ganti-nip',
@@ -9,13 +11,13 @@ import { ModalGantiNipComponent } from './modal-ganti-nip/modal-ganti-nip.compon
   styleUrls: ['./ganti-nip.component.css'],
 })
 export class GantiNipComponent implements OnInit {
-  tableKaryawan = 'ms_karyawan/';
+  akses = this.api.akses.role_ganti_nip;
+
   filteredKaryawan!: any[];
 
   selectedKaryawan: any[] = [{ nip: '', perusahaan: '' }];
   count = 0;
 
-  tablePerusahaan = 'ms_perusahaan/';
   perusahaan: any[] = [];
   selectedPerusahaan: any[] = [{}];
 
@@ -26,10 +28,16 @@ export class GantiNipComponent implements OnInit {
 
   isKeluar: boolean = false;
 
-  constructor(public dialog: MatDialog, private api: ApiService) {}
+  constructor(
+    private dialog: MatDialog,
+    private api: ApiService,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['dashboard']);
+  }
 
   ngOnInit(): void {
-    this.api.getData(this.tablePerusahaan).subscribe((res) => {
+    this.api.getData(environment.tabelPerusahaan).subscribe((res) => {
       this.perusahaan = [];
       res.map((val: any) => {
         this.perusahaan.push(val.nama);
@@ -39,11 +47,13 @@ export class GantiNipComponent implements OnInit {
 
   searchKaryawan(data: any) {
     this.api
-      .getData(this.tableKaryawan + '?nip_like=' + data.value)
+      .getData(environment.tabelKaryawan + '?nip_like=' + data.value)
       .subscribe((res) => {
         res.length === 0
           ? this.api
-              .getData(this.tableKaryawan + '?nama_lengkap_like=' + data.value)
+              .getData(
+                environment.tabelKaryawan + '?nama_lengkap_like=' + data.value
+              )
               .subscribe((ress) => {
                 this.filteredKaryawan = ress;
               })
@@ -82,46 +92,47 @@ export class GantiNipComponent implements OnInit {
   }
 
   konfirm() {
-    const dialogRef = this.dialog.open(ModalGantiNipComponent);
-
-    dialogRef.afterClosed().subscribe(async (res) => {
-      if (res === 'ya') {
-        let maxNip: any[] = [];
-        for (let i = 0; i < this.selectedKaryawan.length - 1; i++) {
-          let nip: any[] = [];
-          await this.api
-            .getData(
-              this.tableKaryawan +
-                '?perusahaan=' +
-                this.selectedKaryawan[i].perusahaan
-            )
-            .toPromise()
-            .then((ress) => {
-              ress.map((val: any) => {
-                nip.push(val.nip);
+    this.dialog
+      .open(ModalGantiNipComponent)
+      .afterClosed()
+      .subscribe(async (res) => {
+        if (res === 'ya') {
+          let maxNip: any[] = [];
+          for (let i = 0; i < this.selectedKaryawan.length - 1; i++) {
+            let nip: any[] = [];
+            await this.api
+              .getData(
+                environment.tabelKaryawan +
+                  '?perusahaan=' +
+                  this.selectedKaryawan[i].perusahaan
+              )
+              .toPromise()
+              .then((ress) => {
+                ress.map((val: any) => {
+                  nip.push(val.nip);
+                });
+                maxNip.push(Math.max(...nip) + 1);
               });
-              maxNip.push(Math.max(...nip) + 1);
-            });
-        }
+          }
 
-        maxNip = this.getUniqueArray(maxNip);
+          maxNip = this.getUniqueArray(maxNip);
 
-        for (let i = 0; i < this.selectedKaryawan.length - 1; i++) {
-          this.selectedKaryawan[i].nip = maxNip[i];
-          this.api
-            .updateData(
-              this.tableKaryawan,
-              this.selectedKaryawan[i],
-              this.selectedKaryawan[i].id
-            )
-            .subscribe(() => {
-              this.nipBaru.push(this.selectedKaryawan[i].nip);
-              this.checkTable.push(true);
-            });
+          for (let i = 0; i < this.selectedKaryawan.length - 1; i++) {
+            this.selectedKaryawan[i].nip = maxNip[i];
+            this.api
+              .updateData(
+                environment.tabelKaryawan,
+                this.selectedKaryawan[i],
+                this.selectedKaryawan[i].id
+              )
+              .subscribe(() => {
+                this.nipBaru.push(this.selectedKaryawan[i].nip);
+                this.checkTable.push(true);
+              });
+          }
+          this.isKeluar = true;
         }
-        this.isKeluar = true;
-      }
-    });
+      });
   }
 
   getUniqueArray(arr: any[]) {

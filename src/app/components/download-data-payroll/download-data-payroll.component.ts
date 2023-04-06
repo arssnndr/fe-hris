@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
 import { environment } from 'src/environments/environment';
@@ -11,6 +12,8 @@ import { utils, writeFileXLSX } from 'xlsx';
   styleUrls: ['./download-data-payroll.component.css'],
 })
 export class DownloadDataPayrollComponent {
+  akses = this.api.akses.role_download_data_payroll;
+
   dataPerusahaan: any[] = [];
   dataLokasi: any[] = [];
 
@@ -23,8 +26,11 @@ export class DownloadDataPayrollComponent {
 
   constructor(
     private api: ApiService,
-    public dialogRef: MatDialogRef<DownloadDataPayrollComponent>
+    private dialogRef: MatDialogRef<DownloadDataPayrollComponent>,
+    router: Router
   ) {
+    if (!this.akses.view) router.navigate(['dashboard']);
+
     api.getData(environment.tabelPerusahaan).subscribe((res) => {
       this.dataPerusahaan = res;
       this.data.perusahaan = res[0].nama;
@@ -156,7 +162,9 @@ export class DownloadDataPayrollComponent {
     const wb = utils.book_new();
 
     utils.book_append_sheet(wb, ws);
-    writeFileXLSX(wb, name + '.xlsx');
+    this.akses.download
+      ? writeFileXLSX(wb, name + '.xlsx')
+      : alert('Anda tidak memiliki Akses');
 
     this.dialogRef.close();
   }
