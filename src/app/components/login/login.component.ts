@@ -42,12 +42,13 @@ export class LoginComponent implements OnInit {
         if (res.length == 0) {
           window.alert('Email dan Password salah');
         } else {
-          this.http
-            .post(env.api + 'login/', this.loginForm.getRawValue())
-            .subscribe(() => {
-              localStorage.setItem('user', JSON.stringify(res[0]));
-              window.location.replace('/dashboard');
-            });
+          const dataLogin = this.loginForm.getRawValue();
+          dataLogin.time = Date();
+
+          this.http.post(env.api + 'login/', dataLogin).subscribe(() => {
+            localStorage.setItem('user', JSON.stringify(res[0]));
+            window.location.replace('/dashboard');
+          });
         }
       });
   }

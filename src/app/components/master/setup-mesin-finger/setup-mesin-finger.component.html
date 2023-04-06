@@ -3,14 +3,13 @@
     <nav class="transparent z-depth-0">
         <div class="nav-wrapper row">
             <div class="col s9">
-                <form (ngSubmit)="searchData(search.value)">
-                    <input #search class="search" type="text" name="search" placeholder="Cari NIP/Nama Karyawan.." />
-                </form>
+                <input ngModel (ngModelChange)="ngOnInit($event)" class="search" type="text" name="search"
+                    placeholder="Cari NIP/Nama Karyawan.." />
             </div>
             <div class="col s3">
                 <ul class="right">
                     <li>
-                        <button class="tambah waves-effect waves-light" (click)="event()">
+                        <button class="tambah waves-effect waves-light" (click)="openDialogEvent()">
                             Event
                         </button>
                     </li>

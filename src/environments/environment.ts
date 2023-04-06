@@ -18,6 +18,7 @@ export const environment = {
   tabelUser: 'ms_userid/',
   tabelKalenderKerja: 'ms_kalenderkerja/',
   tabelMesinFinger: 'ms_mesinfinger/',
+  tabelSetupMesinFinger: 'ms_setupmesinfinger/',
 };
 
 /*

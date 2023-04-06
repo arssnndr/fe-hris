@@ -1,55 +1,47 @@
-<!-- EVENT -->
-<div>
-    <h2 mat-dialog-title>Setup Mesin Finger</h2>
-    <mat-dialog-content>
+<div class="dialog">
+    <div class="title">
+        <h5>Event</h5>
+    </div>
 
-        <div style="display: flex; height: 50px; padding-left: 15px;">
-            <mat-radio-group [(ngModel)]="isKaryawan" style="display: flex; margin: 15px 0;"
-                (change)="changeKaryawan()">
-                <mat-radio-button value="semuaKaryawan" style="margin-right: 25px;">
-                    <span style="color: #000000DE; font-size: 17.25px;">
-                        Semua Karyawan
-                    </span>
+    <div class="content">
+        <div class="radio-top">
+            <mat-radio-group class="karyawan" [(ngModel)]="dataSet.radioTop">
+                <mat-radio-button class="mat-warn" value="semua">
+                    <p class="label-radio">Semua Karyawan</p>
                 </mat-radio-button>
-                <mat-radio-button value="karyawan">
-                    <span style="color: #000000DE; font-size: 17.25px;">
-                        Karyawan
-                    </span>
+                <mat-radio-button class="mat-warn" value="karyawan">
+                    <p class="label-radio">Karyawan</p>
                 </mat-radio-button>
             </mat-radio-group>
-            <div *ngIf="!isSemuaKaryawan" style="display: block; margin-left: auto;">
-                <input type="text" class="browser-default" [(ngModel)]="nip" (input)="searchNip()"
-                    [matAutocomplete]="auto" placeholder="Search NIP..">
-                <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredKaryawan" (click)="selectKaryawan(option)">
-                        {{ option.nip }}
-                    </mat-option>
-                </mat-autocomplete>
-            </div>
+
+            <input class="search" type="number" name="search" placeholder="Cari NIP..." [matAutocomplete]="auto" ngModel
+                (ngModelChange)="searchKaryawan($event)"
+                [ngStyle]="dataSet.radioTop=='karyawan'?{visibility:'visible'}:{visibility:'hidden'}" />
+
+            <mat-autocomplete #auto>
+                <mat-option *ngFor="let opt of filteredKaryawan" (click)="selectKaryawan(opt)">
+                    {{opt.nip}}
+                </mat-option>
+            </mat-autocomplete>
         </div>
 
-        <div class="right" *ngIf="!isSemuaKaryawan">
-            <table>
+        <div class="table" *ngIf="dataSet.radioTop=='karyawan'">
+            <table class="striped responsive-table">
                 <thead>
-                    <tr>
-                        <th>NIP</th>
-                        <th>Nama</th>
-                        <th>Lokasi</th>
-                        <th>Departemen</th>
-                        <th></th>
-                    </tr>
+                    <th class="one">NIP</th>
+                    <th class="two">Nama</th>
+                    <th class="three">Lokasi</th>
+                    <th class="four">Departemen</th>
+                    <th class=""></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let karyawan of selectedKaryawan, index as i">
-                        <td>{{ karyawan.nip }}</td>
-                        <td>{{ karyawan.nama_lengkap }}</td>
-                        <td>{{ karyawan.lokasi }}</td>
-                        <td>{{ karyawan.departemen }}</td>
+                    <tr *ngFor="let row of selectedKaryawan, index as i">
+                        <td class="one">{{row.nip}}</td>
+                        <td class="two">{{row.nama_lengkap}}</td>
+                        <td class="three">{{row.lokasi}}</td>
+                        <td class="four">{{row.departemen}}</td>
                         <td>
-                            <button *ngIf="karyawan.nip !== ''" (click)="deleteKaryawan(i)"
-                                class="waves-effect waves-light right red darken-2">
-                                <i class="material-icons" style="font-size: 15px">close</i>
-                            </button>
+                            <i class="material-icons waves-effect waves-light" (click)="deleteKaryawan(i)">close</i>
                         </td>
                     </tr>
                 </tbody>
@@ -57,93 +49,70 @@
         </div>
 
         <fieldset>
-            <legend *ngIf="finger === 'tarik'">Sumber</legend>
-            <legend *ngIf="finger === 'kirim'">Tujuan</legend>
-            <div class="right">
-                <h6>Lokasi</h6>
-                <select class="browser-default" [(ngModel)]="data.lokasi">
-                    <option *ngFor="let row of lokasi" [value]="row">
-                        {{ row }}
-                    </option>
+            <legend>Sumber</legend>
+            <div class="form">
+                <p class="label-form">Lokasi</p>
+                <select name="lokasi" id="lokasi" class="browser-default" [(ngModel)]="dataSet.selectLokasi">
+                    <option value="">Pilih Lokasi</option>
+                    <option *ngFor="let opt of tabelLokasi" [value]="opt">{{opt}}</option>
                 </select>
-                <button class="space"></button>
             </div>
-            <div class="right">
-                <h6>Mesin</h6>
-                <select class="browser-default" [(ngModel)]="data.mesin">
-                    <option *ngFor="let row of mesin" [value]="row">
-                        {{ row.nama }} - {{ row.ip }} - {{ row.lokasi }}
+            <div class="form">
+                <p class="label-form">Mesin</p>
+                <select name="mesin" id="mesin" class="browser-default" [(ngModel)]="dataSet.selectMesin">
+                    <option value="">Pilih Mesin</option>
+                    <option *ngFor="let opt of tabelMesin" [value]="opt.ip">
+                        {{opt.ip
+                        + ' - '
+                        + opt.lokasi
+                        + ' - '
+                        + opt.nama}}
                     </option>
                 </select>
-                <button class="space"></button>
             </div>
         </fieldset>
 
-        <div style="display: flex;">
-            <div style="display: block;">
-                <div style="display: flex;">
-                    <mat-radio-group style="margin: 7.5px 15px;" [(ngModel)]="tarik" (change)="funcTarik()">
-                        <mat-radio-button style="margin-bottom: 15px;" value="log" (click)="finger = 'tarik'">
-                            <span style="color: #000000DE; font-size: 17.25px;">
-                                Tarik data Log
-                            </span>
-                        </mat-radio-button>
-                        <br>
-                        <mat-radio-button value="finger">
-                            <span style="color: #000000DE; font-size: 17.25px;">
-                                Finger
-                            </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </div>
-                <div style="padding-left: 30px; display: flex;">
-                    <mat-radio-group style="margin: 7.5px 15px;" [(ngModel)]="finger" [disabled]="!isFinger">
-                        <mat-radio-button style="margin-bottom: 15px;" value="tarik">
-                            <span style="color: #000000DE; font-size: 17.25px;">
-                                Tarik
-                            </span>
-                        </mat-radio-button>
-                        <br>
-                        <mat-radio-button value="kirim">
-                            <span style="color: #000000DE; font-size: 17.25px;">
-                                Kirim
-                            </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </div>
+        <div class="radio-bottom">
+            <div class="radio-left">
+                <mat-radio-group class="left" [(ngModel)]="dataSet.radioLeft">
+                    <mat-radio-button class="mat-warn" value="tarikData">
+                        <p class="label-radio">Tarik Data Log</p>
+                    </mat-radio-button>
+                    <mat-radio-button class="mat-warn" value="finger">
+                        <p class="label-radio">Finger</p>
+                    </mat-radio-button>
+                </mat-radio-group>
+
+                <mat-radio-group class="sub-left" [(ngModel)]="dataSet.radioSubLeft"
+                    [disabled]="dataSet.radioLeft=='tarikData'">
+                    <mat-radio-button class="mat-warn" value="tarik">
+                        <p class="label-radio">Tarik</p>
+                    </mat-radio-button>
+                    <mat-radio-button class="mat-warn" value="kirim">
+                        <p class="label-radio">Kirim</p>
+                    </mat-radio-button>
+                </mat-radio-group>
             </div>
-            <div style="display: block; margin-left: auto;">
-                <div style="padding-left: 15px; display: flex;">
-                    <mat-radio-group style="margin: 7.5px 15px;" [(ngModel)]="delSing">
-                        <mat-radio-button style="margin-bottom: 15px;" value="delFinger">
-                            <span style="color: #d85d5d; font-size: 17.25px;">
-                                Delete (Finger)
-                            </span>
-                        </mat-radio-button>
-                        <br>
-                        <mat-radio-button style="margin-bottom: 15px;" value="delLog">
-                            <span style="color: #d85d5d; font-size: 17.25px;">
-                                Delete (Log)
-                            </span>
-                        </mat-radio-button>
-                        <br>
-                        <mat-radio-button value="SingTanggal">
-                            <span style="color: #000000DE; font-size: 17.25px;">
-                                Singkronisasi Tanggal
-                            </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </div>
+
+            <div class="radio-right">
+                <mat-radio-group class="right" [(ngModel)]="dataSet.radioRight">
+                    <mat-radio-button class="mat-warn" value="deleteFinger">
+                        <p class="label-radio">Delete Finger</p>
+                    </mat-radio-button>
+                    <mat-radio-button class="mat-warn" value="deleteLog">
+                        <p class="label-radio">Delete Log</p>
+                    </mat-radio-button>
+                    <mat-radio-button class="mat-warn" value="singkronisasiTanggal">
+                        <p class="label-radio">Singkronisasi Tanggal</p>
+                    </mat-radio-button>
+                </mat-radio-group>
             </div>
         </div>
+    </div>
 
-    </mat-dialog-content>
-    <mat-dialog-actions align="end">
-        <button type="submit" class="simpan waves-effect waves-light" mat-dialog-close="ok" (click)="throwResult()">
-            Ok
-        </button>
-        <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
-            Batal
-        </button>
-    </mat-dialog-actions>
+    <div class="action">
+        <button class="waves-effect waves-light ok" [mat-dialog-close]="dataSet">OK</button>
+
+        <button class="waves-effect waves-dark batal" [mat-dialog-close]="undefined">Batal</button>
+    </div>
 </div>
