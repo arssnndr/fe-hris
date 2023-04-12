@@ -38,7 +38,7 @@ export class ListKehadiranComponent implements OnInit {
     private dialog: MatDialog,
     router: Router
   ) {
-    if (this.akses.view) router.navigate(['dashboard']);
+    if (!this.akses.view) router.navigate(['dashboard']);
   }
 
   ngOnInit(): void {

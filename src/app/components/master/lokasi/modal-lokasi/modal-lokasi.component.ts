@@ -15,11 +15,12 @@ export class ModalLokasiComponent implements OnInit {
   isEdit = false;
 
   idValue = 0;
-  keteranganValue = '';
-  inisialValue = '';
-  alamatValue = '';
 
-  lokasi!: Lokasi;
+  lokasi: Lokasi = {
+    nama: '',
+    inisial: '',
+    alamat: '',
+  };
 
   constructor(
     private api: ApiService,
@@ -37,19 +38,10 @@ export class ModalLokasiComponent implements OnInit {
         this.isEdit = true;
 
         this.idValue = this.data.data.id;
-        this.keteranganValue = this.data.data.nama;
-        this.inisialValue = this.data.data.inisial;
-        this.alamatValue = this.data.data.alamat;
+        this.lokasi.nama = this.data.data.nama;
+        this.lokasi.inisial = this.data.data.inisial;
+        this.lokasi.alamat = this.data.data.alamat;
         break;
     }
-  }
-
-  throwResult() {
-    this.lokasi = {
-      nama: this.keteranganValue,
-      inisial: this.inisialValue,
-      alamat: this.alamatValue,
-    };
-    this.api.throwData(this.lokasi);
   }
 }

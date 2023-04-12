@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/shared/api.service';
 import { PageEvent } from '@angular/material/paginator';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ModalBagianKerjaComponent } from './modal-bagian-kerja/modal-bagian-kerja.component';
 import { utils, writeFileXLSX } from 'xlsx';
 import * as moment from 'moment';
 import { VoidComponent } from '../../modals/void/void.component';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 moment.locale('id');
 
 @Component({
@@ -17,7 +18,6 @@ moment.locale('id');
 export class BagianKerjaComponent implements OnInit {
   akses = this.api.akses.role_bagian_kerja;
 
-  table = 'ms_bagiankerja/';
   data!: any;
 
   dataSearch = '';
@@ -50,10 +50,12 @@ export class BagianKerjaComponent implements OnInit {
         .afterClosed()
         .subscribe((result) => {
           if (result !== undefined) {
-            this.api.postData(this.table, result).subscribe(() => {
-              this.length = this.length + 1;
-              this.getPageData();
-            });
+            this.api
+              .postData(environment.tabelBagianKerja, result)
+              .subscribe(() => {
+                this.length = this.length + 1;
+                this.getPageData();
+              });
           }
         });
     } else {
@@ -67,9 +69,11 @@ export class BagianKerjaComponent implements OnInit {
       .afterClosed()
       .subscribe((result) => {
         if (result !== undefined)
-          this.api.updateData(this.table, result, result.id).subscribe(() => {
-            this.getPageData();
-          });
+          this.api
+            .updateData(environment.tabelBagianKerja, result, result.id)
+            .subscribe(() => {
+              this.getPageData();
+            });
       });
   }
 
@@ -80,10 +84,12 @@ export class BagianKerjaComponent implements OnInit {
         .afterClosed()
         .subscribe((result) => {
           if (result === 'ya') {
-            this.api.deleteData(this.table + id).subscribe(() => {
-              this.length = this.length - 1;
-              this.getPageData();
-            });
+            this.api
+              .deleteData(environment.tabelBagianKerja + id)
+              .subscribe(() => {
+                this.length = this.length - 1;
+                this.getPageData();
+              });
           }
         });
     } else {
@@ -109,7 +115,7 @@ export class BagianKerjaComponent implements OnInit {
 
   getAllData() {
     if (this.dataSearch.length === 0) {
-      this.api.getData(this.table).subscribe((res) => {
+      this.api.getData(environment.tabelBagianKerja).subscribe((res) => {
         this.length = res.length;
         this.pageSize = 50;
         this.pageIndex = 0;
@@ -117,7 +123,11 @@ export class BagianKerjaComponent implements OnInit {
       });
     } else {
       this.api
-        .getData(this.table + '?sub_departemen_like=' + this.dataSearch)
+        .getData(
+          environment.tabelBagianKerja +
+            '?sub_departemen_like=' +
+            this.dataSearch
+        )
         .subscribe((res) => {
           this.length = res.length;
           this.pageSize = 50;
@@ -131,7 +141,7 @@ export class BagianKerjaComponent implements OnInit {
     if (this.dataSearch.length === 0) {
       this.api
         .getData(
-          this.table +
+          environment.tabelBagianKerja +
             '?_page=' +
             (this.pageIndex + 1) +
             '&_limit=' +
@@ -143,7 +153,7 @@ export class BagianKerjaComponent implements OnInit {
     } else {
       this.api
         .getData(
-          this.table +
+          environment.tabelBagianKerja +
             '?_page=' +
             (this.pageIndex + 1) +
             '&_limit=' +

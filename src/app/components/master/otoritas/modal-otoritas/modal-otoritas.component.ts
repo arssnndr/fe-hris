@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from 'src/app/interfaces/user';
 import { ApiService } from 'src/app/shared/api.service';
@@ -11,12 +11,7 @@ import { ApiService } from 'src/app/shared/api.service';
 export class ModalOtoritasComponent {
   aksesEdit = this.api.akses.role_otoritas.edit;
 
-  hide1 = true;
-  hide2 = true;
-
-  tableUserId = 'ms_userid/';
-
-  akses = ['Lokasi', 'Perusahaan', 'All'];
+  akses = ['Lokasi & Perusahaan', 'All'];
 
   dataUser: User = {
     nip: '',
@@ -120,12 +115,7 @@ export class ModalOtoritasComponent {
   };
 
   constructor(private api: ApiService, @Inject(MAT_DIALOG_DATA) data: any) {
-    if (data != null) {
-      this.dataUser = data;
-    }
-  }
-
-  ngOnInit(): void {
-    this.dataUser.akses = this.akses[0];
+    if (data != null) this.dataUser = data;
+    else this.dataUser.akses = this.akses[0];
   }
 }

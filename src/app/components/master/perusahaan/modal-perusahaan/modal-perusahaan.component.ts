@@ -90,8 +90,7 @@ export class ModalPerusahaanComponent implements OnInit {
           }
         }
         if (isValid) {
-          this.api.throwData(this.perusahaan);
-          this.dialogRef.close('simpan');
+          this.dialogRef.close(this.perusahaan);
         }
       });
     }

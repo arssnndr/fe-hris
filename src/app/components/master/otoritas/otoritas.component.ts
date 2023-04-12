@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/shared/api.service';
 import { ModalOtoritasComponent } from './modal-otoritas/modal-otoritas.component';
 import { VoidComponent } from '../../modals/void/void.component';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-otoritas',
@@ -14,7 +15,6 @@ import { Router } from '@angular/router';
 export class OtoritasComponent {
   akses = this.api.akses.role_otoritas;
 
-  table = 'ms_userid/';
   dataSearch = '';
   pageSize = 50;
   pageIndex = 0;
@@ -24,12 +24,10 @@ export class OtoritasComponent {
   length: any;
   nip = true;
   username = false;
-  catchResult: any;
-  getMaxId = 0;
 
   constructor(
     private api: ApiService,
-    public dialog: MatDialog,
+    private dialog: MatDialog,
     router: Router
   ) {
     if (!this.akses.view) router.navigate(['Dashboard']);
@@ -46,7 +44,7 @@ export class OtoritasComponent {
         .afterClosed()
         .subscribe((result) => {
           if (result === 'ya') {
-            this.api.deleteData(this.table + id).subscribe(() => {
+            this.api.deleteData(environment.tabelUser + id).subscribe(() => {
               this.length = this.length - 1;
               this.getPageData();
             });
@@ -66,7 +64,7 @@ export class OtoritasComponent {
       .subscribe((result) => {
         if (result != undefined) {
           this.api
-            .updateData(this.table, result, result.id)
+            .updateData(environment.tabelUser, result, result.id)
             .subscribe((res) => {
               localStorage.setItem('user', JSON.stringify(res));
               this.getPageData();
@@ -84,8 +82,7 @@ export class OtoritasComponent {
 
   getAllData() {
     if (this.dataSearch.length === 0) {
-      this.api.getData(this.table).subscribe((res) => {
-        this.getMaxId = res[res.length - 1].id;
+      this.api.getData(environment.tabelUser).subscribe((res) => {
         this.length = res.length;
         this.pageSize = 50;
         this.pageIndex = 0;
@@ -94,7 +91,7 @@ export class OtoritasComponent {
     } else {
       if (this.nip) {
         this.api
-          .getData(this.table + '?nip_like=' + this.dataSearch)
+          .getData(environment.tabelUser + '?nip_like=' + this.dataSearch)
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -109,7 +106,7 @@ export class OtoritasComponent {
           });
       } else if (this.username) {
         this.api
-          .getData(this.table + '?username_like=' + this.dataSearch)
+          .getData(environment.tabelUser + '?username_like=' + this.dataSearch)
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -130,7 +127,7 @@ export class OtoritasComponent {
     if (this.dataSearch.length === 0) {
       this.api
         .getData(
-          this.table +
+          environment.tabelUser +
             '?_page=' +
             (this.pageIndex + 1) +
             '&_limit=' +
@@ -143,7 +140,7 @@ export class OtoritasComponent {
       if (this.nip) {
         this.api
           .getData(
-            this.table +
+            environment.tabelUser +
               '?_page=' +
               (this.pageIndex + 1) +
               '&_limit=' +
@@ -157,7 +154,7 @@ export class OtoritasComponent {
       } else if (this.username) {
         this.api
           .getData(
-            this.table +
+            environment.tabelUser +
               '?_page=' +
               (this.pageIndex + 1) +
               '&_limit=' +

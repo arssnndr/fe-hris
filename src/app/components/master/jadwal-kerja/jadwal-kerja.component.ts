@@ -6,6 +6,7 @@ import { utils, writeFileXLSX } from 'xlsx';
 import { ModalJadwalKerjaComponent } from './modal-jadwal-kerja/modal-jadwal-kerja.component';
 import { VoidComponent } from '../../modals/void/void.component';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-jadwal-kerja',
@@ -15,7 +16,6 @@ import { Router } from '@angular/router';
 export class JadwalKerjaComponent implements OnInit {
   akses = this.api.akses.role_jadwal_kerja;
 
-  table = 'trx_jadwalkerja/';
   data!: any;
   catchResult: any;
   getMaxId = 0;
@@ -45,10 +45,11 @@ export class JadwalKerjaComponent implements OnInit {
         .afterClosed()
         .subscribe((result) => {
           if (result != undefined) {
-            this.catchResult = this.api.catchData();
-            this.api.postData(this.table, this.catchResult).subscribe(() => {
-              this.ngOnInit();
-            });
+            this.api
+              .postData(environment.tabelJadwalKerja, result)
+              .subscribe(() => {
+                this.ngOnInit();
+              });
           }
         });
     } else {
@@ -64,9 +65,11 @@ export class JadwalKerjaComponent implements OnInit {
       .afterClosed()
       .subscribe((result) => {
         if (result != undefined) {
-          this.api.updateData(this.table, result, result.id).subscribe(() => {
-            this.ngOnInit();
-          });
+          this.api
+            .updateData(environment.tabelJadwalKerja, result, result.id)
+            .subscribe(() => {
+              this.ngOnInit();
+            });
         }
         this.ngOnInit();
       });
@@ -79,9 +82,11 @@ export class JadwalKerjaComponent implements OnInit {
         .afterClosed()
         .subscribe((result) => {
           if (result === 'ya') {
-            this.api.deleteData(this.table + id).subscribe(() => {
-              this.ngOnInit();
-            });
+            this.api
+              .deleteData(environment.tabelJadwalKerja + id)
+              .subscribe(() => {
+                this.ngOnInit();
+              });
           }
         });
     } else {
@@ -95,12 +100,14 @@ export class JadwalKerjaComponent implements OnInit {
 
   getAllData() {
     if (this.lokasiValue === 'All') {
-      this.api.getData(this.table).subscribe((res) => {
+      this.api.getData(environment.tabelJadwalKerja).subscribe((res) => {
         this.data = res;
       });
     } else {
       this.api
-        .getData(this.table + '?lokasi_like=' + this.lokasiValue)
+        .getData(
+          environment.tabelJadwalKerja + '?lokasi_like=' + this.lokasiValue
+        )
         .subscribe((res) => {
           this.data = res;
         });

@@ -35,7 +35,7 @@
     <button type="submit" class="simpan waves-effect waves-light" (click)="throwResult()" [disabled]="!akses">
       Simpan
     </button>
-    <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
+    <button class="batal waves-effect waves-light transparent" [mat-dialog-close]="undefined">
       Batal
     </button>
   </mat-dialog-actions>

@@ -22,7 +22,6 @@ export class MesinFingerComponent implements OnInit {
   showFirstLastButtons = false;
   data!: any;
   length: any;
-  getMaxId = 0;
 
   constructor(
     private api: ApiService,
@@ -46,10 +45,9 @@ export class MesinFingerComponent implements OnInit {
         .open(ModalMesinFingerComponent)
         .afterClosed()
         .subscribe((result) => {
-          if (result === 'simpan') {
-            let catchResult = this.api.catchData();
+          if (result != undefined) {
             this.api
-              .postData(environment.tabelMesinFinger, catchResult)
+              .postData(environment.tabelMesinFinger, result)
               .subscribe(() => {
                 this.length = this.length + 1;
                 this.getPageData();
@@ -103,7 +101,6 @@ export class MesinFingerComponent implements OnInit {
 
   getAllData() {
     this.api.getData(environment.tabelMesinFinger).subscribe((res) => {
-      this.getMaxId = res[res.length - 1].id;
       this.length = res.length;
       this.pageSize = 50;
       this.pageIndex = 0;

@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/shared/api.service';
 import { VoidComponent } from '../../modals/void/void.component';
 import { ModalPerusahaanComponent } from './modal-perusahaan/modal-perusahaan.component';
 import { Route, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-perusahaan',
@@ -14,7 +15,6 @@ import { Route, Router } from '@angular/router';
 export class PerusahaanComponent implements OnInit {
   akses = this.api.akses.role_perusahaan;
 
-  table = 'ms_perusahaan/';
   dataSearch = '';
   pageSize = 50;
   pageIndex = 0;
@@ -24,8 +24,6 @@ export class PerusahaanComponent implements OnInit {
   length: any;
   inisial = true;
   perusahaan = false;
-  catchResult: any;
-  getMaxId = 0;
 
   constructor(
     private api: ApiService,
@@ -39,21 +37,17 @@ export class PerusahaanComponent implements OnInit {
     if (this.akses.edit) {
       this.dialog
         .open(ModalPerusahaanComponent, {
-          data: { name: 'tambah', data: this.getMaxId + 1 },
+          data: { name: 'tambah' },
         })
         .afterClosed()
         .subscribe((result) => {
-          if (result === 'simpan') {
-            this.catchResult = this.api.catchData();
-            this.api.postData(this.table, this.catchResult).subscribe(() => {
-              this.length = this.length + 1;
-
-              this.api.getData(this.table).subscribe((res) => {
-                this.getMaxId = res[res.length - 1].id;
+          if (result != undefined) {
+            this.api
+              .postData(environment.tabelPerusahaan, result)
+              .subscribe(() => {
+                this.length = this.length + 1;
+                this.getPageData();
               });
-
-              this.getPageData();
-            });
           }
         });
     } else {
@@ -67,10 +61,9 @@ export class PerusahaanComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        this.catchResult = this.api.catchData();
+      if (result != undefined) {
         this.api
-          .updateData(this.table, this.catchResult, data.id)
+          .updateData(environment.tabelPerusahaan, result, result.id)
           .subscribe(() => {
             this.getPageData();
           });
@@ -85,13 +78,12 @@ export class PerusahaanComponent implements OnInit {
         .afterClosed()
         .subscribe((result) => {
           if (result === 'ya') {
-            this.api.deleteData(this.table + id).subscribe(() => {
-              this.api.getData(this.table).subscribe((res) => {
-                this.getMaxId = res[res.length - 1].id;
+            this.api
+              .deleteData(environment.tabelPerusahaan + id)
+              .subscribe(() => {
+                this.length = this.length - 1;
+                this.getPageData();
               });
-              this.length = this.length - 1;
-              this.getPageData();
-            });
           }
         });
     } else {
@@ -111,8 +103,7 @@ export class PerusahaanComponent implements OnInit {
 
   getAllData() {
     if (this.dataSearch.length === 0) {
-      this.api.getData(this.table).subscribe((res) => {
-        this.getMaxId = res[res.length - 1].id;
+      this.api.getData(environment.tabelPerusahaan).subscribe((res) => {
         this.length = res.length;
         this.pageSize = 50;
         this.pageIndex = 0;
@@ -121,7 +112,9 @@ export class PerusahaanComponent implements OnInit {
     } else {
       if (this.inisial) {
         this.api
-          .getData(this.table + '?inisial_like=' + this.dataSearch)
+          .getData(
+            environment.tabelPerusahaan + '?inisial_like=' + this.dataSearch
+          )
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -136,7 +129,9 @@ export class PerusahaanComponent implements OnInit {
           });
       } else if (this.perusahaan) {
         this.api
-          .getData(this.table + '?nama_like=' + this.dataSearch)
+          .getData(
+            environment.tabelPerusahaan + '?nama_like=' + this.dataSearch
+          )
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -157,7 +152,7 @@ export class PerusahaanComponent implements OnInit {
     if (this.dataSearch.length === 0) {
       this.api
         .getData(
-          this.table +
+          environment.tabelPerusahaan +
             '?_page=' +
             (this.pageIndex + 1) +
             '&_limit=' +
@@ -170,7 +165,7 @@ export class PerusahaanComponent implements OnInit {
       if (this.inisial) {
         this.api
           .getData(
-            this.table +
+            environment.tabelPerusahaan +
               '?_page=' +
               (this.pageIndex + 1) +
               '&_limit=' +
@@ -184,7 +179,7 @@ export class PerusahaanComponent implements OnInit {
       } else if (this.perusahaan) {
         this.api
           .getData(
-            this.table +
+            environment.tabelPerusahaan +
               '?_page=' +
               (this.pageIndex + 1) +
               '&_limit=' +
