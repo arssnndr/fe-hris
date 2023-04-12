@@ -1,107 +1,58 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from 'src/app/shared/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-modal-setup-mesin-finger',
   templateUrl: './modal-setup-mesin-finger.component.html',
   styleUrls: ['./modal-setup-mesin-finger.component.css'],
 })
-export class ModalSetupMesinFingerComponent implements OnInit {
-  isKaryawan: string = 'semuaKaryawan';
-  isSemuaKaryawan: boolean = true;
+export class ModalSetupMesinFingerComponent {
+  akses = this.api.akses.role_setup_mesin_finger.edit;
 
-  data = { lokasi: '', mesin: { nama: '', ip: '', lokasi: '' } };
+  tabelLokasi: any = [];
+  tabelMesin: any = [];
 
-  tableKaryawan = 'ms_karyawan/';
-  dataKaryawan!: any[];
-  nip!: string;
-  filteredKaryawan!: any[];
-  selectedKaryawan: any[] = [
-    {
-      nip: '',
-      nama_lengkap: '',
-      lokasi: '',
-      departemen: '',
-    },
-  ];
+  filteredKaryawan: any = [];
+  selectedKaryawan: any = [];
 
-  tableMesin = 'ms_mesinfinger/';
-  mesin: any[] = [];
+  dataSet = {
+    radioTop: 'semua',
+    radioLeft: 'tarikData',
+    radioSubLeft: '',
+    radioRight: '',
+    selectLokasi: '',
+    selectMesin: '',
+    selectedKaryawan: this.selectedKaryawan,
+  };
 
-  tableLokasi = 'ms_lokasi/';
-  lokasi: any[] = [];
+  constructor(private api: ApiService) {
+    api
+      .getData(environment.tabelLokasi)
+      .subscribe((result) =>
+        result.forEach((res: any) => this.tabelLokasi.push(res.inisial))
+      );
 
-  tarik: string = 'log';
-  isFinger: boolean = false;
-  finger: string = 'tarik';
-  delSing!: string;
-
-  constructor(public api: ApiService) {
-    api.getData(this.tableLokasi).subscribe((res: any) => {
-      this.data.lokasi = res[0].inisial;
-      this.lokasi = [];
-      res.map((value: any) => {
-        this.lokasi.push(value.inisial);
-      });
-    });
-    api.getData(this.tableMesin).subscribe((res: any) => {
-      this.data.mesin = {
-        nama: res[0].nama,
-        ip: res[0].ip,
-        lokasi: res[0].lokasi,
-      };
-      this.mesin = [];
-      res.map((value: any) => {
-        this.mesin.push({
-          nama: value.nama,
-          ip: value.ip,
-          lokasi: value.lokasi,
-        });
-      });
-    });
-    api.getData(this.tableKaryawan).subscribe((res: any) => {
-      this.dataKaryawan = res;
-    });
+    api
+      .getData(environment.tabelMesinFinger)
+      .subscribe((result) =>
+        result.forEach((res: any) => this.tabelMesin.push(res))
+      );
   }
 
-  ngOnInit(): void {
-    this.changeKaryawan();
-  }
-
-  changeKaryawan() {
-    this.isKaryawan === 'karyawan'
-      ? (this.isSemuaKaryawan = false)
-      : (this.isSemuaKaryawan = true);
-  }
-
-  funcTarik() {
-    this.tarik === 'finger' ? (this.isFinger = true) : (this.isFinger = false);
-  }
-
-  searchNip() {
+  searchKaryawan(nip: number) {
     this.filteredKaryawan = [];
-    this.dataKaryawan.filter((res: any) => {
-      if (res.nip.includes(this.nip)) {
-        this.filteredKaryawan.push(res);
-      }
-    });
+
+    this.api
+      .getData(environment.tabelKaryawan + '?nip_like=' + nip)
+      .subscribe((result) => this.filteredKaryawan.push(...result));
   }
 
   selectKaryawan(data: any) {
-    if (
-      this.selectedKaryawan[0] === undefined ||
-      this.selectedKaryawan[0].nip === ''
-    ) {
-      this.selectedKaryawan = [];
-    }
     this.selectedKaryawan.push(data);
   }
 
   deleteKaryawan(index: number) {
     this.selectedKaryawan.splice(index, 1);
-  }
-
-  throwResult() {
-    this.api.throwData(this.data);
   }
 }

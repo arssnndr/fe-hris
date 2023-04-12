@@ -1,21 +1,4 @@
-<!-- Modal delete -->
-<div *ngIf="isDelete">
-  <mat-dialog-content class="delete">
-    <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger" />
-    <p style="padding-left: 55px">Yakin data akan di void?</p>
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
-    <button class="ya waves-effect waves-light" mat-dialog-close="ya">
-      Ya
-    </button>
-    <button class="tidak waves-effect waves-dark transparent" mat-dialog-close="tidak">
-      Tidak
-    </button>
-  </mat-dialog-actions>
-</div>
-
-<!-- Modal tambah or edit -->
-<div class="tambah" *ngIf="isTambah || isEdit">
+<div class="tambah">
   <h2 mat-dialog-title>Jadwal Kerja</h2>
   <mat-dialog-content>
     <div class="right">
@@ -24,12 +7,13 @@
     </div>
     <div class="right">
       <h6>Inisial Lokasi</h6>
-      <select *ngIf="isTambah" class="browser-default" (change)="onChange($event.target)">
+      <select *ngIf="isTambah" class="browser-default" (change)="onChange($event.target)" [disabled]="!akses">
         <option *ngFor="let raw of lokasi" [value]="raw.value">
           {{ raw.value }}
         </option>
       </select>
-      <select *ngIf="isEdit" class="browser-default" [(ngModel)]="lokasiValue" (change)="onChange($event.target)">
+      <select *ngIf="isEdit" class="browser-default" [(ngModel)]="lokasiValue" (change)="onChange($event.target)"
+        [disabled]="!akses">
         <option *ngFor="let raw of lokasi" [value]="raw.value">
           {{ raw.value }}
         </option>
@@ -38,12 +22,13 @@
     </div>
     <div class="right">
       <h6>Shift</h6>
-      <select *ngIf="isTambah" class="browser-default" (change)="onChange($event.target)">
+      <select *ngIf="isTambah" class="browser-default" (change)="onChange($event.target)" [disabled]="!akses">
         <option *ngFor="let raw of shift" [value]="raw.value">
           {{ raw.value }}
         </option>
       </select>
-      <select *ngIf="isEdit" class="browser-default" [(ngModel)]="shiftValue" (change)="onChange($event.target)">
+      <select *ngIf="isEdit" class="browser-default" [(ngModel)]="shiftValue" (change)="onChange($event.target)"
+        [disabled]="!akses">
         <option *ngFor="let raw of shift" [value]="raw.value">
           {{ raw.value }}
         </option>
@@ -52,12 +37,13 @@
     </div>
     <div class="right">
       <h6>Jam Kerja</h6>
-      <select *ngIf="isTambah" class="browser-default" (change)="onChange($event.target)">
+      <select *ngIf="isTambah" class="browser-default" (change)="onChange($event.target)" [disabled]="!akses">
         <option *ngFor="let raw of jamKerja" [value]="raw.value">
           {{ raw.value }}
         </option>
       </select>
-      <select *ngIf="isEdit" class="browser-default" [(ngModel)]="jamKerjaValue" (change)="onChange($event.target)">
+      <select *ngIf="isEdit" class="browser-default" [(ngModel)]="jamKerjaValue" (change)="onChange($event.target)"
+        [disabled]="!akses">
         <option *ngFor="let raw of jamKerja" [value]="raw.value">
           {{ raw.value }}
         </option>
@@ -66,18 +52,19 @@
     </div>
     <div class="right">
       <h6>Jam Masuk</h6>
-      <input type="time" class="browser-default" [(ngModel)]="jadwalKerja.masuk" (input)="onChange($event.target)" />
+      <input type="time" class="browser-default" [(ngModel)]="jadwalKerja.masuk" (input)="onChange($event.target)"
+        [disabled]="!akses" />
       <h6 style="width: 25px">s.d</h6>
-      <input type="time" class="browser-default sd" [(ngModel)]="jadwalKerja.keluar"
-        (input)="onChange($event.target)" />
+      <input type="time" class="browser-default sd" [(ngModel)]="jadwalKerja.keluar" (input)="onChange($event.target)"
+        [disabled]="!akses" />
     </div>
     <div class="right">
       <h6>Jam Istirahat</h6>
-      <input type="time" class="browser-default" [(ngModel)]="jadwalKerja.start_break"
-        (input)="onChange($event.target)" />
+      <input type="time" class="browser-default" [(ngModel)]="jadwalKerja.start_break" (input)="onChange($event.target)"
+        [disabled]="!akses" />
       <h6 style="width: 25px">s.d</h6>
       <input type="time" class="browser-default sd" [(ngModel)]="jadwalKerja.end_break"
-        (input)="onChange($event.target)" />
+        (input)="onChange($event.target)" [disabled]="!akses" />
     </div>
     <div class="right">
       <h6>Total Jam Kerja</h6>
@@ -85,10 +72,10 @@
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+    <button class="simpan waves-effect waves-light" [mat-dialog-close]="jadwalKerja" [disabled]="!akses">
       Simpan
     </button>
-    <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
+    <button class="batal waves-effect waves-light transparent" [mat-dialog-close]="undefined">
       Batal
     </button>
   </mat-dialog-actions>

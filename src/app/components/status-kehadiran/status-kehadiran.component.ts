@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/shared/api.service';
 import { environment } from 'src/environments/environment';
 import { VoidComponent } from '../modals/void/void.component';
 import { ModalStatusKehadiranComponent } from './modal-status-kehadiran/modal-status-kehadiran.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-status-kehadiran',
@@ -12,6 +13,8 @@ import { ModalStatusKehadiranComponent } from './modal-status-kehadiran/modal-st
   styleUrls: ['./status-kehadiran.component.css'],
 })
 export class StatusKehadiranComponent implements OnInit {
+  akses = this.api.akses.role_status_kehadiran;
+
   dataStatusKehadiran: any[] = [];
 
   searchName: string = '';
@@ -24,7 +27,13 @@ export class StatusKehadiranComponent implements OnInit {
     pageSizeOptions: [50, 100, 150, 200],
   };
 
-  constructor(private api: ApiService, private dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['Dashboard']);
+  }
 
   ngOnInit(): void {
     this.getAllData();
@@ -85,16 +94,18 @@ export class StatusKehadiranComponent implements OnInit {
   }
 
   tambahData() {
-    this.dialog
-      .open(ModalStatusKehadiranComponent)
-      .afterClosed()
-      .subscribe((res) => {
-        if (res !== undefined) {
-          this.api
-            .postData(environment.tabelStatusKehadiran, res)
-            .subscribe(() => this.getAllData());
-        }
-      });
+    this.akses.edit
+      ? this.dialog
+          .open(ModalStatusKehadiranComponent)
+          .afterClosed()
+          .subscribe((res) => {
+            if (res !== undefined) {
+              this.api
+                .postData(environment.tabelStatusKehadiran, res)
+                .subscribe(() => this.getAllData());
+            }
+          })
+      : alert('Anda tidak memiliki Akses');
   }
 
   editData(data: any) {
@@ -111,14 +122,16 @@ export class StatusKehadiranComponent implements OnInit {
   }
 
   voidData(id: number) {
-    this.dialog
-      .open(VoidComponent)
-      .afterClosed()
-      .subscribe((res) => {
-        if (res === 'ya')
-          this.api
-            .deleteData(environment.tabelStatusKehadiran + id)
-            .subscribe(() => this.getAllData());
-      });
+    this.akses.edit
+      ? this.dialog
+          .open(VoidComponent)
+          .afterClosed()
+          .subscribe((res) => {
+            if (res === 'ya')
+              this.api
+                .deleteData(environment.tabelStatusKehadiran + id)
+                .subscribe(() => this.getAllData());
+          })
+      : alert('Anda tidak memiliki Akses');
   }
 }

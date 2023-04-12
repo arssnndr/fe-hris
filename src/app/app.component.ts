@@ -6,6 +6,11 @@ import { DownloadDataPayrollComponent } from './components/download-data-payroll
 import { DownloadReportComponent } from './components/download-report/download-report.component';
 import { GantiNipComponent } from './components/ganti-nip/ganti-nip.component';
 import { LogHistoryComponent } from './components/log-history/log-history.component';
+import { environment } from 'src/environments/environment';
+import { ApiService } from './shared/api.service';
+
+const storage: any = localStorage.getItem('user');
+const user = JSON.parse(storage);
 
 @Component({
   selector: 'app-root',
@@ -13,6 +18,8 @@ import { LogHistoryComponent } from './components/log-history/log-history.compon
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  akses = this.api.akses;
+
   title = 'HR-System';
 
   // start navbar
@@ -59,7 +66,11 @@ export class AppComponent {
   }
   // end navbar
 
-  constructor(private dialog: MatDialog, private router: Router) {
+  constructor(
+    private dialog: MatDialog,
+    private router: Router,
+    private api: ApiService
+  ) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
@@ -71,9 +82,20 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    if (localStorage.getItem('key') !== null) {
+    if (user !== null) {
       this.isLogin = true;
-      this.email = localStorage.getItem('key');
+      this.email = user.email;
+
+      this.api
+        .getData(environment.tabelUser + '?email=' + this.email)
+        .subscribe((res) => {
+          if (res.length == 0) {
+            this.isLogin = false;
+            this.router.navigate(['/login']);
+          } else {
+            localStorage.setItem('user', JSON.stringify(res[0]));
+          }
+        });
     } else {
       this.isLogin = false;
       this.router.navigate(['/login']);

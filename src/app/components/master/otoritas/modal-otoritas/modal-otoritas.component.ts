@@ -9,14 +9,9 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-otoritas.component.css'],
 })
 export class ModalOtoritasComponent {
-  isDelete = false;
-  isEdit = false;
-  hide1 = true;
-  hide2 = true;
+  aksesEdit = this.api.akses.role_otoritas.edit;
 
-  tableUserId = 'ms_userid/';
-
-  akses = ['Lokasi', 'Perusahaan', 'All'];
+  akses = ['Lokasi & Perusahaan', 'All'];
 
   dataUser: User = {
     nip: '',
@@ -46,6 +41,11 @@ export class ModalOtoritasComponent {
       edit: false,
       download: false,
     },
+    role_otoritas: {
+      view: false,
+      edit: false,
+      download: false,
+    },
     role_karyawan: {
       view: false,
       edit: false,
@@ -66,6 +66,16 @@ export class ModalOtoritasComponent {
       edit: false,
       download: false,
     },
+    role_mesin_finger: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    role_setup_mesin_finger: {
+      view: false,
+      edit: false,
+      download: false,
+    },
     role_status_kehadiran: {
       view: false,
       edit: false,
@@ -81,22 +91,22 @@ export class ModalOtoritasComponent {
       edit: false,
       download: false,
     },
-    role_download: {
-      view: false,
-      edit: false,
-      download: false,
-    },
-    role_mesin_finger: {
-      view: false,
-      edit: false,
-      download: false,
-    },
-    role_setup_mesin_finger: {
-      view: false,
-      edit: false,
-      download: false,
-    },
     role_ganti_nip: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    role_download_data_payroll: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    role_download_report: {
+      view: false,
+      edit: false,
+      download: false,
+    },
+    role_log_history: {
       view: false,
       edit: false,
       download: false,
@@ -104,26 +114,8 @@ export class ModalOtoritasComponent {
     status: true,
   };
 
-  constructor(
-    private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
-  ) {}
-
-  ngOnInit(): void {
-    this.dataUser.akses = this.akses[0];
-    switch (this.data.name) {
-      case 'delete':
-        this.isDelete = true;
-        break;
-      case 'edit':
-        this.isEdit = true;
-
-        this.dataUser = this.data.data;
-        break;
-    }
-  }
-
-  throwResult() {
-    this.api.throwData(this.dataUser);
+  constructor(private api: ApiService, @Inject(MAT_DIALOG_DATA) data: any) {
+    if (data != null) this.dataUser = data;
+    else this.dataUser.akses = this.akses[0];
   }
 }

@@ -1,16 +1,15 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-modal-mesin-finger',
   templateUrl: './modal-mesin-finger.component.html',
   styleUrls: ['./modal-mesin-finger.component.css'],
 })
-export class ModalMesinFingerComponent implements OnInit {
-  isDelete = false;
-  isTambah = false;
-  isEdit = false;
+export class ModalMesinFingerComponent {
+  akses = this.api.akses.role_mesin_finger.edit;
 
   tambahData = {
     nama: '',
@@ -23,34 +22,16 @@ export class ModalMesinFingerComponent implements OnInit {
     wajah: false,
     status: true,
   };
+
   lokasi: any[] = [];
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any },
-    private api: ApiService
-  ) {
-    switch (data.name) {
-      case 'delete':
-        this.isDelete = true;
-        break;
-      case 'tambah':
-        this.isTambah = true;
-        break;
-      case 'edit':
-        this.isEdit = true;
-        this.tambahData = data.data;
-        break;
-    }
-
-    api.getData('ms_lokasi/').subscribe((res: any) => {
-      this.lokasi = res;
-      this.isTambah ? (this.tambahData.lokasi = res[0].inisial) : null;
+  constructor(@Inject(MAT_DIALOG_DATA) data: any, private api: ApiService) {
+    api.getData(environment.tabelLokasi).subscribe((res) => {
+      this.lokasi.push(...res.map((val: any) => val.inisial));
     });
-  }
 
-  ngOnInit(): void {}
+    this.tambahData.lokasi = this.lokasi[0];
 
-  throwResult() {
-    this.api.throwData(this.tambahData);
+    if (data != null) this.tambahData = data;
   }
 }

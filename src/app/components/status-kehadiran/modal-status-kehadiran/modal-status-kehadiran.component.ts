@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./modal-status-kehadiran.component.css'],
 })
 export class ModalStatusKehadiranComponent implements OnInit {
+  akses = this.api.akses.role_status_kehadiran.edit;
+
   filteredKaryawan: any;
 
   dataResult: any;

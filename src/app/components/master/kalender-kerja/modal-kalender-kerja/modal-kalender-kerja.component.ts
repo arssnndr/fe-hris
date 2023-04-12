@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
@@ -8,15 +8,13 @@ import { ApiService } from 'src/app/shared/api.service';
   templateUrl: './modal-kalender-kerja.component.html',
   styleUrls: ['./modal-kalender-kerja.component.css'],
 })
-export class ModalKalenderKerjaComponent implements OnInit {
-  isDelete = false;
-  isTambah = false;
-  isEdit = false;
+export class ModalKalenderKerjaComponent {
+  akses = this.api.akses.role_kalender_kerja.edit;
 
   tabelBagianKerja = 'ms_bagiankerja/';
 
   tambahData: any = {
-    tgl: moment().format('YYYY-MM-DD'),
+    tgl: '',
     hari: '',
     keterangan: '',
     lokasi: '',
@@ -40,11 +38,10 @@ export class ModalKalenderKerjaComponent implements OnInit {
     },
   ];
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any },
-    api: ApiService
-  ) {
-    this.getHari();
+  constructor(@Inject(MAT_DIALOG_DATA) data: any, private api: ApiService) {
+    if (data != null) this.tambahData = data;
+    else this.tambahData.tgl = moment().format('yyyy-MM-DD');
+
     api.getData(this.tabelBagianKerja).subscribe((res) => {
       this.setForm.map((val: any) => {
         switch (val.id) {
@@ -70,23 +67,8 @@ export class ModalKalenderKerjaComponent implements OnInit {
       });
     });
 
-    switch (data.name) {
-      case 'delete':
-        this.isDelete = true;
-        break;
-      case 'tambah':
-        this.isTambah = true;
-        break;
-      case 'edit':
-        this.isEdit = true;
-        this.tambahData = data.data;
-        break;
-    }
-
     this.getHari();
   }
-
-  ngOnInit(): void {}
 
   getHari() {
     this.tambahData.hari = moment(this.tambahData.tgl).format('dddd');

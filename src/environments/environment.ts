@@ -15,6 +15,10 @@ export const environment = {
   tabelJadwalKerjaIndividu: 'trx_jadwalkerjaindividu/',
   tabelJadwalKerja: 'trx_jadwalkerja/',
   tabelLogHistory: 'log_history/',
+  tabelUser: 'ms_userid/',
+  tabelKalenderKerja: 'ms_kalenderkerja/',
+  tabelMesinFinger: 'ms_mesinfinger/',
+  tabelSetupMesinFinger: 'ms_setupmesinfinger/',
 };
 
 /*

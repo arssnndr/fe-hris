@@ -1,4 +1,3 @@
-<!-- MODAL EDIT JADWAL KERJA DETAIL -->
 <div class="container">
     <h5>Jadwal Kerja - {{formatDate(data.tgl)}}</h5>
 
@@ -28,7 +27,7 @@
 
     <div class="actions">
         <div class="button">
-            <button class="simpan waves-effect waves-light" [mat-dialog-close]="data.editData">
+            <button class="simpan waves-effect waves-light" [mat-dialog-close]="data.editData" [disabled]="!akses">
                 Simpan
             </button>
             <button class="batal waves-effect waves-dark" [mat-dialog-close]="undefined">

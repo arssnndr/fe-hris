@@ -3,7 +3,8 @@
   <mat-dialog-content>
     <div class="right">
       <h6>Jenis</h6>
-      <select class="browser-default" [(ngModel)]="bagianKerja.jenis_bagian" (change)="changeBagianKerja()">
+      <select class="browser-default" [(ngModel)]="bagianKerja.jenis_bagian" (change)="changeBagianKerja()"
+        [disabled]="!akses">
         <option *ngFor="let row of jenis" [value]="row">
           {{ row }}
         </option>
@@ -12,7 +13,7 @@
     </div>
     <div class="right">
       <h6>Lokasi</h6>
-      <select class="browser-default" [(ngModel)]="bagianKerja.lokasi">
+      <select class="browser-default" [(ngModel)]="bagianKerja.lokasi" [disabled]="!akses">
         <option *ngFor="let row of lokasi" [value]="row">
           {{ row }}
         </option>
@@ -21,7 +22,7 @@
     </div>
     <div *ngIf="isDivisi" class="right">
       <h6>Divisi</h6>
-      <select class="browser-default" [(ngModel)]="bagianKerja.divisi">
+      <select class="browser-default" [(ngModel)]="bagianKerja.divisi" [disabled]="!akses">
         <option *ngFor="let row of divisi" [value]="row">
           {{ row }}
         </option>
@@ -30,7 +31,7 @@
     </div>
     <div *ngIf="isDepartemen" class="right">
       <h6>Departemen</h6>
-      <select class="browser-default" [(ngModel)]="bagianKerja.departemen">
+      <select class="browser-default" [(ngModel)]="bagianKerja.departemen" [disabled]="!akses">
         <option *ngFor="let row of departemen" [value]="row">
           {{ row }}
         </option>
@@ -41,14 +42,14 @@
       <h6>Deskripsi</h6>
       <div style="display:block">
         <input (blur)="isBlur=true" type="text" class="browser-default" [(ngModel)]="bagianKerja.sub_departemen"
-          minlength="2" maxlength="50" />
+          minlength="2" maxlength="50" [disabled]="!akses" />
         <p *ngIf="bagianKerja.sub_departemen.length===0 && isBlur" style="margin:0px">Data belum terisi</p>
         <p *ngIf="bagianKerja.sub_departemen.length===1" style="margin:0px">Minimal 2 karakter</p>
       </div>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button class="simpan waves-effect waves-light" (click)="actionSimpan()">
+    <button class="simpan waves-effect waves-light" (click)="actionSimpan()" [disabled]="!akses">
       Simpan
     </button>
     <button class="batal waves-effect waves-light transparent" [mat-dialog-close]="undefined">

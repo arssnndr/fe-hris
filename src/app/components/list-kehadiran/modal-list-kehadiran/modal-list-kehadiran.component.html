@@ -1,7 +1,6 @@
 <div>
     <h2 mat-dialog-title>Edit Kehadiran</h2>
     <mat-dialog-content>
-        <!-- Edit list kehadiran -->
         <div style="display: block;">
             <div class="right">
                 <h6>Tanggal</h6>
@@ -50,8 +49,8 @@
                 </table>
             </div>
             <div class="left">
-                <h6>status</h6>
-                <select class="browser-default" [(ngModel)]="selectedJadwalKerja.status_kehadiran">
+                <h6>Status</h6>
+                <select class="browser-default" [(ngModel)]="selectedJadwalKerja.status_cuti">
                     <option *ngFor="let option of statusKehadiran">{{ option }}</option>
                 </select>
             </div>

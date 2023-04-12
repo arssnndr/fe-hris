@@ -1,36 +1,50 @@
 .container,
 .row {
-    margin: auto;
+  margin: auto;
 }
 
 .container {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-content {
-    width: 300px;
-    padding: auto;
-    margin: 0px 50px;
+  width: 300px;
+  padding: auto;
+  margin: 0px 50px;
 }
 
 img {
-    width: 200px;
-    margin-bottom: 50px;
+  width: 200px;
+  margin-bottom: 40px;
 }
 
 h5 {
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-weight: bold;
+  margin: 0px;
+}
+
+p {
+  color: #000000de;
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
 }
 
 .card-panel {
-    width: 200px;
-    margin: 0;
+  width: 200px;
+  margin: 0;
 }
 
-div p, div button {
-    margin: 14.5px 0px;
+div.chkbx {
+  margin: 20px 0px 0px;
+}
+
+div button {
+  margin: 40px 0px 0px;
+}
+
+div.input-field {
+  margin: 20px 0px 0px;
 }

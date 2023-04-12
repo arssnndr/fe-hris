@@ -1,143 +1,160 @@
-h2 {
-    text-align: left;
-    margin: 0px 40px 20px;
+div.title {
+  margin: 0px 0px 30px 0px;
 }
 
-mat-dialog-content {
-    padding: 0px;
-    margin: 0px 25px;
-    width: 525px;
+div.form {
+  display: flex;
+  margin: 7.5px 0px;
 }
 
-mat-dialog-content div {
-    display: inline-flex;
+div.radio-top {
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 10px 0px;
 }
 
-mat-dialog-content.delete {
-    padding: 0px;
-    margin: 0px 40px;
+div.table {
+  margin: 0px 0px 10px 0px;
 }
 
-mat-dialog-actions {
-    padding: 0px;
-    margin: 0px 45px;
+div.radio-bottom {
+  display: flex;
+  margin: 10px 0px;
 }
 
+div.radio-left,
+div.radio-right {
+  width: 210px;
+}
+
+div.action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+fieldset {
+  width: 100%;
+}
+
+p {
+  font-size: 14px;
+  color: #000000de;
+  padding-right: 10px;
+}
+
+p.label-form {
+  width: 50px;
+}
+
+p.label-radio {
+  margin: auto 0px;
+}
+
+select,
 input {
-    background-color: rgb(255, 255, 255);
-    width: 150px;
-    padding: 5px;
-    border: 1px solid #00000050;
-    border-radius: 2px;
-    border-radius: 3px;
-    background-color: white;
-    background-image: url("../../../../../assets/icon/search.svg");
-    background-size: 24px;
-    background-repeat: no-repeat;
-    background-position-x: 7.5px;
-    background-position-y: 50%;
-    padding: 12px 20px 12px 40px;
-}
-
-td button {
-    border: 0px;
-    border-radius: 5px;
-    font-size: 12.5px;
-    color: white;
-    padding: 3px;
-    text-align: center;
-    text-decoration: none;
-    margin: 4px;
-    height: 22px;
-    width: 22px;
-}
-
-td:last-child {
-  padding: 5px;
-  width: 40px;
+  height: 40px;
 }
 
 select {
-    margin-bottom: 5px;
-    margin-right: 0px;
-    background-color: rgb(255, 255, 255);
-    width: 387px;
-    padding: 5px;
-    border: 1px solid #00000050;
-    border-style: solid none solid solid;
-    border-radius: 2px 0px 0px 2px;
-    height: 3rem;
+  border-color: gray;
+  width: 350px;
 }
 
-button.space {
-    height: 45px;
-    width: 13px;
-    margin-right: 10px;
-    padding-top: 5px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid #00000050;
-    border-style: solid solid solid none;
-    border-radius: 0px 2px 2px 0px;
+input.search {
+  width: 150px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  border-radius: 3px;
+  background-image: url("../../../../../assets/icon/search.svg");
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position-x: 7.5px;
+  background-position-y: 50%;
+  padding: 12px 12px 12px 40px;
+  margin: 0px 0px 0px auto;
 }
 
-h6 {
-    margin: 10px;
-    padding: 0px;
+.left mat-radio-button,
+.sub-left mat-radio-button,
+.right mat-radio-button {
+  width: 100%;
+  margin: 5px 0px;
+}
+
+.sub-left mat-radio-button {
+  padding: 0px 0px 0px 25px;
+}
+
+.action button {
+  width: 100px;
+  height: 50px;
+  margin: 0px 0px 0px 10px;
+}
+
+button.ok {
+  background-color: #d85d5d;
+  color: white;
+  border: 1px solid #d85d5d;
 }
 
 button.batal {
-    color: #d85d5d;
-    border: 1px solid #d85d5d;
-    border-radius: 1px;
-    width: 100px;
-    height: 50px;
-    margin: 5px;
+  background-color: white;
+  color: #d85d5d;
+  border: 1px solid #d85d5d;
 }
 
-button.simpan {
-    color: #ffffff;
-    background-color: #d85d5d;
-    border: 1px solid #d85d5d;
-    border-radius: 1px;
-    width: 100px;
-    height: 50px;
-    margin: 5px;
+i {
+  background-color: #d85d5d;
+  border-radius: 2.5px;
+  color: white;
+  margin: 0px;
 }
 
 table {
-    width: 525px;
-    margin-right: 0px;
+  border-collapse: collapse;
 }
 
-tr {
-    border: none;
+thead {
+  display: block;
+  width: 100%;
+  background-color: #ffe6e6;
 }
 
-th {
-    background-color: #ffe6e6;
-    border-radius: 0px;
-    padding: 15px 15px;
-    text-align: center;
+th.one,
+td.one {
+  width: 65px;
 }
 
-th:first-child {
-    background-color: #ffe6e6;
-    border-radius: 0px;
-    padding: 15px 15px;
-    text-align: left;
+th.two,
+td.two {
+  width: 125px;
 }
 
-td {
-    padding: 10px 15px;
-    text-align: center;
+th.three,
+td.three {
+  width: 70px;
 }
 
-td:first-child {
-    width: 100px;
-    padding: 10px 15px;
-    text-align: left;
+th.four,
+td.four {
+  width: 115px;
 }
 
-tbody tr:hover {
-    background-color: rgba(128, 128, 128, 0.048);
+tbody {
+  display: block;
+  max-height: 200px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+tr:nth-child(odd) {
+  background-color: #fff4f4;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+td:nth-last-child(1) {
+  width: 34px;
 }

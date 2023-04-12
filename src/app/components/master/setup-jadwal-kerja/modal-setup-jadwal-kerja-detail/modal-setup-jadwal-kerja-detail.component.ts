@@ -9,7 +9,12 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-setup-jadwal-kerja-detail.component.css'],
 })
 export class ModalSetupJadwalKerjaDetailComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, api: ApiService) {
+  akses = this.api.akses.role_setup_jadwal_kerja.edit;
+
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private api: ApiService
+  ) {
     api.getData(this.tabelJadwalKerja).subscribe((res) => {
       this.dataJadwalKerja = res;
       this.formModalEditJadwalKerja.forEach((val: any) => {
@@ -34,7 +39,6 @@ export class ModalSetupJadwalKerjaDetailComponent {
     return moment(date).format('DDD');
   }
 
-  // MODAL EDIT DATA DETAIL
   tabelJadwalKerja = 'trx_jadwalkerja/';
   dataJadwalKerja: any[] = [];
 
@@ -84,7 +88,7 @@ export class ModalSetupJadwalKerjaDetailComponent {
       label: 'Jadwal',
       placeholder: '',
       value: [],
-      disable: false,
+      disable: !this.akses,
     },
     {
       isCouple: true,

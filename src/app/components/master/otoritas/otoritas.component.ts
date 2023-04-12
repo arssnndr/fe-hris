@@ -3,6 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalOtoritasComponent } from './modal-otoritas/modal-otoritas.component';
+import { VoidComponent } from '../../modals/void/void.component';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-otoritas',
@@ -10,7 +13,8 @@ import { ModalOtoritasComponent } from './modal-otoritas/modal-otoritas.componen
   styleUrls: ['./otoritas.component.css'],
 })
 export class OtoritasComponent {
-  table = 'ms_userid/';
+  akses = this.api.akses.role_otoritas;
+
   dataSearch = '';
   pageSize = 50;
   pageIndex = 0;
@@ -20,48 +24,54 @@ export class OtoritasComponent {
   length: any;
   nip = true;
   username = false;
-  catchResult: any;
-  getMaxId = 0;
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['Dashboard']);
+  }
 
   ngOnInit(): void {
     this.getAllData();
   }
 
   deleteData(id: number) {
-    const dialogRef = this.dialog.open(ModalOtoritasComponent, {
-      data: { name: 'delete' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'ya') {
-        this.api.deleteData(this.table + id).subscribe(() => {
-          this.api.getData(this.table).subscribe((res) => {
-            this.getMaxId = res[res.length - 1].id;
-          });
-          this.length = this.length - 1;
-          this.getPageData();
+    if (this.akses.edit) {
+      this.dialog
+        .open(VoidComponent)
+        .afterClosed()
+        .subscribe((result) => {
+          if (result === 'ya') {
+            this.api.deleteData(environment.tabelUser + id).subscribe(() => {
+              this.length = this.length - 1;
+              this.getPageData();
+            });
+          }
         });
-      }
-    });
+    } else {
+      window.alert('Anda tidak memiliki Akses');
+    }
   }
 
   editData(data: any) {
-    const dialogRef = this.dialog.open(ModalOtoritasComponent, {
-      data: { name: 'edit', data: data },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        this.catchResult = this.api.catchData();
-        let data = this.catchResult;
-        let id = this.catchResult.id;
-        this.api.updateData(this.table, data, id).subscribe((res) => {
-          this.getPageData();
-        });
-      }
-    });
+    this.dialog
+      .open(ModalOtoritasComponent, {
+        data: data,
+      })
+      .afterClosed()
+      .subscribe((result) => {
+        if (result != undefined) {
+          this.api
+            .updateData(environment.tabelUser, result, result.id)
+            .subscribe((res) => {
+              localStorage.setItem('user', JSON.stringify(res));
+              this.getPageData();
+              window.location.reload();
+            });
+        }
+      });
   }
 
   handlePageEvent(event: PageEvent) {
@@ -72,8 +82,7 @@ export class OtoritasComponent {
 
   getAllData() {
     if (this.dataSearch.length === 0) {
-      this.api.getData(this.table).subscribe((res) => {
-        this.getMaxId = res[res.length - 1].id;
+      this.api.getData(environment.tabelUser).subscribe((res) => {
         this.length = res.length;
         this.pageSize = 50;
         this.pageIndex = 0;
@@ -82,7 +91,7 @@ export class OtoritasComponent {
     } else {
       if (this.nip) {
         this.api
-          .getData(this.table + '?nip_like=' + this.dataSearch)
+          .getData(environment.tabelUser + '?nip_like=' + this.dataSearch)
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -97,7 +106,7 @@ export class OtoritasComponent {
           });
       } else if (this.username) {
         this.api
-          .getData(this.table + '?username_like=' + this.dataSearch)
+          .getData(environment.tabelUser + '?username_like=' + this.dataSearch)
           .subscribe((res) => {
             this.length = res.length;
             this.pageSize = 50;
@@ -118,7 +127,7 @@ export class OtoritasComponent {
     if (this.dataSearch.length === 0) {
       this.api
         .getData(
-          this.table +
+          environment.tabelUser +
             '?_page=' +
             (this.pageIndex + 1) +
             '&_limit=' +
@@ -131,7 +140,7 @@ export class OtoritasComponent {
       if (this.nip) {
         this.api
           .getData(
-            this.table +
+            environment.tabelUser +
               '?_page=' +
               (this.pageIndex + 1) +
               '&_limit=' +
@@ -145,7 +154,7 @@ export class OtoritasComponent {
       } else if (this.username) {
         this.api
           .getData(
-            this.table +
+            environment.tabelUser +
               '?_page=' +
               (this.pageIndex + 1) +
               '&_limit=' +

@@ -9,8 +9,9 @@ import { ApiService } from 'src/app/shared/api.service';
   styleUrls: ['./modal-jadwal-kerja.component.css'],
 })
 export class ModalJadwalKerjaComponent implements OnInit {
+  akses = this.api.akses.role_jadwal_kerja.edit;
+
   isTambah = false;
-  isDelete = false;
   isEdit = false;
 
   jadwalKerja: JadwalKerja = {
@@ -52,53 +53,47 @@ export class ModalJadwalKerjaComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
-  ) {}
+    @Inject(MAT_DIALOG_DATA) private data: any
+  ) {
+    if (data !== null) {
+      this.isEdit = true;
 
-  ngOnInit(): void {
-    switch (this.data.name) {
-      case 'tambah':
-        this.isTambah = true;
+      this.jadwalKerja = this.data;
+      this.lokasiValue = this.data.lokasi;
+      this.shiftValue = this.data.shift;
+      this.jamKerjaValue = this.data.type;
 
-        this.lokasiVal = this.lokasi[0].val;
-        this.shiftVal = this.shift[0].val;
-        this.jamKerjaVal = this.jamKerja[0].val;
+      this.lokasi.find((res) => {
+        if (res.value === this.jadwalKerja.lokasi) {
+          this.lokasiVal = res.val;
+        }
+      });
+      this.shift.find((res) => {
+        if (res.value === this.jadwalKerja.shift) {
+          this.shiftVal = res.val;
+        }
+      });
+      this.jamKerja.find((res) => {
+        if (res.value === this.jadwalKerja.type) {
+          this.jamKerjaVal = res.val;
+        }
+      });
+    } else {
+      this.isTambah = true;
 
-        this.jadwalKerja.id_jadwal_kerja =
-          this.lokasiVal + this.shiftVal + this.jamKerjaVal;
-        this.jadwalKerja.lokasi = this.lokasi[0].value;
-        this.jadwalKerja.shift = this.shift[0].value;
-        this.jadwalKerja.type = this.jamKerja[0].value;
-        break;
-      case 'delete':
-        this.isDelete = true;
-        break;
-      case 'edit':
-        this.isEdit = true;
+      this.lokasiVal = this.lokasi[0].val;
+      this.shiftVal = this.shift[0].val;
+      this.jamKerjaVal = this.jamKerja[0].val;
 
-        this.jadwalKerja = this.data.data;
-        this.lokasiValue = this.data.data.lokasi;
-        this.shiftValue = this.data.data.shift;
-        this.jamKerjaValue = this.data.data.type;
-
-        this.lokasi.find((res) => {
-          if (res.value === this.jadwalKerja.lokasi) {
-            this.lokasiVal = res.val;
-          }
-        });
-        this.shift.find((res) => {
-          if (res.value === this.jadwalKerja.shift) {
-            this.shiftVal = res.val;
-          }
-        });
-        this.jamKerja.find((res) => {
-          if (res.value === this.jadwalKerja.type) {
-            this.jamKerjaVal = res.val;
-          }
-        });
-        break;
+      this.jadwalKerja.id_jadwal_kerja =
+        this.lokasiVal + this.shiftVal + this.jamKerjaVal;
+      this.jadwalKerja.lokasi = this.lokasi[0].value;
+      this.jadwalKerja.shift = this.shift[0].value;
+      this.jadwalKerja.type = this.jamKerja[0].value;
     }
   }
+
+  ngOnInit(): void {}
 
   onChange(data: any) {
     this.lokasi.find((res) => {
@@ -139,9 +134,5 @@ export class ModalJadwalKerjaComponent implements OnInit {
     this.jadwalKerja.start_break === '' || this.jadwalKerja.end_break === ''
       ? (this.jadwalKerja.total = keluar - masuk)
       : (this.jadwalKerja.total = keluar - masuk - (sIstirahat - mIstirahat));
-  }
-
-  throwResult() {
-    this.api.throwData(this.jadwalKerja);
   }
 }

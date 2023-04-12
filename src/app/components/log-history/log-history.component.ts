@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
 import { environment } from 'src/environments/environment';
 import { VoidComponent } from '../modals/void/void.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-history',
@@ -12,13 +13,18 @@ import { VoidComponent } from '../modals/void/void.component';
   styleUrls: ['./log-history.component.css'],
 })
 export class LogHistoryComponent {
+  akses = this.api.akses.role_log_history;
+
   dataLogHistory: any[] = [];
 
   constructor(
-    api: ApiService,
+    private api: ApiService,
     private dialog: MatDialog,
-    private dialogRef: MatDialogRef<LogHistoryComponent>
+    private dialogRef: MatDialogRef<LogHistoryComponent>,
+    router: Router
   ) {
+    if (!this.akses.view) router.navigate(['dashboard']);
+
     api.getData(environment.tabelLogHistory).subscribe((res) => {
       this.dataLogHistory = res;
     });
@@ -78,17 +84,21 @@ export class LogHistoryComponent {
       fontSize: 10,
     });
 
-    doc.save('Log History.pdf');
+    this.akses.download
+      ? doc.save('Log History.pdf')
+      : alert('Anda tidak memiliki Akses');
   }
 
   delete() {
-    this.dialog
-      .open(VoidComponent, { data: 'Yakin akan menghapus data Log?' })
-      .afterClosed()
-      .subscribe((res) => {
-        if (res === 'ya') {
-          console.log('dihapus semua');
-        }
-      });
+    this.akses.edit
+      ? this.dialog
+          .open(VoidComponent, { data: 'Yakin akan menghapus data Log?' })
+          .afterClosed()
+          .subscribe((res) => {
+            if (res === 'ya') {
+              console.log('dihapus semua');
+            }
+          })
+      : alert('Anda tidak memiliki Akses');
   }
 }

@@ -1,26 +1,9 @@
-<!-- Modal delete data -->
-<div *ngIf="isDelete">
-    <mat-dialog-content class="delete">
-        <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger" />
-        <p style="padding-left: 55px">Yakin data akan di void?</p>
-    </mat-dialog-content>
-    <mat-dialog-actions align="end">
-        <button class="ya waves-effect waves-light" mat-dialog-close="ya">
-            Ya
-        </button>
-        <button class="tidak waves-effect waves-dark transparent" mat-dialog-close="tidak">
-            Tidak
-        </button>
-    </mat-dialog-actions>
-</div>
-
-<!-- Modal Tambah Data -->
-<div *ngIf="isTambah || isEdit">
+<div>
     <h2 mat-dialog-title>Lembur</h2>
     <mat-dialog-content>
         <div>
             <h6>NIP</h6>
-            <input class=" browser-default" type="text" style="margin-right: 10px; width: 100px;"
+            <input [disabled]="!akses" class=" browser-default" type="text" style="margin-right: 10px; width: 100px;"
                 [matAutocomplete]="auto" (input)="searchNip($event.target)" [ngModel]="dataForUpload.nip" />
             <mat-autocomplete #auto="matAutocomplete">
                 <mat-option *ngFor="let row of searchNipKaryawan" (click)="selectKaryawan(row)">
@@ -35,17 +18,18 @@
 
         <div>
             <h6>No SPKL</h6>
-            <input type=" text" class="browser-default" style="width: 245px;" [(ngModel)]="dataForUpload.no_spkl">
+            <input [disabled]="!akses" type=" text" class="browser-default" style="width: 245px;"
+                [(ngModel)]="dataForUpload.no_spkl">
             <h6>Tanggal</h6>
-            <input type="date" class="browser-default" style="width: 130px; padding: 7.5px;"
+            <input [disabled]="!akses" type="date" class="browser-default" style="width: 130px; padding: 7.5px;"
                 [(ngModel)]="dataForUpload.tgl">
         </div>
         <br>
 
         <div>
             <h6>Jenis Lembur</h6>
-            <select name="jenisLembur" id="jenisLembur" class="browser-default" [(ngModel)]="dataForUpload.jenis_lembur"
-                style="width: 245px; border-color: #00000090;">
+            <select [disabled]="!akses" name="jenisLembur" id="jenisLembur" class="browser-default"
+                [(ngModel)]="dataForUpload.jenis_lembur" style="width: 245px; border-color: #00000090;">
                 <option *ngFor="let row of jenisLembur" [value]="row">{{ row }}</option>
             </select>
         </div>
@@ -67,12 +51,12 @@
         <div>
             <h6 *ngIf="dataForUpload.jenis_lembur === jenisLembur[0]">Jam Lembur OT</h6>
             <h6 *ngIf="dataForUpload.jenis_lembur === jenisLembur[1]">Jam Lembur TI</h6>
-            <input type="time" name="jamLemburOTMulai" id="jamLemburOTMulai" class="browser-default"
+            <input [disabled]="!akses" type="time" name="jamLemburOTMulai" id="jamLemburOTMulai" class="browser-default"
                 style="width: 100px; padding: 7.5px;" [(ngModel)]="dataForUpload.jam_lembur_mulai">
             <h6 style="width: 25px; margin-left: 10px;">s.d</h6>
-            <input type="time" name="jamLemburOTSelesai" id="jamLemburOTSelesai" class="browser-default"
-                style="width: 100px; padding: 7.5px;" [(ngModel)]="dataForUpload.jam_lembur_selesai"
-                (input)="akumulasi()">
+            <input [disabled]="!akses" type="time" name="jamLemburOTSelesai" id="jamLemburOTSelesai"
+                class="browser-default" style="width: 100px; padding: 7.5px;"
+                [(ngModel)]="dataForUpload.jam_lembur_selesai" (input)="akumulasi()">
         </div>
         <br>
 
@@ -84,8 +68,8 @@
             <h6 style="width: 305px;">Tanpa Istirahat (Jam)</h6>
             <input *ngIf="dataForUpload.jenis_lembur === jenisLembur[0]" type="number" name="tanpaIstirahat"
                 id="tanpaIstirahat" class="browser-default" style="width: 130px;" placeholder="-" disabled>
-            <input *ngIf="dataForUpload.jenis_lembur === jenisLembur[1]" type="number" name="tanpaIstirahat"
-                id="tanpaIstirahat" class="browser-default" style="width: 130px;"
+            <input [disabled]="!akses" *ngIf="dataForUpload.jenis_lembur === jenisLembur[1]" type="number"
+                name="tanpaIstirahat" id="tanpaIstirahat" class="browser-default" style="width: 130px;"
                 [(ngModel)]="dataForUpload.tanpa_istirahat">
         </div>
         <br>
@@ -102,14 +86,16 @@
 
         <div>
             <h6>Alasan Lembur</h6>
-            <input type=" text" class="browser-default" style="width: 245px;" [(ngModel)]="dataForUpload.alasan_lembur">
+            <input [disabled]="!akses" type=" text" class="browser-default" style="width: 245px;"
+                [(ngModel)]="dataForUpload.alasan_lembur">
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end" style="margin-bottom: 0px;">
-        <button type="submit" class="simpan waves-effect waves-light" mat-dialog-close="simpan" (click)="throwResult()">
+        <button type="submit" class="simpan waves-effect waves-light" [mat-dialog-close]="dataForUpload"
+            [ngStyle]="{visibility: akses?'visible':'hidden'}">
             Simpan
         </button>
-        <button class="batal waves-effect waves-light transparent" mat-dialog-close="batal">
+        <button class="batal waves-effect waves-light transparent" [mat-dialog-close]="undefined">
             Batal
         </button>
     </mat-dialog-actions>

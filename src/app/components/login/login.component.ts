@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (localStorage.getItem('key') !== null) {
+    if (localStorage.getItem('user') !== null) {
       this.router.navigateByUrl('/dashboard');
     }
     this.loginForm = this.formBuilder.group({
@@ -28,12 +28,28 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  submit(): void {
+  submit() {
     this.http
-      .post(env.api + 'login/', this.loginForm.getRawValue())
+      .get(
+        env.api +
+          env.tabelUser +
+          '?email=' +
+          this.loginForm.value.email +
+          '&password=' +
+          this.loginForm.value.password
+      )
       .subscribe((res: any) => {
-        localStorage.setItem('key', res.email);
-        window.location.replace('/dashboard');
+        if (res.length == 0) {
+          window.alert('Email dan Password salah');
+        } else {
+          const dataLogin = this.loginForm.getRawValue();
+          dataLogin.time = Date();
+
+          this.http.post(env.api + 'login/', dataLogin).subscribe(() => {
+            localStorage.setItem('user', JSON.stringify(res[0]));
+            window.location.replace('/dashboard');
+          });
+        }
       });
   }
 }

@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, assertPlatform } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalKalenderKerjaComponent } from './modal-kalender-kerja/modal-kalender-kerja.component';
 import * as moment from 'moment';
 import { utils, writeFileXLSX } from 'xlsx';
+import { environment } from 'src/environments/environment';
+import { VoidComponent } from '../../modals/void/void.component';
+import { Router } from '@angular/router';
 moment.locale('id');
 
 @Component({
@@ -12,7 +15,8 @@ moment.locale('id');
   styleUrls: ['./kalender-kerja.component.css'],
 })
 export class KalenderKerjaComponent implements OnInit {
-  tableKalenderKerja = 'ms_kalenderkerja/';
+  akses = this.api.akses.role_kalender_kerja;
+
   dataKalenderKerja!: any;
 
   setYear: any[] = [];
@@ -21,10 +25,16 @@ export class KalenderKerjaComponent implements OnInit {
   filterYear = '';
   filterLokasi = '';
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['Dashboard']);
+  }
 
   ngOnInit(): void {
-    this.api.getData(this.tableKalenderKerja).subscribe((res) => {
+    this.api.getData(environment.tabelKalenderKerja).subscribe((res) => {
       this.dataKalenderKerja = res;
 
       this.setYear.push('All');
@@ -39,54 +49,65 @@ export class KalenderKerjaComponent implements OnInit {
     });
   }
 
+  alert() {
+    window.alert('Anda tidak memilii Akses');
+  }
+
   tambahData() {
+    if (this.akses.edit) {
+      this.dialog
+        .open(ModalKalenderKerjaComponent)
+        .afterClosed()
+        .subscribe((result) => {
+          if (result !== undefined) {
+            this.api
+              .postData(environment.tabelKalenderKerja, result)
+              .subscribe(() => {
+                this.filter();
+              });
+          }
+        });
+    } else {
+      this.alert();
+    }
+  }
+
+  editData(data: any) {
     this.dialog
       .open(ModalKalenderKerjaComponent, {
-        data: { name: 'tambah' },
+        data: data,
       })
       .afterClosed()
       .subscribe((result) => {
-        if (result !== undefined) {
-          this.api.postData(this.tableKalenderKerja, result).subscribe(() => {
-            this.filter();
-          });
+        if (result != undefined) {
+          this.api
+            .updateData(environment.tabelKalenderKerja, result, result.id)
+            .subscribe(() => {
+              this.filter();
+            });
+        } else {
+          this.ngOnInit();
         }
       });
   }
 
-  editData(data: any) {
-    let id = data.id;
-    const dialogRef = this.dialog.open(ModalKalenderKerjaComponent, {
-      data: {
-        name: 'edit',
-        data: data,
-      },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'simpan') {
-        let catchResult = this.api.catchData();
-        this.api
-          .updateData(this.tableKalenderKerja, catchResult, id)
-          .subscribe(() => {
-            this.filter();
-          });
-      }
-    });
-  }
-
   deleteData(id: number) {
-    const dialogRef = this.dialog.open(ModalKalenderKerjaComponent, {
-      data: { name: 'delete' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'ya') {
-        this.api.deleteData(this.tableKalenderKerja + id).subscribe(() => {
-          this.filter();
+    if (this.akses.edit) {
+      this.dialog
+        .open(VoidComponent)
+        .afterClosed()
+        .subscribe((result) => {
+          if (result === 'ya') {
+            this.api
+              .deleteData(environment.tabelKalenderKerja + id)
+              .subscribe(() => {
+                this.filter();
+              });
+          }
         });
-      }
-    });
+    } else {
+      this.alert();
+    }
   }
 
   dateFormat(date: any) {
@@ -100,73 +121,82 @@ export class KalenderKerjaComponent implements OnInit {
     this.filterLokasi === 'All' ? (lokasi = '') : (lokasi = this.filterLokasi);
     this.api
       .getData(
-        this.tableKalenderKerja + '?tgl_like=' + tgl + '&lokasi_like=' + lokasi
+        environment.tabelKalenderKerja +
+          '?tgl_like=' +
+          tgl +
+          '&lokasi_like=' +
+          lokasi
       )
       .subscribe((res) => (this.dataKalenderKerja = res));
   }
 
   printData(name: string) {
-    let header: any[] = [];
-    let content;
-    let column;
-    header = [
-      ['A1', name],
-      ['G1', 'Tanggal Cetak'],
-      ['G2', 'User :'],
-      ['H1', moment().format('DD MMM YYYY')],
-      ['H2', window.localStorage.getItem('key')],
-    ];
-    content = this.dataKalenderKerja.map((res: any) => ({
-      Hari: res.hari,
-      Tanggal: this.dateFormat(res.tgl),
-      Keterangan: res.keterangan,
-      Lokasi: res.lokasi,
-      Divisi: res.divisi,
-      Departemen: res.departemen,
-      'Sub Departemen': res.sub_departemen,
-      'Potong/Tidak Potong Cuti Tahunan': res.potong_cuti
-        ? 'Potong Cuti Tahunan'
-        : 'Tidak Potong Cuti Tahunan',
-    }));
+    if (this.akses.download) {
+      let header: any[] = [];
+      let content;
+      let column;
+      header = [
+        ['A1', name],
+        ['G1', 'Tanggal Cetak'],
+        ['G2', 'User :'],
+        ['H1', moment().format('DD MMM YYYY')],
+        ['H2', window.localStorage.getItem('key')],
+      ];
+      content = this.dataKalenderKerja.map((res: any) => ({
+        Hari: res.hari,
+        Tanggal: this.dateFormat(res.tgl),
+        Keterangan: res.keterangan,
+        Lokasi: res.lokasi,
+        Divisi: res.divisi,
+        Departemen: res.departemen,
+        'Sub Departemen': res.sub_departemen,
+        'Potong/Tidak Potong Cuti Tahunan': res.potong_cuti
+          ? 'Potong Cuti Tahunan'
+          : 'Tidak Potong Cuti Tahunan',
+      }));
 
-    column =
-      Object.keys(content[0]).length > 25
-        ? 'A' + String.fromCharCode((Object.keys(content[0]).length % 26) + 64)
-        : String.fromCharCode(Object.keys(content[0]).length + 64);
+      column =
+        Object.keys(content[0]).length > 25
+          ? 'A' +
+            String.fromCharCode((Object.keys(content[0]).length % 26) + 64)
+          : String.fromCharCode(Object.keys(content[0]).length + 64);
 
-    const ws = utils.json_to_sheet(content);
-    const wsTemp = utils.json_to_sheet(content);
+      const ws = utils.json_to_sheet(content);
+      const wsTemp = utils.json_to_sheet(content);
 
-    let length = Number(ws['!ref']?.split(column, 2)[1]);
-    let gap = 4;
+      let length = Number(ws['!ref']?.split(column, 2)[1]);
+      let gap = 4;
 
-    ws['!ref'] = 'A1:' + column + (length + gap);
-    for (let i = 1; i <= 4; i++) {
-      Object.keys(content[0]).forEach((_, index) => {
-        index > 25
-          ? (ws['A' + String.fromCharCode(65 + index - 26) + i] = {
-              t: 's',
-              v: '',
-            })
-          : (ws[String.fromCharCode(65 + index) + i] = { t: 's', v: '' });
-      });
+      ws['!ref'] = 'A1:' + column + (length + gap);
+      for (let i = 1; i <= 4; i++) {
+        Object.keys(content[0]).forEach((_, index) => {
+          index > 25
+            ? (ws['A' + String.fromCharCode(65 + index - 26) + i] = {
+                t: 's',
+                v: '',
+              })
+            : (ws[String.fromCharCode(65 + index) + i] = { t: 's', v: '' });
+        });
+      }
+
+      header.forEach((res) => (ws[res[0]] = { t: 's', v: res[1] }));
+
+      for (let i = 0; i < length; i++) {
+        Object.keys(content[0]).forEach((_, index) => {
+          index > 25
+            ? (ws['A' + String.fromCharCode(65 + index - 26) + (i + gap)] =
+                wsTemp['A' + String.fromCharCode(65 + index - 26) + (i + 1)])
+            : (ws[String.fromCharCode(65 + index) + (i + gap)] =
+                wsTemp[String.fromCharCode(65 + index) + (i + 1)]);
+        });
+      }
+
+      const wb = utils.book_new();
+
+      utils.book_append_sheet(wb, ws);
+      writeFileXLSX(wb, name + '.xlsx');
+    } else {
+      this.alert();
     }
-
-    header.forEach((res) => (ws[res[0]] = { t: 's', v: res[1] }));
-
-    for (let i = 0; i < length; i++) {
-      Object.keys(content[0]).forEach((_, index) => {
-        index > 25
-          ? (ws['A' + String.fromCharCode(65 + index - 26) + (i + gap)] =
-              wsTemp['A' + String.fromCharCode(65 + index - 26) + (i + 1)])
-          : (ws[String.fromCharCode(65 + index) + (i + gap)] =
-              wsTemp[String.fromCharCode(65 + index) + (i + 1)]);
-      });
-    }
-
-    const wb = utils.book_new();
-
-    utils.book_append_sheet(wb, ws);
-    writeFileXLSX(wb, name + '.xlsx');
   }
 }

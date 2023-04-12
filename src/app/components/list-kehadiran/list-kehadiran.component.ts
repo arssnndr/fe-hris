@@ -7,6 +7,7 @@ import { utils, writeFileXLSX } from 'xlsx';
 import { ModalStatusKehadiranComponent } from '../status-kehadiran/modal-status-kehadiran/modal-status-kehadiran.component';
 import { ModalFilterDialogComponent } from './modal-filter-dialog/modal-filter-dialog.component';
 import { ModalListKehadiranComponent } from './modal-list-kehadiran/modal-list-kehadiran.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-kehadiran',
@@ -14,6 +15,8 @@ import { ModalListKehadiranComponent } from './modal-list-kehadiran/modal-list-k
   styleUrls: ['./list-kehadiran.component.css'],
 })
 export class ListKehadiranComponent implements OnInit {
+  akses = this.api.akses.role_list_kehadiran;
+
   dataListKehadiran: any;
   selectedDataListKehadiran: any;
   jadwalKerjaPerMonth: any;
@@ -30,7 +33,13 @@ export class ListKehadiranComponent implements OnInit {
     sub_departemen: 'All',
   };
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    private dialog: MatDialog,
+    router: Router
+  ) {
+    if (!this.akses.view) router.navigate(['dashboard']);
+  }
 
   ngOnInit(): void {
     this.getDataListKehadiran();
@@ -132,18 +141,20 @@ export class ListKehadiranComponent implements OnInit {
   }
 
   editJadwalkerja(event: any) {
-    this.dialog
-      .open(ModalListKehadiranComponent, {
-        data: { data: this.selectedDataListKehadiran, date: event.tgl },
-      })
-      .afterClosed()
-      .subscribe((res) => {
-        if (res !== undefined) {
-          this.api
-            .updateData(environment.tabelListKehadiran, res, res.id)
-            .subscribe(() => this.getDataListKehadiran());
-        }
-      });
+    this.akses.edit
+      ? this.dialog
+          .open(ModalListKehadiranComponent, {
+            data: { data: this.selectedDataListKehadiran, date: event.tgl },
+          })
+          .afterClosed()
+          .subscribe((res) => {
+            if (res !== undefined) {
+              this.api
+                .updateData(environment.tabelListKehadiran, res, res.id)
+                .subscribe(() => this.getDataListKehadiran());
+            }
+          })
+      : alert('Anda tidak memiliki Akses');
   }
 
   cuti(event: string, data: any) {
@@ -174,34 +185,36 @@ export class ListKehadiranComponent implements OnInit {
         });
     }
 
-    this.dialog
-      .open(ModalStatusKehadiranComponent, {
-        data: data,
-      })
-      .afterClosed()
-      .subscribe((res) => {
-        if (res !== undefined) {
-          delete res['nip'];
-          delete res['nama_lengkap'];
+    this.akses.edit
+      ? this.dialog
+          .open(ModalStatusKehadiranComponent, {
+            data: data,
+          })
+          .afterClosed()
+          .subscribe((res) => {
+            if (res !== undefined) {
+              delete res['nip'];
+              delete res['nama_lengkap'];
 
-          this.selectedDataListKehadiran.jadwal_kerja.forEach(
-            (val: any, index: number) => {
-              if (val.tgl === res.tgl)
-                this.selectedDataListKehadiran.jadwal_kerja[index] = res;
+              this.selectedDataListKehadiran.jadwal_kerja.forEach(
+                (val: any, index: number) => {
+                  if (val.tgl === res.tgl)
+                    this.selectedDataListKehadiran.jadwal_kerja[index] = res;
+                }
+              );
+
+              this.api
+                .updateData(
+                  environment.tabelListKehadiran,
+                  this.selectedDataListKehadiran,
+                  this.selectedDataListKehadiran.id
+                )
+                .subscribe(() => this.getDataListKehadiran());
+            } else {
+              this.getDataListKehadiran();
             }
-          );
-
-          this.api
-            .updateData(
-              environment.tabelListKehadiran,
-              this.selectedDataListKehadiran,
-              this.selectedDataListKehadiran.id
-            )
-            .subscribe(() => this.getDataListKehadiran());
-        } else {
-          this.getDataListKehadiran();
-        }
-      });
+          })
+      : alert('Anda tidak memiliki Akses');
   }
 
   dateFormat(date: string) {
@@ -286,6 +299,9 @@ export class ListKehadiranComponent implements OnInit {
     const wb = utils.book_new();
 
     utils.book_append_sheet(wb, ws);
-    writeFileXLSX(wb, name + '.xlsx');
+
+    this.akses.download
+      ? writeFileXLSX(wb, name + '.xlsx')
+      : alert('Anda tidak memiliki Akses');
   }
 }

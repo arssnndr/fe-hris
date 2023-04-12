@@ -1,30 +1,14 @@
-<!-- Modal delete -->
-<div *ngIf="isDelete">
-    <mat-dialog-content class="delete">
-        <img class="left" src="../../../../../assets/icon/danger.svg" alt="icon-danger" />
-        <p style="padding-left: 55px">Yakin data akan di void?</p>
-    </mat-dialog-content>
-    <mat-dialog-actions align="end">
-        <button class="ya waves-effect waves-light" mat-dialog-close="ya">
-            Ya
-        </button>
-        <button class="tidak waves-effect waves-dark transparent" mat-dialog-close="tidak">
-            Tidak
-        </button>
-    </mat-dialog-actions>
-</div>
-
-<!-- Modal tambah or edit -->
-<div class="tambah" *ngIf="isTambah || isEdit">
+<div class="tambah">
     <h2 mat-dialog-title>Kalender Kerja</h2>
     <mat-dialog-content>
         <div style="display: block;" *ngFor="let row of setForm">
             <div class="right" style="margin-top: 10px;">
                 <h6>{{row.label}}</h6>
-                <input *ngIf="row.form === 'input'" [type]="row.type" [placeholder]="row.label" class="browser-default"
-                    [(ngModel)]="tambahData[row.id]" />
+                <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" [placeholder]="row.label"
+                    class="browser-default" [(ngModel)]="tambahData[row.id]" />
 
-                <select *ngIf="row.form === 'select'" class="browser-default" [(ngModel)]="tambahData[row.id]">
+                <select [disabled]="!akses" *ngIf="row.form === 'select'" class="browser-default"
+                    [(ngModel)]="tambahData[row.id]">
                     <option *ngFor="let option of row.value" [value]="option">
                         {{ option }}
                     </option>
@@ -34,7 +18,7 @@
         <div class="right" style="width: 405.37px;">
             <div class="switch">
                 <label style="height: 50px; padding-top: 10px;">
-                    <input type="checkbox" [(ngModel)]="tambahData.potong_cuti">
+                    <input [disabled]="!akses" type="checkbox" [(ngModel)]="tambahData.potong_cuti">
                     <span class="lever" style="margin-left: 0px;"></span>
                     <span style="color: #000000DE; font-size: 17.25px;">
                         {{ tambahData.potong_cuti ? 'Tidak' : ''}} Potong Cuti Tahunan
@@ -44,7 +28,7 @@
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button class="simpan waves-effect waves-light" [mat-dialog-close]="tambahData">
+        <button [disabled]="!akses" class="simpan waves-effect waves-light" [mat-dialog-close]="tambahData">
             Simpan
         </button>
         <button class="batal waves-effect waves-light transparent" [mat-dialog-close]="undefined">
