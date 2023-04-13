@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="content">
+        <img src="../../../../assets/icon/danger.svg" alt="danger-icon" />
+        <p>Kamu akan kembali ke layar login</p>
+    </div>
+
+    <div class="actions">
+        <button class="ya waves-effect waves-dark" mat-dialog-close="logout">Log Out</button>
+        <button class="tidak waves-effect waves-light" [mat-dialog-close]="undefined">
+            Batal
+        </button>
+    </div>
+</div>

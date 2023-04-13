@@ -139,13 +139,13 @@
         <span>
           <button mat-fab class="imageButton transparent z-depth-0" [matMenuTriggerFor]="menu"></button>
           <mat-menu style="background-color: #fff9f9" #menu>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="gantiPassword()">
               <span>
                 <mat-icon>key</mat-icon>
               </span>
               Ganti Password
             </button>
-            <button mat-menu-item routerLink="login" (click)="logOut()">
+            <button mat-menu-item (click)="logOut()">
               <span>
                 <mat-icon>logout</mat-icon>
               </span>

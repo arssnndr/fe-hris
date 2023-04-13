@@ -8,9 +8,8 @@ import { GantiNipComponent } from './components/ganti-nip/ganti-nip.component';
 import { LogHistoryComponent } from './components/log-history/log-history.component';
 import { environment } from 'src/environments/environment';
 import { ApiService } from './shared/api.service';
-
-const storage: any = localStorage.getItem('user');
-const user = JSON.parse(storage);
+import { LogoutConfirmComponent } from './components/modals/logout-confirm/logout-confirm.component';
+import { GantiPasswordComponent } from './components/modals/ganti-password/ganti-password.component';
 
 @Component({
   selector: 'app-root',
@@ -82,23 +81,23 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    if (user !== null) {
+    if (this.akses != null) {
       this.isLogin = true;
-      this.email = user.email;
+      this.email = this.akses.email;
 
       this.api
         .getData(environment.tabelUser + '?email=' + this.email)
         .subscribe((res) => {
           if (res.length == 0) {
             this.isLogin = false;
-            this.router.navigate(['/login']);
+            this.router.navigate(['login']);
           } else {
             localStorage.setItem('user', JSON.stringify(res[0]));
           }
         });
     } else {
       this.isLogin = false;
-      this.router.navigate(['/login']);
+      this.router.navigate(['login']);
     }
   }
 
@@ -138,9 +137,29 @@ export class AppComponent {
       });
   }
 
+  gantiPassword() {
+    this.dialog
+      .open(GantiPasswordComponent)
+      .afterClosed()
+      .subscribe((result) => {
+        if (result != undefined) {
+          this.api
+            .updateData(environment.tabelUser, result, result.id)
+            .subscribe(() => alert('Password berhasil diubah'));
+        }
+      });
+  }
+
   logOut() {
-    localStorage.clear();
-    window.location.replace('/login');
+    this.dialog
+      .open(LogoutConfirmComponent)
+      .afterClosed()
+      .subscribe((result) => {
+        if (result == 'logout') {
+          localStorage.clear();
+          window.location.replace('/login');
+        }
+      });
   }
 
   setActive(item: string) {
@@ -239,10 +258,9 @@ export class AppComponent {
       case 'logHistory':
         this.logHistory = true;
         break;
-      case 'login':
-        break;
       default:
-        this.router.navigate(['/dashboard']);
+        if (!this.isLogin) this.router.navigate(['login']);
+        else this.router.navigate(['dashboard']);
         break;
     }
   }

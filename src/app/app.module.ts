@@ -69,6 +69,8 @@ import { ModalSetupJadwalKerjaUploadComponent } from './components/master/setup-
 import { ModalSetupJadwalKerjaIndividuComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-individu/modal-setup-jadwal-kerja-individu.component';
 import { VoidComponent } from './components/modals/void/void.component';
 import { ModalFilterDialogComponent } from './components/list-kehadiran/modal-filter-dialog/modal-filter-dialog.component';
+import { LogoutConfirmComponent } from './components/modals/logout-confirm/logout-confirm.component';
+import { GantiPasswordComponent } from './components/modals/ganti-password/ganti-password.component';
 
 @NgModule({
   declarations: [
@@ -115,6 +117,8 @@ import { ModalFilterDialogComponent } from './components/list-kehadiran/modal-fi
     ModalSetupJadwalKerjaIndividuComponent,
     VoidComponent,
     ModalFilterDialogComponent,
+    LogoutConfirmComponent,
+    GantiPasswordComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

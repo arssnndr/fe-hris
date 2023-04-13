@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/shared/api.service';
 import { environment as env } from 'src/environments/environment';
 
 @Component({
@@ -10,18 +11,22 @@ import { environment as env } from 'src/environments/environment';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  akses = this.api.akses;
+
   public loginForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
-  ) {}
+    router: Router,
+    private api: ApiService
+  ) {
+    if (this.akses != null) {
+      router.navigateByUrl('/dashboard');
+    }
+  }
 
   ngOnInit(): void {
-    if (localStorage.getItem('user') !== null) {
-      this.router.navigateByUrl('/dashboard');
-    }
     this.loginForm = this.formBuilder.group({
       email: '',
       password: '',

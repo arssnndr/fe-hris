@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Chart } from 'chart.js/auto';
 
 @Component({
@@ -7,8 +8,6 @@ import { Chart } from 'chart.js/auto';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  constructor() {}
-
   jmlKaryawan = [
     {
       for: 'jumlahKaryawan',
