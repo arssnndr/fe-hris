@@ -119,14 +119,10 @@ export class ListKehadiranComponent implements OnInit {
     const element = document.getElementById('filter');
     const rect = element!.getBoundingClientRect();
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
     dialogConfig.position = {
       top: `${rect.bottom}px`,
       right: `${rect.right - rect.left}px`,
     };
-    dialogConfig.width = 'max-content';
-    dialogConfig.height = 'max-content';
     dialogConfig.data = this.filterProfile;
 
     this.dialog

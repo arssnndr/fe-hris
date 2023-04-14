@@ -125,13 +125,9 @@ export class ModalJadwalKerjaComponent implements OnInit {
     let keluar = parseInt(this.jadwalKerja.keluar.slice(0, -3));
     let masuk = parseInt(this.jadwalKerja.masuk.slice(0, -3));
     let mIstirahat = parseInt(this.jadwalKerja.start_break.slice(0, -3));
-    let sIstirahat = parseInt(
-      this.jadwalKerja.end_break === undefined
-        ? ''
-        : this.jadwalKerja.end_break.slice(0, -3)
-    );
+    let sIstirahat = parseInt(this.jadwalKerja.end_break.slice(0, -3));
 
-    this.jadwalKerja.start_break === '' || this.jadwalKerja.end_break === ''
+    this.jadwalKerja.start_break == '' && this.jadwalKerja.end_break == ''
       ? (this.jadwalKerja.total = keluar - masuk)
       : (this.jadwalKerja.total = keluar - masuk - (sIstirahat - mIstirahat));
   }

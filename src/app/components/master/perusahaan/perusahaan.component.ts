@@ -63,7 +63,7 @@ export class PerusahaanComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result != undefined) {
         this.api
-          .updateData(environment.tabelPerusahaan, result, result.id)
+          .updateData(environment.tabelPerusahaan, result, data.id)
           .subscribe(() => {
             this.getPageData();
           });

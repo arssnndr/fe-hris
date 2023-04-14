@@ -90,6 +90,7 @@ export class AppComponent {
         .subscribe((res) => {
           if (res.length == 0) {
             this.isLogin = false;
+            localStorage.removeItem('user');
             this.router.navigate(['login']);
           } else {
             localStorage.setItem('user', JSON.stringify(res[0]));

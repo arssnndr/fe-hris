@@ -113,11 +113,11 @@ export class StatusKehadiranComponent implements OnInit {
       .open(ModalStatusKehadiranComponent, { data: data })
       .afterClosed()
       .subscribe((res) => {
-        if (res !== undefined) {
+        if (res !== undefined)
           this.api
             .updateData(environment.tabelStatusKehadiran, res, res.id)
             .subscribe(() => this.getAllData());
-        }
+        else this.getAllData();
       });
   }
 

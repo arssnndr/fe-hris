@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Lokasi } from 'src/app/interfaces/lokasi';
 import { ApiService } from 'src/app/shared/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-modal-lokasi',
@@ -32,7 +33,9 @@ export class ModalLokasiComponent implements OnInit {
       case 'tambah':
         this.isTambah = true;
 
-        this.idValue = this.data.data;
+        this.api.getData(environment.tabelLokasi).subscribe((result) => {
+          this.idValue = Math.max(...result.map((res: any) => res.id)) + 1;
+        });
         break;
       case 'edit':
         this.isEdit = true;

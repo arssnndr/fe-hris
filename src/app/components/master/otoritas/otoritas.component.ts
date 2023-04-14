@@ -66,9 +66,11 @@ export class OtoritasComponent {
           this.api
             .updateData(environment.tabelUser, result, result.id)
             .subscribe((res) => {
-              localStorage.setItem('user', JSON.stringify(res));
-              this.getPageData();
-              window.location.reload();
+              if (res.email == this.api.akses.email) {
+                localStorage.setItem('user', JSON.stringify(res));
+                this.getPageData();
+                window.location.reload();
+              } else this.getPageData();
             });
         }
       });

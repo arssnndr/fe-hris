@@ -19,6 +19,7 @@ export const environment = {
   tabelKalenderKerja: 'ms_kalenderkerja/',
   tabelMesinFinger: 'ms_mesinfinger/',
   tabelSetupMesinFinger: 'ms_setupmesinfinger/',
+  tabelJadwalKerjaUpload: 'trx_jadwalkerjaupload/',
 };
 
 /*

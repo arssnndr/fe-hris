@@ -53,19 +53,21 @@ export class LokasiComponent implements OnInit {
   }
 
   editData(data: any) {
-    const dialogRef = this.dialog.open(ModalLokasiComponent, {
-      data: { name: 'edit', data: data },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result != undefined) {
-        this.api
-          .updateData(environment.tabelLokasi, result, result.id)
-          .subscribe((res) => {
-            this.getPageData();
-          });
-      }
-    });
+    this.dialog
+      .open(ModalLokasiComponent, {
+        data: { name: 'edit', data: data },
+      })
+      .afterClosed()
+      .subscribe((result) => {
+        if (result != undefined) {
+          console.log(result);
+          this.api
+            .updateData(environment.tabelLokasi, result, data.id)
+            .subscribe(() => {
+              this.getPageData();
+            });
+        }
+      });
   }
 
   deleteData(id: number) {

@@ -8,8 +8,9 @@
     <div class="content">
         <div class="form" *ngFor="let row of formInput">
             <p class="label">{{row.label}}</p>
-            <input [disabled]="!akses" *ngIf="row.form==='input' && row.type!=='checkbox' && row.autocomplete"
-                [type]="row.type" [name]="row.id" [id]="row.id" [ngModel]="dataResult[row.id]" [matAutocomplete]="auto"
+            <input [disabled]="!akses || data!=null"
+                *ngIf="row.form==='input' && row.type!=='checkbox' && row.autocomplete" [type]="row.type"
+                [name]="row.id" [id]="row.id" [ngModel]="dataResult[row.id]" [matAutocomplete]="auto"
                 (ngModelChange)="getKaryawan($event)" class="browser-default">
             <p *ngIf="row.id==='nip'" class="nama">{{dataResult.nama_lengkap}}</p>
             <p *ngIf="row.id==='nip_pengganti'" class="nama">{{dataResult.nama_pengganti}}</p>

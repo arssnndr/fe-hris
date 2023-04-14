@@ -74,6 +74,7 @@ export class BagianKerjaComponent implements OnInit {
             .subscribe(() => {
               this.getPageData();
             });
+        else this.getPageData();
       });
   }
 

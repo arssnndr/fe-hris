@@ -1,0 +1,13 @@
+<section>
+    <p *ngFor="let form of forms">
+        <span>{{form.label}}</span>
+        <select [id]="form.id" class="browser-default" [(ngModel)]="dataFilter[form.id]">
+            <option *ngFor="let opt of form.value" [value]="opt">{{opt}}</option>
+        </select>
+    </p>
+
+    <p>
+        <button class="waves-effect waves-light simpan" (click)="simpan()">Simpan</button>
+        <button class="waves-effect waves-dark batal" [mat-dialog-close]="undefined">Batal</button>
+    </p>
+</section>

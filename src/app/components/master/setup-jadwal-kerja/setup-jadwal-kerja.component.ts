@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
 import { VoidComponent } from '../../modals/void/void.component';
@@ -10,6 +10,7 @@ import * as XLSX from 'xlsx';
 import { environment } from 'src/environments/environment';
 import { utils, writeFileXLSX } from 'xlsx';
 import { Router } from '@angular/router';
+import { FilterProfileDetailComponent } from './filter-profile-detail/filter-profile-detail.component';
 
 @Component({
   selector: 'app-setup-jadwal-kerja',
@@ -36,7 +37,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
     this.getDataJadwalKerjaIndividu();
 
     for (let i = 1; i < 32; i++) {
-      this.dataUpload[0].push(i);
+      this.viewData[0].push(i);
     }
   }
 
@@ -54,16 +55,37 @@ export class SetupJadwalKerjaComponent implements OnInit {
   dataJadwalKerjaPerMonth: any;
   dataFiltered: any;
   dataSelected: any;
+  filterProfileDetail: any = {
+    lokasi: '',
+    perusahaan: '',
+    divisi: '',
+    departemen: '',
+    sub_departemen: '',
+  };
 
   periode = moment().format('YYYY-MM');
   indexProfile = 0;
 
   getDataJadwalKerjaDetail() {
-    this.api.getData(this.tabelJadwalKerjaDetail).subscribe((res) => {
-      this.dataJadwalKerjaDetail = res;
-      this.dataSelected = res[0];
-      this.getDataJadwalKerjaPerMonth(this.indexProfile, this.periode);
-    });
+    this.api
+      .getData(
+        this.tabelJadwalKerjaDetail +
+          '?lokasi_like=' +
+          this.filterProfileDetail.lokasi +
+          '&perusahaan_like=' +
+          this.filterProfileDetail.perusahaan +
+          '&divisi_like=' +
+          this.filterProfileDetail.divisi +
+          '&departemen_like=' +
+          this.filterProfileDetail.departemen +
+          '&sub_departemen_like=' +
+          this.filterProfileDetail.sub_departemen
+      )
+      .subscribe((res) => {
+        this.dataJadwalKerjaDetail = res;
+        this.dataSelected = res[0];
+        this.getDataJadwalKerjaPerMonth(this.indexProfile, this.periode);
+      });
   }
 
   getDataJadwalKerjaPerMonth(index: number, periode: string) {
@@ -75,6 +97,28 @@ export class SetupJadwalKerjaComponent implements OnInit {
         this.dataJadwalKerjaPerMonth.push(res);
       }
     });
+  }
+
+  filterProfile() {
+    const element = document.getElementById('filterProfileDetail');
+    const rect = element!.getBoundingClientRect();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.position = {
+      top: `${rect.bottom}px`,
+      right: `${rect.right - rect.left}px`,
+    };
+    dialogConfig.data = this.filterProfileDetail;
+    dialogConfig.autoFocus = false;
+
+    this.dialog
+      .open(FilterProfileDetailComponent, dialogConfig)
+      .afterClosed()
+      .subscribe((result) => {
+        if (result != undefined) {
+          this.filterProfileDetail = result;
+          this.getDataJadwalKerjaDetail();
+        }
+      });
   }
 
   filterNip(nip: any) {
@@ -128,7 +172,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
           if (res !== undefined) {
             this.api
               .postData(this.tabelJadwalKerjaCategory, res)
-              .subscribe(() => this.getDataJadwalKerjaCategory);
+              .subscribe(() => this.getDataJadwalKerjaCategory());
           }
         });
     } else {
@@ -167,8 +211,10 @@ export class SetupJadwalKerjaComponent implements OnInit {
   }
 
   // UPLOAD
-  dataUpload: any = [['NIP', 'Nama']];
+  viewData: any = [['NIP', 'Nama']];
   isJadwalKerja: any;
+
+  dataForUpload: any = [];
 
   isValid: any = false;
   isFile = false;
@@ -179,11 +225,11 @@ export class SetupJadwalKerjaComponent implements OnInit {
     const target: DataTransfer = <DataTransfer>evt.target;
     if (target.files.length > 1) {
       throw new Error('Cannot use multiple files');
-    }
+    } else {
+      this.fileName = evt.target.files[0].name;
 
-    if (target.files.length === 1) {
-      this.fileName = evt.target.files[0] ? evt.target.files[0].name : '';
       const reader: FileReader = new FileReader();
+
       reader.onload = (e: any) => {
         const bstr: string = e.target.result;
         const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
@@ -191,12 +237,13 @@ export class SetupJadwalKerjaComponent implements OnInit {
         const wsname: string = wb.SheetNames[0];
         const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
-        this.dataUpload = <XLSX.AOA2SheetOpts>(
+        this.viewData = <XLSX.AOA2SheetOpts>(
           XLSX.utils.sheet_to_json(ws, { header: 1 })
         );
         this.isJadwalKerja = <XLSX.AOA2SheetOpts>(
           XLSX.utils.sheet_to_json(ws, { header: 1 })
         );
+
         this.isFile = true;
 
         this.api
@@ -212,7 +259,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
   }
 
   validation(dataKaryawan: any, dataJadwalKerja: any) {
-    this.dataUpload.forEach((res: any, index: number) => {
+    this.viewData.forEach((res: any, index: number) => {
       if (index > 0) {
         res.forEach((ress: any, ind: number) => {
           if (ind < 2) {
@@ -235,7 +282,6 @@ export class SetupJadwalKerjaComponent implements OnInit {
               }
             }
           }
-
           if (ind > 1) {
             for (let jdwl of dataJadwalKerja) {
               if (jdwl.id_jadwal_kerja === ress || ress === 'OFF') {
@@ -249,7 +295,6 @@ export class SetupJadwalKerjaComponent implements OnInit {
         });
       }
     });
-
     const tmp: any[] = [];
     this.isJadwalKerja.forEach((res: any, index: number) => {
       if (index > 0) {
@@ -261,7 +306,23 @@ export class SetupJadwalKerjaComponent implements OnInit {
   }
 
   uploadData() {
-    console.log(this.dataUpload);
+    this.dataForUpload = this.viewData.map((array: any) => {
+      const obj: any = {};
+
+      array.forEach((value: any, index1: number) => {
+        obj[this.viewData[0][index1]] = value;
+      });
+
+      return obj;
+    });
+
+    this.dataForUpload.splice(0, 1);
+
+    this.dataForUpload.forEach((obj: any) =>
+      this.api
+        .postData(environment.tabelJadwalKerjaUpload, obj)
+        .subscribe(() => alert('Data berhasil diupload'))
+    );
   }
 
   // INDIVIDU
@@ -296,11 +357,11 @@ export class SetupJadwalKerjaComponent implements OnInit {
       .open(ModalSetupJadwalKerjaIndividuComponent, { data: data })
       .afterClosed()
       .subscribe((res) => {
-        if (res !== undefined) {
+        if (res !== undefined)
           this.api
             .updateData(this.tabelJadwalKerjaIndividu, res, data.id)
             .subscribe(() => this.getDataJadwalKerjaIndividu());
-        }
+        else this.getDataJadwalKerjaIndividu();
       });
   }
 

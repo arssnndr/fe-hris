@@ -27,34 +27,42 @@ export class ModalSetupJadwalKerjaCategoryComponent {
           case 'lokasi':
             temp = [];
             temp.push(...new Set(res.map((ress: any) => ress.lokasi)));
-            this.formTambahJadwalKerja[index].value = temp.sort();
+            temp = temp.filter((value: any) => value != '').sort();
+            temp.splice(0, 0, 'Pilih lokasi..');
+            this.formTambahJadwalKerja[index].value = temp;
             data !== null
               ? (this.setData.lokasi = data.lokasi)
-              : (this.setData.lokasi = temp.sort()[0]);
+              : (this.setData.lokasi = temp[0]);
             break;
           case 'divisi':
             temp = [];
             temp.push(...new Set(res.map((ress: any) => ress.divisi)));
-            this.formTambahJadwalKerja[index].value = temp.sort();
+            temp = temp.filter((value: any) => value != '').sort();
+            temp.splice(0, 0, 'Pilih divisi..');
+            this.formTambahJadwalKerja[index].value = temp;
             data !== null
               ? (this.setData.divisi = data.divisi)
-              : (this.setData.divisi = temp.sort()[0]);
+              : (this.setData.divisi = temp[0]);
             break;
           case 'departemen':
             temp = [];
             temp.push(...new Set(res.map((ress: any) => ress.departemen)));
-            this.formTambahJadwalKerja[index].value = temp.sort();
+            temp = temp.filter((value: any) => value != '').sort();
+            temp.splice(0, 0, 'Pilih departemen..');
+            this.formTambahJadwalKerja[index].value = temp;
             data !== null
               ? (this.setData.departemen = data.departemen)
-              : (this.setData.departemen = temp.sort()[0]);
+              : (this.setData.departemen = temp[0]);
             break;
           case 'sub_departemen':
             temp = [];
             temp.push(...new Set(res.map((ress: any) => ress.sub_departemen)));
-            this.formTambahJadwalKerja[index].value = temp.sort();
+            temp = temp.filter((value: any) => value != '').sort();
+            temp.splice(0, 0, 'Pilih sub departemen..');
+            this.formTambahJadwalKerja[index].value = temp;
             data !== null
               ? (this.setData.sub_departemen = data.sub_departemen)
-              : (this.setData.sub_departemen = temp.sort()[0]);
+              : (this.setData.sub_departemen = temp[0]);
             break;
         }
       });
@@ -87,10 +95,10 @@ export class ModalSetupJadwalKerjaCategoryComponent {
   dataIdJadwalKerja: any[] = [];
 
   formTambahJadwalKerja = [
-    { id: 'lokasi', label: 'Lokasi', value: [] },
-    { id: 'divisi', label: 'Divisi', value: [] },
-    { id: 'departemen', label: 'Departemen', value: [] },
-    { id: 'sub_departemen', label: 'Sub Departemen', value: [] },
+    { id: 'lokasi', label: 'Lokasi', value: [''] },
+    { id: 'divisi', label: 'Divisi', value: [''] },
+    { id: 'departemen', label: 'Departemen', value: [''] },
+    { id: 'sub_departemen', label: 'Sub Departemen', value: [''] },
   ];
 
   tabelContents = [

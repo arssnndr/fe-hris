@@ -39,7 +39,10 @@ export class ModalStatusKehadiranComponent implements OnInit {
     },
   ];
 
-  constructor(@Inject(MAT_DIALOG_DATA) data: any, private api: ApiService) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private api: ApiService
+  ) {
     if (data !== null) {
       this.dataResult = data;
     } else {

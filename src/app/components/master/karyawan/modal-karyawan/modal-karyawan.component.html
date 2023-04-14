@@ -73,8 +73,14 @@
               [placeholder]="
                 row.placeholder === undefined ? row.label : row.placeholder
               " [(ngModel)]="tambah[row.id]" [disabled]="row.disable||''" />
-            <select [disabled]="!akses" *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id"
-              class="browser-default" [(ngModel)]="tambah[row.id]" (change)="detasir()">
+            <select [disabled]="!akses" *ngIf="row.form === 'select' && row.id != 'lokasi_detasir'" [name]="row.id"
+              [id]="row.id" class="browser-default" [(ngModel)]="tambah[row.id]" (change)="generateNip()">
+              <option *ngFor="let option of row.value" [value]="option">
+                {{ option }}
+              </option>
+            </select>
+            <select [disabled]="!akses" *ngIf="row.form === 'select' && row.id == 'lokasi_detasir'" [name]="row.id"
+              [id]="row.id" class="browser-default" [(ngModel)]="tambah[row.id]" (change)="detasir()">
               <option *ngFor="let option of row.value" [value]="option">
                 {{ option }}
               </option>

@@ -1,0 +1,35 @@
+p {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  margin: 10px 0px;
+  justify-content: right;
+}
+
+span {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+select {
+  height: 40px;
+  width: 250px;
+  border: 1px solid grey;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  border: 1px solid #d85d5d;
+}
+
+button.simpan {
+  background-color: #d85d5d;
+  color: white;
+}
+
+button.batal {
+  background-color: white;
+  color: #d85d5d;
+}

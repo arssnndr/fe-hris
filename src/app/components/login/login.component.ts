@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/api.service';
-import { environment as env } from 'src/environments/environment';
+import { environment as env, environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +22,11 @@ export class LoginComponent implements OnInit {
     private api: ApiService
   ) {
     if (this.akses != null) {
-      router.navigateByUrl('/dashboard');
+      api
+        .getData(environment.tabelUser + '?email_like=' + this.akses.email)
+        .subscribe((result) => {
+          if (result.length != 0) router.navigateByUrl('/dashboard');
+        });
     }
   }
 

@@ -62,7 +62,7 @@
                     </mat-autocomplete>
                     <p class="name">{{dataSelected===undefined?'':dataSelected.nama_lengkap}}</p>
 
-                    <button class="filter">
+                    <button id="filterProfileDetail" class="filter waves-effect waves-dark" (click)="filterProfile()">
                         <mat-icon fontIcon="filter_list"></mat-icon>
                     </button>
                 </div>
@@ -148,11 +148,11 @@
             <div class="tabel">
                 <table class="responsive-tabel striped upload">
                     <thead>
-                        <th *ngFor="let row of dataUpload[0]">{{row}}</th>
+                        <th *ngFor="let row of viewData[0]">{{row}}</th>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let _ of dataUpload, index as i">
-                            <td *ngFor="let row of dataUpload[i+1], index as ii">
+                        <tr *ngFor="let _ of viewData, index as i">
+                            <td *ngFor="let row of viewData[i+1], index as ii">
                                 <span *ngIf="isJadwalKerja[i+1][ii]">{{row}}</span>
                                 <span *ngIf="!isJadwalKerja[i+1][ii]" style="color: red">{{row}}</span>
                             </td>

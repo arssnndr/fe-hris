@@ -27,15 +27,15 @@
                         <td>{{ row.hari }}</td>
                         <td>
                             <select *ngIf="isData" [name]="row.hari" [id]="row.hari" class="tabel browser-default"
-                                (change)="selectIdChange($event.target, row.hari)" [disabled]="!akses">
+                                (change)="selectIdChange($event.target, row.hari)" [disabled]="!akses"
+                                [(ngModel)]="data.jadwal_kerja[i].id_jadwal_kerja">
                                 <option *ngFor="let option of dataIdJadwalKerja" [value]="option">
                                     {{ option }}
                                 </option>
                             </select>
 
                             <select *ngIf="!isData" [name]="row.hari" [id]="row.hari" class="tabel browser-default"
-                                (change)="selectIdChange($event.target, row.hari)"
-                                [(ngModel)]="data.jadwal_kerja[i].id_jadwal_kerja" [disabled]="!akses">
+                                (change)="selectIdChange($event.target, row.hari)" [disabled]="!akses">
                                 <option *ngFor="let option of dataIdJadwalKerja" [value]="option">
                                     {{ option }}
                                 </option>

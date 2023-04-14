@@ -12,6 +12,7 @@ const database = {
   trx_jadwalkerja: [],
   trx_jadwalkerjadetail: [],
   trx_jadwalkerjacategory: [],
+  trx_jadwalkerjaupload: [],
   trx_jadwalkerjaindividu: [],
   ms_kalenderkerja: [],
   ms_mesinfinger: [],
@@ -572,8 +573,15 @@ for (let i = 1; i <= lokasi.length; i++) {
 
 // trx_jadwalkerjadetail
 for (let i = 1; i <= database.ms_karyawan.length; i++) {
-  let { nip, nama_lengkap, perusahaan, divisi, departemen, sub_departemen } =
-    database.ms_karyawan[i - 1];
+  let {
+    nip,
+    nama_lengkap,
+    lokasi,
+    perusahaan,
+    divisi,
+    departemen,
+    sub_departemen,
+  } = database.ms_karyawan[i - 1];
   let jadwalKerja = [];
   for (let j = 1; j <= 12; j++) {
     count = 0;
@@ -597,6 +605,7 @@ for (let i = 1; i <= database.ms_karyawan.length; i++) {
     id: i,
     nip: nip,
     nama_lengkap: nama_lengkap,
+    lokasi: lokasi,
     perusahaan: perusahaan,
     divisi: divisi,
     departemen: departemen,

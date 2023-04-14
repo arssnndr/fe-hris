@@ -65,12 +65,12 @@ import { LogHistoryComponent } from './components/log-history/log-history.compon
 import { ModalPerpanjangKontrakComponent } from './components/master/karyawan/modal-karyawan/modal-perpanjang-kontrak/modal-perpanjang-kontrak.component';
 import { ModalSetupJadwalKerjaDetailComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-detail/modal-setup-jadwal-kerja-detail.component';
 import { ModalSetupJadwalKerjaCategoryComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-category/modal-setup-jadwal-kerja-category.component';
-import { ModalSetupJadwalKerjaUploadComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-upload/modal-setup-jadwal-kerja-upload.component';
 import { ModalSetupJadwalKerjaIndividuComponent } from './components/master/setup-jadwal-kerja/modal-setup-jadwal-kerja-individu/modal-setup-jadwal-kerja-individu.component';
 import { VoidComponent } from './components/modals/void/void.component';
 import { ModalFilterDialogComponent } from './components/list-kehadiran/modal-filter-dialog/modal-filter-dialog.component';
 import { LogoutConfirmComponent } from './components/modals/logout-confirm/logout-confirm.component';
 import { GantiPasswordComponent } from './components/modals/ganti-password/ganti-password.component';
+import { FilterProfileDetailComponent } from './components/master/setup-jadwal-kerja/filter-profile-detail/filter-profile-detail.component';
 
 @NgModule({
   declarations: [
@@ -113,12 +113,12 @@ import { GantiPasswordComponent } from './components/modals/ganti-password/ganti
     ModalPerpanjangKontrakComponent,
     ModalSetupJadwalKerjaDetailComponent,
     ModalSetupJadwalKerjaCategoryComponent,
-    ModalSetupJadwalKerjaUploadComponent,
     ModalSetupJadwalKerjaIndividuComponent,
     VoidComponent,
     ModalFilterDialogComponent,
     LogoutConfirmComponent,
     GantiPasswordComponent,
+    FilterProfileDetailComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

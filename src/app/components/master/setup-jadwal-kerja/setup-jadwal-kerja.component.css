@@ -196,6 +196,7 @@ input#periode {
 
 input#periode.upload {
   width: 150px;
+  border: 1px solid grey;
   border-radius: 4px;
 }
 

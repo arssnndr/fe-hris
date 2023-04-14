@@ -3,6 +3,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { ApiService } from 'src/app/shared/api.service';
 import { ModalPerpanjangKontrakComponent } from './modal-perpanjang-kontrak/modal-perpanjang-kontrak.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-modal-karyawan',
@@ -565,7 +566,7 @@ export class ModalKaryawanComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) data: { name: string; data: any },
+    @Inject(MAT_DIALOG_DATA) private data: { name: string; data: any },
     private dialog: MatDialog
   ) {
     switch (data.name) {
@@ -573,12 +574,16 @@ export class ModalKaryawanComponent implements OnInit {
         this.isTambah = true;
 
         this.tambah.kontrak_ke = this.tambah.data_kontrak.length + 1;
+        this.generateNip();
         break;
       case 'edit':
         this.isEdit = true;
 
         this.tambah = data.data;
         this.tambah.kontrak_ke = this.tambah.data_kontrak.length + 1;
+        if (this.tambah.lokasi_detasir == '')
+          this.tambah.lokasi_detasir = 'Tidak ada';
+        else this.detasir();
 
         this.formTabPekerjaanOrganisasi.splice(2, 0, {
           id: 'tgl_perubahan_detasir',
@@ -593,7 +598,6 @@ export class ModalKaryawanComponent implements OnInit {
           label: 'Lokasi Detasir',
           value: [],
         });
-        this.detasir();
         break;
       case 'filter':
         this.isFilter = true;
@@ -856,6 +860,18 @@ export class ModalKaryawanComponent implements OnInit {
         );
         break;
     }
+  }
+
+  generateNip() {
+    this.api
+      .getData(
+        environment.tabelKaryawan + '?perusahaan_like=' + this.tambah.perusahaan
+      )
+      .subscribe((result) => {
+        this.tambah.nip = (
+          Math.max(...result.map((res: any) => parseInt(res.nip))) + 1
+        ).toString();
+      });
   }
 
   detasir() {

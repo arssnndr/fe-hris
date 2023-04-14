@@ -4,7 +4,7 @@
     <div class="content">
         <div class="form">
             <p>NIP</p>
-            <input [disabled]="!akses" type="number" name="" id="" class="browser-default"
+            <input [disabled]="data!=null" type="number" name="" id="" class="browser-default"
                 (input)="filterKaryawan($event.target)" [matAutocomplete]="auto" [value]="dataJadwalKerjaIndividu.nip">
             <p class="nama">{{dataJadwalKerjaIndividu.nama_lengkap}}</p>
             <mat-autocomplete #auto>
@@ -15,8 +15,8 @@
 
         <div class="form">
             <p>Departemen</p>
-            <input [disabled]="!akses" [value]="dataJadwalKerjaIndividu.departemen" type="text" name="departemen"
-                id="departemen" class="browser-default" disabled>
+            <input [value]="dataJadwalKerjaIndividu.departemen" type="text" name="departemen" id="departemen"
+                class="browser-default" disabled>
 
             <p>Dari</p>
             <input [disabled]="!akses" [(ngModel)]="dataJadwalKerjaIndividu.dari" type="date" name="dari" id="dari"
@@ -25,8 +25,8 @@
 
         <div class="form">
             <p>Perusahaan</p>
-            <input [disabled]="!akses" [value]="dataJadwalKerjaIndividu.perusahaan" type="text" name="perusahaan"
-                id="perusahaan" class="browser-default" disabled>
+            <input [value]="dataJadwalKerjaIndividu.perusahaan" type="text" name="perusahaan" id="perusahaan"
+                class="browser-default" disabled>
 
             <p>Sampai</p>
             <input [disabled]="!akses" [(ngModel)]="dataJadwalKerjaIndividu.sampai" type="date" name="sampai"

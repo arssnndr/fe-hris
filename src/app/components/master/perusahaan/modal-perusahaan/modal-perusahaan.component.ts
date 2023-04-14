@@ -32,7 +32,9 @@ export class ModalPerusahaanComponent implements OnInit {
       case 'tambah':
         this.isTambah = true;
 
-        this.idValue = data.data;
+        api.getData(environment.tabelPerusahaan).subscribe((result) => {
+          this.idValue = Math.max(...result.map((res: any) => res.id)) + 1;
+        });
         break;
       case 'edit':
         this.isEdit = true;
