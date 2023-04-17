@@ -1,73 +1,57 @@
 <h4>Dashboard</h4>
 <div>
-    <h5>Jumlah Karyawan Tanggal 18 Nov 2022</h5>
+    <h5>Jumlah Karyawan Tanggal {{formatDate(tanggal,'DD MMMM YYYY')}}</h5>
     <div class="row">
-        <div *ngFor="let row of jmlKaryawan" style="display: inline-flex;">
-            <mat-card *ngIf="row.for === 'jumlahKaryawan'" class="transparent z-depth-0">
+        <div *ngFor="let chart of dataCharts" style="display: inline-flex;">
+            <mat-card *ngIf="chart.for === 'jumlahKaryawan'" class="transparent z-depth-0">
                 <mat-card-header>
-                    <mat-card-title>{{ row.chartName }}</mat-card-title>
+                    <mat-card-title>{{ chart.chartName }}</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <canvas [id]="row.chartName + 'jumlahKaryawan'"></canvas>
+                    <canvas [id]="chart.chartName + 'jumlahKaryawan'"></canvas>
                 </mat-card-content>
             </mat-card>
         </div>
     </div>
 
-    <h5>Status Kehadiran Bulan September 2022</h5>
+    <h5>Status Kehadiran Bulan {{formatDate(tanggal, 'MMMM YYYY')}}</h5>
     <div class="row">
-        <div *ngFor="let row of jmlKaryawan" style="display: inline-flex;">
-            <mat-card *ngIf="row.for === 'statusKehadiran'" class="transparent z-depth-0">
+        <div *ngFor="let chart of dataCharts" style="display: inline-flex;">
+            <mat-card *ngIf="chart.for === 'statusKehadiran'" class="transparent z-depth-0">
                 <mat-card-header>
                     <mat-card-title>
-                        <h6>{{ row.chartName }}</h6>
+                        <h6>{{ chart.chartName }}</h6>
                     </mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <canvas [id]="row.chartName + 'statusKehadiran'"></canvas>
+                    <canvas [id]="chart.chartName + 'statusKehadiran'"></canvas>
                 </mat-card-content>
             </mat-card>
         </div>
     </div>
 </div>
 
-<h5>Lembur Bulan September 2022</h5>
+<h5>Lembur Bulan {{formatDate(tanggal,'MMMM YYYY')}}</h5>
 <div class="row">
     <table class="responsive-table">
         <thead>
             <tr>
                 <th>Keterangan</th>
-                <th>All</th>
-                <th>TMS 1</th>
-                <th>TMS 2</th>
-                <th>TMS 3</th>
-                <th>TMS 4</th>
+                <th *ngFor="let lokasi of dataLokasi">{{lokasi==''?'All':lokasi}}</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>Jumlah Karyawan Lembur</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td *ngFor="let karyawan of jumlahKaryawanLembur">{{karyawan}}</td>
             </tr>
             <tr>
                 <td>Akumulasi Jam Lembur</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td *ngFor="let jamLembur of akumulasiJamLembur">{{jamLembur}}</td>
             </tr>
             <tr>
                 <td>Rata-Rata Jam Lembur/Orang/Hari</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td *ngFor="let ratarata of rataRataJamLembur">{{ratarata}}</td>
             </tr>
         </tbody>
     </table>

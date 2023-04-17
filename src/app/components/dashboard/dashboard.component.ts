@@ -1,6 +1,9 @@
+import { getMultipleValuesInSingleSelectionError } from '@angular/cdk/collections';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Chart } from 'chart.js/auto';
+import * as moment from 'moment';
+import { ApiService } from 'src/app/shared/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +11,7 @@ import { Chart } from 'chart.js/auto';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  jmlKaryawan = [
+  dataCharts: any = [
     {
       for: 'jumlahKaryawan',
       chartName: 'All',
@@ -57,6 +60,16 @@ export class DashboardComponent {
     {
       for: 'jumlahKaryawan',
       chartName: 'TMS 3',
+      data: [
+        { name: 'TMS', count: 40, color: '#d85d5d90' },
+        { name: 'SPA', count: 100, color: '#d85d5d90' },
+        { name: 'APG', count: 90, color: '#d85d5d90' },
+        { name: 'TOTAL', count: 230, color: '#d85d5d' },
+      ],
+    },
+    {
+      for: 'jumlahKaryawan',
+      chartName: 'TMS 4',
       data: [
         { name: 'TMS', count: 40, color: '#d85d5d90' },
         { name: 'SPA', count: 100, color: '#d85d5d90' },
@@ -196,16 +209,68 @@ export class DashboardComponent {
     },
   ];
 
+  dataLokasi: any = [''];
+  dataPerusahaan: any = [''];
+
+  dataJumlahKaryawanAllPerusahaan: any = {};
+
+  jumlahKaryawanLembur: any = [];
+  akumulasiJamLembur: any = [];
+  rataRataJamLembur: any = [];
+
+  tanggal = moment();
+  jumlahHari = this.tanggal.daysInMonth();
+
+  formatDate(date: any, format: string = 'YYYY-MM-DD') {
+    return moment(date).format(format);
+  }
+
+  constructor(private api: ApiService) {
+    api.getData(environment.tabelLokasi).subscribe((result) => {
+      this.dataLokasi.push(...new Set(result.map((res: any) => res.inisial)));
+
+      for (const lokasi of this.dataLokasi) {
+        this.getDataLembur(lokasi, this.tanggal.format('YYYY-MM'));
+      }
+    });
+
+    api.getData(environment.tabelPerusahaan).subscribe((result) => {
+      this.dataPerusahaan.push(...new Set(result.map((res: any) => res.nama)));
+    });
+  }
+
+  getDataLembur(param: any, tanggal: any) {
+    this.api
+      .getData(
+        environment.tabelLembur +
+          '?lokasi_like=' +
+          param +
+          '&tgl_like=' +
+          tanggal
+      )
+      .subscribe((result) => {
+        let jmlKrywn = result.length;
+        let akmlsJam = result
+          .map((res: any) => res.total_lembur_bulanini)
+          .reduce((acc: any, cur: any) => acc + cur, 0);
+        let rtJam = akmlsJam / this.jumlahHari / jmlKrywn;
+
+        this.jumlahKaryawanLembur.push(jmlKrywn);
+        this.akumulasiJamLembur.push(akmlsJam);
+        this.rataRataJamLembur.push(rtJam.toFixed(2));
+      });
+  }
+
   ngAfterViewInit() {
-    this.jmlKaryawan.map((data) => {
+    this.dataCharts.forEach((data: any) => {
       new Chart(data.chartName + data.for, {
         type: 'bar',
         data: {
-          labels: data.data.map((row) => row.name),
+          labels: data.data.map((row: any) => row.name),
           datasets: [
             {
-              backgroundColor: data.data.map((row) => row.color),
-              data: data.data.map((row) => row.count),
+              backgroundColor: data.data.map((row: any) => row.color),
+              data: data.data.map((row: any) => row.count),
             },
           ],
         },
