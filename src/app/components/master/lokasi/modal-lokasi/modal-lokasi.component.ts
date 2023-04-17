@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Lokasi } from 'src/app/interfaces/lokasi';
 import { ApiService } from 'src/app/shared/api.service';
 import { environment } from 'src/environments/environment';
 
@@ -15,9 +14,11 @@ export class ModalLokasiComponent implements OnInit {
   isTambah = false;
   isEdit = false;
 
+  isSimpan: boolean = false;
+
   idValue = 0;
 
-  lokasi: Lokasi = {
+  lokasi: any = {
     nama: '',
     inisial: '',
     alamat: '',
@@ -27,6 +28,13 @@ export class ModalLokasiComponent implements OnInit {
     private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public data: { name: string; data: any }
   ) {}
+
+  cekForm() {
+    this.isSimpan =
+      (this.lokasi.nama.length < 3 ? false : true) &&
+      (this.lokasi.inisial.length < 3 ? false : true) &&
+      (this.lokasi.alamat.length < 3 ? false : true);
+  }
 
   ngOnInit(): void {
     switch (this.data.name) {

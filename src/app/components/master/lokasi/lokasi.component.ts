@@ -33,6 +33,10 @@ export class LokasiComponent implements OnInit {
     if (!this.akses.view) router.navigate(['dashboard']);
   }
 
+  sliceString(string: string, length: number) {
+    return string.slice(0, length);
+  }
+
   tambahData() {
     if (this.akses.edit) {
       const dialogRef = this.dialog.open(ModalLokasiComponent, {

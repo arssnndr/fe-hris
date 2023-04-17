@@ -4,7 +4,7 @@
     <div class="right">
       <h6>User</h6>
       <input class="browser-default user" type="text" [matAutocomplete]="auto" (input)="searchKaryawan($event.target)"
-        [value]="dataUser.nip" [disabled]="!aksesEdit" />
+        [value]="dataUser.nip" [disabled]="!aksesEdit || data!=null" />
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredKaryawan" (click)="selectKaryawan(option)">{{ option.nip + " - " +
           option.nama_lengkap }}</mat-option>
@@ -21,7 +21,7 @@
       <h6>Password</h6>
       <div>
         <input placeholder="Password" [type]="hide1 ? 'password' : 'text'" class="browser-default password"
-          [(ngModel)]="dataUser.password" [disabled]="!aksesEdit" />
+          minlength="2" maxlength="30" [(ngModel)]="dataUser.password" [disabled]="!aksesEdit" />
         <button (click)="hide1 = !hide1" class="visible">
           <img src="../../../../../assets/icon/eye_close.svg" alt="eye_close" *ngIf="hide1" />
           <img src="../../../../../assets/icon/eye.svg" alt="eye_close" *ngIf="!hide1" />
@@ -32,7 +32,7 @@
       <h6>Konfirmasi</h6>
       <div>
         <input placeholder="Konfirmasi Password" [type]="hide2 ? 'password' : 'text'" class="browser-default password"
-          (input)="konfirmPwd($event.target)" [value]="konfirmPassword" />
+          minlength="2" maxlength="30" (input)="konfirmPwd($event.target)" [value]="konfirmPassword" />
         <button (click)="hide2 = !hide2" class="visible">
           <img src="../../../../../assets/icon/eye_close.svg" alt="eye_close" *ngIf="hide2" />
           <img src="../../../../../assets/icon/eye.svg" alt="eye_close" *ngIf="!hide2" />
@@ -44,7 +44,8 @@
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button type="submit" class="simpan waves-effect waves-light" [mat-dialog-close]="dataUser">
+    <button type="submit" class="simpan waves-effect waves-light" [mat-dialog-close]="dataUser"
+      [disabled]="dataUser.password !== konfirmPassword || !aksesEdit">
       Simpan
     </button>
     <button class="batal waves-effect waves-light transparent" [mat-dialog-close]="undefined">

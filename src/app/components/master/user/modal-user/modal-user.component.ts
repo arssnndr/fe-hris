@@ -1,5 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { User } from 'src/app/interfaces/user';
 
@@ -8,7 +12,7 @@ import { User } from 'src/app/interfaces/user';
   templateUrl: './modal-user.component.html',
   styleUrls: ['./modal-user.component.css'],
 })
-export class ModalUserComponent implements OnInit {
+export class ModalUserComponent {
   aksesEdit = this.api.akses.role_user.edit;
 
   hide1 = true;
@@ -123,7 +127,12 @@ export class ModalUserComponent implements OnInit {
     },
   };
 
-  constructor(private api: ApiService, @Inject(MAT_DIALOG_DATA) data: any) {
+  constructor(
+    private api: ApiService,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private dialogRef: MatDialogRef<ModalUserComponent>,
+    private dialog: MatDialog
+  ) {
     if (data != null) {
       this.dataUser = data;
       this.dataUser.password = data.password;
@@ -132,8 +141,6 @@ export class ModalUserComponent implements OnInit {
       this.dataUser.akses = this.akses[0];
     }
   }
-
-  ngOnInit(): void {}
 
   searchKaryawan(data: any) {
     this.api
@@ -159,6 +166,9 @@ export class ModalUserComponent implements OnInit {
     this.api.getData(this.tableUserId + '?nip=' + data.nip).subscribe((res) => {
       if (res.length !== 0) {
         window.alert('NIP telah terdaftar sebagai User');
+        new Promise((resolve) => {
+          resolve(this.dialogRef.close());
+        }).then(() => this.dialog.open(ModalUserComponent));
       }
     });
   }

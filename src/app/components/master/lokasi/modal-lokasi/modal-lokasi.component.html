@@ -7,19 +7,22 @@
     </div>
     <div class="right">
       <h6>Lokasi</h6>
-      <input [(ngModel)]="lokasi.nama" type="text" class="browser-default" [disabled]="!akses" />
+      <input [(ngModel)]="lokasi.nama" type="text" class="browser-default" minlength="3" maxlength="50"
+        (input)="cekForm()" [disabled]="!akses" />
     </div>
     <div class="right">
       <h6>Inisial</h6>
-      <input [(ngModel)]="lokasi.inisial" type="text" class="browser-default" [disabled]="!akses" />
+      <input [(ngModel)]="lokasi.inisial" type="text" class="browser-default" minlength="3" maxlength="6"
+        (input)="cekForm()" [disabled]="!akses" />
     </div>
     <div class="right alamat">
       <h6>Alamat</h6>
-      <textarea [(ngModel)]="lokasi.alamat" [disabled]="!akses"></textarea>
+      <textarea [(ngModel)]="lokasi.alamat" maxlength="255" [disabled]="!akses" (input)="cekForm()"></textarea>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button type="submit" class="simpan waves-effect waves-light" [mat-dialog-close]="lokasi" [disabled]="!akses">
+    <button type="submit" class="simpan waves-effect waves-light" [mat-dialog-close]="lokasi"
+      [disabled]="!akses || !isSimpan">
       Simpan
     </button>
     <button class="batal waves-effect waves-light transparent" [mat-dialog-close]="undefined">

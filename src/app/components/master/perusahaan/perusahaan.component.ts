@@ -33,6 +33,10 @@ export class PerusahaanComponent implements OnInit {
     if (!this.akses.view) router.navigate(['/dashboard']);
   }
 
+  sliceString(string: any, length: number) {
+    return string.slice(0, length);
+  }
+
   tambahData() {
     if (this.akses.edit) {
       this.dialog
