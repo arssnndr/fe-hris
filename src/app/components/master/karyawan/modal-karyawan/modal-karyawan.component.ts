@@ -129,18 +129,26 @@ export class ModalKaryawanComponent implements OnInit {
     {
       id: 'nik',
       form: 'input',
-      type: 'text',
+      maxlength: 16,
+      type: 'number',
       label: 'NIK',
       placeholder: 'Nomor Induk Kependudukan',
     },
     {
       id: 'nama_lengkap',
       form: 'input',
+      maxlength: 30,
       type: 'text',
       label: 'Nama',
       placeholder: 'Nama Lengkap',
     },
-    { id: 'tempat_lahir', form: 'input', type: 'text', label: 'Tempat Lahir' },
+    {
+      id: 'tempat_lahir',
+      maxlength: 50,
+      form: 'input',
+      type: 'text',
+      label: 'Tempat Lahir',
+    },
     { id: 'tgl_lahir', form: 'input', type: 'date', label: 'Tgl Lahir' },
     {
       id: 'jenis_kelamin',
@@ -148,9 +156,20 @@ export class ModalKaryawanComponent implements OnInit {
       label: 'Jenis Kelamin',
       value: ['Laki-laki', 'Perempuan'],
     },
-    { id: 'alamat_domisili', form: 'textarea', label: 'Alamat Domisili' },
-    { id: 'rt_rw', form: 'input', type: 'text', label: 'RT/RW' },
-    { id: 'kel_des', form: 'input', type: 'text', label: 'Kel/Desa' },
+    {
+      id: 'alamat_domisili',
+      form: 'textarea',
+      label: 'Alamat Domisili',
+      maxlength: 200,
+    },
+    { id: 'rt_rw', form: 'input', type: 'text', label: 'RT/RW', maxlength: 6 },
+    {
+      id: 'kel_des',
+      form: 'input',
+      type: 'text',
+      label: 'Kel/Desa',
+      maxlength: 50,
+    },
     {
       id: 'agama',
       label: 'Agama',
@@ -171,14 +190,21 @@ export class ModalKaryawanComponent implements OnInit {
       label: 'Status Perkawinan',
       value: ['Kawin', 'Belum Kawin', 'Cerai'],
     },
-    { id: 'nomor_npwp', form: 'input', type: 'text', label: 'Nomor NPWP' },
+    {
+      id: 'nomor_npwp',
+      maxlength: 16,
+      form: 'input',
+      type: 'number',
+      label: 'Nomor NPWP',
+    },
     {
       id: 'nomor_telepon',
       form: 'input',
+      maxlength: 13,
       type: 'text',
       label: 'Nomor Telepon',
     },
-    { id: 'email', form: 'input', type: 'text', label: 'Email' },
+    { id: 'email', maxlength: 50, form: 'input', type: 'text', label: 'Email' },
     {
       id: 'pendidikan_terakhir',
       form: 'select',
@@ -200,31 +226,48 @@ export class ModalKaryawanComponent implements OnInit {
     {
       id: 'nomor_bpjs_tk',
       form: 'input',
+      maxlength: 11,
       type: 'text',
       label: 'Nomor BPJS TK',
     },
     {
+      maxlength: 13,
       id: 'nomor_bpjs_kesehatan',
       form: 'input',
       type: 'text',
       label: 'Nomor BPJS Kesehatan',
     },
-    { id: 'nama_faskes', form: 'input', type: 'text', label: 'Nama Faskes' },
+    {
+      id: 'nama_faskes',
+      form: 'input',
+      type: 'text',
+      maxlength: 30,
+      label: 'Nama Faskes',
+    },
     {
       id: 'alamat_faskes',
+      maxlength: 50,
       form: 'input',
       type: 'text',
       label: 'Alamat Faskes',
     },
-    { id: 'nomor_kk', form: 'input', type: 'text', label: 'Nomor KK' },
+    {
+      id: 'nomor_kk',
+      form: 'input',
+      type: 'text',
+      maxlength: 16,
+      label: 'Nomor KK',
+    },
     {
       id: 'nama_kepala_keluarga',
+      maxlength: 30,
       form: 'input',
       type: 'text',
       label: 'Nama Kepala Keluarga',
     },
     {
       id: 'nama_ibu_kandung',
+      maxlength: 30,
       form: 'input',
       type: 'text',
       label: 'Nama Ibu Kandung',
@@ -251,23 +294,27 @@ export class ModalKaryawanComponent implements OnInit {
     {
       id: 'nama_pasangan',
       form: 'input',
+      maxlength: 30,
       type: 'text',
       label: 'Nama Pasangan',
     },
     {
       id: 'nama_anak_ke1',
       form: 'input',
+      maxlength: 30,
       type: 'text',
       label: 'Nama Anak Ke-1',
     },
     {
       id: 'nama_anak_ke2',
+      maxlength: 30,
       form: 'input',
       type: 'text',
       label: 'Nama Anak Ke-2',
     },
     {
       id: 'nama_anak_ke3',
+      maxlength: 30,
       form: 'input',
       type: 'text',
       label: 'Nama Anak Ke-3',
@@ -275,11 +322,13 @@ export class ModalKaryawanComponent implements OnInit {
     {
       id: 'nama_kontak_darurat',
       form: 'input',
+      maxlength: 30,
       type: 'text',
       label: 'Nama Kontak Darurat',
     },
     {
       id: 'nomor_kontak_darurat',
+      maxlength: 13,
       form: 'input',
       type: 'text',
       label: 'Nomor Kontak Darurat',
@@ -288,6 +337,7 @@ export class ModalKaryawanComponent implements OnInit {
       id: 'hubungan_dengan_karyawan',
       form: 'input',
       type: 'text',
+      maxlength: 50,
       label: 'Hubungan Dengan Karyawan',
     },
   ];
@@ -303,16 +353,24 @@ export class ModalKaryawanComponent implements OnInit {
       id: 'nomor_passport',
       form: 'input',
       type: 'text',
+      maxlength: 7,
       label: 'Nomor Passport',
     },
     {
       id: 'nama_lengkap',
       form: 'input',
+      maxlength: 30,
       type: 'text',
       label: 'Nama',
       placeholder: 'Nama Lengkap',
     },
-    { id: 'tempat_lahir', form: 'input', type: 'text', label: 'Tempat Lahir' },
+    {
+      id: 'tempat_lahir',
+      form: 'input',
+      maxlength: 50,
+      type: 'text',
+      label: 'Tempat Lahir',
+    },
     { id: 'tgl_lahir', form: 'input', type: 'date', label: 'Tgl Lahir' },
     {
       id: 'tgl_pembuatan_passport',
@@ -326,7 +384,13 @@ export class ModalKaryawanComponent implements OnInit {
       type: 'date',
       label: 'Tanggal Berakhir Passport',
     },
-    { id: 'kebangsaan', form: 'input', type: 'text', label: 'Kebangsaan' },
+    {
+      id: 'kebangsaan',
+      form: 'input',
+      type: 'text',
+      label: 'Kebangsaan',
+      maxlength: 56,
+    },
     {
       id: 'agama',
       label: 'Agama',
@@ -344,34 +408,54 @@ export class ModalKaryawanComponent implements OnInit {
     {
       id: 'nomor_telepon',
       form: 'input',
+      maxlength: 13,
       type: 'text',
       label: 'Nomor Telepon',
     },
-    { id: 'email', form: 'input', type: 'text', label: 'Email' },
-    { id: 'nomor_kitas', form: 'input', type: 'text', label: 'Nomor Kitas' },
+    { id: 'email', form: 'input', maxlength: 30, type: 'text', label: 'Email' },
+    {
+      id: 'nomor_kitas',
+      form: 'input',
+      maxlength: 20,
+      type: 'text',
+      label: 'Nomor Kitas',
+    },
     {
       id: 'tgl_berakhir_kitas',
       form: 'input',
       type: 'date',
       label: 'Tanggal Berakhir Kitas',
     },
-    { id: 'nomor_rptka', form: 'input', type: 'text', label: 'Nomor RPTKA' },
+    {
+      id: 'nomor_rptka',
+      form: 'input',
+      type: 'text',
+      maxlength: 20,
+      label: 'Nomor RPTKA',
+    },
     {
       id: 'tgl_berakhir_rptka',
       form: 'input',
       type: 'date',
       label: 'Tanggal Berakhir RPTKA',
     },
-    { id: 'nomor_npwp', form: 'input', type: 'text', label: 'Nomor NPWP' },
+    {
+      id: 'nomor_npwp',
+      form: 'input',
+      type: 'text',
+      maxlength: 16,
+      label: 'Nomor NPWP',
+    },
   ];
 
-  formTabPekerjaanOrganisasi = [
+  formTabPekerjaanOrganisasi: any = [
     { id: 'perusahaan', form: 'select', label: 'Perusahaan', value: [''] },
     {
       id: 'nip',
       form: 'input',
       type: 'text',
       label: 'NIP',
+      maxlength: 6,
       placeholder: '000000',
       disable: true,
     },
@@ -379,6 +463,7 @@ export class ModalKaryawanComponent implements OnInit {
       id: 'pin_finger',
       form: 'input',
       type: 'text',
+      maxlength: 6,
       label: 'Pin Finger',
       placeholder: '000000',
       disable: true,
@@ -417,6 +502,7 @@ export class ModalKaryawanComponent implements OnInit {
       id: 'nama_pemberi_referensi',
       form: 'input',
       type: 'text',
+      maxlength: 30,
       label: 'Nama Pemberi Referensi',
       disable: false,
     },
@@ -424,6 +510,7 @@ export class ModalKaryawanComponent implements OnInit {
       id: 'nama_atasan_langsung',
       form: 'input',
       type: 'text',
+      maxlength: 30,
       label: 'Nama Atasan Langsung',
       disable: false,
     },
@@ -431,30 +518,58 @@ export class ModalKaryawanComponent implements OnInit {
 
   formTabPeriodeKontrakPkwtt = [
     { id: 'tgl_join', form: 'input', type: 'date', label: 'Tanggal Join' },
-    { id: 'nomor_pkwtt', form: 'input', type: 'text', label: 'Nomor PKWTT' },
+    {
+      id: 'nomor_pkwtt',
+      maxlength: 50,
+      form: 'input',
+      type: 'text',
+      label: 'Nomor PKWTT',
+    },
   ];
 
-  formTabPeriodeKontrakPkwttEdit = [
-    { id: 'tgl_join', form: 'input', type: 'date', label: 'Tanggal Join' },
-    { id: 'nomor_pkwtt', form: 'input', type: 'text', label: 'Nomor PKWTT' },
-    { id: 'masa_kerja', form: 'input', type: 'text', label: 'Masa Kerja' },
+  formTabPeriodeKontrakPkwttEdit: any = [
+    {
+      id: 'tgl_join',
+      form: 'input',
+      type: 'date',
+      label: 'Tanggal Join',
+      disable: true,
+    },
+    {
+      id: 'nomor_pkwtt',
+      form: 'input',
+      maxlength: 50,
+      type: 'text',
+      label: 'Nomor PKWTT',
+      disable: true,
+    },
+    {
+      id: 'masa_kerja',
+      form: 'input',
+      type: 'text',
+      label: 'Masa Kerja',
+      disable: true,
+    },
     {
       id: 'tgl_muncul_hak_cuti',
       form: 'input',
       type: 'date',
       label: 'Tanggal Muncul Hak Cuti',
+      disable: true,
     },
     {
       id: 'tgl_berakhir_hak_cuti',
       form: 'input',
       type: 'date',
       label: 'Tanggal Berakhir Hak Cuti',
+      disable: true,
     },
     {
       id: 'banyak_hak_cuti',
       form: 'input',
       type: 'text',
       label: 'Banyak Hak Cuti',
+      disable: true,
     },
   ];
 
@@ -463,11 +578,18 @@ export class ModalKaryawanComponent implements OnInit {
     {
       id: 'nomor_pkwt',
       form: 'input',
+      maxlength: 50,
       type: 'text',
       label: 'Nomor PKWT',
       placeholder: 'Nomor Kontrak',
     },
-    { id: 'kontrak_ke', form: 'input', type: 'text', label: 'Kontrak Ke-' },
+    {
+      id: 'kontrak_ke',
+      form: 'input',
+      type: 'text',
+      label: 'Kontrak Ke-',
+      disable: true,
+    },
     {
       id: 'mulai_kontrak',
       form: 'input',
@@ -482,16 +604,23 @@ export class ModalKaryawanComponent implements OnInit {
     },
   ];
 
-  formTabPeriodeKontrakPkwtEdit = [
+  formTabPeriodeKontrakPkwtEdit: any = [
     { id: 'tgl_join', form: 'input', type: 'date', label: 'Tanggal Join' },
     {
       id: 'nomor_pkwt',
       form: 'input',
       type: 'text',
+      maxlength: 50,
       label: 'Nomor PKWT',
       placeholder: 'Nomor Kontrak',
     },
-    { id: 'kontrak_ke', form: 'input', type: 'text', label: 'Kontrak Ke-' },
+    {
+      id: 'kontrak_ke',
+      form: 'input',
+      type: 'text',
+      label: 'Kontrak Ke-',
+      disable: true,
+    },
     {
       id: 'mulai_kontrak',
       form: 'input',
@@ -530,6 +659,7 @@ export class ModalKaryawanComponent implements OnInit {
       id: 'nomor_surat_kerja',
       form: 'input',
       type: 'text',
+      maxlength: 30,
       label: 'Nomor Surat Kerja',
     },
     {
@@ -547,15 +677,28 @@ export class ModalKaryawanComponent implements OnInit {
   ];
 
   formTabGajiKaryawan = [
-    { id: 'gaji_pokok', form: 'input', type: 'text', label: 'Gaji Pokok' },
-    { id: 'uang_makan', form: 'input', type: 'text', label: 'Uang Makan' },
+    {
+      id: 'gaji_pokok',
+      form: 'input',
+      type: 'text',
+      maxlength: 15,
+      label: 'Gaji Pokok',
+    },
+    {
+      id: 'uang_makan',
+      form: 'input',
+      type: 'text',
+      maxlength: 15,
+      label: 'Uang Makan',
+    },
     {
       id: 'uang_transport',
       form: 'input',
       type: 'text',
+      maxlength: 15,
       label: 'Uang Transport',
     },
-    { id: 'note', form: 'textarea', label: 'Note' },
+    { id: 'note', form: 'textarea', label: 'Note', maxlength: 150 },
     {
       id: 'tgl_perubahan_gaji',
       form: 'input',
@@ -616,7 +759,7 @@ export class ModalKaryawanComponent implements OnInit {
         }
       });
 
-      this.formTabPekerjaanOrganisasi.forEach((val) => {
+      this.formTabPekerjaanOrganisasi.forEach((val: any) => {
         if (val.id === 'lokasi') {
           val.value = listLokasi;
         }
@@ -634,7 +777,7 @@ export class ModalKaryawanComponent implements OnInit {
           val.value = listPerusahaan;
         }
       });
-      this.formTabPekerjaanOrganisasi.forEach((val) => {
+      this.formTabPekerjaanOrganisasi.forEach((val: any) => {
         if (val.id === 'perusahaan') {
           val.value = listPerusahaan;
         }
@@ -661,7 +804,7 @@ export class ModalKaryawanComponent implements OnInit {
             break;
         }
       });
-      this.formTabPekerjaanOrganisasi.forEach((val) => {
+      this.formTabPekerjaanOrganisasi.forEach((val: any) => {
         switch (val.id) {
           case 'divisi':
             val.value = listDivisi;
@@ -782,6 +925,7 @@ export class ModalKaryawanComponent implements OnInit {
           {
             id: 'alasan_terminasi',
             form: 'input',
+            maxlength: 150,
             type: 'text',
             label: 'Alasan Terminasi',
           }
@@ -796,10 +940,12 @@ export class ModalKaryawanComponent implements OnInit {
             form: 'input',
             type: 'date',
             label: 'Tanggal Efektif Terminasi',
+            disable: false,
           },
           {
             id: 'alasan_terminasi',
             form: 'input',
+            maxlength: 150,
             type: 'text',
             label: 'Alasan Terminasi',
           }
@@ -819,6 +965,7 @@ export class ModalKaryawanComponent implements OnInit {
             id: 'alasan_terminasi',
             form: 'input',
             type: 'text',
+            maxlength: 150,
             label: 'Alasan Terminasi',
           }
         );
@@ -836,6 +983,7 @@ export class ModalKaryawanComponent implements OnInit {
           {
             id: 'alasan_terminasi',
             form: 'input',
+            maxlength: 150,
             type: 'text',
             label: 'Alasan Terminasi',
           }
@@ -854,6 +1002,7 @@ export class ModalKaryawanComponent implements OnInit {
           {
             id: 'alasan_terminasi',
             form: 'input',
+            maxlength: 150,
             type: 'text',
             label: 'Alasan Terminasi',
           }
@@ -901,6 +1050,7 @@ export class ModalKaryawanComponent implements OnInit {
             type: '',
             label: 'Alasan Detasir',
             disable: false,
+            maxlength: 150,
           }
         );
       }

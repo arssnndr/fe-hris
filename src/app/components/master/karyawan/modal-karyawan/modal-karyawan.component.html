@@ -34,9 +34,8 @@
             <div class="form" *ngFor="let row of formTabPribadiWni">
               <p>{{ row.label }}</p>
               <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
-                [placeholder]="
-                  row.placeholder === undefined ? row.label : row.placeholder
-                " [(ngModel)]="tambah[row.id]" />
+                [placeholder]="row.placeholder === undefined ? row.label : row.placeholder"
+                [maxlength]="row.maxlength==undefined?30:row.maxlength" [(ngModel)]="tambah[row.id]" />
               <select [disabled]="!akses" *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id"
                 class="browser-default" [(ngModel)]="tambah[row.id]">
                 <option *ngFor="let option of row.value" [value]="option">
@@ -51,9 +50,8 @@
             <div class="form" *ngFor="let row of formTabPribadiWna">
               <p>{{ row.label }}</p>
               <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
-                [placeholder]="
-                  row.placeholder === undefined ? row.label : row.placeholder
-                " [(ngModel)]="tambah[row.id]" />
+                [placeholder]="row.placeholder === undefined ? row.label : row.placeholder"
+                [maxlength]="row.maxlength==undefined?30:row.maxlength" [(ngModel)]="tambah[row.id]" />
               <select [disabled]="!akses" *ngIf="row.form === 'select'" [name]="row.id" [id]="row.id"
                 class="browser-default" [(ngModel)]="tambah[row.id]">
                 <option *ngFor="let option of row.value" [value]="option">
@@ -70,9 +68,8 @@
           <div class="form" *ngFor="let row of formTabPekerjaanOrganisasi">
             <p>{{ row.label }}</p>
             <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
-              [placeholder]="
-                row.placeholder === undefined ? row.label : row.placeholder
-              " [(ngModel)]="tambah[row.id]" [disabled]="row.disable||''" />
+              [placeholder]="row.placeholder === undefined ? row.label : row.placeholder" [maxlength]="row.maxlength"
+              [(ngModel)]="tambah[row.id]" [disabled]="row.disable||''" />
             <select [disabled]="!akses" *ngIf="row.form === 'select' && row.id != 'lokasi_detasir'" [name]="row.id"
               [id]="row.id" class="browser-default" [(ngModel)]="tambah[row.id]" (change)="generateNip()">
               <option *ngFor="let option of row.value" [value]="option">
@@ -103,21 +100,22 @@
             <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwtt">
               <p>{{ row.label }}</p>
               <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
-                [placeholder]="row.label" [(ngModel)]="tambah[row.id]" />
+                [maxlength]="row.maxlength==undefined?30:row.maxlength" [placeholder]="row.label"
+                [(ngModel)]="tambah[row.id]" />
             </div>
           </div>
           <div *ngIf="tambah.status_karyawan === 'PKWTT' && isEdit">
             <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwttEdit">
               <p>{{ row.label }}</p>
               <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
-                [placeholder]="row.label" [(ngModel)]="tambah[row.id]" />
+                [maxlength]="row.maxlength" [placeholder]="row.label" [(ngModel)]="tambah[row.id]" />
             </div>
           </div>
           <div *ngIf="tambah.status_karyawan === 'PKWT' && !isEdit">
             <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwt">
               <p>{{ row.label }}</p>
               <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
-                [placeholder]="
+                [maxlength]="row.maxlength==undefined?30:row.maxlength" [placeholder]="
                   row.placeholder === undefined ? row.label : row.placeholder
                 " [(ngModel)]="tambah[row.id]" />
             </div>
@@ -126,7 +124,7 @@
             <div class="form" *ngFor="let row of formTabPeriodeKontrakPkwtEdit">
               <p>{{ row.label }}</p>
               <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
-                [placeholder]="
+                [maxlength]="row.maxlength" [placeholder]="
                   row.placeholder === undefined ? row.label : row.placeholder
                 " [(ngModel)]="tambah[row.id]" />
             </div>
@@ -165,7 +163,8 @@
             <div class="form" *ngFor="let row of formTabPeriodeKontrakMagang">
               <p>{{ row.label }}</p>
               <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
-                [placeholder]="row.label" [(ngModel)]="tambah[row.id]" />
+                [maxlength]="row.maxlength==undefined?30:row.maxlength" [placeholder]="row.label"
+                [(ngModel)]="tambah[row.id]" />
             </div>
           </div>
         </mat-tab>
@@ -174,9 +173,11 @@
           <div class="form" *ngFor="let row of formTabGajiKaryawan">
             <p>{{ row.label }}</p>
             <input [disabled]="!akses" *ngIf="row.form === 'input'" [type]="row.type" class="browser-default"
-              [placeholder]="row.label" [(ngModel)]="tambah[row.id]" />
+              [maxlength]="row.maxlength==undefined?30:row.maxlength" [placeholder]="row.label"
+              [(ngModel)]="tambah[row.id]" />
             <textarea [disabled]="!akses" *ngIf="row.form === 'textarea'" [name]="row.id" [id]="row.id" cols="30"
-              rows="10" [placeholder]="row.label" [(ngModel)]="tambah[row.id]"></textarea>
+              [maxlength]="row.maxlength==undefined?30:row.maxlength" rows="10" [placeholder]="row.label"
+              [(ngModel)]="tambah[row.id]"></textarea>
           </div>
         </mat-tab>
       </mat-tab-group>
