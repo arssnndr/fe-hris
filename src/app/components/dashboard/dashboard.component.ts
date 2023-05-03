@@ -249,7 +249,11 @@ export class DashboardComponent {
           tanggal
       )
       .subscribe((result) => {
-        let jmlKrywn = result.length;
+        let count: any = [];
+        result.forEach((res: any) => count.push(res.nip));
+        count = [...new Set(count)];
+
+        let jmlKrywn = count.length;
         let akmlsJam = result
           .map((res: any) => res.total_lembur_bulanini)
           .reduce((acc: any, cur: any) => acc + cur, 0);
@@ -257,7 +261,9 @@ export class DashboardComponent {
 
         this.jumlahKaryawanLembur.push(jmlKrywn);
         this.akumulasiJamLembur.push(akmlsJam);
-        this.rataRataJamLembur.push(rtJam.toFixed(2));
+        this.rataRataJamLembur.push(
+          isNaN(Number(rtJam.toFixed(2))) ? 0 : rtJam.toFixed(2)
+        );
       });
   }
 

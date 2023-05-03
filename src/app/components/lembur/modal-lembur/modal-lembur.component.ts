@@ -32,6 +32,12 @@ export class ModalLemburComponent {
     jam_lembur_hariini: 0,
     total_lembur_bulanini: 0,
     alasan_lembur: '',
+    lokasi: '',
+    perusahaan: '',
+    jabatan: '',
+    divisi: '',
+    departemen: '',
+    sub_departemen: '',
   };
 
   constructor(@Inject(MAT_DIALOG_DATA) data: any, private api: ApiService) {
@@ -49,19 +55,24 @@ export class ModalLemburComponent {
   selectKaryawan(data: any) {
     this.dataForUpload.nip = data.nip;
     this.dataForUpload.nama_lengkap = data.nama_lengkap;
-    this.dataForUpload.masuk = data.jadwal_kerja[0][0].masuk;
+    this.dataForUpload.lokasi = data.lokasi;
+    this.dataForUpload.perusahaan = data.perusahaan;
+    this.dataForUpload.jabatan = data.jabatan;
+    this.dataForUpload.divisi = data.divisi;
+    this.dataForUpload.departemen = data.departemen;
+    this.dataForUpload.sub_departemen = data.sub_departemen;
+    this.dataForUpload.masuk =
+      data.jadwal_kerja[Number(this.dataForUpload.tgl.split('-')[1]) - 1].masuk;
     this.dataForUpload.keluar =
-      data.jadwal_kerja[Number(this.dataForUpload.tgl.split('-')[1]) - 1][
-        Number(this.dataForUpload.tgl.split('-')[2])
+      data.jadwal_kerja[
+        Number(this.dataForUpload.tgl.split('-')[1]) - 1
       ].keluar;
-    this.dataForUpload.mulai_istirahat =
-      data.jadwal_kerja[Number(this.dataForUpload.tgl.split('-')[1]) - 1][
-        Number(this.dataForUpload.tgl.split('-')[2])
-      ].mulai_istirahat;
-    this.dataForUpload.selesai_istirahat =
-      data.jadwal_kerja[Number(this.dataForUpload.tgl.split('-')[1]) - 1][
-        Number(this.dataForUpload.tgl.split('-')[2])
-      ].selesai_istirahat;
+    this.dataForUpload.mulai_istirahat = data.jadwal_kerja[
+      Number(this.dataForUpload.tgl.split('-')[1]) - 1
+    ].start_break.split(':', 1);
+    this.dataForUpload.selesai_istirahat = data.jadwal_kerja[
+      Number(this.dataForUpload.tgl.split('-')[1]) - 1
+    ].end_break.split(':', 1);
   }
 
   akumulasi() {
