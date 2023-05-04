@@ -96,7 +96,15 @@ export class LogHistoryComponent {
           .afterClosed()
           .subscribe((res) => {
             if (res === 'ya') {
-              console.log('dihapus semua');
+              const count: any = [];
+              this.dataLogHistory.forEach((log: any) => {
+                this.api
+                  .deleteData(environment.tabelLogHistory + log.id)
+                  .subscribe(() => count.push(log.id));
+              });
+
+              if (count.length == this.dataLogHistory.length)
+                alert('Log History berhasil dihapus!');
             }
           })
       : alert('Anda tidak memiliki Akses');

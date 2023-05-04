@@ -206,7 +206,7 @@ export class KaryawanComponent implements OnInit {
             ['F1', 'Tanggal Cetak'],
             ['F2', 'User :'],
             ['G1', moment().format('DD MMM YYYY')],
-            ['G2', window.localStorage.getItem('key')],
+            ['G2', this.api.akses.username],
           ];
           content = this.dataKaryawan.map((res: any) => ({
             NIP: res.nip,
@@ -227,7 +227,7 @@ export class KaryawanComponent implements OnInit {
             ['L1', 'Tanggal Cetak'],
             ['L2', 'User :'],
             ['M1', moment().format('DD MMM YYYY')],
-            ['M2', window.localStorage.getItem('key')],
+            ['M2', this.api.akses.username],
           ];
           content = this.dataKaryawan.map((res: any) => ({
             NIP: res.nip,
@@ -252,7 +252,7 @@ export class KaryawanComponent implements OnInit {
             ['G1', 'Tanggal Cetak'],
             ['G2', 'User :'],
             ['H1', moment().format('DD MMM YYYY')],
-            ['H2', window.localStorage.getItem('key')],
+            ['H2', this.api.akses.username],
           ];
           content = this.dataKaryawan.map((res: any) => ({
             NIP: res.nip,
@@ -281,7 +281,7 @@ export class KaryawanComponent implements OnInit {
             ['AJ1', 'Tanggal Cetak'],
             ['AJ2', 'User :'],
             ['AK1', moment().format('DD MMM YYYY')],
-            ['AK2', window.localStorage.getItem('key')],
+            ['AK2', this.api.akses.username],
           ];
           content = this.dataKaryawan.map((res: any) => ({
             NIP: res.nip,
@@ -330,7 +330,7 @@ export class KaryawanComponent implements OnInit {
             ['K1', 'Tanggal Cetak'],
             ['K2', 'User :'],
             ['L1', moment().format('DD MMM YYYY')],
-            ['L2', window.localStorage.getItem('key')],
+            ['L2', this.api.akses.username],
           ];
           content = this.dataKaryawan.map((res: any) => ({
             NIP: res.nip,
@@ -354,7 +354,7 @@ export class KaryawanComponent implements OnInit {
             ['K1', 'Tanggal Cetak'],
             ['K2', 'User :'],
             ['L1', moment().format('DD MMM YYYY')],
-            ['L2', window.localStorage.getItem('key')],
+            ['L2', this.api.akses.username],
           ];
           content = this.dataKaryawan.map((res: any) => ({
             NIP: res.nip,
@@ -380,7 +380,7 @@ export class KaryawanComponent implements OnInit {
             ['E1', 'Tanggal Cetak'],
             ['E2', 'User :'],
             ['F1', moment().format('DD MMM YYYY')],
-            ['F2', window.localStorage.getItem('key')],
+            ['F2', this.api.akses.username],
           ];
           content = this.dataKaryawan.map((res: any) => ({
             NIP: res.nip,

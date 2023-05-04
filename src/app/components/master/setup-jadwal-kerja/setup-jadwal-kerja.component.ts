@@ -318,11 +318,9 @@ export class SetupJadwalKerjaComponent implements OnInit {
 
     this.dataForUpload.splice(0, 1);
 
-    this.dataForUpload.forEach((obj: any) =>
-      this.api
-        .postData(environment.tabelJadwalKerjaUpload, obj)
-        .subscribe(() => alert('Data berhasil diupload'))
-    );
+    this.api
+      .postData(environment.tabelJadwalKerjaUpload, this.dataForUpload)
+      .subscribe(() => alert('Data berhasil diupload'));
   }
 
   // INDIVIDU

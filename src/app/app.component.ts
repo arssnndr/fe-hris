@@ -146,7 +146,11 @@ export class AppComponent {
         if (result != undefined) {
           this.api
             .updateData(environment.tabelUser, result, result.id)
-            .subscribe(() => alert('Password berhasil diubah'));
+            .subscribe(() => {
+              alert('Password berhasil diubah');
+              localStorage.clear();
+              location.replace('/login');
+            });
         }
       });
   }

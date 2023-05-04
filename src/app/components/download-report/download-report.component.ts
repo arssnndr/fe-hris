@@ -201,7 +201,7 @@ export class DownloadReportComponent {
       ['L1', 'Tanggal Cetak :'],
       ['L2', 'User :'],
       ['M1', moment().format('DD MMM YYYY')],
-      ['M2', window.localStorage.getItem('key')],
+      ['M2', this.api.akses.username],
     ];
 
     switch (this.data.status) {
@@ -284,7 +284,7 @@ export class DownloadReportComponent {
           ['M1', 'Tanggal Cetak :'],
           ['M2', 'User :'],
           ['N1', moment().format('DD MMM YYYY')],
-          ['N2', window.localStorage.getItem('key')],
+          ['N2', this.api.akses.username],
         ];
 
         content = this.downloadData.map((res: any) => ({
@@ -314,7 +314,7 @@ export class DownloadReportComponent {
           ['N1', 'Tanggal Cetak :'],
           ['N2', 'User :'],
           ['O1', moment().format('DD MMM YYYY')],
-          ['O2', window.localStorage.getItem('key')],
+          ['O2', this.api.akses.username],
         ];
 
         content = this.downloadData.map((res: any) => ({
@@ -345,7 +345,7 @@ export class DownloadReportComponent {
           ['O1', 'Tanggal Cetak :'],
           ['O2', 'User :'],
           ['P1', moment().format('DD MMM YYYY')],
-          ['P2', window.localStorage.getItem('key')],
+          ['P2', this.api.akses.username],
         ];
 
         content = this.downloadData.map((res: any) => ({
@@ -373,7 +373,7 @@ export class DownloadReportComponent {
           ['K1', 'Tanggal Cetak :'],
           ['K2', 'User :'],
           ['L1', moment().format('DD MMM YYYY')],
-          ['L2', window.localStorage.getItem('key')],
+          ['L2', this.api.akses.username],
         ];
 
         content = this.downloadData.map((res: any) => ({

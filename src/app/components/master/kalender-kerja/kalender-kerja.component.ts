@@ -140,7 +140,7 @@ export class KalenderKerjaComponent implements OnInit {
         ['G1', 'Tanggal Cetak'],
         ['G2', 'User :'],
         ['H1', moment().format('DD MMM YYYY')],
-        ['H2', window.localStorage.getItem('key')],
+        ['H2', this.api.akses.username],
       ];
       content = this.dataKalenderKerja.map((res: any) => ({
         Hari: res.hari,

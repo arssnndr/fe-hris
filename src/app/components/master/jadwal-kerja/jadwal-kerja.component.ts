@@ -132,7 +132,7 @@ export class JadwalKerjaComponent implements OnInit {
         ['H1', 'Tanggal Cetak'],
         ['H2', 'User :'],
         ['I1', moment().format('DD MMM YYYY')],
-        ['I2', window.localStorage.getItem('key')],
+        ['I2', this.api.akses.username],
       ];
       content = this.data.map((res: any) => ({
         'ID Jadwal Kerja': res.id_jadwal_kerja,

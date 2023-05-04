@@ -103,7 +103,7 @@ export class DownloadDataPayrollComponent {
       ['G1', 'Tanggal Cetak :'],
       ['G2', 'User :'],
       ['H1', this.formatDate(moment().format())],
-      ['H2', window.localStorage.getItem('key')],
+      ['H2', this.api.akses.username],
       ['I4', 'Status Kehadiran'],
     ];
 

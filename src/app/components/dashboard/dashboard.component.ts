@@ -25,6 +25,11 @@ export class DashboardComponent {
         { name: 'DAP', count: 120, color: '#d85d5d90' },
         { name: 'PGS', count: 100, color: '#d85d5d90' },
         { name: 'TUM', count: 50, color: '#d85d5d90' },
+        {
+          name: 'TOTAL',
+          count: 100 + 110 + 60 + 120 + 80 + 260 + 120 + 100 + 50,
+          color: '#d85d5d',
+        },
       ],
     },
     {
@@ -184,6 +189,32 @@ export class DashboardComponent {
     {
       for: 'statusKehadiran',
       chartName: 'TMS 3',
+      data: [
+        {
+          name: 'Terlambat',
+          count: Math.floor(Math.random() * (+100 + 1 - +1)) + +1,
+          color: '#d85d5d',
+        },
+        {
+          name: 'Mangkir',
+          count: Math.floor(Math.random() * (+100 + 1 - +1)) + +1,
+          color: '#d85d5d',
+        },
+        {
+          name: 'Izin',
+          count: Math.floor(Math.random() * (+100 + 1 - +1)) + +1,
+          color: '#d85d5d',
+        },
+        {
+          name: 'Cuti',
+          count: Math.floor(Math.random() * (+100 + 1 - +1)) + +1,
+          color: '#d85d5d',
+        },
+      ],
+    },
+    {
+      for: 'statusKehadiran',
+      chartName: 'TMS 4',
       data: [
         {
           name: 'Terlambat',

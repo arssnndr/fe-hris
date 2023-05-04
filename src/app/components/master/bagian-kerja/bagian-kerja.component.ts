@@ -200,7 +200,7 @@ export class BagianKerjaComponent implements OnInit {
       ws['C1'] = { t: 's', v: 'Tanggal Cetak' };
       ws['C2'] = { t: 's', v: 'User :' };
       ws['D1'] = { t: 's', v: moment().format('DD MMM YYYY') };
-      ws['D2'] = { t: 's', v: window.localStorage.getItem('key') };
+      ws['D2'] = { t: 's', v: this.api.akses.username };
 
       for (let i = 0; i < length; i++) {
         ws['A' + (i + cell)] = wsTemp['A' + (i + 1)];
