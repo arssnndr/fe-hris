@@ -407,7 +407,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
             ['G1', 'Tanggal Cetak'],
             ['G2', 'User'],
             ['H1', ': ' + moment().format('DD MMM YYYY')],
-            ['H2', ': ' + window.localStorage.getItem('key')],
+            ['H2', ': ' + this.api.akses.username],
           ];
           content = this.dataJadwalKerjaPerMonth.map((res: any) => ({
             Tanggal: moment(res.tgl).format('DD MMM YYYY'),
@@ -429,7 +429,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
             ['J1', 'Tanggal Cetak'],
             ['J2', 'User'],
             ['K1', ': ' + moment().format('DD MMM YYYY')],
-            ['K2', ': ' + window.localStorage.getItem('key')],
+            ['K2', ': ' + this.api.akses.username],
           ];
           content = this.dataJadwalKerjaCategory.map((res: any) => ({
             Lokasi: res.lokasi,
@@ -457,7 +457,7 @@ export class SetupJadwalKerjaComponent implements OnInit {
             ['J1', 'Tanggal Cetak'],
             ['J2', 'User'],
             ['K1', ': ' + moment().format('DD MMM YYYY')],
-            ['K2', ': ' + window.localStorage.getItem('key')],
+            ['K2', ': ' + this.api.akses.username],
           ];
           content = this.dataJadwalKerjaIndividu.map((res: any) => ({
             NIP: res.nip,

@@ -241,7 +241,7 @@ export class ListKehadiranComponent implements OnInit {
       ['J1', 'Tanggal Cetak'],
       ['J2', 'User'],
       ['K1', ': ' + moment().format('DD MMM YYYY')],
-      ['K2', ': ' + window.localStorage.getItem('key')],
+      ['K2', ': ' + this.api.akses.username],
     ];
     content = this.jadwalKerjaPerMonth.map((res: any) => ({
       Tanggal: this.dateFormat(res.tgl),

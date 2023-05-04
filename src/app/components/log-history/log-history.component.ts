@@ -50,7 +50,7 @@ export class LogHistoryComponent {
 
     doc.text('Log History', 15, 15);
     doc.text('Tanggal dicetak : ' + moment().format('DD MMM YYYY'), 135, 15);
-    doc.text('User : ' + window.localStorage.getItem('key'), 135, 22.5);
+    doc.text('User : ' + this.api.akses.username, 135, 22.5);
 
     const header = [
       'User ID',
