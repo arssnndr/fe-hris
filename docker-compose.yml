@@ -1,0 +1,22 @@
+services:
+    api:
+        image: node
+        container_name: api
+        working_dir: /app
+        volumes:
+            - .:/app
+        ports:
+            - 4100:4100
+        command: bash -c "npm i -g json-server && npm run json"
+
+    web:
+        image: node
+        container_name: web
+        working_dir: /app
+        volumes:
+            - .:/app
+        ports:
+            - 4200:4200
+        command: bash -c "npm i -g pnpm && pnpm install && npm run start"
+        depends_on:
+            - api

@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "server": "npm run generatedb && npm run json",
     "generatedb": "node ./API/generatedb.js > ./API/db.json",
-    "json": "json-server ./API/db.json -p 4100",
+    "json": "json-server ./API/db.json -H 0.0.0.0 -p 4100",
     "add": "git add . & npm run commit",
     "commit": "git commit -m checkpoint & npm run push",
     "push": "git push"
