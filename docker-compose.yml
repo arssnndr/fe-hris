@@ -1,22 +1,18 @@
 services:
-    api:
-        image: node
-        container_name: api
-        working_dir: /app
-        volumes:
-            - .:/app
-        ports:
-            - 4100:4100
-        command: bash -c "npm i -g json-server && npm run json"
+    # api:
+    #     image: node
+    #     container_name: api
+    #     working_dir: /app
+    #     volumes:
+    #         - .:/app
+    #     ports:
+    #         - 4100:4100
+    #     command: bash -c "npm i -g pnpm json-server && pnpm install && npm run build && npm run json"
 
     web:
-        image: node
+        image: nginx
         container_name: web
-        working_dir: /app
         volumes:
-            - .:/app
+            - ./dist/hr-system/:/usr/share/nginx/html/
         ports:
-            - 4200:4200
-        command: bash -c "npm i -g pnpm && pnpm install && npm run start"
-        depends_on:
-            - api
+            - 80:80

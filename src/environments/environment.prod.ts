@@ -1,3 +1,19 @@
 export const environment = {
-  production: true
+  production: true,
+  api: 'http://0.0.0.0:4100/',
+  tabelKaryawan: 'ms_karyawan/',
+  tabelStatusKehadiran: 'ms_statuskehadiran/',
+  tabelListKehadiran: 'trx_listkehadiran/',
+  tabelLokasi: 'ms_lokasi/',
+  tabelPerusahaan: 'ms_perusahaan/',
+  tabelBagianKerja: 'ms_bagiankerja/',
+  tabelLembur: 'ms_lembur/',
+  tabelJadwalKerjaIndividu: 'trx_jadwalkerjaindividu/',
+  tabelJadwalKerja: 'trx_jadwalkerja/',
+  tabelLogHistory: 'log_history/',
+  tabelUser: 'ms_userid/',
+  tabelKalenderKerja: 'ms_kalenderkerja/',
+  tabelMesinFinger: 'ms_mesinfinger/',
+  tabelSetupMesinFinger: 'ms_setupmesinfinger/',
+  tabelJadwalKerjaUpload: 'trx_jadwalkerjaupload/',
 };
