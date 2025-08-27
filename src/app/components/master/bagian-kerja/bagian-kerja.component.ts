@@ -8,6 +8,8 @@ import * as moment from 'moment';
 import { VoidComponent } from '../../modals/void/void.component';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { BagianKerja } from 'src/app/interfaces/bagian-kerja';
 moment.locale('id');
 
 @Component({
@@ -18,7 +20,7 @@ moment.locale('id');
 export class BagianKerjaComponent implements OnInit {
   akses = this.api.akses.role_bagian_kerja;
 
-  data!: any;
+  data: BagianKerja[] = [];
 
   dataSearch = '';
 
@@ -26,7 +28,7 @@ export class BagianKerjaComponent implements OnInit {
   pageIndex = 0;
   pageSizeOption = [50, 100, 150, 200];
   showFirstLastButtons = false;
-  length: any;
+  length: number = 0;
 
   catchResult: any;
   lokasiValue = '';
@@ -34,6 +36,7 @@ export class BagianKerjaComponent implements OnInit {
   constructor(
     private api: ApiService,
     private dialog: MatDialog,
+    private snackBar: MatSnackBar,
     router: Router
   ) {
     if (!this.akses.view) router.navigate(['/dashboard']);
@@ -59,7 +62,7 @@ export class BagianKerjaComponent implements OnInit {
           }
         });
     } else {
-      window.alert('Anda tidak memiliki Akses');
+      this.snackBar.open('Anda tidak memiliki Akses', 'Tutup', { duration: 3000 });
     }
   }
 
@@ -94,7 +97,7 @@ export class BagianKerjaComponent implements OnInit {
           }
         });
     } else {
-      window.alert('Anda tidak memiliki Akses');
+      this.snackBar.open('Anda tidak memiliki Akses', 'Tutup', { duration: 3000 });
     }
   }
 
@@ -116,7 +119,7 @@ export class BagianKerjaComponent implements OnInit {
 
   getAllData() {
     if (this.dataSearch.length === 0) {
-      this.api.getData(environment.tabelBagianKerja).subscribe((res) => {
+      this.api.getData<BagianKerja[]>(environment.tabelBagianKerja).subscribe((res) => {
         this.length = res.length;
         this.pageSize = 50;
         this.pageIndex = 0;
@@ -124,7 +127,7 @@ export class BagianKerjaComponent implements OnInit {
       });
     } else {
       this.api
-        .getData(
+        .getData<BagianKerja[]>(
           environment.tabelBagianKerja +
             '?sub_departemen_like=' +
             this.dataSearch
@@ -141,7 +144,7 @@ export class BagianKerjaComponent implements OnInit {
   getPageData() {
     if (this.dataSearch.length === 0) {
       this.api
-        .getData(
+        .getData<BagianKerja[]>(
           environment.tabelBagianKerja +
             '?_page=' +
             (this.pageIndex + 1) +
@@ -153,7 +156,7 @@ export class BagianKerjaComponent implements OnInit {
         });
     } else {
       this.api
-        .getData(
+        .getData<BagianKerja[]>(
           environment.tabelBagianKerja +
             '?_page=' +
             (this.pageIndex + 1) +
@@ -172,7 +175,6 @@ export class BagianKerjaComponent implements OnInit {
     this.dataSearch = data;
     this.pageIndex = 0;
     this.getAllData();
-    this.getPageData();
   }
 
   printData() {
@@ -214,7 +216,7 @@ export class BagianKerjaComponent implements OnInit {
       utils.book_append_sheet(wb, ws);
       writeFileXLSX(wb, 'Bagian Kerja.xlsx');
     } else {
-      window.alert('Anda tidak memiliki Akses');
+      this.snackBar.open('Anda tidak memiliki Akses', 'Tutup', { duration: 3000 });
     }
   }
 }
